@@ -34,7 +34,7 @@ jobs:
           cat WinBuildLog.txt
           if (Select-String -Path WinBuildLog.txt -Pattern "InworldNDK.vcxproj ->" -SimpleMatch -Quiet)
           {
-            "InworldNDK built succsessful"
+            "InworldNDK built successful"
           }
           else
           {
@@ -42,7 +42,7 @@ jobs:
           }
           if (Select-String -Path WinBuildLog.txt -Pattern "InworldNDKApp.vcxproj ->" -SimpleMatch -Quiet)
           {
-            "InworldNDKApp built succsessful"
+            "InworldNDKApp built successful"
           }
           else
           {
@@ -50,7 +50,7 @@ jobs:
           }
           if (Select-String -Path WinBuildLog.txt -Pattern "InworldNDKUnit.vcxproj ->" -SimpleMatch -Quiet)
           {
-            "InworldNDKUnit built succsessful"
+            "InworldNDKUnit built successful"
           }
           else
           {
