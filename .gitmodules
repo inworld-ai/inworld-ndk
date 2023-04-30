@@ -1,8 +1,9 @@
+
 [submodule "InworldNDK/ThirdParty/grpc"]
 	path = InworldNDK/ThirdParty/grpc
 	url = https://github.com/grpc/grpc.git
-[submodule "InworldNDK/ThirdParty/webrtc-depot-tools"]
-	path = InworldNDK/ThirdParty/webrtc-depot-tools
+[submodule "InworldNDK/ThirdParty/depot-tools"]
+	path = InworldNDK/ThirdParty/depot-tools
 	url = https://chromium.googlesource.com/chromium/tools/depot_tools.git
 [submodule "InworldNDK/ThirdParty/googletest"]
 	path = InworldNDK/ThirdParty/googletest

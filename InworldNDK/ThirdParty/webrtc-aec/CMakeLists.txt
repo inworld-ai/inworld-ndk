@@ -15,7 +15,7 @@ function(CmdExec CmdLine WorkDir)
 endfunction()
 
 set(RootDir ${CMAKE_CURRENT_SOURCE_DIR})
-set(DepotToolsDir ${RootDir}/../webrtc-depot-tools)
+set(DepotToolsDir ${RootDir}/../depot-tools)
 set(CheckoutDir ${RootDir}/webrtc-checkout)
 set(CheckoutSrcDir ${CheckoutDir}/src)
 set(NinjaDir ${CheckoutSrcDir}/third_party/ninja)
