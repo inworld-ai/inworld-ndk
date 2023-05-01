@@ -6,7 +6,8 @@ on:
     branches: [ main ]
     paths-ignore:
       - '**/README.md'
-      - '**/gitignore'
+      - '**/CHANGELOG.md'
+      - '**/LICENCE.md'
   workflow_dispatch:
 
 
