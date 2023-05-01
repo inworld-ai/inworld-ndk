@@ -1,0 +1,65 @@
+
+name: build-win
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths-ignore:
+      - '**/README.md'
+      - '**/gitignore'
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    runs-on: windows-2022
+    steps:
+    - uses: actions/checkout@v2
+    - name: git-update-dependecies
+      run: git submodule update --init --recursive | Write-Host
+    - name: win-gen
+      shell: pwsh
+      run: |
+          Start-Process -FilePath "win-gen.bat" " > WinGenLog.txt" -Wait -NoNewWindow -PassThru 
+          cat WinGenLog.txt
+          if (Select-String -Path WinGenLog.txt -Pattern "Configuring incomplete" -SimpleMatch -Quiet)
+          {
+            exit 1
+          }
+          exit 0
+    - name: win-build
+      shell: pwsh
+      run: |
+          Start-Process -FilePath "win-build.bat" " > WinBuildLog.txt" -Wait -NoNewWindow -PassThru
+          cat WinBuildLog.txt
+          if (Select-String -Path WinBuildLog.txt -Pattern "InworldNDK.vcxproj ->" -SimpleMatch -Quiet)
+          {
+            "InworldNDK built successful"
+          }
+          else
+          {
+            exit 1
+          }
+          if (Select-String -Path WinBuildLog.txt -Pattern "InworldNDKApp.vcxproj ->" -SimpleMatch -Quiet)
+          {
+            "InworldNDKApp built successful"
+          }
+          else
+          {
+            exit 1
+          }
+          if (Select-String -Path WinBuildLog.txt -Pattern "InworldNDKUnit.vcxproj ->" -SimpleMatch -Quiet)
+          {
+            "InworldNDKUnit built successful"
+          }
+          else
+          {
+            exit 1
+          }
+          if (Select-String -Path WinBuildLog.txt -Pattern "[  FAILED  ]" -SimpleMatch -Quiet)
+          {
+            exit 1
+          }
+          exit 0
+
+         
