@@ -15,7 +15,8 @@ function(CmdExec CmdLine WorkDir)
 endfunction()
 
 set(RootDir ${CMAKE_CURRENT_SOURCE_DIR})
-set(DepotToolsDir ${RootDir}/../depot-tools)
+set(ThirdPartyDir ${RootDir}/../ThirdParty)
+set(DepotToolsDir ${ThirdPartyDir}/depot-tools)
 set(CheckoutDir ${RootDir}/webrtc-checkout)
 set(CheckoutSrcDir ${CheckoutDir}/src)
 set(NinjaDir ${CheckoutSrcDir}/third_party/ninja)
@@ -27,7 +28,7 @@ endif()
 
 message("Building webrtc aec plugin...")
 
-CmdExec("git config --system core.longpaths true" ${DepotToolsDir})
+#CmdExec("git config --system core.longpaths true" ${DepotToolsDir})
 CmdExec("git restore ." ${DepotToolsDir})
 CmdExec("${DepotToolsDir}/gclient.bat" ${DepotToolsDir})
 if (NOT EXISTS ${CheckoutDir})
