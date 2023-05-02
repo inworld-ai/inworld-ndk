@@ -46,7 +46,7 @@ After build's succeed you have *InworldNDK/build* folder with all the source and
 
 #### Acoustic Echo Cancellation(AEC)
 
-*Inworld NDK* supports *AEC*. We use *Webrtc* for it so make sure you've looked into *Webrtc* prerequisits for Windows before trying to build *Inworld NDK* with *AEC*. To enable *AEC* edit *win-gen.bat* cmake call before run to *cmake .. -DAEC=True*. A specific *webrtc-aec-plugin* will be built during project generation process. **Note!** Building *Webrtc* takes a lot of time and disc space(>20Gb). 
+*Inworld NDK* supports *AEC*. We use *Webrtc* for it so make sure you've looked into *Webrtc* prerequisits for Windows before trying to build *Inworld NDK* with *AEC*. To enable *AEC* edit *win-gen.bat* cmake call before run to *cmake .. -DAEC=True*. You'll also need to call *git config --system core.longpaths true* to elable long paths for git and avoid errors during *AEC* build. A specific *webrtc-aec-plugin* will be built during project generation process. **Note!** Building *Webrtc* takes a lot of time and disc space(>20Gb).
 
 #### Inworld NDK integration examples
 

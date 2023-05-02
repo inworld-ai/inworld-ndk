@@ -77,8 +77,8 @@ GroupSourcesByFolder(InworldNDK)
 
 # webrtc aec setup
 if (AEC)
-    add_subdirectory(ThirdParty/webrtc-aec)
-    target_link_libraries(InworldNDK PUBLIC ${ThirdPartyDir}/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll.lib)
+    add_subdirectory(aec)
+    target_link_libraries(InworldNDK PUBLIC aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll.lib)
     target_compile_definitions(InworldNDK PUBLIC INWORLD_AEC 1)
 endif()
 
@@ -192,8 +192,8 @@ set(LibFiles
 
 if (AEC)
     list(APPEND LibFiles 
-        ${ThirdPartyDir}/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll.lib
-        ${ThirdPartyDir}/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll
+        aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll.lib
+        aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll
     )
 endif()
 
