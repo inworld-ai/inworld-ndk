@@ -1,5 +1,3 @@
 mkdir build
 cd build
-cmake .. -DAEC=False
-
-pause
+cmake -G Xcode .. -DAEC=False

@@ -6,8 +6,9 @@
  */
 
 #include "CommandLineInterface.h"
-#include "spdlog/spdlog.h"
 #include "Utils/Log.h"
+
+#include <sstream>
 
 void NDKApp::CommandLineInterface::SetCommands(std::vector<ConsoleCommand> Commands)
 {

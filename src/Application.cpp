@@ -6,7 +6,6 @@
  */
 
 #include "Application.h"
-#include "spdlog/spdlog.h"
 #include "Utils/Log.h"
 
 // !!! Fill out this options !!!
