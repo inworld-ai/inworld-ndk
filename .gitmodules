@@ -8,3 +8,6 @@
 [submodule "InworldNDK/ThirdParty/googletest"]
 	path = InworldNDK/ThirdParty/googletest
 	url = https://github.com/google/googletest.git
+[submodule "InworldNDK/ThirdParty/spdlog"]
+	path = InworldNDK/ThirdParty/spdlog
+	url = https://github.com/gabime/spdlog.git
