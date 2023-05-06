@@ -155,6 +155,12 @@ add_subdirectory(ThirdParty/grpc)
 target_link_libraries(InworldNDK PUBLIC grpc)
 target_link_libraries(InworldNDK PUBLIC grpc++)
 
+# spdlog
+
+
+add_subdirectory(ThirdParty/spdlog)
+target_link_libraries(InworldNDK PUBLIC spdlog::spdlog $<$<BOOL:${MINGW}>:ws2_32>)
+
 # gtest
 add_subdirectory(ThirdParty/googletest)
 target_link_libraries(InworldNDK PUBLIC gtest)
