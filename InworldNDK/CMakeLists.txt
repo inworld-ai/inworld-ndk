@@ -70,17 +70,13 @@ target_include_directories(InworldNDK PUBLIC
 target_compile_features(InworldNDK PUBLIC cxx_std_20)
 
 target_compile_definitions(InworldNDK PUBLIC INWORLDAINDK_API=)
-if (NOT APPLE)
-    target_compile_definitions(InworldNDK PUBLIC INWORLD_NDK_LOG=1)
-    target_compile_definitions(InworldNDK PUBLIC SPDLOG_USE_STD_FORMAT=1)
-endif()
 
 GroupSourcesByFolder(InworldNDK)
 
 # webrtc aec setup
 if (AEC)
     add_subdirectory(ThirdParty/webrtc-aec)
-    if (Win32)
+    if (WIN32)
         target_link_libraries(InworldNDK PUBLIC ${ThirdPartyDir}/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll.lib)
     endif()
     target_compile_definitions(InworldNDK PUBLIC INWORLD_AEC 1)
@@ -115,7 +111,7 @@ set(HAVE_LIBNSL FALSE)
 set(gRPC_ZLIB_PROVIDER "package" CACHE STRING "Provider of zlib library")
 set(gRPC_SSL_PROVIDER "package" CACHE STRING "Provider of ssl library")
 
-if (Win32)
+if (WIN32)
     set(ZlibPlatformSubpath lib/Win64/Release/zlibstatic.lib)
     set(LibcryptoPlatformSubpath Lib/Win64/VS2015/Release/libcrypto.lib)
     set(LibsslPlatformSubpath Lib/Win64/VS2015/Release/libssl.lib)
@@ -130,19 +126,19 @@ endif()
 set(ZLIB_INCLUDE_DIR ${ZlibDir}/include)
 set(ZLIB_LIBRARY_DEBUG ${ZlibDir}/${ZlibPlatformSubpath})
 set(ZLIB_LIBRARY_RELEASE ${ZLIB_LIBRARY_DEBUG})
-set(LIB_EAY_LIBRARY_DEBUG ${OpenSSLDir}/${LibcryptoPlatformSubpath})
-set(LIB_EAY_LIBRARY_RELEASE ${LIB_EAY_LIBRARY_DEBUG})
-set(OPENSSL_CRYPTO_LIBRARY ${LIB_EAY_LIBRARY_DEBUG})
-#set(LIB_EAY_DEBUG ${LIB_EAY_LIBRARY_DEBUG})
-#set(LIB_EAY_RELEASE ${LIB_EAY_LIBRARY_DEBUG})
-#set(SSL_EAY_DEBUG ${LIB_EAY_LIBRARY_DEBUG})
+set(OPENSSL_CRYPTO_LIBRARY ${OpenSSLDir}/${LibcryptoPlatformSubpath})
+set(LIB_EAY_LIBRARY_DEBUG ${OPENSSL_CRYPTO_LIBRARY})
+set(LIB_EAY_LIBRARY_RELEASE ${OPENSSL_CRYPTO_LIBRARY})
+set(LIB_EAY_DEBUG ${OPENSSL_CRYPTO_LIBRARY})
+set(LIB_EAY_RELEASE ${OPENSSL_CRYPTO_LIBRARY})
 
 set(OPENSSL_INCLUDE_DIR ${OpenSSLDir}/${OpensslIncludeSubpath})
 set(OPENSSL_ROOT_DIR ${OpenSSLDir})
 set(OPENSSL_SSL_LIBRARY ${OpenSSLDir}/${LibsslPlatformSubpath})
-#set(SSL_EAY_LIBRARY_DEBUG ${OpenSSLDir}/${LibsslPlatformSubpath})
-#set(SSL_EAY_LIBRARY_RELEASE ${SSL_EAY_LIBRARY_DEBUG})
-#set(SSL_EAY_RELEASE ${SSL_EAY_LIBRARY_DEBUG})
+set(SSL_EAY_LIBRARY_DEBUG ${OPENSSL_SSL_LIBRARY})
+set(SSL_EAY_LIBRARY_RELEASE ${OPENSSL_SSL_LIBRARY})
+set(SSL_EAY_DEBUG ${OPENSSL_SSL_LIBRARY})
+set(SSL_EAY_RELEASE ${OPENSSL_SSL_LIBRARY})
 
 ChechPathValid(${ZLIB_INCLUDE_DIR})
 ChechPathValid(${ZLIB_LIBRARY_RELEASE})
@@ -156,9 +152,17 @@ target_link_libraries(InworldNDK PUBLIC grpc)
 target_link_libraries(InworldNDK PUBLIC grpc++)
 
 # spdlog
+target_compile_definitions(InworldNDK PUBLIC INWORLD_LOG=1)
 
+if (WIN32)
+    set(SPDLOG_USE_STD_FORMAT ON CACHE BOOL "Use std::format instead of fmt library." FORCE)
+endif()
 
 add_subdirectory(ThirdParty/spdlog)
+
+target_include_directories(InworldNDK PUBLIC
+    ${ThirdPartyDir}/spdlog/include
+)
 target_link_libraries(InworldNDK PUBLIC spdlog::spdlog $<$<BOOL:${MINGW}>:ws2_32>)
 
 # gtest
@@ -174,7 +178,7 @@ target_include_directories(InworldNDKUnit PUBLIC
     src
 )
 add_test( InworldNDKUnit InworldNDKUnit )
-if (Win32)
+if (WIN32)
     add_custom_command(
         TARGET InworldNDKUnit POST_BUILD
         COMMAND InworldNDKUnit
@@ -192,7 +196,7 @@ add_custom_command(TARGET InworldNDK POST_BUILD
 add_custom_command(TARGET InworldNDK POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory ${PROJECT_SOURCE_DIR}/build/lib)
 
-if (Win32)
+if (WIN32)
     set(OutputLibDir ${PROJECT_SOURCE_DIR}/build/lib/Win64)
     set(LibExt lib)
     set(LibPref "")
@@ -240,7 +244,7 @@ set(LibFiles
 )
 
 if (AEC)
-    if (Win32)
+    if (WIN32)
         list(APPEND LibFiles 
             ${ThirdPartyDir}/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll.lib
             ${ThirdPartyDir}/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll

@@ -23,21 +23,9 @@ namespace Inworld
 
 }
 
-#ifdef INWORLD_NDK_LOG
+#ifdef INWORLD_LOG
 
-void Inworld::ConvertToSpdFmt(std::string& fmt)
-{
-	for (int32_t i = 0; i < fmt.size(); i++)
-	{
-		if (fmt[i] == '%')
-		{
-			fmt[i] = '{';
-			fmt[i + 1] = '}';
-		}
-	}
-}
-
-#elif INWORLD_NDK_LOG_UE
+#ifdef INWORLD_UNREAL
 
 #define STARTING_BUFFER_SIZE		512
 
@@ -78,6 +66,19 @@ FString Inworld::PrintfImpl(const TCHAR* Fmt, ...)
 }
 #else
 
+void Inworld::ConvertToSpdFmt(std::string& fmt)
+{
+	for (int32_t i = 0; i < fmt.size(); i++)
+	{
+		if (fmt[i] == '%')
+		{
+			fmt[i] = '{';
+			fmt[i + 1] = '}';
+		}
+	}
+}
+
 #endif
 
+#endif
 
