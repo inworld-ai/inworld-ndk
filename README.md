@@ -1,10 +1,10 @@
 # Inworld.AI NDK
 
-The **Inworld AI NDK** enables Developers to integrate Inworld.ai characteres into a C++ application. We use **Inworld NDK** in our [**Unreal Engine SDK**](https://docs.inworld.ai/docs/tutorial-integrations/unreal-engine/) and in other higher level integrations later. 
+The **Inworld AI NDK** enables Developers to integrate Inworld.ai characters into a C++ application. We use **Inworld NDK** in our [**Unreal Engine SDK**](https://docs.inworld.ai/docs/tutorial-integrations/unreal-engine/) and in other higher level integrations later. 
 
 ## Platforms
 
-The **Inworld NDK** is a library built by CMake. It contains all the source code needed to build for your specific platform. Officialy supported platforms are:
+The **Inworld NDK** is a library built by CMake. It contains all the source code needed to build for your specific platform. Officially supported platforms are:
 
 <table>
   <tr>
@@ -27,30 +27,30 @@ The **Inworld NDK** is a library built by CMake. It contains all the source code
 
 ## Windows
 
-### Prerequisits
+### Prerequisites
 
 - [Visual Studio 2022](https://docs.inworld.ai/docs/tutorial-integrations/unreal-engine/getting-started/#installing-visual-studio)
 - git
 - CMake
-- **Inworld AI NDK** uses **Webrtc** for *Acoustic Echo Cancellation(AEC)*. See prerequisits for **Webrtc** on windows [here](https://webrtc.github.io/webrtc-org/native-code/development/prerequisite-sw/)
+- **Inworld AI NDK** uses **Webrtc** for *Acoustic Echo Cancellation(AEC)*. See prerequisites for **Webrtc** on windows [here](https://webrtc.github.io/webrtc-org/native-code/development/prerequisite-sw/)
 
 ### Getting started
 
 1. Clone a specific repo release, e.g. *git clone https://github.com/inworld-ai/inworld-ndk.git --branch=v1.0.0*
 2. Call *git submodule update --init --recursive* to make sure all dependency submodules are initialized and updated
 3. If you going to run **InworldNDKApp**(testing console application) fill out client options in *src/Application.cpp*. If you don't have an **Inworld.ai** account yet see more information [here](https://docs.inworld.ai/docs/intro)
-4. Run *win-gen.bat* to generate prject files
+4. Run *win-gen.bat* to generate project files
 5. Run *win-build.bat* to build **InworldNDK** static lib, **InworldNDKApp** and unit tests.
 
 After build's succeed you have *InworldNDK/build* folder with all the source and binaries(including dependencies). You also can run *build/Release/InworldNDKApp.exe* and text message with your characters in console.
 
 #### Acoustic Echo Cancellation(AEC)
 
-*Inworld NDK* supports *AEC*. We use *Webrtc* for it so make sure you've looked into *Webrtc* prerequisits for Windows before trying to build *Inworld NDK* with *AEC*. To enable *AEC* edit *win-gen.bat* cmake call before run to *cmake .. -DAEC=True*. A specific *webrtc-aec-plugin* will be built during project generation process. **Note!** Building *Webrtc* takes a lot of time and disc space(>20Gb). 
+*Inworld NDK* supports *AEC*. We use *Webrtc* for it so make sure you've looked into *Webrtc* prerequisites for Windows before trying to build *Inworld NDK* with *AEC*. To enable *AEC* edit *win-gen.bat* cmake call before run to *cmake .. -DAEC=True*. You'll also need to call *git config --system core.longpaths true* to elable long paths for git and avoid errors during *AEC* build. A specific *webrtc-aec-plugin* will be built during project generation process. **Note!** Building *Webrtc* takes a lot of time and disc space(>20Gb).
 
 #### Inworld NDK integration examples
 
-This repo contains **InworldNDKApp** a console application to demonstrate a basic integraion. Take our [**Unreal Engine SDK**](https://docs.inworld.ai/docs/tutorial-integrations/unreal-engine/) as more advanced and complicated example.
+This repo contains **InworldNDKApp** a console application to demonstrate a basic integration. Take our [**Unreal Engine SDK**](https://docs.inworld.ai/docs/tutorial-integrations/unreal-engine/) as more advanced and complicated example.
 
 ## Inworld NDK structure
 
