@@ -59,19 +59,25 @@ namespace Inworld
 #else
 	void ConvertToSpdFmt(std::string& fmt);
 
+	#ifdef _WIN32
+		namespace format = std;
+	#else
+		namespace format = fmt;
+	#endif
+
 	template<typename... Args>
 	void Log(std::string fmt, Args &&... args)
 	{
 		ConvertToSpdFmt(fmt);
-		spdlog::info(std::vformat(fmt, std::make_format_args(args...)));
+		spdlog::info(format::vformat(fmt, format::make_format_args(args...)));
 	}
 	
 	template<typename... Args>
 	void LogError(std::string fmt, Args &&... args)
 	{
 		ConvertToSpdFmt(fmt);
-		const char* message = std::vformat(fmt, std::make_format_args(args...)).c_str();
-		spdlog::error("{} (SessionId: {})", message, g_SessionId.c_str());
+		const auto message = format::vformat(fmt, format::make_format_args(args...));
+		spdlog::error("{} (SessionId: {})", message.c_str(), g_SessionId.c_str());
 	}
 
 	#define ARG_STR(str) str.c_str()

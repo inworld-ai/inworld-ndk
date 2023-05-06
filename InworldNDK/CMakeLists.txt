@@ -156,6 +156,8 @@ target_compile_definitions(InworldNDK PUBLIC INWORLD_LOG=1)
 
 if (WIN32)
     set(SPDLOG_USE_STD_FORMAT ON CACHE BOOL "Use std::format instead of fmt library." FORCE)
+else()
+    set(SPDLOG_USE_STD_FORMAT OFF CACHE BOOL "Use std::format instead of fmt library." FORCE)
 endif()
 
 add_subdirectory(ThirdParty/spdlog)

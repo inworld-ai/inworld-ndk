@@ -19,8 +19,6 @@ target_compile_features(InworldNDKApp PRIVATE cxx_std_20)
 target_include_directories(InworldNDKApp PUBLIC InworldNDK/src)
 target_link_libraries(InworldNDKApp PRIVATE InworldNDK)
 
-target_compile_definitions(InworldNDKApp PUBLIC SPDLOG_USE_STD_FORMAT=1)
-
 if (AEC)
     if (Win32)
         add_custom_command(TARGET InworldNDKApp POST_BUILD
