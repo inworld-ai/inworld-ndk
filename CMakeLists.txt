@@ -20,7 +20,7 @@ target_include_directories(InworldNDKApp PUBLIC InworldNDK/src)
 target_link_libraries(InworldNDKApp PRIVATE InworldNDK)
 
 if (AEC)
-    if (Win32)
+    if (WIN32)
         add_custom_command(TARGET InworldNDKApp POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy
             ${PROJECT_SOURCE_DIR}/InworldNDK/ThirdParty/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll ${PROJECT_SOURCE_DIR}/build/$<CONFIGURATION>)

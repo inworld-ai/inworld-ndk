@@ -44,6 +44,18 @@ endif()
 # InworldNDK setup
 project(InworldNDK)
 
+if (WIN32)
+    set(OutputLibDir ${PROJECT_SOURCE_DIR}/build/lib/Win64)
+    set(LibExt lib)
+    set(DynLibExt dll)
+    set(LibPref "")
+elseif (APPLE)
+    set(OutputLibDir ${PROJECT_SOURCE_DIR}/build/lib/Mac)
+    set(LibExt a)
+    set(DynLibExt dylib)
+    set(LibPref lib)
+endif()
+
 set(CMAKE_BUILD_TYPE Release)
 set(CMAKE_CONFIGURATION_TYPES Release)
 
@@ -76,10 +88,8 @@ GroupSourcesByFolder(InworldNDK)
 # webrtc aec setup
 if (AEC)
     add_subdirectory(ThirdParty/webrtc-aec)
-    if (WIN32)
-        target_link_libraries(InworldNDK PUBLIC ${ThirdPartyDir}/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll.lib)
-    endif()
-    target_compile_definitions(InworldNDK PUBLIC INWORLD_AEC 1)
+    target_link_libraries(InworldNDK PUBLIC ${ThirdPartyDir}/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.${DynLibExt}.${LibExt})
+    target_compile_definitions(InworldNDK PUBLIC INWORLD_AEC=1)
 endif()
 
 # grpc setup
@@ -197,16 +207,6 @@ add_custom_command(TARGET InworldNDK POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory ${PROJECT_SOURCE_DIR}/build/src)
 add_custom_command(TARGET InworldNDK POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory ${PROJECT_SOURCE_DIR}/build/lib)
-
-if (WIN32)
-    set(OutputLibDir ${PROJECT_SOURCE_DIR}/build/lib/Win64)
-    set(LibExt lib)
-    set(LibPref "")
-elseif (APPLE)
-    set(OutputLibDir ${PROJECT_SOURCE_DIR}/build/lib/Mac)
-    set(LibExt a)
-    set(LibPref lib)
-endif()
 
 add_custom_command(TARGET InworldNDK POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E make_directory ${OutputLibDir})
