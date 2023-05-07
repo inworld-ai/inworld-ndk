@@ -11,8 +11,11 @@ function(CmdExec CmdLine WorkDir)
             RESULT_VARIABLE ErrorCode
         )
     elseif (APPLE)
+        set(CmdLineList ${CmdLine})
+        separate_arguments(CmdLineList)
+        list(POP_FRONT CmdLineList CmdName)
         execute_process(
-            COMMAND ${CmdLine}
+            COMMAND ${CmdName} ${CmdLineList}
             WORKING_DIRECTORY ${WorkDir}
             RESULT_VARIABLE ErrorCode
         )
