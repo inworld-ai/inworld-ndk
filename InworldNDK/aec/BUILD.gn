@@ -59,7 +59,11 @@ group("examples") {
   }
 
   if (is_android || is_win) {
-    deps += [ ":webrtc_unity_plugin", ":webrtc_aec_plugin" ]
+    deps += [ ":webrtc_unity_plugin" ]
+  }
+
+  if (is_android || is_win || is_mac) {
+    deps += [ ":webrtc_aec_plugin" ]
   }
 }
 
