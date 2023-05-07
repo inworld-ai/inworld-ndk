@@ -1,0 +1,46 @@
+
+name: build-mac
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths-ignore:
+      - '**/README.md'
+      - '**/CHANGELOG.md'
+      - '**/LICENCE.md'
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    runs-on: macos-13
+    steps:
+    - uses: actions/checkout@v2
+    - name: git-update-dependecies
+      run: git submodule update --init --recursive | Write-Host
+    - name: gen
+      shell: bash
+      run: |
+          sh mac-gen.sh > GenLog.txt -Wait -NoNewWindow -PassThru 
+          cat GenLog.txt
+          if grep -Fxq "$GenLog.txt" "Configuring incomplete"
+          then
+              exit 1
+          fi
+          exit 0
+    - name: build
+      shell: bash
+      run: |
+          sh mac-build.sh > BuildLog.txt -Wait -NoNewWindow -PassThru
+          cat BuildLog.txt
+          if (grep -Fxq "$BuildLog.txt" "** BUILD FAILED **")
+          then
+            exit 1
+          fi
+          if (grep -Fxq "$BuildLog.txt" "[  FAILED  ]")
+          then
+            exit 1
+          fi
+          exit 0
+
+         
