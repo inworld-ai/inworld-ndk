@@ -2,6 +2,11 @@ cmake_minimum_required (VERSION 3.23)
 
 project(webrtc-aec)
 
+if (NOT WIN32)
+{
+    message(FATAL_ERROR "AEC only supported on Windows")
+}
+
 function(CmdExec CmdLine WorkDir)
     message("CmdExec ${CmdLine} in ${WorkDir}")
     execute_process(
