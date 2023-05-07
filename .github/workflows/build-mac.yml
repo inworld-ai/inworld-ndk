@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: git-update-dependecies
-      run: git submodule update --init --recursive | Write-Host
+      run: git submodule update --init --recursive
     - name: gen
       shell: bash
       run: |
