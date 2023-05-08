@@ -70,15 +70,15 @@ target_include_directories(InworldNDK PUBLIC
 target_compile_features(InworldNDK PUBLIC cxx_std_20)
 
 target_compile_definitions(InworldNDK PUBLIC INWORLDAINDK_API=)
-target_compile_definitions(InworldNDK PUBLIC INWORLD_NDK_LOG=1)
-target_compile_definitions(InworldNDK PUBLIC SPDLOG_USE_STD_FORMAT=1)
 
 GroupSourcesByFolder(InworldNDK)
 
 # webrtc aec setup
 if (AEC)
-    add_subdirectory(aec)
-    target_link_libraries(InworldNDK PUBLIC aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll.lib)
+    add_subdirectory(ThirdParty/webrtc-aec)
+    if (WIN32)
+        target_link_libraries(InworldNDK PUBLIC ${ThirdPartyDir}/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll.lib)
+    endif()
     target_compile_definitions(InworldNDK PUBLIC INWORLD_AEC 1)
 endif()
 
@@ -91,39 +91,81 @@ else()
     set(OpenSSLDir ${ThirdPartyDir}/OpenSSL/1.1.1n)
 endif()
 
-if (NOT EXISTS ${ZlibDir})
-    message(FATAL_ERROR "Invalid zlib dir ${ZlibDir}")
-endif()
-if (NOT EXISTS ${OpenSSLDir})
-    message(FATAL_ERROR "Invalid OpenSSL dir ${OpenSSLDir}")
-endif()
+function(ChechPathValid Path)
+    if (NOT EXISTS ${Path})
+        message(FATAL_ERROR "Invalid path ${Path}")
+    endif()
+    message("Valid path ${Path}")
+endfunction()
 
-message("zlib dir ${ZlibDir}")
-message("OpenSSL dir ${OpenSSLDir}")
+ChechPathValid(${ZlibDir})
+ChechPathValid(${OpenSSLDir})
 
-set(CMAKE_CXX_STANDARD_LIBRARIES "Crypt32.Lib User32.lib Advapi32.lib")
+#set(CMAKE_CXX_STANDARD_LIBRARIES "Crypt32.Lib User32.lib Advapi32.lib")
 set(protobuf_BUILD_TESTS OFF)
 set(gRPC_BUILD_TESTS OFF)
+set(gRPC_BUILD_CODEGEN OFF)
+set(CARES_INSTALL OFF)
+set(HAVE_LIBNSL FALSE)
+
 set(gRPC_ZLIB_PROVIDER "package" CACHE STRING "Provider of zlib library")
 set(gRPC_SSL_PROVIDER "package" CACHE STRING "Provider of ssl library")
 
+if (WIN32)
+    set(ZlibPlatformSubpath lib/Win64/Release/zlibstatic.lib)
+    set(LibcryptoPlatformSubpath Lib/Win64/VS2015/Release/libcrypto.lib)
+    set(LibsslPlatformSubpath Lib/Win64/VS2015/Release/libssl.lib)
+    set(OpensslIncludeSubpath include/Win64/VS2015)
+elseif (APPLE)
+    set(ZlibPlatformSubpath lib/Mac/Release/libz.a)
+    set(LibcryptoPlatformSubpath Lib/Mac/libcrypto.a)
+    set(LibsslPlatformSubpath Lib/Mac/libssl.a)
+    set(OpensslIncludeSubpath include/Mac)
+endif()
+
 set(ZLIB_INCLUDE_DIR ${ZlibDir}/include)
-set(ZLIB_LIBRARY_DEBUG ${ZlibDir}/lib/Win64/Release/zlibstatic.lib)
-set(ZLIB_LIBRARY_RELEASE ${ZlibDir}/lib/Win64/Release/zlibstatic.lib)
-set(LIB_EAY_LIBRARY_DEBUG ${OpenSSLDir}/Lib/Win64/VS2015/Release/libcrypto.lib)
-set(LIB_EAY_LIBRARY_RELEASE ${OpenSSLDir}/Lib/Win64/VS2015/Release/libcrypto.lib)
-set(LIB_EAY_DEBUG ${OpenSSLDir}/Lib/Win64/VS2015/Release/libcrypto.lib)
-set(LIB_EAY_RELEASE ${OpenSSLDir}/Lib/Win64/VS2015/Release/libcrypto.lib)
-set(OPENSSL_INCLUDE_DIR ${OpenSSLDir}/include/Win64/VS2015)
-set(SSL_EAY_DEBUG ${OpenSSLDir}/Lib/Win64/VS2015/Release/libssl.lib)
-set(SSL_EAY_LIBRARY_DEBUG ${OpenSSLDir}/Lib/Win64/VS2015/Release/libssl.lib)
-set(SSL_EAY_LIBRARY_RELEASE ${OpenSSLDir}/Lib/Win64/VS2015/Release/libssl.lib)
-set(SSL_EAY_RELEASE ${OpenSSLDir}/Lib/Win64/VS2015/Release/libssl.lib)
+set(ZLIB_LIBRARY_DEBUG ${ZlibDir}/${ZlibPlatformSubpath})
+set(ZLIB_LIBRARY_RELEASE ${ZLIB_LIBRARY_DEBUG})
+set(OPENSSL_CRYPTO_LIBRARY ${OpenSSLDir}/${LibcryptoPlatformSubpath})
+set(LIB_EAY_LIBRARY_DEBUG ${OPENSSL_CRYPTO_LIBRARY})
+set(LIB_EAY_LIBRARY_RELEASE ${OPENSSL_CRYPTO_LIBRARY})
+set(LIB_EAY_DEBUG ${OPENSSL_CRYPTO_LIBRARY})
+set(LIB_EAY_RELEASE ${OPENSSL_CRYPTO_LIBRARY})
+
+set(OPENSSL_INCLUDE_DIR ${OpenSSLDir}/${OpensslIncludeSubpath})
+set(OPENSSL_ROOT_DIR ${OpenSSLDir})
+set(OPENSSL_SSL_LIBRARY ${OpenSSLDir}/${LibsslPlatformSubpath})
+set(SSL_EAY_LIBRARY_DEBUG ${OPENSSL_SSL_LIBRARY})
+set(SSL_EAY_LIBRARY_RELEASE ${OPENSSL_SSL_LIBRARY})
+set(SSL_EAY_DEBUG ${OPENSSL_SSL_LIBRARY})
+set(SSL_EAY_RELEASE ${OPENSSL_SSL_LIBRARY})
+
+ChechPathValid(${ZLIB_INCLUDE_DIR})
+ChechPathValid(${ZLIB_LIBRARY_RELEASE})
+ChechPathValid(${OPENSSL_CRYPTO_LIBRARY})
+ChechPathValid(${OPENSSL_ROOT_DIR})
+ChechPathValid(${OPENSSL_SSL_LIBRARY})
 
 add_subdirectory(ThirdParty/grpc)
 
 target_link_libraries(InworldNDK PUBLIC grpc)
 target_link_libraries(InworldNDK PUBLIC grpc++)
+
+# spdlog
+target_compile_definitions(InworldNDK PUBLIC INWORLD_LOG=1)
+
+if (WIN32)
+    set(SPDLOG_USE_STD_FORMAT ON CACHE BOOL "Use std::format instead of fmt library." FORCE)
+else()
+    set(SPDLOG_USE_STD_FORMAT OFF CACHE BOOL "Use std::format instead of fmt library." FORCE)
+endif()
+
+add_subdirectory(ThirdParty/spdlog)
+
+target_include_directories(InworldNDK PUBLIC
+    ${ThirdPartyDir}/spdlog/include
+)
+target_link_libraries(InworldNDK PUBLIC spdlog::spdlog $<$<BOOL:${MINGW}>:ws2_32>)
 
 # gtest
 add_subdirectory(ThirdParty/googletest)
@@ -138,11 +180,13 @@ target_include_directories(InworldNDKUnit PUBLIC
     src
 )
 add_test( InworldNDKUnit InworldNDKUnit )
-add_custom_command(
-    TARGET InworldNDKUnit POST_BUILD
-    COMMAND InworldNDKUnit
-    VERBATIM
-)
+if (WIN32)
+    add_custom_command(
+        TARGET InworldNDKUnit POST_BUILD
+        COMMAND InworldNDKUnit
+        VERBATIM
+    )
+endif()
 
 # post build package
 add_custom_command(TARGET InworldNDK POST_BUILD
@@ -153,53 +197,66 @@ add_custom_command(TARGET InworldNDK POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory ${PROJECT_SOURCE_DIR}/build/src)
 add_custom_command(TARGET InworldNDK POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory ${PROJECT_SOURCE_DIR}/build/lib)
+
+if (WIN32)
+    set(OutputLibDir ${PROJECT_SOURCE_DIR}/build/lib/Win64)
+    set(LibExt lib)
+    set(LibPref "")
+elseif (APPLE)
+    set(OutputLibDir ${PROJECT_SOURCE_DIR}/build/lib/Mac)
+    set(LibExt a)
+    set(LibPref lib)
+endif()
+
 add_custom_command(TARGET InworldNDK POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E make_directory ${PROJECT_SOURCE_DIR}/build/lib/Win64)
+        COMMAND ${CMAKE_COMMAND} -E make_directory ${OutputLibDir})
 
 set(LibFiles 
-    ${CMAKE_CURRENT_BINARY_DIR}/$<CONFIGURATION>/InworldNDK.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/types/$<CONFIGURATION>/absl_bad_optional_access.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/base/$<CONFIGURATION>/absl_base.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/strings/$<CONFIGURATION>/absl_cord.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/synchronization/$<CONFIGURATION>/absl_graphcycles_internal.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/numeric/$<CONFIGURATION>/absl_int128.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/base/$<CONFIGURATION>/absl_malloc_internal.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/base/$<CONFIGURATION>/absl_raw_logging_internal.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/base/$<CONFIGURATION>/absl_spinlock_wait.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/debugging/$<CONFIGURATION>/absl_stacktrace.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/status/$<CONFIGURATION>/absl_status.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/status/$<CONFIGURATION>/absl_statusor.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/strings/$<CONFIGURATION>/absl_str_format_internal.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/strings/$<CONFIGURATION>/absl_strings.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/strings/$<CONFIGURATION>/absl_strings_internal.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/debugging/$<CONFIGURATION>/absl_symbolize.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/synchronization/$<CONFIGURATION>/absl_synchronization.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/base/$<CONFIGURATION>/absl_throw_delegate.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/time/$<CONFIGURATION>/absl_time.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/time/$<CONFIGURATION>/absl_time_zone.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/$<CONFIGURATION>/address_sorting.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/cares/cares/lib/$<CONFIGURATION>/cares.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/$<CONFIGURATION>/gpr.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/$<CONFIGURATION>/grpc.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/$<CONFIGURATION>/grpc++.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/protobuf/$<CONFIGURATION>/libprotobuf.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/re2/$<CONFIGURATION>/re2.lib
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/$<CONFIGURATION>/upb.lib
+    ${CMAKE_CURRENT_BINARY_DIR}/$<CONFIGURATION>/${LibPref}InworldNDK.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/types/$<CONFIGURATION>/${LibPref}absl_bad_optional_access.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/base/$<CONFIGURATION>/${LibPref}absl_base.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/strings/$<CONFIGURATION>/${LibPref}absl_cord.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/synchronization/$<CONFIGURATION>/${LibPref}absl_graphcycles_internal.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/numeric/$<CONFIGURATION>/${LibPref}absl_int128.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/base/$<CONFIGURATION>/${LibPref}absl_malloc_internal.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/base/$<CONFIGURATION>/${LibPref}absl_raw_logging_internal.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/base/$<CONFIGURATION>/${LibPref}absl_spinlock_wait.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/debugging/$<CONFIGURATION>/${LibPref}absl_stacktrace.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/status/$<CONFIGURATION>/${LibPref}absl_status.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/status/$<CONFIGURATION>/${LibPref}absl_statusor.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/strings/$<CONFIGURATION>/${LibPref}absl_str_format_internal.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/strings/$<CONFIGURATION>/${LibPref}absl_strings.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/strings/$<CONFIGURATION>/${LibPref}absl_strings_internal.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/debugging/$<CONFIGURATION>/${LibPref}absl_symbolize.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/synchronization/$<CONFIGURATION>/${LibPref}absl_synchronization.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/base/$<CONFIGURATION>/${LibPref}absl_throw_delegate.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/time/$<CONFIGURATION>/${LibPref}absl_time.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/time/$<CONFIGURATION>/${LibPref}absl_time_zone.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/$<CONFIGURATION>/${LibPref}address_sorting.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/cares/cares/lib/$<CONFIGURATION>/${LibPref}cares.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/$<CONFIGURATION>/${LibPref}gpr.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/$<CONFIGURATION>/${LibPref}grpc.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/$<CONFIGURATION>/${LibPref}grpc++.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/protobuf/$<CONFIGURATION>/libprotobuf.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/re2/$<CONFIGURATION>/${LibPref}re2.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/$<CONFIGURATION>/${LibPref}upb.${LibExt}
     ${ZLIB_LIBRARY_RELEASE}
     ${LIB_EAY_LIBRARY_RELEASE}
     ${SSL_EAY_RELEASE}
 )
 
 if (AEC)
-    list(APPEND LibFiles 
-        aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll.lib
-        aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll
-    )
+    if (WIN32)
+        list(APPEND LibFiles 
+            ${ThirdPartyDir}/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll.lib
+            ${ThirdPartyDir}/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll
+        )
+    endif()
 endif()
 
 foreach(LibFile IN LISTS LibFiles)
     add_custom_command(TARGET InworldNDK POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy ${LibFile} ${PROJECT_SOURCE_DIR}/build/lib/Win64)
+        COMMAND ${CMAKE_COMMAND} -E copy ${LibFile} ${OutputLibDir})
 endforeach()
 
 add_custom_command(TARGET InworldNDK POST_BUILD
