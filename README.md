@@ -13,11 +13,11 @@ The **Inworld NDK** is a library built by CMake. It contains all the source code
   </tr>
   <tr>
     <td><b>Mac</b></td>
-    <td>Supported(no AEC)</td>
+    <td>Supported</td>
   </tr>
   <tr>
     <td><b>iOS</b></td>
-    <td>Coming soon</td>
+    <td>Supported</td>
   </tr>
   <tr>
     <td><b>Android</b></td>
@@ -37,7 +37,7 @@ The **Inworld NDK** is a library built by CMake. It contains all the source code
 
 1. Clone *Main* branch or a specific repo release, e.g. *git clone https://github.com/inworld-ai/inworld-ndk.git --branch=v1.0.0*
 2. Call *git submodule update --init --recursive* to make sure all dependency submodules are initialized and updated
-3. If you going to run **InworldNDKApp**(testing console application) fill out client options in *src/Application.cpp*. If you don't have an **Inworld.ai** account yet see more information [here](https://docs.inworld.ai/docs/intro)
+3. If you going to run **InworldNDKApp**(testing console application) fill out client options in *Example/ConsoleApp/src/Application.cpp*. If you don't have an **Inworld.ai** account yet see more information [here](https://docs.inworld.ai/docs/intro)
 4. Run *gen* script for your platform (*win-gen.bat*, *mac-gen.sh*) to generate project files
 5. Run *build* script for your platform (*win-build.bat*, *mac-build.sh*) to build **InworldNDK** static lib, **InworldNDKApp** and unit tests.
 
