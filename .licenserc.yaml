@@ -99,6 +99,7 @@ header:
     - '**/*.dll'     
     - 'README'
     - 'CHANGELOG'
+    - '**/*.cmake'
     - '**/DEPS'
     - '**/proto/**'
     - '**/include/**'
