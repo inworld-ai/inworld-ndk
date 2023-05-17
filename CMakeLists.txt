@@ -113,8 +113,8 @@ if (IOS)
     set(HAVE_GHBN_LIBSOCKET FALSE)
     set(HAVE_LIBSOCKET FALSE)
     set(HAVE_LIBRT FALSE)
-    set(CMAKE_C_COMPILER `xcrun -find cc`)
-    set(CMAKE_CXX_COMPILER `xcrun -find c++`)
+    #set(CMAKE_C_COMPILER "xcrun -find cc")
+    #set(CMAKE_CXX_COMPILER "xcrun -find c++")
     set(ENABLE_BITCODE ON)
 endif()
 
@@ -229,27 +229,33 @@ if (WIN32)
 endif()
 
 # post build package
+set(PackageDir ${PROJECT_SOURCE_DIR}/build/Package)
+
 add_custom_command(TARGET InworldNDK POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E make_directory ${PROJECT_SOURCE_DIR}/build)
+    COMMAND ${CMAKE_COMMAND} -E make_directory  ${PackageDir})
 add_custom_command(TARGET InworldNDK POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E make_directory ${PROJECT_SOURCE_DIR}/build/include)
+    COMMAND ${CMAKE_COMMAND} -E make_directory  ${PackageDir}/include)
 add_custom_command(TARGET InworldNDK POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E make_directory ${PROJECT_SOURCE_DIR}/build/src)
+    COMMAND ${CMAKE_COMMAND} -E make_directory  ${PackageDir}/src)
 add_custom_command(TARGET InworldNDK POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E make_directory ${PROJECT_SOURCE_DIR}/build/lib)
+    COMMAND ${CMAKE_COMMAND} -E make_directory  ${PackageDir}/lib)
 
 if (WIN32)
-    set(OutputLibDir ${PROJECT_SOURCE_DIR}/build/lib/Win64)
+    set(PackageLibDir  ${PackageDir}/lib/Win64)
     set(LibExt lib)
     set(LibPref "")
+elseif (IOS)
+    set(PackageLibDir  ${PackageDir}/lib/iOS)
+    set(LibExt a)
+    set(LibPref lib)
 elseif (APPLE)
-    set(OutputLibDir ${PROJECT_SOURCE_DIR}/build/lib/Mac)
+    set(PackageLibDir  ${PackageDir}/lib/Mac)
     set(LibExt a)
     set(LibPref lib)
 endif()
 
 add_custom_command(TARGET InworldNDK POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E make_directory ${OutputLibDir})
+        COMMAND ${CMAKE_COMMAND} -E make_directory ${PackageLibDir})
 
 set(LibFiles 
     ${CMAKE_CURRENT_BINARY_DIR}/$<CONFIGURATION>/${LibPref}InworldNDK.${LibExt}
@@ -285,27 +291,26 @@ set(LibFiles
     ${SSL_EAY_RELEASE}
 )
 
-if (AEC)
-    if (WIN32)
-        list(APPEND LibFiles 
-            ${ThirdPartyDir}/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll.lib
-            ${ThirdPartyDir}/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll
-        )
-    endif()
+if (AEC AND WIN32)
+    list(APPEND LibFiles 
+        ${ThirdPartyDir}/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll.lib
+        ${ThirdPartyDir}/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll
+    )
 endif()
 
 foreach(LibFile IN LISTS LibFiles)
     add_custom_command(TARGET InworldNDK POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy ${LibFile} ${OutputLibDir})
+        COMMAND ${CMAKE_COMMAND} -E copy ${LibFile} ${PackageLibDir})
 endforeach()
 
 add_custom_command(TARGET InworldNDK POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory 
-    ${ThirdPartyDir}/include ${PROJECT_SOURCE_DIR}/build/include)
+    ${ThirdPartyDir}/include  ${PackageDir}/include)
 add_custom_command(TARGET InworldNDK POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory 
-    ${PROJECT_SOURCE_DIR}/src ${PROJECT_SOURCE_DIR}/build/src)
+    ${PROJECT_SOURCE_DIR}/src  ${PackageDir}/src)
 
+# setup example
 if (NOT IOS)
     set(SourceDir Example/ConsoleApp/src)
 
@@ -325,6 +330,6 @@ if (NOT IOS)
     if (AEC AND WIN32)
         add_custom_command(TARGET InworldNDKApp POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy
-            ${PROJECT_SOURCE_DIR}/ThirdParty/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll ${PROJECT_SOURCE_DIR}/build/$<CONFIGURATION>)
+            ${PROJECT_SOURCE_DIR}/ThirdParty/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll  ${PackageDir}/$<CONFIGURATION>)
     endif()
 endif()
