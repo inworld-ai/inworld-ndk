@@ -41,7 +41,7 @@ The **Inworld NDK** is a library built by CMake. It contains all the source code
 4. Run *gen* script for your platform (*win-gen.bat*, *mac-gen.sh*) to generate project files
 5. Run *build* script for your platform (*win-build.bat*, *mac-build.sh*) to build **InworldNDK** static lib, **InworldNDKApp** and unit tests.
 
-After build's succeed you have *InworldNDK/build* folder with all the source and binaries(including dependencies). You can run *build/Release/InworldNDKApp* executable and text message with your characters in console.
+After build's succeed you have *build/Package* folder with all the source and binaries(including dependencies). You can run *build/Release/InworldNDKApp* executable and text message with your characters in console.
 
 #### Acoustic Echo Cancellation, *AEC* (Windows)
 
