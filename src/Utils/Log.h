@@ -13,7 +13,7 @@
 #include "CoreMinimal.h"
 #include "InworldAINdkModule.h"
 #include "Runtime/Launch/Resources/Version.h"
-#ifdef ENGINE_MAJOR_VERSION > 4
+#if ENGINE_MAJOR_VERSION > 4
 #include <string_view>
 namespace Inworld { using LogFormatType = std::string_view; }
 #else
