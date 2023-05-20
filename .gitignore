@@ -36,7 +36,7 @@
 .vs/*
 .vscode/*
 
-!InworldNDK/ThirdParty/webrtc/lib/webrtc_aec_plugin.dll
+!ThirdParty/Prebuilt/Win64/webrtc_aec_plugin.dll
 
 CMakeLists.txt.user
 CMakeCache.txt
