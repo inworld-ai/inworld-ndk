@@ -28,13 +28,28 @@ const std::string DefaultTargetUrl = "api-engine.inworld.ai:443";
 
 static void GrpcLog(gpr_log_func_args* args)
 {
-	if (args->severity == GPR_LOG_SEVERITY_ERROR)
+	if (args->severity != GPR_LOG_SEVERITY_ERROR)
 	{
-		Inworld::LogError("GRPC %s::%d: %s",
-			ARG_CHAR(args->file),
-			args->line,
-			ARG_CHAR(args->message));
+		return;
 	}
+
+	// skip wrong errors(should be severity=info in grpc code)
+	std::string Message(args->message);
+	uint32_t Idx = Message.find("CompressMessage:");
+	if (Idx == 0)
+	{
+		return;
+	}
+	Idx = Message.find("DecompressMessage:");
+	if (Idx == 0)
+	{
+		return;
+	}
+
+	Inworld::LogError("GRPC %s::%d: %s",
+		ARG_CHAR(args->file),
+		args->line,
+		ARG_CHAR(args->message));
 }
 
 void Inworld::ClientBase::SendPacket(std::shared_ptr<Inworld::Packet> Packet)
