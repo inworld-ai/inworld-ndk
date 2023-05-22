@@ -48,6 +48,13 @@ namespace Inworld
 	}
 
 	template<typename... Args>
+	void LogWarning(LogFormatType fmt, Args... args)
+	{
+		FString TcharFmt = PrintfImpl(UTF8_TO_TCHAR(fmt.data()), args...);
+		UE_LOG(LogInworld, Warning, TEXT("%s"), *TcharFmt);
+	}
+
+	template<typename... Args>
 	void LogError(LogFormatType fmt, Args... args)
 	{
 		FString TcharFmt = PrintfImpl(UTF8_TO_TCHAR(fmt.data()), args...);
@@ -88,6 +95,12 @@ namespace Inworld
 #else
 	template<typename... Args>
 	void Log(std::string fmt, Args &&... args)
+	{
+
+	}
+
+	template<typename... Args>
+	void LogWarning(std::string fmt, Args &&... args)
 	{
 
 	}
