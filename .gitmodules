@@ -1,13 +1,13 @@
 
-[submodule "InworldNDK/ThirdParty/grpc"]
-	path = InworldNDK/ThirdParty/grpc
+[submodule "ThirdParty/grpc"]
+	path = ThirdParty/grpc
 	url = https://github.com/grpc/grpc.git
-[submodule "InworldNDK/ThirdParty/depot-tools"]
-	path = InworldNDK/ThirdParty/depot-tools
+[submodule "ThirdParty/depot-tools"]
+	path = ThirdParty/depot-tools
 	url = https://chromium.googlesource.com/chromium/tools/depot_tools.git
-[submodule "InworldNDK/ThirdParty/googletest"]
-	path = InworldNDK/ThirdParty/googletest
+[submodule "ThirdParty/googletest"]
+	path = ThirdParty/googletest
 	url = https://github.com/google/googletest.git
-[submodule "InworldNDK/ThirdParty/spdlog"]
-	path = InworldNDK/ThirdParty/spdlog
+[submodule "ThirdParty/spdlog"]
+	path = ThirdParty/spdlog
 	url = https://github.com/gabime/spdlog.git

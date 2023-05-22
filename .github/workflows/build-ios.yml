@@ -1,0 +1,45 @@
+# /*************************************************************************************************
+# * Copyright 2022 Theai, Inc. (DBA Inworld)
+# *
+# * Use of this source code is governed by the Inworld.ai Software Development Kit License Agreement
+# * that can be found in the LICENSE.md file or at https://www.inworld.ai/sdk-license
+# *************************************************************************************************/
+
+name: build-ios
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths-ignore:
+      - '**/*.md'
+
+
+jobs:
+  build:
+    runs-on: macos-13
+    steps:
+    - uses: actions/checkout@v2
+    - name: git-update-dependecies
+      run: git submodule update --init --recursive
+    - name: gen
+      shell: bash
+      run: |
+          sh ios-gen.sh > GenLog.txt -Wait -NoNewWindow -PassThru 
+          cat GenLog.txt
+          if grep -Fxq "$GenLog.txt" "Configuring incomplete"
+          then
+              exit 1
+          fi
+          exit 0
+    - name: build
+      shell: bash
+      run: |
+          sh ios-build.sh > BuildLog.txt -Wait -NoNewWindow -PassThru
+          cat BuildLog.txt
+          if (grep -Fxq "$BuildLog.txt" "** BUILD FAILED **")
+          then
+            exit 1
+          fi
+          exit 0
+
+         
