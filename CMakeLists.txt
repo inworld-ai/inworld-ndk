@@ -258,35 +258,58 @@ endif()
 add_custom_command(TARGET InworldNDK POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E make_directory ${PackageLibDir})
 
+set(GrpcDir ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc)
+set(AbslDir ${GrpcDir}/third_party/abseil-cpp/absl)
+
 set(LibFiles 
     ${CMAKE_CURRENT_BINARY_DIR}/$<CONFIGURATION>/${LibPref}InworldNDK.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/types/$<CONFIGURATION>/${LibPref}absl_bad_optional_access.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/base/$<CONFIGURATION>/${LibPref}absl_base.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/strings/$<CONFIGURATION>/${LibPref}absl_cord.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/synchronization/$<CONFIGURATION>/${LibPref}absl_graphcycles_internal.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/numeric/$<CONFIGURATION>/${LibPref}absl_int128.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/base/$<CONFIGURATION>/${LibPref}absl_malloc_internal.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/base/$<CONFIGURATION>/${LibPref}absl_raw_logging_internal.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/base/$<CONFIGURATION>/${LibPref}absl_spinlock_wait.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/debugging/$<CONFIGURATION>/${LibPref}absl_stacktrace.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/status/$<CONFIGURATION>/${LibPref}absl_status.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/status/$<CONFIGURATION>/${LibPref}absl_statusor.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/strings/$<CONFIGURATION>/${LibPref}absl_str_format_internal.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/strings/$<CONFIGURATION>/${LibPref}absl_strings.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/strings/$<CONFIGURATION>/${LibPref}absl_strings_internal.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/debugging/$<CONFIGURATION>/${LibPref}absl_symbolize.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/synchronization/$<CONFIGURATION>/${LibPref}absl_synchronization.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/base/$<CONFIGURATION>/${LibPref}absl_throw_delegate.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/time/$<CONFIGURATION>/${LibPref}absl_time.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/time/$<CONFIGURATION>/${LibPref}absl_time_zone.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/$<CONFIGURATION>/${LibPref}address_sorting.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/cares/cares/lib/$<CONFIGURATION>/${LibPref}cares.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/$<CONFIGURATION>/${LibPref}gpr.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/$<CONFIGURATION>/${LibPref}grpc.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/$<CONFIGURATION>/${LibPref}grpc++.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/protobuf/$<CONFIGURATION>/libprotobuf.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/re2/$<CONFIGURATION>/${LibPref}re2.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/$<CONFIGURATION>/${LibPref}upb.${LibExt}
+    ${AbslDir}/base/$<CONFIGURATION>/${LibPref}absl_base.${LibExt}
+    ${AbslDir}/base/$<CONFIGURATION>/${LibPref}absl_malloc_internal.${LibExt}
+    ${AbslDir}/base/$<CONFIGURATION>/${LibPref}absl_raw_logging_internal.${LibExt}
+    ${AbslDir}/base/$<CONFIGURATION>/${LibPref}absl_spinlock_wait.${LibExt}
+    ${AbslDir}/base/$<CONFIGURATION>/${LibPref}absl_throw_delegate.${LibExt}
+    ${AbslDir}/base/$<CONFIGURATION>/${LibPref}absl_strerror.${LibExt}
+    ${AbslDir}/types/$<CONFIGURATION>/${LibPref}absl_bad_optional_access.${LibExt}
+    ${AbslDir}/types/$<CONFIGURATION>/${LibPref}absl_bad_variant_access.${LibExt}
+    ${AbslDir}/hash/$<CONFIGURATION>/${LibPref}absl_city.${LibExt}
+    ${AbslDir}/hash/$<CONFIGURATION>/${LibPref}absl_hash.${LibExt}
+    ${AbslDir}/hash/$<CONFIGURATION>/${LibPref}absl_low_level_hash.${LibExt}
+    ${AbslDir}/strings/$<CONFIGURATION>/${LibPref}absl_cordz_handle.${LibExt}
+    ${AbslDir}/strings/$<CONFIGURATION>/${LibPref}absl_cord.${LibExt}
+    ${AbslDir}/strings/$<CONFIGURATION>/${LibPref}absl_cordz_info.${LibExt}
+    ${AbslDir}/strings/$<CONFIGURATION>/${LibPref}absl_str_format_internal.${LibExt}
+    ${AbslDir}/strings/$<CONFIGURATION>/${LibPref}absl_strings.${LibExt}
+    ${AbslDir}/strings/$<CONFIGURATION>/${LibPref}absl_strings_internal.${LibExt}
+    ${AbslDir}/strings/$<CONFIGURATION>/${LibPref}absl_cord_internal.${LibExt}
+    ${AbslDir}/debugging/$<CONFIGURATION>/${LibPref}absl_symbolize.${LibExt}
+    ${AbslDir}/debugging/$<CONFIGURATION>/${LibPref}absl_stacktrace.${LibExt}
+    ${AbslDir}/synchronization/$<CONFIGURATION>/${LibPref}absl_graphcycles_internal.${LibExt}
+    ${AbslDir}/synchronization/$<CONFIGURATION>/${LibPref}absl_synchronization.${LibExt}
+    ${AbslDir}/numeric/$<CONFIGURATION>/${LibPref}absl_int128.${LibExt}
+    ${AbslDir}/status/$<CONFIGURATION>/${LibPref}absl_status.${LibExt}
+    ${AbslDir}/status/$<CONFIGURATION>/${LibPref}absl_statusor.${LibExt}
+    ${AbslDir}/time/$<CONFIGURATION>/${LibPref}absl_time.${LibExt}
+    ${AbslDir}/time/$<CONFIGURATION>/${LibPref}absl_time_zone.${LibExt}
+    ${AbslDir}/container/$<CONFIGURATION>/${LibPref}absl_raw_hash_set.${LibExt}
+    ${AbslDir}/random/$<CONFIGURATION>/${LibPref}absl_random_internal_pool_urbg.${LibExt}
+    ${AbslDir}/random/$<CONFIGURATION>/${LibPref}absl_random_internal_randen.${LibExt}
+    ${AbslDir}/random/$<CONFIGURATION>/${LibPref}absl_random_internal_randen_hwaes_impl.${LibExt}
+    ${AbslDir}/random/$<CONFIGURATION>/${LibPref}absl_random_internal_randen_slow.${LibExt}
+    ${AbslDir}/random/$<CONFIGURATION>/${LibPref}absl_random_internal_seed_material.${LibExt}
+    ${AbslDir}/random/$<CONFIGURATION>/${LibPref}absl_random_seed_gen_exception.${LibExt}
+    ${AbslDir}/random/$<CONFIGURATION>/${LibPref}absl_random_internal_randen_hwaes.${LibExt}
+    ${AbslDir}/random/$<CONFIGURATION>/${LibPref}absl_random_internal_platform.${LibExt}
+    ${AbslDir}/crc/$<CONFIGURATION>/${LibPref}absl_crc_cord_state.${LibExt}
+    ${AbslDir}/crc/$<CONFIGURATION>/${LibPref}absl_crc32c.${LibExt}
+    ${AbslDir}/crc/$<CONFIGURATION>/${LibPref}absl_crc_internal.${LibExt}
+    ${GrpcDir}/$<CONFIGURATION>/${LibPref}address_sorting.${LibExt}
+    ${GrpcDir}/$<CONFIGURATION>/${LibPref}gpr.${LibExt}
+    ${GrpcDir}/$<CONFIGURATION>/${LibPref}grpc.${LibExt}
+    ${GrpcDir}/$<CONFIGURATION>/${LibPref}grpc++.${LibExt}
+    ${GrpcDir}/third_party/cares/cares/lib/$<CONFIGURATION>/${LibPref}cares.${LibExt}
+    ${GrpcDir}/third_party/protobuf/$<CONFIGURATION>/libprotobuf.${LibExt}
+    ${GrpcDir}/third_party/re2/$<CONFIGURATION>/${LibPref}re2.${LibExt}
+    ${GrpcDir}/$<CONFIGURATION>/${LibPref}upb.${LibExt}
     ${ZLIB_LIBRARY_RELEASE}
     ${LIB_EAY_LIBRARY_RELEASE}
     ${SSL_EAY_RELEASE}
