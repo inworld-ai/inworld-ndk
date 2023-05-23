@@ -5,6 +5,8 @@
  * that can be found in the LICENSE.md file or at https://www.inworld.ai/sdk-license
  */
 
+#ifndef INWORLD_UNREAL
+
 #include <iostream>
 
 #include "gtest/gtest.h"
@@ -40,3 +42,5 @@ TEST(Utils, HmacSha256)
 
 	EXPECT_EQ(ExpectedRes, Res);
 }
+
+#endif
