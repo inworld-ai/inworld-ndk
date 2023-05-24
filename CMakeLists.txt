@@ -283,6 +283,7 @@ set(LibFiles
     ${AbslDir}/strings/$<CONFIGURATION>/${LibPref}absl_cord_internal.${LibExt}
     ${AbslDir}/debugging/$<CONFIGURATION>/${LibPref}absl_symbolize.${LibExt}
     ${AbslDir}/debugging/$<CONFIGURATION>/${LibPref}absl_stacktrace.${LibExt}
+    ${AbslDir}/debugging/$<CONFIGURATION>/${LibPref}absl_demangle_internal.${LibExt}
     ${AbslDir}/synchronization/$<CONFIGURATION>/${LibPref}absl_graphcycles_internal.${LibExt}
     ${AbslDir}/synchronization/$<CONFIGURATION>/${LibPref}absl_synchronization.${LibExt}
     ${AbslDir}/numeric/$<CONFIGURATION>/${LibPref}absl_int128.${LibExt}
