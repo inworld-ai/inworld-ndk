@@ -187,6 +187,8 @@ CheckPathValid(${OPENSSL_CRYPTO_LIBRARY})
 CheckPathValid(${OPENSSL_ROOT_DIR})
 CheckPathValid(${OPENSSL_SSL_LIBRARY})
 
+set(_CARES_FUNC_IN_LIB_GLOBAL_res_servicename 1)
+
 add_subdirectory(ThirdParty/grpc)
 
 target_link_libraries(InworldNDK PUBLIC grpc)
