@@ -134,17 +134,17 @@ void Inworld::ClientBase::GenerateToken(std::function<void()> GenerateTokenCallb
 	_AsyncGenerateTokenTask->Start(
 		"InworldGenerateTokenTask",
 		std::make_unique<RunnableGenerateSessionToken>(
-			_ClientOptions.AuthUrl,
-			_ClientOptions.ApiKey,
-			_ClientOptions.ApiSecret,
+			_ClientOptions.auth_url(),
+			_ClientOptions.api_key(),
+			_ClientOptions.api_secret(),
 			[this](const grpc::Status& Status, const InworldV1alpha::SessionAccessToken& Token) mutable
 			{
-				if (_SessionInfo.SessionId.empty())
+				if (_SessionInfo.sessionid().empty())
 				{
-					_SessionInfo.SessionId = Token.session_id();
+					_SessionInfo.set_sessionid(Token.session_id());
 				}
-				_SessionInfo.Token = Token.token();
-				_SessionInfo.ExpirationTime = std::time(0) + std::max(std::min(Token.expiration_time().seconds() - std::time(0), gMaxTokenLifespan), 0ll);
+				_SessionInfo.set_token(Token.token());
+				_SessionInfo.set_expirationtime(std::time(0) + std::max(std::min(Token.expiration_time().seconds() - std::time(0), gMaxTokenLifespan), 0ll));
 
 				AddTaskToMainThread([this, Status]()
 				{
@@ -182,7 +182,7 @@ void Inworld::ClientBase::StartClient(const ClientOptions& Options, const Sessio
 
 	SetConnectionState(ConnectionState::Connecting);
 
-	if (!_SessionInfo.IsValid())
+	if (!IsSessionValid(_SessionInfo))
 	{
 		GenerateToken([this]()
 		{
@@ -216,12 +216,12 @@ void Inworld::ClientBase::ResumeClient()
 
 	SetConnectionState(ConnectionState::Reconnecting);
 
-	if (!_SessionInfo.IsValid())
+	if (!IsSessionValid(_SessionInfo))
 	{
 		GenerateToken([this]()
 		{
 			auto Session = static_cast<RunnableLoadScene*>(_AsyncLoadSceneTask->GetRunnable());
-			Session->SetToken(_SessionInfo.Token);
+			Session->SetToken(_SessionInfo.token());
 			StartReaderWriter();
 		});
 	}
@@ -282,21 +282,21 @@ void Inworld::ClientBase::SetConnectionState(ConnectionState State)
 
 void Inworld::ClientBase::LoadScene()
 {
-	if (!_SessionInfo.IsValid())
+	if (!IsSessionValid(_SessionInfo))
 	{
 		return;
 	}
 
-	Inworld::LogSetSessionId(_SessionInfo.SessionId);
+	Inworld::LogSetSessionId(_SessionInfo.sessionid());
 
 	_AsyncLoadSceneTask->Start(
 		"InworldLoadScene",
 		std::make_unique<RunnableLoadScene>(
-			_SessionInfo.Token,
-			_SessionInfo.SessionId,
-			_ClientOptions.LoadSceneUrl,
-			_ClientOptions.SceneName,
-			_ClientOptions.PlayerName,
+			_SessionInfo.token(),
+			_SessionInfo.sessionid(),
+			_ClientOptions.load_scene_url(),
+			_ClientOptions.scene_name(),
+			_ClientOptions.player_name(),
 			_UserId,
 			_ClientId,
 			_ClientVer,
@@ -331,18 +331,18 @@ void Inworld::ClientBase::OnSceneLoaded(const grpc::Status& Status, const Inworl
 	for (int32_t i = 0; i < Response.agents_size(); i++)
 	{
 		AgentInfo Info;
-		Info.BrainName = Response.agents(i).brain_name().c_str();
-		Info.AgentId = Response.agents(i).agent_id().c_str();
-		Info.GivenName = Response.agents(i).given_name().c_str();
+		Info.set_brainname(Response.agents(i).brain_name().c_str());
+		Info.set_agentid(Response.agents(i).agent_id().c_str());
+		Info.set_givenname(Response.agents(i).given_name().c_str());
 		AgentInfos.push_back(Info);
 
-		Inworld::Log("Character registered: %s, Id: %s, GivenName: %s", ARG_STR(Info.BrainName), ARG_STR(Info.AgentId), ARG_STR(Info.GivenName));
+		Inworld::Log("Character registered: %s, Id: %s, GivenName: %s", ARG_STR(Info.brainname()), ARG_STR(Info.agentid()), ARG_STR(Info.givenname()));
 	}
 
 	AgentInfo Info;
-	Info.BrainName = "__DUMMY__";
-	Info.AgentId = "__DUMMY__";
-	Info.GivenName = "__DUMMY__";
+	Info.set_brainname("__DUMMY__");
+	Info.set_agentid("__DUMMY__");
+	Info.set_givenname("__DUMMY__");
 	AgentInfos.push_back(Info);
 
 	_OnLoadSceneCallback(AgentInfos);
@@ -489,9 +489,9 @@ void Inworld::ClientBase::TryToStartWriteTask()
 	}
 }
 
-bool Inworld::SessionInfo::IsValid() const
+bool Inworld::ClientBase::IsSessionValid(const SessionInfo& session)
 {
-	return !Token.empty() && !SessionId.empty() && ExpirationTime > std::time(0);
+	return !session.token().empty() && !session.sessionid().empty() && session.expirationtime() > std::time(0);
 }
 
 void Inworld::Client::Update()
