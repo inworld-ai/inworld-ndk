@@ -33,6 +33,8 @@ void Inworld::RunnableRead::Run()
 			}
 
 			_IsDone = true;
+
+			return;
 		}
 
 		std::shared_ptr<Inworld::Packet> Packet;

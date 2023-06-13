@@ -50,21 +50,3 @@ After build's succeed you have *build/Package* folder with all the source and bi
 #### Inworld NDK integration examples
 
 This repo contains **InworldNDKApp** a console application to demonstrate a basic integration. Take our [**Unreal Engine SDK**](https://docs.inworld.ai/docs/tutorial-integrations/unreal-engine/) as more advanced and complicated example.
-
-## Inworld NDK structure
-
-#### Client
-
-In order to run a session with Inworld server you need to use either an object of [Client](https://github.com/inworld-ai/inworld-ndk/blob/main/InworldNDK/src/Client.h#:~:text=class%20INWORLDAINDK_API-,Client,-%3A%20public%20ClientBase)([example](https://github.com/inworld-ai/inworld-ndk/blob/main/src/Application.h#:~:text=Inworld%3A%3AClient%20_Client%3B)) or your own class inherited from [ClientBase](https://github.com/inworld-ai/inworld-ndk/blob/main/InworldNDK/src/Client.h#:~:text=class%20INWORLDAINDK_API-,ClientBase,-%7B), see example in our [**Unreal Engine SDK**](https://docs.inworld.ai/docs/tutorial-integrations/unreal-engine/).
-
-#### Packets
-
-*Inworld NDK* converts *GRPC* packets to own format. Use [PacketVisitor](https://github.com/inworld-ai/inworld-ndk/blob/main/src/Application.h#:~:text=Inworld%3A%3AClient%20_Client%3B) to [handle](https://github.com/inworld-ai/inworld-ndk/blob/main/src/PacketHandler.h#:~:text=class-,PacketHandler,-%3A%20public%20Inworld) different types of Packets.
-
-#### Logging
-
-*Inworld NDK* uses [spdlog](https://github.com/gabime/spdlog) as a default logging library. See [Log.h file](https://github.com/inworld-ai/inworld-ndk/blob/main/InworldNDK/src/Utils/Log.h#:~:text=/-,Log.h,-Go%20to%20file) to implement your own or disable logging.
-
-#### InworldNDKApp
-
-See [App](https://github.com/inworld-ai/inworld-ndk/blob/main/src/Application.h#:~:text=class-,App,-%7B) as a basic *InworldNDK* usage example. 

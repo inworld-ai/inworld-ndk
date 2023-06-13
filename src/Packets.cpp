@@ -20,7 +20,7 @@ namespace Inworld {
 
 		std::random_device Rd;
 		std::mt19937 Gen(Rd());
-		std::uniform_int_distribution<> Distr(0, Symbols.size());
+		std::uniform_int_distribution<> Distr(0, Symbols.size() - 1);
 
         for (int i = 0; i < Result.size(); i++) {
             if (Result[i] != '-')

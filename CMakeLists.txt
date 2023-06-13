@@ -61,7 +61,9 @@ add_library(InworldNDK ${FilesALL})
 target_include_directories(InworldNDK PUBLIC
     ${ThirdPartyDir}/include
     ${ThirdPartyDir}/grpc/include
+    ${ThirdPartyDir}/grpc/third_party/abseil-cpp
     ${ThirdPartyDir}/grpc/third_party/protobuf/src
+    ${ThirdPartyDir}/grpc/third_party
     src
     src/proto
     src/ThirdParty
@@ -102,9 +104,7 @@ CheckPathValid(${ZlibDir})
 CheckPathValid(${OpenSSLDir})
 
 if (IOS)
-    set(PLATFORM OS64)
     set(CMAKE_MAKE_PROGRAM /usr/bin/make)
-    set(CMAKE_TOOLCHAIN_FILE ./ios.toolchain.cmake)
     set(CMAKE_POLICY_DEFAULT_CMP0063 NEW)
     set(CMAKE_CXX_VISIBILITY_PRESET hidden)
     set(CMAKE_VISIBILITY_INLINES_HIDDEN ON)
@@ -113,8 +113,6 @@ if (IOS)
     set(HAVE_GHBN_LIBSOCKET FALSE)
     set(HAVE_LIBSOCKET FALSE)
     set(HAVE_LIBRT FALSE)
-    #set(CMAKE_C_COMPILER "xcrun -find cc")
-    #set(CMAKE_CXX_COMPILER "xcrun -find c++")
     set(ENABLE_BITCODE ON)
 endif()
 
@@ -185,6 +183,8 @@ CheckPathValid(${ZLIB_LIBRARY_RELEASE})
 CheckPathValid(${OPENSSL_CRYPTO_LIBRARY})
 CheckPathValid(${OPENSSL_ROOT_DIR})
 CheckPathValid(${OPENSSL_SSL_LIBRARY})
+
+set(_CARES_FUNC_IN_LIB_GLOBAL_res_servicename 1)
 
 add_subdirectory(ThirdParty/grpc)
 
@@ -257,35 +257,64 @@ endif()
 add_custom_command(TARGET InworldNDK POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E make_directory ${PackageLibDir})
 
+set(GrpcDir ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc)
+set(AbslDir ${GrpcDir}/third_party/abseil-cpp/absl)
+
+set(ConfigDirName $<CONFIGURATION>)
+if (IOS)
+    set(ConfigDirName ${ConfigDirName}-iphoneos)
+endif()
+
 set(LibFiles 
-    ${CMAKE_CURRENT_BINARY_DIR}/$<CONFIGURATION>/${LibPref}InworldNDK.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/types/$<CONFIGURATION>/${LibPref}absl_bad_optional_access.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/base/$<CONFIGURATION>/${LibPref}absl_base.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/strings/$<CONFIGURATION>/${LibPref}absl_cord.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/synchronization/$<CONFIGURATION>/${LibPref}absl_graphcycles_internal.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/numeric/$<CONFIGURATION>/${LibPref}absl_int128.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/base/$<CONFIGURATION>/${LibPref}absl_malloc_internal.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/base/$<CONFIGURATION>/${LibPref}absl_raw_logging_internal.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/base/$<CONFIGURATION>/${LibPref}absl_spinlock_wait.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/debugging/$<CONFIGURATION>/${LibPref}absl_stacktrace.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/status/$<CONFIGURATION>/${LibPref}absl_status.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/status/$<CONFIGURATION>/${LibPref}absl_statusor.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/strings/$<CONFIGURATION>/${LibPref}absl_str_format_internal.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/strings/$<CONFIGURATION>/${LibPref}absl_strings.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/strings/$<CONFIGURATION>/${LibPref}absl_strings_internal.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/debugging/$<CONFIGURATION>/${LibPref}absl_symbolize.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/synchronization/$<CONFIGURATION>/${LibPref}absl_synchronization.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/base/$<CONFIGURATION>/${LibPref}absl_throw_delegate.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/time/$<CONFIGURATION>/${LibPref}absl_time.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/abseil-cpp/absl/time/$<CONFIGURATION>/${LibPref}absl_time_zone.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/$<CONFIGURATION>/${LibPref}address_sorting.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/cares/cares/lib/$<CONFIGURATION>/${LibPref}cares.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/$<CONFIGURATION>/${LibPref}gpr.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/$<CONFIGURATION>/${LibPref}grpc.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/$<CONFIGURATION>/${LibPref}grpc++.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/protobuf/$<CONFIGURATION>/libprotobuf.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/third_party/re2/$<CONFIGURATION>/${LibPref}re2.${LibExt}
-    ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc/$<CONFIGURATION>/${LibPref}upb.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}/${ConfigDirName}/${LibPref}InworldNDK.${LibExt}
+    ${AbslDir}/base/${ConfigDirName}/${LibPref}absl_base.${LibExt}
+    ${AbslDir}/base/${ConfigDirName}/${LibPref}absl_malloc_internal.${LibExt}
+    ${AbslDir}/base/${ConfigDirName}/${LibPref}absl_raw_logging_internal.${LibExt}
+    ${AbslDir}/base/${ConfigDirName}/${LibPref}absl_spinlock_wait.${LibExt}
+    ${AbslDir}/base/${ConfigDirName}/${LibPref}absl_throw_delegate.${LibExt}
+    ${AbslDir}/base/${ConfigDirName}/${LibPref}absl_strerror.${LibExt}
+    ${AbslDir}/types/${ConfigDirName}/${LibPref}absl_bad_optional_access.${LibExt}
+    ${AbslDir}/types/${ConfigDirName}/${LibPref}absl_bad_variant_access.${LibExt}
+    ${AbslDir}/hash/${ConfigDirName}/${LibPref}absl_city.${LibExt}
+    ${AbslDir}/hash/${ConfigDirName}/${LibPref}absl_hash.${LibExt}
+    ${AbslDir}/hash/${ConfigDirName}/${LibPref}absl_low_level_hash.${LibExt}
+    ${AbslDir}/strings/${ConfigDirName}/${LibPref}absl_cordz_handle.${LibExt}
+    ${AbslDir}/strings/${ConfigDirName}/${LibPref}absl_cord.${LibExt}
+    ${AbslDir}/strings/${ConfigDirName}/${LibPref}absl_cordz_info.${LibExt}
+    ${AbslDir}/strings/${ConfigDirName}/${LibPref}absl_str_format_internal.${LibExt}
+    ${AbslDir}/strings/${ConfigDirName}/${LibPref}absl_strings.${LibExt}
+    ${AbslDir}/strings/${ConfigDirName}/${LibPref}absl_strings_internal.${LibExt}
+    ${AbslDir}/strings/${ConfigDirName}/${LibPref}absl_cord_internal.${LibExt}
+    ${AbslDir}/debugging/${ConfigDirName}/${LibPref}absl_symbolize.${LibExt}
+    ${AbslDir}/debugging/${ConfigDirName}/${LibPref}absl_stacktrace.${LibExt}
+    ${AbslDir}/debugging/${ConfigDirName}/${LibPref}absl_demangle_internal.${LibExt}
+    ${AbslDir}/synchronization/${ConfigDirName}/${LibPref}absl_graphcycles_internal.${LibExt}
+    ${AbslDir}/synchronization/${ConfigDirName}/${LibPref}absl_synchronization.${LibExt}
+    ${AbslDir}/numeric/${ConfigDirName}/${LibPref}absl_int128.${LibExt}
+    ${AbslDir}/status/${ConfigDirName}/${LibPref}absl_status.${LibExt}
+    ${AbslDir}/status/${ConfigDirName}/${LibPref}absl_statusor.${LibExt}
+    ${AbslDir}/time/${ConfigDirName}/${LibPref}absl_time.${LibExt}
+    ${AbslDir}/time/${ConfigDirName}/${LibPref}absl_time_zone.${LibExt}
+    ${AbslDir}/container/${ConfigDirName}/${LibPref}absl_raw_hash_set.${LibExt}
+    ${AbslDir}/random/${ConfigDirName}/${LibPref}absl_random_internal_pool_urbg.${LibExt}
+    ${AbslDir}/random/${ConfigDirName}/${LibPref}absl_random_internal_randen.${LibExt}
+    ${AbslDir}/random/${ConfigDirName}/${LibPref}absl_random_internal_randen_hwaes_impl.${LibExt}
+    ${AbslDir}/random/${ConfigDirName}/${LibPref}absl_random_internal_randen_slow.${LibExt}
+    ${AbslDir}/random/${ConfigDirName}/${LibPref}absl_random_internal_seed_material.${LibExt}
+    ${AbslDir}/random/${ConfigDirName}/${LibPref}absl_random_seed_gen_exception.${LibExt}
+    ${AbslDir}/random/${ConfigDirName}/${LibPref}absl_random_internal_randen_hwaes.${LibExt}
+    ${AbslDir}/random/${ConfigDirName}/${LibPref}absl_random_internal_platform.${LibExt}
+    ${AbslDir}/crc/${ConfigDirName}/${LibPref}absl_crc_cord_state.${LibExt}
+    ${AbslDir}/crc/${ConfigDirName}/${LibPref}absl_crc32c.${LibExt}
+    ${AbslDir}/crc/${ConfigDirName}/${LibPref}absl_crc_internal.${LibExt}
+    ${GrpcDir}/${ConfigDirName}/${LibPref}address_sorting.${LibExt}
+    ${GrpcDir}/${ConfigDirName}/${LibPref}gpr.${LibExt}
+    ${GrpcDir}/${ConfigDirName}/${LibPref}grpc.${LibExt}
+    ${GrpcDir}/${ConfigDirName}/${LibPref}grpc++.${LibExt}
+    ${GrpcDir}/third_party/cares/cares/lib/$<CONFIGURATION>/${LibPref}cares.${LibExt}
+    ${GrpcDir}/third_party/protobuf/${ConfigDirName}/libprotobuf.${LibExt}
+    ${GrpcDir}/third_party/re2/${ConfigDirName}/${LibPref}re2.${LibExt}
+    ${GrpcDir}/${ConfigDirName}/${LibPref}upb.${LibExt}
     ${ZLIB_LIBRARY_RELEASE}
     ${LIB_EAY_LIBRARY_RELEASE}
     ${SSL_EAY_RELEASE}
@@ -330,6 +359,6 @@ if (NOT IOS)
     if (AEC AND WIN32)
         add_custom_command(TARGET InworldNDKApp POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy
-            ${PROJECT_SOURCE_DIR}/ThirdParty/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll  ${PackageDir}/$<CONFIGURATION>)
+            ${PROJECT_SOURCE_DIR}/ThirdParty/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll  ${PackageDir}/${ConfigDirName})
     endif()
 endif()
