@@ -49,6 +49,14 @@ class Scenes final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncDeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncDeploySceneRaw(context, request, cq));
     }
+    // Async version of DeployScene. Returns a long running operation object
+    virtual ::grpc::Status DeploySceneAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::google::longrunning::Operation* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>> AsyncDeploySceneAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>>(AsyncDeploySceneAsynchronouslyRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>> PrepareAsyncDeploySceneAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>>(PrepareAsyncDeploySceneAsynchronouslyRaw(context, request, cq));
+    }
     // RPC to get one scene
     virtual ::grpc::Status GetScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetSceneRequest& request, ::ai::inworld::studio::v1alpha::Scene* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Scene>> AsyncGetScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetSceneRequest& request, ::grpc::CompletionQueue* cq) {
@@ -97,6 +105,9 @@ class Scenes final {
       // storage(GSC).
       virtual void DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
       virtual void DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      // Async version of DeployScene. Returns a long running operation object
+      virtual void DeploySceneAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::longrunning::Operation* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void DeploySceneAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::longrunning::Operation* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // RPC to get one scene
       virtual void GetScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response, std::function<void(::grpc::Status)>) = 0;
       virtual void GetScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response, ::grpc::ClientUnaryReactor* reactor) = 0;
@@ -119,6 +130,8 @@ class Scenes final {
    private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncDeploySceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncDeploySceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>* AsyncDeploySceneAsynchronouslyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>* PrepareAsyncDeploySceneAsynchronouslyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Scene>* AsyncGetSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetSceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Scene>* PrepareAsyncGetSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetSceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::ListScenesResponse>* AsyncListScenesRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListScenesRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -139,6 +152,13 @@ class Scenes final {
     }
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncDeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncDeploySceneRaw(context, request, cq));
+    }
+    ::grpc::Status DeploySceneAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::google::longrunning::Operation* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>> AsyncDeploySceneAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>>(AsyncDeploySceneAsynchronouslyRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>> PrepareAsyncDeploySceneAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>>(PrepareAsyncDeploySceneAsynchronouslyRaw(context, request, cq));
     }
     ::grpc::Status GetScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetSceneRequest& request, ::ai::inworld::studio::v1alpha::Scene* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Scene>> AsyncGetScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetSceneRequest& request, ::grpc::CompletionQueue* cq) {
@@ -180,6 +200,8 @@ class Scenes final {
      public:
       void DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
       void DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void DeploySceneAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::longrunning::Operation* response, std::function<void(::grpc::Status)>) override;
+      void DeploySceneAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::longrunning::Operation* response, ::grpc::ClientUnaryReactor* reactor) override;
       void GetScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response, std::function<void(::grpc::Status)>) override;
       void GetScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response, ::grpc::ClientUnaryReactor* reactor) override;
       void ListScenes(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListScenesRequest* request, ::ai::inworld::studio::v1alpha::ListScenesResponse* response, std::function<void(::grpc::Status)>) override;
@@ -203,6 +225,8 @@ class Scenes final {
     class async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncDeploySceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncDeploySceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>* AsyncDeploySceneAsynchronouslyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>* PrepareAsyncDeploySceneAsynchronouslyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Scene>* AsyncGetSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetSceneRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Scene>* PrepareAsyncGetSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetSceneRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ListScenesResponse>* AsyncListScenesRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListScenesRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -214,6 +238,7 @@ class Scenes final {
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncDeleteSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncDeleteSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_DeployScene_;
+    const ::grpc::internal::RpcMethod rpcmethod_DeploySceneAsynchronously_;
     const ::grpc::internal::RpcMethod rpcmethod_GetScene_;
     const ::grpc::internal::RpcMethod rpcmethod_ListScenes_;
     const ::grpc::internal::RpcMethod rpcmethod_UpdateScene_;
@@ -230,6 +255,8 @@ class Scenes final {
     // character overloads and related information (triggers etc) in an
     // storage(GSC).
     virtual ::grpc::Status DeployScene(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf::Empty* response);
+    // Async version of DeployScene. Returns a long running operation object
+    virtual ::grpc::Status DeploySceneAsynchronously(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::longrunning::Operation* response);
     // RPC to get one scene
     virtual ::grpc::Status GetScene(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::GetSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response);
     // RPC to get list of scenes
@@ -262,12 +289,32 @@ class Scenes final {
     }
   };
   template <class BaseClass>
+  class WithAsyncMethod_DeploySceneAsynchronously : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_DeploySceneAsynchronously() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_DeploySceneAsynchronously() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeploySceneAsynchronously(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::longrunning::Operation* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestDeploySceneAsynchronously(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::longrunning::Operation>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithAsyncMethod_GetScene : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_GetScene() {
-      ::grpc::Service::MarkMethodAsync(1);
+      ::grpc::Service::MarkMethodAsync(2);
     }
     ~WithAsyncMethod_GetScene() override {
       BaseClassMustBeDerivedFromService(this);
@@ -278,7 +325,7 @@ class Scenes final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetScene(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::GetSceneRequest* request, ::grpc::ServerAsyncResponseWriter< ::ai::inworld::studio::v1alpha::Scene>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -287,7 +334,7 @@ class Scenes final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_ListScenes() {
-      ::grpc::Service::MarkMethodAsync(2);
+      ::grpc::Service::MarkMethodAsync(3);
     }
     ~WithAsyncMethod_ListScenes() override {
       BaseClassMustBeDerivedFromService(this);
@@ -298,7 +345,7 @@ class Scenes final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestListScenes(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::ListScenesRequest* request, ::grpc::ServerAsyncResponseWriter< ::ai::inworld::studio::v1alpha::ListScenesResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -307,7 +354,7 @@ class Scenes final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_UpdateScene() {
-      ::grpc::Service::MarkMethodAsync(3);
+      ::grpc::Service::MarkMethodAsync(4);
     }
     ~WithAsyncMethod_UpdateScene() override {
       BaseClassMustBeDerivedFromService(this);
@@ -318,7 +365,7 @@ class Scenes final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestUpdateScene(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::UpdateSceneRequest* request, ::grpc::ServerAsyncResponseWriter< ::ai::inworld::studio::v1alpha::Scene>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -327,7 +374,7 @@ class Scenes final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_CreateScene() {
-      ::grpc::Service::MarkMethodAsync(4);
+      ::grpc::Service::MarkMethodAsync(5);
     }
     ~WithAsyncMethod_CreateScene() override {
       BaseClassMustBeDerivedFromService(this);
@@ -338,7 +385,7 @@ class Scenes final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestCreateScene(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::CreateSceneRequest* request, ::grpc::ServerAsyncResponseWriter< ::ai::inworld::studio::v1alpha::Scene>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -347,7 +394,7 @@ class Scenes final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_DeleteScene() {
-      ::grpc::Service::MarkMethodAsync(5);
+      ::grpc::Service::MarkMethodAsync(6);
     }
     ~WithAsyncMethod_DeleteScene() override {
       BaseClassMustBeDerivedFromService(this);
@@ -358,10 +405,10 @@ class Scenes final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestDeleteScene(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_DeployScene<WithAsyncMethod_GetScene<WithAsyncMethod_ListScenes<WithAsyncMethod_UpdateScene<WithAsyncMethod_CreateScene<WithAsyncMethod_DeleteScene<Service > > > > > > AsyncService;
+  typedef WithAsyncMethod_DeployScene<WithAsyncMethod_DeploySceneAsynchronously<WithAsyncMethod_GetScene<WithAsyncMethod_ListScenes<WithAsyncMethod_UpdateScene<WithAsyncMethod_CreateScene<WithAsyncMethod_DeleteScene<Service > > > > > > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_DeployScene : public BaseClass {
    private:
@@ -390,18 +437,45 @@ class Scenes final {
       ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::protobuf::Empty* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithCallbackMethod_DeploySceneAsynchronously : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_DeploySceneAsynchronously() {
+      ::grpc::Service::MarkMethodCallback(1,
+          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeploySceneRequest, ::google::longrunning::Operation>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::longrunning::Operation* response) { return this->DeploySceneAsynchronously(context, request, response); }));}
+    void SetMessageAllocatorFor_DeploySceneAsynchronously(
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::DeploySceneRequest, ::google::longrunning::Operation>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeploySceneRequest, ::google::longrunning::Operation>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_DeploySceneAsynchronously() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeploySceneAsynchronously(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::longrunning::Operation* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* DeploySceneAsynchronously(
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::longrunning::Operation* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
   class WithCallbackMethod_GetScene : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_GetScene() {
-      ::grpc::Service::MarkMethodCallback(1,
+      ::grpc::Service::MarkMethodCallback(2,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetSceneRequest, ::ai::inworld::studio::v1alpha::Scene>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::GetSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response) { return this->GetScene(context, request, response); }));}
     void SetMessageAllocatorFor_GetScene(
         ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::GetSceneRequest, ::ai::inworld::studio::v1alpha::Scene>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetSceneRequest, ::ai::inworld::studio::v1alpha::Scene>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -422,13 +496,13 @@ class Scenes final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_ListScenes() {
-      ::grpc::Service::MarkMethodCallback(2,
+      ::grpc::Service::MarkMethodCallback(3,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ListScenesRequest, ::ai::inworld::studio::v1alpha::ListScenesResponse>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::ListScenesRequest* request, ::ai::inworld::studio::v1alpha::ListScenesResponse* response) { return this->ListScenes(context, request, response); }));}
     void SetMessageAllocatorFor_ListScenes(
         ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::ListScenesRequest, ::ai::inworld::studio::v1alpha::ListScenesResponse>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ListScenesRequest, ::ai::inworld::studio::v1alpha::ListScenesResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -449,13 +523,13 @@ class Scenes final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_UpdateScene() {
-      ::grpc::Service::MarkMethodCallback(3,
+      ::grpc::Service::MarkMethodCallback(4,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UpdateSceneRequest, ::ai::inworld::studio::v1alpha::Scene>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::UpdateSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response) { return this->UpdateScene(context, request, response); }));}
     void SetMessageAllocatorFor_UpdateScene(
         ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::UpdateSceneRequest, ::ai::inworld::studio::v1alpha::Scene>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UpdateSceneRequest, ::ai::inworld::studio::v1alpha::Scene>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -476,13 +550,13 @@ class Scenes final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_CreateScene() {
-      ::grpc::Service::MarkMethodCallback(4,
+      ::grpc::Service::MarkMethodCallback(5,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::CreateSceneRequest, ::ai::inworld::studio::v1alpha::Scene>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::CreateSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response) { return this->CreateScene(context, request, response); }));}
     void SetMessageAllocatorFor_CreateScene(
         ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::CreateSceneRequest, ::ai::inworld::studio::v1alpha::Scene>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::CreateSceneRequest, ::ai::inworld::studio::v1alpha::Scene>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -503,13 +577,13 @@ class Scenes final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_DeleteScene() {
-      ::grpc::Service::MarkMethodCallback(5,
+      ::grpc::Service::MarkMethodCallback(6,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteSceneRequest, ::google::protobuf::Empty>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::google::protobuf::Empty* response) { return this->DeleteScene(context, request, response); }));}
     void SetMessageAllocatorFor_DeleteScene(
         ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::DeleteSceneRequest, ::google::protobuf::Empty>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteSceneRequest, ::google::protobuf::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -524,7 +598,7 @@ class Scenes final {
     virtual ::grpc::ServerUnaryReactor* DeleteScene(
       ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* /*request*/, ::google::protobuf::Empty* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_DeployScene<WithCallbackMethod_GetScene<WithCallbackMethod_ListScenes<WithCallbackMethod_UpdateScene<WithCallbackMethod_CreateScene<WithCallbackMethod_DeleteScene<Service > > > > > > CallbackService;
+  typedef WithCallbackMethod_DeployScene<WithCallbackMethod_DeploySceneAsynchronously<WithCallbackMethod_GetScene<WithCallbackMethod_ListScenes<WithCallbackMethod_UpdateScene<WithCallbackMethod_CreateScene<WithCallbackMethod_DeleteScene<Service > > > > > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_DeployScene : public BaseClass {
@@ -544,12 +618,29 @@ class Scenes final {
     }
   };
   template <class BaseClass>
+  class WithGenericMethod_DeploySceneAsynchronously : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_DeploySceneAsynchronously() {
+      ::grpc::Service::MarkMethodGeneric(1);
+    }
+    ~WithGenericMethod_DeploySceneAsynchronously() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeploySceneAsynchronously(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::longrunning::Operation* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
   class WithGenericMethod_GetScene : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_GetScene() {
-      ::grpc::Service::MarkMethodGeneric(1);
+      ::grpc::Service::MarkMethodGeneric(2);
     }
     ~WithGenericMethod_GetScene() override {
       BaseClassMustBeDerivedFromService(this);
@@ -566,7 +657,7 @@ class Scenes final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_ListScenes() {
-      ::grpc::Service::MarkMethodGeneric(2);
+      ::grpc::Service::MarkMethodGeneric(3);
     }
     ~WithGenericMethod_ListScenes() override {
       BaseClassMustBeDerivedFromService(this);
@@ -583,7 +674,7 @@ class Scenes final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_UpdateScene() {
-      ::grpc::Service::MarkMethodGeneric(3);
+      ::grpc::Service::MarkMethodGeneric(4);
     }
     ~WithGenericMethod_UpdateScene() override {
       BaseClassMustBeDerivedFromService(this);
@@ -600,7 +691,7 @@ class Scenes final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_CreateScene() {
-      ::grpc::Service::MarkMethodGeneric(4);
+      ::grpc::Service::MarkMethodGeneric(5);
     }
     ~WithGenericMethod_CreateScene() override {
       BaseClassMustBeDerivedFromService(this);
@@ -617,7 +708,7 @@ class Scenes final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_DeleteScene() {
-      ::grpc::Service::MarkMethodGeneric(5);
+      ::grpc::Service::MarkMethodGeneric(6);
     }
     ~WithGenericMethod_DeleteScene() override {
       BaseClassMustBeDerivedFromService(this);
@@ -649,12 +740,32 @@ class Scenes final {
     }
   };
   template <class BaseClass>
+  class WithRawMethod_DeploySceneAsynchronously : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_DeploySceneAsynchronously() {
+      ::grpc::Service::MarkMethodRaw(1);
+    }
+    ~WithRawMethod_DeploySceneAsynchronously() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeploySceneAsynchronously(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::longrunning::Operation* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestDeploySceneAsynchronously(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithRawMethod_GetScene : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_GetScene() {
-      ::grpc::Service::MarkMethodRaw(1);
+      ::grpc::Service::MarkMethodRaw(2);
     }
     ~WithRawMethod_GetScene() override {
       BaseClassMustBeDerivedFromService(this);
@@ -665,7 +776,7 @@ class Scenes final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetScene(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -674,7 +785,7 @@ class Scenes final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_ListScenes() {
-      ::grpc::Service::MarkMethodRaw(2);
+      ::grpc::Service::MarkMethodRaw(3);
     }
     ~WithRawMethod_ListScenes() override {
       BaseClassMustBeDerivedFromService(this);
@@ -685,7 +796,7 @@ class Scenes final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestListScenes(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -694,7 +805,7 @@ class Scenes final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_UpdateScene() {
-      ::grpc::Service::MarkMethodRaw(3);
+      ::grpc::Service::MarkMethodRaw(4);
     }
     ~WithRawMethod_UpdateScene() override {
       BaseClassMustBeDerivedFromService(this);
@@ -705,7 +816,7 @@ class Scenes final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestUpdateScene(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -714,7 +825,7 @@ class Scenes final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_CreateScene() {
-      ::grpc::Service::MarkMethodRaw(4);
+      ::grpc::Service::MarkMethodRaw(5);
     }
     ~WithRawMethod_CreateScene() override {
       BaseClassMustBeDerivedFromService(this);
@@ -725,7 +836,7 @@ class Scenes final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestCreateScene(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -734,7 +845,7 @@ class Scenes final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_DeleteScene() {
-      ::grpc::Service::MarkMethodRaw(5);
+      ::grpc::Service::MarkMethodRaw(6);
     }
     ~WithRawMethod_DeleteScene() override {
       BaseClassMustBeDerivedFromService(this);
@@ -745,7 +856,7 @@ class Scenes final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestDeleteScene(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -771,12 +882,34 @@ class Scenes final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithRawCallbackMethod_DeploySceneAsynchronously : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_DeploySceneAsynchronously() {
+      ::grpc::Service::MarkMethodRawCallback(1,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeploySceneAsynchronously(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_DeploySceneAsynchronously() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeploySceneAsynchronously(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::longrunning::Operation* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* DeploySceneAsynchronously(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
   class WithRawCallbackMethod_GetScene : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_GetScene() {
-      ::grpc::Service::MarkMethodRawCallback(1,
+      ::grpc::Service::MarkMethodRawCallback(2,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetScene(context, request, response); }));
@@ -798,7 +931,7 @@ class Scenes final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_ListScenes() {
-      ::grpc::Service::MarkMethodRawCallback(2,
+      ::grpc::Service::MarkMethodRawCallback(3,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ListScenes(context, request, response); }));
@@ -820,7 +953,7 @@ class Scenes final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_UpdateScene() {
-      ::grpc::Service::MarkMethodRawCallback(3,
+      ::grpc::Service::MarkMethodRawCallback(4,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UpdateScene(context, request, response); }));
@@ -842,7 +975,7 @@ class Scenes final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_CreateScene() {
-      ::grpc::Service::MarkMethodRawCallback(4,
+      ::grpc::Service::MarkMethodRawCallback(5,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->CreateScene(context, request, response); }));
@@ -864,7 +997,7 @@ class Scenes final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_DeleteScene() {
-      ::grpc::Service::MarkMethodRawCallback(5,
+      ::grpc::Service::MarkMethodRawCallback(6,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeleteScene(context, request, response); }));
@@ -908,12 +1041,39 @@ class Scenes final {
     virtual ::grpc::Status StreamedDeployScene(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::DeploySceneRequest,::google::protobuf::Empty>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
+  class WithStreamedUnaryMethod_DeploySceneAsynchronously : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_DeploySceneAsynchronously() {
+      ::grpc::Service::MarkMethodStreamed(1,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::ai::inworld::studio::v1alpha::DeploySceneRequest, ::google::longrunning::Operation>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::ai::inworld::studio::v1alpha::DeploySceneRequest, ::google::longrunning::Operation>* streamer) {
+                       return this->StreamedDeploySceneAsynchronously(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_DeploySceneAsynchronously() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status DeploySceneAsynchronously(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::longrunning::Operation* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedDeploySceneAsynchronously(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::DeploySceneRequest,::google::longrunning::Operation>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_GetScene : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_GetScene() {
-      ::grpc::Service::MarkMethodStreamed(1,
+      ::grpc::Service::MarkMethodStreamed(2,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ai::inworld::studio::v1alpha::GetSceneRequest, ::ai::inworld::studio::v1alpha::Scene>(
             [this](::grpc::ServerContext* context,
@@ -940,7 +1100,7 @@ class Scenes final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_ListScenes() {
-      ::grpc::Service::MarkMethodStreamed(2,
+      ::grpc::Service::MarkMethodStreamed(3,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ai::inworld::studio::v1alpha::ListScenesRequest, ::ai::inworld::studio::v1alpha::ListScenesResponse>(
             [this](::grpc::ServerContext* context,
@@ -967,7 +1127,7 @@ class Scenes final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_UpdateScene() {
-      ::grpc::Service::MarkMethodStreamed(3,
+      ::grpc::Service::MarkMethodStreamed(4,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ai::inworld::studio::v1alpha::UpdateSceneRequest, ::ai::inworld::studio::v1alpha::Scene>(
             [this](::grpc::ServerContext* context,
@@ -994,7 +1154,7 @@ class Scenes final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_CreateScene() {
-      ::grpc::Service::MarkMethodStreamed(4,
+      ::grpc::Service::MarkMethodStreamed(5,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ai::inworld::studio::v1alpha::CreateSceneRequest, ::ai::inworld::studio::v1alpha::Scene>(
             [this](::grpc::ServerContext* context,
@@ -1021,7 +1181,7 @@ class Scenes final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_DeleteScene() {
-      ::grpc::Service::MarkMethodStreamed(5,
+      ::grpc::Service::MarkMethodStreamed(6,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ai::inworld::studio::v1alpha::DeleteSceneRequest, ::google::protobuf::Empty>(
             [this](::grpc::ServerContext* context,
@@ -1042,9 +1202,9 @@ class Scenes final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedDeleteScene(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::DeleteSceneRequest,::google::protobuf::Empty>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_DeployScene<WithStreamedUnaryMethod_GetScene<WithStreamedUnaryMethod_ListScenes<WithStreamedUnaryMethod_UpdateScene<WithStreamedUnaryMethod_CreateScene<WithStreamedUnaryMethod_DeleteScene<Service > > > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_DeployScene<WithStreamedUnaryMethod_DeploySceneAsynchronously<WithStreamedUnaryMethod_GetScene<WithStreamedUnaryMethod_ListScenes<WithStreamedUnaryMethod_UpdateScene<WithStreamedUnaryMethod_CreateScene<WithStreamedUnaryMethod_DeleteScene<Service > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_DeployScene<WithStreamedUnaryMethod_GetScene<WithStreamedUnaryMethod_ListScenes<WithStreamedUnaryMethod_UpdateScene<WithStreamedUnaryMethod_CreateScene<WithStreamedUnaryMethod_DeleteScene<Service > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_DeployScene<WithStreamedUnaryMethod_DeploySceneAsynchronously<WithStreamedUnaryMethod_GetScene<WithStreamedUnaryMethod_ListScenes<WithStreamedUnaryMethod_UpdateScene<WithStreamedUnaryMethod_CreateScene<WithStreamedUnaryMethod_DeleteScene<Service > > > > > > > StreamedService;
 };
 
 }  // namespace v1alpha

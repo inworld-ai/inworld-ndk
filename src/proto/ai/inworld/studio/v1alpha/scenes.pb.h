@@ -23,6 +23,7 @@
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/arena.h>
 #include <google/protobuf/arenastring.h>
+#include <google/protobuf/generated_message_bases.h>
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/metadata_lite.h>
 #include <google/protobuf/generated_message_reflection.h>
@@ -35,6 +36,7 @@
 #include "google/api/client.pb.h"
 #include "google/api/field_behavior.pb.h"
 #include "google/api/resource.pb.h"
+#include "google/longrunning/operations.pb.h"
 #include <google/protobuf/empty.pb.h>
 #include <google/protobuf/field_mask.pb.h>
 #include "options.pb.h"
@@ -62,6 +64,12 @@ extern CreateSceneRequestDefaultTypeInternal _CreateSceneRequest_default_instanc
 class DeleteSceneRequest;
 struct DeleteSceneRequestDefaultTypeInternal;
 extern DeleteSceneRequestDefaultTypeInternal _DeleteSceneRequest_default_instance_;
+class DeploySceneAsyncMetadata;
+struct DeploySceneAsyncMetadataDefaultTypeInternal;
+extern DeploySceneAsyncMetadataDefaultTypeInternal _DeploySceneAsyncMetadata_default_instance_;
+class DeploySceneAsyncResponse;
+struct DeploySceneAsyncResponseDefaultTypeInternal;
+extern DeploySceneAsyncResponseDefaultTypeInternal _DeploySceneAsyncResponse_default_instance_;
 class DeploySceneRequest;
 struct DeploySceneRequestDefaultTypeInternal;
 extern DeploySceneRequestDefaultTypeInternal _DeploySceneRequest_default_instance_;
@@ -105,6 +113,8 @@ extern UpdateSceneRequestDefaultTypeInternal _UpdateSceneRequest_default_instanc
 PROTOBUF_NAMESPACE_OPEN
 template<> ::ai::inworld::studio::v1alpha::CreateSceneRequest* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::CreateSceneRequest>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::DeleteSceneRequest* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::DeleteSceneRequest>(Arena*);
+template<> ::ai::inworld::studio::v1alpha::DeploySceneAsyncMetadata* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::DeploySceneAsyncMetadata>(Arena*);
+template<> ::ai::inworld::studio::v1alpha::DeploySceneAsyncResponse* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::DeploySceneAsyncResponse>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::DeploySceneRequest* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::DeploySceneRequest>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::GetSceneRequest* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::GetSceneRequest>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::ListScenesRequest* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::ListScenesRequest>(Arena*);
@@ -1308,6 +1318,8 @@ class Scene_CharacterReference_Character_CharacterAssets final :
     kRpmImageUriFieldNumber = 2,
     kRpmImageUriPortraitFieldNumber = 3,
     kRpmImageUriPostureFieldNumber = 4,
+    kAvatarImgFieldNumber = 5,
+    kAvatarImgOriginalFieldNumber = 6,
   };
   // string rpm_model_uri = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];
   void clear_rpm_model_uri();
@@ -1365,6 +1377,34 @@ class Scene_CharacterReference_Character_CharacterAssets final :
   std::string* _internal_mutable_rpm_image_uri_posture();
   public:
 
+  // string avatar_img = 5;
+  void clear_avatar_img();
+  const std::string& avatar_img() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_avatar_img(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_avatar_img();
+  PROTOBUF_NODISCARD std::string* release_avatar_img();
+  void set_allocated_avatar_img(std::string* avatar_img);
+  private:
+  const std::string& _internal_avatar_img() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_avatar_img(const std::string& value);
+  std::string* _internal_mutable_avatar_img();
+  public:
+
+  // string avatar_img_original = 6;
+  void clear_avatar_img_original();
+  const std::string& avatar_img_original() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_avatar_img_original(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_avatar_img_original();
+  PROTOBUF_NODISCARD std::string* release_avatar_img_original();
+  void set_allocated_avatar_img_original(std::string* avatar_img_original);
+  private:
+  const std::string& _internal_avatar_img_original() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_avatar_img_original(const std::string& value);
+  std::string* _internal_mutable_avatar_img_original();
+  public:
+
   // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.CharacterAssets)
  private:
   class _Internal;
@@ -1377,6 +1417,8 @@ class Scene_CharacterReference_Character_CharacterAssets final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr rpm_image_uri_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr rpm_image_uri_portrait_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr rpm_image_uri_posture_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr avatar_img_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr avatar_img_original_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1508,9 +1550,24 @@ class Scene_CharacterReference_Character final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kAdditionalAgentInfoFieldNumber = 3,
     kDefaultCharacterDescriptionFieldNumber = 1,
     kDefaultCharacterAssetsFieldNumber = 2,
   };
+  // string additional_agent_info = 3;
+  void clear_additional_agent_info();
+  const std::string& additional_agent_info() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_additional_agent_info(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_additional_agent_info();
+  PROTOBUF_NODISCARD std::string* release_additional_agent_info();
+  void set_allocated_additional_agent_info(std::string* additional_agent_info);
+  private:
+  const std::string& _internal_additional_agent_info() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_additional_agent_info(const std::string& value);
+  std::string* _internal_mutable_additional_agent_info();
+  public:
+
   // .ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.CharacterDescription default_character_description = 1;
   bool has_default_character_description() const;
   private:
@@ -1555,6 +1612,7 @@ class Scene_CharacterReference_Character final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr additional_agent_info_;
     ::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character_CharacterDescription* default_character_description_;
     ::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character_CharacterAssets* default_character_assets_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -2047,6 +2105,7 @@ class Scene_Meta final :
   enum : int {
     kTotalTriggersFieldNumber = 1,
     kTotalCharactersFieldNumber = 2,
+    kTotalCommonKnowledgeFieldNumber = 3,
   };
   // int32 total_triggers = 1;
   void clear_total_triggers();
@@ -2066,6 +2125,15 @@ class Scene_Meta final :
   void _internal_set_total_characters(int32_t value);
   public:
 
+  // int32 total_common_knowledge = 3;
+  void clear_total_common_knowledge();
+  int32_t total_common_knowledge() const;
+  void set_total_common_knowledge(int32_t value);
+  private:
+  int32_t _internal_total_common_knowledge() const;
+  void _internal_set_total_common_knowledge(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.Scene.Meta)
  private:
   class _Internal;
@@ -2076,6 +2144,7 @@ class Scene_Meta final :
   struct Impl_ {
     int32_t total_triggers_;
     int32_t total_characters_;
+    int32_t total_common_knowledge_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -2210,9 +2279,11 @@ class Scene final :
   enum : int {
     kSceneTriggersFieldNumber = 3,
     kCharacterReferencesFieldNumber = 4,
+    kCommonKnowledgesFieldNumber = 7,
     kNameFieldNumber = 1,
     kDescriptionFieldNumber = 2,
     kDisplayNameFieldNumber = 5,
+    kTimePeriodFieldNumber = 8,
     kMetaFieldNumber = 6,
   };
   // repeated .ai.inworld.studio.v1alpha.Scene.SceneTrigger scene_triggers = 3;
@@ -2250,6 +2321,30 @@ class Scene final :
   ::ai::inworld::studio::v1alpha::Scene_CharacterReference* add_character_references();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::Scene_CharacterReference >&
       character_references() const;
+
+  // repeated string common_knowledges = 7 [(.ai.inworld.options.examples) = {
+  int common_knowledges_size() const;
+  private:
+  int _internal_common_knowledges_size() const;
+  public:
+  void clear_common_knowledges();
+  const std::string& common_knowledges(int index) const;
+  std::string* mutable_common_knowledges(int index);
+  void set_common_knowledges(int index, const std::string& value);
+  void set_common_knowledges(int index, std::string&& value);
+  void set_common_knowledges(int index, const char* value);
+  void set_common_knowledges(int index, const char* value, size_t size);
+  std::string* add_common_knowledges();
+  void add_common_knowledges(const std::string& value);
+  void add_common_knowledges(std::string&& value);
+  void add_common_knowledges(const char* value);
+  void add_common_knowledges(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& common_knowledges() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_common_knowledges();
+  private:
+  const std::string& _internal_common_knowledges(int index) const;
+  std::string* _internal_add_common_knowledges();
+  public:
 
   // string name = 1 [(.google.api.field_behavior) = REQUIRED];
   void clear_name();
@@ -2293,6 +2388,20 @@ class Scene final :
   std::string* _internal_mutable_display_name();
   public:
 
+  // string time_period = 8;
+  void clear_time_period();
+  const std::string& time_period() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_time_period(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_time_period();
+  PROTOBUF_NODISCARD std::string* release_time_period();
+  void set_allocated_time_period(std::string* time_period);
+  private:
+  const std::string& _internal_time_period() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_time_period(const std::string& value);
+  std::string* _internal_mutable_time_period();
+  public:
+
   // .ai.inworld.studio.v1alpha.Scene.Meta meta = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];
   bool has_meta() const;
   private:
@@ -2321,9 +2430,11 @@ class Scene final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::Scene_SceneTrigger > scene_triggers_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::Scene_CharacterReference > character_references_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> common_knowledges_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr description_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr display_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr time_period_;
     ::ai::inworld::studio::v1alpha::Scene_Meta* meta_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -2654,6 +2765,242 @@ class DeploySceneRequest final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
+  friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto;
+};
+// -------------------------------------------------------------------
+
+class DeploySceneAsyncMetadata final :
+    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.DeploySceneAsyncMetadata) */ {
+ public:
+  inline DeploySceneAsyncMetadata() : DeploySceneAsyncMetadata(nullptr) {}
+  explicit PROTOBUF_CONSTEXPR DeploySceneAsyncMetadata(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  DeploySceneAsyncMetadata(const DeploySceneAsyncMetadata& from);
+  DeploySceneAsyncMetadata(DeploySceneAsyncMetadata&& from) noexcept
+    : DeploySceneAsyncMetadata() {
+    *this = ::std::move(from);
+  }
+
+  inline DeploySceneAsyncMetadata& operator=(const DeploySceneAsyncMetadata& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DeploySceneAsyncMetadata& operator=(DeploySceneAsyncMetadata&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const DeploySceneAsyncMetadata& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DeploySceneAsyncMetadata* internal_default_instance() {
+    return reinterpret_cast<const DeploySceneAsyncMetadata*>(
+               &_DeploySceneAsyncMetadata_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    14;
+
+  friend void swap(DeploySceneAsyncMetadata& a, DeploySceneAsyncMetadata& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DeploySceneAsyncMetadata* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DeploySceneAsyncMetadata* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  DeploySceneAsyncMetadata* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<DeploySceneAsyncMetadata>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const DeploySceneAsyncMetadata& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const DeploySceneAsyncMetadata& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(*this, from);
+  }
+  public:
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.studio.v1alpha.DeploySceneAsyncMetadata";
+  }
+  protected:
+  explicit DeploySceneAsyncMetadata(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.DeploySceneAsyncMetadata)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+  };
+  friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto;
+};
+// -------------------------------------------------------------------
+
+class DeploySceneAsyncResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.DeploySceneAsyncResponse) */ {
+ public:
+  inline DeploySceneAsyncResponse() : DeploySceneAsyncResponse(nullptr) {}
+  explicit PROTOBUF_CONSTEXPR DeploySceneAsyncResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  DeploySceneAsyncResponse(const DeploySceneAsyncResponse& from);
+  DeploySceneAsyncResponse(DeploySceneAsyncResponse&& from) noexcept
+    : DeploySceneAsyncResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline DeploySceneAsyncResponse& operator=(const DeploySceneAsyncResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DeploySceneAsyncResponse& operator=(DeploySceneAsyncResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const DeploySceneAsyncResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DeploySceneAsyncResponse* internal_default_instance() {
+    return reinterpret_cast<const DeploySceneAsyncResponse*>(
+               &_DeploySceneAsyncResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    15;
+
+  friend void swap(DeploySceneAsyncResponse& a, DeploySceneAsyncResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DeploySceneAsyncResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DeploySceneAsyncResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  DeploySceneAsyncResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<DeploySceneAsyncResponse>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const DeploySceneAsyncResponse& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const DeploySceneAsyncResponse& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(*this, from);
+  }
+  public:
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.studio.v1alpha.DeploySceneAsyncResponse";
+  }
+  protected:
+  explicit DeploySceneAsyncResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.DeploySceneAsyncResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+  };
   friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto;
 };
 // ===================================================================
@@ -3596,6 +3943,106 @@ inline void Scene_CharacterReference_Character_CharacterAssets::set_allocated_rp
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.CharacterAssets.rpm_image_uri_posture)
 }
 
+// string avatar_img = 5;
+inline void Scene_CharacterReference_Character_CharacterAssets::clear_avatar_img() {
+  _impl_.avatar_img_.ClearToEmpty();
+}
+inline const std::string& Scene_CharacterReference_Character_CharacterAssets::avatar_img() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.CharacterAssets.avatar_img)
+  return _internal_avatar_img();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Scene_CharacterReference_Character_CharacterAssets::set_avatar_img(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.avatar_img_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.CharacterAssets.avatar_img)
+}
+inline std::string* Scene_CharacterReference_Character_CharacterAssets::mutable_avatar_img() {
+  std::string* _s = _internal_mutable_avatar_img();
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.CharacterAssets.avatar_img)
+  return _s;
+}
+inline const std::string& Scene_CharacterReference_Character_CharacterAssets::_internal_avatar_img() const {
+  return _impl_.avatar_img_.Get();
+}
+inline void Scene_CharacterReference_Character_CharacterAssets::_internal_set_avatar_img(const std::string& value) {
+  
+  _impl_.avatar_img_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Scene_CharacterReference_Character_CharacterAssets::_internal_mutable_avatar_img() {
+  
+  return _impl_.avatar_img_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Scene_CharacterReference_Character_CharacterAssets::release_avatar_img() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.CharacterAssets.avatar_img)
+  return _impl_.avatar_img_.Release();
+}
+inline void Scene_CharacterReference_Character_CharacterAssets::set_allocated_avatar_img(std::string* avatar_img) {
+  if (avatar_img != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.avatar_img_.SetAllocated(avatar_img, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.avatar_img_.IsDefault()) {
+    _impl_.avatar_img_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.CharacterAssets.avatar_img)
+}
+
+// string avatar_img_original = 6;
+inline void Scene_CharacterReference_Character_CharacterAssets::clear_avatar_img_original() {
+  _impl_.avatar_img_original_.ClearToEmpty();
+}
+inline const std::string& Scene_CharacterReference_Character_CharacterAssets::avatar_img_original() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.CharacterAssets.avatar_img_original)
+  return _internal_avatar_img_original();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Scene_CharacterReference_Character_CharacterAssets::set_avatar_img_original(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.avatar_img_original_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.CharacterAssets.avatar_img_original)
+}
+inline std::string* Scene_CharacterReference_Character_CharacterAssets::mutable_avatar_img_original() {
+  std::string* _s = _internal_mutable_avatar_img_original();
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.CharacterAssets.avatar_img_original)
+  return _s;
+}
+inline const std::string& Scene_CharacterReference_Character_CharacterAssets::_internal_avatar_img_original() const {
+  return _impl_.avatar_img_original_.Get();
+}
+inline void Scene_CharacterReference_Character_CharacterAssets::_internal_set_avatar_img_original(const std::string& value) {
+  
+  _impl_.avatar_img_original_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Scene_CharacterReference_Character_CharacterAssets::_internal_mutable_avatar_img_original() {
+  
+  return _impl_.avatar_img_original_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Scene_CharacterReference_Character_CharacterAssets::release_avatar_img_original() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.CharacterAssets.avatar_img_original)
+  return _impl_.avatar_img_original_.Release();
+}
+inline void Scene_CharacterReference_Character_CharacterAssets::set_allocated_avatar_img_original(std::string* avatar_img_original) {
+  if (avatar_img_original != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.avatar_img_original_.SetAllocated(avatar_img_original, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.avatar_img_original_.IsDefault()) {
+    _impl_.avatar_img_original_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.CharacterAssets.avatar_img_original)
+}
+
 // -------------------------------------------------------------------
 
 // Scene_CharacterReference_Character
@@ -3778,6 +4225,56 @@ inline void Scene_CharacterReference_Character::set_allocated_default_character_
   }
   _impl_.default_character_assets_ = default_character_assets;
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.default_character_assets)
+}
+
+// string additional_agent_info = 3;
+inline void Scene_CharacterReference_Character::clear_additional_agent_info() {
+  _impl_.additional_agent_info_.ClearToEmpty();
+}
+inline const std::string& Scene_CharacterReference_Character::additional_agent_info() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.additional_agent_info)
+  return _internal_additional_agent_info();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Scene_CharacterReference_Character::set_additional_agent_info(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.additional_agent_info_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.additional_agent_info)
+}
+inline std::string* Scene_CharacterReference_Character::mutable_additional_agent_info() {
+  std::string* _s = _internal_mutable_additional_agent_info();
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.additional_agent_info)
+  return _s;
+}
+inline const std::string& Scene_CharacterReference_Character::_internal_additional_agent_info() const {
+  return _impl_.additional_agent_info_.Get();
+}
+inline void Scene_CharacterReference_Character::_internal_set_additional_agent_info(const std::string& value) {
+  
+  _impl_.additional_agent_info_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Scene_CharacterReference_Character::_internal_mutable_additional_agent_info() {
+  
+  return _impl_.additional_agent_info_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Scene_CharacterReference_Character::release_additional_agent_info() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.additional_agent_info)
+  return _impl_.additional_agent_info_.Release();
+}
+inline void Scene_CharacterReference_Character::set_allocated_additional_agent_info(std::string* additional_agent_info) {
+  if (additional_agent_info != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.additional_agent_info_.SetAllocated(additional_agent_info, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.additional_agent_info_.IsDefault()) {
+    _impl_.additional_agent_info_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.additional_agent_info)
 }
 
 // -------------------------------------------------------------------
@@ -4070,6 +4567,26 @@ inline void Scene_Meta::_internal_set_total_characters(int32_t value) {
 inline void Scene_Meta::set_total_characters(int32_t value) {
   _internal_set_total_characters(value);
   // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Scene.Meta.total_characters)
+}
+
+// int32 total_common_knowledge = 3;
+inline void Scene_Meta::clear_total_common_knowledge() {
+  _impl_.total_common_knowledge_ = 0;
+}
+inline int32_t Scene_Meta::_internal_total_common_knowledge() const {
+  return _impl_.total_common_knowledge_;
+}
+inline int32_t Scene_Meta::total_common_knowledge() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Scene.Meta.total_common_knowledge)
+  return _internal_total_common_knowledge();
+}
+inline void Scene_Meta::_internal_set_total_common_knowledge(int32_t value) {
+  
+  _impl_.total_common_knowledge_ = value;
+}
+inline void Scene_Meta::set_total_common_knowledge(int32_t value) {
+  _internal_set_total_common_knowledge(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Scene.Meta.total_common_knowledge)
 }
 
 // -------------------------------------------------------------------
@@ -4396,6 +4913,131 @@ inline void Scene::set_allocated_meta(::ai::inworld::studio::v1alpha::Scene_Meta
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Scene.meta)
 }
 
+// repeated string common_knowledges = 7 [(.ai.inworld.options.examples) = {
+inline int Scene::_internal_common_knowledges_size() const {
+  return _impl_.common_knowledges_.size();
+}
+inline int Scene::common_knowledges_size() const {
+  return _internal_common_knowledges_size();
+}
+inline void Scene::clear_common_knowledges() {
+  _impl_.common_knowledges_.Clear();
+}
+inline std::string* Scene::add_common_knowledges() {
+  std::string* _s = _internal_add_common_knowledges();
+  // @@protoc_insertion_point(field_add_mutable:ai.inworld.studio.v1alpha.Scene.common_knowledges)
+  return _s;
+}
+inline const std::string& Scene::_internal_common_knowledges(int index) const {
+  return _impl_.common_knowledges_.Get(index);
+}
+inline const std::string& Scene::common_knowledges(int index) const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Scene.common_knowledges)
+  return _internal_common_knowledges(index);
+}
+inline std::string* Scene::mutable_common_knowledges(int index) {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.Scene.common_knowledges)
+  return _impl_.common_knowledges_.Mutable(index);
+}
+inline void Scene::set_common_knowledges(int index, const std::string& value) {
+  _impl_.common_knowledges_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Scene.common_knowledges)
+}
+inline void Scene::set_common_knowledges(int index, std::string&& value) {
+  _impl_.common_knowledges_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Scene.common_knowledges)
+}
+inline void Scene::set_common_knowledges(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.common_knowledges_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:ai.inworld.studio.v1alpha.Scene.common_knowledges)
+}
+inline void Scene::set_common_knowledges(int index, const char* value, size_t size) {
+  _impl_.common_knowledges_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.studio.v1alpha.Scene.common_knowledges)
+}
+inline std::string* Scene::_internal_add_common_knowledges() {
+  return _impl_.common_knowledges_.Add();
+}
+inline void Scene::add_common_knowledges(const std::string& value) {
+  _impl_.common_knowledges_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:ai.inworld.studio.v1alpha.Scene.common_knowledges)
+}
+inline void Scene::add_common_knowledges(std::string&& value) {
+  _impl_.common_knowledges_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:ai.inworld.studio.v1alpha.Scene.common_knowledges)
+}
+inline void Scene::add_common_knowledges(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.common_knowledges_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:ai.inworld.studio.v1alpha.Scene.common_knowledges)
+}
+inline void Scene::add_common_knowledges(const char* value, size_t size) {
+  _impl_.common_knowledges_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:ai.inworld.studio.v1alpha.Scene.common_knowledges)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+Scene::common_knowledges() const {
+  // @@protoc_insertion_point(field_list:ai.inworld.studio.v1alpha.Scene.common_knowledges)
+  return _impl_.common_knowledges_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+Scene::mutable_common_knowledges() {
+  // @@protoc_insertion_point(field_mutable_list:ai.inworld.studio.v1alpha.Scene.common_knowledges)
+  return &_impl_.common_knowledges_;
+}
+
+// string time_period = 8;
+inline void Scene::clear_time_period() {
+  _impl_.time_period_.ClearToEmpty();
+}
+inline const std::string& Scene::time_period() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Scene.time_period)
+  return _internal_time_period();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Scene::set_time_period(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.time_period_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Scene.time_period)
+}
+inline std::string* Scene::mutable_time_period() {
+  std::string* _s = _internal_mutable_time_period();
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.Scene.time_period)
+  return _s;
+}
+inline const std::string& Scene::_internal_time_period() const {
+  return _impl_.time_period_.Get();
+}
+inline void Scene::_internal_set_time_period(const std::string& value) {
+  
+  _impl_.time_period_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Scene::_internal_mutable_time_period() {
+  
+  return _impl_.time_period_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Scene::release_time_period() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.Scene.time_period)
+  return _impl_.time_period_.Release();
+}
+inline void Scene::set_allocated_time_period(std::string* time_period) {
+  if (time_period != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.time_period_.SetAllocated(time_period, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.time_period_.IsDefault()) {
+    _impl_.time_period_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Scene.time_period)
+}
+
 // -------------------------------------------------------------------
 
 // ListScenesResponse
@@ -4544,9 +5186,21 @@ inline void DeploySceneRequest::set_allocated_name(std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.DeploySceneRequest.name)
 }
 
+// -------------------------------------------------------------------
+
+// DeploySceneAsyncMetadata
+
+// -------------------------------------------------------------------
+
+// DeploySceneAsyncResponse
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

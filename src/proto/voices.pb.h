@@ -29,6 +29,9 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/map.h>  // IWYU pragma: export
+#include <google/protobuf/map_entry.h>
+#include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
@@ -51,11 +54,19 @@ namespace voices {
 class Voice;
 struct VoiceDefaultTypeInternal;
 extern VoiceDefaultTypeInternal _Voice_default_instance_;
+class Voice_ElevenLabsMetadata;
+struct Voice_ElevenLabsMetadataDefaultTypeInternal;
+extern Voice_ElevenLabsMetadataDefaultTypeInternal _Voice_ElevenLabsMetadata_default_instance_;
+class Voice_PhonemesOverridesEntry_DoNotUse;
+struct Voice_PhonemesOverridesEntry_DoNotUseDefaultTypeInternal;
+extern Voice_PhonemesOverridesEntry_DoNotUseDefaultTypeInternal _Voice_PhonemesOverridesEntry_DoNotUse_default_instance_;
 }  // namespace voices
 }  // namespace inworld
 }  // namespace ai
 PROTOBUF_NAMESPACE_OPEN
 template<> ::ai::inworld::voices::Voice* Arena::CreateMaybeMessage<::ai::inworld::voices::Voice>(Arena*);
+template<> ::ai::inworld::voices::Voice_ElevenLabsMetadata* Arena::CreateMaybeMessage<::ai::inworld::voices::Voice_ElevenLabsMetadata>(Arena*);
+template<> ::ai::inworld::voices::Voice_PhonemesOverridesEntry_DoNotUse* Arena::CreateMaybeMessage<::ai::inworld::voices::Voice_PhonemesOverridesEntry_DoNotUse>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace ai {
 namespace inworld {
@@ -88,15 +99,43 @@ inline bool Gender_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Gender>(
     Gender_descriptor(), name, value);
 }
+enum Age : int {
+  VOICE_AGE_UNSPECIFIED = 0,
+  VOICE_AGE_YOUNG = 1,
+  VOICE_AGE_MIDDLE_AGED = 2,
+  VOICE_AGE_OLD = 3,
+  Age_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  Age_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool Age_IsValid(int value);
+constexpr Age Age_MIN = VOICE_AGE_UNSPECIFIED;
+constexpr Age Age_MAX = VOICE_AGE_OLD;
+constexpr int Age_ARRAYSIZE = Age_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Age_descriptor();
+template<typename T>
+inline const std::string& Age_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, Age>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function Age_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    Age_descriptor(), enum_t_value);
+}
+inline bool Age_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Age* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Age>(
+    Age_descriptor(), name, value);
+}
 enum TTSType : int {
-  TTS_TYPE_STANDARD = 0,
+  TTS_TYPE_STANDARD PROTOBUF_DEPRECATED_ENUM = 0,
   TTS_TYPE_ADVANCED = 1,
+  TTS_TYPE_ELEVEN_LABS = 2,
   TTSType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   TTSType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool TTSType_IsValid(int value);
 constexpr TTSType TTSType_MIN = TTS_TYPE_STANDARD;
-constexpr TTSType TTSType_MAX = TTS_TYPE_ADVANCED;
+constexpr TTSType TTSType_MAX = TTS_TYPE_ELEVEN_LABS;
 constexpr int TTSType_ARRAYSIZE = TTSType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* TTSType_descriptor();
@@ -114,6 +153,187 @@ inline bool TTSType_Parse(
     TTSType_descriptor(), name, value);
 }
 // ===================================================================
+
+class Voice_PhonemesOverridesEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<Voice_PhonemesOverridesEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<Voice_PhonemesOverridesEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
+  Voice_PhonemesOverridesEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR Voice_PhonemesOverridesEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit Voice_PhonemesOverridesEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const Voice_PhonemesOverridesEntry_DoNotUse& other);
+  static const Voice_PhonemesOverridesEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const Voice_PhonemesOverridesEntry_DoNotUse*>(&_Voice_PhonemesOverridesEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "ai.inworld.voices.Voice.PhonemesOverridesEntry.key");
+ }
+  static bool ValidateValue(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "ai.inworld.voices.Voice.PhonemesOverridesEntry.value");
+ }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  friend struct ::TableStruct_voices_2eproto;
+};
+
+// -------------------------------------------------------------------
+
+class Voice_ElevenLabsMetadata final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.voices.Voice.ElevenLabsMetadata) */ {
+ public:
+  inline Voice_ElevenLabsMetadata() : Voice_ElevenLabsMetadata(nullptr) {}
+  ~Voice_ElevenLabsMetadata() override;
+  explicit PROTOBUF_CONSTEXPR Voice_ElevenLabsMetadata(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Voice_ElevenLabsMetadata(const Voice_ElevenLabsMetadata& from);
+  Voice_ElevenLabsMetadata(Voice_ElevenLabsMetadata&& from) noexcept
+    : Voice_ElevenLabsMetadata() {
+    *this = ::std::move(from);
+  }
+
+  inline Voice_ElevenLabsMetadata& operator=(const Voice_ElevenLabsMetadata& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Voice_ElevenLabsMetadata& operator=(Voice_ElevenLabsMetadata&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Voice_ElevenLabsMetadata& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Voice_ElevenLabsMetadata* internal_default_instance() {
+    return reinterpret_cast<const Voice_ElevenLabsMetadata*>(
+               &_Voice_ElevenLabsMetadata_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(Voice_ElevenLabsMetadata& a, Voice_ElevenLabsMetadata& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Voice_ElevenLabsMetadata* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Voice_ElevenLabsMetadata* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Voice_ElevenLabsMetadata* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Voice_ElevenLabsMetadata>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Voice_ElevenLabsMetadata& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const Voice_ElevenLabsMetadata& from) {
+    Voice_ElevenLabsMetadata::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Voice_ElevenLabsMetadata* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.voices.Voice.ElevenLabsMetadata";
+  }
+  protected:
+  explicit Voice_ElevenLabsMetadata(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kVoiceIdFieldNumber = 1,
+  };
+  // string voice_id = 1;
+  void clear_voice_id();
+  const std::string& voice_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_voice_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_voice_id();
+  PROTOBUF_NODISCARD std::string* release_voice_id();
+  void set_allocated_voice_id(std::string* voice_id);
+  private:
+  const std::string& _internal_voice_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_voice_id(const std::string& value);
+  std::string* _internal_mutable_voice_id();
+  public:
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.voices.Voice.ElevenLabsMetadata)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr voice_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_voices_2eproto;
+};
+// -------------------------------------------------------------------
 
 class Voice final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.voices.Voice) */ {
@@ -158,12 +378,17 @@ class Voice final :
   static const Voice& default_instance() {
     return *internal_default_instance();
   }
+  enum TtsMetadataCase {
+    kElevenlabsMetadata = 100,
+    TTS_METADATA_NOT_SET = 0,
+  };
+
   static inline const Voice* internal_default_instance() {
     return reinterpret_cast<const Voice*>(
                &_Voice_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    2;
 
   friend void swap(Voice& a, Voice& b) {
     a.Swap(&b);
@@ -224,6 +449,8 @@ class Voice final :
   protected:
   explicit Voice(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
   public:
 
   static const ClassData _class_data_;
@@ -233,16 +460,38 @@ class Voice final :
 
   // nested types ----------------------------------------------------
 
+  typedef Voice_ElevenLabsMetadata ElevenLabsMetadata;
+
   // accessors -------------------------------------------------------
 
   enum : int {
+    kPhonemesOverridesFieldNumber = 7,
     kBaseNameFieldNumber = 1,
     kTtsTypeFieldNumber = 2,
     kGenderFieldNumber = 3,
     kPitchFieldNumber = 4,
     kSpeakingRateFieldNumber = 5,
     kRoboticVoiceFilterLevelFieldNumber = 6,
+    kAgeFieldNumber = 8,
+    kElevenlabsMetadataFieldNumber = 100,
   };
+  // map<string, string> phonemes_overrides = 7;
+  int phonemes_overrides_size() const;
+  private:
+  int _internal_phonemes_overrides_size() const;
+  public:
+  void clear_phonemes_overrides();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      _internal_phonemes_overrides() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      _internal_mutable_phonemes_overrides();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      phonemes_overrides() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      mutable_phonemes_overrides();
+
   // string baseName = 1;
   void clear_basename();
   const std::string& basename() const;
@@ -302,21 +551,67 @@ class Voice final :
   void _internal_set_robotic_voice_filter_level(double value);
   public:
 
+  // .ai.inworld.voices.Age age = 8;
+  void clear_age();
+  ::ai::inworld::voices::Age age() const;
+  void set_age(::ai::inworld::voices::Age value);
+  private:
+  ::ai::inworld::voices::Age _internal_age() const;
+  void _internal_set_age(::ai::inworld::voices::Age value);
+  public:
+
+  // .ai.inworld.voices.Voice.ElevenLabsMetadata elevenlabs_metadata = 100;
+  bool has_elevenlabs_metadata() const;
+  private:
+  bool _internal_has_elevenlabs_metadata() const;
+  public:
+  void clear_elevenlabs_metadata();
+  const ::ai::inworld::voices::Voice_ElevenLabsMetadata& elevenlabs_metadata() const;
+  PROTOBUF_NODISCARD ::ai::inworld::voices::Voice_ElevenLabsMetadata* release_elevenlabs_metadata();
+  ::ai::inworld::voices::Voice_ElevenLabsMetadata* mutable_elevenlabs_metadata();
+  void set_allocated_elevenlabs_metadata(::ai::inworld::voices::Voice_ElevenLabsMetadata* elevenlabs_metadata);
+  private:
+  const ::ai::inworld::voices::Voice_ElevenLabsMetadata& _internal_elevenlabs_metadata() const;
+  ::ai::inworld::voices::Voice_ElevenLabsMetadata* _internal_mutable_elevenlabs_metadata();
+  public:
+  void unsafe_arena_set_allocated_elevenlabs_metadata(
+      ::ai::inworld::voices::Voice_ElevenLabsMetadata* elevenlabs_metadata);
+  ::ai::inworld::voices::Voice_ElevenLabsMetadata* unsafe_arena_release_elevenlabs_metadata();
+
+  void clear_tts_metadata();
+  TtsMetadataCase tts_metadata_case() const;
   // @@protoc_insertion_point(class_scope:ai.inworld.voices.Voice)
  private:
   class _Internal;
+  void set_has_elevenlabs_metadata();
+
+  inline bool has_tts_metadata() const;
+  inline void clear_has_tts_metadata();
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+        Voice_PhonemesOverridesEntry_DoNotUse,
+        std::string, std::string,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> phonemes_overrides_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr basename_;
     int tts_type_;
     int gender_;
     double pitch_;
     double speaking_rate_;
     double robotic_voice_filter_level_;
+    int age_;
+    union TtsMetadataUnion {
+      constexpr TtsMetadataUnion() : _constinit_{} {}
+        ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+      ::ai::inworld::voices::Voice_ElevenLabsMetadata* elevenlabs_metadata_;
+    } tts_metadata_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t _oneof_case_[1];
+
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_voices_2eproto;
@@ -330,6 +625,62 @@ class Voice final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// Voice_ElevenLabsMetadata
+
+// string voice_id = 1;
+inline void Voice_ElevenLabsMetadata::clear_voice_id() {
+  _impl_.voice_id_.ClearToEmpty();
+}
+inline const std::string& Voice_ElevenLabsMetadata::voice_id() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.voices.Voice.ElevenLabsMetadata.voice_id)
+  return _internal_voice_id();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Voice_ElevenLabsMetadata::set_voice_id(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.voice_id_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:ai.inworld.voices.Voice.ElevenLabsMetadata.voice_id)
+}
+inline std::string* Voice_ElevenLabsMetadata::mutable_voice_id() {
+  std::string* _s = _internal_mutable_voice_id();
+  // @@protoc_insertion_point(field_mutable:ai.inworld.voices.Voice.ElevenLabsMetadata.voice_id)
+  return _s;
+}
+inline const std::string& Voice_ElevenLabsMetadata::_internal_voice_id() const {
+  return _impl_.voice_id_.Get();
+}
+inline void Voice_ElevenLabsMetadata::_internal_set_voice_id(const std::string& value) {
+  
+  _impl_.voice_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Voice_ElevenLabsMetadata::_internal_mutable_voice_id() {
+  
+  return _impl_.voice_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Voice_ElevenLabsMetadata::release_voice_id() {
+  // @@protoc_insertion_point(field_release:ai.inworld.voices.Voice.ElevenLabsMetadata.voice_id)
+  return _impl_.voice_id_.Release();
+}
+inline void Voice_ElevenLabsMetadata::set_allocated_voice_id(std::string* voice_id) {
+  if (voice_id != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.voice_id_.SetAllocated(voice_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.voice_id_.IsDefault()) {
+    _impl_.voice_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.voices.Voice.ElevenLabsMetadata.voice_id)
+}
+
+// -------------------------------------------------------------------
+
 // Voice
 
 // string baseName = 1;
@@ -482,9 +833,145 @@ inline void Voice::set_robotic_voice_filter_level(double value) {
   // @@protoc_insertion_point(field_set:ai.inworld.voices.Voice.robotic_voice_filter_level)
 }
 
+// map<string, string> phonemes_overrides = 7;
+inline int Voice::_internal_phonemes_overrides_size() const {
+  return _impl_.phonemes_overrides_.size();
+}
+inline int Voice::phonemes_overrides_size() const {
+  return _internal_phonemes_overrides_size();
+}
+inline void Voice::clear_phonemes_overrides() {
+  _impl_.phonemes_overrides_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+Voice::_internal_phonemes_overrides() const {
+  return _impl_.phonemes_overrides_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+Voice::phonemes_overrides() const {
+  // @@protoc_insertion_point(field_map:ai.inworld.voices.Voice.phonemes_overrides)
+  return _internal_phonemes_overrides();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+Voice::_internal_mutable_phonemes_overrides() {
+  return _impl_.phonemes_overrides_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+Voice::mutable_phonemes_overrides() {
+  // @@protoc_insertion_point(field_mutable_map:ai.inworld.voices.Voice.phonemes_overrides)
+  return _internal_mutable_phonemes_overrides();
+}
+
+// .ai.inworld.voices.Age age = 8;
+inline void Voice::clear_age() {
+  _impl_.age_ = 0;
+}
+inline ::ai::inworld::voices::Age Voice::_internal_age() const {
+  return static_cast< ::ai::inworld::voices::Age >(_impl_.age_);
+}
+inline ::ai::inworld::voices::Age Voice::age() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.voices.Voice.age)
+  return _internal_age();
+}
+inline void Voice::_internal_set_age(::ai::inworld::voices::Age value) {
+  
+  _impl_.age_ = value;
+}
+inline void Voice::set_age(::ai::inworld::voices::Age value) {
+  _internal_set_age(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.voices.Voice.age)
+}
+
+// .ai.inworld.voices.Voice.ElevenLabsMetadata elevenlabs_metadata = 100;
+inline bool Voice::_internal_has_elevenlabs_metadata() const {
+  return tts_metadata_case() == kElevenlabsMetadata;
+}
+inline bool Voice::has_elevenlabs_metadata() const {
+  return _internal_has_elevenlabs_metadata();
+}
+inline void Voice::set_has_elevenlabs_metadata() {
+  _impl_._oneof_case_[0] = kElevenlabsMetadata;
+}
+inline void Voice::clear_elevenlabs_metadata() {
+  if (_internal_has_elevenlabs_metadata()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.tts_metadata_.elevenlabs_metadata_;
+    }
+    clear_has_tts_metadata();
+  }
+}
+inline ::ai::inworld::voices::Voice_ElevenLabsMetadata* Voice::release_elevenlabs_metadata() {
+  // @@protoc_insertion_point(field_release:ai.inworld.voices.Voice.elevenlabs_metadata)
+  if (_internal_has_elevenlabs_metadata()) {
+    clear_has_tts_metadata();
+    ::ai::inworld::voices::Voice_ElevenLabsMetadata* temp = _impl_.tts_metadata_.elevenlabs_metadata_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.tts_metadata_.elevenlabs_metadata_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::ai::inworld::voices::Voice_ElevenLabsMetadata& Voice::_internal_elevenlabs_metadata() const {
+  return _internal_has_elevenlabs_metadata()
+      ? *_impl_.tts_metadata_.elevenlabs_metadata_
+      : reinterpret_cast< ::ai::inworld::voices::Voice_ElevenLabsMetadata&>(::ai::inworld::voices::_Voice_ElevenLabsMetadata_default_instance_);
+}
+inline const ::ai::inworld::voices::Voice_ElevenLabsMetadata& Voice::elevenlabs_metadata() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.voices.Voice.elevenlabs_metadata)
+  return _internal_elevenlabs_metadata();
+}
+inline ::ai::inworld::voices::Voice_ElevenLabsMetadata* Voice::unsafe_arena_release_elevenlabs_metadata() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:ai.inworld.voices.Voice.elevenlabs_metadata)
+  if (_internal_has_elevenlabs_metadata()) {
+    clear_has_tts_metadata();
+    ::ai::inworld::voices::Voice_ElevenLabsMetadata* temp = _impl_.tts_metadata_.elevenlabs_metadata_;
+    _impl_.tts_metadata_.elevenlabs_metadata_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Voice::unsafe_arena_set_allocated_elevenlabs_metadata(::ai::inworld::voices::Voice_ElevenLabsMetadata* elevenlabs_metadata) {
+  clear_tts_metadata();
+  if (elevenlabs_metadata) {
+    set_has_elevenlabs_metadata();
+    _impl_.tts_metadata_.elevenlabs_metadata_ = elevenlabs_metadata;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.voices.Voice.elevenlabs_metadata)
+}
+inline ::ai::inworld::voices::Voice_ElevenLabsMetadata* Voice::_internal_mutable_elevenlabs_metadata() {
+  if (!_internal_has_elevenlabs_metadata()) {
+    clear_tts_metadata();
+    set_has_elevenlabs_metadata();
+    _impl_.tts_metadata_.elevenlabs_metadata_ = CreateMaybeMessage< ::ai::inworld::voices::Voice_ElevenLabsMetadata >(GetArenaForAllocation());
+  }
+  return _impl_.tts_metadata_.elevenlabs_metadata_;
+}
+inline ::ai::inworld::voices::Voice_ElevenLabsMetadata* Voice::mutable_elevenlabs_metadata() {
+  ::ai::inworld::voices::Voice_ElevenLabsMetadata* _msg = _internal_mutable_elevenlabs_metadata();
+  // @@protoc_insertion_point(field_mutable:ai.inworld.voices.Voice.elevenlabs_metadata)
+  return _msg;
+}
+
+inline bool Voice::has_tts_metadata() const {
+  return tts_metadata_case() != TTS_METADATA_NOT_SET;
+}
+inline void Voice::clear_has_tts_metadata() {
+  _impl_._oneof_case_[0] = TTS_METADATA_NOT_SET;
+}
+inline Voice::TtsMetadataCase Voice::tts_metadata_case() const {
+  return Voice::TtsMetadataCase(_impl_._oneof_case_[0]);
+}
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -498,6 +985,11 @@ template <> struct is_proto_enum< ::ai::inworld::voices::Gender> : ::std::true_t
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ai::inworld::voices::Gender>() {
   return ::ai::inworld::voices::Gender_descriptor();
+}
+template <> struct is_proto_enum< ::ai::inworld::voices::Age> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ai::inworld::voices::Age>() {
+  return ::ai::inworld::voices::Age_descriptor();
 }
 template <> struct is_proto_enum< ::ai::inworld::voices::TTSType> : ::std::true_type {};
 template <>

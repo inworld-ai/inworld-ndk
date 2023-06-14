@@ -95,6 +95,37 @@ struct DeleteWorkspaceRequestDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DeleteWorkspaceRequestDefaultTypeInternal _DeleteWorkspaceRequest_default_instance_;
+PROTOBUF_CONSTEXPR ImpressionEventRequest_ImpressionEventData::ImpressionEventRequest_ImpressionEventData(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.feature_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.variant_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.payload_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.stickiness_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.event_time_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct ImpressionEventRequest_ImpressionEventDataDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ImpressionEventRequest_ImpressionEventDataDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ImpressionEventRequest_ImpressionEventDataDefaultTypeInternal() {}
+  union {
+    ImpressionEventRequest_ImpressionEventData _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ImpressionEventRequest_ImpressionEventDataDefaultTypeInternal _ImpressionEventRequest_ImpressionEventData_default_instance_;
+PROTOBUF_CONSTEXPR ImpressionEventRequest::ImpressionEventRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.data_)*/{}
+  , /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct ImpressionEventRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ImpressionEventRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ImpressionEventRequestDefaultTypeInternal() {}
+  union {
+    ImpressionEventRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ImpressionEventRequestDefaultTypeInternal _ImpressionEventRequest_default_instance_;
 PROTOBUF_CONSTEXPR Workspace_Meta::Workspace_Meta(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.total_characters_)*/0
@@ -118,6 +149,7 @@ PROTOBUF_CONSTEXPR Workspace::Workspace(
   , /*decltype(_impl_.display_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.billing_account_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.meta_)*/nullptr
+  , /*decltype(_impl_.runtime_access_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct WorkspaceDefaultTypeInternal {
   PROTOBUF_CONSTEXPR WorkspaceDefaultTypeInternal()
@@ -246,6 +278,7 @@ PROTOBUF_CONSTEXPR WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::
   , /*decltype(_impl_.example_dialog_max_length_)*/0
   , /*decltype(_impl_.motivation_max_length_)*/0
   , /*decltype(_impl_.character_role_max_length_)*/0
+  , /*decltype(_impl_.flaws_max_length_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimitDefaultTypeInternal {
   PROTOBUF_CONSTEXPR WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimitDefaultTypeInternal()
@@ -278,6 +311,7 @@ PROTOBUF_CONSTEXPR WorkspaceLimitInfo_SceneLimit::WorkspaceLimitInfo_SceneLimit(
   , /*decltype(_impl_.total_characters_)*/0
   , /*decltype(_impl_.total_triggers_)*/0
   , /*decltype(_impl_.display_name_max_length_)*/0
+  , /*decltype(_impl_.total_common_knowledge_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct WorkspaceLimitInfo_SceneLimitDefaultTypeInternal {
   PROTOBUF_CONSTEXPR WorkspaceLimitInfo_SceneLimitDefaultTypeInternal()
@@ -351,55 +385,11 @@ struct WorkspaceLimitInfoDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WorkspaceLimitInfoDefaultTypeInternal _WorkspaceLimitInfo_default_instance_;
-PROTOBUF_CONSTEXPR GetWorkspaceBillingInfoRequest::GetWorkspaceBillingInfoRequest(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_._cached_size_)*/{}} {}
-struct GetWorkspaceBillingInfoRequestDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR GetWorkspaceBillingInfoRequestDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
-  ~GetWorkspaceBillingInfoRequestDefaultTypeInternal() {}
-  union {
-    GetWorkspaceBillingInfoRequest _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GetWorkspaceBillingInfoRequestDefaultTypeInternal _GetWorkspaceBillingInfoRequest_default_instance_;
-PROTOBUF_CONSTEXPR WorkspaceBillingInfo_QuotaDetails::WorkspaceBillingInfo_QuotaDetails(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.has_credits_)*/false
-  , /*decltype(_impl_.has_paid_subscription_)*/false
-  , /*decltype(_impl_.current_source_)*/0
-  , /*decltype(_impl_._cached_size_)*/{}} {}
-struct WorkspaceBillingInfo_QuotaDetailsDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR WorkspaceBillingInfo_QuotaDetailsDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
-  ~WorkspaceBillingInfo_QuotaDetailsDefaultTypeInternal() {}
-  union {
-    WorkspaceBillingInfo_QuotaDetails _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WorkspaceBillingInfo_QuotaDetailsDefaultTypeInternal _WorkspaceBillingInfo_QuotaDetails_default_instance_;
-PROTOBUF_CONSTEXPR WorkspaceBillingInfo::WorkspaceBillingInfo(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.quota_details_)*/nullptr
-  , /*decltype(_impl_.is_billing_owner_)*/false
-  , /*decltype(_impl_.has_usable_quota_)*/false
-  , /*decltype(_impl_._cached_size_)*/{}} {}
-struct WorkspaceBillingInfoDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR WorkspaceBillingInfoDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
-  ~WorkspaceBillingInfoDefaultTypeInternal() {}
-  union {
-    WorkspaceBillingInfo _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WorkspaceBillingInfoDefaultTypeInternal _WorkspaceBillingInfo_default_instance_;
 }  // namespace v1alpha
 }  // namespace studio
 }  // namespace inworld
 }  // namespace ai
-static ::_pb::Metadata file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[25];
+static ::_pb::Metadata file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[24];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[3];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto = nullptr;
 
@@ -444,6 +434,25 @@ const uint32_t TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto:
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest, _impl_.name_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest, _impl_.force_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData, _impl_.feature_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData, _impl_.variant_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData, _impl_.payload_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData, _impl_.stickiness_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData, _impl_.event_time_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ImpressionEventRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ImpressionEventRequest, _impl_.name_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ImpressionEventRequest, _impl_.data_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Workspace_Meta, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -464,6 +473,7 @@ const uint32_t TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto:
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Workspace, _impl_.experimental_features_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Workspace, _impl_.billing_account_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Workspace, _impl_.meta_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Workspace, _impl_.runtime_access_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ListWorkspacesResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -538,6 +548,7 @@ const uint32_t TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto:
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit, _impl_.hobby_or_interests_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit, _impl_.nicknames_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit, _impl_.personality_adjectives_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit, _impl_.flaws_max_length_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -558,6 +569,7 @@ const uint32_t TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto:
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit, _impl_.total_characters_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit, _impl_.total_triggers_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit, _impl_.display_name_max_length_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit, _impl_.total_common_knowledge_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_WorkspaceLimit, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -597,32 +609,6 @@ const uint32_t TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto:
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo, _impl_.workspace_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo, _impl_.billing_account_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo, _impl_.common_knowledge_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest, _impl_.name_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails, _impl_.has_credits_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails, _impl_.has_paid_subscription_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails, _impl_.current_source_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceBillingInfo, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceBillingInfo, _impl_.name_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceBillingInfo, _impl_.is_billing_owner_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceBillingInfo, _impl_.has_usable_quota_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceBillingInfo, _impl_.quota_details_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::ai::inworld::studio::v1alpha::GetWorkspaceRequest)},
@@ -630,26 +616,25 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 16, -1, -1, sizeof(::ai::inworld::studio::v1alpha::CreateWorkspaceRequest)},
   { 23, -1, -1, sizeof(::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest)},
   { 31, -1, -1, sizeof(::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest)},
-  { 39, -1, -1, sizeof(::ai::inworld::studio::v1alpha::Workspace_Meta)},
-  { 49, -1, -1, sizeof(::ai::inworld::studio::v1alpha::Workspace)},
-  { 60, -1, -1, sizeof(::ai::inworld::studio::v1alpha::ListWorkspacesResponse)},
-  { 68, -1, -1, sizeof(::ai::inworld::studio::v1alpha::ShareWorkspaceRequest)},
-  { 76, -1, -1, sizeof(::ai::inworld::studio::v1alpha::GenerateResourceNameRequest)},
-  { 85, -1, -1, sizeof(::ai::inworld::studio::v1alpha::GenerateResourceNameResponse)},
-  { 92, -1, -1, sizeof(::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest)},
-  { 99, -1, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceShareInfo)},
-  { 106, -1, -1, sizeof(::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest)},
-  { 113, -1, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit)},
-  { 121, -1, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit)},
-  { 134, -1, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit)},
-  { 144, -1, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit)},
-  { 154, -1, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_WorkspaceLimit)},
-  { 166, -1, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_BillingAccountLimit)},
-  { 173, -1, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CommonKnowledgeLimit)},
-  { 182, -1, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo)},
-  { 193, -1, -1, sizeof(::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest)},
-  { 200, -1, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails)},
-  { 209, -1, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceBillingInfo)},
+  { 39, -1, -1, sizeof(::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData)},
+  { 50, -1, -1, sizeof(::ai::inworld::studio::v1alpha::ImpressionEventRequest)},
+  { 58, -1, -1, sizeof(::ai::inworld::studio::v1alpha::Workspace_Meta)},
+  { 68, -1, -1, sizeof(::ai::inworld::studio::v1alpha::Workspace)},
+  { 80, -1, -1, sizeof(::ai::inworld::studio::v1alpha::ListWorkspacesResponse)},
+  { 88, -1, -1, sizeof(::ai::inworld::studio::v1alpha::ShareWorkspaceRequest)},
+  { 96, -1, -1, sizeof(::ai::inworld::studio::v1alpha::GenerateResourceNameRequest)},
+  { 105, -1, -1, sizeof(::ai::inworld::studio::v1alpha::GenerateResourceNameResponse)},
+  { 112, -1, -1, sizeof(::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest)},
+  { 119, -1, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceShareInfo)},
+  { 126, -1, -1, sizeof(::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest)},
+  { 133, -1, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit)},
+  { 141, -1, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit)},
+  { 155, -1, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit)},
+  { 165, -1, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit)},
+  { 176, -1, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_WorkspaceLimit)},
+  { 188, -1, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_BillingAccountLimit)},
+  { 195, -1, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CommonKnowledgeLimit)},
+  { 204, -1, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -658,6 +643,8 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::ai::inworld::studio::v1alpha::_CreateWorkspaceRequest_default_instance_._instance,
   &::ai::inworld::studio::v1alpha::_UpdateWorkspaceRequest_default_instance_._instance,
   &::ai::inworld::studio::v1alpha::_DeleteWorkspaceRequest_default_instance_._instance,
+  &::ai::inworld::studio::v1alpha::_ImpressionEventRequest_ImpressionEventData_default_instance_._instance,
+  &::ai::inworld::studio::v1alpha::_ImpressionEventRequest_default_instance_._instance,
   &::ai::inworld::studio::v1alpha::_Workspace_Meta_default_instance_._instance,
   &::ai::inworld::studio::v1alpha::_Workspace_default_instance_._instance,
   &::ai::inworld::studio::v1alpha::_ListWorkspacesResponse_default_instance_._instance,
@@ -675,9 +662,6 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::ai::inworld::studio::v1alpha::_WorkspaceLimitInfo_BillingAccountLimit_default_instance_._instance,
   &::ai::inworld::studio::v1alpha::_WorkspaceLimitInfo_CommonKnowledgeLimit_default_instance_._instance,
   &::ai::inworld::studio::v1alpha::_WorkspaceLimitInfo_default_instance_._instance,
-  &::ai::inworld::studio::v1alpha::_GetWorkspaceBillingInfoRequest_default_instance_._instance,
-  &::ai::inworld::studio::v1alpha::_WorkspaceBillingInfo_QuotaDetails_default_instance_._instance,
-  &::ai::inworld::studio::v1alpha::_WorkspaceBillingInfo_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -687,177 +671,174 @@ const char descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fworkspace
   ".proto\032\037google/api/field_behavior.proto\032"
   "\031google/api/resource.proto\032\033google/proto"
   "buf/empty.proto\032 google/protobuf/field_m"
-  "ask.proto\032\roptions.proto\"\201\001\n\023GetWorkspac"
-  "eRequest\022.\n\004name\030\001 \001(\tB \340A\002\372A\032\n\030api.inwo"
-  "rld.ai/Workspace\022:\n\004view\030\002 \001(\0162,.ai.inwo"
-  "rld.studio.v1alpha.WorkspaceItemView\">\n\025"
-  "ListWorkspacesRequest\022\021\n\tpage_size\030\001 \001(\005"
-  "\022\022\n\npage_token\030\002 \001(\t\"V\n\026CreateWorkspaceR"
-  "equest\022<\n\tworkspace\030\001 \001(\0132$.ai.inworld.s"
-  "tudio.v1alpha.WorkspaceB\003\340A\002\"\214\001\n\026UpdateW"
-  "orkspaceRequest\022<\n\tworkspace\030\001 \001(\0132$.ai."
-  "inworld.studio.v1alpha.WorkspaceB\003\340A\002\0224\n"
-  "\013update_mask\030\002 \001(\0132\032.google.protobuf.Fie"
-  "ldMaskB\003\340A\002\"W\n\026DeleteWorkspaceRequest\022.\n"
-  "\004name\030\001 \001(\tB \340A\002\372A\032\n\030api.inworld.ai/Work"
-  "space\022\r\n\005force\030\002 \001(\010\"\233\003\n\tWorkspace\022/\n\004na"
-  "me\030\001 \001(\tB!\340A\002\242\317\"\032\n\030\032\026workspaces/workspac"
-  "e-1\022\031\n\014display_name\030\002 \001(\tB\003\340A\002\022\035\n\025experi"
-  "mental_features\030\003 \003(\t\022>\n\017billing_account"
-  "\030\004 \001(\tB%\340A\002\372A\037\n\035api.inworld.ai/BillingAc"
-  "count\022<\n\004meta\030\005 \001(\0132).ai.inworld.studio."
-  "v1alpha.Workspace.MetaB\003\340A\003\032n\n\004Meta\022\030\n\020t"
-  "otal_characters\030\001 \001(\005\022\024\n\014total_scenes\030\002 "
-  "\001(\005\022\026\n\016total_triggers\030\003 \001(\005\022\036\n\026total_com"
-  "mon_knowledge\030\004 \001(\005:5\352A2\n\030api.inworld.ai"
-  "/Workspace\022\026workspaces/{workspace}\"k\n\026Li"
-  "stWorkspacesResponse\0228\n\nworkspaces\030\001 \003(\013"
-  "2$.ai.inworld.studio.v1alpha.Workspace\022\027"
-  "\n\017next_page_token\030\002 \001(\t\"s\n\025ShareWorkspac"
-  "eRequest\022.\n\004name\030\001 \001(\tB \340A\002\372A\032\n\030api.inwo"
-  "rld.ai/Workspace\022*\n\006emails\030\002 \003(\tB\032\242\317\"\026\n\024"
-  "2\022\n\020\032\016user@email.com\"\321\002\n\033GenerateResourc"
-  "eNameRequest\0223\n\tworkspace\030\001 \001(\tB \340A\002\372A\032\n"
-  "\030api.inworld.ai/Workspace\022\031\n\014display_nam"
-  "e\030\002 \001(\tB\003\340A\002\022_\n\rresource_type\030\003 \001(\0162C.ai"
-  ".inworld.studio.v1alpha.GenerateResource"
-  "NameRequest.ResourceTypeB\003\340A\002\"\200\001\n\014Resour"
-  "ceType\022\035\n\031RESOURCE_TYPE_UNSPECIFIED\020\000\022\033\n"
-  "\027RESOURCE_TYPE_WORKSPACE\020\001\022\033\n\027RESOURCE_T"
-  "YPE_CHARACTER\020\002\022\027\n\023RESOURCE_TYPE_SCENE\020\003"
-  "\"5\n\034GenerateResourceNameResponse\022\025\n\010reso"
-  "urce\030\001 \001(\tB\003\340A\002\"N\n\034GetWorkspaceShareInfo"
-  "Request\022.\n\004name\030\001 \001(\tB \340A\002\372A\032\n\030api.inwor"
-  "ld.ai/Workspace\"$\n\022WorkspaceShareInfo\022\016\n"
-  "\006emails\030\001 \003(\t\"N\n\034GetWorkspaceLimitInfoRe"
-  "quest\022.\n\004name\030\001 \001(\tB \340A\002\372A\032\n\030api.inworld"
-  ".ai/Workspace\"\210\r\n\022WorkspaceLimitInfo\022O\n\t"
-  "character\030\001 \001(\0132<.ai.inworld.studio.v1al"
-  "pha.WorkspaceLimitInfo.CharacterLimit\022G\n"
-  "\005scene\030\002 \001(\01328.ai.inworld.studio.v1alpha"
-  ".WorkspaceLimitInfo.SceneLimit\022O\n\tworksp"
-  "ace\030\003 \001(\0132<.ai.inworld.studio.v1alpha.Wo"
-  "rkspaceLimitInfo.WorkspaceLimit\022Z\n\017billi"
-  "ng_account\030\004 \001(\0132A.ai.inworld.studio.v1a"
-  "lpha.WorkspaceLimitInfo.BillingAccountLi"
-  "mit\022\\\n\020common_knowledge\030\005 \001(\0132B.ai.inwor"
-  "ld.studio.v1alpha.WorkspaceLimitInfo.Com"
-  "monKnowledgeLimit\032=\n\rTextListLimit\022\027\n\017it"
-  "em_max_length\030\001 \001(\005\022\023\n\013total_items\030\002 \001(\005"
-  "\032\372\004\n\016CharacterLimit\022\027\n\017name_max_length\030\001"
-  " \001(\005\022\026\n\016total_triggers\030\002 \001(\005\022\036\n\026total_co"
-  "mmon_knowledge\030\003 \001(\005\022u\n\025character_descri"
-  "ption\030\004 \001(\0132V.ai.inworld.studio.v1alpha."
-  "WorkspaceLimitInfo.CharacterLimit.Charac"
-  "terDescriptionLimit\032\237\003\n\031CharacterDescrip"
-  "tionLimit\022\027\n\017core_max_length\030\001 \001(\005\022!\n\031ex"
-  "ample_dialog_max_length\030\002 \001(\005\022\035\n\025motivat"
-  "ion_max_length\030\003 \001(\005\022!\n\031character_role_m"
-  "ax_length\030\004 \001(\005\022W\n\022hobby_or_interests\030\005 "
-  "\001(\0132;.ai.inworld.studio.v1alpha.Workspac"
-  "eLimitInfo.TextListLimit\022N\n\tnicknames\030\006 "
-  "\001(\0132;.ai.inworld.studio.v1alpha.Workspac"
-  "eLimitInfo.TextListLimit\022[\n\026personality_"
-  "adjectives\030\007 \001(\0132;.ai.inworld.studio.v1a"
-  "lpha.WorkspaceLimitInfo.TextListLimit\032\177\n"
-  "\nSceneLimit\022\036\n\026description_max_length\030\001 "
-  "\001(\005\022\030\n\020total_characters\030\002 \001(\005\022\026\n\016total_t"
-  "riggers\030\003 \001(\005\022\037\n\027display_name_max_length"
-  "\030\004 \001(\005\032\257\001\n\016WorkspaceLimit\022\037\n\027display_nam"
-  "e_max_length\030\001 \001(\005\022\030\n\020total_characters\030\002"
-  " \001(\005\022\024\n\014total_scenes\030\003 \001(\005\022\026\n\016total_trig"
-  "gers\030\004 \001(\005\022\024\n\014total_voices\030\005 \001(\005\022\036\n\026tota"
-  "l_common_knowledge\030\006 \001(\005\032/\n\023BillingAccou"
-  "ntLimit\022\030\n\020total_workspaces\030\001 \001(\005\032\254\001\n\024Co"
-  "mmonKnowledgeLimit\022\037\n\027display_name_max_l"
-  "ength\030\001 \001(\005\022\036\n\026description_max_length\030\002 "
-  "\001(\005\022S\n\016memory_records\030\003 \001(\0132;.ai.inworld"
-  ".studio.v1alpha.WorkspaceLimitInfo.TextL"
-  "istLimit\"\224\001\n\036GetWorkspaceBillingInfoRequ"
-  "est\022r\n\004name\030\001 \001(\tBd\340A\002\372A\032\n\030api.inworld.a"
-  "i/Workspace\242\317\"@\n>\032<workspaces/00000000-0"
-  "000-0000-0000-000000000001/billing-info\""
-  "\254\004\n\024WorkspaceBillingInfo\0229\n\004name\030\001 \001(\tB+"
-  "\340A\002\372A%\n#api.inworld.ai/WorkspaceBillingI"
-  "nfo\022\030\n\020is_billing_owner\030\002 \001(\010\022\030\n\020has_usa"
-  "ble_quota\030\003 \001(\010\022S\n\rquota_details\030\004 \001(\0132<"
-  ".ai.inworld.studio.v1alpha.WorkspaceBill"
-  "ingInfo.QuotaDetails\032\227\001\n\014QuotaDetails\022\023\n"
-  "\013has_credits\030\001 \001(\010\022\035\n\025has_paid_subscript"
-  "ion\030\002 \001(\010\022S\n\016current_source\030\003 \001(\0162;.ai.i"
-  "nworld.studio.v1alpha.WorkspaceBillingIn"
-  "fo.QuotaSource\"g\n\013QuotaSource\022\034\n\030QUOTA_S"
-  "OURCE_UNSPECIFIED\020\000\022\016\n\nNO_SOURCES\020\001\022\020\n\014S"
-  "UBSCRIPTION\020\002\022\013\n\007CREDITS\020\003\022\013\n\007OVERAGE\020\004:"
-  "M\352AJ\n#api.inworld.ai/WorkspaceBillingInf"
-  "o\022#workspaces/{workspace}/billing-info*|"
-  "\n\021WorkspaceItemView\022#\n\037WORKSPACE_ITEM_VI"
-  "EW_UNSPECIFIED\020\000\022\037\n\033WORKSPACE_ITEM_VIEW_"
-  "DEFAULT\020\001\022!\n\035WORKSPACE_ITEM_VIEW_WITH_ME"
-  "TA\020\0022\362\r\n\nWorkspaces\022\221\001\n\014GetWorkspace\022..a"
-  "i.inworld.studio.v1alpha.GetWorkspaceReq"
-  "uest\032$.ai.inworld.studio.v1alpha.Workspa"
-  "ce\"+\202\323\344\223\002\036\022\034/v1alpha/{name=workspaces/*}"
-  "\332A\004name\022\225\001\n\016ListWorkspaces\0220.ai.inworld."
-  "studio.v1alpha.ListWorkspacesRequest\0321.a"
-  "i.inworld.studio.v1alpha.ListWorkspacesR"
-  "esponse\"\036\202\323\344\223\002\025\022\023/v1alpha/workspaces\332A\000\022"
-  "\275\001\n\017UpdateWorkspace\0221.ai.inworld.studio."
-  "v1alpha.UpdateWorkspaceRequest\032$.ai.inwo"
-  "rld.studio.v1alpha.Workspace\"Q\202\323\344\223\00232&/v"
-  "1alpha/{workspace.name=workspaces/*}:\two"
-  "rkspace\332A\025workspace,update_mask\022\236\001\n\017Crea"
-  "teWorkspace\0221.ai.inworld.studio.v1alpha."
-  "CreateWorkspaceRequest\032$.ai.inworld.stud"
-  "io.v1alpha.Workspace\"2\202\323\344\223\002 \"\023/v1alpha/w"
-  "orkspaces:\tworkspace\332A\tworkspace\022\211\001\n\017Del"
-  "eteWorkspace\0221.ai.inworld.studio.v1alpha"
-  ".DeleteWorkspaceRequest\032\026.google.protobu"
-  "f.Empty\"+\202\323\344\223\002\036*\034/v1alpha/{name=workspac"
-  "es/*}\332A\004name\022\220\001\n\016ShareWorkspace\0220.ai.inw"
-  "orld.studio.v1alpha.ShareWorkspaceReques"
-  "t\032\026.google.protobuf.Empty\"4\202\323\344\223\002\'\"\"/v1al"
-  "pha/{name=workspaces/*}:share:\001*\332A\004name\022"
-  "\361\001\n\024generateResourceName\0226.ai.inworld.st"
-  "udio.v1alpha.GenerateResourceNameRequest"
-  "\0327.ai.inworld.studio.v1alpha.GenerateRes"
-  "ourceNameResponse\"h\202\323\344\223\002;\"6/v1alpha/{wor"
-  "kspace=workspaces/*}:generateResourceNam"
-  "e:\001*\332A$workspace,display_name,resource_t"
-  "ype\022\277\001\n\025GetWorkspaceShareInfo\0227.ai.inwor"
-  "ld.studio.v1alpha.GetWorkspaceShareInfoR"
-  "equest\032-.ai.inworld.studio.v1alpha.Works"
-  "paceShareInfo\">\202\323\344\223\0021\022//v1alpha/{name=wo"
-  "rkspaces/*/workspaceShareInfo}\332A\004name\022\277\001"
-  "\n\025GetWorkspaceLimitInfo\0227.ai.inworld.stu"
-  "dio.v1alpha.GetWorkspaceLimitInfoRequest"
-  "\032-.ai.inworld.studio.v1alpha.WorkspaceLi"
-  "mitInfo\">\202\323\344\223\0021\022//v1alpha/{name=workspac"
-  "es/*/workspaceLimitInfo}\332A\004name\022\277\001\n\027GetW"
-  "orkspaceBillingInfo\0229.ai.inworld.studio."
-  "v1alpha.GetWorkspaceBillingInfoRequest\032/"
-  ".ai.inworld.studio.v1alpha.WorkspaceBill"
-  "ingInfo\"8\202\323\344\223\002+\022)/v1alpha/{name=workspac"
-  "es/*/billing-info}\332A\004nameB\231\001\n\031ai.inworld"
-  ".studio.v1alphaB\017WorkspacesProtoP\001ZMgith"
-  "ub.com/inworld-ai/inworld/serving/grpc-g"
-  "ateway/build/proto/studio/v1alpha\252\002\031Ai.I"
-  "nworld.Studio.V1Alphab\006proto3"
+  "ask.proto\032\037google/protobuf/timestamp.pro"
+  "to\032\roptions.proto\"\201\001\n\023GetWorkspaceReques"
+  "t\022.\n\004name\030\001 \001(\tB \340A\002\372A\032\n\030api.inworld.ai/"
+  "Workspace\022:\n\004view\030\002 \001(\0162,.ai.inworld.stu"
+  "dio.v1alpha.WorkspaceItemView\">\n\025ListWor"
+  "kspacesRequest\022\021\n\tpage_size\030\001 \001(\005\022\022\n\npag"
+  "e_token\030\002 \001(\t\"V\n\026CreateWorkspaceRequest\022"
+  "<\n\tworkspace\030\001 \001(\0132$.ai.inworld.studio.v"
+  "1alpha.WorkspaceB\003\340A\002\"\214\001\n\026UpdateWorkspac"
+  "eRequest\022<\n\tworkspace\030\001 \001(\0132$.ai.inworld"
+  ".studio.v1alpha.WorkspaceB\003\340A\002\0224\n\013update"
+  "_mask\030\002 \001(\0132\032.google.protobuf.FieldMaskB"
+  "\003\340A\002\"W\n\026DeleteWorkspaceRequest\022.\n\004name\030\001"
+  " \001(\tB \340A\002\372A\032\n\030api.inworld.ai/Workspace\022\r"
+  "\n\005force\030\002 \001(\010\"\254\002\n\026ImpressionEventRequest"
+  "\022.\n\004name\030\001 \001(\tB \340A\002\372A\032\n\030api.inworld.ai/W"
+  "orkspace\022S\n\004data\030\002 \003(\0132E.ai.inworld.stud"
+  "io.v1alpha.ImpressionEventRequest.Impres"
+  "sionEventData\032\214\001\n\023ImpressionEventData\022\017\n"
+  "\007feature\030\001 \001(\t\022\017\n\007variant\030\002 \001(\t\022\017\n\007paylo"
+  "ad\030\003 \001(\t\022\022\n\nstickiness\030\004 \001(\t\022.\n\nevent_ti"
+  "me\030\005 \001(\0132\032.google.protobuf.Timestamp\"\317\004\n"
+  "\tWorkspace\022/\n\004name\030\001 \001(\tB!\340A\002\242\317\"\032\n\030\032\026wor"
+  "kspaces/workspace-1\022\031\n\014display_name\030\002 \001("
+  "\tB\003\340A\002\022\035\n\025experimental_features\030\003 \003(\t\022>\n"
+  "\017billing_account\030\004 \001(\tB%\340A\002\372A\037\n\035api.inwo"
+  "rld.ai/BillingAccount\022<\n\004meta\030\005 \001(\0132).ai"
+  ".inworld.studio.v1alpha.Workspace.MetaB\003"
+  "\340A\003\022J\n\016runtime_access\030\006 \001(\01622.ai.inworld"
+  ".studio.v1alpha.Workspace.RuntimeAccess\032"
+  "n\n\004Meta\022\030\n\020total_characters\030\001 \001(\005\022\024\n\014tot"
+  "al_scenes\030\002 \001(\005\022\026\n\016total_triggers\030\003 \001(\005\022"
+  "\036\n\026total_common_knowledge\030\004 \001(\005\"f\n\rRunti"
+  "meAccess\022\036\n\032RUNTIME_ACCESS_UNSPECIFIED\020\000"
+  "\022\032\n\026RUNTIME_ACCESS_PRIVATE\020\001\022\031\n\025RUNTIME_"
+  "ACCESS_PUBLIC\020\002:5\352A2\n\030api.inworld.ai/Wor"
+  "kspace\022\026workspaces/{workspace}\"k\n\026ListWo"
+  "rkspacesResponse\0228\n\nworkspaces\030\001 \003(\0132$.a"
+  "i.inworld.studio.v1alpha.Workspace\022\027\n\017ne"
+  "xt_page_token\030\002 \001(\t\"s\n\025ShareWorkspaceReq"
+  "uest\022.\n\004name\030\001 \001(\tB \340A\002\372A\032\n\030api.inworld."
+  "ai/Workspace\022*\n\006emails\030\002 \003(\tB\032\242\317\"\026\n\0242\022\n\020"
+  "\032\016user@email.com\"\321\002\n\033GenerateResourceNam"
+  "eRequest\0223\n\tworkspace\030\001 \001(\tB \340A\002\372A\032\n\030api"
+  ".inworld.ai/Workspace\022\031\n\014display_name\030\002 "
+  "\001(\tB\003\340A\002\022_\n\rresource_type\030\003 \001(\0162C.ai.inw"
+  "orld.studio.v1alpha.GenerateResourceName"
+  "Request.ResourceTypeB\003\340A\002\"\200\001\n\014ResourceTy"
+  "pe\022\035\n\031RESOURCE_TYPE_UNSPECIFIED\020\000\022\033\n\027RES"
+  "OURCE_TYPE_WORKSPACE\020\001\022\033\n\027RESOURCE_TYPE_"
+  "CHARACTER\020\002\022\027\n\023RESOURCE_TYPE_SCENE\020\003\"5\n\034"
+  "GenerateResourceNameResponse\022\025\n\010resource"
+  "\030\001 \001(\tB\003\340A\002\"N\n\034GetWorkspaceShareInfoRequ"
+  "est\022.\n\004name\030\001 \001(\tB \340A\002\372A\032\n\030api.inworld.a"
+  "i/Workspace\"$\n\022WorkspaceShareInfo\022\016\n\006ema"
+  "ils\030\001 \003(\t\"N\n\034GetWorkspaceLimitInfoReques"
+  "t\022.\n\004name\030\001 \001(\tB \340A\002\372A\032\n\030api.inworld.ai/"
+  "Workspace\"\303\r\n\022WorkspaceLimitInfo\022O\n\tchar"
+  "acter\030\001 \001(\0132<.ai.inworld.studio.v1alpha."
+  "WorkspaceLimitInfo.CharacterLimit\022G\n\005sce"
+  "ne\030\002 \001(\01328.ai.inworld.studio.v1alpha.Wor"
+  "kspaceLimitInfo.SceneLimit\022O\n\tworkspace\030"
+  "\003 \001(\0132<.ai.inworld.studio.v1alpha.Worksp"
+  "aceLimitInfo.WorkspaceLimit\022Z\n\017billing_a"
+  "ccount\030\004 \001(\0132A.ai.inworld.studio.v1alpha"
+  ".WorkspaceLimitInfo.BillingAccountLimit\022"
+  "\\\n\020common_knowledge\030\005 \001(\0132B.ai.inworld.s"
+  "tudio.v1alpha.WorkspaceLimitInfo.CommonK"
+  "nowledgeLimit\032=\n\rTextListLimit\022\027\n\017item_m"
+  "ax_length\030\001 \001(\005\022\023\n\013total_items\030\002 \001(\005\032\224\005\n"
+  "\016CharacterLimit\022\027\n\017name_max_length\030\001 \001(\005"
+  "\022\026\n\016total_triggers\030\002 \001(\005\022\036\n\026total_common"
+  "_knowledge\030\003 \001(\005\022u\n\025character_descriptio"
+  "n\030\004 \001(\0132V.ai.inworld.studio.v1alpha.Work"
+  "spaceLimitInfo.CharacterLimit.CharacterD"
+  "escriptionLimit\032\271\003\n\031CharacterDescription"
+  "Limit\022\027\n\017core_max_length\030\001 \001(\005\022!\n\031exampl"
+  "e_dialog_max_length\030\002 \001(\005\022\035\n\025motivation_"
+  "max_length\030\003 \001(\005\022!\n\031character_role_max_l"
+  "ength\030\004 \001(\005\022W\n\022hobby_or_interests\030\005 \001(\0132"
+  ";.ai.inworld.studio.v1alpha.WorkspaceLim"
+  "itInfo.TextListLimit\022N\n\tnicknames\030\006 \001(\0132"
+  ";.ai.inworld.studio.v1alpha.WorkspaceLim"
+  "itInfo.TextListLimit\022[\n\026personality_adje"
+  "ctives\030\007 \001(\0132;.ai.inworld.studio.v1alpha"
+  ".WorkspaceLimitInfo.TextListLimit\022\030\n\020fla"
+  "ws_max_length\030\010 \001(\005\032\237\001\n\nSceneLimit\022\036\n\026de"
+  "scription_max_length\030\001 \001(\005\022\030\n\020total_char"
+  "acters\030\002 \001(\005\022\026\n\016total_triggers\030\003 \001(\005\022\037\n\027"
+  "display_name_max_length\030\004 \001(\005\022\036\n\026total_c"
+  "ommon_knowledge\030\005 \001(\005\032\257\001\n\016WorkspaceLimit"
+  "\022\037\n\027display_name_max_length\030\001 \001(\005\022\030\n\020tot"
+  "al_characters\030\002 \001(\005\022\024\n\014total_scenes\030\003 \001("
+  "\005\022\026\n\016total_triggers\030\004 \001(\005\022\024\n\014total_voice"
+  "s\030\005 \001(\005\022\036\n\026total_common_knowledge\030\006 \001(\005\032"
+  "/\n\023BillingAccountLimit\022\030\n\020total_workspac"
+  "es\030\001 \001(\005\032\254\001\n\024CommonKnowledgeLimit\022\037\n\027dis"
+  "play_name_max_length\030\001 \001(\005\022\036\n\026descriptio"
+  "n_max_length\030\002 \001(\005\022S\n\016memory_records\030\003 \001"
+  "(\0132;.ai.inworld.studio.v1alpha.Workspace"
+  "LimitInfo.TextListLimit*|\n\021WorkspaceItem"
+  "View\022#\n\037WORKSPACE_ITEM_VIEW_UNSPECIFIED\020"
+  "\000\022\037\n\033WORKSPACE_ITEM_VIEW_DEFAULT\020\001\022!\n\035WO"
+  "RKSPACE_ITEM_VIEW_WITH_META\020\0022\316\r\n\nWorksp"
+  "aces\022\221\001\n\014GetWorkspace\022..ai.inworld.studi"
+  "o.v1alpha.GetWorkspaceRequest\032$.ai.inwor"
+  "ld.studio.v1alpha.Workspace\"+\202\323\344\223\002\036\022\034/v1"
+  "alpha/{name=workspaces/*}\332A\004name\022\225\001\n\016Lis"
+  "tWorkspaces\0220.ai.inworld.studio.v1alpha."
+  "ListWorkspacesRequest\0321.ai.inworld.studi"
+  "o.v1alpha.ListWorkspacesResponse\"\036\202\323\344\223\002\025"
+  "\022\023/v1alpha/workspaces\332A\000\022\275\001\n\017UpdateWorks"
+  "pace\0221.ai.inworld.studio.v1alpha.UpdateW"
+  "orkspaceRequest\032$.ai.inworld.studio.v1al"
+  "pha.Workspace\"Q\202\323\344\223\00232&/v1alpha/{workspa"
+  "ce.name=workspaces/*}:\tworkspace\332A\025works"
+  "pace,update_mask\022\236\001\n\017CreateWorkspace\0221.a"
+  "i.inworld.studio.v1alpha.CreateWorkspace"
+  "Request\032$.ai.inworld.studio.v1alpha.Work"
+  "space\"2\202\323\344\223\002 \"\023/v1alpha/workspaces:\twork"
+  "space\332A\tworkspace\022\211\001\n\017DeleteWorkspace\0221."
+  "ai.inworld.studio.v1alpha.DeleteWorkspac"
+  "eRequest\032\026.google.protobuf.Empty\"+\202\323\344\223\002\036"
+  "*\034/v1alpha/{name=workspaces/*}\332A\004name\022\220\001"
+  "\n\016ShareWorkspace\0220.ai.inworld.studio.v1a"
+  "lpha.ShareWorkspaceRequest\032\026.google.prot"
+  "obuf.Empty\"4\202\323\344\223\002\'\"\"/v1alpha/{name=works"
+  "paces/*}:share:\001*\332A\004name\022\361\001\n\024generateRes"
+  "ourceName\0226.ai.inworld.studio.v1alpha.Ge"
+  "nerateResourceNameRequest\0327.ai.inworld.s"
+  "tudio.v1alpha.GenerateResourceNameRespon"
+  "se\"h\202\323\344\223\002;\"6/v1alpha/{workspace=workspac"
+  "es/*}:generateResourceName:\001*\332A$workspac"
+  "e,display_name,resource_type\022\277\001\n\025GetWork"
+  "spaceShareInfo\0227.ai.inworld.studio.v1alp"
+  "ha.GetWorkspaceShareInfoRequest\032-.ai.inw"
+  "orld.studio.v1alpha.WorkspaceShareInfo\">"
+  "\202\323\344\223\0021\022//v1alpha/{name=workspaces/*/work"
+  "spaceShareInfo}\332A\004name\022\277\001\n\025GetWorkspaceL"
+  "imitInfo\0227.ai.inworld.studio.v1alpha.Get"
+  "WorkspaceLimitInfoRequest\032-.ai.inworld.s"
+  "tudio.v1alpha.WorkspaceLimitInfo\">\202\323\344\223\0021"
+  "\022//v1alpha/{name=workspaces/*/workspaceL"
+  "imitInfo}\332A\004name\022\233\001\n\023SendImpressionEvent"
+  "\0221.ai.inworld.studio.v1alpha.ImpressionE"
+  "ventRequest\032\026.google.protobuf.Empty\"9\202\323\344"
+  "\223\002,\"\'/v1alpha/{name=workspaces/*}:impres"
+  "sion:\001*\332A\004nameB\231\001\n\031ai.inworld.studio.v1a"
+  "lphaB\017WorkspacesProtoP\001ZMgithub.com/inwo"
+  "rld-ai/inworld/serving/grpc-gateway/buil"
+  "d/proto/studio/v1alpha\252\002\031Ai.Inworld.Stud"
+  "io.V1Alphab\006proto3"
   ;
-static const ::_pbi::DescriptorTable* const descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_deps[7] = {
+static const ::_pbi::DescriptorTable* const descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_deps[8] = {
   &::descriptor_table_google_2fapi_2fannotations_2eproto,
   &::descriptor_table_google_2fapi_2fclient_2eproto,
   &::descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto,
   &::descriptor_table_google_2fapi_2fresource_2eproto,
   &::descriptor_table_google_2fprotobuf_2fempty_2eproto,
   &::descriptor_table_google_2fprotobuf_2ffield_5fmask_2eproto,
+  &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto,
   &::descriptor_table_options_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto = {
-    false, false, 6469, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto,
+    false, false, 6298, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto,
     "ai/inworld/studio/v1alpha/workspaces.proto",
-    &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_deps, 7, 25,
+    &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_deps, 8, 24,
     schemas, file_default_instances, TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto::offsets,
     file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto, file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto,
     file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto,
@@ -872,9 +853,32 @@ namespace ai {
 namespace inworld {
 namespace studio {
 namespace v1alpha {
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* GenerateResourceNameRequest_ResourceType_descriptor() {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Workspace_RuntimeAccess_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto);
   return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[0];
+}
+bool Workspace_RuntimeAccess_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+constexpr Workspace_RuntimeAccess Workspace::RUNTIME_ACCESS_UNSPECIFIED;
+constexpr Workspace_RuntimeAccess Workspace::RUNTIME_ACCESS_PRIVATE;
+constexpr Workspace_RuntimeAccess Workspace::RUNTIME_ACCESS_PUBLIC;
+constexpr Workspace_RuntimeAccess Workspace::RuntimeAccess_MIN;
+constexpr Workspace_RuntimeAccess Workspace::RuntimeAccess_MAX;
+constexpr int Workspace::RuntimeAccess_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* GenerateResourceNameRequest_ResourceType_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto);
+  return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[1];
 }
 bool GenerateResourceNameRequest_ResourceType_IsValid(int value) {
   switch (value) {
@@ -896,33 +900,6 @@ constexpr GenerateResourceNameRequest_ResourceType GenerateResourceNameRequest::
 constexpr GenerateResourceNameRequest_ResourceType GenerateResourceNameRequest::ResourceType_MIN;
 constexpr GenerateResourceNameRequest_ResourceType GenerateResourceNameRequest::ResourceType_MAX;
 constexpr int GenerateResourceNameRequest::ResourceType_ARRAYSIZE;
-#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* WorkspaceBillingInfo_QuotaSource_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto);
-  return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[1];
-}
-bool WorkspaceBillingInfo_QuotaSource_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-constexpr WorkspaceBillingInfo_QuotaSource WorkspaceBillingInfo::QUOTA_SOURCE_UNSPECIFIED;
-constexpr WorkspaceBillingInfo_QuotaSource WorkspaceBillingInfo::NO_SOURCES;
-constexpr WorkspaceBillingInfo_QuotaSource WorkspaceBillingInfo::SUBSCRIPTION;
-constexpr WorkspaceBillingInfo_QuotaSource WorkspaceBillingInfo::CREDITS;
-constexpr WorkspaceBillingInfo_QuotaSource WorkspaceBillingInfo::OVERAGE;
-constexpr WorkspaceBillingInfo_QuotaSource WorkspaceBillingInfo::QuotaSource_MIN;
-constexpr WorkspaceBillingInfo_QuotaSource WorkspaceBillingInfo::QuotaSource_MAX;
-constexpr int WorkspaceBillingInfo::QuotaSource_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* WorkspaceItemView_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto);
@@ -2073,6 +2050,644 @@ void DeleteWorkspaceRequest::InternalSwap(DeleteWorkspaceRequest* other) {
 
 // ===================================================================
 
+class ImpressionEventRequest_ImpressionEventData::_Internal {
+ public:
+  static const ::PROTOBUF_NAMESPACE_ID::Timestamp& event_time(const ImpressionEventRequest_ImpressionEventData* msg);
+};
+
+const ::PROTOBUF_NAMESPACE_ID::Timestamp&
+ImpressionEventRequest_ImpressionEventData::_Internal::event_time(const ImpressionEventRequest_ImpressionEventData* msg) {
+  return *msg->_impl_.event_time_;
+}
+void ImpressionEventRequest_ImpressionEventData::clear_event_time() {
+  if (GetArenaForAllocation() == nullptr && _impl_.event_time_ != nullptr) {
+    delete _impl_.event_time_;
+  }
+  _impl_.event_time_ = nullptr;
+}
+ImpressionEventRequest_ImpressionEventData::ImpressionEventRequest_ImpressionEventData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData)
+}
+ImpressionEventRequest_ImpressionEventData::ImpressionEventRequest_ImpressionEventData(const ImpressionEventRequest_ImpressionEventData& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ImpressionEventRequest_ImpressionEventData* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.feature_){}
+    , decltype(_impl_.variant_){}
+    , decltype(_impl_.payload_){}
+    , decltype(_impl_.stickiness_){}
+    , decltype(_impl_.event_time_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.feature_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.feature_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_feature().empty()) {
+    _this->_impl_.feature_.Set(from._internal_feature(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.variant_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.variant_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_variant().empty()) {
+    _this->_impl_.variant_.Set(from._internal_variant(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.payload_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.payload_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_payload().empty()) {
+    _this->_impl_.payload_.Set(from._internal_payload(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.stickiness_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.stickiness_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_stickiness().empty()) {
+    _this->_impl_.stickiness_.Set(from._internal_stickiness(), 
+      _this->GetArenaForAllocation());
+  }
+  if (from._internal_has_event_time()) {
+    _this->_impl_.event_time_ = new ::PROTOBUF_NAMESPACE_ID::Timestamp(*from._impl_.event_time_);
+  }
+  // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData)
+}
+
+inline void ImpressionEventRequest_ImpressionEventData::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.feature_){}
+    , decltype(_impl_.variant_){}
+    , decltype(_impl_.payload_){}
+    , decltype(_impl_.stickiness_){}
+    , decltype(_impl_.event_time_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.feature_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.feature_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.variant_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.variant_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.payload_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.payload_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.stickiness_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.stickiness_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+ImpressionEventRequest_ImpressionEventData::~ImpressionEventRequest_ImpressionEventData() {
+  // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void ImpressionEventRequest_ImpressionEventData::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.feature_.Destroy();
+  _impl_.variant_.Destroy();
+  _impl_.payload_.Destroy();
+  _impl_.stickiness_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.event_time_;
+}
+
+void ImpressionEventRequest_ImpressionEventData::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void ImpressionEventRequest_ImpressionEventData::Clear() {
+// @@protoc_insertion_point(message_clear_start:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.feature_.ClearToEmpty();
+  _impl_.variant_.ClearToEmpty();
+  _impl_.payload_.ClearToEmpty();
+  _impl_.stickiness_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.event_time_ != nullptr) {
+    delete _impl_.event_time_;
+  }
+  _impl_.event_time_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ImpressionEventRequest_ImpressionEventData::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string feature = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_feature();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.feature"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string variant = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_variant();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.variant"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string payload = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_payload();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.payload"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string stickiness = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          auto str = _internal_mutable_stickiness();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.stickiness"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.protobuf.Timestamp event_time = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          ptr = ctx->ParseMessage(_internal_mutable_event_time(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ImpressionEventRequest_ImpressionEventData::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string feature = 1;
+  if (!this->_internal_feature().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_feature().data(), static_cast<int>(this->_internal_feature().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.feature");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_feature(), target);
+  }
+
+  // string variant = 2;
+  if (!this->_internal_variant().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_variant().data(), static_cast<int>(this->_internal_variant().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.variant");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_variant(), target);
+  }
+
+  // string payload = 3;
+  if (!this->_internal_payload().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_payload().data(), static_cast<int>(this->_internal_payload().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.payload");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_payload(), target);
+  }
+
+  // string stickiness = 4;
+  if (!this->_internal_stickiness().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_stickiness().data(), static_cast<int>(this->_internal_stickiness().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.stickiness");
+    target = stream->WriteStringMaybeAliased(
+        4, this->_internal_stickiness(), target);
+  }
+
+  // .google.protobuf.Timestamp event_time = 5;
+  if (this->_internal_has_event_time()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(5, _Internal::event_time(this),
+        _Internal::event_time(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData)
+  return target;
+}
+
+size_t ImpressionEventRequest_ImpressionEventData::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string feature = 1;
+  if (!this->_internal_feature().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_feature());
+  }
+
+  // string variant = 2;
+  if (!this->_internal_variant().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_variant());
+  }
+
+  // string payload = 3;
+  if (!this->_internal_payload().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_payload());
+  }
+
+  // string stickiness = 4;
+  if (!this->_internal_stickiness().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_stickiness());
+  }
+
+  // .google.protobuf.Timestamp event_time = 5;
+  if (this->_internal_has_event_time()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.event_time_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ImpressionEventRequest_ImpressionEventData::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ImpressionEventRequest_ImpressionEventData::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ImpressionEventRequest_ImpressionEventData::GetClassData() const { return &_class_data_; }
+
+
+void ImpressionEventRequest_ImpressionEventData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ImpressionEventRequest_ImpressionEventData*>(&to_msg);
+  auto& from = static_cast<const ImpressionEventRequest_ImpressionEventData&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_feature().empty()) {
+    _this->_internal_set_feature(from._internal_feature());
+  }
+  if (!from._internal_variant().empty()) {
+    _this->_internal_set_variant(from._internal_variant());
+  }
+  if (!from._internal_payload().empty()) {
+    _this->_internal_set_payload(from._internal_payload());
+  }
+  if (!from._internal_stickiness().empty()) {
+    _this->_internal_set_stickiness(from._internal_stickiness());
+  }
+  if (from._internal_has_event_time()) {
+    _this->_internal_mutable_event_time()->::PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(
+        from._internal_event_time());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ImpressionEventRequest_ImpressionEventData::CopyFrom(const ImpressionEventRequest_ImpressionEventData& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ImpressionEventRequest_ImpressionEventData::IsInitialized() const {
+  return true;
+}
+
+void ImpressionEventRequest_ImpressionEventData::InternalSwap(ImpressionEventRequest_ImpressionEventData* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.feature_, lhs_arena,
+      &other->_impl_.feature_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.variant_, lhs_arena,
+      &other->_impl_.variant_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.payload_, lhs_arena,
+      &other->_impl_.payload_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.stickiness_, lhs_arena,
+      &other->_impl_.stickiness_, rhs_arena
+  );
+  swap(_impl_.event_time_, other->_impl_.event_time_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ImpressionEventRequest_ImpressionEventData::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once,
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[5]);
+}
+
+// ===================================================================
+
+class ImpressionEventRequest::_Internal {
+ public:
+};
+
+ImpressionEventRequest::ImpressionEventRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.ImpressionEventRequest)
+}
+ImpressionEventRequest::ImpressionEventRequest(const ImpressionEventRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ImpressionEventRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.data_){from._impl_.data_}
+    , decltype(_impl_.name_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_name().empty()) {
+    _this->_impl_.name_.Set(from._internal_name(), 
+      _this->GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.ImpressionEventRequest)
+}
+
+inline void ImpressionEventRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.data_){arena}
+    , decltype(_impl_.name_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+ImpressionEventRequest::~ImpressionEventRequest() {
+  // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.ImpressionEventRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void ImpressionEventRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.data_.~RepeatedPtrField();
+  _impl_.name_.Destroy();
+}
+
+void ImpressionEventRequest::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void ImpressionEventRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:ai.inworld.studio.v1alpha.ImpressionEventRequest)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.data_.Clear();
+  _impl_.name_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ImpressionEventRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "ai.inworld.studio.v1alpha.ImpressionEventRequest.name"));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData data = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_data(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ImpressionEventRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.ImpressionEventRequest)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
+  if (!this->_internal_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.studio.v1alpha.ImpressionEventRequest.name");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_name(), target);
+  }
+
+  // repeated .ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData data = 2;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_data_size()); i < n; i++) {
+    const auto& repfield = this->_internal_data(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.ImpressionEventRequest)
+  return target;
+}
+
+size_t ImpressionEventRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ai.inworld.studio.v1alpha.ImpressionEventRequest)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData data = 2;
+  total_size += 1UL * this->_internal_data_size();
+  for (const auto& msg : this->_impl_.data_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
+  if (!this->_internal_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_name());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ImpressionEventRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ImpressionEventRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ImpressionEventRequest::GetClassData() const { return &_class_data_; }
+
+
+void ImpressionEventRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ImpressionEventRequest*>(&to_msg);
+  auto& from = static_cast<const ImpressionEventRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.ImpressionEventRequest)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.data_.MergeFrom(from._impl_.data_);
+  if (!from._internal_name().empty()) {
+    _this->_internal_set_name(from._internal_name());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ImpressionEventRequest::CopyFrom(const ImpressionEventRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ai.inworld.studio.v1alpha.ImpressionEventRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ImpressionEventRequest::IsInitialized() const {
+  return true;
+}
+
+void ImpressionEventRequest::InternalSwap(ImpressionEventRequest* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.data_.InternalSwap(&other->_impl_.data_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.name_, lhs_arena,
+      &other->_impl_.name_, rhs_arena
+  );
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ImpressionEventRequest::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once,
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[6]);
+}
+
+// ===================================================================
+
 class Workspace_Meta::_Internal {
  public:
 };
@@ -2327,7 +2942,7 @@ void Workspace_Meta::InternalSwap(Workspace_Meta* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata Workspace_Meta::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once,
-      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[5]);
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[7]);
 }
 
 // ===================================================================
@@ -2356,6 +2971,7 @@ Workspace::Workspace(const Workspace& from)
     , decltype(_impl_.display_name_){}
     , decltype(_impl_.billing_account_){}
     , decltype(_impl_.meta_){nullptr}
+    , decltype(_impl_.runtime_access_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -2386,6 +3002,7 @@ Workspace::Workspace(const Workspace& from)
   if (from._internal_has_meta()) {
     _this->_impl_.meta_ = new ::ai::inworld::studio::v1alpha::Workspace_Meta(*from._impl_.meta_);
   }
+  _this->_impl_.runtime_access_ = from._impl_.runtime_access_;
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.Workspace)
 }
 
@@ -2399,6 +3016,7 @@ inline void Workspace::SharedCtor(
     , decltype(_impl_.display_name_){}
     , decltype(_impl_.billing_account_){}
     , decltype(_impl_.meta_){nullptr}
+    , decltype(_impl_.runtime_access_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.name_.InitDefault();
@@ -2451,6 +3069,7 @@ void Workspace::Clear() {
     delete _impl_.meta_;
   }
   _impl_.meta_ = nullptr;
+  _impl_.runtime_access_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2510,6 +3129,15 @@ const char* Workspace::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           ptr = ctx->ParseMessage(_internal_mutable_meta(), ptr);
           CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .ai.inworld.studio.v1alpha.Workspace.RuntimeAccess runtime_access = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_runtime_access(static_cast<::ai::inworld::studio::v1alpha::Workspace_RuntimeAccess>(val));
         } else
           goto handle_unusual;
         continue;
@@ -2589,6 +3217,13 @@ uint8_t* Workspace::_InternalSerialize(
         _Internal::meta(this).GetCachedSize(), target, stream);
   }
 
+  // .ai.inworld.studio.v1alpha.Workspace.RuntimeAccess runtime_access = 6;
+  if (this->_internal_runtime_access() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      6, this->_internal_runtime_access(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2641,6 +3276,12 @@ size_t Workspace::ByteSizeLong() const {
         *_impl_.meta_);
   }
 
+  // .ai.inworld.studio.v1alpha.Workspace.RuntimeAccess runtime_access = 6;
+  if (this->_internal_runtime_access() != 0) {
+    total_size += 1 +
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_runtime_access());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -2672,6 +3313,9 @@ void Workspace::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROT
   if (from._internal_has_meta()) {
     _this->_internal_mutable_meta()->::ai::inworld::studio::v1alpha::Workspace_Meta::MergeFrom(
         from._internal_meta());
+  }
+  if (from._internal_runtime_access() != 0) {
+    _this->_internal_set_runtime_access(from._internal_runtime_access());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -2705,13 +3349,18 @@ void Workspace::InternalSwap(Workspace* other) {
       &_impl_.billing_account_, lhs_arena,
       &other->_impl_.billing_account_, rhs_arena
   );
-  swap(_impl_.meta_, other->_impl_.meta_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Workspace, _impl_.runtime_access_)
+      + sizeof(Workspace::_impl_.runtime_access_)
+      - PROTOBUF_FIELD_OFFSET(Workspace, _impl_.meta_)>(
+          reinterpret_cast<char*>(&_impl_.meta_),
+          reinterpret_cast<char*>(&other->_impl_.meta_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Workspace::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once,
-      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[6]);
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[8]);
 }
 
 // ===================================================================
@@ -2948,7 +3597,7 @@ void ListWorkspacesResponse::InternalSwap(ListWorkspacesResponse* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ListWorkspacesResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once,
-      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[7]);
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[9]);
 }
 
 // ===================================================================
@@ -3190,7 +3839,7 @@ void ShareWorkspaceRequest::InternalSwap(ShareWorkspaceRequest* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ShareWorkspaceRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once,
-      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[8]);
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[10]);
 }
 
 // ===================================================================
@@ -3473,7 +4122,7 @@ void GenerateResourceNameRequest::InternalSwap(GenerateResourceNameRequest* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata GenerateResourceNameRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once,
-      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[9]);
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[11]);
 }
 
 // ===================================================================
@@ -3676,7 +4325,7 @@ void GenerateResourceNameResponse::InternalSwap(GenerateResourceNameResponse* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata GenerateResourceNameResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once,
-      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[10]);
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[12]);
 }
 
 // ===================================================================
@@ -3879,7 +4528,7 @@ void GetWorkspaceShareInfoRequest::InternalSwap(GetWorkspaceShareInfoRequest* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata GetWorkspaceShareInfoRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once,
-      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[11]);
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[13]);
 }
 
 // ===================================================================
@@ -4069,7 +4718,7 @@ void WorkspaceShareInfo::InternalSwap(WorkspaceShareInfo* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata WorkspaceShareInfo::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once,
-      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[12]);
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[14]);
 }
 
 // ===================================================================
@@ -4272,7 +4921,7 @@ void GetWorkspaceLimitInfoRequest::InternalSwap(GetWorkspaceLimitInfoRequest* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata GetWorkspaceLimitInfoRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once,
-      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[13]);
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[15]);
 }
 
 // ===================================================================
@@ -4483,7 +5132,7 @@ void WorkspaceLimitInfo_TextListLimit::InternalSwap(WorkspaceLimitInfo_TextListL
 ::PROTOBUF_NAMESPACE_ID::Metadata WorkspaceLimitInfo_TextListLimit::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once,
-      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[14]);
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[16]);
 }
 
 // ===================================================================
@@ -4524,6 +5173,7 @@ WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::WorkspaceLimitInfo_
     , decltype(_impl_.example_dialog_max_length_){}
     , decltype(_impl_.motivation_max_length_){}
     , decltype(_impl_.character_role_max_length_){}
+    , decltype(_impl_.flaws_max_length_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -4537,8 +5187,8 @@ WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::WorkspaceLimitInfo_
     _this->_impl_.personality_adjectives_ = new ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit(*from._impl_.personality_adjectives_);
   }
   ::memcpy(&_impl_.core_max_length_, &from._impl_.core_max_length_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.character_role_max_length_) -
-    reinterpret_cast<char*>(&_impl_.core_max_length_)) + sizeof(_impl_.character_role_max_length_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.flaws_max_length_) -
+    reinterpret_cast<char*>(&_impl_.core_max_length_)) + sizeof(_impl_.flaws_max_length_));
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.CharacterLimit.CharacterDescriptionLimit)
 }
 
@@ -4554,6 +5204,7 @@ inline void WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::SharedC
     , decltype(_impl_.example_dialog_max_length_){0}
     , decltype(_impl_.motivation_max_length_){0}
     , decltype(_impl_.character_role_max_length_){0}
+    , decltype(_impl_.flaws_max_length_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -4597,8 +5248,8 @@ void WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::Clear() {
   }
   _impl_.personality_adjectives_ = nullptr;
   ::memset(&_impl_.core_max_length_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.character_role_max_length_) -
-      reinterpret_cast<char*>(&_impl_.core_max_length_)) + sizeof(_impl_.character_role_max_length_));
+      reinterpret_cast<char*>(&_impl_.flaws_max_length_) -
+      reinterpret_cast<char*>(&_impl_.core_max_length_)) + sizeof(_impl_.flaws_max_length_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -4660,6 +5311,14 @@ const char* WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::_Intern
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
           ptr = ctx->ParseMessage(_internal_mutable_personality_adjectives(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int32 flaws_max_length = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
+          _impl_.flaws_max_length_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -4738,6 +5397,12 @@ uint8_t* WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::_InternalS
         _Internal::personality_adjectives(this).GetCachedSize(), target, stream);
   }
 
+  // int32 flaws_max_length = 8;
+  if (this->_internal_flaws_max_length() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(8, this->_internal_flaws_max_length(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -4795,6 +5460,11 @@ size_t WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::ByteSizeLong
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_character_role_max_length());
   }
 
+  // int32 flaws_max_length = 8;
+  if (this->_internal_flaws_max_length() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_flaws_max_length());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -4837,6 +5507,9 @@ void WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::MergeImpl(::PR
   if (from._internal_character_role_max_length() != 0) {
     _this->_internal_set_character_role_max_length(from._internal_character_role_max_length());
   }
+  if (from._internal_flaws_max_length() != 0) {
+    _this->_internal_set_flaws_max_length(from._internal_flaws_max_length());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -4855,8 +5528,8 @@ void WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::InternalSwap(W
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit, _impl_.character_role_max_length_)
-      + sizeof(WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::_impl_.character_role_max_length_)
+      PROTOBUF_FIELD_OFFSET(WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit, _impl_.flaws_max_length_)
+      + sizeof(WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::_impl_.flaws_max_length_)
       - PROTOBUF_FIELD_OFFSET(WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit, _impl_.hobby_or_interests_)>(
           reinterpret_cast<char*>(&_impl_.hobby_or_interests_),
           reinterpret_cast<char*>(&other->_impl_.hobby_or_interests_));
@@ -4865,7 +5538,7 @@ void WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::InternalSwap(W
 ::PROTOBUF_NAMESPACE_ID::Metadata WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once,
-      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[15]);
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[17]);
 }
 
 // ===================================================================
@@ -5141,7 +5814,7 @@ void WorkspaceLimitInfo_CharacterLimit::InternalSwap(WorkspaceLimitInfo_Characte
 ::PROTOBUF_NAMESPACE_ID::Metadata WorkspaceLimitInfo_CharacterLimit::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once,
-      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[16]);
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[18]);
 }
 
 // ===================================================================
@@ -5164,12 +5837,13 @@ WorkspaceLimitInfo_SceneLimit::WorkspaceLimitInfo_SceneLimit(const WorkspaceLimi
     , decltype(_impl_.total_characters_){}
     , decltype(_impl_.total_triggers_){}
     , decltype(_impl_.display_name_max_length_){}
+    , decltype(_impl_.total_common_knowledge_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.description_max_length_, &from._impl_.description_max_length_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.display_name_max_length_) -
-    reinterpret_cast<char*>(&_impl_.description_max_length_)) + sizeof(_impl_.display_name_max_length_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.total_common_knowledge_) -
+    reinterpret_cast<char*>(&_impl_.description_max_length_)) + sizeof(_impl_.total_common_knowledge_));
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.SceneLimit)
 }
 
@@ -5182,6 +5856,7 @@ inline void WorkspaceLimitInfo_SceneLimit::SharedCtor(
     , decltype(_impl_.total_characters_){0}
     , decltype(_impl_.total_triggers_){0}
     , decltype(_impl_.display_name_max_length_){0}
+    , decltype(_impl_.total_common_knowledge_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -5210,8 +5885,8 @@ void WorkspaceLimitInfo_SceneLimit::Clear() {
   (void) cached_has_bits;
 
   ::memset(&_impl_.description_max_length_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.display_name_max_length_) -
-      reinterpret_cast<char*>(&_impl_.description_max_length_)) + sizeof(_impl_.display_name_max_length_));
+      reinterpret_cast<char*>(&_impl_.total_common_knowledge_) -
+      reinterpret_cast<char*>(&_impl_.description_max_length_)) + sizeof(_impl_.total_common_knowledge_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -5249,6 +5924,14 @@ const char* WorkspaceLimitInfo_SceneLimit::_InternalParse(const char* ptr, ::_pb
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           _impl_.display_name_max_length_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int32 total_common_knowledge = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          _impl_.total_common_knowledge_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -5306,6 +5989,12 @@ uint8_t* WorkspaceLimitInfo_SceneLimit::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_display_name_max_length(), target);
   }
 
+  // int32 total_common_knowledge = 5;
+  if (this->_internal_total_common_knowledge() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(5, this->_internal_total_common_knowledge(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -5342,6 +6031,11 @@ size_t WorkspaceLimitInfo_SceneLimit::ByteSizeLong() const {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_display_name_max_length());
   }
 
+  // int32 total_common_knowledge = 5;
+  if (this->_internal_total_common_knowledge() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_total_common_knowledge());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -5372,6 +6066,9 @@ void WorkspaceLimitInfo_SceneLimit::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& 
   if (from._internal_display_name_max_length() != 0) {
     _this->_internal_set_display_name_max_length(from._internal_display_name_max_length());
   }
+  if (from._internal_total_common_knowledge() != 0) {
+    _this->_internal_set_total_common_knowledge(from._internal_total_common_knowledge());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -5390,8 +6087,8 @@ void WorkspaceLimitInfo_SceneLimit::InternalSwap(WorkspaceLimitInfo_SceneLimit* 
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(WorkspaceLimitInfo_SceneLimit, _impl_.display_name_max_length_)
-      + sizeof(WorkspaceLimitInfo_SceneLimit::_impl_.display_name_max_length_)
+      PROTOBUF_FIELD_OFFSET(WorkspaceLimitInfo_SceneLimit, _impl_.total_common_knowledge_)
+      + sizeof(WorkspaceLimitInfo_SceneLimit::_impl_.total_common_knowledge_)
       - PROTOBUF_FIELD_OFFSET(WorkspaceLimitInfo_SceneLimit, _impl_.description_max_length_)>(
           reinterpret_cast<char*>(&_impl_.description_max_length_),
           reinterpret_cast<char*>(&other->_impl_.description_max_length_));
@@ -5400,7 +6097,7 @@ void WorkspaceLimitInfo_SceneLimit::InternalSwap(WorkspaceLimitInfo_SceneLimit* 
 ::PROTOBUF_NAMESPACE_ID::Metadata WorkspaceLimitInfo_SceneLimit::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once,
-      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[17]);
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[19]);
 }
 
 // ===================================================================
@@ -5707,7 +6404,7 @@ void WorkspaceLimitInfo_WorkspaceLimit::InternalSwap(WorkspaceLimitInfo_Workspac
 ::PROTOBUF_NAMESPACE_ID::Metadata WorkspaceLimitInfo_WorkspaceLimit::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once,
-      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[18]);
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[20]);
 }
 
 // ===================================================================
@@ -5885,7 +6582,7 @@ void WorkspaceLimitInfo_BillingAccountLimit::InternalSwap(WorkspaceLimitInfo_Bil
 ::PROTOBUF_NAMESPACE_ID::Metadata WorkspaceLimitInfo_BillingAccountLimit::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once,
-      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[19]);
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[21]);
 }
 
 // ===================================================================
@@ -6137,7 +6834,7 @@ void WorkspaceLimitInfo_CommonKnowledgeLimit::InternalSwap(WorkspaceLimitInfo_Co
 ::PROTOBUF_NAMESPACE_ID::Metadata WorkspaceLimitInfo_CommonKnowledgeLimit::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once,
-      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[20]);
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[22]);
 }
 
 // ===================================================================
@@ -6499,752 +7196,7 @@ void WorkspaceLimitInfo::InternalSwap(WorkspaceLimitInfo* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata WorkspaceLimitInfo::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once,
-      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[21]);
-}
-
-// ===================================================================
-
-class GetWorkspaceBillingInfoRequest::_Internal {
- public:
-};
-
-GetWorkspaceBillingInfoRequest::GetWorkspaceBillingInfoRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.GetWorkspaceBillingInfoRequest)
-}
-GetWorkspaceBillingInfoRequest::GetWorkspaceBillingInfoRequest(const GetWorkspaceBillingInfoRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  GetWorkspaceBillingInfoRequest* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.name_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _impl_.name_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_name().empty()) {
-    _this->_impl_.name_.Set(from._internal_name(), 
-      _this->GetArenaForAllocation());
-  }
-  // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.GetWorkspaceBillingInfoRequest)
-}
-
-inline void GetWorkspaceBillingInfoRequest::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.name_){}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
-  _impl_.name_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-}
-
-GetWorkspaceBillingInfoRequest::~GetWorkspaceBillingInfoRequest() {
-  // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.GetWorkspaceBillingInfoRequest)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
-  SharedDtor();
-}
-
-inline void GetWorkspaceBillingInfoRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.name_.Destroy();
-}
-
-void GetWorkspaceBillingInfoRequest::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
-}
-
-void GetWorkspaceBillingInfoRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:ai.inworld.studio.v1alpha.GetWorkspaceBillingInfoRequest)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _impl_.name_.ClearToEmpty();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* GetWorkspaceBillingInfoRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_name();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "ai.inworld.studio.v1alpha.GetWorkspaceBillingInfoRequest.name"));
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* GetWorkspaceBillingInfoRequest::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.GetWorkspaceBillingInfoRequest)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-  if (!this->_internal_name().empty()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.studio.v1alpha.GetWorkspaceBillingInfoRequest.name");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_name(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.GetWorkspaceBillingInfoRequest)
-  return target;
-}
-
-size_t GetWorkspaceBillingInfoRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ai.inworld.studio.v1alpha.GetWorkspaceBillingInfoRequest)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-  if (!this->_internal_name().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_name());
-  }
-
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData GetWorkspaceBillingInfoRequest::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    GetWorkspaceBillingInfoRequest::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetWorkspaceBillingInfoRequest::GetClassData() const { return &_class_data_; }
-
-
-void GetWorkspaceBillingInfoRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<GetWorkspaceBillingInfoRequest*>(&to_msg);
-  auto& from = static_cast<const GetWorkspaceBillingInfoRequest&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.GetWorkspaceBillingInfoRequest)
-  GOOGLE_DCHECK_NE(&from, _this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (!from._internal_name().empty()) {
-    _this->_internal_set_name(from._internal_name());
-  }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void GetWorkspaceBillingInfoRequest::CopyFrom(const GetWorkspaceBillingInfoRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ai.inworld.studio.v1alpha.GetWorkspaceBillingInfoRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool GetWorkspaceBillingInfoRequest::IsInitialized() const {
-  return true;
-}
-
-void GetWorkspaceBillingInfoRequest::InternalSwap(GetWorkspaceBillingInfoRequest* other) {
-  using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.name_, lhs_arena,
-      &other->_impl_.name_, rhs_arena
-  );
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata GetWorkspaceBillingInfoRequest::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
-      &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once,
-      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[22]);
-}
-
-// ===================================================================
-
-class WorkspaceBillingInfo_QuotaDetails::_Internal {
- public:
-};
-
-WorkspaceBillingInfo_QuotaDetails::WorkspaceBillingInfo_QuotaDetails(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaDetails)
-}
-WorkspaceBillingInfo_QuotaDetails::WorkspaceBillingInfo_QuotaDetails(const WorkspaceBillingInfo_QuotaDetails& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  WorkspaceBillingInfo_QuotaDetails* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.has_credits_){}
-    , decltype(_impl_.has_paid_subscription_){}
-    , decltype(_impl_.current_source_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.has_credits_, &from._impl_.has_credits_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.current_source_) -
-    reinterpret_cast<char*>(&_impl_.has_credits_)) + sizeof(_impl_.current_source_));
-  // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaDetails)
-}
-
-inline void WorkspaceBillingInfo_QuotaDetails::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.has_credits_){false}
-    , decltype(_impl_.has_paid_subscription_){false}
-    , decltype(_impl_.current_source_){0}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
-}
-
-WorkspaceBillingInfo_QuotaDetails::~WorkspaceBillingInfo_QuotaDetails() {
-  // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaDetails)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
-  SharedDtor();
-}
-
-inline void WorkspaceBillingInfo_QuotaDetails::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-}
-
-void WorkspaceBillingInfo_QuotaDetails::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
-}
-
-void WorkspaceBillingInfo_QuotaDetails::Clear() {
-// @@protoc_insertion_point(message_clear_start:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaDetails)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  ::memset(&_impl_.has_credits_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.current_source_) -
-      reinterpret_cast<char*>(&_impl_.has_credits_)) + sizeof(_impl_.current_source_));
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* WorkspaceBillingInfo_QuotaDetails::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // bool has_credits = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _impl_.has_credits_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // bool has_paid_subscription = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _impl_.has_paid_subscription_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaSource current_source = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-          _internal_set_current_source(static_cast<::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaSource>(val));
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* WorkspaceBillingInfo_QuotaDetails::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaDetails)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // bool has_credits = 1;
-  if (this->_internal_has_credits() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteBoolToArray(1, this->_internal_has_credits(), target);
-  }
-
-  // bool has_paid_subscription = 2;
-  if (this->_internal_has_paid_subscription() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_has_paid_subscription(), target);
-  }
-
-  // .ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaSource current_source = 3;
-  if (this->_internal_current_source() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteEnumToArray(
-      3, this->_internal_current_source(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaDetails)
-  return target;
-}
-
-size_t WorkspaceBillingInfo_QuotaDetails::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaDetails)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // bool has_credits = 1;
-  if (this->_internal_has_credits() != 0) {
-    total_size += 1 + 1;
-  }
-
-  // bool has_paid_subscription = 2;
-  if (this->_internal_has_paid_subscription() != 0) {
-    total_size += 1 + 1;
-  }
-
-  // .ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaSource current_source = 3;
-  if (this->_internal_current_source() != 0) {
-    total_size += 1 +
-      ::_pbi::WireFormatLite::EnumSize(this->_internal_current_source());
-  }
-
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData WorkspaceBillingInfo_QuotaDetails::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    WorkspaceBillingInfo_QuotaDetails::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*WorkspaceBillingInfo_QuotaDetails::GetClassData() const { return &_class_data_; }
-
-
-void WorkspaceBillingInfo_QuotaDetails::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<WorkspaceBillingInfo_QuotaDetails*>(&to_msg);
-  auto& from = static_cast<const WorkspaceBillingInfo_QuotaDetails&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaDetails)
-  GOOGLE_DCHECK_NE(&from, _this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from._internal_has_credits() != 0) {
-    _this->_internal_set_has_credits(from._internal_has_credits());
-  }
-  if (from._internal_has_paid_subscription() != 0) {
-    _this->_internal_set_has_paid_subscription(from._internal_has_paid_subscription());
-  }
-  if (from._internal_current_source() != 0) {
-    _this->_internal_set_current_source(from._internal_current_source());
-  }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void WorkspaceBillingInfo_QuotaDetails::CopyFrom(const WorkspaceBillingInfo_QuotaDetails& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaDetails)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool WorkspaceBillingInfo_QuotaDetails::IsInitialized() const {
-  return true;
-}
-
-void WorkspaceBillingInfo_QuotaDetails::InternalSwap(WorkspaceBillingInfo_QuotaDetails* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(WorkspaceBillingInfo_QuotaDetails, _impl_.current_source_)
-      + sizeof(WorkspaceBillingInfo_QuotaDetails::_impl_.current_source_)
-      - PROTOBUF_FIELD_OFFSET(WorkspaceBillingInfo_QuotaDetails, _impl_.has_credits_)>(
-          reinterpret_cast<char*>(&_impl_.has_credits_),
-          reinterpret_cast<char*>(&other->_impl_.has_credits_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata WorkspaceBillingInfo_QuotaDetails::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
-      &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[23]);
-}
-
-// ===================================================================
-
-class WorkspaceBillingInfo::_Internal {
- public:
-  static const ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails& quota_details(const WorkspaceBillingInfo* msg);
-};
-
-const ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails&
-WorkspaceBillingInfo::_Internal::quota_details(const WorkspaceBillingInfo* msg) {
-  return *msg->_impl_.quota_details_;
-}
-WorkspaceBillingInfo::WorkspaceBillingInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.WorkspaceBillingInfo)
-}
-WorkspaceBillingInfo::WorkspaceBillingInfo(const WorkspaceBillingInfo& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  WorkspaceBillingInfo* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.name_){}
-    , decltype(_impl_.quota_details_){nullptr}
-    , decltype(_impl_.is_billing_owner_){}
-    , decltype(_impl_.has_usable_quota_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _impl_.name_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_name().empty()) {
-    _this->_impl_.name_.Set(from._internal_name(), 
-      _this->GetArenaForAllocation());
-  }
-  if (from._internal_has_quota_details()) {
-    _this->_impl_.quota_details_ = new ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails(*from._impl_.quota_details_);
-  }
-  ::memcpy(&_impl_.is_billing_owner_, &from._impl_.is_billing_owner_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.has_usable_quota_) -
-    reinterpret_cast<char*>(&_impl_.is_billing_owner_)) + sizeof(_impl_.has_usable_quota_));
-  // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.WorkspaceBillingInfo)
-}
-
-inline void WorkspaceBillingInfo::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.name_){}
-    , decltype(_impl_.quota_details_){nullptr}
-    , decltype(_impl_.is_billing_owner_){false}
-    , decltype(_impl_.has_usable_quota_){false}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
-  _impl_.name_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-}
-
-WorkspaceBillingInfo::~WorkspaceBillingInfo() {
-  // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.WorkspaceBillingInfo)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
-  SharedDtor();
-}
-
-inline void WorkspaceBillingInfo::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.name_.Destroy();
-  if (this != internal_default_instance()) delete _impl_.quota_details_;
-}
-
-void WorkspaceBillingInfo::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
-}
-
-void WorkspaceBillingInfo::Clear() {
-// @@protoc_insertion_point(message_clear_start:ai.inworld.studio.v1alpha.WorkspaceBillingInfo)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _impl_.name_.ClearToEmpty();
-  if (GetArenaForAllocation() == nullptr && _impl_.quota_details_ != nullptr) {
-    delete _impl_.quota_details_;
-  }
-  _impl_.quota_details_ = nullptr;
-  ::memset(&_impl_.is_billing_owner_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.has_usable_quota_) -
-      reinterpret_cast<char*>(&_impl_.is_billing_owner_)) + sizeof(_impl_.has_usable_quota_));
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* WorkspaceBillingInfo::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_name();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "ai.inworld.studio.v1alpha.WorkspaceBillingInfo.name"));
-        } else
-          goto handle_unusual;
-        continue;
-      // bool is_billing_owner = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _impl_.is_billing_owner_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // bool has_usable_quota = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          _impl_.has_usable_quota_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaDetails quota_details = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
-          ptr = ctx->ParseMessage(_internal_mutable_quota_details(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* WorkspaceBillingInfo::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.WorkspaceBillingInfo)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-  if (!this->_internal_name().empty()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.studio.v1alpha.WorkspaceBillingInfo.name");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_name(), target);
-  }
-
-  // bool is_billing_owner = 2;
-  if (this->_internal_is_billing_owner() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_is_billing_owner(), target);
-  }
-
-  // bool has_usable_quota = 3;
-  if (this->_internal_has_usable_quota() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_has_usable_quota(), target);
-  }
-
-  // .ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaDetails quota_details = 4;
-  if (this->_internal_has_quota_details()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(4, _Internal::quota_details(this),
-        _Internal::quota_details(this).GetCachedSize(), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.WorkspaceBillingInfo)
-  return target;
-}
-
-size_t WorkspaceBillingInfo::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ai.inworld.studio.v1alpha.WorkspaceBillingInfo)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-  if (!this->_internal_name().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_name());
-  }
-
-  // .ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaDetails quota_details = 4;
-  if (this->_internal_has_quota_details()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.quota_details_);
-  }
-
-  // bool is_billing_owner = 2;
-  if (this->_internal_is_billing_owner() != 0) {
-    total_size += 1 + 1;
-  }
-
-  // bool has_usable_quota = 3;
-  if (this->_internal_has_usable_quota() != 0) {
-    total_size += 1 + 1;
-  }
-
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData WorkspaceBillingInfo::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    WorkspaceBillingInfo::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*WorkspaceBillingInfo::GetClassData() const { return &_class_data_; }
-
-
-void WorkspaceBillingInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<WorkspaceBillingInfo*>(&to_msg);
-  auto& from = static_cast<const WorkspaceBillingInfo&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.WorkspaceBillingInfo)
-  GOOGLE_DCHECK_NE(&from, _this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (!from._internal_name().empty()) {
-    _this->_internal_set_name(from._internal_name());
-  }
-  if (from._internal_has_quota_details()) {
-    _this->_internal_mutable_quota_details()->::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails::MergeFrom(
-        from._internal_quota_details());
-  }
-  if (from._internal_is_billing_owner() != 0) {
-    _this->_internal_set_is_billing_owner(from._internal_is_billing_owner());
-  }
-  if (from._internal_has_usable_quota() != 0) {
-    _this->_internal_set_has_usable_quota(from._internal_has_usable_quota());
-  }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void WorkspaceBillingInfo::CopyFrom(const WorkspaceBillingInfo& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ai.inworld.studio.v1alpha.WorkspaceBillingInfo)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool WorkspaceBillingInfo::IsInitialized() const {
-  return true;
-}
-
-void WorkspaceBillingInfo::InternalSwap(WorkspaceBillingInfo* other) {
-  using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.name_, lhs_arena,
-      &other->_impl_.name_, rhs_arena
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(WorkspaceBillingInfo, _impl_.has_usable_quota_)
-      + sizeof(WorkspaceBillingInfo::_impl_.has_usable_quota_)
-      - PROTOBUF_FIELD_OFFSET(WorkspaceBillingInfo, _impl_.quota_details_)>(
-          reinterpret_cast<char*>(&_impl_.quota_details_),
-          reinterpret_cast<char*>(&other->_impl_.quota_details_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata WorkspaceBillingInfo::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
-      &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once,
-      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto[24]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -7272,6 +7224,14 @@ Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::UpdateWorkspaceReques
 template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest*
 Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData*
+Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::ImpressionEventRequest*
+Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::ImpressionEventRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::ImpressionEventRequest >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::Workspace_Meta*
 Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::Workspace_Meta >(Arena* arena) {
@@ -7340,18 +7300,6 @@ Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_Co
 template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo*
 Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest*
-Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails*
-Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo*
-Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

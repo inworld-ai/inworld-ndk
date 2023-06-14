@@ -24,35 +24,529 @@ namespace _pbi = _pb::internal;
 
 namespace google {
 namespace api {
+PROTOBUF_CONSTEXPR CommonLanguageSettings::CommonLanguageSettings(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.destinations_)*/{}
+  , /*decltype(_impl_._destinations_cached_byte_size_)*/{0}
+  , /*decltype(_impl_.reference_docs_uri_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct CommonLanguageSettingsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CommonLanguageSettingsDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CommonLanguageSettingsDefaultTypeInternal() {}
+  union {
+    CommonLanguageSettings _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CommonLanguageSettingsDefaultTypeInternal _CommonLanguageSettings_default_instance_;
+PROTOBUF_CONSTEXPR ClientLibrarySettings::ClientLibrarySettings(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.version_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.java_settings_)*/nullptr
+  , /*decltype(_impl_.cpp_settings_)*/nullptr
+  , /*decltype(_impl_.php_settings_)*/nullptr
+  , /*decltype(_impl_.python_settings_)*/nullptr
+  , /*decltype(_impl_.node_settings_)*/nullptr
+  , /*decltype(_impl_.dotnet_settings_)*/nullptr
+  , /*decltype(_impl_.ruby_settings_)*/nullptr
+  , /*decltype(_impl_.go_settings_)*/nullptr
+  , /*decltype(_impl_.launch_stage_)*/0
+  , /*decltype(_impl_.rest_numeric_enums_)*/false
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct ClientLibrarySettingsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ClientLibrarySettingsDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ClientLibrarySettingsDefaultTypeInternal() {}
+  union {
+    ClientLibrarySettings _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ClientLibrarySettingsDefaultTypeInternal _ClientLibrarySettings_default_instance_;
+PROTOBUF_CONSTEXPR Publishing::Publishing(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.method_settings_)*/{}
+  , /*decltype(_impl_.codeowner_github_teams_)*/{}
+  , /*decltype(_impl_.library_settings_)*/{}
+  , /*decltype(_impl_.new_issue_uri_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.documentation_uri_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.api_short_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.github_label_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.doc_tag_prefix_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.proto_reference_documentation_uri_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.organization_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct PublishingDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PublishingDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PublishingDefaultTypeInternal() {}
+  union {
+    Publishing _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PublishingDefaultTypeInternal _Publishing_default_instance_;
+PROTOBUF_CONSTEXPR JavaSettings_ServiceClassNamesEntry_DoNotUse::JavaSettings_ServiceClassNamesEntry_DoNotUse(
+    ::_pbi::ConstantInitialized) {}
+struct JavaSettings_ServiceClassNamesEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR JavaSettings_ServiceClassNamesEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~JavaSettings_ServiceClassNamesEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    JavaSettings_ServiceClassNamesEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 JavaSettings_ServiceClassNamesEntry_DoNotUseDefaultTypeInternal _JavaSettings_ServiceClassNamesEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR JavaSettings::JavaSettings(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.service_class_names_)*/{::_pbi::ConstantInitialized()}
+  , /*decltype(_impl_.library_package_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.common_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct JavaSettingsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR JavaSettingsDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~JavaSettingsDefaultTypeInternal() {}
+  union {
+    JavaSettings _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 JavaSettingsDefaultTypeInternal _JavaSettings_default_instance_;
+PROTOBUF_CONSTEXPR CppSettings::CppSettings(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.common_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct CppSettingsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CppSettingsDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CppSettingsDefaultTypeInternal() {}
+  union {
+    CppSettings _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CppSettingsDefaultTypeInternal _CppSettings_default_instance_;
+PROTOBUF_CONSTEXPR PhpSettings::PhpSettings(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.common_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct PhpSettingsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PhpSettingsDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PhpSettingsDefaultTypeInternal() {}
+  union {
+    PhpSettings _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PhpSettingsDefaultTypeInternal _PhpSettings_default_instance_;
+PROTOBUF_CONSTEXPR PythonSettings::PythonSettings(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.common_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct PythonSettingsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PythonSettingsDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PythonSettingsDefaultTypeInternal() {}
+  union {
+    PythonSettings _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PythonSettingsDefaultTypeInternal _PythonSettings_default_instance_;
+PROTOBUF_CONSTEXPR NodeSettings::NodeSettings(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.common_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct NodeSettingsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR NodeSettingsDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~NodeSettingsDefaultTypeInternal() {}
+  union {
+    NodeSettings _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 NodeSettingsDefaultTypeInternal _NodeSettings_default_instance_;
+PROTOBUF_CONSTEXPR DotnetSettings_RenamedServicesEntry_DoNotUse::DotnetSettings_RenamedServicesEntry_DoNotUse(
+    ::_pbi::ConstantInitialized) {}
+struct DotnetSettings_RenamedServicesEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR DotnetSettings_RenamedServicesEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~DotnetSettings_RenamedServicesEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    DotnetSettings_RenamedServicesEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DotnetSettings_RenamedServicesEntry_DoNotUseDefaultTypeInternal _DotnetSettings_RenamedServicesEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR DotnetSettings_RenamedResourcesEntry_DoNotUse::DotnetSettings_RenamedResourcesEntry_DoNotUse(
+    ::_pbi::ConstantInitialized) {}
+struct DotnetSettings_RenamedResourcesEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR DotnetSettings_RenamedResourcesEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~DotnetSettings_RenamedResourcesEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    DotnetSettings_RenamedResourcesEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DotnetSettings_RenamedResourcesEntry_DoNotUseDefaultTypeInternal _DotnetSettings_RenamedResourcesEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR DotnetSettings::DotnetSettings(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.renamed_services_)*/{::_pbi::ConstantInitialized()}
+  , /*decltype(_impl_.renamed_resources_)*/{::_pbi::ConstantInitialized()}
+  , /*decltype(_impl_.ignored_resources_)*/{}
+  , /*decltype(_impl_.forced_namespace_aliases_)*/{}
+  , /*decltype(_impl_.handwritten_signatures_)*/{}
+  , /*decltype(_impl_.common_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct DotnetSettingsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR DotnetSettingsDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~DotnetSettingsDefaultTypeInternal() {}
+  union {
+    DotnetSettings _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DotnetSettingsDefaultTypeInternal _DotnetSettings_default_instance_;
+PROTOBUF_CONSTEXPR RubySettings::RubySettings(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.common_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct RubySettingsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RubySettingsDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RubySettingsDefaultTypeInternal() {}
+  union {
+    RubySettings _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RubySettingsDefaultTypeInternal _RubySettings_default_instance_;
+PROTOBUF_CONSTEXPR GoSettings::GoSettings(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.common_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct GoSettingsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GoSettingsDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GoSettingsDefaultTypeInternal() {}
+  union {
+    GoSettings _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GoSettingsDefaultTypeInternal _GoSettings_default_instance_;
+PROTOBUF_CONSTEXPR MethodSettings_LongRunning::MethodSettings_LongRunning(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.initial_poll_delay_)*/nullptr
+  , /*decltype(_impl_.max_poll_delay_)*/nullptr
+  , /*decltype(_impl_.total_poll_timeout_)*/nullptr
+  , /*decltype(_impl_.poll_delay_multiplier_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct MethodSettings_LongRunningDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR MethodSettings_LongRunningDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~MethodSettings_LongRunningDefaultTypeInternal() {}
+  union {
+    MethodSettings_LongRunning _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MethodSettings_LongRunningDefaultTypeInternal _MethodSettings_LongRunning_default_instance_;
+PROTOBUF_CONSTEXPR MethodSettings::MethodSettings(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.selector_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.long_running_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct MethodSettingsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR MethodSettingsDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~MethodSettingsDefaultTypeInternal() {}
+  union {
+    MethodSettings _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MethodSettingsDefaultTypeInternal _MethodSettings_default_instance_;
 }  // namespace api
 }  // namespace google
-static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_google_2fapi_2fclient_2eproto = nullptr;
+static ::_pb::Metadata file_level_metadata_google_2fapi_2fclient_2eproto[16];
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_google_2fapi_2fclient_2eproto[2];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_google_2fapi_2fclient_2eproto = nullptr;
-const uint32_t TableStruct_google_2fapi_2fclient_2eproto::offsets[1] = {};
-static constexpr ::_pbi::MigrationSchema* schemas = nullptr;
-static constexpr ::_pb::Message* const* file_default_instances = nullptr;
+
+const uint32_t TableStruct_google_2fapi_2fclient_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::google::api::CommonLanguageSettings, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::google::api::CommonLanguageSettings, _impl_.reference_docs_uri_),
+  PROTOBUF_FIELD_OFFSET(::google::api::CommonLanguageSettings, _impl_.destinations_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::google::api::ClientLibrarySettings, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::google::api::ClientLibrarySettings, _impl_.version_),
+  PROTOBUF_FIELD_OFFSET(::google::api::ClientLibrarySettings, _impl_.launch_stage_),
+  PROTOBUF_FIELD_OFFSET(::google::api::ClientLibrarySettings, _impl_.rest_numeric_enums_),
+  PROTOBUF_FIELD_OFFSET(::google::api::ClientLibrarySettings, _impl_.java_settings_),
+  PROTOBUF_FIELD_OFFSET(::google::api::ClientLibrarySettings, _impl_.cpp_settings_),
+  PROTOBUF_FIELD_OFFSET(::google::api::ClientLibrarySettings, _impl_.php_settings_),
+  PROTOBUF_FIELD_OFFSET(::google::api::ClientLibrarySettings, _impl_.python_settings_),
+  PROTOBUF_FIELD_OFFSET(::google::api::ClientLibrarySettings, _impl_.node_settings_),
+  PROTOBUF_FIELD_OFFSET(::google::api::ClientLibrarySettings, _impl_.dotnet_settings_),
+  PROTOBUF_FIELD_OFFSET(::google::api::ClientLibrarySettings, _impl_.ruby_settings_),
+  PROTOBUF_FIELD_OFFSET(::google::api::ClientLibrarySettings, _impl_.go_settings_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::google::api::Publishing, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::google::api::Publishing, _impl_.method_settings_),
+  PROTOBUF_FIELD_OFFSET(::google::api::Publishing, _impl_.new_issue_uri_),
+  PROTOBUF_FIELD_OFFSET(::google::api::Publishing, _impl_.documentation_uri_),
+  PROTOBUF_FIELD_OFFSET(::google::api::Publishing, _impl_.api_short_name_),
+  PROTOBUF_FIELD_OFFSET(::google::api::Publishing, _impl_.github_label_),
+  PROTOBUF_FIELD_OFFSET(::google::api::Publishing, _impl_.codeowner_github_teams_),
+  PROTOBUF_FIELD_OFFSET(::google::api::Publishing, _impl_.doc_tag_prefix_),
+  PROTOBUF_FIELD_OFFSET(::google::api::Publishing, _impl_.organization_),
+  PROTOBUF_FIELD_OFFSET(::google::api::Publishing, _impl_.library_settings_),
+  PROTOBUF_FIELD_OFFSET(::google::api::Publishing, _impl_.proto_reference_documentation_uri_),
+  PROTOBUF_FIELD_OFFSET(::google::api::JavaSettings_ServiceClassNamesEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::google::api::JavaSettings_ServiceClassNamesEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::google::api::JavaSettings_ServiceClassNamesEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::google::api::JavaSettings_ServiceClassNamesEntry_DoNotUse, value_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::google::api::JavaSettings, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::google::api::JavaSettings, _impl_.library_package_),
+  PROTOBUF_FIELD_OFFSET(::google::api::JavaSettings, _impl_.service_class_names_),
+  PROTOBUF_FIELD_OFFSET(::google::api::JavaSettings, _impl_.common_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::google::api::CppSettings, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::google::api::CppSettings, _impl_.common_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::google::api::PhpSettings, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::google::api::PhpSettings, _impl_.common_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::google::api::PythonSettings, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::google::api::PythonSettings, _impl_.common_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::google::api::NodeSettings, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::google::api::NodeSettings, _impl_.common_),
+  PROTOBUF_FIELD_OFFSET(::google::api::DotnetSettings_RenamedServicesEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::google::api::DotnetSettings_RenamedServicesEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::google::api::DotnetSettings_RenamedServicesEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::google::api::DotnetSettings_RenamedServicesEntry_DoNotUse, value_),
+  0,
+  1,
+  PROTOBUF_FIELD_OFFSET(::google::api::DotnetSettings_RenamedResourcesEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::google::api::DotnetSettings_RenamedResourcesEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::google::api::DotnetSettings_RenamedResourcesEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::google::api::DotnetSettings_RenamedResourcesEntry_DoNotUse, value_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::google::api::DotnetSettings, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::google::api::DotnetSettings, _impl_.common_),
+  PROTOBUF_FIELD_OFFSET(::google::api::DotnetSettings, _impl_.renamed_services_),
+  PROTOBUF_FIELD_OFFSET(::google::api::DotnetSettings, _impl_.renamed_resources_),
+  PROTOBUF_FIELD_OFFSET(::google::api::DotnetSettings, _impl_.ignored_resources_),
+  PROTOBUF_FIELD_OFFSET(::google::api::DotnetSettings, _impl_.forced_namespace_aliases_),
+  PROTOBUF_FIELD_OFFSET(::google::api::DotnetSettings, _impl_.handwritten_signatures_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::google::api::RubySettings, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::google::api::RubySettings, _impl_.common_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::google::api::GoSettings, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::google::api::GoSettings, _impl_.common_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::google::api::MethodSettings_LongRunning, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::google::api::MethodSettings_LongRunning, _impl_.initial_poll_delay_),
+  PROTOBUF_FIELD_OFFSET(::google::api::MethodSettings_LongRunning, _impl_.poll_delay_multiplier_),
+  PROTOBUF_FIELD_OFFSET(::google::api::MethodSettings_LongRunning, _impl_.max_poll_delay_),
+  PROTOBUF_FIELD_OFFSET(::google::api::MethodSettings_LongRunning, _impl_.total_poll_timeout_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::google::api::MethodSettings, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::google::api::MethodSettings, _impl_.selector_),
+  PROTOBUF_FIELD_OFFSET(::google::api::MethodSettings, _impl_.long_running_),
+};
+static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+  { 0, -1, -1, sizeof(::google::api::CommonLanguageSettings)},
+  { 8, -1, -1, sizeof(::google::api::ClientLibrarySettings)},
+  { 25, -1, -1, sizeof(::google::api::Publishing)},
+  { 41, 49, -1, sizeof(::google::api::JavaSettings_ServiceClassNamesEntry_DoNotUse)},
+  { 51, -1, -1, sizeof(::google::api::JavaSettings)},
+  { 60, -1, -1, sizeof(::google::api::CppSettings)},
+  { 67, -1, -1, sizeof(::google::api::PhpSettings)},
+  { 74, -1, -1, sizeof(::google::api::PythonSettings)},
+  { 81, -1, -1, sizeof(::google::api::NodeSettings)},
+  { 88, 96, -1, sizeof(::google::api::DotnetSettings_RenamedServicesEntry_DoNotUse)},
+  { 98, 106, -1, sizeof(::google::api::DotnetSettings_RenamedResourcesEntry_DoNotUse)},
+  { 108, -1, -1, sizeof(::google::api::DotnetSettings)},
+  { 120, -1, -1, sizeof(::google::api::RubySettings)},
+  { 127, -1, -1, sizeof(::google::api::GoSettings)},
+  { 134, -1, -1, sizeof(::google::api::MethodSettings_LongRunning)},
+  { 144, -1, -1, sizeof(::google::api::MethodSettings)},
+};
+
+static const ::_pb::Message* const file_default_instances[] = {
+  &::google::api::_CommonLanguageSettings_default_instance_._instance,
+  &::google::api::_ClientLibrarySettings_default_instance_._instance,
+  &::google::api::_Publishing_default_instance_._instance,
+  &::google::api::_JavaSettings_ServiceClassNamesEntry_DoNotUse_default_instance_._instance,
+  &::google::api::_JavaSettings_default_instance_._instance,
+  &::google::api::_CppSettings_default_instance_._instance,
+  &::google::api::_PhpSettings_default_instance_._instance,
+  &::google::api::_PythonSettings_default_instance_._instance,
+  &::google::api::_NodeSettings_default_instance_._instance,
+  &::google::api::_DotnetSettings_RenamedServicesEntry_DoNotUse_default_instance_._instance,
+  &::google::api::_DotnetSettings_RenamedResourcesEntry_DoNotUse_default_instance_._instance,
+  &::google::api::_DotnetSettings_default_instance_._instance,
+  &::google::api::_RubySettings_default_instance_._instance,
+  &::google::api::_GoSettings_default_instance_._instance,
+  &::google::api::_MethodSettings_LongRunning_default_instance_._instance,
+  &::google::api::_MethodSettings_default_instance_._instance,
+};
 
 const char descriptor_table_protodef_google_2fapi_2fclient_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\027google/api/client.proto\022\ngoogle.api\032 g"
-  "oogle/protobuf/descriptor.proto:9\n\020metho"
-  "d_signature\022\036.google.protobuf.MethodOpti"
-  "ons\030\233\010 \003(\t:6\n\014default_host\022\037.google.prot"
-  "obuf.ServiceOptions\030\231\010 \001(\t:6\n\014oauth_scop"
-  "es\022\037.google.protobuf.ServiceOptions\030\232\010 \001"
-  "(\tBi\n\016com.google.apiB\013ClientProtoP\001ZAgoo"
-  "gle.golang.org/genproto/googleapis/api/a"
-  "nnotations;annotations\242\002\004GAPIb\006proto3"
+  "\n\027google/api/client.proto\022\ngoogle.api\032\035g"
+  "oogle/api/launch_stage.proto\032 google/pro"
+  "tobuf/descriptor.proto\032\036google/protobuf/"
+  "duration.proto\"t\n\026CommonLanguageSettings"
+  "\022\036\n\022reference_docs_uri\030\001 \001(\tB\002\030\001\022:\n\014dest"
+  "inations\030\002 \003(\0162$.google.api.ClientLibrar"
+  "yDestination\"\373\003\n\025ClientLibrarySettings\022\017"
+  "\n\007version\030\001 \001(\t\022-\n\014launch_stage\030\002 \001(\0162\027."
+  "google.api.LaunchStage\022\032\n\022rest_numeric_e"
+  "nums\030\003 \001(\010\022/\n\rjava_settings\030\025 \001(\0132\030.goog"
+  "le.api.JavaSettings\022-\n\014cpp_settings\030\026 \001("
+  "\0132\027.google.api.CppSettings\022-\n\014php_settin"
+  "gs\030\027 \001(\0132\027.google.api.PhpSettings\0223\n\017pyt"
+  "hon_settings\030\030 \001(\0132\032.google.api.PythonSe"
+  "ttings\022/\n\rnode_settings\030\031 \001(\0132\030.google.a"
+  "pi.NodeSettings\0223\n\017dotnet_settings\030\032 \001(\013"
+  "2\032.google.api.DotnetSettings\022/\n\rruby_set"
+  "tings\030\033 \001(\0132\030.google.api.RubySettings\022+\n"
+  "\013go_settings\030\034 \001(\0132\026.google.api.GoSettin"
+  "gs\"\376\002\n\nPublishing\0223\n\017method_settings\030\002 \003"
+  "(\0132\032.google.api.MethodSettings\022\025\n\rnew_is"
+  "sue_uri\030e \001(\t\022\031\n\021documentation_uri\030f \001(\t"
+  "\022\026\n\016api_short_name\030g \001(\t\022\024\n\014github_label"
+  "\030h \001(\t\022\036\n\026codeowner_github_teams\030i \003(\t\022\026"
+  "\n\016doc_tag_prefix\030j \001(\t\022;\n\014organization\030k"
+  " \001(\0162%.google.api.ClientLibraryOrganizat"
+  "ion\022;\n\020library_settings\030m \003(\0132!.google.a"
+  "pi.ClientLibrarySettings\022)\n!proto_refere"
+  "nce_documentation_uri\030n \001(\t\"\343\001\n\014JavaSett"
+  "ings\022\027\n\017library_package\030\001 \001(\t\022L\n\023service"
+  "_class_names\030\002 \003(\0132/.google.api.JavaSett"
+  "ings.ServiceClassNamesEntry\0222\n\006common\030\003 "
+  "\001(\0132\".google.api.CommonLanguageSettings\032"
+  "8\n\026ServiceClassNamesEntry\022\013\n\003key\030\001 \001(\t\022\r"
+  "\n\005value\030\002 \001(\t:\0028\001\"A\n\013CppSettings\0222\n\006comm"
+  "on\030\001 \001(\0132\".google.api.CommonLanguageSett"
+  "ings\"A\n\013PhpSettings\0222\n\006common\030\001 \001(\0132\".go"
+  "ogle.api.CommonLanguageSettings\"D\n\016Pytho"
+  "nSettings\0222\n\006common\030\001 \001(\0132\".google.api.C"
+  "ommonLanguageSettings\"B\n\014NodeSettings\0222\n"
+  "\006common\030\001 \001(\0132\".google.api.CommonLanguag"
+  "eSettings\"\252\003\n\016DotnetSettings\0222\n\006common\030\001"
+  " \001(\0132\".google.api.CommonLanguageSettings"
+  "\022I\n\020renamed_services\030\002 \003(\0132/.google.api."
+  "DotnetSettings.RenamedServicesEntry\022K\n\021r"
+  "enamed_resources\030\003 \003(\01320.google.api.Dotn"
+  "etSettings.RenamedResourcesEntry\022\031\n\021igno"
+  "red_resources\030\004 \003(\t\022 \n\030forced_namespace_"
+  "aliases\030\005 \003(\t\022\036\n\026handwritten_signatures\030"
+  "\006 \003(\t\0326\n\024RenamedServicesEntry\022\013\n\003key\030\001 \001"
+  "(\t\022\r\n\005value\030\002 \001(\t:\0028\001\0327\n\025RenamedResource"
+  "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"B"
+  "\n\014RubySettings\0222\n\006common\030\001 \001(\0132\".google."
+  "api.CommonLanguageSettings\"@\n\nGoSettings"
+  "\0222\n\006common\030\001 \001(\0132\".google.api.CommonLang"
+  "uageSettings\"\260\002\n\016MethodSettings\022\020\n\010selec"
+  "tor\030\001 \001(\t\022<\n\014long_running\030\002 \001(\0132&.google"
+  ".api.MethodSettings.LongRunning\032\315\001\n\013Long"
+  "Running\0225\n\022initial_poll_delay\030\001 \001(\0132\031.go"
+  "ogle.protobuf.Duration\022\035\n\025poll_delay_mul"
+  "tiplier\030\002 \001(\002\0221\n\016max_poll_delay\030\003 \001(\0132\031."
+  "google.protobuf.Duration\0225\n\022total_poll_t"
+  "imeout\030\004 \001(\0132\031.google.protobuf.Duration*"
+  "\243\001\n\031ClientLibraryOrganization\022+\n\'CLIENT_"
+  "LIBRARY_ORGANIZATION_UNSPECIFIED\020\000\022\t\n\005CL"
+  "OUD\020\001\022\007\n\003ADS\020\002\022\n\n\006PHOTOS\020\003\022\017\n\013STREET_VIE"
+  "W\020\004\022\014\n\010SHOPPING\020\005\022\007\n\003GEO\020\006\022\021\n\rGENERATIVE"
+  "_AI\020\007*g\n\030ClientLibraryDestination\022*\n&CLI"
+  "ENT_LIBRARY_DESTINATION_UNSPECIFIED\020\000\022\n\n"
+  "\006GITHUB\020\n\022\023\n\017PACKAGE_MANAGER\020\024:9\n\020method"
+  "_signature\022\036.google.protobuf.MethodOptio"
+  "ns\030\233\010 \003(\t:6\n\014default_host\022\037.google.proto"
+  "buf.ServiceOptions\030\231\010 \001(\t:6\n\014oauth_scope"
+  "s\022\037.google.protobuf.ServiceOptions\030\232\010 \001("
+  "\tBi\n\016com.google.apiB\013ClientProtoP\001ZAgoog"
+  "le.golang.org/genproto/googleapis/api/an"
+  "notations;annotations\242\002\004GAPIb\006proto3"
   ;
-static const ::_pbi::DescriptorTable* const descriptor_table_google_2fapi_2fclient_2eproto_deps[1] = {
+static const ::_pbi::DescriptorTable* const descriptor_table_google_2fapi_2fclient_2eproto_deps[3] = {
+  &::descriptor_table_google_2fapi_2flaunch_5fstage_2eproto,
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
+  &::descriptor_table_google_2fprotobuf_2fduration_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_google_2fapi_2fclient_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_google_2fapi_2fclient_2eproto = {
-    false, false, 357, descriptor_table_protodef_google_2fapi_2fclient_2eproto,
+    false, false, 3076, descriptor_table_protodef_google_2fapi_2fclient_2eproto,
     "google/api/client.proto",
-    &descriptor_table_google_2fapi_2fclient_2eproto_once, descriptor_table_google_2fapi_2fclient_2eproto_deps, 1, 0,
+    &descriptor_table_google_2fapi_2fclient_2eproto_once, descriptor_table_google_2fapi_2fclient_2eproto_deps, 3, 16,
     schemas, file_default_instances, TableStruct_google_2fapi_2fclient_2eproto::offsets,
-    nullptr, file_level_enum_descriptors_google_2fapi_2fclient_2eproto,
+    file_level_metadata_google_2fapi_2fclient_2eproto, file_level_enum_descriptors_google_2fapi_2fclient_2eproto,
     file_level_service_descriptors_google_2fapi_2fclient_2eproto,
 };
 PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_google_2fapi_2fclient_2eproto_getter() {
@@ -63,6 +557,4007 @@ PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_google_2
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_google_2fapi_2fclient_2eproto(&descriptor_table_google_2fapi_2fclient_2eproto);
 namespace google {
 namespace api {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ClientLibraryOrganization_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_google_2fapi_2fclient_2eproto);
+  return file_level_enum_descriptors_google_2fapi_2fclient_2eproto[0];
+}
+bool ClientLibraryOrganization_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ClientLibraryDestination_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_google_2fapi_2fclient_2eproto);
+  return file_level_enum_descriptors_google_2fapi_2fclient_2eproto[1];
+}
+bool ClientLibraryDestination_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 10:
+    case 20:
+      return true;
+    default:
+      return false;
+  }
+}
+
+
+// ===================================================================
+
+class CommonLanguageSettings::_Internal {
+ public:
+};
+
+CommonLanguageSettings::CommonLanguageSettings(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:google.api.CommonLanguageSettings)
+}
+CommonLanguageSettings::CommonLanguageSettings(const CommonLanguageSettings& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CommonLanguageSettings* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.destinations_){from._impl_.destinations_}
+    , /*decltype(_impl_._destinations_cached_byte_size_)*/{0}
+    , decltype(_impl_.reference_docs_uri_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.reference_docs_uri_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.reference_docs_uri_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_reference_docs_uri().empty()) {
+    _this->_impl_.reference_docs_uri_.Set(from._internal_reference_docs_uri(), 
+      _this->GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(copy_constructor:google.api.CommonLanguageSettings)
+}
+
+inline void CommonLanguageSettings::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.destinations_){arena}
+    , /*decltype(_impl_._destinations_cached_byte_size_)*/{0}
+    , decltype(_impl_.reference_docs_uri_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.reference_docs_uri_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.reference_docs_uri_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+CommonLanguageSettings::~CommonLanguageSettings() {
+  // @@protoc_insertion_point(destructor:google.api.CommonLanguageSettings)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CommonLanguageSettings::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.destinations_.~RepeatedField();
+  _impl_.reference_docs_uri_.Destroy();
+}
+
+void CommonLanguageSettings::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CommonLanguageSettings::Clear() {
+// @@protoc_insertion_point(message_clear_start:google.api.CommonLanguageSettings)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.destinations_.Clear();
+  _impl_.reference_docs_uri_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CommonLanguageSettings::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string reference_docs_uri = 1 [deprecated = true];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_reference_docs_uri();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "google.api.CommonLanguageSettings.reference_docs_uri"));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .google.api.ClientLibraryDestination destinations = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedEnumParser(_internal_mutable_destinations(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 16) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_add_destinations(static_cast<::google::api::ClientLibraryDestination>(val));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CommonLanguageSettings::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:google.api.CommonLanguageSettings)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string reference_docs_uri = 1 [deprecated = true];
+  if (!this->_internal_reference_docs_uri().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_reference_docs_uri().data(), static_cast<int>(this->_internal_reference_docs_uri().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "google.api.CommonLanguageSettings.reference_docs_uri");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_reference_docs_uri(), target);
+  }
+
+  // repeated .google.api.ClientLibraryDestination destinations = 2;
+  {
+    int byte_size = _impl_._destinations_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteEnumPacked(
+          2, _impl_.destinations_, byte_size, target);
+    }
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:google.api.CommonLanguageSettings)
+  return target;
+}
+
+size_t CommonLanguageSettings::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:google.api.CommonLanguageSettings)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .google.api.ClientLibraryDestination destinations = 2;
+  {
+    size_t data_size = 0;
+    unsigned int count = static_cast<unsigned int>(this->_internal_destinations_size());for (unsigned int i = 0; i < count; i++) {
+      data_size += ::_pbi::WireFormatLite::EnumSize(
+        this->_internal_destinations(static_cast<int>(i)));
+    }
+    if (data_size > 0) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
+    }
+    int cached_size = ::_pbi::ToCachedSize(data_size);
+    _impl_._destinations_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // string reference_docs_uri = 1 [deprecated = true];
+  if (!this->_internal_reference_docs_uri().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_reference_docs_uri());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CommonLanguageSettings::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CommonLanguageSettings::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CommonLanguageSettings::GetClassData() const { return &_class_data_; }
+
+
+void CommonLanguageSettings::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CommonLanguageSettings*>(&to_msg);
+  auto& from = static_cast<const CommonLanguageSettings&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:google.api.CommonLanguageSettings)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.destinations_.MergeFrom(from._impl_.destinations_);
+  if (!from._internal_reference_docs_uri().empty()) {
+    _this->_internal_set_reference_docs_uri(from._internal_reference_docs_uri());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CommonLanguageSettings::CopyFrom(const CommonLanguageSettings& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:google.api.CommonLanguageSettings)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CommonLanguageSettings::IsInitialized() const {
+  return true;
+}
+
+void CommonLanguageSettings::InternalSwap(CommonLanguageSettings* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.destinations_.InternalSwap(&other->_impl_.destinations_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.reference_docs_uri_, lhs_arena,
+      &other->_impl_.reference_docs_uri_, rhs_arena
+  );
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CommonLanguageSettings::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_google_2fapi_2fclient_2eproto_getter, &descriptor_table_google_2fapi_2fclient_2eproto_once,
+      file_level_metadata_google_2fapi_2fclient_2eproto[0]);
+}
+
+// ===================================================================
+
+class ClientLibrarySettings::_Internal {
+ public:
+  static const ::google::api::JavaSettings& java_settings(const ClientLibrarySettings* msg);
+  static const ::google::api::CppSettings& cpp_settings(const ClientLibrarySettings* msg);
+  static const ::google::api::PhpSettings& php_settings(const ClientLibrarySettings* msg);
+  static const ::google::api::PythonSettings& python_settings(const ClientLibrarySettings* msg);
+  static const ::google::api::NodeSettings& node_settings(const ClientLibrarySettings* msg);
+  static const ::google::api::DotnetSettings& dotnet_settings(const ClientLibrarySettings* msg);
+  static const ::google::api::RubySettings& ruby_settings(const ClientLibrarySettings* msg);
+  static const ::google::api::GoSettings& go_settings(const ClientLibrarySettings* msg);
+};
+
+const ::google::api::JavaSettings&
+ClientLibrarySettings::_Internal::java_settings(const ClientLibrarySettings* msg) {
+  return *msg->_impl_.java_settings_;
+}
+const ::google::api::CppSettings&
+ClientLibrarySettings::_Internal::cpp_settings(const ClientLibrarySettings* msg) {
+  return *msg->_impl_.cpp_settings_;
+}
+const ::google::api::PhpSettings&
+ClientLibrarySettings::_Internal::php_settings(const ClientLibrarySettings* msg) {
+  return *msg->_impl_.php_settings_;
+}
+const ::google::api::PythonSettings&
+ClientLibrarySettings::_Internal::python_settings(const ClientLibrarySettings* msg) {
+  return *msg->_impl_.python_settings_;
+}
+const ::google::api::NodeSettings&
+ClientLibrarySettings::_Internal::node_settings(const ClientLibrarySettings* msg) {
+  return *msg->_impl_.node_settings_;
+}
+const ::google::api::DotnetSettings&
+ClientLibrarySettings::_Internal::dotnet_settings(const ClientLibrarySettings* msg) {
+  return *msg->_impl_.dotnet_settings_;
+}
+const ::google::api::RubySettings&
+ClientLibrarySettings::_Internal::ruby_settings(const ClientLibrarySettings* msg) {
+  return *msg->_impl_.ruby_settings_;
+}
+const ::google::api::GoSettings&
+ClientLibrarySettings::_Internal::go_settings(const ClientLibrarySettings* msg) {
+  return *msg->_impl_.go_settings_;
+}
+ClientLibrarySettings::ClientLibrarySettings(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:google.api.ClientLibrarySettings)
+}
+ClientLibrarySettings::ClientLibrarySettings(const ClientLibrarySettings& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ClientLibrarySettings* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.version_){}
+    , decltype(_impl_.java_settings_){nullptr}
+    , decltype(_impl_.cpp_settings_){nullptr}
+    , decltype(_impl_.php_settings_){nullptr}
+    , decltype(_impl_.python_settings_){nullptr}
+    , decltype(_impl_.node_settings_){nullptr}
+    , decltype(_impl_.dotnet_settings_){nullptr}
+    , decltype(_impl_.ruby_settings_){nullptr}
+    , decltype(_impl_.go_settings_){nullptr}
+    , decltype(_impl_.launch_stage_){}
+    , decltype(_impl_.rest_numeric_enums_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.version_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.version_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_version().empty()) {
+    _this->_impl_.version_.Set(from._internal_version(), 
+      _this->GetArenaForAllocation());
+  }
+  if (from._internal_has_java_settings()) {
+    _this->_impl_.java_settings_ = new ::google::api::JavaSettings(*from._impl_.java_settings_);
+  }
+  if (from._internal_has_cpp_settings()) {
+    _this->_impl_.cpp_settings_ = new ::google::api::CppSettings(*from._impl_.cpp_settings_);
+  }
+  if (from._internal_has_php_settings()) {
+    _this->_impl_.php_settings_ = new ::google::api::PhpSettings(*from._impl_.php_settings_);
+  }
+  if (from._internal_has_python_settings()) {
+    _this->_impl_.python_settings_ = new ::google::api::PythonSettings(*from._impl_.python_settings_);
+  }
+  if (from._internal_has_node_settings()) {
+    _this->_impl_.node_settings_ = new ::google::api::NodeSettings(*from._impl_.node_settings_);
+  }
+  if (from._internal_has_dotnet_settings()) {
+    _this->_impl_.dotnet_settings_ = new ::google::api::DotnetSettings(*from._impl_.dotnet_settings_);
+  }
+  if (from._internal_has_ruby_settings()) {
+    _this->_impl_.ruby_settings_ = new ::google::api::RubySettings(*from._impl_.ruby_settings_);
+  }
+  if (from._internal_has_go_settings()) {
+    _this->_impl_.go_settings_ = new ::google::api::GoSettings(*from._impl_.go_settings_);
+  }
+  ::memcpy(&_impl_.launch_stage_, &from._impl_.launch_stage_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.rest_numeric_enums_) -
+    reinterpret_cast<char*>(&_impl_.launch_stage_)) + sizeof(_impl_.rest_numeric_enums_));
+  // @@protoc_insertion_point(copy_constructor:google.api.ClientLibrarySettings)
+}
+
+inline void ClientLibrarySettings::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.version_){}
+    , decltype(_impl_.java_settings_){nullptr}
+    , decltype(_impl_.cpp_settings_){nullptr}
+    , decltype(_impl_.php_settings_){nullptr}
+    , decltype(_impl_.python_settings_){nullptr}
+    , decltype(_impl_.node_settings_){nullptr}
+    , decltype(_impl_.dotnet_settings_){nullptr}
+    , decltype(_impl_.ruby_settings_){nullptr}
+    , decltype(_impl_.go_settings_){nullptr}
+    , decltype(_impl_.launch_stage_){0}
+    , decltype(_impl_.rest_numeric_enums_){false}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.version_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.version_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+ClientLibrarySettings::~ClientLibrarySettings() {
+  // @@protoc_insertion_point(destructor:google.api.ClientLibrarySettings)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void ClientLibrarySettings::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.version_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.java_settings_;
+  if (this != internal_default_instance()) delete _impl_.cpp_settings_;
+  if (this != internal_default_instance()) delete _impl_.php_settings_;
+  if (this != internal_default_instance()) delete _impl_.python_settings_;
+  if (this != internal_default_instance()) delete _impl_.node_settings_;
+  if (this != internal_default_instance()) delete _impl_.dotnet_settings_;
+  if (this != internal_default_instance()) delete _impl_.ruby_settings_;
+  if (this != internal_default_instance()) delete _impl_.go_settings_;
+}
+
+void ClientLibrarySettings::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void ClientLibrarySettings::Clear() {
+// @@protoc_insertion_point(message_clear_start:google.api.ClientLibrarySettings)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.version_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.java_settings_ != nullptr) {
+    delete _impl_.java_settings_;
+  }
+  _impl_.java_settings_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.cpp_settings_ != nullptr) {
+    delete _impl_.cpp_settings_;
+  }
+  _impl_.cpp_settings_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.php_settings_ != nullptr) {
+    delete _impl_.php_settings_;
+  }
+  _impl_.php_settings_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.python_settings_ != nullptr) {
+    delete _impl_.python_settings_;
+  }
+  _impl_.python_settings_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.node_settings_ != nullptr) {
+    delete _impl_.node_settings_;
+  }
+  _impl_.node_settings_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.dotnet_settings_ != nullptr) {
+    delete _impl_.dotnet_settings_;
+  }
+  _impl_.dotnet_settings_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.ruby_settings_ != nullptr) {
+    delete _impl_.ruby_settings_;
+  }
+  _impl_.ruby_settings_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.go_settings_ != nullptr) {
+    delete _impl_.go_settings_;
+  }
+  _impl_.go_settings_ = nullptr;
+  ::memset(&_impl_.launch_stage_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.rest_numeric_enums_) -
+      reinterpret_cast<char*>(&_impl_.launch_stage_)) + sizeof(_impl_.rest_numeric_enums_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ClientLibrarySettings::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string version = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_version();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "google.api.ClientLibrarySettings.version"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.api.LaunchStage launch_stage = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_launch_stage(static_cast<::google::api::LaunchStage>(val));
+        } else
+          goto handle_unusual;
+        continue;
+      // bool rest_numeric_enums = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.rest_numeric_enums_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.api.JavaSettings java_settings = 21;
+      case 21:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 170)) {
+          ptr = ctx->ParseMessage(_internal_mutable_java_settings(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.api.CppSettings cpp_settings = 22;
+      case 22:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 178)) {
+          ptr = ctx->ParseMessage(_internal_mutable_cpp_settings(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.api.PhpSettings php_settings = 23;
+      case 23:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 186)) {
+          ptr = ctx->ParseMessage(_internal_mutable_php_settings(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.api.PythonSettings python_settings = 24;
+      case 24:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 194)) {
+          ptr = ctx->ParseMessage(_internal_mutable_python_settings(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.api.NodeSettings node_settings = 25;
+      case 25:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 202)) {
+          ptr = ctx->ParseMessage(_internal_mutable_node_settings(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.api.DotnetSettings dotnet_settings = 26;
+      case 26:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 210)) {
+          ptr = ctx->ParseMessage(_internal_mutable_dotnet_settings(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.api.RubySettings ruby_settings = 27;
+      case 27:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 218)) {
+          ptr = ctx->ParseMessage(_internal_mutable_ruby_settings(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.api.GoSettings go_settings = 28;
+      case 28:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 226)) {
+          ptr = ctx->ParseMessage(_internal_mutable_go_settings(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ClientLibrarySettings::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:google.api.ClientLibrarySettings)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string version = 1;
+  if (!this->_internal_version().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_version().data(), static_cast<int>(this->_internal_version().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "google.api.ClientLibrarySettings.version");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_version(), target);
+  }
+
+  // .google.api.LaunchStage launch_stage = 2;
+  if (this->_internal_launch_stage() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      2, this->_internal_launch_stage(), target);
+  }
+
+  // bool rest_numeric_enums = 3;
+  if (this->_internal_rest_numeric_enums() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_rest_numeric_enums(), target);
+  }
+
+  // .google.api.JavaSettings java_settings = 21;
+  if (this->_internal_has_java_settings()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(21, _Internal::java_settings(this),
+        _Internal::java_settings(this).GetCachedSize(), target, stream);
+  }
+
+  // .google.api.CppSettings cpp_settings = 22;
+  if (this->_internal_has_cpp_settings()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(22, _Internal::cpp_settings(this),
+        _Internal::cpp_settings(this).GetCachedSize(), target, stream);
+  }
+
+  // .google.api.PhpSettings php_settings = 23;
+  if (this->_internal_has_php_settings()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(23, _Internal::php_settings(this),
+        _Internal::php_settings(this).GetCachedSize(), target, stream);
+  }
+
+  // .google.api.PythonSettings python_settings = 24;
+  if (this->_internal_has_python_settings()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(24, _Internal::python_settings(this),
+        _Internal::python_settings(this).GetCachedSize(), target, stream);
+  }
+
+  // .google.api.NodeSettings node_settings = 25;
+  if (this->_internal_has_node_settings()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(25, _Internal::node_settings(this),
+        _Internal::node_settings(this).GetCachedSize(), target, stream);
+  }
+
+  // .google.api.DotnetSettings dotnet_settings = 26;
+  if (this->_internal_has_dotnet_settings()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(26, _Internal::dotnet_settings(this),
+        _Internal::dotnet_settings(this).GetCachedSize(), target, stream);
+  }
+
+  // .google.api.RubySettings ruby_settings = 27;
+  if (this->_internal_has_ruby_settings()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(27, _Internal::ruby_settings(this),
+        _Internal::ruby_settings(this).GetCachedSize(), target, stream);
+  }
+
+  // .google.api.GoSettings go_settings = 28;
+  if (this->_internal_has_go_settings()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(28, _Internal::go_settings(this),
+        _Internal::go_settings(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:google.api.ClientLibrarySettings)
+  return target;
+}
+
+size_t ClientLibrarySettings::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:google.api.ClientLibrarySettings)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string version = 1;
+  if (!this->_internal_version().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_version());
+  }
+
+  // .google.api.JavaSettings java_settings = 21;
+  if (this->_internal_has_java_settings()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.java_settings_);
+  }
+
+  // .google.api.CppSettings cpp_settings = 22;
+  if (this->_internal_has_cpp_settings()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.cpp_settings_);
+  }
+
+  // .google.api.PhpSettings php_settings = 23;
+  if (this->_internal_has_php_settings()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.php_settings_);
+  }
+
+  // .google.api.PythonSettings python_settings = 24;
+  if (this->_internal_has_python_settings()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.python_settings_);
+  }
+
+  // .google.api.NodeSettings node_settings = 25;
+  if (this->_internal_has_node_settings()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.node_settings_);
+  }
+
+  // .google.api.DotnetSettings dotnet_settings = 26;
+  if (this->_internal_has_dotnet_settings()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.dotnet_settings_);
+  }
+
+  // .google.api.RubySettings ruby_settings = 27;
+  if (this->_internal_has_ruby_settings()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.ruby_settings_);
+  }
+
+  // .google.api.GoSettings go_settings = 28;
+  if (this->_internal_has_go_settings()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.go_settings_);
+  }
+
+  // .google.api.LaunchStage launch_stage = 2;
+  if (this->_internal_launch_stage() != 0) {
+    total_size += 1 +
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_launch_stage());
+  }
+
+  // bool rest_numeric_enums = 3;
+  if (this->_internal_rest_numeric_enums() != 0) {
+    total_size += 1 + 1;
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ClientLibrarySettings::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ClientLibrarySettings::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ClientLibrarySettings::GetClassData() const { return &_class_data_; }
+
+
+void ClientLibrarySettings::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ClientLibrarySettings*>(&to_msg);
+  auto& from = static_cast<const ClientLibrarySettings&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:google.api.ClientLibrarySettings)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_version().empty()) {
+    _this->_internal_set_version(from._internal_version());
+  }
+  if (from._internal_has_java_settings()) {
+    _this->_internal_mutable_java_settings()->::google::api::JavaSettings::MergeFrom(
+        from._internal_java_settings());
+  }
+  if (from._internal_has_cpp_settings()) {
+    _this->_internal_mutable_cpp_settings()->::google::api::CppSettings::MergeFrom(
+        from._internal_cpp_settings());
+  }
+  if (from._internal_has_php_settings()) {
+    _this->_internal_mutable_php_settings()->::google::api::PhpSettings::MergeFrom(
+        from._internal_php_settings());
+  }
+  if (from._internal_has_python_settings()) {
+    _this->_internal_mutable_python_settings()->::google::api::PythonSettings::MergeFrom(
+        from._internal_python_settings());
+  }
+  if (from._internal_has_node_settings()) {
+    _this->_internal_mutable_node_settings()->::google::api::NodeSettings::MergeFrom(
+        from._internal_node_settings());
+  }
+  if (from._internal_has_dotnet_settings()) {
+    _this->_internal_mutable_dotnet_settings()->::google::api::DotnetSettings::MergeFrom(
+        from._internal_dotnet_settings());
+  }
+  if (from._internal_has_ruby_settings()) {
+    _this->_internal_mutable_ruby_settings()->::google::api::RubySettings::MergeFrom(
+        from._internal_ruby_settings());
+  }
+  if (from._internal_has_go_settings()) {
+    _this->_internal_mutable_go_settings()->::google::api::GoSettings::MergeFrom(
+        from._internal_go_settings());
+  }
+  if (from._internal_launch_stage() != 0) {
+    _this->_internal_set_launch_stage(from._internal_launch_stage());
+  }
+  if (from._internal_rest_numeric_enums() != 0) {
+    _this->_internal_set_rest_numeric_enums(from._internal_rest_numeric_enums());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ClientLibrarySettings::CopyFrom(const ClientLibrarySettings& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:google.api.ClientLibrarySettings)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ClientLibrarySettings::IsInitialized() const {
+  return true;
+}
+
+void ClientLibrarySettings::InternalSwap(ClientLibrarySettings* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.version_, lhs_arena,
+      &other->_impl_.version_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ClientLibrarySettings, _impl_.rest_numeric_enums_)
+      + sizeof(ClientLibrarySettings::_impl_.rest_numeric_enums_)
+      - PROTOBUF_FIELD_OFFSET(ClientLibrarySettings, _impl_.java_settings_)>(
+          reinterpret_cast<char*>(&_impl_.java_settings_),
+          reinterpret_cast<char*>(&other->_impl_.java_settings_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ClientLibrarySettings::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_google_2fapi_2fclient_2eproto_getter, &descriptor_table_google_2fapi_2fclient_2eproto_once,
+      file_level_metadata_google_2fapi_2fclient_2eproto[1]);
+}
+
+// ===================================================================
+
+class Publishing::_Internal {
+ public:
+};
+
+Publishing::Publishing(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:google.api.Publishing)
+}
+Publishing::Publishing(const Publishing& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  Publishing* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.method_settings_){from._impl_.method_settings_}
+    , decltype(_impl_.codeowner_github_teams_){from._impl_.codeowner_github_teams_}
+    , decltype(_impl_.library_settings_){from._impl_.library_settings_}
+    , decltype(_impl_.new_issue_uri_){}
+    , decltype(_impl_.documentation_uri_){}
+    , decltype(_impl_.api_short_name_){}
+    , decltype(_impl_.github_label_){}
+    , decltype(_impl_.doc_tag_prefix_){}
+    , decltype(_impl_.proto_reference_documentation_uri_){}
+    , decltype(_impl_.organization_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.new_issue_uri_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.new_issue_uri_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_new_issue_uri().empty()) {
+    _this->_impl_.new_issue_uri_.Set(from._internal_new_issue_uri(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.documentation_uri_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.documentation_uri_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_documentation_uri().empty()) {
+    _this->_impl_.documentation_uri_.Set(from._internal_documentation_uri(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.api_short_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.api_short_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_api_short_name().empty()) {
+    _this->_impl_.api_short_name_.Set(from._internal_api_short_name(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.github_label_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.github_label_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_github_label().empty()) {
+    _this->_impl_.github_label_.Set(from._internal_github_label(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.doc_tag_prefix_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.doc_tag_prefix_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_doc_tag_prefix().empty()) {
+    _this->_impl_.doc_tag_prefix_.Set(from._internal_doc_tag_prefix(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.proto_reference_documentation_uri_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.proto_reference_documentation_uri_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_proto_reference_documentation_uri().empty()) {
+    _this->_impl_.proto_reference_documentation_uri_.Set(from._internal_proto_reference_documentation_uri(), 
+      _this->GetArenaForAllocation());
+  }
+  _this->_impl_.organization_ = from._impl_.organization_;
+  // @@protoc_insertion_point(copy_constructor:google.api.Publishing)
+}
+
+inline void Publishing::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.method_settings_){arena}
+    , decltype(_impl_.codeowner_github_teams_){arena}
+    , decltype(_impl_.library_settings_){arena}
+    , decltype(_impl_.new_issue_uri_){}
+    , decltype(_impl_.documentation_uri_){}
+    , decltype(_impl_.api_short_name_){}
+    , decltype(_impl_.github_label_){}
+    , decltype(_impl_.doc_tag_prefix_){}
+    , decltype(_impl_.proto_reference_documentation_uri_){}
+    , decltype(_impl_.organization_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.new_issue_uri_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.new_issue_uri_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.documentation_uri_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.documentation_uri_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.api_short_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.api_short_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.github_label_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.github_label_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.doc_tag_prefix_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.doc_tag_prefix_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.proto_reference_documentation_uri_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.proto_reference_documentation_uri_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+Publishing::~Publishing() {
+  // @@protoc_insertion_point(destructor:google.api.Publishing)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void Publishing::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.method_settings_.~RepeatedPtrField();
+  _impl_.codeowner_github_teams_.~RepeatedPtrField();
+  _impl_.library_settings_.~RepeatedPtrField();
+  _impl_.new_issue_uri_.Destroy();
+  _impl_.documentation_uri_.Destroy();
+  _impl_.api_short_name_.Destroy();
+  _impl_.github_label_.Destroy();
+  _impl_.doc_tag_prefix_.Destroy();
+  _impl_.proto_reference_documentation_uri_.Destroy();
+}
+
+void Publishing::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void Publishing::Clear() {
+// @@protoc_insertion_point(message_clear_start:google.api.Publishing)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.method_settings_.Clear();
+  _impl_.codeowner_github_teams_.Clear();
+  _impl_.library_settings_.Clear();
+  _impl_.new_issue_uri_.ClearToEmpty();
+  _impl_.documentation_uri_.ClearToEmpty();
+  _impl_.api_short_name_.ClearToEmpty();
+  _impl_.github_label_.ClearToEmpty();
+  _impl_.doc_tag_prefix_.ClearToEmpty();
+  _impl_.proto_reference_documentation_uri_.ClearToEmpty();
+  _impl_.organization_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Publishing::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated .google.api.MethodSettings method_settings = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_method_settings(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // string new_issue_uri = 101;
+      case 101:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          auto str = _internal_mutable_new_issue_uri();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "google.api.Publishing.new_issue_uri"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string documentation_uri = 102;
+      case 102:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+          auto str = _internal_mutable_documentation_uri();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "google.api.Publishing.documentation_uri"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string api_short_name = 103;
+      case 103:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+          auto str = _internal_mutable_api_short_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "google.api.Publishing.api_short_name"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string github_label = 104;
+      case 104:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
+          auto str = _internal_mutable_github_label();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "google.api.Publishing.github_label"));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated string codeowner_github_teams = 105;
+      case 105:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 74)) {
+          ptr -= 2;
+          do {
+            ptr += 2;
+            auto str = _internal_add_codeowner_github_teams();
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "google.api.Publishing.codeowner_github_teams"));
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<842>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // string doc_tag_prefix = 106;
+      case 106:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
+          auto str = _internal_mutable_doc_tag_prefix();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "google.api.Publishing.doc_tag_prefix"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.api.ClientLibraryOrganization organization = 107;
+      case 107:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 88)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_organization(static_cast<::google::api::ClientLibraryOrganization>(val));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .google.api.ClientLibrarySettings library_settings = 109;
+      case 109:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 106)) {
+          ptr -= 2;
+          do {
+            ptr += 2;
+            ptr = ctx->ParseMessage(_internal_add_library_settings(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<874>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // string proto_reference_documentation_uri = 110;
+      case 110:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 114)) {
+          auto str = _internal_mutable_proto_reference_documentation_uri();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "google.api.Publishing.proto_reference_documentation_uri"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* Publishing::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:google.api.Publishing)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .google.api.MethodSettings method_settings = 2;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_method_settings_size()); i < n; i++) {
+    const auto& repfield = this->_internal_method_settings(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // string new_issue_uri = 101;
+  if (!this->_internal_new_issue_uri().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_new_issue_uri().data(), static_cast<int>(this->_internal_new_issue_uri().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "google.api.Publishing.new_issue_uri");
+    target = stream->WriteStringMaybeAliased(
+        101, this->_internal_new_issue_uri(), target);
+  }
+
+  // string documentation_uri = 102;
+  if (!this->_internal_documentation_uri().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_documentation_uri().data(), static_cast<int>(this->_internal_documentation_uri().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "google.api.Publishing.documentation_uri");
+    target = stream->WriteStringMaybeAliased(
+        102, this->_internal_documentation_uri(), target);
+  }
+
+  // string api_short_name = 103;
+  if (!this->_internal_api_short_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_api_short_name().data(), static_cast<int>(this->_internal_api_short_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "google.api.Publishing.api_short_name");
+    target = stream->WriteStringMaybeAliased(
+        103, this->_internal_api_short_name(), target);
+  }
+
+  // string github_label = 104;
+  if (!this->_internal_github_label().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_github_label().data(), static_cast<int>(this->_internal_github_label().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "google.api.Publishing.github_label");
+    target = stream->WriteStringMaybeAliased(
+        104, this->_internal_github_label(), target);
+  }
+
+  // repeated string codeowner_github_teams = 105;
+  for (int i = 0, n = this->_internal_codeowner_github_teams_size(); i < n; i++) {
+    const auto& s = this->_internal_codeowner_github_teams(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "google.api.Publishing.codeowner_github_teams");
+    target = stream->WriteString(105, s, target);
+  }
+
+  // string doc_tag_prefix = 106;
+  if (!this->_internal_doc_tag_prefix().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_doc_tag_prefix().data(), static_cast<int>(this->_internal_doc_tag_prefix().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "google.api.Publishing.doc_tag_prefix");
+    target = stream->WriteStringMaybeAliased(
+        106, this->_internal_doc_tag_prefix(), target);
+  }
+
+  // .google.api.ClientLibraryOrganization organization = 107;
+  if (this->_internal_organization() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      107, this->_internal_organization(), target);
+  }
+
+  // repeated .google.api.ClientLibrarySettings library_settings = 109;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_library_settings_size()); i < n; i++) {
+    const auto& repfield = this->_internal_library_settings(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(109, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // string proto_reference_documentation_uri = 110;
+  if (!this->_internal_proto_reference_documentation_uri().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_proto_reference_documentation_uri().data(), static_cast<int>(this->_internal_proto_reference_documentation_uri().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "google.api.Publishing.proto_reference_documentation_uri");
+    target = stream->WriteStringMaybeAliased(
+        110, this->_internal_proto_reference_documentation_uri(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:google.api.Publishing)
+  return target;
+}
+
+size_t Publishing::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:google.api.Publishing)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .google.api.MethodSettings method_settings = 2;
+  total_size += 1UL * this->_internal_method_settings_size();
+  for (const auto& msg : this->_impl_.method_settings_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated string codeowner_github_teams = 105;
+  total_size += 2 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.codeowner_github_teams_.size());
+  for (int i = 0, n = _impl_.codeowner_github_teams_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      _impl_.codeowner_github_teams_.Get(i));
+  }
+
+  // repeated .google.api.ClientLibrarySettings library_settings = 109;
+  total_size += 2UL * this->_internal_library_settings_size();
+  for (const auto& msg : this->_impl_.library_settings_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // string new_issue_uri = 101;
+  if (!this->_internal_new_issue_uri().empty()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_new_issue_uri());
+  }
+
+  // string documentation_uri = 102;
+  if (!this->_internal_documentation_uri().empty()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_documentation_uri());
+  }
+
+  // string api_short_name = 103;
+  if (!this->_internal_api_short_name().empty()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_api_short_name());
+  }
+
+  // string github_label = 104;
+  if (!this->_internal_github_label().empty()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_github_label());
+  }
+
+  // string doc_tag_prefix = 106;
+  if (!this->_internal_doc_tag_prefix().empty()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_doc_tag_prefix());
+  }
+
+  // string proto_reference_documentation_uri = 110;
+  if (!this->_internal_proto_reference_documentation_uri().empty()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_proto_reference_documentation_uri());
+  }
+
+  // .google.api.ClientLibraryOrganization organization = 107;
+  if (this->_internal_organization() != 0) {
+    total_size += 2 +
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_organization());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Publishing::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    Publishing::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Publishing::GetClassData() const { return &_class_data_; }
+
+
+void Publishing::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Publishing*>(&to_msg);
+  auto& from = static_cast<const Publishing&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:google.api.Publishing)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.method_settings_.MergeFrom(from._impl_.method_settings_);
+  _this->_impl_.codeowner_github_teams_.MergeFrom(from._impl_.codeowner_github_teams_);
+  _this->_impl_.library_settings_.MergeFrom(from._impl_.library_settings_);
+  if (!from._internal_new_issue_uri().empty()) {
+    _this->_internal_set_new_issue_uri(from._internal_new_issue_uri());
+  }
+  if (!from._internal_documentation_uri().empty()) {
+    _this->_internal_set_documentation_uri(from._internal_documentation_uri());
+  }
+  if (!from._internal_api_short_name().empty()) {
+    _this->_internal_set_api_short_name(from._internal_api_short_name());
+  }
+  if (!from._internal_github_label().empty()) {
+    _this->_internal_set_github_label(from._internal_github_label());
+  }
+  if (!from._internal_doc_tag_prefix().empty()) {
+    _this->_internal_set_doc_tag_prefix(from._internal_doc_tag_prefix());
+  }
+  if (!from._internal_proto_reference_documentation_uri().empty()) {
+    _this->_internal_set_proto_reference_documentation_uri(from._internal_proto_reference_documentation_uri());
+  }
+  if (from._internal_organization() != 0) {
+    _this->_internal_set_organization(from._internal_organization());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void Publishing::CopyFrom(const Publishing& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:google.api.Publishing)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Publishing::IsInitialized() const {
+  return true;
+}
+
+void Publishing::InternalSwap(Publishing* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.method_settings_.InternalSwap(&other->_impl_.method_settings_);
+  _impl_.codeowner_github_teams_.InternalSwap(&other->_impl_.codeowner_github_teams_);
+  _impl_.library_settings_.InternalSwap(&other->_impl_.library_settings_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.new_issue_uri_, lhs_arena,
+      &other->_impl_.new_issue_uri_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.documentation_uri_, lhs_arena,
+      &other->_impl_.documentation_uri_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.api_short_name_, lhs_arena,
+      &other->_impl_.api_short_name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.github_label_, lhs_arena,
+      &other->_impl_.github_label_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.doc_tag_prefix_, lhs_arena,
+      &other->_impl_.doc_tag_prefix_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.proto_reference_documentation_uri_, lhs_arena,
+      &other->_impl_.proto_reference_documentation_uri_, rhs_arena
+  );
+  swap(_impl_.organization_, other->_impl_.organization_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Publishing::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_google_2fapi_2fclient_2eproto_getter, &descriptor_table_google_2fapi_2fclient_2eproto_once,
+      file_level_metadata_google_2fapi_2fclient_2eproto[2]);
+}
+
+// ===================================================================
+
+JavaSettings_ServiceClassNamesEntry_DoNotUse::JavaSettings_ServiceClassNamesEntry_DoNotUse() {}
+JavaSettings_ServiceClassNamesEntry_DoNotUse::JavaSettings_ServiceClassNamesEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+    : SuperType(arena) {}
+void JavaSettings_ServiceClassNamesEntry_DoNotUse::MergeFrom(const JavaSettings_ServiceClassNamesEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata JavaSettings_ServiceClassNamesEntry_DoNotUse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_google_2fapi_2fclient_2eproto_getter, &descriptor_table_google_2fapi_2fclient_2eproto_once,
+      file_level_metadata_google_2fapi_2fclient_2eproto[3]);
+}
+
+// ===================================================================
+
+class JavaSettings::_Internal {
+ public:
+  static const ::google::api::CommonLanguageSettings& common(const JavaSettings* msg);
+};
+
+const ::google::api::CommonLanguageSettings&
+JavaSettings::_Internal::common(const JavaSettings* msg) {
+  return *msg->_impl_.common_;
+}
+JavaSettings::JavaSettings(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &JavaSettings::ArenaDtor);
+  }
+  // @@protoc_insertion_point(arena_constructor:google.api.JavaSettings)
+}
+JavaSettings::JavaSettings(const JavaSettings& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  JavaSettings* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      /*decltype(_impl_.service_class_names_)*/{}
+    , decltype(_impl_.library_package_){}
+    , decltype(_impl_.common_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.service_class_names_.MergeFrom(from._impl_.service_class_names_);
+  _impl_.library_package_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.library_package_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_library_package().empty()) {
+    _this->_impl_.library_package_.Set(from._internal_library_package(), 
+      _this->GetArenaForAllocation());
+  }
+  if (from._internal_has_common()) {
+    _this->_impl_.common_ = new ::google::api::CommonLanguageSettings(*from._impl_.common_);
+  }
+  // @@protoc_insertion_point(copy_constructor:google.api.JavaSettings)
+}
+
+inline void JavaSettings::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      /*decltype(_impl_.service_class_names_)*/{::_pbi::ArenaInitialized(), arena}
+    , decltype(_impl_.library_package_){}
+    , decltype(_impl_.common_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.library_package_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.library_package_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+JavaSettings::~JavaSettings() {
+  // @@protoc_insertion_point(destructor:google.api.JavaSettings)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
+  SharedDtor();
+}
+
+inline void JavaSettings::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.service_class_names_.Destruct();
+  _impl_.service_class_names_.~MapField();
+  _impl_.library_package_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.common_;
+}
+
+void JavaSettings::ArenaDtor(void* object) {
+  JavaSettings* _this = reinterpret_cast< JavaSettings* >(object);
+  _this->_impl_.service_class_names_.Destruct();
+}
+void JavaSettings::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void JavaSettings::Clear() {
+// @@protoc_insertion_point(message_clear_start:google.api.JavaSettings)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.service_class_names_.Clear();
+  _impl_.library_package_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.common_ != nullptr) {
+    delete _impl_.common_;
+  }
+  _impl_.common_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* JavaSettings::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string library_package = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_library_package();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "google.api.JavaSettings.library_package"));
+        } else
+          goto handle_unusual;
+        continue;
+      // map<string, string> service_class_names = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&_impl_.service_class_names_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.api.CommonLanguageSettings common = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_common(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* JavaSettings::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:google.api.JavaSettings)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string library_package = 1;
+  if (!this->_internal_library_package().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_library_package().data(), static_cast<int>(this->_internal_library_package().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "google.api.JavaSettings.library_package");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_library_package(), target);
+  }
+
+  // map<string, string> service_class_names = 2;
+  if (!this->_internal_service_class_names().empty()) {
+    using MapType = ::_pb::Map<std::string, std::string>;
+    using WireHelper = JavaSettings_ServiceClassNamesEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_service_class_names();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "google.api.JavaSettings.ServiceClassNamesEntry.key");
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.second.data(), static_cast<int>(entry.second.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "google.api.JavaSettings.ServiceClassNamesEntry.value");
+    };
+
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(2, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    } else {
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(2, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    }
+  }
+
+  // .google.api.CommonLanguageSettings common = 3;
+  if (this->_internal_has_common()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(3, _Internal::common(this),
+        _Internal::common(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:google.api.JavaSettings)
+  return target;
+}
+
+size_t JavaSettings::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:google.api.JavaSettings)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // map<string, string> service_class_names = 2;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_service_class_names_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
+      it = this->_internal_service_class_names().begin();
+      it != this->_internal_service_class_names().end(); ++it) {
+    total_size += JavaSettings_ServiceClassNamesEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  }
+
+  // string library_package = 1;
+  if (!this->_internal_library_package().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_library_package());
+  }
+
+  // .google.api.CommonLanguageSettings common = 3;
+  if (this->_internal_has_common()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.common_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData JavaSettings::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    JavaSettings::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*JavaSettings::GetClassData() const { return &_class_data_; }
+
+
+void JavaSettings::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<JavaSettings*>(&to_msg);
+  auto& from = static_cast<const JavaSettings&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:google.api.JavaSettings)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.service_class_names_.MergeFrom(from._impl_.service_class_names_);
+  if (!from._internal_library_package().empty()) {
+    _this->_internal_set_library_package(from._internal_library_package());
+  }
+  if (from._internal_has_common()) {
+    _this->_internal_mutable_common()->::google::api::CommonLanguageSettings::MergeFrom(
+        from._internal_common());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void JavaSettings::CopyFrom(const JavaSettings& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:google.api.JavaSettings)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool JavaSettings::IsInitialized() const {
+  return true;
+}
+
+void JavaSettings::InternalSwap(JavaSettings* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.service_class_names_.InternalSwap(&other->_impl_.service_class_names_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.library_package_, lhs_arena,
+      &other->_impl_.library_package_, rhs_arena
+  );
+  swap(_impl_.common_, other->_impl_.common_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata JavaSettings::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_google_2fapi_2fclient_2eproto_getter, &descriptor_table_google_2fapi_2fclient_2eproto_once,
+      file_level_metadata_google_2fapi_2fclient_2eproto[4]);
+}
+
+// ===================================================================
+
+class CppSettings::_Internal {
+ public:
+  static const ::google::api::CommonLanguageSettings& common(const CppSettings* msg);
+};
+
+const ::google::api::CommonLanguageSettings&
+CppSettings::_Internal::common(const CppSettings* msg) {
+  return *msg->_impl_.common_;
+}
+CppSettings::CppSettings(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:google.api.CppSettings)
+}
+CppSettings::CppSettings(const CppSettings& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CppSettings* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.common_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_common()) {
+    _this->_impl_.common_ = new ::google::api::CommonLanguageSettings(*from._impl_.common_);
+  }
+  // @@protoc_insertion_point(copy_constructor:google.api.CppSettings)
+}
+
+inline void CppSettings::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.common_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+CppSettings::~CppSettings() {
+  // @@protoc_insertion_point(destructor:google.api.CppSettings)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CppSettings::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.common_;
+}
+
+void CppSettings::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CppSettings::Clear() {
+// @@protoc_insertion_point(message_clear_start:google.api.CppSettings)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && _impl_.common_ != nullptr) {
+    delete _impl_.common_;
+  }
+  _impl_.common_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CppSettings::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .google.api.CommonLanguageSettings common = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_common(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CppSettings::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:google.api.CppSettings)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .google.api.CommonLanguageSettings common = 1;
+  if (this->_internal_has_common()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::common(this),
+        _Internal::common(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:google.api.CppSettings)
+  return target;
+}
+
+size_t CppSettings::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:google.api.CppSettings)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .google.api.CommonLanguageSettings common = 1;
+  if (this->_internal_has_common()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.common_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CppSettings::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CppSettings::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CppSettings::GetClassData() const { return &_class_data_; }
+
+
+void CppSettings::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CppSettings*>(&to_msg);
+  auto& from = static_cast<const CppSettings&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:google.api.CppSettings)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_common()) {
+    _this->_internal_mutable_common()->::google::api::CommonLanguageSettings::MergeFrom(
+        from._internal_common());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CppSettings::CopyFrom(const CppSettings& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:google.api.CppSettings)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CppSettings::IsInitialized() const {
+  return true;
+}
+
+void CppSettings::InternalSwap(CppSettings* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_.common_, other->_impl_.common_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CppSettings::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_google_2fapi_2fclient_2eproto_getter, &descriptor_table_google_2fapi_2fclient_2eproto_once,
+      file_level_metadata_google_2fapi_2fclient_2eproto[5]);
+}
+
+// ===================================================================
+
+class PhpSettings::_Internal {
+ public:
+  static const ::google::api::CommonLanguageSettings& common(const PhpSettings* msg);
+};
+
+const ::google::api::CommonLanguageSettings&
+PhpSettings::_Internal::common(const PhpSettings* msg) {
+  return *msg->_impl_.common_;
+}
+PhpSettings::PhpSettings(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:google.api.PhpSettings)
+}
+PhpSettings::PhpSettings(const PhpSettings& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  PhpSettings* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.common_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_common()) {
+    _this->_impl_.common_ = new ::google::api::CommonLanguageSettings(*from._impl_.common_);
+  }
+  // @@protoc_insertion_point(copy_constructor:google.api.PhpSettings)
+}
+
+inline void PhpSettings::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.common_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+PhpSettings::~PhpSettings() {
+  // @@protoc_insertion_point(destructor:google.api.PhpSettings)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void PhpSettings::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.common_;
+}
+
+void PhpSettings::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void PhpSettings::Clear() {
+// @@protoc_insertion_point(message_clear_start:google.api.PhpSettings)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && _impl_.common_ != nullptr) {
+    delete _impl_.common_;
+  }
+  _impl_.common_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* PhpSettings::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .google.api.CommonLanguageSettings common = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_common(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* PhpSettings::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:google.api.PhpSettings)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .google.api.CommonLanguageSettings common = 1;
+  if (this->_internal_has_common()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::common(this),
+        _Internal::common(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:google.api.PhpSettings)
+  return target;
+}
+
+size_t PhpSettings::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:google.api.PhpSettings)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .google.api.CommonLanguageSettings common = 1;
+  if (this->_internal_has_common()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.common_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData PhpSettings::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    PhpSettings::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*PhpSettings::GetClassData() const { return &_class_data_; }
+
+
+void PhpSettings::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<PhpSettings*>(&to_msg);
+  auto& from = static_cast<const PhpSettings&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:google.api.PhpSettings)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_common()) {
+    _this->_internal_mutable_common()->::google::api::CommonLanguageSettings::MergeFrom(
+        from._internal_common());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void PhpSettings::CopyFrom(const PhpSettings& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:google.api.PhpSettings)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PhpSettings::IsInitialized() const {
+  return true;
+}
+
+void PhpSettings::InternalSwap(PhpSettings* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_.common_, other->_impl_.common_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata PhpSettings::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_google_2fapi_2fclient_2eproto_getter, &descriptor_table_google_2fapi_2fclient_2eproto_once,
+      file_level_metadata_google_2fapi_2fclient_2eproto[6]);
+}
+
+// ===================================================================
+
+class PythonSettings::_Internal {
+ public:
+  static const ::google::api::CommonLanguageSettings& common(const PythonSettings* msg);
+};
+
+const ::google::api::CommonLanguageSettings&
+PythonSettings::_Internal::common(const PythonSettings* msg) {
+  return *msg->_impl_.common_;
+}
+PythonSettings::PythonSettings(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:google.api.PythonSettings)
+}
+PythonSettings::PythonSettings(const PythonSettings& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  PythonSettings* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.common_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_common()) {
+    _this->_impl_.common_ = new ::google::api::CommonLanguageSettings(*from._impl_.common_);
+  }
+  // @@protoc_insertion_point(copy_constructor:google.api.PythonSettings)
+}
+
+inline void PythonSettings::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.common_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+PythonSettings::~PythonSettings() {
+  // @@protoc_insertion_point(destructor:google.api.PythonSettings)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void PythonSettings::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.common_;
+}
+
+void PythonSettings::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void PythonSettings::Clear() {
+// @@protoc_insertion_point(message_clear_start:google.api.PythonSettings)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && _impl_.common_ != nullptr) {
+    delete _impl_.common_;
+  }
+  _impl_.common_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* PythonSettings::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .google.api.CommonLanguageSettings common = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_common(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* PythonSettings::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:google.api.PythonSettings)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .google.api.CommonLanguageSettings common = 1;
+  if (this->_internal_has_common()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::common(this),
+        _Internal::common(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:google.api.PythonSettings)
+  return target;
+}
+
+size_t PythonSettings::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:google.api.PythonSettings)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .google.api.CommonLanguageSettings common = 1;
+  if (this->_internal_has_common()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.common_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData PythonSettings::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    PythonSettings::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*PythonSettings::GetClassData() const { return &_class_data_; }
+
+
+void PythonSettings::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<PythonSettings*>(&to_msg);
+  auto& from = static_cast<const PythonSettings&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:google.api.PythonSettings)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_common()) {
+    _this->_internal_mutable_common()->::google::api::CommonLanguageSettings::MergeFrom(
+        from._internal_common());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void PythonSettings::CopyFrom(const PythonSettings& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:google.api.PythonSettings)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PythonSettings::IsInitialized() const {
+  return true;
+}
+
+void PythonSettings::InternalSwap(PythonSettings* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_.common_, other->_impl_.common_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata PythonSettings::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_google_2fapi_2fclient_2eproto_getter, &descriptor_table_google_2fapi_2fclient_2eproto_once,
+      file_level_metadata_google_2fapi_2fclient_2eproto[7]);
+}
+
+// ===================================================================
+
+class NodeSettings::_Internal {
+ public:
+  static const ::google::api::CommonLanguageSettings& common(const NodeSettings* msg);
+};
+
+const ::google::api::CommonLanguageSettings&
+NodeSettings::_Internal::common(const NodeSettings* msg) {
+  return *msg->_impl_.common_;
+}
+NodeSettings::NodeSettings(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:google.api.NodeSettings)
+}
+NodeSettings::NodeSettings(const NodeSettings& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  NodeSettings* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.common_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_common()) {
+    _this->_impl_.common_ = new ::google::api::CommonLanguageSettings(*from._impl_.common_);
+  }
+  // @@protoc_insertion_point(copy_constructor:google.api.NodeSettings)
+}
+
+inline void NodeSettings::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.common_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+NodeSettings::~NodeSettings() {
+  // @@protoc_insertion_point(destructor:google.api.NodeSettings)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void NodeSettings::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.common_;
+}
+
+void NodeSettings::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void NodeSettings::Clear() {
+// @@protoc_insertion_point(message_clear_start:google.api.NodeSettings)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && _impl_.common_ != nullptr) {
+    delete _impl_.common_;
+  }
+  _impl_.common_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* NodeSettings::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .google.api.CommonLanguageSettings common = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_common(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* NodeSettings::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:google.api.NodeSettings)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .google.api.CommonLanguageSettings common = 1;
+  if (this->_internal_has_common()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::common(this),
+        _Internal::common(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:google.api.NodeSettings)
+  return target;
+}
+
+size_t NodeSettings::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:google.api.NodeSettings)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .google.api.CommonLanguageSettings common = 1;
+  if (this->_internal_has_common()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.common_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData NodeSettings::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    NodeSettings::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*NodeSettings::GetClassData() const { return &_class_data_; }
+
+
+void NodeSettings::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<NodeSettings*>(&to_msg);
+  auto& from = static_cast<const NodeSettings&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:google.api.NodeSettings)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_common()) {
+    _this->_internal_mutable_common()->::google::api::CommonLanguageSettings::MergeFrom(
+        from._internal_common());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void NodeSettings::CopyFrom(const NodeSettings& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:google.api.NodeSettings)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NodeSettings::IsInitialized() const {
+  return true;
+}
+
+void NodeSettings::InternalSwap(NodeSettings* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_.common_, other->_impl_.common_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata NodeSettings::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_google_2fapi_2fclient_2eproto_getter, &descriptor_table_google_2fapi_2fclient_2eproto_once,
+      file_level_metadata_google_2fapi_2fclient_2eproto[8]);
+}
+
+// ===================================================================
+
+DotnetSettings_RenamedServicesEntry_DoNotUse::DotnetSettings_RenamedServicesEntry_DoNotUse() {}
+DotnetSettings_RenamedServicesEntry_DoNotUse::DotnetSettings_RenamedServicesEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+    : SuperType(arena) {}
+void DotnetSettings_RenamedServicesEntry_DoNotUse::MergeFrom(const DotnetSettings_RenamedServicesEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata DotnetSettings_RenamedServicesEntry_DoNotUse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_google_2fapi_2fclient_2eproto_getter, &descriptor_table_google_2fapi_2fclient_2eproto_once,
+      file_level_metadata_google_2fapi_2fclient_2eproto[9]);
+}
+
+// ===================================================================
+
+DotnetSettings_RenamedResourcesEntry_DoNotUse::DotnetSettings_RenamedResourcesEntry_DoNotUse() {}
+DotnetSettings_RenamedResourcesEntry_DoNotUse::DotnetSettings_RenamedResourcesEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+    : SuperType(arena) {}
+void DotnetSettings_RenamedResourcesEntry_DoNotUse::MergeFrom(const DotnetSettings_RenamedResourcesEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata DotnetSettings_RenamedResourcesEntry_DoNotUse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_google_2fapi_2fclient_2eproto_getter, &descriptor_table_google_2fapi_2fclient_2eproto_once,
+      file_level_metadata_google_2fapi_2fclient_2eproto[10]);
+}
+
+// ===================================================================
+
+class DotnetSettings::_Internal {
+ public:
+  static const ::google::api::CommonLanguageSettings& common(const DotnetSettings* msg);
+};
+
+const ::google::api::CommonLanguageSettings&
+DotnetSettings::_Internal::common(const DotnetSettings* msg) {
+  return *msg->_impl_.common_;
+}
+DotnetSettings::DotnetSettings(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &DotnetSettings::ArenaDtor);
+  }
+  // @@protoc_insertion_point(arena_constructor:google.api.DotnetSettings)
+}
+DotnetSettings::DotnetSettings(const DotnetSettings& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  DotnetSettings* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      /*decltype(_impl_.renamed_services_)*/{}
+    , /*decltype(_impl_.renamed_resources_)*/{}
+    , decltype(_impl_.ignored_resources_){from._impl_.ignored_resources_}
+    , decltype(_impl_.forced_namespace_aliases_){from._impl_.forced_namespace_aliases_}
+    , decltype(_impl_.handwritten_signatures_){from._impl_.handwritten_signatures_}
+    , decltype(_impl_.common_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.renamed_services_.MergeFrom(from._impl_.renamed_services_);
+  _this->_impl_.renamed_resources_.MergeFrom(from._impl_.renamed_resources_);
+  if (from._internal_has_common()) {
+    _this->_impl_.common_ = new ::google::api::CommonLanguageSettings(*from._impl_.common_);
+  }
+  // @@protoc_insertion_point(copy_constructor:google.api.DotnetSettings)
+}
+
+inline void DotnetSettings::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      /*decltype(_impl_.renamed_services_)*/{::_pbi::ArenaInitialized(), arena}
+    , /*decltype(_impl_.renamed_resources_)*/{::_pbi::ArenaInitialized(), arena}
+    , decltype(_impl_.ignored_resources_){arena}
+    , decltype(_impl_.forced_namespace_aliases_){arena}
+    , decltype(_impl_.handwritten_signatures_){arena}
+    , decltype(_impl_.common_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+DotnetSettings::~DotnetSettings() {
+  // @@protoc_insertion_point(destructor:google.api.DotnetSettings)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
+  SharedDtor();
+}
+
+inline void DotnetSettings::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.renamed_services_.Destruct();
+  _impl_.renamed_services_.~MapField();
+  _impl_.renamed_resources_.Destruct();
+  _impl_.renamed_resources_.~MapField();
+  _impl_.ignored_resources_.~RepeatedPtrField();
+  _impl_.forced_namespace_aliases_.~RepeatedPtrField();
+  _impl_.handwritten_signatures_.~RepeatedPtrField();
+  if (this != internal_default_instance()) delete _impl_.common_;
+}
+
+void DotnetSettings::ArenaDtor(void* object) {
+  DotnetSettings* _this = reinterpret_cast< DotnetSettings* >(object);
+  _this->_impl_.renamed_services_.Destruct();
+  _this->_impl_.renamed_resources_.Destruct();
+}
+void DotnetSettings::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void DotnetSettings::Clear() {
+// @@protoc_insertion_point(message_clear_start:google.api.DotnetSettings)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.renamed_services_.Clear();
+  _impl_.renamed_resources_.Clear();
+  _impl_.ignored_resources_.Clear();
+  _impl_.forced_namespace_aliases_.Clear();
+  _impl_.handwritten_signatures_.Clear();
+  if (GetArenaForAllocation() == nullptr && _impl_.common_ != nullptr) {
+    delete _impl_.common_;
+  }
+  _impl_.common_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DotnetSettings::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .google.api.CommonLanguageSettings common = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_common(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // map<string, string> renamed_services = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&_impl_.renamed_services_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // map<string, string> renamed_resources = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&_impl_.renamed_resources_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated string ignored_resources = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_ignored_resources();
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "google.api.DotnetSettings.ignored_resources"));
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated string forced_namespace_aliases = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_forced_namespace_aliases();
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "google.api.DotnetSettings.forced_namespace_aliases"));
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated string handwritten_signatures = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_handwritten_signatures();
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "google.api.DotnetSettings.handwritten_signatures"));
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<50>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* DotnetSettings::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:google.api.DotnetSettings)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .google.api.CommonLanguageSettings common = 1;
+  if (this->_internal_has_common()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::common(this),
+        _Internal::common(this).GetCachedSize(), target, stream);
+  }
+
+  // map<string, string> renamed_services = 2;
+  if (!this->_internal_renamed_services().empty()) {
+    using MapType = ::_pb::Map<std::string, std::string>;
+    using WireHelper = DotnetSettings_RenamedServicesEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_renamed_services();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "google.api.DotnetSettings.RenamedServicesEntry.key");
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.second.data(), static_cast<int>(entry.second.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "google.api.DotnetSettings.RenamedServicesEntry.value");
+    };
+
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(2, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    } else {
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(2, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    }
+  }
+
+  // map<string, string> renamed_resources = 3;
+  if (!this->_internal_renamed_resources().empty()) {
+    using MapType = ::_pb::Map<std::string, std::string>;
+    using WireHelper = DotnetSettings_RenamedResourcesEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_renamed_resources();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "google.api.DotnetSettings.RenamedResourcesEntry.key");
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.second.data(), static_cast<int>(entry.second.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "google.api.DotnetSettings.RenamedResourcesEntry.value");
+    };
+
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(3, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    } else {
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(3, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    }
+  }
+
+  // repeated string ignored_resources = 4;
+  for (int i = 0, n = this->_internal_ignored_resources_size(); i < n; i++) {
+    const auto& s = this->_internal_ignored_resources(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "google.api.DotnetSettings.ignored_resources");
+    target = stream->WriteString(4, s, target);
+  }
+
+  // repeated string forced_namespace_aliases = 5;
+  for (int i = 0, n = this->_internal_forced_namespace_aliases_size(); i < n; i++) {
+    const auto& s = this->_internal_forced_namespace_aliases(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "google.api.DotnetSettings.forced_namespace_aliases");
+    target = stream->WriteString(5, s, target);
+  }
+
+  // repeated string handwritten_signatures = 6;
+  for (int i = 0, n = this->_internal_handwritten_signatures_size(); i < n; i++) {
+    const auto& s = this->_internal_handwritten_signatures(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "google.api.DotnetSettings.handwritten_signatures");
+    target = stream->WriteString(6, s, target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:google.api.DotnetSettings)
+  return target;
+}
+
+size_t DotnetSettings::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:google.api.DotnetSettings)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // map<string, string> renamed_services = 2;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_renamed_services_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
+      it = this->_internal_renamed_services().begin();
+      it != this->_internal_renamed_services().end(); ++it) {
+    total_size += DotnetSettings_RenamedServicesEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  }
+
+  // map<string, string> renamed_resources = 3;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_renamed_resources_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
+      it = this->_internal_renamed_resources().begin();
+      it != this->_internal_renamed_resources().end(); ++it) {
+    total_size += DotnetSettings_RenamedResourcesEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  }
+
+  // repeated string ignored_resources = 4;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.ignored_resources_.size());
+  for (int i = 0, n = _impl_.ignored_resources_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      _impl_.ignored_resources_.Get(i));
+  }
+
+  // repeated string forced_namespace_aliases = 5;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.forced_namespace_aliases_.size());
+  for (int i = 0, n = _impl_.forced_namespace_aliases_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      _impl_.forced_namespace_aliases_.Get(i));
+  }
+
+  // repeated string handwritten_signatures = 6;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.handwritten_signatures_.size());
+  for (int i = 0, n = _impl_.handwritten_signatures_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      _impl_.handwritten_signatures_.Get(i));
+  }
+
+  // .google.api.CommonLanguageSettings common = 1;
+  if (this->_internal_has_common()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.common_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData DotnetSettings::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    DotnetSettings::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*DotnetSettings::GetClassData() const { return &_class_data_; }
+
+
+void DotnetSettings::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<DotnetSettings*>(&to_msg);
+  auto& from = static_cast<const DotnetSettings&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:google.api.DotnetSettings)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.renamed_services_.MergeFrom(from._impl_.renamed_services_);
+  _this->_impl_.renamed_resources_.MergeFrom(from._impl_.renamed_resources_);
+  _this->_impl_.ignored_resources_.MergeFrom(from._impl_.ignored_resources_);
+  _this->_impl_.forced_namespace_aliases_.MergeFrom(from._impl_.forced_namespace_aliases_);
+  _this->_impl_.handwritten_signatures_.MergeFrom(from._impl_.handwritten_signatures_);
+  if (from._internal_has_common()) {
+    _this->_internal_mutable_common()->::google::api::CommonLanguageSettings::MergeFrom(
+        from._internal_common());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void DotnetSettings::CopyFrom(const DotnetSettings& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:google.api.DotnetSettings)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DotnetSettings::IsInitialized() const {
+  return true;
+}
+
+void DotnetSettings::InternalSwap(DotnetSettings* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.renamed_services_.InternalSwap(&other->_impl_.renamed_services_);
+  _impl_.renamed_resources_.InternalSwap(&other->_impl_.renamed_resources_);
+  _impl_.ignored_resources_.InternalSwap(&other->_impl_.ignored_resources_);
+  _impl_.forced_namespace_aliases_.InternalSwap(&other->_impl_.forced_namespace_aliases_);
+  _impl_.handwritten_signatures_.InternalSwap(&other->_impl_.handwritten_signatures_);
+  swap(_impl_.common_, other->_impl_.common_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DotnetSettings::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_google_2fapi_2fclient_2eproto_getter, &descriptor_table_google_2fapi_2fclient_2eproto_once,
+      file_level_metadata_google_2fapi_2fclient_2eproto[11]);
+}
+
+// ===================================================================
+
+class RubySettings::_Internal {
+ public:
+  static const ::google::api::CommonLanguageSettings& common(const RubySettings* msg);
+};
+
+const ::google::api::CommonLanguageSettings&
+RubySettings::_Internal::common(const RubySettings* msg) {
+  return *msg->_impl_.common_;
+}
+RubySettings::RubySettings(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:google.api.RubySettings)
+}
+RubySettings::RubySettings(const RubySettings& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  RubySettings* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.common_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_common()) {
+    _this->_impl_.common_ = new ::google::api::CommonLanguageSettings(*from._impl_.common_);
+  }
+  // @@protoc_insertion_point(copy_constructor:google.api.RubySettings)
+}
+
+inline void RubySettings::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.common_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+RubySettings::~RubySettings() {
+  // @@protoc_insertion_point(destructor:google.api.RubySettings)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void RubySettings::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.common_;
+}
+
+void RubySettings::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void RubySettings::Clear() {
+// @@protoc_insertion_point(message_clear_start:google.api.RubySettings)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && _impl_.common_ != nullptr) {
+    delete _impl_.common_;
+  }
+  _impl_.common_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* RubySettings::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .google.api.CommonLanguageSettings common = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_common(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* RubySettings::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:google.api.RubySettings)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .google.api.CommonLanguageSettings common = 1;
+  if (this->_internal_has_common()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::common(this),
+        _Internal::common(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:google.api.RubySettings)
+  return target;
+}
+
+size_t RubySettings::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:google.api.RubySettings)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .google.api.CommonLanguageSettings common = 1;
+  if (this->_internal_has_common()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.common_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RubySettings::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    RubySettings::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RubySettings::GetClassData() const { return &_class_data_; }
+
+
+void RubySettings::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<RubySettings*>(&to_msg);
+  auto& from = static_cast<const RubySettings&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:google.api.RubySettings)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_common()) {
+    _this->_internal_mutable_common()->::google::api::CommonLanguageSettings::MergeFrom(
+        from._internal_common());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void RubySettings::CopyFrom(const RubySettings& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:google.api.RubySettings)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool RubySettings::IsInitialized() const {
+  return true;
+}
+
+void RubySettings::InternalSwap(RubySettings* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_.common_, other->_impl_.common_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata RubySettings::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_google_2fapi_2fclient_2eproto_getter, &descriptor_table_google_2fapi_2fclient_2eproto_once,
+      file_level_metadata_google_2fapi_2fclient_2eproto[12]);
+}
+
+// ===================================================================
+
+class GoSettings::_Internal {
+ public:
+  static const ::google::api::CommonLanguageSettings& common(const GoSettings* msg);
+};
+
+const ::google::api::CommonLanguageSettings&
+GoSettings::_Internal::common(const GoSettings* msg) {
+  return *msg->_impl_.common_;
+}
+GoSettings::GoSettings(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:google.api.GoSettings)
+}
+GoSettings::GoSettings(const GoSettings& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  GoSettings* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.common_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_common()) {
+    _this->_impl_.common_ = new ::google::api::CommonLanguageSettings(*from._impl_.common_);
+  }
+  // @@protoc_insertion_point(copy_constructor:google.api.GoSettings)
+}
+
+inline void GoSettings::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.common_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+GoSettings::~GoSettings() {
+  // @@protoc_insertion_point(destructor:google.api.GoSettings)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void GoSettings::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.common_;
+}
+
+void GoSettings::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void GoSettings::Clear() {
+// @@protoc_insertion_point(message_clear_start:google.api.GoSettings)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && _impl_.common_ != nullptr) {
+    delete _impl_.common_;
+  }
+  _impl_.common_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* GoSettings::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .google.api.CommonLanguageSettings common = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_common(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* GoSettings::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:google.api.GoSettings)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .google.api.CommonLanguageSettings common = 1;
+  if (this->_internal_has_common()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::common(this),
+        _Internal::common(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:google.api.GoSettings)
+  return target;
+}
+
+size_t GoSettings::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:google.api.GoSettings)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .google.api.CommonLanguageSettings common = 1;
+  if (this->_internal_has_common()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.common_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData GoSettings::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    GoSettings::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GoSettings::GetClassData() const { return &_class_data_; }
+
+
+void GoSettings::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<GoSettings*>(&to_msg);
+  auto& from = static_cast<const GoSettings&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:google.api.GoSettings)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_common()) {
+    _this->_internal_mutable_common()->::google::api::CommonLanguageSettings::MergeFrom(
+        from._internal_common());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void GoSettings::CopyFrom(const GoSettings& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:google.api.GoSettings)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GoSettings::IsInitialized() const {
+  return true;
+}
+
+void GoSettings::InternalSwap(GoSettings* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_.common_, other->_impl_.common_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata GoSettings::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_google_2fapi_2fclient_2eproto_getter, &descriptor_table_google_2fapi_2fclient_2eproto_once,
+      file_level_metadata_google_2fapi_2fclient_2eproto[13]);
+}
+
+// ===================================================================
+
+class MethodSettings_LongRunning::_Internal {
+ public:
+  static const ::PROTOBUF_NAMESPACE_ID::Duration& initial_poll_delay(const MethodSettings_LongRunning* msg);
+  static const ::PROTOBUF_NAMESPACE_ID::Duration& max_poll_delay(const MethodSettings_LongRunning* msg);
+  static const ::PROTOBUF_NAMESPACE_ID::Duration& total_poll_timeout(const MethodSettings_LongRunning* msg);
+};
+
+const ::PROTOBUF_NAMESPACE_ID::Duration&
+MethodSettings_LongRunning::_Internal::initial_poll_delay(const MethodSettings_LongRunning* msg) {
+  return *msg->_impl_.initial_poll_delay_;
+}
+const ::PROTOBUF_NAMESPACE_ID::Duration&
+MethodSettings_LongRunning::_Internal::max_poll_delay(const MethodSettings_LongRunning* msg) {
+  return *msg->_impl_.max_poll_delay_;
+}
+const ::PROTOBUF_NAMESPACE_ID::Duration&
+MethodSettings_LongRunning::_Internal::total_poll_timeout(const MethodSettings_LongRunning* msg) {
+  return *msg->_impl_.total_poll_timeout_;
+}
+void MethodSettings_LongRunning::clear_initial_poll_delay() {
+  if (GetArenaForAllocation() == nullptr && _impl_.initial_poll_delay_ != nullptr) {
+    delete _impl_.initial_poll_delay_;
+  }
+  _impl_.initial_poll_delay_ = nullptr;
+}
+void MethodSettings_LongRunning::clear_max_poll_delay() {
+  if (GetArenaForAllocation() == nullptr && _impl_.max_poll_delay_ != nullptr) {
+    delete _impl_.max_poll_delay_;
+  }
+  _impl_.max_poll_delay_ = nullptr;
+}
+void MethodSettings_LongRunning::clear_total_poll_timeout() {
+  if (GetArenaForAllocation() == nullptr && _impl_.total_poll_timeout_ != nullptr) {
+    delete _impl_.total_poll_timeout_;
+  }
+  _impl_.total_poll_timeout_ = nullptr;
+}
+MethodSettings_LongRunning::MethodSettings_LongRunning(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:google.api.MethodSettings.LongRunning)
+}
+MethodSettings_LongRunning::MethodSettings_LongRunning(const MethodSettings_LongRunning& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  MethodSettings_LongRunning* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.initial_poll_delay_){nullptr}
+    , decltype(_impl_.max_poll_delay_){nullptr}
+    , decltype(_impl_.total_poll_timeout_){nullptr}
+    , decltype(_impl_.poll_delay_multiplier_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_initial_poll_delay()) {
+    _this->_impl_.initial_poll_delay_ = new ::PROTOBUF_NAMESPACE_ID::Duration(*from._impl_.initial_poll_delay_);
+  }
+  if (from._internal_has_max_poll_delay()) {
+    _this->_impl_.max_poll_delay_ = new ::PROTOBUF_NAMESPACE_ID::Duration(*from._impl_.max_poll_delay_);
+  }
+  if (from._internal_has_total_poll_timeout()) {
+    _this->_impl_.total_poll_timeout_ = new ::PROTOBUF_NAMESPACE_ID::Duration(*from._impl_.total_poll_timeout_);
+  }
+  _this->_impl_.poll_delay_multiplier_ = from._impl_.poll_delay_multiplier_;
+  // @@protoc_insertion_point(copy_constructor:google.api.MethodSettings.LongRunning)
+}
+
+inline void MethodSettings_LongRunning::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.initial_poll_delay_){nullptr}
+    , decltype(_impl_.max_poll_delay_){nullptr}
+    , decltype(_impl_.total_poll_timeout_){nullptr}
+    , decltype(_impl_.poll_delay_multiplier_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+MethodSettings_LongRunning::~MethodSettings_LongRunning() {
+  // @@protoc_insertion_point(destructor:google.api.MethodSettings.LongRunning)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void MethodSettings_LongRunning::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.initial_poll_delay_;
+  if (this != internal_default_instance()) delete _impl_.max_poll_delay_;
+  if (this != internal_default_instance()) delete _impl_.total_poll_timeout_;
+}
+
+void MethodSettings_LongRunning::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void MethodSettings_LongRunning::Clear() {
+// @@protoc_insertion_point(message_clear_start:google.api.MethodSettings.LongRunning)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && _impl_.initial_poll_delay_ != nullptr) {
+    delete _impl_.initial_poll_delay_;
+  }
+  _impl_.initial_poll_delay_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.max_poll_delay_ != nullptr) {
+    delete _impl_.max_poll_delay_;
+  }
+  _impl_.max_poll_delay_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.total_poll_timeout_ != nullptr) {
+    delete _impl_.total_poll_timeout_;
+  }
+  _impl_.total_poll_timeout_ = nullptr;
+  _impl_.poll_delay_multiplier_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* MethodSettings_LongRunning::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .google.protobuf.Duration initial_poll_delay = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_initial_poll_delay(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // float poll_delay_multiplier = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 21)) {
+          _impl_.poll_delay_multiplier_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.protobuf.Duration max_poll_delay = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_max_poll_delay(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.protobuf.Duration total_poll_timeout = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_total_poll_timeout(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* MethodSettings_LongRunning::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:google.api.MethodSettings.LongRunning)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .google.protobuf.Duration initial_poll_delay = 1;
+  if (this->_internal_has_initial_poll_delay()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::initial_poll_delay(this),
+        _Internal::initial_poll_delay(this).GetCachedSize(), target, stream);
+  }
+
+  // float poll_delay_multiplier = 2;
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_poll_delay_multiplier = this->_internal_poll_delay_multiplier();
+  uint32_t raw_poll_delay_multiplier;
+  memcpy(&raw_poll_delay_multiplier, &tmp_poll_delay_multiplier, sizeof(tmp_poll_delay_multiplier));
+  if (raw_poll_delay_multiplier != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(2, this->_internal_poll_delay_multiplier(), target);
+  }
+
+  // .google.protobuf.Duration max_poll_delay = 3;
+  if (this->_internal_has_max_poll_delay()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(3, _Internal::max_poll_delay(this),
+        _Internal::max_poll_delay(this).GetCachedSize(), target, stream);
+  }
+
+  // .google.protobuf.Duration total_poll_timeout = 4;
+  if (this->_internal_has_total_poll_timeout()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(4, _Internal::total_poll_timeout(this),
+        _Internal::total_poll_timeout(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:google.api.MethodSettings.LongRunning)
+  return target;
+}
+
+size_t MethodSettings_LongRunning::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:google.api.MethodSettings.LongRunning)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .google.protobuf.Duration initial_poll_delay = 1;
+  if (this->_internal_has_initial_poll_delay()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.initial_poll_delay_);
+  }
+
+  // .google.protobuf.Duration max_poll_delay = 3;
+  if (this->_internal_has_max_poll_delay()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.max_poll_delay_);
+  }
+
+  // .google.protobuf.Duration total_poll_timeout = 4;
+  if (this->_internal_has_total_poll_timeout()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.total_poll_timeout_);
+  }
+
+  // float poll_delay_multiplier = 2;
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_poll_delay_multiplier = this->_internal_poll_delay_multiplier();
+  uint32_t raw_poll_delay_multiplier;
+  memcpy(&raw_poll_delay_multiplier, &tmp_poll_delay_multiplier, sizeof(tmp_poll_delay_multiplier));
+  if (raw_poll_delay_multiplier != 0) {
+    total_size += 1 + 4;
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData MethodSettings_LongRunning::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    MethodSettings_LongRunning::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*MethodSettings_LongRunning::GetClassData() const { return &_class_data_; }
+
+
+void MethodSettings_LongRunning::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<MethodSettings_LongRunning*>(&to_msg);
+  auto& from = static_cast<const MethodSettings_LongRunning&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:google.api.MethodSettings.LongRunning)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_initial_poll_delay()) {
+    _this->_internal_mutable_initial_poll_delay()->::PROTOBUF_NAMESPACE_ID::Duration::MergeFrom(
+        from._internal_initial_poll_delay());
+  }
+  if (from._internal_has_max_poll_delay()) {
+    _this->_internal_mutable_max_poll_delay()->::PROTOBUF_NAMESPACE_ID::Duration::MergeFrom(
+        from._internal_max_poll_delay());
+  }
+  if (from._internal_has_total_poll_timeout()) {
+    _this->_internal_mutable_total_poll_timeout()->::PROTOBUF_NAMESPACE_ID::Duration::MergeFrom(
+        from._internal_total_poll_timeout());
+  }
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_poll_delay_multiplier = from._internal_poll_delay_multiplier();
+  uint32_t raw_poll_delay_multiplier;
+  memcpy(&raw_poll_delay_multiplier, &tmp_poll_delay_multiplier, sizeof(tmp_poll_delay_multiplier));
+  if (raw_poll_delay_multiplier != 0) {
+    _this->_internal_set_poll_delay_multiplier(from._internal_poll_delay_multiplier());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void MethodSettings_LongRunning::CopyFrom(const MethodSettings_LongRunning& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:google.api.MethodSettings.LongRunning)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MethodSettings_LongRunning::IsInitialized() const {
+  return true;
+}
+
+void MethodSettings_LongRunning::InternalSwap(MethodSettings_LongRunning* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(MethodSettings_LongRunning, _impl_.poll_delay_multiplier_)
+      + sizeof(MethodSettings_LongRunning::_impl_.poll_delay_multiplier_)
+      - PROTOBUF_FIELD_OFFSET(MethodSettings_LongRunning, _impl_.initial_poll_delay_)>(
+          reinterpret_cast<char*>(&_impl_.initial_poll_delay_),
+          reinterpret_cast<char*>(&other->_impl_.initial_poll_delay_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata MethodSettings_LongRunning::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_google_2fapi_2fclient_2eproto_getter, &descriptor_table_google_2fapi_2fclient_2eproto_once,
+      file_level_metadata_google_2fapi_2fclient_2eproto[14]);
+}
+
+// ===================================================================
+
+class MethodSettings::_Internal {
+ public:
+  static const ::google::api::MethodSettings_LongRunning& long_running(const MethodSettings* msg);
+};
+
+const ::google::api::MethodSettings_LongRunning&
+MethodSettings::_Internal::long_running(const MethodSettings* msg) {
+  return *msg->_impl_.long_running_;
+}
+MethodSettings::MethodSettings(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:google.api.MethodSettings)
+}
+MethodSettings::MethodSettings(const MethodSettings& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  MethodSettings* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.selector_){}
+    , decltype(_impl_.long_running_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.selector_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.selector_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_selector().empty()) {
+    _this->_impl_.selector_.Set(from._internal_selector(), 
+      _this->GetArenaForAllocation());
+  }
+  if (from._internal_has_long_running()) {
+    _this->_impl_.long_running_ = new ::google::api::MethodSettings_LongRunning(*from._impl_.long_running_);
+  }
+  // @@protoc_insertion_point(copy_constructor:google.api.MethodSettings)
+}
+
+inline void MethodSettings::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.selector_){}
+    , decltype(_impl_.long_running_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.selector_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.selector_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+MethodSettings::~MethodSettings() {
+  // @@protoc_insertion_point(destructor:google.api.MethodSettings)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void MethodSettings::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.selector_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.long_running_;
+}
+
+void MethodSettings::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void MethodSettings::Clear() {
+// @@protoc_insertion_point(message_clear_start:google.api.MethodSettings)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.selector_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.long_running_ != nullptr) {
+    delete _impl_.long_running_;
+  }
+  _impl_.long_running_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* MethodSettings::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string selector = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_selector();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "google.api.MethodSettings.selector"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.api.MethodSettings.LongRunning long_running = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_long_running(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* MethodSettings::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:google.api.MethodSettings)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string selector = 1;
+  if (!this->_internal_selector().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_selector().data(), static_cast<int>(this->_internal_selector().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "google.api.MethodSettings.selector");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_selector(), target);
+  }
+
+  // .google.api.MethodSettings.LongRunning long_running = 2;
+  if (this->_internal_has_long_running()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, _Internal::long_running(this),
+        _Internal::long_running(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:google.api.MethodSettings)
+  return target;
+}
+
+size_t MethodSettings::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:google.api.MethodSettings)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string selector = 1;
+  if (!this->_internal_selector().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_selector());
+  }
+
+  // .google.api.MethodSettings.LongRunning long_running = 2;
+  if (this->_internal_has_long_running()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.long_running_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData MethodSettings::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    MethodSettings::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*MethodSettings::GetClassData() const { return &_class_data_; }
+
+
+void MethodSettings::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<MethodSettings*>(&to_msg);
+  auto& from = static_cast<const MethodSettings&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:google.api.MethodSettings)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_selector().empty()) {
+    _this->_internal_set_selector(from._internal_selector());
+  }
+  if (from._internal_has_long_running()) {
+    _this->_internal_mutable_long_running()->::google::api::MethodSettings_LongRunning::MergeFrom(
+        from._internal_long_running());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void MethodSettings::CopyFrom(const MethodSettings& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:google.api.MethodSettings)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MethodSettings::IsInitialized() const {
+  return true;
+}
+
+void MethodSettings::InternalSwap(MethodSettings* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.selector_, lhs_arena,
+      &other->_impl_.selector_, rhs_arena
+  );
+  swap(_impl_.long_running_, other->_impl_.long_running_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata MethodSettings::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_google_2fapi_2fclient_2eproto_getter, &descriptor_table_google_2fapi_2fclient_2eproto_once,
+      file_level_metadata_google_2fapi_2fclient_2eproto[15]);
+}
 const std::string method_signature_default("");
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::PROTOBUF_NAMESPACE_ID::MethodOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::RepeatedStringTypeTraits, 9, false>
@@ -80,6 +4575,70 @@ PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::PROTOBUF_NAMESPACE_ID::internal::ExtensionId
 }  // namespace api
 }  // namespace google
 PROTOBUF_NAMESPACE_OPEN
+template<> PROTOBUF_NOINLINE ::google::api::CommonLanguageSettings*
+Arena::CreateMaybeMessage< ::google::api::CommonLanguageSettings >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::google::api::CommonLanguageSettings >(arena);
+}
+template<> PROTOBUF_NOINLINE ::google::api::ClientLibrarySettings*
+Arena::CreateMaybeMessage< ::google::api::ClientLibrarySettings >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::google::api::ClientLibrarySettings >(arena);
+}
+template<> PROTOBUF_NOINLINE ::google::api::Publishing*
+Arena::CreateMaybeMessage< ::google::api::Publishing >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::google::api::Publishing >(arena);
+}
+template<> PROTOBUF_NOINLINE ::google::api::JavaSettings_ServiceClassNamesEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::google::api::JavaSettings_ServiceClassNamesEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::google::api::JavaSettings_ServiceClassNamesEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::google::api::JavaSettings*
+Arena::CreateMaybeMessage< ::google::api::JavaSettings >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::google::api::JavaSettings >(arena);
+}
+template<> PROTOBUF_NOINLINE ::google::api::CppSettings*
+Arena::CreateMaybeMessage< ::google::api::CppSettings >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::google::api::CppSettings >(arena);
+}
+template<> PROTOBUF_NOINLINE ::google::api::PhpSettings*
+Arena::CreateMaybeMessage< ::google::api::PhpSettings >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::google::api::PhpSettings >(arena);
+}
+template<> PROTOBUF_NOINLINE ::google::api::PythonSettings*
+Arena::CreateMaybeMessage< ::google::api::PythonSettings >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::google::api::PythonSettings >(arena);
+}
+template<> PROTOBUF_NOINLINE ::google::api::NodeSettings*
+Arena::CreateMaybeMessage< ::google::api::NodeSettings >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::google::api::NodeSettings >(arena);
+}
+template<> PROTOBUF_NOINLINE ::google::api::DotnetSettings_RenamedServicesEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::google::api::DotnetSettings_RenamedServicesEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::google::api::DotnetSettings_RenamedServicesEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::google::api::DotnetSettings_RenamedResourcesEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::google::api::DotnetSettings_RenamedResourcesEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::google::api::DotnetSettings_RenamedResourcesEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::google::api::DotnetSettings*
+Arena::CreateMaybeMessage< ::google::api::DotnetSettings >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::google::api::DotnetSettings >(arena);
+}
+template<> PROTOBUF_NOINLINE ::google::api::RubySettings*
+Arena::CreateMaybeMessage< ::google::api::RubySettings >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::google::api::RubySettings >(arena);
+}
+template<> PROTOBUF_NOINLINE ::google::api::GoSettings*
+Arena::CreateMaybeMessage< ::google::api::GoSettings >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::google::api::GoSettings >(arena);
+}
+template<> PROTOBUF_NOINLINE ::google::api::MethodSettings_LongRunning*
+Arena::CreateMaybeMessage< ::google::api::MethodSettings_LongRunning >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::google::api::MethodSettings_LongRunning >(arena);
+}
+template<> PROTOBUF_NOINLINE ::google::api::MethodSettings*
+Arena::CreateMaybeMessage< ::google::api::MethodSettings >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::google::api::MethodSettings >(arena);
+}
 PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)

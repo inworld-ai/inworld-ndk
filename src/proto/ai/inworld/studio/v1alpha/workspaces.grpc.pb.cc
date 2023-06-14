@@ -36,7 +36,7 @@ static const char* Workspaces_method_names[] = {
   "/ai.inworld.studio.v1alpha.Workspaces/generateResourceName",
   "/ai.inworld.studio.v1alpha.Workspaces/GetWorkspaceShareInfo",
   "/ai.inworld.studio.v1alpha.Workspaces/GetWorkspaceLimitInfo",
-  "/ai.inworld.studio.v1alpha.Workspaces/GetWorkspaceBillingInfo",
+  "/ai.inworld.studio.v1alpha.Workspaces/SendImpressionEvent",
 };
 
 std::unique_ptr< Workspaces::Stub> Workspaces::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -55,7 +55,7 @@ Workspaces::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel
   , rpcmethod_generateResourceName_(Workspaces_method_names[6], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetWorkspaceShareInfo_(Workspaces_method_names[7], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetWorkspaceLimitInfo_(Workspaces_method_names[8], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetWorkspaceBillingInfo_(Workspaces_method_names[9], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SendImpressionEvent_(Workspaces_method_names[9], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status Workspaces::Stub::GetWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceRequest& request, ::ai::inworld::studio::v1alpha::Workspace* response) {
@@ -265,25 +265,25 @@ void Workspaces::Stub::async::GetWorkspaceLimitInfo(::grpc::ClientContext* conte
   return result;
 }
 
-::grpc::Status Workspaces::Stub::GetWorkspaceBillingInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest& request, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetWorkspaceBillingInfo_, context, request, response);
+::grpc::Status Workspaces::Stub::SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::google::protobuf::Empty* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SendImpressionEvent_, context, request, response);
 }
 
-void Workspaces::Stub::async::GetWorkspaceBillingInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetWorkspaceBillingInfo_, context, request, response, std::move(f));
+void Workspaces::Stub::async::SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SendImpressionEvent_, context, request, response, std::move(f));
 }
 
-void Workspaces::Stub::async::GetWorkspaceBillingInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetWorkspaceBillingInfo_, context, request, response, reactor);
+void Workspaces::Stub::async::SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SendImpressionEvent_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo>* Workspaces::Stub::PrepareAsyncGetWorkspaceBillingInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo, ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetWorkspaceBillingInfo_, context, request);
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Workspaces::Stub::PrepareAsyncSendImpressionEventRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf::Empty, ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SendImpressionEvent_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo>* Workspaces::Stub::AsyncGetWorkspaceBillingInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Workspaces::Stub::AsyncSendImpressionEventRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
-    this->PrepareAsyncGetWorkspaceBillingInfoRaw(context, request, cq);
+    this->PrepareAsyncSendImpressionEventRaw(context, request, cq);
   result->StartCall();
   return result;
 }
@@ -382,12 +382,12 @@ Workspaces::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Workspaces_method_names[9],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](Workspaces::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest* req,
-             ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo* resp) {
-               return service->GetWorkspaceBillingInfo(ctx, req, resp);
+             const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* req,
+             ::google::protobuf::Empty* resp) {
+               return service->SendImpressionEvent(ctx, req, resp);
              }, this)));
 }
 
@@ -457,7 +457,7 @@ Workspaces::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Workspaces::Service::GetWorkspaceBillingInfo(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo* response) {
+::grpc::Status Workspaces::Service::SendImpressionEvent(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf::Empty* response) {
   (void) context;
   (void) request;
   (void) response;

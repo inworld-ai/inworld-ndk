@@ -113,13 +113,13 @@ class Workspaces final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo>> PrepareAsyncGetWorkspaceLimitInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo>>(PrepareAsyncGetWorkspaceLimitInfoRaw(context, request, cq));
     }
-    // Return quota information for the linked billing account
-    virtual ::grpc::Status GetWorkspaceBillingInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest& request, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo>> AsyncGetWorkspaceBillingInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo>>(AsyncGetWorkspaceBillingInfoRaw(context, request, cq));
+    // RPC to publish impression event for workspace
+    virtual ::grpc::Status SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::google::protobuf::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncSendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncSendImpressionEventRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo>> PrepareAsyncGetWorkspaceBillingInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo>>(PrepareAsyncGetWorkspaceBillingInfoRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncSendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncSendImpressionEventRaw(context, request, cq));
     }
     class async_interface {
      public:
@@ -152,9 +152,9 @@ class Workspaces final {
       // RPC to get actual limit info on the workspace.
       virtual void GetWorkspaceLimitInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* response, std::function<void(::grpc::Status)>) = 0;
       virtual void GetWorkspaceLimitInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      // Return quota information for the linked billing account
-      virtual void GetWorkspaceBillingInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void GetWorkspaceBillingInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      // RPC to publish impression event for workspace
+      virtual void SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
@@ -178,8 +178,8 @@ class Workspaces final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::WorkspaceShareInfo>* PrepareAsyncGetWorkspaceShareInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo>* AsyncGetWorkspaceLimitInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo>* PrepareAsyncGetWorkspaceLimitInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo>* AsyncGetWorkspaceBillingInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo>* PrepareAsyncGetWorkspaceBillingInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncSendImpressionEventRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncSendImpressionEventRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -247,12 +247,12 @@ class Workspaces final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo>> PrepareAsyncGetWorkspaceLimitInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo>>(PrepareAsyncGetWorkspaceLimitInfoRaw(context, request, cq));
     }
-    ::grpc::Status GetWorkspaceBillingInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest& request, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo>> AsyncGetWorkspaceBillingInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo>>(AsyncGetWorkspaceBillingInfoRaw(context, request, cq));
+    ::grpc::Status SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::google::protobuf::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncSendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncSendImpressionEventRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo>> PrepareAsyncGetWorkspaceBillingInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo>>(PrepareAsyncGetWorkspaceBillingInfoRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncSendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncSendImpressionEventRaw(context, request, cq));
     }
     class async final :
       public StubInterface::async_interface {
@@ -275,8 +275,8 @@ class Workspaces final {
       void GetWorkspaceShareInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo* response, ::grpc::ClientUnaryReactor* reactor) override;
       void GetWorkspaceLimitInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* response, std::function<void(::grpc::Status)>) override;
       void GetWorkspaceLimitInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void GetWorkspaceBillingInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo* response, std::function<void(::grpc::Status)>) override;
-      void GetWorkspaceBillingInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
+      void SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -306,8 +306,8 @@ class Workspaces final {
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::WorkspaceShareInfo>* PrepareAsyncGetWorkspaceShareInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo>* AsyncGetWorkspaceLimitInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo>* PrepareAsyncGetWorkspaceLimitInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo>* AsyncGetWorkspaceBillingInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo>* PrepareAsyncGetWorkspaceBillingInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncSendImpressionEventRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncSendImpressionEventRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_GetWorkspace_;
     const ::grpc::internal::RpcMethod rpcmethod_ListWorkspaces_;
     const ::grpc::internal::RpcMethod rpcmethod_UpdateWorkspace_;
@@ -317,7 +317,7 @@ class Workspaces final {
     const ::grpc::internal::RpcMethod rpcmethod_generateResourceName_;
     const ::grpc::internal::RpcMethod rpcmethod_GetWorkspaceShareInfo_;
     const ::grpc::internal::RpcMethod rpcmethod_GetWorkspaceLimitInfo_;
-    const ::grpc::internal::RpcMethod rpcmethod_GetWorkspaceBillingInfo_;
+    const ::grpc::internal::RpcMethod rpcmethod_SendImpressionEvent_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -344,8 +344,8 @@ class Workspaces final {
     virtual ::grpc::Status GetWorkspaceShareInfo(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo* response);
     // RPC to get actual limit info on the workspace.
     virtual ::grpc::Status GetWorkspaceLimitInfo(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* response);
-    // Return quota information for the linked billing account
-    virtual ::grpc::Status GetWorkspaceBillingInfo(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo* response);
+    // RPC to publish impression event for workspace
+    virtual ::grpc::Status SendImpressionEvent(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf::Empty* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_GetWorkspace : public BaseClass {
@@ -528,26 +528,26 @@ class Workspaces final {
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_GetWorkspaceBillingInfo : public BaseClass {
+  class WithAsyncMethod_SendImpressionEvent : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_GetWorkspaceBillingInfo() {
+    WithAsyncMethod_SendImpressionEvent() {
       ::grpc::Service::MarkMethodAsync(9);
     }
-    ~WithAsyncMethod_GetWorkspaceBillingInfo() override {
+    ~WithAsyncMethod_SendImpressionEvent() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetWorkspaceBillingInfo(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest* /*request*/, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo* /*response*/) override {
+    ::grpc::Status SendImpressionEvent(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetWorkspaceBillingInfo(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest* request, ::grpc::ServerAsyncResponseWriter< ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestSendImpressionEvent(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_GetWorkspace<WithAsyncMethod_ListWorkspaces<WithAsyncMethod_UpdateWorkspace<WithAsyncMethod_CreateWorkspace<WithAsyncMethod_DeleteWorkspace<WithAsyncMethod_ShareWorkspace<WithAsyncMethod_generateResourceName<WithAsyncMethod_GetWorkspaceShareInfo<WithAsyncMethod_GetWorkspaceLimitInfo<WithAsyncMethod_GetWorkspaceBillingInfo<Service > > > > > > > > > > AsyncService;
+  typedef WithAsyncMethod_GetWorkspace<WithAsyncMethod_ListWorkspaces<WithAsyncMethod_UpdateWorkspace<WithAsyncMethod_CreateWorkspace<WithAsyncMethod_DeleteWorkspace<WithAsyncMethod_ShareWorkspace<WithAsyncMethod_generateResourceName<WithAsyncMethod_GetWorkspaceShareInfo<WithAsyncMethod_GetWorkspaceLimitInfo<WithAsyncMethod_SendImpressionEvent<Service > > > > > > > > > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_GetWorkspace : public BaseClass {
    private:
@@ -792,33 +792,33 @@ class Workspaces final {
       ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest* /*request*/, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_GetWorkspaceBillingInfo : public BaseClass {
+  class WithCallbackMethod_SendImpressionEvent : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_GetWorkspaceBillingInfo() {
+    WithCallbackMethod_SendImpressionEvent() {
       ::grpc::Service::MarkMethodCallback(9,
-          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo>(
+          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf::Empty>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo* response) { return this->GetWorkspaceBillingInfo(context, request, response); }));}
-    void SetMessageAllocatorFor_GetWorkspaceBillingInfo(
-        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo>* allocator) {
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf::Empty* response) { return this->SendImpressionEvent(context, request, response); }));}
+    void SetMessageAllocatorFor_SendImpressionEvent(
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(9);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_GetWorkspaceBillingInfo() override {
+    ~WithCallbackMethod_SendImpressionEvent() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetWorkspaceBillingInfo(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest* /*request*/, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo* /*response*/) override {
+    ::grpc::Status SendImpressionEvent(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* GetWorkspaceBillingInfo(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest* /*request*/, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo* /*response*/)  { return nullptr; }
+    virtual ::grpc::ServerUnaryReactor* SendImpressionEvent(
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* /*request*/, ::google::protobuf::Empty* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_GetWorkspace<WithCallbackMethod_ListWorkspaces<WithCallbackMethod_UpdateWorkspace<WithCallbackMethod_CreateWorkspace<WithCallbackMethod_DeleteWorkspace<WithCallbackMethod_ShareWorkspace<WithCallbackMethod_generateResourceName<WithCallbackMethod_GetWorkspaceShareInfo<WithCallbackMethod_GetWorkspaceLimitInfo<WithCallbackMethod_GetWorkspaceBillingInfo<Service > > > > > > > > > > CallbackService;
+  typedef WithCallbackMethod_GetWorkspace<WithCallbackMethod_ListWorkspaces<WithCallbackMethod_UpdateWorkspace<WithCallbackMethod_CreateWorkspace<WithCallbackMethod_DeleteWorkspace<WithCallbackMethod_ShareWorkspace<WithCallbackMethod_generateResourceName<WithCallbackMethod_GetWorkspaceShareInfo<WithCallbackMethod_GetWorkspaceLimitInfo<WithCallbackMethod_SendImpressionEvent<Service > > > > > > > > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_GetWorkspace : public BaseClass {
@@ -974,18 +974,18 @@ class Workspaces final {
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_GetWorkspaceBillingInfo : public BaseClass {
+  class WithGenericMethod_SendImpressionEvent : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_GetWorkspaceBillingInfo() {
+    WithGenericMethod_SendImpressionEvent() {
       ::grpc::Service::MarkMethodGeneric(9);
     }
-    ~WithGenericMethod_GetWorkspaceBillingInfo() override {
+    ~WithGenericMethod_SendImpressionEvent() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetWorkspaceBillingInfo(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest* /*request*/, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo* /*response*/) override {
+    ::grpc::Status SendImpressionEvent(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1171,22 +1171,22 @@ class Workspaces final {
     }
   };
   template <class BaseClass>
-  class WithRawMethod_GetWorkspaceBillingInfo : public BaseClass {
+  class WithRawMethod_SendImpressionEvent : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_GetWorkspaceBillingInfo() {
+    WithRawMethod_SendImpressionEvent() {
       ::grpc::Service::MarkMethodRaw(9);
     }
-    ~WithRawMethod_GetWorkspaceBillingInfo() override {
+    ~WithRawMethod_SendImpressionEvent() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetWorkspaceBillingInfo(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest* /*request*/, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo* /*response*/) override {
+    ::grpc::Status SendImpressionEvent(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetWorkspaceBillingInfo(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestSendImpressionEvent(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -1389,25 +1389,25 @@ class Workspaces final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_GetWorkspaceBillingInfo : public BaseClass {
+  class WithRawCallbackMethod_SendImpressionEvent : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_GetWorkspaceBillingInfo() {
+    WithRawCallbackMethod_SendImpressionEvent() {
       ::grpc::Service::MarkMethodRawCallback(9,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetWorkspaceBillingInfo(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SendImpressionEvent(context, request, response); }));
     }
-    ~WithRawCallbackMethod_GetWorkspaceBillingInfo() override {
+    ~WithRawCallbackMethod_SendImpressionEvent() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetWorkspaceBillingInfo(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest* /*request*/, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo* /*response*/) override {
+    ::grpc::Status SendImpressionEvent(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* GetWorkspaceBillingInfo(
+    virtual ::grpc::ServerUnaryReactor* SendImpressionEvent(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -1654,35 +1654,35 @@ class Workspaces final {
     virtual ::grpc::Status StreamedGetWorkspaceLimitInfo(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest,::ai::inworld::studio::v1alpha::WorkspaceLimitInfo>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_GetWorkspaceBillingInfo : public BaseClass {
+  class WithStreamedUnaryMethod_SendImpressionEvent : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_GetWorkspaceBillingInfo() {
+    WithStreamedUnaryMethod_SendImpressionEvent() {
       ::grpc::Service::MarkMethodStreamed(9,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo>(
+          ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf::Empty>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo>* streamer) {
-                       return this->StreamedGetWorkspaceBillingInfo(context,
+                     ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf::Empty>* streamer) {
+                       return this->StreamedSendImpressionEvent(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_GetWorkspaceBillingInfo() override {
+    ~WithStreamedUnaryMethod_SendImpressionEvent() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetWorkspaceBillingInfo(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest* /*request*/, ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo* /*response*/) override {
+    ::grpc::Status SendImpressionEvent(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetWorkspaceBillingInfo(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest,::ai::inworld::studio::v1alpha::WorkspaceBillingInfo>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedSendImpressionEvent(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::ImpressionEventRequest,::google::protobuf::Empty>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_GetWorkspace<WithStreamedUnaryMethod_ListWorkspaces<WithStreamedUnaryMethod_UpdateWorkspace<WithStreamedUnaryMethod_CreateWorkspace<WithStreamedUnaryMethod_DeleteWorkspace<WithStreamedUnaryMethod_ShareWorkspace<WithStreamedUnaryMethod_generateResourceName<WithStreamedUnaryMethod_GetWorkspaceShareInfo<WithStreamedUnaryMethod_GetWorkspaceLimitInfo<WithStreamedUnaryMethod_GetWorkspaceBillingInfo<Service > > > > > > > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_GetWorkspace<WithStreamedUnaryMethod_ListWorkspaces<WithStreamedUnaryMethod_UpdateWorkspace<WithStreamedUnaryMethod_CreateWorkspace<WithStreamedUnaryMethod_DeleteWorkspace<WithStreamedUnaryMethod_ShareWorkspace<WithStreamedUnaryMethod_generateResourceName<WithStreamedUnaryMethod_GetWorkspaceShareInfo<WithStreamedUnaryMethod_GetWorkspaceLimitInfo<WithStreamedUnaryMethod_SendImpressionEvent<Service > > > > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_GetWorkspace<WithStreamedUnaryMethod_ListWorkspaces<WithStreamedUnaryMethod_UpdateWorkspace<WithStreamedUnaryMethod_CreateWorkspace<WithStreamedUnaryMethod_DeleteWorkspace<WithStreamedUnaryMethod_ShareWorkspace<WithStreamedUnaryMethod_generateResourceName<WithStreamedUnaryMethod_GetWorkspaceShareInfo<WithStreamedUnaryMethod_GetWorkspaceLimitInfo<WithStreamedUnaryMethod_GetWorkspaceBillingInfo<Service > > > > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_GetWorkspace<WithStreamedUnaryMethod_ListWorkspaces<WithStreamedUnaryMethod_UpdateWorkspace<WithStreamedUnaryMethod_CreateWorkspace<WithStreamedUnaryMethod_DeleteWorkspace<WithStreamedUnaryMethod_ShareWorkspace<WithStreamedUnaryMethod_generateResourceName<WithStreamedUnaryMethod_GetWorkspaceShareInfo<WithStreamedUnaryMethod_GetWorkspaceLimitInfo<WithStreamedUnaryMethod_SendImpressionEvent<Service > > > > > > > > > > StreamedService;
 };
 
 }  // namespace v1alpha

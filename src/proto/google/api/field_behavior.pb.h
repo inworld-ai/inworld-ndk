@@ -57,12 +57,13 @@ enum FieldBehavior : int {
   INPUT_ONLY = 4,
   IMMUTABLE = 5,
   UNORDERED_LIST = 6,
+  NON_EMPTY_DEFAULT = 7,
   FieldBehavior_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   FieldBehavior_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool FieldBehavior_IsValid(int value);
 constexpr FieldBehavior FieldBehavior_MIN = FIELD_BEHAVIOR_UNSPECIFIED;
-constexpr FieldBehavior FieldBehavior_MAX = UNORDERED_LIST;
+constexpr FieldBehavior FieldBehavior_MAX = NON_EMPTY_DEFAULT;
 constexpr int FieldBehavior_ARRAYSIZE = FieldBehavior_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* FieldBehavior_descriptor();

@@ -64,6 +64,24 @@ class Characters final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncDeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncDeployCharacterRaw(context, request, cq));
     }
+    // Clone one character into another one in the same workspace for now
+    virtual ::grpc::Status CloneCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest& request, ::ai::inworld::studio::v1alpha::Character* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>> AsyncCloneCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>>(AsyncCloneCharacterRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>> PrepareAsyncCloneCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>>(PrepareAsyncCloneCharacterRaw(context, request, cq));
+    }
+    // Async version of DeployCharacter. Returns a long running operation object
+    // We append "Asynchronously" instead of "Async" to avoid conflicting with generated csharp methods (protoc csharp plugin appends
+    // "Async" to every method name, so DeployCharacterAsync would conflict with the method generated for DeployCharacter)
+    virtual ::grpc::Status DeployCharacterAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::google::longrunning::Operation* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>> AsyncDeployCharacterAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>>(AsyncDeployCharacterAsynchronouslyRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>> PrepareAsyncDeployCharacterAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>>(PrepareAsyncDeployCharacterAsynchronouslyRaw(context, request, cq));
+    }
     // Character's CRUD.
     // RPC to get one character by name.
     virtual ::grpc::Status GetCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterRequest& request, ::ai::inworld::studio::v1alpha::Character* response) = 0;
@@ -90,12 +108,12 @@ class Characters final {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>>(PrepareAsyncUpdateCharacterRaw(context, request, cq));
     }
     // RPC to create character.
-    virtual ::grpc::Status CreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::ai::inworld::studio::v1alpha::Character* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>> AsyncCreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>>(AsyncCreateCharacterRaw(context, request, cq));
+    virtual ::grpc::Status CreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::google::longrunning::Operation* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>> AsyncCreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>>(AsyncCreateCharacterRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>> PrepareAsyncCreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>>(PrepareAsyncCreateCharacterRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>> PrepareAsyncCreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>>(PrepareAsyncCreateCharacterRaw(context, request, cq));
     }
     // RPC to delete a character.
     virtual ::grpc::Status DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::google::protobuf::Empty* response) = 0;
@@ -112,6 +130,14 @@ class Characters final {
     }
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>> PrepareAsyncReplaceCharacterRpmModel(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>>(PrepareAsyncReplaceCharacterRpmModelRaw(context, request, cq));
+    }
+    // RPC to update image for the character.
+    virtual ::grpc::Status ReplaceCharacterImage(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest& request, ::ai::inworld::studio::v1alpha::Character* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>> AsyncReplaceCharacterImage(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>>(AsyncReplaceCharacterImageRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>> PrepareAsyncReplaceCharacterImage(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>>(PrepareAsyncReplaceCharacterImageRaw(context, request, cq));
     }
     // Returns some meaningful preview of the prompt template.
     virtual ::grpc::Status PreviewPromptTemplate(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest& request, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse* response) = 0;
@@ -210,6 +236,14 @@ class Characters final {
       //   behavioralContexts.<INDEX1>.behavioralContextInteraction.<INDEX2>.actions.<INDEX3>.sendCustomEvent.customEvent
       virtual void DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
       virtual void DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      // Clone one character into another one in the same workspace for now
+      virtual void CloneCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void CloneCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      // Async version of DeployCharacter. Returns a long running operation object
+      // We append "Asynchronously" instead of "Async" to avoid conflicting with generated csharp methods (protoc csharp plugin appends
+      // "Async" to every method name, so DeployCharacterAsync would conflict with the method generated for DeployCharacter)
+      virtual void DeployCharacterAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::longrunning::Operation* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void DeployCharacterAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::longrunning::Operation* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // Character's CRUD.
       // RPC to get one character by name.
       virtual void GetCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) = 0;
@@ -221,14 +255,17 @@ class Characters final {
       virtual void UpdateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) = 0;
       virtual void UpdateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // RPC to create character.
-      virtual void CreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void CreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void CreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::google::longrunning::Operation* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void CreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::google::longrunning::Operation* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // RPC to delete a character.
       virtual void DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
       virtual void DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // RPC to update RPM model for the character.
       virtual void ReplaceCharacterRpmModel(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) = 0;
       virtual void ReplaceCharacterRpmModel(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      // RPC to update image for the character.
+      virtual void ReplaceCharacterImage(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void ReplaceCharacterImage(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // Returns some meaningful preview of the prompt template.
       virtual void PreviewPromptTemplate(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest* request, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void PreviewPromptTemplate(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest* request, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
@@ -265,18 +302,24 @@ class Characters final {
    private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncDeployCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncDeployCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>* AsyncCloneCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>* PrepareAsyncCloneCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>* AsyncDeployCharacterAsynchronouslyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>* PrepareAsyncDeployCharacterAsynchronouslyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>* AsyncGetCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>* PrepareAsyncGetCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::ListCharactersResponse>* AsyncListCharactersRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListCharactersRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::ListCharactersResponse>* PrepareAsyncListCharactersRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListCharactersRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>* AsyncUpdateCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>* PrepareAsyncUpdateCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>* AsyncCreateCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>* PrepareAsyncCreateCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>* AsyncCreateCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>* PrepareAsyncCreateCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncDeleteCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncDeleteCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>* AsyncReplaceCharacterRpmModelRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>* PrepareAsyncReplaceCharacterRpmModelRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>* AsyncReplaceCharacterImageRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>* PrepareAsyncReplaceCharacterImageRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse>* AsyncPreviewPromptTemplateRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse>* PrepareAsyncPreviewPromptTemplateRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse>* AsyncCheckDeployInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -306,6 +349,20 @@ class Characters final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncDeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncDeployCharacterRaw(context, request, cq));
     }
+    ::grpc::Status CloneCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest& request, ::ai::inworld::studio::v1alpha::Character* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>> AsyncCloneCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>>(AsyncCloneCharacterRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>> PrepareAsyncCloneCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>>(PrepareAsyncCloneCharacterRaw(context, request, cq));
+    }
+    ::grpc::Status DeployCharacterAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::google::longrunning::Operation* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>> AsyncDeployCharacterAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>>(AsyncDeployCharacterAsynchronouslyRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>> PrepareAsyncDeployCharacterAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>>(PrepareAsyncDeployCharacterAsynchronouslyRaw(context, request, cq));
+    }
     ::grpc::Status GetCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterRequest& request, ::ai::inworld::studio::v1alpha::Character* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>> AsyncGetCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>>(AsyncGetCharacterRaw(context, request, cq));
@@ -327,12 +384,12 @@ class Characters final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>> PrepareAsyncUpdateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>>(PrepareAsyncUpdateCharacterRaw(context, request, cq));
     }
-    ::grpc::Status CreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::ai::inworld::studio::v1alpha::Character* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>> AsyncCreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>>(AsyncCreateCharacterRaw(context, request, cq));
+    ::grpc::Status CreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::google::longrunning::Operation* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>> AsyncCreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>>(AsyncCreateCharacterRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>> PrepareAsyncCreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>>(PrepareAsyncCreateCharacterRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>> PrepareAsyncCreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>>(PrepareAsyncCreateCharacterRaw(context, request, cq));
     }
     ::grpc::Status DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::google::protobuf::Empty* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncDeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::grpc::CompletionQueue* cq) {
@@ -347,6 +404,13 @@ class Characters final {
     }
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>> PrepareAsyncReplaceCharacterRpmModel(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>>(PrepareAsyncReplaceCharacterRpmModelRaw(context, request, cq));
+    }
+    ::grpc::Status ReplaceCharacterImage(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest& request, ::ai::inworld::studio::v1alpha::Character* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>> AsyncReplaceCharacterImage(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>>(AsyncReplaceCharacterImageRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>> PrepareAsyncReplaceCharacterImage(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>>(PrepareAsyncReplaceCharacterImageRaw(context, request, cq));
     }
     ::grpc::Status PreviewPromptTemplate(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest& request, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse>> AsyncPreviewPromptTemplate(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest& request, ::grpc::CompletionQueue* cq) {
@@ -416,18 +480,24 @@ class Characters final {
      public:
       void DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
       void DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void CloneCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) override;
+      void CloneCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void DeployCharacterAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::longrunning::Operation* response, std::function<void(::grpc::Status)>) override;
+      void DeployCharacterAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::longrunning::Operation* response, ::grpc::ClientUnaryReactor* reactor) override;
       void GetCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) override;
       void GetCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::ClientUnaryReactor* reactor) override;
       void ListCharacters(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListCharactersResponse* response, std::function<void(::grpc::Status)>) override;
       void ListCharacters(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListCharactersResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       void UpdateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) override;
       void UpdateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void CreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) override;
-      void CreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void CreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::google::longrunning::Operation* response, std::function<void(::grpc::Status)>) override;
+      void CreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::google::longrunning::Operation* response, ::grpc::ClientUnaryReactor* reactor) override;
       void DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
       void DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
       void ReplaceCharacterRpmModel(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) override;
       void ReplaceCharacterRpmModel(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void ReplaceCharacterImage(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) override;
+      void ReplaceCharacterImage(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::ClientUnaryReactor* reactor) override;
       void PreviewPromptTemplate(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest* request, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse* response, std::function<void(::grpc::Status)>) override;
       void PreviewPromptTemplate(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest* request, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       void CheckDeployInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest* request, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse* response, std::function<void(::grpc::Status)>) override;
@@ -459,18 +529,24 @@ class Characters final {
     class async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncDeployCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncDeployCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* AsyncCloneCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* PrepareAsyncCloneCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>* AsyncDeployCharacterAsynchronouslyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>* PrepareAsyncDeployCharacterAsynchronouslyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* AsyncGetCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* PrepareAsyncGetCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ListCharactersResponse>* AsyncListCharactersRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListCharactersRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ListCharactersResponse>* PrepareAsyncListCharactersRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListCharactersRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* AsyncUpdateCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* PrepareAsyncUpdateCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* AsyncCreateCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* PrepareAsyncCreateCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>* AsyncCreateCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>* PrepareAsyncCreateCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncDeleteCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncDeleteCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* AsyncReplaceCharacterRpmModelRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* PrepareAsyncReplaceCharacterRpmModelRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* AsyncReplaceCharacterImageRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* PrepareAsyncReplaceCharacterImageRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse>* AsyncPreviewPromptTemplateRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse>* PrepareAsyncPreviewPromptTemplateRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse>* AsyncCheckDeployInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -490,12 +566,15 @@ class Characters final {
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterShareInfo>* AsyncGetCharacterShareInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterShareInfo>* PrepareAsyncGetCharacterShareInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_DeployCharacter_;
+    const ::grpc::internal::RpcMethod rpcmethod_CloneCharacter_;
+    const ::grpc::internal::RpcMethod rpcmethod_DeployCharacterAsynchronously_;
     const ::grpc::internal::RpcMethod rpcmethod_GetCharacter_;
     const ::grpc::internal::RpcMethod rpcmethod_ListCharacters_;
     const ::grpc::internal::RpcMethod rpcmethod_UpdateCharacter_;
     const ::grpc::internal::RpcMethod rpcmethod_CreateCharacter_;
     const ::grpc::internal::RpcMethod rpcmethod_DeleteCharacter_;
     const ::grpc::internal::RpcMethod rpcmethod_ReplaceCharacterRpmModel_;
+    const ::grpc::internal::RpcMethod rpcmethod_ReplaceCharacterImage_;
     const ::grpc::internal::RpcMethod rpcmethod_PreviewPromptTemplate_;
     const ::grpc::internal::RpcMethod rpcmethod_CheckDeployInfo_;
     const ::grpc::internal::RpcMethod rpcmethod_GetCharacterAdvancedSettings_;
@@ -531,6 +610,12 @@ class Characters final {
     //   behavioralContexts.<INDEX1>.behavioralContextInteraction.<INDEX2>.actions.<INDEX3>.tellInstructed.speechInstruction
     //   behavioralContexts.<INDEX1>.behavioralContextInteraction.<INDEX2>.actions.<INDEX3>.sendCustomEvent.customEvent
     virtual ::grpc::Status DeployCharacter(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf::Empty* response);
+    // Clone one character into another one in the same workspace for now
+    virtual ::grpc::Status CloneCharacter(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response);
+    // Async version of DeployCharacter. Returns a long running operation object
+    // We append "Asynchronously" instead of "Async" to avoid conflicting with generated csharp methods (protoc csharp plugin appends
+    // "Async" to every method name, so DeployCharacterAsync would conflict with the method generated for DeployCharacter)
+    virtual ::grpc::Status DeployCharacterAsynchronously(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::longrunning::Operation* response);
     // Character's CRUD.
     // RPC to get one character by name.
     virtual ::grpc::Status GetCharacter(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response);
@@ -539,11 +624,13 @@ class Characters final {
     // RPC to update a character.
     virtual ::grpc::Status UpdateCharacter(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response);
     // RPC to create character.
-    virtual ::grpc::Status CreateCharacter(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response);
+    virtual ::grpc::Status CreateCharacter(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::google::longrunning::Operation* response);
     // RPC to delete a character.
     virtual ::grpc::Status DeleteCharacter(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf::Empty* response);
     // RPC to update RPM model for the character.
     virtual ::grpc::Status ReplaceCharacterRpmModel(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* request, ::ai::inworld::studio::v1alpha::Character* response);
+    // RPC to update image for the character.
+    virtual ::grpc::Status ReplaceCharacterImage(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* request, ::ai::inworld::studio::v1alpha::Character* response);
     // Returns some meaningful preview of the prompt template.
     virtual ::grpc::Status PreviewPromptTemplate(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest* request, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse* response);
     // Returns deployment information about character. For now
@@ -586,12 +673,52 @@ class Characters final {
     }
   };
   template <class BaseClass>
+  class WithAsyncMethod_CloneCharacter : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_CloneCharacter() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_CloneCharacter() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CloneCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestCloneCharacter(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::CloneCharacterRequest* request, ::grpc::ServerAsyncResponseWriter< ::ai::inworld::studio::v1alpha::Character>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_DeployCharacterAsynchronously : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_DeployCharacterAsynchronously() {
+      ::grpc::Service::MarkMethodAsync(2);
+    }
+    ~WithAsyncMethod_DeployCharacterAsynchronously() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeployCharacterAsynchronously(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::longrunning::Operation* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestDeployCharacterAsynchronously(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::longrunning::Operation>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithAsyncMethod_GetCharacter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_GetCharacter() {
-      ::grpc::Service::MarkMethodAsync(1);
+      ::grpc::Service::MarkMethodAsync(3);
     }
     ~WithAsyncMethod_GetCharacter() override {
       BaseClassMustBeDerivedFromService(this);
@@ -602,7 +729,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetCharacter(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::GetCharacterRequest* request, ::grpc::ServerAsyncResponseWriter< ::ai::inworld::studio::v1alpha::Character>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -611,7 +738,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_ListCharacters() {
-      ::grpc::Service::MarkMethodAsync(2);
+      ::grpc::Service::MarkMethodAsync(4);
     }
     ~WithAsyncMethod_ListCharacters() override {
       BaseClassMustBeDerivedFromService(this);
@@ -622,7 +749,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestListCharacters(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::ListCharactersRequest* request, ::grpc::ServerAsyncResponseWriter< ::ai::inworld::studio::v1alpha::ListCharactersResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -631,7 +758,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_UpdateCharacter() {
-      ::grpc::Service::MarkMethodAsync(3);
+      ::grpc::Service::MarkMethodAsync(5);
     }
     ~WithAsyncMethod_UpdateCharacter() override {
       BaseClassMustBeDerivedFromService(this);
@@ -642,7 +769,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestUpdateCharacter(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::UpdateCharacterRequest* request, ::grpc::ServerAsyncResponseWriter< ::ai::inworld::studio::v1alpha::Character>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -651,18 +778,18 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_CreateCharacter() {
-      ::grpc::Service::MarkMethodAsync(4);
+      ::grpc::Service::MarkMethodAsync(6);
     }
     ~WithAsyncMethod_CreateCharacter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreateCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/) override {
+    ::grpc::Status CreateCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* /*request*/, ::google::longrunning::Operation* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestCreateCharacter(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::grpc::ServerAsyncResponseWriter< ::ai::inworld::studio::v1alpha::Character>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+    void RequestCreateCharacter(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::longrunning::Operation>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -671,7 +798,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_DeleteCharacter() {
-      ::grpc::Service::MarkMethodAsync(5);
+      ::grpc::Service::MarkMethodAsync(7);
     }
     ~WithAsyncMethod_DeleteCharacter() override {
       BaseClassMustBeDerivedFromService(this);
@@ -682,7 +809,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestDeleteCharacter(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -691,7 +818,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_ReplaceCharacterRpmModel() {
-      ::grpc::Service::MarkMethodAsync(6);
+      ::grpc::Service::MarkMethodAsync(8);
     }
     ~WithAsyncMethod_ReplaceCharacterRpmModel() override {
       BaseClassMustBeDerivedFromService(this);
@@ -702,7 +829,27 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestReplaceCharacterRpmModel(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* request, ::grpc::ServerAsyncResponseWriter< ::ai::inworld::studio::v1alpha::Character>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_ReplaceCharacterImage : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_ReplaceCharacterImage() {
+      ::grpc::Service::MarkMethodAsync(9);
+    }
+    ~WithAsyncMethod_ReplaceCharacterImage() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReplaceCharacterImage(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestReplaceCharacterImage(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* request, ::grpc::ServerAsyncResponseWriter< ::ai::inworld::studio::v1alpha::Character>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -711,7 +858,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_PreviewPromptTemplate() {
-      ::grpc::Service::MarkMethodAsync(7);
+      ::grpc::Service::MarkMethodAsync(10);
     }
     ~WithAsyncMethod_PreviewPromptTemplate() override {
       BaseClassMustBeDerivedFromService(this);
@@ -722,7 +869,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestPreviewPromptTemplate(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest* request, ::grpc::ServerAsyncResponseWriter< ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -731,7 +878,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_CheckDeployInfo() {
-      ::grpc::Service::MarkMethodAsync(8);
+      ::grpc::Service::MarkMethodAsync(11);
     }
     ~WithAsyncMethod_CheckDeployInfo() override {
       BaseClassMustBeDerivedFromService(this);
@@ -742,7 +889,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestCheckDeployInfo(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest* request, ::grpc::ServerAsyncResponseWriter< ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -751,7 +898,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_GetCharacterAdvancedSettings() {
-      ::grpc::Service::MarkMethodAsync(9);
+      ::grpc::Service::MarkMethodAsync(12);
     }
     ~WithAsyncMethod_GetCharacterAdvancedSettings() override {
       BaseClassMustBeDerivedFromService(this);
@@ -762,7 +909,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetCharacterAdvancedSettings(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest* request, ::grpc::ServerAsyncResponseWriter< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -771,7 +918,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_UpdateCharacterAdvancedSettings() {
-      ::grpc::Service::MarkMethodAsync(10);
+      ::grpc::Service::MarkMethodAsync(13);
     }
     ~WithAsyncMethod_UpdateCharacterAdvancedSettings() override {
       BaseClassMustBeDerivedFromService(this);
@@ -782,7 +929,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestUpdateCharacterAdvancedSettings(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* request, ::grpc::ServerAsyncResponseWriter< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -791,7 +938,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_ShareCharacter() {
-      ::grpc::Service::MarkMethodAsync(11);
+      ::grpc::Service::MarkMethodAsync(14);
     }
     ~WithAsyncMethod_ShareCharacter() override {
       BaseClassMustBeDerivedFromService(this);
@@ -802,7 +949,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestShareCharacter(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(14, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -811,7 +958,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_ShareCharacterPortal() {
-      ::grpc::Service::MarkMethodAsync(12);
+      ::grpc::Service::MarkMethodAsync(15);
     }
     ~WithAsyncMethod_ShareCharacterPortal() override {
       BaseClassMustBeDerivedFromService(this);
@@ -822,7 +969,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestShareCharacterPortal(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(15, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -831,7 +978,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_UnshareCharacterPortal() {
-      ::grpc::Service::MarkMethodAsync(13);
+      ::grpc::Service::MarkMethodAsync(16);
     }
     ~WithAsyncMethod_UnshareCharacterPortal() override {
       BaseClassMustBeDerivedFromService(this);
@@ -842,7 +989,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestUnshareCharacterPortal(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(16, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -851,7 +998,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_ListSharedCharacters() {
-      ::grpc::Service::MarkMethodAsync(14);
+      ::grpc::Service::MarkMethodAsync(17);
     }
     ~WithAsyncMethod_ListSharedCharacters() override {
       BaseClassMustBeDerivedFromService(this);
@@ -862,7 +1009,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestListSharedCharacters(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest* request, ::grpc::ServerAsyncResponseWriter< ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(14, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(17, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -871,7 +1018,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_GetCharacterShareInfo() {
-      ::grpc::Service::MarkMethodAsync(15);
+      ::grpc::Service::MarkMethodAsync(18);
     }
     ~WithAsyncMethod_GetCharacterShareInfo() override {
       BaseClassMustBeDerivedFromService(this);
@@ -882,10 +1029,10 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetCharacterShareInfo(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest* request, ::grpc::ServerAsyncResponseWriter< ::ai::inworld::studio::v1alpha::CharacterShareInfo>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(15, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(18, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_DeployCharacter<WithAsyncMethod_GetCharacter<WithAsyncMethod_ListCharacters<WithAsyncMethod_UpdateCharacter<WithAsyncMethod_CreateCharacter<WithAsyncMethod_DeleteCharacter<WithAsyncMethod_ReplaceCharacterRpmModel<WithAsyncMethod_PreviewPromptTemplate<WithAsyncMethod_CheckDeployInfo<WithAsyncMethod_GetCharacterAdvancedSettings<WithAsyncMethod_UpdateCharacterAdvancedSettings<WithAsyncMethod_ShareCharacter<WithAsyncMethod_ShareCharacterPortal<WithAsyncMethod_UnshareCharacterPortal<WithAsyncMethod_ListSharedCharacters<WithAsyncMethod_GetCharacterShareInfo<Service > > > > > > > > > > > > > > > > AsyncService;
+  typedef WithAsyncMethod_DeployCharacter<WithAsyncMethod_CloneCharacter<WithAsyncMethod_DeployCharacterAsynchronously<WithAsyncMethod_GetCharacter<WithAsyncMethod_ListCharacters<WithAsyncMethod_UpdateCharacter<WithAsyncMethod_CreateCharacter<WithAsyncMethod_DeleteCharacter<WithAsyncMethod_ReplaceCharacterRpmModel<WithAsyncMethod_ReplaceCharacterImage<WithAsyncMethod_PreviewPromptTemplate<WithAsyncMethod_CheckDeployInfo<WithAsyncMethod_GetCharacterAdvancedSettings<WithAsyncMethod_UpdateCharacterAdvancedSettings<WithAsyncMethod_ShareCharacter<WithAsyncMethod_ShareCharacterPortal<WithAsyncMethod_UnshareCharacterPortal<WithAsyncMethod_ListSharedCharacters<WithAsyncMethod_GetCharacterShareInfo<Service > > > > > > > > > > > > > > > > > > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_DeployCharacter : public BaseClass {
    private:
@@ -914,18 +1061,72 @@ class Characters final {
       ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::protobuf::Empty* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithCallbackMethod_CloneCharacter : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_CloneCharacter() {
+      ::grpc::Service::MarkMethodCallback(1,
+          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::CloneCharacterRequest, ::ai::inworld::studio::v1alpha::Character>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response) { return this->CloneCharacter(context, request, response); }));}
+    void SetMessageAllocatorFor_CloneCharacter(
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::CloneCharacterRequest, ::ai::inworld::studio::v1alpha::Character>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::CloneCharacterRequest, ::ai::inworld::studio::v1alpha::Character>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_CloneCharacter() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CloneCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* CloneCharacter(
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithCallbackMethod_DeployCharacterAsynchronously : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_DeployCharacterAsynchronously() {
+      ::grpc::Service::MarkMethodCallback(2,
+          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::longrunning::Operation>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::longrunning::Operation* response) { return this->DeployCharacterAsynchronously(context, request, response); }));}
+    void SetMessageAllocatorFor_DeployCharacterAsynchronously(
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::longrunning::Operation>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::longrunning::Operation>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_DeployCharacterAsynchronously() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeployCharacterAsynchronously(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::longrunning::Operation* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* DeployCharacterAsynchronously(
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::longrunning::Operation* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
   class WithCallbackMethod_GetCharacter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_GetCharacter() {
-      ::grpc::Service::MarkMethodCallback(1,
+      ::grpc::Service::MarkMethodCallback(3,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetCharacterRequest, ::ai::inworld::studio::v1alpha::Character>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response) { return this->GetCharacter(context, request, response); }));}
     void SetMessageAllocatorFor_GetCharacter(
         ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::GetCharacterRequest, ::ai::inworld::studio::v1alpha::Character>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetCharacterRequest, ::ai::inworld::studio::v1alpha::Character>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -946,13 +1147,13 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_ListCharacters() {
-      ::grpc::Service::MarkMethodCallback(2,
+      ::grpc::Service::MarkMethodCallback(4,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ListCharactersRequest, ::ai::inworld::studio::v1alpha::ListCharactersResponse>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::ListCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListCharactersResponse* response) { return this->ListCharacters(context, request, response); }));}
     void SetMessageAllocatorFor_ListCharacters(
         ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::ListCharactersRequest, ::ai::inworld::studio::v1alpha::ListCharactersResponse>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ListCharactersRequest, ::ai::inworld::studio::v1alpha::ListCharactersResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -973,13 +1174,13 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_UpdateCharacter() {
-      ::grpc::Service::MarkMethodCallback(3,
+      ::grpc::Service::MarkMethodCallback(5,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UpdateCharacterRequest, ::ai::inworld::studio::v1alpha::Character>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response) { return this->UpdateCharacter(context, request, response); }));}
     void SetMessageAllocatorFor_UpdateCharacter(
         ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::UpdateCharacterRequest, ::ai::inworld::studio::v1alpha::Character>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UpdateCharacterRequest, ::ai::inworld::studio::v1alpha::Character>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -1000,26 +1201,26 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_CreateCharacter() {
-      ::grpc::Service::MarkMethodCallback(4,
-          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::CreateCharacterRequest, ::ai::inworld::studio::v1alpha::Character>(
+      ::grpc::Service::MarkMethodCallback(6,
+          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::CreateCharacterRequest, ::google::longrunning::Operation>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response) { return this->CreateCharacter(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::google::longrunning::Operation* response) { return this->CreateCharacter(context, request, response); }));}
     void SetMessageAllocatorFor_CreateCharacter(
-        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::CreateCharacterRequest, ::ai::inworld::studio::v1alpha::Character>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::CreateCharacterRequest, ::ai::inworld::studio::v1alpha::Character>*>(handler)
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::CreateCharacterRequest, ::google::longrunning::Operation>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::CreateCharacterRequest, ::google::longrunning::Operation>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_CreateCharacter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreateCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/) override {
+    ::grpc::Status CreateCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* /*request*/, ::google::longrunning::Operation* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* CreateCharacter(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* /*request*/, ::google::longrunning::Operation* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_DeleteCharacter : public BaseClass {
@@ -1027,13 +1228,13 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_DeleteCharacter() {
-      ::grpc::Service::MarkMethodCallback(5,
+      ::grpc::Service::MarkMethodCallback(7,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteCharacterRequest, ::google::protobuf::Empty>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf::Empty* response) { return this->DeleteCharacter(context, request, response); }));}
     void SetMessageAllocatorFor_DeleteCharacter(
         ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::DeleteCharacterRequest, ::google::protobuf::Empty>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(7);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteCharacterRequest, ::google::protobuf::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -1054,13 +1255,13 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_ReplaceCharacterRpmModel() {
-      ::grpc::Service::MarkMethodCallback(6,
+      ::grpc::Service::MarkMethodCallback(8,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest, ::ai::inworld::studio::v1alpha::Character>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* request, ::ai::inworld::studio::v1alpha::Character* response) { return this->ReplaceCharacterRpmModel(context, request, response); }));}
     void SetMessageAllocatorFor_ReplaceCharacterRpmModel(
         ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest, ::ai::inworld::studio::v1alpha::Character>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(8);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest, ::ai::inworld::studio::v1alpha::Character>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -1076,18 +1277,45 @@ class Characters final {
       ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithCallbackMethod_ReplaceCharacterImage : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_ReplaceCharacterImage() {
+      ::grpc::Service::MarkMethodCallback(9,
+          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest, ::ai::inworld::studio::v1alpha::Character>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* request, ::ai::inworld::studio::v1alpha::Character* response) { return this->ReplaceCharacterImage(context, request, response); }));}
+    void SetMessageAllocatorFor_ReplaceCharacterImage(
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest, ::ai::inworld::studio::v1alpha::Character>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(9);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest, ::ai::inworld::studio::v1alpha::Character>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_ReplaceCharacterImage() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReplaceCharacterImage(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* ReplaceCharacterImage(
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
   class WithCallbackMethod_PreviewPromptTemplate : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_PreviewPromptTemplate() {
-      ::grpc::Service::MarkMethodCallback(7,
+      ::grpc::Service::MarkMethodCallback(10,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest* request, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse* response) { return this->PreviewPromptTemplate(context, request, response); }));}
     void SetMessageAllocatorFor_PreviewPromptTemplate(
         ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(7);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(10);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -1108,13 +1336,13 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_CheckDeployInfo() {
-      ::grpc::Service::MarkMethodCallback(8,
+      ::grpc::Service::MarkMethodCallback(11,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest* request, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse* response) { return this->CheckDeployInfo(context, request, response); }));}
     void SetMessageAllocatorFor_CheckDeployInfo(
         ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(8);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(11);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -1135,13 +1363,13 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_GetCharacterAdvancedSettings() {
-      ::grpc::Service::MarkMethodCallback(9,
+      ::grpc::Service::MarkMethodCallback(12,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response) { return this->GetCharacterAdvancedSettings(context, request, response); }));}
     void SetMessageAllocatorFor_GetCharacterAdvancedSettings(
         ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(9);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(12);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -1162,13 +1390,13 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_UpdateCharacterAdvancedSettings() {
-      ::grpc::Service::MarkMethodCallback(10,
+      ::grpc::Service::MarkMethodCallback(13,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response) { return this->UpdateCharacterAdvancedSettings(context, request, response); }));}
     void SetMessageAllocatorFor_UpdateCharacterAdvancedSettings(
         ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(10);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(13);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -1189,13 +1417,13 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_ShareCharacter() {
-      ::grpc::Service::MarkMethodCallback(11,
+      ::grpc::Service::MarkMethodCallback(14,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf::Empty>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf::Empty* response) { return this->ShareCharacter(context, request, response); }));}
     void SetMessageAllocatorFor_ShareCharacter(
         ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf::Empty>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(11);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(14);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -1216,13 +1444,13 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_ShareCharacterPortal() {
-      ::grpc::Service::MarkMethodCallback(12,
+      ::grpc::Service::MarkMethodCallback(15,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf::Empty>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf::Empty* response) { return this->ShareCharacterPortal(context, request, response); }));}
     void SetMessageAllocatorFor_ShareCharacterPortal(
         ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf::Empty>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(12);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(15);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -1243,13 +1471,13 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_UnshareCharacterPortal() {
-      ::grpc::Service::MarkMethodCallback(13,
+      ::grpc::Service::MarkMethodCallback(16,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf::Empty>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf::Empty* response) { return this->UnshareCharacterPortal(context, request, response); }));}
     void SetMessageAllocatorFor_UnshareCharacterPortal(
         ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf::Empty>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(13);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(16);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -1270,13 +1498,13 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_ListSharedCharacters() {
-      ::grpc::Service::MarkMethodCallback(14,
+      ::grpc::Service::MarkMethodCallback(17,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse* response) { return this->ListSharedCharacters(context, request, response); }));}
     void SetMessageAllocatorFor_ListSharedCharacters(
         ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(14);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(17);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -1297,13 +1525,13 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_GetCharacterShareInfo() {
-      ::grpc::Service::MarkMethodCallback(15,
+      ::grpc::Service::MarkMethodCallback(18,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest, ::ai::inworld::studio::v1alpha::CharacterShareInfo>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest* request, ::ai::inworld::studio::v1alpha::CharacterShareInfo* response) { return this->GetCharacterShareInfo(context, request, response); }));}
     void SetMessageAllocatorFor_GetCharacterShareInfo(
         ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest, ::ai::inworld::studio::v1alpha::CharacterShareInfo>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(15);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(18);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest, ::ai::inworld::studio::v1alpha::CharacterShareInfo>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -1318,7 +1546,7 @@ class Characters final {
     virtual ::grpc::ServerUnaryReactor* GetCharacterShareInfo(
       ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest* /*request*/, ::ai::inworld::studio::v1alpha::CharacterShareInfo* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_DeployCharacter<WithCallbackMethod_GetCharacter<WithCallbackMethod_ListCharacters<WithCallbackMethod_UpdateCharacter<WithCallbackMethod_CreateCharacter<WithCallbackMethod_DeleteCharacter<WithCallbackMethod_ReplaceCharacterRpmModel<WithCallbackMethod_PreviewPromptTemplate<WithCallbackMethod_CheckDeployInfo<WithCallbackMethod_GetCharacterAdvancedSettings<WithCallbackMethod_UpdateCharacterAdvancedSettings<WithCallbackMethod_ShareCharacter<WithCallbackMethod_ShareCharacterPortal<WithCallbackMethod_UnshareCharacterPortal<WithCallbackMethod_ListSharedCharacters<WithCallbackMethod_GetCharacterShareInfo<Service > > > > > > > > > > > > > > > > CallbackService;
+  typedef WithCallbackMethod_DeployCharacter<WithCallbackMethod_CloneCharacter<WithCallbackMethod_DeployCharacterAsynchronously<WithCallbackMethod_GetCharacter<WithCallbackMethod_ListCharacters<WithCallbackMethod_UpdateCharacter<WithCallbackMethod_CreateCharacter<WithCallbackMethod_DeleteCharacter<WithCallbackMethod_ReplaceCharacterRpmModel<WithCallbackMethod_ReplaceCharacterImage<WithCallbackMethod_PreviewPromptTemplate<WithCallbackMethod_CheckDeployInfo<WithCallbackMethod_GetCharacterAdvancedSettings<WithCallbackMethod_UpdateCharacterAdvancedSettings<WithCallbackMethod_ShareCharacter<WithCallbackMethod_ShareCharacterPortal<WithCallbackMethod_UnshareCharacterPortal<WithCallbackMethod_ListSharedCharacters<WithCallbackMethod_GetCharacterShareInfo<Service > > > > > > > > > > > > > > > > > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_DeployCharacter : public BaseClass {
@@ -1338,12 +1566,46 @@ class Characters final {
     }
   };
   template <class BaseClass>
+  class WithGenericMethod_CloneCharacter : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_CloneCharacter() {
+      ::grpc::Service::MarkMethodGeneric(1);
+    }
+    ~WithGenericMethod_CloneCharacter() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CloneCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_DeployCharacterAsynchronously : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_DeployCharacterAsynchronously() {
+      ::grpc::Service::MarkMethodGeneric(2);
+    }
+    ~WithGenericMethod_DeployCharacterAsynchronously() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeployCharacterAsynchronously(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::longrunning::Operation* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
   class WithGenericMethod_GetCharacter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_GetCharacter() {
-      ::grpc::Service::MarkMethodGeneric(1);
+      ::grpc::Service::MarkMethodGeneric(3);
     }
     ~WithGenericMethod_GetCharacter() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1360,7 +1622,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_ListCharacters() {
-      ::grpc::Service::MarkMethodGeneric(2);
+      ::grpc::Service::MarkMethodGeneric(4);
     }
     ~WithGenericMethod_ListCharacters() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1377,7 +1639,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_UpdateCharacter() {
-      ::grpc::Service::MarkMethodGeneric(3);
+      ::grpc::Service::MarkMethodGeneric(5);
     }
     ~WithGenericMethod_UpdateCharacter() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1394,13 +1656,13 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_CreateCharacter() {
-      ::grpc::Service::MarkMethodGeneric(4);
+      ::grpc::Service::MarkMethodGeneric(6);
     }
     ~WithGenericMethod_CreateCharacter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreateCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/) override {
+    ::grpc::Status CreateCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* /*request*/, ::google::longrunning::Operation* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1411,7 +1673,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_DeleteCharacter() {
-      ::grpc::Service::MarkMethodGeneric(5);
+      ::grpc::Service::MarkMethodGeneric(7);
     }
     ~WithGenericMethod_DeleteCharacter() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1428,7 +1690,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_ReplaceCharacterRpmModel() {
-      ::grpc::Service::MarkMethodGeneric(6);
+      ::grpc::Service::MarkMethodGeneric(8);
     }
     ~WithGenericMethod_ReplaceCharacterRpmModel() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1440,12 +1702,29 @@ class Characters final {
     }
   };
   template <class BaseClass>
+  class WithGenericMethod_ReplaceCharacterImage : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_ReplaceCharacterImage() {
+      ::grpc::Service::MarkMethodGeneric(9);
+    }
+    ~WithGenericMethod_ReplaceCharacterImage() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReplaceCharacterImage(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
   class WithGenericMethod_PreviewPromptTemplate : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_PreviewPromptTemplate() {
-      ::grpc::Service::MarkMethodGeneric(7);
+      ::grpc::Service::MarkMethodGeneric(10);
     }
     ~WithGenericMethod_PreviewPromptTemplate() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1462,7 +1741,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_CheckDeployInfo() {
-      ::grpc::Service::MarkMethodGeneric(8);
+      ::grpc::Service::MarkMethodGeneric(11);
     }
     ~WithGenericMethod_CheckDeployInfo() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1479,7 +1758,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_GetCharacterAdvancedSettings() {
-      ::grpc::Service::MarkMethodGeneric(9);
+      ::grpc::Service::MarkMethodGeneric(12);
     }
     ~WithGenericMethod_GetCharacterAdvancedSettings() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1496,7 +1775,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_UpdateCharacterAdvancedSettings() {
-      ::grpc::Service::MarkMethodGeneric(10);
+      ::grpc::Service::MarkMethodGeneric(13);
     }
     ~WithGenericMethod_UpdateCharacterAdvancedSettings() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1513,7 +1792,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_ShareCharacter() {
-      ::grpc::Service::MarkMethodGeneric(11);
+      ::grpc::Service::MarkMethodGeneric(14);
     }
     ~WithGenericMethod_ShareCharacter() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1530,7 +1809,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_ShareCharacterPortal() {
-      ::grpc::Service::MarkMethodGeneric(12);
+      ::grpc::Service::MarkMethodGeneric(15);
     }
     ~WithGenericMethod_ShareCharacterPortal() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1547,7 +1826,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_UnshareCharacterPortal() {
-      ::grpc::Service::MarkMethodGeneric(13);
+      ::grpc::Service::MarkMethodGeneric(16);
     }
     ~WithGenericMethod_UnshareCharacterPortal() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1564,7 +1843,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_ListSharedCharacters() {
-      ::grpc::Service::MarkMethodGeneric(14);
+      ::grpc::Service::MarkMethodGeneric(17);
     }
     ~WithGenericMethod_ListSharedCharacters() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1581,7 +1860,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_GetCharacterShareInfo() {
-      ::grpc::Service::MarkMethodGeneric(15);
+      ::grpc::Service::MarkMethodGeneric(18);
     }
     ~WithGenericMethod_GetCharacterShareInfo() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1613,12 +1892,52 @@ class Characters final {
     }
   };
   template <class BaseClass>
+  class WithRawMethod_CloneCharacter : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_CloneCharacter() {
+      ::grpc::Service::MarkMethodRaw(1);
+    }
+    ~WithRawMethod_CloneCharacter() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CloneCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestCloneCharacter(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_DeployCharacterAsynchronously : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_DeployCharacterAsynchronously() {
+      ::grpc::Service::MarkMethodRaw(2);
+    }
+    ~WithRawMethod_DeployCharacterAsynchronously() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeployCharacterAsynchronously(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::longrunning::Operation* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestDeployCharacterAsynchronously(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithRawMethod_GetCharacter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_GetCharacter() {
-      ::grpc::Service::MarkMethodRaw(1);
+      ::grpc::Service::MarkMethodRaw(3);
     }
     ~WithRawMethod_GetCharacter() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1629,7 +1948,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetCharacter(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1638,7 +1957,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_ListCharacters() {
-      ::grpc::Service::MarkMethodRaw(2);
+      ::grpc::Service::MarkMethodRaw(4);
     }
     ~WithRawMethod_ListCharacters() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1649,7 +1968,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestListCharacters(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1658,7 +1977,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_UpdateCharacter() {
-      ::grpc::Service::MarkMethodRaw(3);
+      ::grpc::Service::MarkMethodRaw(5);
     }
     ~WithRawMethod_UpdateCharacter() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1669,7 +1988,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestUpdateCharacter(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1678,18 +1997,18 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_CreateCharacter() {
-      ::grpc::Service::MarkMethodRaw(4);
+      ::grpc::Service::MarkMethodRaw(6);
     }
     ~WithRawMethod_CreateCharacter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreateCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/) override {
+    ::grpc::Status CreateCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* /*request*/, ::google::longrunning::Operation* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestCreateCharacter(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1698,7 +2017,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_DeleteCharacter() {
-      ::grpc::Service::MarkMethodRaw(5);
+      ::grpc::Service::MarkMethodRaw(7);
     }
     ~WithRawMethod_DeleteCharacter() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1709,7 +2028,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestDeleteCharacter(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1718,7 +2037,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_ReplaceCharacterRpmModel() {
-      ::grpc::Service::MarkMethodRaw(6);
+      ::grpc::Service::MarkMethodRaw(8);
     }
     ~WithRawMethod_ReplaceCharacterRpmModel() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1729,7 +2048,27 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestReplaceCharacterRpmModel(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_ReplaceCharacterImage : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_ReplaceCharacterImage() {
+      ::grpc::Service::MarkMethodRaw(9);
+    }
+    ~WithRawMethod_ReplaceCharacterImage() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReplaceCharacterImage(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestReplaceCharacterImage(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1738,7 +2077,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_PreviewPromptTemplate() {
-      ::grpc::Service::MarkMethodRaw(7);
+      ::grpc::Service::MarkMethodRaw(10);
     }
     ~WithRawMethod_PreviewPromptTemplate() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1749,7 +2088,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestPreviewPromptTemplate(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1758,7 +2097,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_CheckDeployInfo() {
-      ::grpc::Service::MarkMethodRaw(8);
+      ::grpc::Service::MarkMethodRaw(11);
     }
     ~WithRawMethod_CheckDeployInfo() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1769,7 +2108,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestCheckDeployInfo(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1778,7 +2117,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_GetCharacterAdvancedSettings() {
-      ::grpc::Service::MarkMethodRaw(9);
+      ::grpc::Service::MarkMethodRaw(12);
     }
     ~WithRawMethod_GetCharacterAdvancedSettings() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1789,7 +2128,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetCharacterAdvancedSettings(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1798,7 +2137,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_UpdateCharacterAdvancedSettings() {
-      ::grpc::Service::MarkMethodRaw(10);
+      ::grpc::Service::MarkMethodRaw(13);
     }
     ~WithRawMethod_UpdateCharacterAdvancedSettings() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1809,7 +2148,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestUpdateCharacterAdvancedSettings(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1818,7 +2157,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_ShareCharacter() {
-      ::grpc::Service::MarkMethodRaw(11);
+      ::grpc::Service::MarkMethodRaw(14);
     }
     ~WithRawMethod_ShareCharacter() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1829,7 +2168,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestShareCharacter(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(14, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1838,7 +2177,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_ShareCharacterPortal() {
-      ::grpc::Service::MarkMethodRaw(12);
+      ::grpc::Service::MarkMethodRaw(15);
     }
     ~WithRawMethod_ShareCharacterPortal() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1849,7 +2188,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestShareCharacterPortal(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(15, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1858,7 +2197,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_UnshareCharacterPortal() {
-      ::grpc::Service::MarkMethodRaw(13);
+      ::grpc::Service::MarkMethodRaw(16);
     }
     ~WithRawMethod_UnshareCharacterPortal() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1869,7 +2208,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestUnshareCharacterPortal(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(16, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1878,7 +2217,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_ListSharedCharacters() {
-      ::grpc::Service::MarkMethodRaw(14);
+      ::grpc::Service::MarkMethodRaw(17);
     }
     ~WithRawMethod_ListSharedCharacters() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1889,7 +2228,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestListSharedCharacters(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(14, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(17, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1898,7 +2237,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_GetCharacterShareInfo() {
-      ::grpc::Service::MarkMethodRaw(15);
+      ::grpc::Service::MarkMethodRaw(18);
     }
     ~WithRawMethod_GetCharacterShareInfo() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1909,7 +2248,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetCharacterShareInfo(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(15, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(18, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1935,12 +2274,56 @@ class Characters final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithRawCallbackMethod_CloneCharacter : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_CloneCharacter() {
+      ::grpc::Service::MarkMethodRawCallback(1,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->CloneCharacter(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_CloneCharacter() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CloneCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* CloneCharacter(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_DeployCharacterAsynchronously : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_DeployCharacterAsynchronously() {
+      ::grpc::Service::MarkMethodRawCallback(2,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeployCharacterAsynchronously(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_DeployCharacterAsynchronously() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeployCharacterAsynchronously(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::longrunning::Operation* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* DeployCharacterAsynchronously(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
   class WithRawCallbackMethod_GetCharacter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_GetCharacter() {
-      ::grpc::Service::MarkMethodRawCallback(1,
+      ::grpc::Service::MarkMethodRawCallback(3,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetCharacter(context, request, response); }));
@@ -1962,7 +2345,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_ListCharacters() {
-      ::grpc::Service::MarkMethodRawCallback(2,
+      ::grpc::Service::MarkMethodRawCallback(4,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ListCharacters(context, request, response); }));
@@ -1984,7 +2367,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_UpdateCharacter() {
-      ::grpc::Service::MarkMethodRawCallback(3,
+      ::grpc::Service::MarkMethodRawCallback(5,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UpdateCharacter(context, request, response); }));
@@ -2006,7 +2389,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_CreateCharacter() {
-      ::grpc::Service::MarkMethodRawCallback(4,
+      ::grpc::Service::MarkMethodRawCallback(6,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->CreateCharacter(context, request, response); }));
@@ -2015,7 +2398,7 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreateCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/) override {
+    ::grpc::Status CreateCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* /*request*/, ::google::longrunning::Operation* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2028,7 +2411,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_DeleteCharacter() {
-      ::grpc::Service::MarkMethodRawCallback(5,
+      ::grpc::Service::MarkMethodRawCallback(7,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeleteCharacter(context, request, response); }));
@@ -2050,7 +2433,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_ReplaceCharacterRpmModel() {
-      ::grpc::Service::MarkMethodRawCallback(6,
+      ::grpc::Service::MarkMethodRawCallback(8,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ReplaceCharacterRpmModel(context, request, response); }));
@@ -2067,12 +2450,34 @@ class Characters final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithRawCallbackMethod_ReplaceCharacterImage : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_ReplaceCharacterImage() {
+      ::grpc::Service::MarkMethodRawCallback(9,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ReplaceCharacterImage(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_ReplaceCharacterImage() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReplaceCharacterImage(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* ReplaceCharacterImage(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
   class WithRawCallbackMethod_PreviewPromptTemplate : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_PreviewPromptTemplate() {
-      ::grpc::Service::MarkMethodRawCallback(7,
+      ::grpc::Service::MarkMethodRawCallback(10,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->PreviewPromptTemplate(context, request, response); }));
@@ -2094,7 +2499,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_CheckDeployInfo() {
-      ::grpc::Service::MarkMethodRawCallback(8,
+      ::grpc::Service::MarkMethodRawCallback(11,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->CheckDeployInfo(context, request, response); }));
@@ -2116,7 +2521,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_GetCharacterAdvancedSettings() {
-      ::grpc::Service::MarkMethodRawCallback(9,
+      ::grpc::Service::MarkMethodRawCallback(12,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetCharacterAdvancedSettings(context, request, response); }));
@@ -2138,7 +2543,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_UpdateCharacterAdvancedSettings() {
-      ::grpc::Service::MarkMethodRawCallback(10,
+      ::grpc::Service::MarkMethodRawCallback(13,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UpdateCharacterAdvancedSettings(context, request, response); }));
@@ -2160,7 +2565,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_ShareCharacter() {
-      ::grpc::Service::MarkMethodRawCallback(11,
+      ::grpc::Service::MarkMethodRawCallback(14,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ShareCharacter(context, request, response); }));
@@ -2182,7 +2587,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_ShareCharacterPortal() {
-      ::grpc::Service::MarkMethodRawCallback(12,
+      ::grpc::Service::MarkMethodRawCallback(15,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ShareCharacterPortal(context, request, response); }));
@@ -2204,7 +2609,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_UnshareCharacterPortal() {
-      ::grpc::Service::MarkMethodRawCallback(13,
+      ::grpc::Service::MarkMethodRawCallback(16,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UnshareCharacterPortal(context, request, response); }));
@@ -2226,7 +2631,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_ListSharedCharacters() {
-      ::grpc::Service::MarkMethodRawCallback(14,
+      ::grpc::Service::MarkMethodRawCallback(17,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ListSharedCharacters(context, request, response); }));
@@ -2248,7 +2653,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_GetCharacterShareInfo() {
-      ::grpc::Service::MarkMethodRawCallback(15,
+      ::grpc::Service::MarkMethodRawCallback(18,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetCharacterShareInfo(context, request, response); }));
@@ -2292,12 +2697,66 @@ class Characters final {
     virtual ::grpc::Status StreamedDeployCharacter(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::DeployCharacterRequest,::google::protobuf::Empty>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
+  class WithStreamedUnaryMethod_CloneCharacter : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_CloneCharacter() {
+      ::grpc::Service::MarkMethodStreamed(1,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::ai::inworld::studio::v1alpha::CloneCharacterRequest, ::ai::inworld::studio::v1alpha::Character>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::ai::inworld::studio::v1alpha::CloneCharacterRequest, ::ai::inworld::studio::v1alpha::Character>* streamer) {
+                       return this->StreamedCloneCharacter(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_CloneCharacter() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status CloneCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedCloneCharacter(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::CloneCharacterRequest,::ai::inworld::studio::v1alpha::Character>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_DeployCharacterAsynchronously : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_DeployCharacterAsynchronously() {
+      ::grpc::Service::MarkMethodStreamed(2,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::longrunning::Operation>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::longrunning::Operation>* streamer) {
+                       return this->StreamedDeployCharacterAsynchronously(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_DeployCharacterAsynchronously() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status DeployCharacterAsynchronously(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::longrunning::Operation* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedDeployCharacterAsynchronously(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::DeployCharacterRequest,::google::longrunning::Operation>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_GetCharacter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_GetCharacter() {
-      ::grpc::Service::MarkMethodStreamed(1,
+      ::grpc::Service::MarkMethodStreamed(3,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ai::inworld::studio::v1alpha::GetCharacterRequest, ::ai::inworld::studio::v1alpha::Character>(
             [this](::grpc::ServerContext* context,
@@ -2324,7 +2783,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_ListCharacters() {
-      ::grpc::Service::MarkMethodStreamed(2,
+      ::grpc::Service::MarkMethodStreamed(4,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ai::inworld::studio::v1alpha::ListCharactersRequest, ::ai::inworld::studio::v1alpha::ListCharactersResponse>(
             [this](::grpc::ServerContext* context,
@@ -2351,7 +2810,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_UpdateCharacter() {
-      ::grpc::Service::MarkMethodStreamed(3,
+      ::grpc::Service::MarkMethodStreamed(5,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ai::inworld::studio::v1alpha::UpdateCharacterRequest, ::ai::inworld::studio::v1alpha::Character>(
             [this](::grpc::ServerContext* context,
@@ -2378,12 +2837,12 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_CreateCharacter() {
-      ::grpc::Service::MarkMethodStreamed(4,
+      ::grpc::Service::MarkMethodStreamed(6,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::ai::inworld::studio::v1alpha::CreateCharacterRequest, ::ai::inworld::studio::v1alpha::Character>(
+          ::ai::inworld::studio::v1alpha::CreateCharacterRequest, ::google::longrunning::Operation>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::ai::inworld::studio::v1alpha::CreateCharacterRequest, ::ai::inworld::studio::v1alpha::Character>* streamer) {
+                     ::ai::inworld::studio::v1alpha::CreateCharacterRequest, ::google::longrunning::Operation>* streamer) {
                        return this->StreamedCreateCharacter(context,
                          streamer);
                   }));
@@ -2392,12 +2851,12 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status CreateCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/) override {
+    ::grpc::Status CreateCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* /*request*/, ::google::longrunning::Operation* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedCreateCharacter(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::CreateCharacterRequest,::ai::inworld::studio::v1alpha::Character>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedCreateCharacter(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::CreateCharacterRequest,::google::longrunning::Operation>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_DeleteCharacter : public BaseClass {
@@ -2405,7 +2864,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_DeleteCharacter() {
-      ::grpc::Service::MarkMethodStreamed(5,
+      ::grpc::Service::MarkMethodStreamed(7,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ai::inworld::studio::v1alpha::DeleteCharacterRequest, ::google::protobuf::Empty>(
             [this](::grpc::ServerContext* context,
@@ -2432,7 +2891,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_ReplaceCharacterRpmModel() {
-      ::grpc::Service::MarkMethodStreamed(6,
+      ::grpc::Service::MarkMethodStreamed(8,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest, ::ai::inworld::studio::v1alpha::Character>(
             [this](::grpc::ServerContext* context,
@@ -2454,12 +2913,39 @@ class Characters final {
     virtual ::grpc::Status StreamedReplaceCharacterRpmModel(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest,::ai::inworld::studio::v1alpha::Character>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
+  class WithStreamedUnaryMethod_ReplaceCharacterImage : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_ReplaceCharacterImage() {
+      ::grpc::Service::MarkMethodStreamed(9,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest, ::ai::inworld::studio::v1alpha::Character>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest, ::ai::inworld::studio::v1alpha::Character>* streamer) {
+                       return this->StreamedReplaceCharacterImage(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_ReplaceCharacterImage() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status ReplaceCharacterImage(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedReplaceCharacterImage(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest,::ai::inworld::studio::v1alpha::Character>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_PreviewPromptTemplate : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_PreviewPromptTemplate() {
-      ::grpc::Service::MarkMethodStreamed(7,
+      ::grpc::Service::MarkMethodStreamed(10,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse>(
             [this](::grpc::ServerContext* context,
@@ -2486,7 +2972,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_CheckDeployInfo() {
-      ::grpc::Service::MarkMethodStreamed(8,
+      ::grpc::Service::MarkMethodStreamed(11,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse>(
             [this](::grpc::ServerContext* context,
@@ -2513,7 +2999,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_GetCharacterAdvancedSettings() {
-      ::grpc::Service::MarkMethodStreamed(9,
+      ::grpc::Service::MarkMethodStreamed(12,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>(
             [this](::grpc::ServerContext* context,
@@ -2540,7 +3026,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_UpdateCharacterAdvancedSettings() {
-      ::grpc::Service::MarkMethodStreamed(10,
+      ::grpc::Service::MarkMethodStreamed(13,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>(
             [this](::grpc::ServerContext* context,
@@ -2567,7 +3053,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_ShareCharacter() {
-      ::grpc::Service::MarkMethodStreamed(11,
+      ::grpc::Service::MarkMethodStreamed(14,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf::Empty>(
             [this](::grpc::ServerContext* context,
@@ -2594,7 +3080,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_ShareCharacterPortal() {
-      ::grpc::Service::MarkMethodStreamed(12,
+      ::grpc::Service::MarkMethodStreamed(15,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf::Empty>(
             [this](::grpc::ServerContext* context,
@@ -2621,7 +3107,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_UnshareCharacterPortal() {
-      ::grpc::Service::MarkMethodStreamed(13,
+      ::grpc::Service::MarkMethodStreamed(16,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf::Empty>(
             [this](::grpc::ServerContext* context,
@@ -2648,7 +3134,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_ListSharedCharacters() {
-      ::grpc::Service::MarkMethodStreamed(14,
+      ::grpc::Service::MarkMethodStreamed(17,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse>(
             [this](::grpc::ServerContext* context,
@@ -2675,7 +3161,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_GetCharacterShareInfo() {
-      ::grpc::Service::MarkMethodStreamed(15,
+      ::grpc::Service::MarkMethodStreamed(18,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest, ::ai::inworld::studio::v1alpha::CharacterShareInfo>(
             [this](::grpc::ServerContext* context,
@@ -2696,9 +3182,9 @@ class Characters final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedGetCharacterShareInfo(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest,::ai::inworld::studio::v1alpha::CharacterShareInfo>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_DeployCharacter<WithStreamedUnaryMethod_GetCharacter<WithStreamedUnaryMethod_ListCharacters<WithStreamedUnaryMethod_UpdateCharacter<WithStreamedUnaryMethod_CreateCharacter<WithStreamedUnaryMethod_DeleteCharacter<WithStreamedUnaryMethod_ReplaceCharacterRpmModel<WithStreamedUnaryMethod_PreviewPromptTemplate<WithStreamedUnaryMethod_CheckDeployInfo<WithStreamedUnaryMethod_GetCharacterAdvancedSettings<WithStreamedUnaryMethod_UpdateCharacterAdvancedSettings<WithStreamedUnaryMethod_ShareCharacter<WithStreamedUnaryMethod_ShareCharacterPortal<WithStreamedUnaryMethod_UnshareCharacterPortal<WithStreamedUnaryMethod_ListSharedCharacters<WithStreamedUnaryMethod_GetCharacterShareInfo<Service > > > > > > > > > > > > > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_DeployCharacter<WithStreamedUnaryMethod_CloneCharacter<WithStreamedUnaryMethod_DeployCharacterAsynchronously<WithStreamedUnaryMethod_GetCharacter<WithStreamedUnaryMethod_ListCharacters<WithStreamedUnaryMethod_UpdateCharacter<WithStreamedUnaryMethod_CreateCharacter<WithStreamedUnaryMethod_DeleteCharacter<WithStreamedUnaryMethod_ReplaceCharacterRpmModel<WithStreamedUnaryMethod_ReplaceCharacterImage<WithStreamedUnaryMethod_PreviewPromptTemplate<WithStreamedUnaryMethod_CheckDeployInfo<WithStreamedUnaryMethod_GetCharacterAdvancedSettings<WithStreamedUnaryMethod_UpdateCharacterAdvancedSettings<WithStreamedUnaryMethod_ShareCharacter<WithStreamedUnaryMethod_ShareCharacterPortal<WithStreamedUnaryMethod_UnshareCharacterPortal<WithStreamedUnaryMethod_ListSharedCharacters<WithStreamedUnaryMethod_GetCharacterShareInfo<Service > > > > > > > > > > > > > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_DeployCharacter<WithStreamedUnaryMethod_GetCharacter<WithStreamedUnaryMethod_ListCharacters<WithStreamedUnaryMethod_UpdateCharacter<WithStreamedUnaryMethod_CreateCharacter<WithStreamedUnaryMethod_DeleteCharacter<WithStreamedUnaryMethod_ReplaceCharacterRpmModel<WithStreamedUnaryMethod_PreviewPromptTemplate<WithStreamedUnaryMethod_CheckDeployInfo<WithStreamedUnaryMethod_GetCharacterAdvancedSettings<WithStreamedUnaryMethod_UpdateCharacterAdvancedSettings<WithStreamedUnaryMethod_ShareCharacter<WithStreamedUnaryMethod_ShareCharacterPortal<WithStreamedUnaryMethod_UnshareCharacterPortal<WithStreamedUnaryMethod_ListSharedCharacters<WithStreamedUnaryMethod_GetCharacterShareInfo<Service > > > > > > > > > > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_DeployCharacter<WithStreamedUnaryMethod_CloneCharacter<WithStreamedUnaryMethod_DeployCharacterAsynchronously<WithStreamedUnaryMethod_GetCharacter<WithStreamedUnaryMethod_ListCharacters<WithStreamedUnaryMethod_UpdateCharacter<WithStreamedUnaryMethod_CreateCharacter<WithStreamedUnaryMethod_DeleteCharacter<WithStreamedUnaryMethod_ReplaceCharacterRpmModel<WithStreamedUnaryMethod_ReplaceCharacterImage<WithStreamedUnaryMethod_PreviewPromptTemplate<WithStreamedUnaryMethod_CheckDeployInfo<WithStreamedUnaryMethod_GetCharacterAdvancedSettings<WithStreamedUnaryMethod_UpdateCharacterAdvancedSettings<WithStreamedUnaryMethod_ShareCharacter<WithStreamedUnaryMethod_ShareCharacterPortal<WithStreamedUnaryMethod_UnshareCharacterPortal<WithStreamedUnaryMethod_ListSharedCharacters<WithStreamedUnaryMethod_GetCharacterShareInfo<Service > > > > > > > > > > > > > > > > > > > StreamedService;
 };
 
 }  // namespace v1alpha

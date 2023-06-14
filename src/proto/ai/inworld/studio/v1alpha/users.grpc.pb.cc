@@ -32,6 +32,7 @@ static const char* Users_method_names[] = {
   "/ai.inworld.studio.v1alpha.Users/GetUser",
   "/ai.inworld.studio.v1alpha.Users/UpdateUser",
   "/ai.inworld.studio.v1alpha.Users/AcceptTos",
+  "/ai.inworld.studio.v1alpha.Users/DeleteUser",
 };
 
 std::unique_ptr< Users::Stub> Users::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -46,6 +47,7 @@ Users::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, con
   , rpcmethod_GetUser_(Users_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_UpdateUser_(Users_method_names[3], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_AcceptTos_(Users_method_names[4], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_DeleteUser_(Users_method_names[5], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status Users::Stub::GenerateTokenUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest& request, ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse* response) {
@@ -163,6 +165,29 @@ void Users::Stub::async::AcceptTos(::grpc::ClientContext* context, const ::ai::i
   return result;
 }
 
+::grpc::Status Users::Stub::DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::google::protobuf::Empty* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::DeleteUserRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_DeleteUser_, context, request, response);
+}
+
+void Users::Stub::async::DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::DeleteUserRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeleteUser_, context, request, response, std::move(f));
+}
+
+void Users::Stub::async::DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeleteUser_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Users::Stub::PrepareAsyncDeleteUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf::Empty, ::ai::inworld::studio::v1alpha::DeleteUserRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_DeleteUser_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Users::Stub::AsyncDeleteUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncDeleteUserRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
 Users::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Users_method_names[0],
@@ -214,6 +239,16 @@ Users::Service::Service() {
              ::ai::inworld::studio::v1alpha::User* resp) {
                return service->AcceptTos(ctx, req, resp);
              }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Users_method_names[5],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Users::Service, ::ai::inworld::studio::v1alpha::DeleteUserRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](Users::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::ai::inworld::studio::v1alpha::DeleteUserRequest* req,
+             ::google::protobuf::Empty* resp) {
+               return service->DeleteUser(ctx, req, resp);
+             }, this)));
 }
 
 Users::Service::~Service() {
@@ -248,6 +283,13 @@ Users::Service::~Service() {
 }
 
 ::grpc::Status Users::Service::AcceptTos(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest* request, ::ai::inworld::studio::v1alpha::User* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Users::Service::DeleteUser(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf::Empty* response) {
   (void) context;
   (void) request;
   (void) response;

@@ -117,6 +117,8 @@ PROTOBUF_CONSTEXPR Scene_CharacterReference_Character_CharacterAssets::Scene_Cha
   , /*decltype(_impl_.rpm_image_uri_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.rpm_image_uri_portrait_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.rpm_image_uri_posture_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.avatar_img_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.avatar_img_original_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct Scene_CharacterReference_Character_CharacterAssetsDefaultTypeInternal {
   PROTOBUF_CONSTEXPR Scene_CharacterReference_Character_CharacterAssetsDefaultTypeInternal()
@@ -129,7 +131,8 @@ struct Scene_CharacterReference_Character_CharacterAssetsDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Scene_CharacterReference_Character_CharacterAssetsDefaultTypeInternal _Scene_CharacterReference_Character_CharacterAssets_default_instance_;
 PROTOBUF_CONSTEXPR Scene_CharacterReference_Character::Scene_CharacterReference_Character(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.default_character_description_)*/nullptr
+    /*decltype(_impl_.additional_agent_info_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.default_character_description_)*/nullptr
   , /*decltype(_impl_.default_character_assets_)*/nullptr
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct Scene_CharacterReference_CharacterDefaultTypeInternal {
@@ -174,6 +177,7 @@ PROTOBUF_CONSTEXPR Scene_Meta::Scene_Meta(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.total_triggers_)*/0
   , /*decltype(_impl_.total_characters_)*/0
+  , /*decltype(_impl_.total_common_knowledge_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct Scene_MetaDefaultTypeInternal {
   PROTOBUF_CONSTEXPR Scene_MetaDefaultTypeInternal()
@@ -188,9 +192,11 @@ PROTOBUF_CONSTEXPR Scene::Scene(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.scene_triggers_)*/{}
   , /*decltype(_impl_.character_references_)*/{}
+  , /*decltype(_impl_.common_knowledges_)*/{}
   , /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.description_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.display_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.time_period_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.meta_)*/nullptr
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct SceneDefaultTypeInternal {
@@ -229,11 +235,33 @@ struct DeploySceneRequestDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DeploySceneRequestDefaultTypeInternal _DeploySceneRequest_default_instance_;
+PROTOBUF_CONSTEXPR DeploySceneAsyncMetadata::DeploySceneAsyncMetadata(
+    ::_pbi::ConstantInitialized) {}
+struct DeploySceneAsyncMetadataDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR DeploySceneAsyncMetadataDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~DeploySceneAsyncMetadataDefaultTypeInternal() {}
+  union {
+    DeploySceneAsyncMetadata _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DeploySceneAsyncMetadataDefaultTypeInternal _DeploySceneAsyncMetadata_default_instance_;
+PROTOBUF_CONSTEXPR DeploySceneAsyncResponse::DeploySceneAsyncResponse(
+    ::_pbi::ConstantInitialized) {}
+struct DeploySceneAsyncResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR DeploySceneAsyncResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~DeploySceneAsyncResponseDefaultTypeInternal() {}
+  union {
+    DeploySceneAsyncResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DeploySceneAsyncResponseDefaultTypeInternal _DeploySceneAsyncResponse_default_instance_;
 }  // namespace v1alpha
 }  // namespace studio
 }  // namespace inworld
 }  // namespace ai
-static ::_pb::Metadata file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto[14];
+static ::_pb::Metadata file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto[16];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto[1];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto = nullptr;
 
@@ -297,6 +325,8 @@ const uint32_t TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto::off
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character_CharacterAssets, _impl_.rpm_image_uri_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character_CharacterAssets, _impl_.rpm_image_uri_portrait_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character_CharacterAssets, _impl_.rpm_image_uri_posture_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character_CharacterAssets, _impl_.avatar_img_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character_CharacterAssets, _impl_.avatar_img_original_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -305,6 +335,7 @@ const uint32_t TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto::off
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character, _impl_.default_character_description_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character, _impl_.default_character_assets_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character, _impl_.additional_agent_info_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Scene_CharacterReference, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -330,6 +361,7 @@ const uint32_t TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto::off
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Scene_Meta, _impl_.total_triggers_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Scene_Meta, _impl_.total_characters_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Scene_Meta, _impl_.total_common_knowledge_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Scene, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -342,6 +374,8 @@ const uint32_t TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto::off
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Scene, _impl_.character_references_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Scene, _impl_.display_name_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Scene, _impl_.meta_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Scene, _impl_.common_knowledges_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Scene, _impl_.time_period_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ListScenesResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -357,6 +391,18 @@ const uint32_t TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto::off
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::DeploySceneRequest, _impl_.name_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::DeploySceneAsyncMetadata, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::DeploySceneAsyncResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::ai::inworld::studio::v1alpha::GetSceneRequest)},
@@ -366,13 +412,15 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 34, -1, -1, sizeof(::ai::inworld::studio::v1alpha::DeleteSceneRequest)},
   { 41, -1, -1, sizeof(::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character_CharacterDescription)},
   { 49, -1, -1, sizeof(::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character_CharacterAssets)},
-  { 59, -1, -1, sizeof(::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character)},
-  { 67, -1, -1, sizeof(::ai::inworld::studio::v1alpha::Scene_CharacterReference)},
-  { 76, -1, -1, sizeof(::ai::inworld::studio::v1alpha::Scene_SceneTrigger)},
-  { 84, -1, -1, sizeof(::ai::inworld::studio::v1alpha::Scene_Meta)},
-  { 92, -1, -1, sizeof(::ai::inworld::studio::v1alpha::Scene)},
-  { 104, -1, -1, sizeof(::ai::inworld::studio::v1alpha::ListScenesResponse)},
-  { 112, -1, -1, sizeof(::ai::inworld::studio::v1alpha::DeploySceneRequest)},
+  { 61, -1, -1, sizeof(::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character)},
+  { 70, -1, -1, sizeof(::ai::inworld::studio::v1alpha::Scene_CharacterReference)},
+  { 79, -1, -1, sizeof(::ai::inworld::studio::v1alpha::Scene_SceneTrigger)},
+  { 87, -1, -1, sizeof(::ai::inworld::studio::v1alpha::Scene_Meta)},
+  { 96, -1, -1, sizeof(::ai::inworld::studio::v1alpha::Scene)},
+  { 110, -1, -1, sizeof(::ai::inworld::studio::v1alpha::ListScenesResponse)},
+  { 118, -1, -1, sizeof(::ai::inworld::studio::v1alpha::DeploySceneRequest)},
+  { 125, -1, -1, sizeof(::ai::inworld::studio::v1alpha::DeploySceneAsyncMetadata)},
+  { 131, -1, -1, sizeof(::ai::inworld::studio::v1alpha::DeploySceneAsyncResponse)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -390,6 +438,8 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::ai::inworld::studio::v1alpha::_Scene_default_instance_._instance,
   &::ai::inworld::studio::v1alpha::_ListScenesResponse_default_instance_._instance,
   &::ai::inworld::studio::v1alpha::_DeploySceneRequest_default_instance_._instance,
+  &::ai::inworld::studio::v1alpha::_DeploySceneAsyncMetadata_default_instance_._instance,
+  &::ai::inworld::studio::v1alpha::_DeploySceneAsyncResponse_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -397,106 +447,121 @@ const char descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2e
   "\022\031ai.inworld.studio.v1alpha\032\034google/api/"
   "annotations.proto\032\027google/api/client.pro"
   "to\032\037google/api/field_behavior.proto\032\031goo"
-  "gle/api/resource.proto\032\033google/protobuf/"
-  "empty.proto\032 google/protobuf/field_mask."
-  "proto\032\roptions.proto\"u\n\017GetSceneRequest\022"
-  "*\n\004name\030\001 \001(\tB\034\340A\002\372A\026\n\024api.inworld.ai/Sc"
-  "ene\0226\n\004view\030\002 \001(\0162(.ai.inworld.studio.v1"
-  "alpha.SceneItemView\"\222\001\n\021ListScenesReques"
-  "t\022F\n\006parent\030\001 \001(\tB6\340A\002\372A0\n\030api.inworld.a"
-  "i/Workspace\022\024api.inworld.ai/Scene\022\021\n\tpag"
-  "e_size\030\002 \001(\005\022\022\n\npage_token\030\003 \001(\t\022\016\n\006filt"
-  "er\030\004 \001(\t\"\222\001\n\022CreateSceneRequest\022F\n\006paren"
-  "t\030\001 \001(\tB6\340A\002\372A0\n\030api.inworld.ai/Workspac"
-  "e\022\024api.inworld.ai/Scene\0224\n\005scene\030\002 \001(\0132 "
-  ".ai.inworld.studio.v1alpha.SceneB\003\340A\002\"\200\001"
-  "\n\022UpdateSceneRequest\0224\n\005scene\030\001 \001(\0132 .ai"
-  ".inworld.studio.v1alpha.SceneB\003\340A\002\0224\n\013up"
-  "date_mask\030\002 \001(\0132\032.google.protobuf.FieldM"
-  "askB\003\340A\002\"@\n\022DeleteSceneRequest\022*\n\004name\030\001"
-  " \001(\tB\034\340A\002\372A\026\n\024api.inworld.ai/Scene\"\201\n\n\005S"
-  "cene\022\021\n\004name\030\001 \001(\tB\003\340A\002\022\023\n\013description\030\002"
-  " \001(\t\022E\n\016scene_triggers\030\003 \003(\0132-.ai.inworl"
-  "d.studio.v1alpha.Scene.SceneTrigger\022Q\n\024c"
-  "haracter_references\030\004 \003(\01323.ai.inworld.s"
-  "tudio.v1alpha.Scene.CharacterReference\022-"
-  "\n\014display_name\030\005 \001(\tB\027\242\317\"\023\n\021\032\017display na"
-  "me #1\0228\n\004meta\030\006 \001(\0132%.ai.inworld.studio."
-  "v1alpha.Scene.MetaB\003\340A\003\032\375\005\n\022CharacterRef"
-  "erence\022\021\n\004name\030\001 \001(\tB\003\340A\001\0223\n\tcharacter\030\002"
-  " \001(\tB \340A\002\372A\032\n\030api.inworld.ai/Character\022_"
-  "\n\023character_overloads\030\004 \003(\0132=.ai.inworld"
-  ".studio.v1alpha.Scene.CharacterReference"
-  ".CharacterB\003\340A\001\032\317\003\n\tCharacter\022y\n\035default"
-  "_character_description\030\001 \001(\0132R.ai.inworl"
-  "d.studio.v1alpha.Scene.CharacterReferenc"
-  "e.Character.CharacterDescription\022o\n\030defa"
-  "ult_character_assets\030\002 \001(\0132M.ai.inworld."
-  "studio.v1alpha.Scene.CharacterReference."
-  "Character.CharacterAssets\032\?\n\024CharacterDe"
-  "scription\022\022\n\ngiven_name\030\001 \001(\t\022\023\n\013descrip"
-  "tion\030\002 \001(\t\032\224\001\n\017CharacterAssets\022\032\n\rrpm_mo"
-  "del_uri\030\001 \001(\tB\003\340A\003\022\034\n\rrpm_image_uri\030\002 \001("
-  "\tB\005\030\001\340A\003\022#\n\026rpm_image_uri_portrait\030\003 \001(\t"
-  "B\003\340A\003\022\"\n\025rpm_image_uri_posture\030\004 \001(\tB\003\340A"
-  "\003:l\352Ai\n!api.inworld.ai/CharacterReferenc"
-  "e\022Dworkspaces/{workspace}/characters/{ch"
-  "aracter}/references/{reference}\032Q\n\014Scene"
-  "Trigger\022,\n\007trigger\030\001 \001(\tB\033\372A\030\n\026api.inwor"
-  "ld.ai/Trigger\022\023\n\013description\030\002 \001(\t\0328\n\004Me"
-  "ta\022\026\n\016total_triggers\030\001 \001(\005\022\030\n\020total_char"
-  "acters\030\002 \001(\005:@\352A=\n\024api.inworld.ai/Scene\022"
-  "%workspaces/{workspace}/scenes/{scene}\"_"
-  "\n\022ListScenesResponse\0220\n\006scenes\030\001 \003(\0132 .a"
-  "i.inworld.studio.v1alpha.Scene\022\027\n\017next_p"
-  "age_token\030\002 \001(\t\"@\n\022DeploySceneRequest\022*\n"
-  "\004name\030\001 \001(\tB\034\340A\002\372A\026\n\024api.inworld.ai/Scen"
-  "e*l\n\rSceneItemView\022\037\n\033SCENE_ITEM_VIEW_UN"
-  "SPECIFIED\020\000\022\033\n\027SCENE_ITEM_VIEW_DEFAULT\020\001"
-  "\022\035\n\031SCENE_ITEM_VIEW_WITH_META\020\0022\261\007\n\006Scen"
-  "es\022\215\001\n\013DeployScene\022-.ai.inworld.studio.v"
-  "1alpha.DeploySceneRequest\032\026.google.proto"
-  "buf.Empty\"7\202\323\344\223\0021\",/v1alpha/{name=worksp"
-  "aces/*/scenes/*}:deploy:\001*\022\216\001\n\010GetScene\022"
-  "*.ai.inworld.studio.v1alpha.GetSceneRequ"
-  "est\032 .ai.inworld.studio.v1alpha.Scene\"4\202"
-  "\323\344\223\002\'\022%/v1alpha/{name=workspaces/*/scene"
-  "s/*}\332A\004name\022\241\001\n\nListScenes\022,.ai.inworld."
-  "studio.v1alpha.ListScenesRequest\032-.ai.in"
-  "world.studio.v1alpha.ListScenesResponse\""
-  "6\202\323\344\223\002\'\022%/v1alpha/{parent=workspaces/*}/"
-  "scenes\332A\006parent\022\256\001\n\013UpdateScene\022-.ai.inw"
-  "orld.studio.v1alpha.UpdateSceneRequest\032 "
-  ".ai.inworld.studio.v1alpha.Scene\"N\202\323\344\223\0024"
-  "2+/v1alpha/{scene.name=workspaces/*/scen"
-  "es/*}:\005scene\332A\021scene,update_mask\022\243\001\n\013Cre"
-  "ateScene\022-.ai.inworld.studio.v1alpha.Cre"
-  "ateSceneRequest\032 .ai.inworld.studio.v1al"
-  "pha.Scene\"C\202\323\344\223\002.\"%/v1alpha/{parent=work"
-  "spaces/*}/scenes:\005scene\332A\014parent,scene\022\212"
-  "\001\n\013DeleteScene\022-.ai.inworld.studio.v1alp"
-  "ha.DeleteSceneRequest\032\026.google.protobuf."
-  "Empty\"4\202\323\344\223\002\'*%/v1alpha/{name=workspaces"
-  "/*/scenes/*}\332A\004nameB\225\001\n\031ai.inworld.studi"
-  "o.v1alphaB\013ScenesProtoP\001ZMgithub.com/inw"
-  "orld-ai/inworld/serving/grpc-gateway/bui"
-  "ld/proto/studio/v1alpha\252\002\031Ai.Inworld.Stu"
-  "dio.V1Alphab\006proto3"
+  "gle/api/resource.proto\032#google/longrunni"
+  "ng/operations.proto\032\033google/protobuf/emp"
+  "ty.proto\032 google/protobuf/field_mask.pro"
+  "to\032\roptions.proto\"u\n\017GetSceneRequest\022*\n\004"
+  "name\030\001 \001(\tB\034\340A\002\372A\026\n\024api.inworld.ai/Scene"
+  "\0226\n\004view\030\002 \001(\0162(.ai.inworld.studio.v1alp"
+  "ha.SceneItemView\"\222\001\n\021ListScenesRequest\022F"
+  "\n\006parent\030\001 \001(\tB6\340A\002\372A0\n\030api.inworld.ai/W"
+  "orkspace\022\024api.inworld.ai/Scene\022\021\n\tpage_s"
+  "ize\030\002 \001(\005\022\022\n\npage_token\030\003 \001(\t\022\016\n\006filter\030"
+  "\004 \001(\t\"\222\001\n\022CreateSceneRequest\022F\n\006parent\030\001"
+  " \001(\tB6\340A\002\372A0\n\030api.inworld.ai/Workspace\022\024"
+  "api.inworld.ai/Scene\0224\n\005scene\030\002 \001(\0132 .ai"
+  ".inworld.studio.v1alpha.SceneB\003\340A\002\"\200\001\n\022U"
+  "pdateSceneRequest\0224\n\005scene\030\001 \001(\0132 .ai.in"
+  "world.studio.v1alpha.SceneB\003\340A\002\0224\n\013updat"
+  "e_mask\030\002 \001(\0132\032.google.protobuf.FieldMask"
+  "B\003\340A\002\"@\n\022DeleteSceneRequest\022*\n\004name\030\001 \001("
+  "\tB\034\340A\002\372A\026\n\024api.inworld.ai/Scene\"\361\013\n\005Scen"
+  "e\022\021\n\004name\030\001 \001(\tB\003\340A\002\022\023\n\013description\030\002 \001("
+  "\t\022E\n\016scene_triggers\030\003 \003(\0132-.ai.inworld.s"
+  "tudio.v1alpha.Scene.SceneTrigger\022Q\n\024char"
+  "acter_references\030\004 \003(\01323.ai.inworld.stud"
+  "io.v1alpha.Scene.CharacterReference\022-\n\014d"
+  "isplay_name\030\005 \001(\tB\027\242\317\"\023\n\021\032\017display name "
+  "#1\0228\n\004meta\030\006 \001(\0132%.ai.inworld.studio.v1a"
+  "lpha.Scene.MetaB\003\340A\003\022i\n\021common_knowledge"
+  "s\030\007 \003(\tBN\242\317\"J\nH2F\nD\032Bworkspaces/workspac"
+  "es-1/common-knowledges/common-knowledges"
+  "-uuid-1\022\023\n\013time_period\030\010 \001(\t\032\315\006\n\022Charact"
+  "erReference\022\021\n\004name\030\001 \001(\tB\003\340A\001\0223\n\tcharac"
+  "ter\030\002 \001(\tB \340A\002\372A\032\n\030api.inworld.ai/Charac"
+  "ter\022_\n\023character_overloads\030\004 \003(\0132=.ai.in"
+  "world.studio.v1alpha.Scene.CharacterRefe"
+  "rence.CharacterB\003\340A\001\032\237\004\n\tCharacter\022y\n\035de"
+  "fault_character_description\030\001 \001(\0132R.ai.i"
+  "nworld.studio.v1alpha.Scene.CharacterRef"
+  "erence.Character.CharacterDescription\022o\n"
+  "\030default_character_assets\030\002 \001(\0132M.ai.inw"
+  "orld.studio.v1alpha.Scene.CharacterRefer"
+  "ence.Character.CharacterAssets\022\035\n\025additi"
+  "onal_agent_info\030\003 \001(\t\032\?\n\024CharacterDescri"
+  "ption\022\022\n\ngiven_name\030\001 \001(\t\022\023\n\013description"
+  "\030\002 \001(\t\032\305\001\n\017CharacterAssets\022\032\n\rrpm_model_"
+  "uri\030\001 \001(\tB\003\340A\003\022\034\n\rrpm_image_uri\030\002 \001(\tB\005\030"
+  "\001\340A\003\022#\n\026rpm_image_uri_portrait\030\003 \001(\tB\003\340A"
+  "\003\022\"\n\025rpm_image_uri_posture\030\004 \001(\tB\003\340A\003\022\022\n"
+  "\navatar_img\030\005 \001(\t\022\033\n\023avatar_img_original"
+  "\030\006 \001(\t:l\352Ai\n!api.inworld.ai/CharacterRef"
+  "erence\022Dworkspaces/{workspace}/character"
+  "s/{character}/references/{reference}\032Q\n\014"
+  "SceneTrigger\022,\n\007trigger\030\001 \001(\tB\033\372A\030\n\026api."
+  "inworld.ai/Trigger\022\023\n\013description\030\002 \001(\t\032"
+  "X\n\004Meta\022\026\n\016total_triggers\030\001 \001(\005\022\030\n\020total"
+  "_characters\030\002 \001(\005\022\036\n\026total_common_knowle"
+  "dge\030\003 \001(\005:@\352A=\n\024api.inworld.ai/Scene\022%wo"
+  "rkspaces/{workspace}/scenes/{scene}\"_\n\022L"
+  "istScenesResponse\0220\n\006scenes\030\001 \003(\0132 .ai.i"
+  "nworld.studio.v1alpha.Scene\022\027\n\017next_page"
+  "_token\030\002 \001(\t\"@\n\022DeploySceneRequest\022*\n\004na"
+  "me\030\001 \001(\tB\034\340A\002\372A\026\n\024api.inworld.ai/Scene\"\032"
+  "\n\030DeploySceneAsyncMetadata\"\032\n\030DeployScen"
+  "eAsyncResponse*l\n\rSceneItemView\022\037\n\033SCENE"
+  "_ITEM_VIEW_UNSPECIFIED\020\000\022\033\n\027SCENE_ITEM_V"
+  "IEW_DEFAULT\020\001\022\035\n\031SCENE_ITEM_VIEW_WITH_ME"
+  "TA\020\0022\233\t\n\006Scenes\022\215\001\n\013DeployScene\022-.ai.inw"
+  "orld.studio.v1alpha.DeploySceneRequest\032\026"
+  ".google.protobuf.Empty\"7\202\323\344\223\0021\",/v1alpha"
+  "/{name=workspaces/*/scenes/*}:deploy:\001*\022"
+  "\347\001\n\031DeploySceneAsynchronously\022-.ai.inwor"
+  "ld.studio.v1alpha.DeploySceneRequest\032\035.g"
+  "oogle.longrunning.Operation\"|\202\323\344\223\002\?\":/v1"
+  "alpha/{name=workspaces/*/scenes/*}:deplo"
+  "yAsynchronously:\001*\312A4\n\030DeploySceneAsyncR"
+  "esponse\022\030DeploySceneAsyncMetadata\022\216\001\n\010Ge"
+  "tScene\022*.ai.inworld.studio.v1alpha.GetSc"
+  "eneRequest\032 .ai.inworld.studio.v1alpha.S"
+  "cene\"4\202\323\344\223\002\'\022%/v1alpha/{name=workspaces/"
+  "*/scenes/*}\332A\004name\022\241\001\n\nListScenes\022,.ai.i"
+  "nworld.studio.v1alpha.ListScenesRequest\032"
+  "-.ai.inworld.studio.v1alpha.ListScenesRe"
+  "sponse\"6\202\323\344\223\002\'\022%/v1alpha/{parent=workspa"
+  "ces/*}/scenes\332A\006parent\022\256\001\n\013UpdateScene\022-"
+  ".ai.inworld.studio.v1alpha.UpdateSceneRe"
+  "quest\032 .ai.inworld.studio.v1alpha.Scene\""
+  "N\202\323\344\223\00242+/v1alpha/{scene.name=workspaces"
+  "/*/scenes/*}:\005scene\332A\021scene,update_mask\022"
+  "\243\001\n\013CreateScene\022-.ai.inworld.studio.v1al"
+  "pha.CreateSceneRequest\032 .ai.inworld.stud"
+  "io.v1alpha.Scene\"C\202\323\344\223\002.\"%/v1alpha/{pare"
+  "nt=workspaces/*}/scenes:\005scene\332A\014parent,"
+  "scene\022\212\001\n\013DeleteScene\022-.ai.inworld.studi"
+  "o.v1alpha.DeleteSceneRequest\032\026.google.pr"
+  "otobuf.Empty\"4\202\323\344\223\002\'*%/v1alpha/{name=wor"
+  "kspaces/*/scenes/*}\332A\004nameB\225\001\n\031ai.inworl"
+  "d.studio.v1alphaB\013ScenesProtoP\001ZMgithub."
+  "com/inworld-ai/inworld/serving/grpc-gate"
+  "way/build/proto/studio/v1alpha\252\002\031Ai.Inwo"
+  "rld.Studio.V1Alphab\006proto3"
   ;
-static const ::_pbi::DescriptorTable* const descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto_deps[7] = {
+static const ::_pbi::DescriptorTable* const descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto_deps[8] = {
   &::descriptor_table_google_2fapi_2fannotations_2eproto,
   &::descriptor_table_google_2fapi_2fclient_2eproto,
   &::descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto,
   &::descriptor_table_google_2fapi_2fresource_2eproto,
+  &::descriptor_table_google_2flongrunning_2foperations_2eproto,
   &::descriptor_table_google_2fprotobuf_2fempty_2eproto,
   &::descriptor_table_google_2fprotobuf_2ffield_5fmask_2eproto,
   &::descriptor_table_options_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto = {
-    false, false, 3539, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto,
+    false, false, 4106, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto,
     "ai/inworld/studio/v1alpha/scenes.proto",
-    &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto_once, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto_deps, 7, 14,
+    &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto_once, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto_deps, 8, 16,
     schemas, file_default_instances, TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto::offsets,
     file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto, file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto,
     file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto,
@@ -2056,6 +2121,8 @@ Scene_CharacterReference_Character_CharacterAssets::Scene_CharacterReference_Cha
     , decltype(_impl_.rpm_image_uri_){}
     , decltype(_impl_.rpm_image_uri_portrait_){}
     , decltype(_impl_.rpm_image_uri_posture_){}
+    , decltype(_impl_.avatar_img_){}
+    , decltype(_impl_.avatar_img_original_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -2091,6 +2158,22 @@ Scene_CharacterReference_Character_CharacterAssets::Scene_CharacterReference_Cha
     _this->_impl_.rpm_image_uri_posture_.Set(from._internal_rpm_image_uri_posture(), 
       _this->GetArenaForAllocation());
   }
+  _impl_.avatar_img_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.avatar_img_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_avatar_img().empty()) {
+    _this->_impl_.avatar_img_.Set(from._internal_avatar_img(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.avatar_img_original_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.avatar_img_original_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_avatar_img_original().empty()) {
+    _this->_impl_.avatar_img_original_.Set(from._internal_avatar_img_original(), 
+      _this->GetArenaForAllocation());
+  }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.CharacterAssets)
 }
 
@@ -2103,6 +2186,8 @@ inline void Scene_CharacterReference_Character_CharacterAssets::SharedCtor(
     , decltype(_impl_.rpm_image_uri_){}
     , decltype(_impl_.rpm_image_uri_portrait_){}
     , decltype(_impl_.rpm_image_uri_posture_){}
+    , decltype(_impl_.avatar_img_){}
+    , decltype(_impl_.avatar_img_original_){}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.rpm_model_uri_.InitDefault();
@@ -2121,6 +2206,14 @@ inline void Scene_CharacterReference_Character_CharacterAssets::SharedCtor(
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.rpm_image_uri_posture_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.avatar_img_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.avatar_img_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.avatar_img_original_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.avatar_img_original_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 Scene_CharacterReference_Character_CharacterAssets::~Scene_CharacterReference_Character_CharacterAssets() {
@@ -2138,6 +2231,8 @@ inline void Scene_CharacterReference_Character_CharacterAssets::SharedDtor() {
   _impl_.rpm_image_uri_.Destroy();
   _impl_.rpm_image_uri_portrait_.Destroy();
   _impl_.rpm_image_uri_posture_.Destroy();
+  _impl_.avatar_img_.Destroy();
+  _impl_.avatar_img_original_.Destroy();
 }
 
 void Scene_CharacterReference_Character_CharacterAssets::SetCachedSize(int size) const {
@@ -2154,6 +2249,8 @@ void Scene_CharacterReference_Character_CharacterAssets::Clear() {
   _impl_.rpm_image_uri_.ClearToEmpty();
   _impl_.rpm_image_uri_portrait_.ClearToEmpty();
   _impl_.rpm_image_uri_posture_.ClearToEmpty();
+  _impl_.avatar_img_.ClearToEmpty();
+  _impl_.avatar_img_original_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2200,6 +2297,26 @@ const char* Scene_CharacterReference_Character_CharacterAssets::_InternalParse(c
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
           CHK_(::_pbi::VerifyUTF8(str, "ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.CharacterAssets.rpm_image_uri_posture"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string avatar_img = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          auto str = _internal_mutable_avatar_img();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.CharacterAssets.avatar_img"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string avatar_img_original = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+          auto str = _internal_mutable_avatar_img_original();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.CharacterAssets.avatar_img_original"));
         } else
           goto handle_unusual;
         continue;
@@ -2272,6 +2389,26 @@ uint8_t* Scene_CharacterReference_Character_CharacterAssets::_InternalSerialize(
         4, this->_internal_rpm_image_uri_posture(), target);
   }
 
+  // string avatar_img = 5;
+  if (!this->_internal_avatar_img().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_avatar_img().data(), static_cast<int>(this->_internal_avatar_img().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.CharacterAssets.avatar_img");
+    target = stream->WriteStringMaybeAliased(
+        5, this->_internal_avatar_img(), target);
+  }
+
+  // string avatar_img_original = 6;
+  if (!this->_internal_avatar_img_original().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_avatar_img_original().data(), static_cast<int>(this->_internal_avatar_img_original().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.CharacterAssets.avatar_img_original");
+    target = stream->WriteStringMaybeAliased(
+        6, this->_internal_avatar_img_original(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2316,6 +2453,20 @@ size_t Scene_CharacterReference_Character_CharacterAssets::ByteSizeLong() const 
         this->_internal_rpm_image_uri_posture());
   }
 
+  // string avatar_img = 5;
+  if (!this->_internal_avatar_img().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_avatar_img());
+  }
+
+  // string avatar_img_original = 6;
+  if (!this->_internal_avatar_img_original().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_avatar_img_original());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -2345,6 +2496,12 @@ void Scene_CharacterReference_Character_CharacterAssets::MergeImpl(::PROTOBUF_NA
   }
   if (!from._internal_rpm_image_uri_posture().empty()) {
     _this->_internal_set_rpm_image_uri_posture(from._internal_rpm_image_uri_posture());
+  }
+  if (!from._internal_avatar_img().empty()) {
+    _this->_internal_set_avatar_img(from._internal_avatar_img());
+  }
+  if (!from._internal_avatar_img_original().empty()) {
+    _this->_internal_set_avatar_img_original(from._internal_avatar_img_original());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -2381,6 +2538,14 @@ void Scene_CharacterReference_Character_CharacterAssets::InternalSwap(Scene_Char
       &_impl_.rpm_image_uri_posture_, lhs_arena,
       &other->_impl_.rpm_image_uri_posture_, rhs_arena
   );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.avatar_img_, lhs_arena,
+      &other->_impl_.avatar_img_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.avatar_img_original_, lhs_arena,
+      &other->_impl_.avatar_img_original_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Scene_CharacterReference_Character_CharacterAssets::GetMetadata() const {
@@ -2415,11 +2580,20 @@ Scene_CharacterReference_Character::Scene_CharacterReference_Character(const Sce
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   Scene_CharacterReference_Character* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.default_character_description_){nullptr}
+      decltype(_impl_.additional_agent_info_){}
+    , decltype(_impl_.default_character_description_){nullptr}
     , decltype(_impl_.default_character_assets_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.additional_agent_info_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.additional_agent_info_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_additional_agent_info().empty()) {
+    _this->_impl_.additional_agent_info_.Set(from._internal_additional_agent_info(), 
+      _this->GetArenaForAllocation());
+  }
   if (from._internal_has_default_character_description()) {
     _this->_impl_.default_character_description_ = new ::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character_CharacterDescription(*from._impl_.default_character_description_);
   }
@@ -2434,10 +2608,15 @@ inline void Scene_CharacterReference_Character::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.default_character_description_){nullptr}
+      decltype(_impl_.additional_agent_info_){}
+    , decltype(_impl_.default_character_description_){nullptr}
     , decltype(_impl_.default_character_assets_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}
   };
+  _impl_.additional_agent_info_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.additional_agent_info_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 Scene_CharacterReference_Character::~Scene_CharacterReference_Character() {
@@ -2451,6 +2630,7 @@ Scene_CharacterReference_Character::~Scene_CharacterReference_Character() {
 
 inline void Scene_CharacterReference_Character::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.additional_agent_info_.Destroy();
   if (this != internal_default_instance()) delete _impl_.default_character_description_;
   if (this != internal_default_instance()) delete _impl_.default_character_assets_;
 }
@@ -2465,6 +2645,7 @@ void Scene_CharacterReference_Character::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  _impl_.additional_agent_info_.ClearToEmpty();
   if (GetArenaForAllocation() == nullptr && _impl_.default_character_description_ != nullptr) {
     delete _impl_.default_character_description_;
   }
@@ -2495,6 +2676,16 @@ const char* Scene_CharacterReference_Character::_InternalParse(const char* ptr, 
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_default_character_assets(), ptr);
           CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string additional_agent_info = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_additional_agent_info();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.additional_agent_info"));
         } else
           goto handle_unusual;
         continue;
@@ -2541,6 +2732,16 @@ uint8_t* Scene_CharacterReference_Character::_InternalSerialize(
         _Internal::default_character_assets(this).GetCachedSize(), target, stream);
   }
 
+  // string additional_agent_info = 3;
+  if (!this->_internal_additional_agent_info().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_additional_agent_info().data(), static_cast<int>(this->_internal_additional_agent_info().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.additional_agent_info");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_additional_agent_info(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2556,6 +2757,13 @@ size_t Scene_CharacterReference_Character::ByteSizeLong() const {
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // string additional_agent_info = 3;
+  if (!this->_internal_additional_agent_info().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_additional_agent_info());
+  }
 
   // .ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.CharacterDescription default_character_description = 1;
   if (this->_internal_has_default_character_description()) {
@@ -2589,6 +2797,9 @@ void Scene_CharacterReference_Character::MergeImpl(::PROTOBUF_NAMESPACE_ID::Mess
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (!from._internal_additional_agent_info().empty()) {
+    _this->_internal_set_additional_agent_info(from._internal_additional_agent_info());
+  }
   if (from._internal_has_default_character_description()) {
     _this->_internal_mutable_default_character_description()->::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character_CharacterDescription::MergeFrom(
         from._internal_default_character_description());
@@ -2613,7 +2824,13 @@ bool Scene_CharacterReference_Character::IsInitialized() const {
 
 void Scene_CharacterReference_Character::InternalSwap(Scene_CharacterReference_Character* other) {
   using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.additional_agent_info_, lhs_arena,
+      &other->_impl_.additional_agent_info_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(Scene_CharacterReference_Character, _impl_.default_character_assets_)
       + sizeof(Scene_CharacterReference_Character::_impl_.default_character_assets_)
@@ -3186,12 +3403,13 @@ Scene_Meta::Scene_Meta(const Scene_Meta& from)
   new (&_impl_) Impl_{
       decltype(_impl_.total_triggers_){}
     , decltype(_impl_.total_characters_){}
+    , decltype(_impl_.total_common_knowledge_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.total_triggers_, &from._impl_.total_triggers_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.total_characters_) -
-    reinterpret_cast<char*>(&_impl_.total_triggers_)) + sizeof(_impl_.total_characters_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.total_common_knowledge_) -
+    reinterpret_cast<char*>(&_impl_.total_triggers_)) + sizeof(_impl_.total_common_knowledge_));
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.Scene.Meta)
 }
 
@@ -3202,6 +3420,7 @@ inline void Scene_Meta::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.total_triggers_){0}
     , decltype(_impl_.total_characters_){0}
+    , decltype(_impl_.total_common_knowledge_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -3230,8 +3449,8 @@ void Scene_Meta::Clear() {
   (void) cached_has_bits;
 
   ::memset(&_impl_.total_triggers_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.total_characters_) -
-      reinterpret_cast<char*>(&_impl_.total_triggers_)) + sizeof(_impl_.total_characters_));
+      reinterpret_cast<char*>(&_impl_.total_common_knowledge_) -
+      reinterpret_cast<char*>(&_impl_.total_triggers_)) + sizeof(_impl_.total_common_knowledge_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -3253,6 +3472,14 @@ const char* Scene_Meta::_InternalParse(const char* ptr, ::_pbi::ParseContext* ct
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _impl_.total_characters_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int32 total_common_knowledge = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.total_common_knowledge_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3298,6 +3525,12 @@ uint8_t* Scene_Meta::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_total_characters(), target);
   }
 
+  // int32 total_common_knowledge = 3;
+  if (this->_internal_total_common_knowledge() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_total_common_knowledge(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -3324,6 +3557,11 @@ size_t Scene_Meta::ByteSizeLong() const {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_total_characters());
   }
 
+  // int32 total_common_knowledge = 3;
+  if (this->_internal_total_common_knowledge() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_total_common_knowledge());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -3348,6 +3586,9 @@ void Scene_Meta::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PRO
   if (from._internal_total_characters() != 0) {
     _this->_internal_set_total_characters(from._internal_total_characters());
   }
+  if (from._internal_total_common_knowledge() != 0) {
+    _this->_internal_set_total_common_knowledge(from._internal_total_common_knowledge());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -3366,8 +3607,8 @@ void Scene_Meta::InternalSwap(Scene_Meta* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Scene_Meta, _impl_.total_characters_)
-      + sizeof(Scene_Meta::_impl_.total_characters_)
+      PROTOBUF_FIELD_OFFSET(Scene_Meta, _impl_.total_common_knowledge_)
+      + sizeof(Scene_Meta::_impl_.total_common_knowledge_)
       - PROTOBUF_FIELD_OFFSET(Scene_Meta, _impl_.total_triggers_)>(
           reinterpret_cast<char*>(&_impl_.total_triggers_),
           reinterpret_cast<char*>(&other->_impl_.total_triggers_));
@@ -3402,9 +3643,11 @@ Scene::Scene(const Scene& from)
   new (&_impl_) Impl_{
       decltype(_impl_.scene_triggers_){from._impl_.scene_triggers_}
     , decltype(_impl_.character_references_){from._impl_.character_references_}
+    , decltype(_impl_.common_knowledges_){from._impl_.common_knowledges_}
     , decltype(_impl_.name_){}
     , decltype(_impl_.description_){}
     , decltype(_impl_.display_name_){}
+    , decltype(_impl_.time_period_){}
     , decltype(_impl_.meta_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}};
 
@@ -3433,6 +3676,14 @@ Scene::Scene(const Scene& from)
     _this->_impl_.display_name_.Set(from._internal_display_name(), 
       _this->GetArenaForAllocation());
   }
+  _impl_.time_period_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.time_period_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_time_period().empty()) {
+    _this->_impl_.time_period_.Set(from._internal_time_period(), 
+      _this->GetArenaForAllocation());
+  }
   if (from._internal_has_meta()) {
     _this->_impl_.meta_ = new ::ai::inworld::studio::v1alpha::Scene_Meta(*from._impl_.meta_);
   }
@@ -3446,9 +3697,11 @@ inline void Scene::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.scene_triggers_){arena}
     , decltype(_impl_.character_references_){arena}
+    , decltype(_impl_.common_knowledges_){arena}
     , decltype(_impl_.name_){}
     , decltype(_impl_.description_){}
     , decltype(_impl_.display_name_){}
+    , decltype(_impl_.time_period_){}
     , decltype(_impl_.meta_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -3463,6 +3716,10 @@ inline void Scene::SharedCtor(
   _impl_.display_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.display_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.time_period_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.time_period_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
@@ -3479,9 +3736,11 @@ inline void Scene::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.scene_triggers_.~RepeatedPtrField();
   _impl_.character_references_.~RepeatedPtrField();
+  _impl_.common_knowledges_.~RepeatedPtrField();
   _impl_.name_.Destroy();
   _impl_.description_.Destroy();
   _impl_.display_name_.Destroy();
+  _impl_.time_period_.Destroy();
   if (this != internal_default_instance()) delete _impl_.meta_;
 }
 
@@ -3497,9 +3756,11 @@ void Scene::Clear() {
 
   _impl_.scene_triggers_.Clear();
   _impl_.character_references_.Clear();
+  _impl_.common_knowledges_.Clear();
   _impl_.name_.ClearToEmpty();
   _impl_.description_.ClearToEmpty();
   _impl_.display_name_.ClearToEmpty();
+  _impl_.time_period_.ClearToEmpty();
   if (GetArenaForAllocation() == nullptr && _impl_.meta_ != nullptr) {
     delete _impl_.meta_;
   }
@@ -3574,6 +3835,31 @@ const char* Scene::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
           ptr = ctx->ParseMessage(_internal_mutable_meta(), ptr);
           CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated string common_knowledges = 7 [(.ai.inworld.options.examples) = {
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_common_knowledges();
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "ai.inworld.studio.v1alpha.Scene.common_knowledges"));
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<58>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // string time_period = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
+          auto str = _internal_mutable_time_period();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "ai.inworld.studio.v1alpha.Scene.time_period"));
         } else
           goto handle_unusual;
         continue;
@@ -3659,6 +3945,26 @@ uint8_t* Scene::_InternalSerialize(
         _Internal::meta(this).GetCachedSize(), target, stream);
   }
 
+  // repeated string common_knowledges = 7 [(.ai.inworld.options.examples) = {
+  for (int i = 0, n = this->_internal_common_knowledges_size(); i < n; i++) {
+    const auto& s = this->_internal_common_knowledges(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.studio.v1alpha.Scene.common_knowledges");
+    target = stream->WriteString(7, s, target);
+  }
+
+  // string time_period = 8;
+  if (!this->_internal_time_period().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_time_period().data(), static_cast<int>(this->_internal_time_period().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.studio.v1alpha.Scene.time_period");
+    target = stream->WriteStringMaybeAliased(
+        8, this->_internal_time_period(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -3689,6 +3995,14 @@ size_t Scene::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
+  // repeated string common_knowledges = 7 [(.ai.inworld.options.examples) = {
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.common_knowledges_.size());
+  for (int i = 0, n = _impl_.common_knowledges_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      _impl_.common_knowledges_.Get(i));
+  }
+
   // string name = 1 [(.google.api.field_behavior) = REQUIRED];
   if (!this->_internal_name().empty()) {
     total_size += 1 +
@@ -3708,6 +4022,13 @@ size_t Scene::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_display_name());
+  }
+
+  // string time_period = 8;
+  if (!this->_internal_time_period().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_time_period());
   }
 
   // .ai.inworld.studio.v1alpha.Scene.Meta meta = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];
@@ -3737,6 +4058,7 @@ void Scene::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF
 
   _this->_impl_.scene_triggers_.MergeFrom(from._impl_.scene_triggers_);
   _this->_impl_.character_references_.MergeFrom(from._impl_.character_references_);
+  _this->_impl_.common_knowledges_.MergeFrom(from._impl_.common_knowledges_);
   if (!from._internal_name().empty()) {
     _this->_internal_set_name(from._internal_name());
   }
@@ -3745,6 +4067,9 @@ void Scene::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF
   }
   if (!from._internal_display_name().empty()) {
     _this->_internal_set_display_name(from._internal_display_name());
+  }
+  if (!from._internal_time_period().empty()) {
+    _this->_internal_set_time_period(from._internal_time_period());
   }
   if (from._internal_has_meta()) {
     _this->_internal_mutable_meta()->::ai::inworld::studio::v1alpha::Scene_Meta::MergeFrom(
@@ -3771,6 +4096,7 @@ void Scene::InternalSwap(Scene* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.scene_triggers_.InternalSwap(&other->_impl_.scene_triggers_);
   _impl_.character_references_.InternalSwap(&other->_impl_.character_references_);
+  _impl_.common_knowledges_.InternalSwap(&other->_impl_.common_knowledges_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.name_, lhs_arena,
       &other->_impl_.name_, rhs_arena
@@ -3782,6 +4108,10 @@ void Scene::InternalSwap(Scene* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.display_name_, lhs_arena,
       &other->_impl_.display_name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.time_period_, lhs_arena,
+      &other->_impl_.time_period_, rhs_arena
   );
   swap(_impl_.meta_, other->_impl_.meta_);
 }
@@ -4232,6 +4562,86 @@ void DeploySceneRequest::InternalSwap(DeploySceneRequest* other) {
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto[13]);
 }
 
+// ===================================================================
+
+class DeploySceneAsyncMetadata::_Internal {
+ public:
+};
+
+DeploySceneAsyncMetadata::DeploySceneAsyncMetadata(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
+  // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.DeploySceneAsyncMetadata)
+}
+DeploySceneAsyncMetadata::DeploySceneAsyncMetadata(const DeploySceneAsyncMetadata& from)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  DeploySceneAsyncMetadata* const _this = this; (void)_this;
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.DeploySceneAsyncMetadata)
+}
+
+
+
+
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData DeploySceneAsyncMetadata::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*DeploySceneAsyncMetadata::GetClassData() const { return &_class_data_; }
+
+
+
+
+
+
+
+::PROTOBUF_NAMESPACE_ID::Metadata DeploySceneAsyncMetadata::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto_once,
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto[14]);
+}
+
+// ===================================================================
+
+class DeploySceneAsyncResponse::_Internal {
+ public:
+};
+
+DeploySceneAsyncResponse::DeploySceneAsyncResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
+  // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.DeploySceneAsyncResponse)
+}
+DeploySceneAsyncResponse::DeploySceneAsyncResponse(const DeploySceneAsyncResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  DeploySceneAsyncResponse* const _this = this; (void)_this;
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.DeploySceneAsyncResponse)
+}
+
+
+
+
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData DeploySceneAsyncResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*DeploySceneAsyncResponse::GetClassData() const { return &_class_data_; }
+
+
+
+
+
+
+
+::PROTOBUF_NAMESPACE_ID::Metadata DeploySceneAsyncResponse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto_once,
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto[15]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace v1alpha
 }  // namespace studio
@@ -4293,6 +4703,14 @@ Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::ListScenesResponse >(
 template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::DeploySceneRequest*
 Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::DeploySceneRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::DeploySceneRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::DeploySceneAsyncMetadata*
+Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::DeploySceneAsyncMetadata >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::DeploySceneAsyncMetadata >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::DeploySceneAsyncResponse*
+Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::DeploySceneAsyncResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::DeploySceneAsyncResponse >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

@@ -84,6 +84,15 @@ class Users final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::User>> PrepareAsyncAcceptTos(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::User>>(PrepareAsyncAcceptTosRaw(context, request, cq));
     }
+    // RPC to permanently delete a user. All delete requests push log info and delete success to slack room
+    // #delete-account-logs
+    virtual ::grpc::Status DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::google::protobuf::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncDeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncDeleteUserRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncDeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncDeleteUserRaw(context, request, cq));
+    }
     class async_interface {
      public:
       virtual ~async_interface() {}
@@ -106,6 +115,10 @@ class Users final {
       // RPC to accept new / updated terms of service.
       virtual void AcceptTos(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest* request, ::ai::inworld::studio::v1alpha::User* response, std::function<void(::grpc::Status)>) = 0;
       virtual void AcceptTos(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest* request, ::ai::inworld::studio::v1alpha::User* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      // RPC to permanently delete a user. All delete requests push log info and delete success to slack room
+      // #delete-account-logs
+      virtual void DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
@@ -121,6 +134,8 @@ class Users final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::User>* PrepareAsyncUpdateUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateUserRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::User>* AsyncAcceptTosRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::User>* PrepareAsyncAcceptTosRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncDeleteUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncDeleteUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -160,6 +175,13 @@ class Users final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::User>> PrepareAsyncAcceptTos(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::User>>(PrepareAsyncAcceptTosRaw(context, request, cq));
     }
+    ::grpc::Status DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::google::protobuf::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncDeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncDeleteUserRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncDeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncDeleteUserRaw(context, request, cq));
+    }
     class async final :
       public StubInterface::async_interface {
      public:
@@ -173,6 +195,8 @@ class Users final {
       void UpdateUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateUserRequest* request, ::ai::inworld::studio::v1alpha::User* response, ::grpc::ClientUnaryReactor* reactor) override;
       void AcceptTos(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest* request, ::ai::inworld::studio::v1alpha::User* response, std::function<void(::grpc::Status)>) override;
       void AcceptTos(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest* request, ::ai::inworld::studio::v1alpha::User* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
+      void DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -194,11 +218,14 @@ class Users final {
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::User>* PrepareAsyncUpdateUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateUserRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::User>* AsyncAcceptTosRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::User>* PrepareAsyncAcceptTosRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncDeleteUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncDeleteUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_GenerateTokenUser_;
     const ::grpc::internal::RpcMethod rpcmethod_LinkAccountUser_;
     const ::grpc::internal::RpcMethod rpcmethod_GetUser_;
     const ::grpc::internal::RpcMethod rpcmethod_UpdateUser_;
     const ::grpc::internal::RpcMethod rpcmethod_AcceptTos_;
+    const ::grpc::internal::RpcMethod rpcmethod_DeleteUser_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -220,6 +247,9 @@ class Users final {
     virtual ::grpc::Status UpdateUser(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::UpdateUserRequest* request, ::ai::inworld::studio::v1alpha::User* response);
     // RPC to accept new / updated terms of service.
     virtual ::grpc::Status AcceptTos(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest* request, ::ai::inworld::studio::v1alpha::User* response);
+    // RPC to permanently delete a user. All delete requests push log info and delete success to slack room
+    // #delete-account-logs
+    virtual ::grpc::Status DeleteUser(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf::Empty* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_GenerateTokenUser : public BaseClass {
@@ -321,7 +351,27 @@ class Users final {
       ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_GenerateTokenUser<WithAsyncMethod_LinkAccountUser<WithAsyncMethod_GetUser<WithAsyncMethod_UpdateUser<WithAsyncMethod_AcceptTos<Service > > > > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_DeleteUser : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_DeleteUser() {
+      ::grpc::Service::MarkMethodAsync(5);
+    }
+    ~WithAsyncMethod_DeleteUser() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeleteUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestDeleteUser(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_GenerateTokenUser<WithAsyncMethod_LinkAccountUser<WithAsyncMethod_GetUser<WithAsyncMethod_UpdateUser<WithAsyncMethod_AcceptTos<WithAsyncMethod_DeleteUser<Service > > > > > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_GenerateTokenUser : public BaseClass {
    private:
@@ -457,7 +507,34 @@ class Users final {
     virtual ::grpc::ServerUnaryReactor* AcceptTos(
       ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::AcceptTosRequest* /*request*/, ::ai::inworld::studio::v1alpha::User* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_GenerateTokenUser<WithCallbackMethod_LinkAccountUser<WithCallbackMethod_GetUser<WithCallbackMethod_UpdateUser<WithCallbackMethod_AcceptTos<Service > > > > > CallbackService;
+  template <class BaseClass>
+  class WithCallbackMethod_DeleteUser : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_DeleteUser() {
+      ::grpc::Service::MarkMethodCallback(5,
+          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteUserRequest, ::google::protobuf::Empty>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf::Empty* response) { return this->DeleteUser(context, request, response); }));}
+    void SetMessageAllocatorFor_DeleteUser(
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::DeleteUserRequest, ::google::protobuf::Empty>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteUserRequest, ::google::protobuf::Empty>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_DeleteUser() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeleteUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* DeleteUser(
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* /*request*/, ::google::protobuf::Empty* /*response*/)  { return nullptr; }
+  };
+  typedef WithCallbackMethod_GenerateTokenUser<WithCallbackMethod_LinkAccountUser<WithCallbackMethod_GetUser<WithCallbackMethod_UpdateUser<WithCallbackMethod_AcceptTos<WithCallbackMethod_DeleteUser<Service > > > > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_GenerateTokenUser : public BaseClass {
@@ -540,6 +617,23 @@ class Users final {
     }
     // disable synchronous version of this method
     ::grpc::Status AcceptTos(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::AcceptTosRequest* /*request*/, ::ai::inworld::studio::v1alpha::User* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_DeleteUser : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_DeleteUser() {
+      ::grpc::Service::MarkMethodGeneric(5);
+    }
+    ~WithGenericMethod_DeleteUser() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeleteUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -642,6 +736,26 @@ class Users final {
     }
     void RequestAcceptTos(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_DeleteUser : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_DeleteUser() {
+      ::grpc::Service::MarkMethodRaw(5);
+    }
+    ~WithRawMethod_DeleteUser() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeleteUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestDeleteUser(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -752,6 +866,28 @@ class Users final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* AcceptTos(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_DeleteUser : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_DeleteUser() {
+      ::grpc::Service::MarkMethodRawCallback(5,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeleteUser(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_DeleteUser() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeleteUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* DeleteUser(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -889,9 +1025,36 @@ class Users final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedAcceptTos(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::AcceptTosRequest,::ai::inworld::studio::v1alpha::User>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_GenerateTokenUser<WithStreamedUnaryMethod_LinkAccountUser<WithStreamedUnaryMethod_GetUser<WithStreamedUnaryMethod_UpdateUser<WithStreamedUnaryMethod_AcceptTos<Service > > > > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_DeleteUser : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_DeleteUser() {
+      ::grpc::Service::MarkMethodStreamed(5,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::ai::inworld::studio::v1alpha::DeleteUserRequest, ::google::protobuf::Empty>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::ai::inworld::studio::v1alpha::DeleteUserRequest, ::google::protobuf::Empty>* streamer) {
+                       return this->StreamedDeleteUser(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_DeleteUser() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status DeleteUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedDeleteUser(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::DeleteUserRequest,::google::protobuf::Empty>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_GenerateTokenUser<WithStreamedUnaryMethod_LinkAccountUser<WithStreamedUnaryMethod_GetUser<WithStreamedUnaryMethod_UpdateUser<WithStreamedUnaryMethod_AcceptTos<WithStreamedUnaryMethod_DeleteUser<Service > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_GenerateTokenUser<WithStreamedUnaryMethod_LinkAccountUser<WithStreamedUnaryMethod_GetUser<WithStreamedUnaryMethod_UpdateUser<WithStreamedUnaryMethod_AcceptTos<Service > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_GenerateTokenUser<WithStreamedUnaryMethod_LinkAccountUser<WithStreamedUnaryMethod_GetUser<WithStreamedUnaryMethod_UpdateUser<WithStreamedUnaryMethod_AcceptTos<WithStreamedUnaryMethod_DeleteUser<Service > > > > > > StreamedService;
 };
 
 }  // namespace v1alpha

@@ -66,6 +66,7 @@ namespace Inworld
 
 		void SendPacket(std::shared_ptr<Inworld::Packet> Packet);
 
+		virtual std::shared_ptr<ChangeSceneEvent> ChangeScene(const std::string& AgentId, const std::string& Scene);
 		virtual std::shared_ptr<TextEvent> SendTextMessage(const std::string& AgentId, const std::string& Text);
 		virtual std::shared_ptr<DataEvent> SendSoundMessage(const std::string& AgentId, const std::string& Data);
 		virtual std::shared_ptr<DataEvent> SendSoundMessageWithAEC(const std::string& AgentId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);

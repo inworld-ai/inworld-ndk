@@ -37,6 +37,7 @@
 #include "google/api/resource.pb.h"
 #include <google/protobuf/empty.pb.h>
 #include <google/protobuf/field_mask.pb.h>
+#include <google/protobuf/timestamp.pb.h>
 #include "options.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
@@ -68,9 +69,6 @@ extern GenerateResourceNameRequestDefaultTypeInternal _GenerateResourceNameReque
 class GenerateResourceNameResponse;
 struct GenerateResourceNameResponseDefaultTypeInternal;
 extern GenerateResourceNameResponseDefaultTypeInternal _GenerateResourceNameResponse_default_instance_;
-class GetWorkspaceBillingInfoRequest;
-struct GetWorkspaceBillingInfoRequestDefaultTypeInternal;
-extern GetWorkspaceBillingInfoRequestDefaultTypeInternal _GetWorkspaceBillingInfoRequest_default_instance_;
 class GetWorkspaceLimitInfoRequest;
 struct GetWorkspaceLimitInfoRequestDefaultTypeInternal;
 extern GetWorkspaceLimitInfoRequestDefaultTypeInternal _GetWorkspaceLimitInfoRequest_default_instance_;
@@ -80,6 +78,12 @@ extern GetWorkspaceRequestDefaultTypeInternal _GetWorkspaceRequest_default_insta
 class GetWorkspaceShareInfoRequest;
 struct GetWorkspaceShareInfoRequestDefaultTypeInternal;
 extern GetWorkspaceShareInfoRequestDefaultTypeInternal _GetWorkspaceShareInfoRequest_default_instance_;
+class ImpressionEventRequest;
+struct ImpressionEventRequestDefaultTypeInternal;
+extern ImpressionEventRequestDefaultTypeInternal _ImpressionEventRequest_default_instance_;
+class ImpressionEventRequest_ImpressionEventData;
+struct ImpressionEventRequest_ImpressionEventDataDefaultTypeInternal;
+extern ImpressionEventRequest_ImpressionEventDataDefaultTypeInternal _ImpressionEventRequest_ImpressionEventData_default_instance_;
 class ListWorkspacesRequest;
 struct ListWorkspacesRequestDefaultTypeInternal;
 extern ListWorkspacesRequestDefaultTypeInternal _ListWorkspacesRequest_default_instance_;
@@ -95,12 +99,6 @@ extern UpdateWorkspaceRequestDefaultTypeInternal _UpdateWorkspaceRequest_default
 class Workspace;
 struct WorkspaceDefaultTypeInternal;
 extern WorkspaceDefaultTypeInternal _Workspace_default_instance_;
-class WorkspaceBillingInfo;
-struct WorkspaceBillingInfoDefaultTypeInternal;
-extern WorkspaceBillingInfoDefaultTypeInternal _WorkspaceBillingInfo_default_instance_;
-class WorkspaceBillingInfo_QuotaDetails;
-struct WorkspaceBillingInfo_QuotaDetailsDefaultTypeInternal;
-extern WorkspaceBillingInfo_QuotaDetailsDefaultTypeInternal _WorkspaceBillingInfo_QuotaDetails_default_instance_;
 class WorkspaceLimitInfo;
 struct WorkspaceLimitInfoDefaultTypeInternal;
 extern WorkspaceLimitInfoDefaultTypeInternal _WorkspaceLimitInfo_default_instance_;
@@ -140,17 +138,16 @@ template<> ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest* Arena::Create
 template<> ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::GenerateResourceNameRequest>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::GenerateResourceNameResponse>(Arena*);
-template<> ::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::GetWorkspaceBillingInfoRequest>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::GetWorkspaceRequest* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::GetWorkspaceRequest>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest>(Arena*);
+template<> ::ai::inworld::studio::v1alpha::ImpressionEventRequest* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::ImpressionEventRequest>(Arena*);
+template<> ::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::ListWorkspacesRequest* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::ListWorkspacesRequest>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::ListWorkspacesResponse* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::ListWorkspacesResponse>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::ShareWorkspaceRequest>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::Workspace* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::Workspace>(Arena*);
-template<> ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::WorkspaceBillingInfo>(Arena*);
-template<> ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_BillingAccountLimit* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_BillingAccountLimit>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit>(Arena*);
@@ -167,6 +164,32 @@ namespace inworld {
 namespace studio {
 namespace v1alpha {
 
+enum Workspace_RuntimeAccess : int {
+  Workspace_RuntimeAccess_RUNTIME_ACCESS_UNSPECIFIED = 0,
+  Workspace_RuntimeAccess_RUNTIME_ACCESS_PRIVATE = 1,
+  Workspace_RuntimeAccess_RUNTIME_ACCESS_PUBLIC = 2,
+  Workspace_RuntimeAccess_Workspace_RuntimeAccess_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  Workspace_RuntimeAccess_Workspace_RuntimeAccess_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool Workspace_RuntimeAccess_IsValid(int value);
+constexpr Workspace_RuntimeAccess Workspace_RuntimeAccess_RuntimeAccess_MIN = Workspace_RuntimeAccess_RUNTIME_ACCESS_UNSPECIFIED;
+constexpr Workspace_RuntimeAccess Workspace_RuntimeAccess_RuntimeAccess_MAX = Workspace_RuntimeAccess_RUNTIME_ACCESS_PUBLIC;
+constexpr int Workspace_RuntimeAccess_RuntimeAccess_ARRAYSIZE = Workspace_RuntimeAccess_RuntimeAccess_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Workspace_RuntimeAccess_descriptor();
+template<typename T>
+inline const std::string& Workspace_RuntimeAccess_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, Workspace_RuntimeAccess>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function Workspace_RuntimeAccess_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    Workspace_RuntimeAccess_descriptor(), enum_t_value);
+}
+inline bool Workspace_RuntimeAccess_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Workspace_RuntimeAccess* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Workspace_RuntimeAccess>(
+    Workspace_RuntimeAccess_descriptor(), name, value);
+}
 enum GenerateResourceNameRequest_ResourceType : int {
   GenerateResourceNameRequest_ResourceType_RESOURCE_TYPE_UNSPECIFIED = 0,
   GenerateResourceNameRequest_ResourceType_RESOURCE_TYPE_WORKSPACE = 1,
@@ -193,34 +216,6 @@ inline bool GenerateResourceNameRequest_ResourceType_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, GenerateResourceNameRequest_ResourceType* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<GenerateResourceNameRequest_ResourceType>(
     GenerateResourceNameRequest_ResourceType_descriptor(), name, value);
-}
-enum WorkspaceBillingInfo_QuotaSource : int {
-  WorkspaceBillingInfo_QuotaSource_QUOTA_SOURCE_UNSPECIFIED = 0,
-  WorkspaceBillingInfo_QuotaSource_NO_SOURCES = 1,
-  WorkspaceBillingInfo_QuotaSource_SUBSCRIPTION = 2,
-  WorkspaceBillingInfo_QuotaSource_CREDITS = 3,
-  WorkspaceBillingInfo_QuotaSource_OVERAGE = 4,
-  WorkspaceBillingInfo_QuotaSource_WorkspaceBillingInfo_QuotaSource_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
-  WorkspaceBillingInfo_QuotaSource_WorkspaceBillingInfo_QuotaSource_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
-};
-bool WorkspaceBillingInfo_QuotaSource_IsValid(int value);
-constexpr WorkspaceBillingInfo_QuotaSource WorkspaceBillingInfo_QuotaSource_QuotaSource_MIN = WorkspaceBillingInfo_QuotaSource_QUOTA_SOURCE_UNSPECIFIED;
-constexpr WorkspaceBillingInfo_QuotaSource WorkspaceBillingInfo_QuotaSource_QuotaSource_MAX = WorkspaceBillingInfo_QuotaSource_OVERAGE;
-constexpr int WorkspaceBillingInfo_QuotaSource_QuotaSource_ARRAYSIZE = WorkspaceBillingInfo_QuotaSource_QuotaSource_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* WorkspaceBillingInfo_QuotaSource_descriptor();
-template<typename T>
-inline const std::string& WorkspaceBillingInfo_QuotaSource_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, WorkspaceBillingInfo_QuotaSource>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function WorkspaceBillingInfo_QuotaSource_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    WorkspaceBillingInfo_QuotaSource_descriptor(), enum_t_value);
-}
-inline bool WorkspaceBillingInfo_QuotaSource_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, WorkspaceBillingInfo_QuotaSource* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<WorkspaceBillingInfo_QuotaSource>(
-    WorkspaceBillingInfo_QuotaSource_descriptor(), name, value);
 }
 enum WorkspaceItemView : int {
   WORKSPACE_ITEM_VIEW_UNSPECIFIED = 0,
@@ -1076,6 +1071,402 @@ class DeleteWorkspaceRequest final :
 };
 // -------------------------------------------------------------------
 
+class ImpressionEventRequest_ImpressionEventData final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData) */ {
+ public:
+  inline ImpressionEventRequest_ImpressionEventData() : ImpressionEventRequest_ImpressionEventData(nullptr) {}
+  ~ImpressionEventRequest_ImpressionEventData() override;
+  explicit PROTOBUF_CONSTEXPR ImpressionEventRequest_ImpressionEventData(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ImpressionEventRequest_ImpressionEventData(const ImpressionEventRequest_ImpressionEventData& from);
+  ImpressionEventRequest_ImpressionEventData(ImpressionEventRequest_ImpressionEventData&& from) noexcept
+    : ImpressionEventRequest_ImpressionEventData() {
+    *this = ::std::move(from);
+  }
+
+  inline ImpressionEventRequest_ImpressionEventData& operator=(const ImpressionEventRequest_ImpressionEventData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ImpressionEventRequest_ImpressionEventData& operator=(ImpressionEventRequest_ImpressionEventData&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ImpressionEventRequest_ImpressionEventData& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ImpressionEventRequest_ImpressionEventData* internal_default_instance() {
+    return reinterpret_cast<const ImpressionEventRequest_ImpressionEventData*>(
+               &_ImpressionEventRequest_ImpressionEventData_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  friend void swap(ImpressionEventRequest_ImpressionEventData& a, ImpressionEventRequest_ImpressionEventData& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ImpressionEventRequest_ImpressionEventData* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ImpressionEventRequest_ImpressionEventData* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ImpressionEventRequest_ImpressionEventData* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ImpressionEventRequest_ImpressionEventData>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ImpressionEventRequest_ImpressionEventData& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ImpressionEventRequest_ImpressionEventData& from) {
+    ImpressionEventRequest_ImpressionEventData::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ImpressionEventRequest_ImpressionEventData* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData";
+  }
+  protected:
+  explicit ImpressionEventRequest_ImpressionEventData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kFeatureFieldNumber = 1,
+    kVariantFieldNumber = 2,
+    kPayloadFieldNumber = 3,
+    kStickinessFieldNumber = 4,
+    kEventTimeFieldNumber = 5,
+  };
+  // string feature = 1;
+  void clear_feature();
+  const std::string& feature() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_feature(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_feature();
+  PROTOBUF_NODISCARD std::string* release_feature();
+  void set_allocated_feature(std::string* feature);
+  private:
+  const std::string& _internal_feature() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_feature(const std::string& value);
+  std::string* _internal_mutable_feature();
+  public:
+
+  // string variant = 2;
+  void clear_variant();
+  const std::string& variant() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_variant(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_variant();
+  PROTOBUF_NODISCARD std::string* release_variant();
+  void set_allocated_variant(std::string* variant);
+  private:
+  const std::string& _internal_variant() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_variant(const std::string& value);
+  std::string* _internal_mutable_variant();
+  public:
+
+  // string payload = 3;
+  void clear_payload();
+  const std::string& payload() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_payload(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_payload();
+  PROTOBUF_NODISCARD std::string* release_payload();
+  void set_allocated_payload(std::string* payload);
+  private:
+  const std::string& _internal_payload() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_payload(const std::string& value);
+  std::string* _internal_mutable_payload();
+  public:
+
+  // string stickiness = 4;
+  void clear_stickiness();
+  const std::string& stickiness() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_stickiness(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_stickiness();
+  PROTOBUF_NODISCARD std::string* release_stickiness();
+  void set_allocated_stickiness(std::string* stickiness);
+  private:
+  const std::string& _internal_stickiness() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_stickiness(const std::string& value);
+  std::string* _internal_mutable_stickiness();
+  public:
+
+  // .google.protobuf.Timestamp event_time = 5;
+  bool has_event_time() const;
+  private:
+  bool _internal_has_event_time() const;
+  public:
+  void clear_event_time();
+  const ::PROTOBUF_NAMESPACE_ID::Timestamp& event_time() const;
+  PROTOBUF_NODISCARD ::PROTOBUF_NAMESPACE_ID::Timestamp* release_event_time();
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* mutable_event_time();
+  void set_allocated_event_time(::PROTOBUF_NAMESPACE_ID::Timestamp* event_time);
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Timestamp& _internal_event_time() const;
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* _internal_mutable_event_time();
+  public:
+  void unsafe_arena_set_allocated_event_time(
+      ::PROTOBUF_NAMESPACE_ID::Timestamp* event_time);
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* unsafe_arena_release_event_time();
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr feature_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr variant_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr payload_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr stickiness_;
+    ::PROTOBUF_NAMESPACE_ID::Timestamp* event_time_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ImpressionEventRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.ImpressionEventRequest) */ {
+ public:
+  inline ImpressionEventRequest() : ImpressionEventRequest(nullptr) {}
+  ~ImpressionEventRequest() override;
+  explicit PROTOBUF_CONSTEXPR ImpressionEventRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ImpressionEventRequest(const ImpressionEventRequest& from);
+  ImpressionEventRequest(ImpressionEventRequest&& from) noexcept
+    : ImpressionEventRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline ImpressionEventRequest& operator=(const ImpressionEventRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ImpressionEventRequest& operator=(ImpressionEventRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ImpressionEventRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ImpressionEventRequest* internal_default_instance() {
+    return reinterpret_cast<const ImpressionEventRequest*>(
+               &_ImpressionEventRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  friend void swap(ImpressionEventRequest& a, ImpressionEventRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ImpressionEventRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ImpressionEventRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ImpressionEventRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ImpressionEventRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ImpressionEventRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ImpressionEventRequest& from) {
+    ImpressionEventRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ImpressionEventRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.studio.v1alpha.ImpressionEventRequest";
+  }
+  protected:
+  explicit ImpressionEventRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef ImpressionEventRequest_ImpressionEventData ImpressionEventData;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kDataFieldNumber = 2,
+    kNameFieldNumber = 1,
+  };
+  // repeated .ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData data = 2;
+  int data_size() const;
+  private:
+  int _internal_data_size() const;
+  public:
+  void clear_data();
+  ::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData* mutable_data(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData >*
+      mutable_data();
+  private:
+  const ::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData& _internal_data(int index) const;
+  ::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData* _internal_add_data();
+  public:
+  const ::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData& data(int index) const;
+  ::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData* add_data();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData >&
+      data() const;
+
+  // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
+  void clear_name();
+  const std::string& name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_name();
+  PROTOBUF_NODISCARD std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.ImpressionEventRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData > data_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Workspace_Meta final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.Workspace.Meta) */ {
  public:
@@ -1124,7 +1515,7 @@ class Workspace_Meta final :
                &_Workspace_Meta_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    7;
 
   friend void swap(Workspace_Meta& a, Workspace_Meta& b) {
     a.Swap(&b);
@@ -1305,7 +1696,7 @@ class Workspace final :
                &_Workspace_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    8;
 
   friend void swap(Workspace& a, Workspace& b) {
     a.Swap(&b);
@@ -1377,6 +1768,38 @@ class Workspace final :
 
   typedef Workspace_Meta Meta;
 
+  typedef Workspace_RuntimeAccess RuntimeAccess;
+  static constexpr RuntimeAccess RUNTIME_ACCESS_UNSPECIFIED =
+    Workspace_RuntimeAccess_RUNTIME_ACCESS_UNSPECIFIED;
+  static constexpr RuntimeAccess RUNTIME_ACCESS_PRIVATE =
+    Workspace_RuntimeAccess_RUNTIME_ACCESS_PRIVATE;
+  static constexpr RuntimeAccess RUNTIME_ACCESS_PUBLIC =
+    Workspace_RuntimeAccess_RUNTIME_ACCESS_PUBLIC;
+  static inline bool RuntimeAccess_IsValid(int value) {
+    return Workspace_RuntimeAccess_IsValid(value);
+  }
+  static constexpr RuntimeAccess RuntimeAccess_MIN =
+    Workspace_RuntimeAccess_RuntimeAccess_MIN;
+  static constexpr RuntimeAccess RuntimeAccess_MAX =
+    Workspace_RuntimeAccess_RuntimeAccess_MAX;
+  static constexpr int RuntimeAccess_ARRAYSIZE =
+    Workspace_RuntimeAccess_RuntimeAccess_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  RuntimeAccess_descriptor() {
+    return Workspace_RuntimeAccess_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& RuntimeAccess_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, RuntimeAccess>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function RuntimeAccess_Name.");
+    return Workspace_RuntimeAccess_Name(enum_t_value);
+  }
+  static inline bool RuntimeAccess_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      RuntimeAccess* value) {
+    return Workspace_RuntimeAccess_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
 
   enum : int {
@@ -1385,6 +1808,7 @@ class Workspace final :
     kDisplayNameFieldNumber = 2,
     kBillingAccountFieldNumber = 4,
     kMetaFieldNumber = 5,
+    kRuntimeAccessFieldNumber = 6,
   };
   // repeated string experimental_features = 3;
   int experimental_features_size() const;
@@ -1470,6 +1894,15 @@ class Workspace final :
       ::ai::inworld::studio::v1alpha::Workspace_Meta* meta);
   ::ai::inworld::studio::v1alpha::Workspace_Meta* unsafe_arena_release_meta();
 
+  // .ai.inworld.studio.v1alpha.Workspace.RuntimeAccess runtime_access = 6;
+  void clear_runtime_access();
+  ::ai::inworld::studio::v1alpha::Workspace_RuntimeAccess runtime_access() const;
+  void set_runtime_access(::ai::inworld::studio::v1alpha::Workspace_RuntimeAccess value);
+  private:
+  ::ai::inworld::studio::v1alpha::Workspace_RuntimeAccess _internal_runtime_access() const;
+  void _internal_set_runtime_access(::ai::inworld::studio::v1alpha::Workspace_RuntimeAccess value);
+  public:
+
   // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.Workspace)
  private:
   class _Internal;
@@ -1483,6 +1916,7 @@ class Workspace final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr display_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr billing_account_;
     ::ai::inworld::studio::v1alpha::Workspace_Meta* meta_;
+    int runtime_access_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1538,7 +1972,7 @@ class ListWorkspacesResponse final :
                &_ListWorkspacesResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    9;
 
   friend void swap(ListWorkspacesResponse& a, ListWorkspacesResponse& b) {
     a.Swap(&b);
@@ -1711,7 +2145,7 @@ class ShareWorkspaceRequest final :
                &_ShareWorkspaceRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    10;
 
   friend void swap(ShareWorkspaceRequest& a, ShareWorkspaceRequest& b) {
     a.Swap(&b);
@@ -1890,7 +2324,7 @@ class GenerateResourceNameRequest final :
                &_GenerateResourceNameRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    11;
 
   friend void swap(GenerateResourceNameRequest& a, GenerateResourceNameRequest& b) {
     a.Swap(&b);
@@ -2104,7 +2538,7 @@ class GenerateResourceNameResponse final :
                &_GenerateResourceNameResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    12;
 
   friend void swap(GenerateResourceNameResponse& a, GenerateResourceNameResponse& b) {
     a.Swap(&b);
@@ -2257,7 +2691,7 @@ class GetWorkspaceShareInfoRequest final :
                &_GetWorkspaceShareInfoRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    13;
 
   friend void swap(GetWorkspaceShareInfoRequest& a, GetWorkspaceShareInfoRequest& b) {
     a.Swap(&b);
@@ -2410,7 +2844,7 @@ class WorkspaceShareInfo final :
                &_WorkspaceShareInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    14;
 
   friend void swap(WorkspaceShareInfo& a, WorkspaceShareInfo& b) {
     a.Swap(&b);
@@ -2573,7 +3007,7 @@ class GetWorkspaceLimitInfoRequest final :
                &_GetWorkspaceLimitInfoRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    15;
 
   friend void swap(GetWorkspaceLimitInfoRequest& a, GetWorkspaceLimitInfoRequest& b) {
     a.Swap(&b);
@@ -2726,7 +3160,7 @@ class WorkspaceLimitInfo_TextListLimit final :
                &_WorkspaceLimitInfo_TextListLimit_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    16;
 
   friend void swap(WorkspaceLimitInfo_TextListLimit& a, WorkspaceLimitInfo_TextListLimit& b) {
     a.Swap(&b);
@@ -2885,7 +3319,7 @@ class WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit final :
                &_WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    17;
 
   friend void swap(WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit& a, WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit& b) {
     a.Swap(&b);
@@ -2965,6 +3399,7 @@ class WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit final :
     kExampleDialogMaxLengthFieldNumber = 2,
     kMotivationMaxLengthFieldNumber = 3,
     kCharacterRoleMaxLengthFieldNumber = 4,
+    kFlawsMaxLengthFieldNumber = 8,
   };
   // .ai.inworld.studio.v1alpha.WorkspaceLimitInfo.TextListLimit hobby_or_interests = 5;
   bool has_hobby_or_interests() const;
@@ -3056,6 +3491,15 @@ class WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit final :
   void _internal_set_character_role_max_length(int32_t value);
   public:
 
+  // int32 flaws_max_length = 8;
+  void clear_flaws_max_length();
+  int32_t flaws_max_length() const;
+  void set_flaws_max_length(int32_t value);
+  private:
+  int32_t _internal_flaws_max_length() const;
+  void _internal_set_flaws_max_length(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.CharacterLimit.CharacterDescriptionLimit)
  private:
   class _Internal;
@@ -3071,6 +3515,7 @@ class WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit final :
     int32_t example_dialog_max_length_;
     int32_t motivation_max_length_;
     int32_t character_role_max_length_;
+    int32_t flaws_max_length_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -3126,7 +3571,7 @@ class WorkspaceLimitInfo_CharacterLimit final :
                &_WorkspaceLimitInfo_CharacterLimit_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    18;
 
   friend void swap(WorkspaceLimitInfo_CharacterLimit& a, WorkspaceLimitInfo_CharacterLimit& b) {
     a.Swap(&b);
@@ -3318,7 +3763,7 @@ class WorkspaceLimitInfo_SceneLimit final :
                &_WorkspaceLimitInfo_SceneLimit_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    19;
 
   friend void swap(WorkspaceLimitInfo_SceneLimit& a, WorkspaceLimitInfo_SceneLimit& b) {
     a.Swap(&b);
@@ -3395,6 +3840,7 @@ class WorkspaceLimitInfo_SceneLimit final :
     kTotalCharactersFieldNumber = 2,
     kTotalTriggersFieldNumber = 3,
     kDisplayNameMaxLengthFieldNumber = 4,
+    kTotalCommonKnowledgeFieldNumber = 5,
   };
   // int32 description_max_length = 1;
   void clear_description_max_length();
@@ -3432,6 +3878,15 @@ class WorkspaceLimitInfo_SceneLimit final :
   void _internal_set_display_name_max_length(int32_t value);
   public:
 
+  // int32 total_common_knowledge = 5;
+  void clear_total_common_knowledge();
+  int32_t total_common_knowledge() const;
+  void set_total_common_knowledge(int32_t value);
+  private:
+  int32_t _internal_total_common_knowledge() const;
+  void _internal_set_total_common_knowledge(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.SceneLimit)
  private:
   class _Internal;
@@ -3444,6 +3899,7 @@ class WorkspaceLimitInfo_SceneLimit final :
     int32_t total_characters_;
     int32_t total_triggers_;
     int32_t display_name_max_length_;
+    int32_t total_common_knowledge_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -3499,7 +3955,7 @@ class WorkspaceLimitInfo_WorkspaceLimit final :
                &_WorkspaceLimitInfo_WorkspaceLimit_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    20;
 
   friend void swap(WorkspaceLimitInfo_WorkspaceLimit& a, WorkspaceLimitInfo_WorkspaceLimit& b) {
     a.Swap(&b);
@@ -3702,7 +4158,7 @@ class WorkspaceLimitInfo_BillingAccountLimit final :
                &_WorkspaceLimitInfo_BillingAccountLimit_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    21;
 
   friend void swap(WorkspaceLimitInfo_BillingAccountLimit& a, WorkspaceLimitInfo_BillingAccountLimit& b) {
     a.Swap(&b);
@@ -3850,7 +4306,7 @@ class WorkspaceLimitInfo_CommonKnowledgeLimit final :
                &_WorkspaceLimitInfo_CommonKnowledgeLimit_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    22;
 
   friend void swap(WorkspaceLimitInfo_CommonKnowledgeLimit& a, WorkspaceLimitInfo_CommonKnowledgeLimit& b) {
     a.Swap(&b);
@@ -4029,7 +4485,7 @@ class WorkspaceLimitInfo final :
                &_WorkspaceLimitInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    23;
 
   friend void swap(WorkspaceLimitInfo& a, WorkspaceLimitInfo& b) {
     a.Swap(&b);
@@ -4218,562 +4674,6 @@ class WorkspaceLimitInfo final :
     ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_WorkspaceLimit* workspace_;
     ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_BillingAccountLimit* billing_account_;
     ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CommonKnowledgeLimit* common_knowledge_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto;
-};
-// -------------------------------------------------------------------
-
-class GetWorkspaceBillingInfoRequest final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.GetWorkspaceBillingInfoRequest) */ {
- public:
-  inline GetWorkspaceBillingInfoRequest() : GetWorkspaceBillingInfoRequest(nullptr) {}
-  ~GetWorkspaceBillingInfoRequest() override;
-  explicit PROTOBUF_CONSTEXPR GetWorkspaceBillingInfoRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  GetWorkspaceBillingInfoRequest(const GetWorkspaceBillingInfoRequest& from);
-  GetWorkspaceBillingInfoRequest(GetWorkspaceBillingInfoRequest&& from) noexcept
-    : GetWorkspaceBillingInfoRequest() {
-    *this = ::std::move(from);
-  }
-
-  inline GetWorkspaceBillingInfoRequest& operator=(const GetWorkspaceBillingInfoRequest& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline GetWorkspaceBillingInfoRequest& operator=(GetWorkspaceBillingInfoRequest&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const GetWorkspaceBillingInfoRequest& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const GetWorkspaceBillingInfoRequest* internal_default_instance() {
-    return reinterpret_cast<const GetWorkspaceBillingInfoRequest*>(
-               &_GetWorkspaceBillingInfoRequest_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    22;
-
-  friend void swap(GetWorkspaceBillingInfoRequest& a, GetWorkspaceBillingInfoRequest& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(GetWorkspaceBillingInfoRequest* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(GetWorkspaceBillingInfoRequest* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  GetWorkspaceBillingInfoRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<GetWorkspaceBillingInfoRequest>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const GetWorkspaceBillingInfoRequest& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const GetWorkspaceBillingInfoRequest& from) {
-    GetWorkspaceBillingInfoRequest::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(GetWorkspaceBillingInfoRequest* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "ai.inworld.studio.v1alpha.GetWorkspaceBillingInfoRequest";
-  }
-  protected:
-  explicit GetWorkspaceBillingInfoRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kNameFieldNumber = 1,
-  };
-  // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-  void clear_name();
-  const std::string& name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_name();
-  PROTOBUF_NODISCARD std::string* release_name();
-  void set_allocated_name(std::string* name);
-  private:
-  const std::string& _internal_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
-  std::string* _internal_mutable_name();
-  public:
-
-  // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.GetWorkspaceBillingInfoRequest)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto;
-};
-// -------------------------------------------------------------------
-
-class WorkspaceBillingInfo_QuotaDetails final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaDetails) */ {
- public:
-  inline WorkspaceBillingInfo_QuotaDetails() : WorkspaceBillingInfo_QuotaDetails(nullptr) {}
-  ~WorkspaceBillingInfo_QuotaDetails() override;
-  explicit PROTOBUF_CONSTEXPR WorkspaceBillingInfo_QuotaDetails(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  WorkspaceBillingInfo_QuotaDetails(const WorkspaceBillingInfo_QuotaDetails& from);
-  WorkspaceBillingInfo_QuotaDetails(WorkspaceBillingInfo_QuotaDetails&& from) noexcept
-    : WorkspaceBillingInfo_QuotaDetails() {
-    *this = ::std::move(from);
-  }
-
-  inline WorkspaceBillingInfo_QuotaDetails& operator=(const WorkspaceBillingInfo_QuotaDetails& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline WorkspaceBillingInfo_QuotaDetails& operator=(WorkspaceBillingInfo_QuotaDetails&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const WorkspaceBillingInfo_QuotaDetails& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const WorkspaceBillingInfo_QuotaDetails* internal_default_instance() {
-    return reinterpret_cast<const WorkspaceBillingInfo_QuotaDetails*>(
-               &_WorkspaceBillingInfo_QuotaDetails_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    23;
-
-  friend void swap(WorkspaceBillingInfo_QuotaDetails& a, WorkspaceBillingInfo_QuotaDetails& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(WorkspaceBillingInfo_QuotaDetails* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(WorkspaceBillingInfo_QuotaDetails* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  WorkspaceBillingInfo_QuotaDetails* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<WorkspaceBillingInfo_QuotaDetails>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const WorkspaceBillingInfo_QuotaDetails& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const WorkspaceBillingInfo_QuotaDetails& from) {
-    WorkspaceBillingInfo_QuotaDetails::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(WorkspaceBillingInfo_QuotaDetails* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaDetails";
-  }
-  protected:
-  explicit WorkspaceBillingInfo_QuotaDetails(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kHasCreditsFieldNumber = 1,
-    kHasPaidSubscriptionFieldNumber = 2,
-    kCurrentSourceFieldNumber = 3,
-  };
-  // bool has_credits = 1;
-  void clear_has_credits();
-  bool has_credits() const;
-  void set_has_credits(bool value);
-  private:
-  bool _internal_has_credits() const;
-  void _internal_set_has_credits(bool value);
-  public:
-
-  // bool has_paid_subscription = 2;
-  void clear_has_paid_subscription();
-  bool has_paid_subscription() const;
-  void set_has_paid_subscription(bool value);
-  private:
-  bool _internal_has_paid_subscription() const;
-  void _internal_set_has_paid_subscription(bool value);
-  public:
-
-  // .ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaSource current_source = 3;
-  void clear_current_source();
-  ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaSource current_source() const;
-  void set_current_source(::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaSource value);
-  private:
-  ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaSource _internal_current_source() const;
-  void _internal_set_current_source(::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaSource value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaDetails)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    bool has_credits_;
-    bool has_paid_subscription_;
-    int current_source_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto;
-};
-// -------------------------------------------------------------------
-
-class WorkspaceBillingInfo final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.WorkspaceBillingInfo) */ {
- public:
-  inline WorkspaceBillingInfo() : WorkspaceBillingInfo(nullptr) {}
-  ~WorkspaceBillingInfo() override;
-  explicit PROTOBUF_CONSTEXPR WorkspaceBillingInfo(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  WorkspaceBillingInfo(const WorkspaceBillingInfo& from);
-  WorkspaceBillingInfo(WorkspaceBillingInfo&& from) noexcept
-    : WorkspaceBillingInfo() {
-    *this = ::std::move(from);
-  }
-
-  inline WorkspaceBillingInfo& operator=(const WorkspaceBillingInfo& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline WorkspaceBillingInfo& operator=(WorkspaceBillingInfo&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const WorkspaceBillingInfo& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const WorkspaceBillingInfo* internal_default_instance() {
-    return reinterpret_cast<const WorkspaceBillingInfo*>(
-               &_WorkspaceBillingInfo_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    24;
-
-  friend void swap(WorkspaceBillingInfo& a, WorkspaceBillingInfo& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(WorkspaceBillingInfo* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(WorkspaceBillingInfo* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  WorkspaceBillingInfo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<WorkspaceBillingInfo>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const WorkspaceBillingInfo& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const WorkspaceBillingInfo& from) {
-    WorkspaceBillingInfo::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(WorkspaceBillingInfo* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "ai.inworld.studio.v1alpha.WorkspaceBillingInfo";
-  }
-  protected:
-  explicit WorkspaceBillingInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  typedef WorkspaceBillingInfo_QuotaDetails QuotaDetails;
-
-  typedef WorkspaceBillingInfo_QuotaSource QuotaSource;
-  static constexpr QuotaSource QUOTA_SOURCE_UNSPECIFIED =
-    WorkspaceBillingInfo_QuotaSource_QUOTA_SOURCE_UNSPECIFIED;
-  static constexpr QuotaSource NO_SOURCES =
-    WorkspaceBillingInfo_QuotaSource_NO_SOURCES;
-  static constexpr QuotaSource SUBSCRIPTION =
-    WorkspaceBillingInfo_QuotaSource_SUBSCRIPTION;
-  static constexpr QuotaSource CREDITS =
-    WorkspaceBillingInfo_QuotaSource_CREDITS;
-  static constexpr QuotaSource OVERAGE =
-    WorkspaceBillingInfo_QuotaSource_OVERAGE;
-  static inline bool QuotaSource_IsValid(int value) {
-    return WorkspaceBillingInfo_QuotaSource_IsValid(value);
-  }
-  static constexpr QuotaSource QuotaSource_MIN =
-    WorkspaceBillingInfo_QuotaSource_QuotaSource_MIN;
-  static constexpr QuotaSource QuotaSource_MAX =
-    WorkspaceBillingInfo_QuotaSource_QuotaSource_MAX;
-  static constexpr int QuotaSource_ARRAYSIZE =
-    WorkspaceBillingInfo_QuotaSource_QuotaSource_ARRAYSIZE;
-  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
-  QuotaSource_descriptor() {
-    return WorkspaceBillingInfo_QuotaSource_descriptor();
-  }
-  template<typename T>
-  static inline const std::string& QuotaSource_Name(T enum_t_value) {
-    static_assert(::std::is_same<T, QuotaSource>::value ||
-      ::std::is_integral<T>::value,
-      "Incorrect type passed to function QuotaSource_Name.");
-    return WorkspaceBillingInfo_QuotaSource_Name(enum_t_value);
-  }
-  static inline bool QuotaSource_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
-      QuotaSource* value) {
-    return WorkspaceBillingInfo_QuotaSource_Parse(name, value);
-  }
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kNameFieldNumber = 1,
-    kQuotaDetailsFieldNumber = 4,
-    kIsBillingOwnerFieldNumber = 2,
-    kHasUsableQuotaFieldNumber = 3,
-  };
-  // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-  void clear_name();
-  const std::string& name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_name();
-  PROTOBUF_NODISCARD std::string* release_name();
-  void set_allocated_name(std::string* name);
-  private:
-  const std::string& _internal_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
-  std::string* _internal_mutable_name();
-  public:
-
-  // .ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaDetails quota_details = 4;
-  bool has_quota_details() const;
-  private:
-  bool _internal_has_quota_details() const;
-  public:
-  void clear_quota_details();
-  const ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails& quota_details() const;
-  PROTOBUF_NODISCARD ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails* release_quota_details();
-  ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails* mutable_quota_details();
-  void set_allocated_quota_details(::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails* quota_details);
-  private:
-  const ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails& _internal_quota_details() const;
-  ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails* _internal_mutable_quota_details();
-  public:
-  void unsafe_arena_set_allocated_quota_details(
-      ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails* quota_details);
-  ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails* unsafe_arena_release_quota_details();
-
-  // bool is_billing_owner = 2;
-  void clear_is_billing_owner();
-  bool is_billing_owner() const;
-  void set_is_billing_owner(bool value);
-  private:
-  bool _internal_is_billing_owner() const;
-  void _internal_set_is_billing_owner(bool value);
-  public:
-
-  // bool has_usable_quota = 3;
-  void clear_has_usable_quota();
-  bool has_usable_quota() const;
-  void set_has_usable_quota(bool value);
-  private:
-  bool _internal_has_usable_quota() const;
-  void _internal_set_has_usable_quota(bool value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.WorkspaceBillingInfo)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
-    ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails* quota_details_;
-    bool is_billing_owner_;
-    bool has_usable_quota_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -5283,6 +5183,389 @@ inline void DeleteWorkspaceRequest::set_force(bool value) {
 
 // -------------------------------------------------------------------
 
+// ImpressionEventRequest_ImpressionEventData
+
+// string feature = 1;
+inline void ImpressionEventRequest_ImpressionEventData::clear_feature() {
+  _impl_.feature_.ClearToEmpty();
+}
+inline const std::string& ImpressionEventRequest_ImpressionEventData::feature() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.feature)
+  return _internal_feature();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ImpressionEventRequest_ImpressionEventData::set_feature(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.feature_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.feature)
+}
+inline std::string* ImpressionEventRequest_ImpressionEventData::mutable_feature() {
+  std::string* _s = _internal_mutable_feature();
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.feature)
+  return _s;
+}
+inline const std::string& ImpressionEventRequest_ImpressionEventData::_internal_feature() const {
+  return _impl_.feature_.Get();
+}
+inline void ImpressionEventRequest_ImpressionEventData::_internal_set_feature(const std::string& value) {
+  
+  _impl_.feature_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ImpressionEventRequest_ImpressionEventData::_internal_mutable_feature() {
+  
+  return _impl_.feature_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ImpressionEventRequest_ImpressionEventData::release_feature() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.feature)
+  return _impl_.feature_.Release();
+}
+inline void ImpressionEventRequest_ImpressionEventData::set_allocated_feature(std::string* feature) {
+  if (feature != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.feature_.SetAllocated(feature, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.feature_.IsDefault()) {
+    _impl_.feature_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.feature)
+}
+
+// string variant = 2;
+inline void ImpressionEventRequest_ImpressionEventData::clear_variant() {
+  _impl_.variant_.ClearToEmpty();
+}
+inline const std::string& ImpressionEventRequest_ImpressionEventData::variant() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.variant)
+  return _internal_variant();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ImpressionEventRequest_ImpressionEventData::set_variant(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.variant_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.variant)
+}
+inline std::string* ImpressionEventRequest_ImpressionEventData::mutable_variant() {
+  std::string* _s = _internal_mutable_variant();
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.variant)
+  return _s;
+}
+inline const std::string& ImpressionEventRequest_ImpressionEventData::_internal_variant() const {
+  return _impl_.variant_.Get();
+}
+inline void ImpressionEventRequest_ImpressionEventData::_internal_set_variant(const std::string& value) {
+  
+  _impl_.variant_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ImpressionEventRequest_ImpressionEventData::_internal_mutable_variant() {
+  
+  return _impl_.variant_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ImpressionEventRequest_ImpressionEventData::release_variant() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.variant)
+  return _impl_.variant_.Release();
+}
+inline void ImpressionEventRequest_ImpressionEventData::set_allocated_variant(std::string* variant) {
+  if (variant != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.variant_.SetAllocated(variant, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.variant_.IsDefault()) {
+    _impl_.variant_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.variant)
+}
+
+// string payload = 3;
+inline void ImpressionEventRequest_ImpressionEventData::clear_payload() {
+  _impl_.payload_.ClearToEmpty();
+}
+inline const std::string& ImpressionEventRequest_ImpressionEventData::payload() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.payload)
+  return _internal_payload();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ImpressionEventRequest_ImpressionEventData::set_payload(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.payload_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.payload)
+}
+inline std::string* ImpressionEventRequest_ImpressionEventData::mutable_payload() {
+  std::string* _s = _internal_mutable_payload();
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.payload)
+  return _s;
+}
+inline const std::string& ImpressionEventRequest_ImpressionEventData::_internal_payload() const {
+  return _impl_.payload_.Get();
+}
+inline void ImpressionEventRequest_ImpressionEventData::_internal_set_payload(const std::string& value) {
+  
+  _impl_.payload_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ImpressionEventRequest_ImpressionEventData::_internal_mutable_payload() {
+  
+  return _impl_.payload_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ImpressionEventRequest_ImpressionEventData::release_payload() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.payload)
+  return _impl_.payload_.Release();
+}
+inline void ImpressionEventRequest_ImpressionEventData::set_allocated_payload(std::string* payload) {
+  if (payload != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.payload_.SetAllocated(payload, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.payload_.IsDefault()) {
+    _impl_.payload_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.payload)
+}
+
+// string stickiness = 4;
+inline void ImpressionEventRequest_ImpressionEventData::clear_stickiness() {
+  _impl_.stickiness_.ClearToEmpty();
+}
+inline const std::string& ImpressionEventRequest_ImpressionEventData::stickiness() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.stickiness)
+  return _internal_stickiness();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ImpressionEventRequest_ImpressionEventData::set_stickiness(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.stickiness_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.stickiness)
+}
+inline std::string* ImpressionEventRequest_ImpressionEventData::mutable_stickiness() {
+  std::string* _s = _internal_mutable_stickiness();
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.stickiness)
+  return _s;
+}
+inline const std::string& ImpressionEventRequest_ImpressionEventData::_internal_stickiness() const {
+  return _impl_.stickiness_.Get();
+}
+inline void ImpressionEventRequest_ImpressionEventData::_internal_set_stickiness(const std::string& value) {
+  
+  _impl_.stickiness_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ImpressionEventRequest_ImpressionEventData::_internal_mutable_stickiness() {
+  
+  return _impl_.stickiness_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ImpressionEventRequest_ImpressionEventData::release_stickiness() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.stickiness)
+  return _impl_.stickiness_.Release();
+}
+inline void ImpressionEventRequest_ImpressionEventData::set_allocated_stickiness(std::string* stickiness) {
+  if (stickiness != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.stickiness_.SetAllocated(stickiness, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.stickiness_.IsDefault()) {
+    _impl_.stickiness_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.stickiness)
+}
+
+// .google.protobuf.Timestamp event_time = 5;
+inline bool ImpressionEventRequest_ImpressionEventData::_internal_has_event_time() const {
+  return this != internal_default_instance() && _impl_.event_time_ != nullptr;
+}
+inline bool ImpressionEventRequest_ImpressionEventData::has_event_time() const {
+  return _internal_has_event_time();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Timestamp& ImpressionEventRequest_ImpressionEventData::_internal_event_time() const {
+  const ::PROTOBUF_NAMESPACE_ID::Timestamp* p = _impl_.event_time_;
+  return p != nullptr ? *p : reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Timestamp&>(
+      ::PROTOBUF_NAMESPACE_ID::_Timestamp_default_instance_);
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Timestamp& ImpressionEventRequest_ImpressionEventData::event_time() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.event_time)
+  return _internal_event_time();
+}
+inline void ImpressionEventRequest_ImpressionEventData::unsafe_arena_set_allocated_event_time(
+    ::PROTOBUF_NAMESPACE_ID::Timestamp* event_time) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.event_time_);
+  }
+  _impl_.event_time_ = event_time;
+  if (event_time) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.event_time)
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* ImpressionEventRequest_ImpressionEventData::release_event_time() {
+  
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* temp = _impl_.event_time_;
+  _impl_.event_time_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* ImpressionEventRequest_ImpressionEventData::unsafe_arena_release_event_time() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.event_time)
+  
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* temp = _impl_.event_time_;
+  _impl_.event_time_ = nullptr;
+  return temp;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* ImpressionEventRequest_ImpressionEventData::_internal_mutable_event_time() {
+  
+  if (_impl_.event_time_ == nullptr) {
+    auto* p = CreateMaybeMessage<::PROTOBUF_NAMESPACE_ID::Timestamp>(GetArenaForAllocation());
+    _impl_.event_time_ = p;
+  }
+  return _impl_.event_time_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* ImpressionEventRequest_ImpressionEventData::mutable_event_time() {
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* _msg = _internal_mutable_event_time();
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.event_time)
+  return _msg;
+}
+inline void ImpressionEventRequest_ImpressionEventData::set_allocated_event_time(::PROTOBUF_NAMESPACE_ID::Timestamp* event_time) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.event_time_);
+  }
+  if (event_time) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(event_time));
+    if (message_arena != submessage_arena) {
+      event_time = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, event_time, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.event_time_ = event_time;
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData.event_time)
+}
+
+// -------------------------------------------------------------------
+
+// ImpressionEventRequest
+
+// string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
+inline void ImpressionEventRequest::clear_name() {
+  _impl_.name_.ClearToEmpty();
+}
+inline const std::string& ImpressionEventRequest::name() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.ImpressionEventRequest.name)
+  return _internal_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ImpressionEventRequest::set_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.ImpressionEventRequest.name)
+}
+inline std::string* ImpressionEventRequest::mutable_name() {
+  std::string* _s = _internal_mutable_name();
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.ImpressionEventRequest.name)
+  return _s;
+}
+inline const std::string& ImpressionEventRequest::_internal_name() const {
+  return _impl_.name_.Get();
+}
+inline void ImpressionEventRequest::_internal_set_name(const std::string& value) {
+  
+  _impl_.name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ImpressionEventRequest::_internal_mutable_name() {
+  
+  return _impl_.name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ImpressionEventRequest::release_name() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.ImpressionEventRequest.name)
+  return _impl_.name_.Release();
+}
+inline void ImpressionEventRequest::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.name_.IsDefault()) {
+    _impl_.name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.ImpressionEventRequest.name)
+}
+
+// repeated .ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData data = 2;
+inline int ImpressionEventRequest::_internal_data_size() const {
+  return _impl_.data_.size();
+}
+inline int ImpressionEventRequest::data_size() const {
+  return _internal_data_size();
+}
+inline void ImpressionEventRequest::clear_data() {
+  _impl_.data_.Clear();
+}
+inline ::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData* ImpressionEventRequest::mutable_data(int index) {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.ImpressionEventRequest.data)
+  return _impl_.data_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData >*
+ImpressionEventRequest::mutable_data() {
+  // @@protoc_insertion_point(field_mutable_list:ai.inworld.studio.v1alpha.ImpressionEventRequest.data)
+  return &_impl_.data_;
+}
+inline const ::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData& ImpressionEventRequest::_internal_data(int index) const {
+  return _impl_.data_.Get(index);
+}
+inline const ::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData& ImpressionEventRequest::data(int index) const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.ImpressionEventRequest.data)
+  return _internal_data(index);
+}
+inline ::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData* ImpressionEventRequest::_internal_add_data() {
+  return _impl_.data_.Add();
+}
+inline ::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData* ImpressionEventRequest::add_data() {
+  ::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData* _add = _internal_add_data();
+  // @@protoc_insertion_point(field_add:ai.inworld.studio.v1alpha.ImpressionEventRequest.data)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData >&
+ImpressionEventRequest::data() const {
+  // @@protoc_insertion_point(field_list:ai.inworld.studio.v1alpha.ImpressionEventRequest.data)
+  return _impl_.data_;
+}
+
+// -------------------------------------------------------------------
+
 // Workspace_Meta
 
 // int32 total_characters = 1;
@@ -5682,6 +5965,26 @@ inline void Workspace::set_allocated_meta(::ai::inworld::studio::v1alpha::Worksp
   }
   _impl_.meta_ = meta;
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Workspace.meta)
+}
+
+// .ai.inworld.studio.v1alpha.Workspace.RuntimeAccess runtime_access = 6;
+inline void Workspace::clear_runtime_access() {
+  _impl_.runtime_access_ = 0;
+}
+inline ::ai::inworld::studio::v1alpha::Workspace_RuntimeAccess Workspace::_internal_runtime_access() const {
+  return static_cast< ::ai::inworld::studio::v1alpha::Workspace_RuntimeAccess >(_impl_.runtime_access_);
+}
+inline ::ai::inworld::studio::v1alpha::Workspace_RuntimeAccess Workspace::runtime_access() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Workspace.runtime_access)
+  return _internal_runtime_access();
+}
+inline void Workspace::_internal_set_runtime_access(::ai::inworld::studio::v1alpha::Workspace_RuntimeAccess value) {
+  
+  _impl_.runtime_access_ = value;
+}
+inline void Workspace::set_runtime_access(::ai::inworld::studio::v1alpha::Workspace_RuntimeAccess value) {
+  _internal_set_runtime_access(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Workspace.runtime_access)
 }
 
 // -------------------------------------------------------------------
@@ -6670,6 +6973,26 @@ inline void WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::set_all
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.CharacterLimit.CharacterDescriptionLimit.personality_adjectives)
 }
 
+// int32 flaws_max_length = 8;
+inline void WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::clear_flaws_max_length() {
+  _impl_.flaws_max_length_ = 0;
+}
+inline int32_t WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::_internal_flaws_max_length() const {
+  return _impl_.flaws_max_length_;
+}
+inline int32_t WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::flaws_max_length() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.CharacterLimit.CharacterDescriptionLimit.flaws_max_length)
+  return _internal_flaws_max_length();
+}
+inline void WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::_internal_set_flaws_max_length(int32_t value) {
+  
+  _impl_.flaws_max_length_ = value;
+}
+inline void WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::set_flaws_max_length(int32_t value) {
+  _internal_set_flaws_max_length(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.CharacterLimit.CharacterDescriptionLimit.flaws_max_length)
+}
+
 // -------------------------------------------------------------------
 
 // WorkspaceLimitInfo_CharacterLimit
@@ -6906,6 +7229,26 @@ inline void WorkspaceLimitInfo_SceneLimit::_internal_set_display_name_max_length
 inline void WorkspaceLimitInfo_SceneLimit::set_display_name_max_length(int32_t value) {
   _internal_set_display_name_max_length(value);
   // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.SceneLimit.display_name_max_length)
+}
+
+// int32 total_common_knowledge = 5;
+inline void WorkspaceLimitInfo_SceneLimit::clear_total_common_knowledge() {
+  _impl_.total_common_knowledge_ = 0;
+}
+inline int32_t WorkspaceLimitInfo_SceneLimit::_internal_total_common_knowledge() const {
+  return _impl_.total_common_knowledge_;
+}
+inline int32_t WorkspaceLimitInfo_SceneLimit::total_common_knowledge() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.SceneLimit.total_common_knowledge)
+  return _internal_total_common_knowledge();
+}
+inline void WorkspaceLimitInfo_SceneLimit::_internal_set_total_common_knowledge(int32_t value) {
+  
+  _impl_.total_common_knowledge_ = value;
+}
+inline void WorkspaceLimitInfo_SceneLimit::set_total_common_knowledge(int32_t value) {
+  _internal_set_total_common_knowledge(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.SceneLimit.total_common_knowledge)
 }
 
 // -------------------------------------------------------------------
@@ -7644,313 +7987,9 @@ inline void WorkspaceLimitInfo::set_allocated_common_knowledge(::ai::inworld::st
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.common_knowledge)
 }
 
-// -------------------------------------------------------------------
-
-// GetWorkspaceBillingInfoRequest
-
-// string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-inline void GetWorkspaceBillingInfoRequest::clear_name() {
-  _impl_.name_.ClearToEmpty();
-}
-inline const std::string& GetWorkspaceBillingInfoRequest::name() const {
-  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.GetWorkspaceBillingInfoRequest.name)
-  return _internal_name();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void GetWorkspaceBillingInfoRequest::set_name(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.GetWorkspaceBillingInfoRequest.name)
-}
-inline std::string* GetWorkspaceBillingInfoRequest::mutable_name() {
-  std::string* _s = _internal_mutable_name();
-  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.GetWorkspaceBillingInfoRequest.name)
-  return _s;
-}
-inline const std::string& GetWorkspaceBillingInfoRequest::_internal_name() const {
-  return _impl_.name_.Get();
-}
-inline void GetWorkspaceBillingInfoRequest::_internal_set_name(const std::string& value) {
-  
-  _impl_.name_.Set(value, GetArenaForAllocation());
-}
-inline std::string* GetWorkspaceBillingInfoRequest::_internal_mutable_name() {
-  
-  return _impl_.name_.Mutable(GetArenaForAllocation());
-}
-inline std::string* GetWorkspaceBillingInfoRequest::release_name() {
-  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.GetWorkspaceBillingInfoRequest.name)
-  return _impl_.name_.Release();
-}
-inline void GetWorkspaceBillingInfoRequest::set_allocated_name(std::string* name) {
-  if (name != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.name_.IsDefault()) {
-    _impl_.name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.GetWorkspaceBillingInfoRequest.name)
-}
-
-// -------------------------------------------------------------------
-
-// WorkspaceBillingInfo_QuotaDetails
-
-// bool has_credits = 1;
-inline void WorkspaceBillingInfo_QuotaDetails::clear_has_credits() {
-  _impl_.has_credits_ = false;
-}
-inline bool WorkspaceBillingInfo_QuotaDetails::_internal_has_credits() const {
-  return _impl_.has_credits_;
-}
-inline bool WorkspaceBillingInfo_QuotaDetails::has_credits() const {
-  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaDetails.has_credits)
-  return _internal_has_credits();
-}
-inline void WorkspaceBillingInfo_QuotaDetails::_internal_set_has_credits(bool value) {
-  
-  _impl_.has_credits_ = value;
-}
-inline void WorkspaceBillingInfo_QuotaDetails::set_has_credits(bool value) {
-  _internal_set_has_credits(value);
-  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaDetails.has_credits)
-}
-
-// bool has_paid_subscription = 2;
-inline void WorkspaceBillingInfo_QuotaDetails::clear_has_paid_subscription() {
-  _impl_.has_paid_subscription_ = false;
-}
-inline bool WorkspaceBillingInfo_QuotaDetails::_internal_has_paid_subscription() const {
-  return _impl_.has_paid_subscription_;
-}
-inline bool WorkspaceBillingInfo_QuotaDetails::has_paid_subscription() const {
-  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaDetails.has_paid_subscription)
-  return _internal_has_paid_subscription();
-}
-inline void WorkspaceBillingInfo_QuotaDetails::_internal_set_has_paid_subscription(bool value) {
-  
-  _impl_.has_paid_subscription_ = value;
-}
-inline void WorkspaceBillingInfo_QuotaDetails::set_has_paid_subscription(bool value) {
-  _internal_set_has_paid_subscription(value);
-  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaDetails.has_paid_subscription)
-}
-
-// .ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaSource current_source = 3;
-inline void WorkspaceBillingInfo_QuotaDetails::clear_current_source() {
-  _impl_.current_source_ = 0;
-}
-inline ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaSource WorkspaceBillingInfo_QuotaDetails::_internal_current_source() const {
-  return static_cast< ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaSource >(_impl_.current_source_);
-}
-inline ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaSource WorkspaceBillingInfo_QuotaDetails::current_source() const {
-  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaDetails.current_source)
-  return _internal_current_source();
-}
-inline void WorkspaceBillingInfo_QuotaDetails::_internal_set_current_source(::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaSource value) {
-  
-  _impl_.current_source_ = value;
-}
-inline void WorkspaceBillingInfo_QuotaDetails::set_current_source(::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaSource value) {
-  _internal_set_current_source(value);
-  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaDetails.current_source)
-}
-
-// -------------------------------------------------------------------
-
-// WorkspaceBillingInfo
-
-// string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-inline void WorkspaceBillingInfo::clear_name() {
-  _impl_.name_.ClearToEmpty();
-}
-inline const std::string& WorkspaceBillingInfo::name() const {
-  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.name)
-  return _internal_name();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void WorkspaceBillingInfo::set_name(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.name)
-}
-inline std::string* WorkspaceBillingInfo::mutable_name() {
-  std::string* _s = _internal_mutable_name();
-  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.name)
-  return _s;
-}
-inline const std::string& WorkspaceBillingInfo::_internal_name() const {
-  return _impl_.name_.Get();
-}
-inline void WorkspaceBillingInfo::_internal_set_name(const std::string& value) {
-  
-  _impl_.name_.Set(value, GetArenaForAllocation());
-}
-inline std::string* WorkspaceBillingInfo::_internal_mutable_name() {
-  
-  return _impl_.name_.Mutable(GetArenaForAllocation());
-}
-inline std::string* WorkspaceBillingInfo::release_name() {
-  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.name)
-  return _impl_.name_.Release();
-}
-inline void WorkspaceBillingInfo::set_allocated_name(std::string* name) {
-  if (name != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.name_.IsDefault()) {
-    _impl_.name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.name)
-}
-
-// bool is_billing_owner = 2;
-inline void WorkspaceBillingInfo::clear_is_billing_owner() {
-  _impl_.is_billing_owner_ = false;
-}
-inline bool WorkspaceBillingInfo::_internal_is_billing_owner() const {
-  return _impl_.is_billing_owner_;
-}
-inline bool WorkspaceBillingInfo::is_billing_owner() const {
-  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.is_billing_owner)
-  return _internal_is_billing_owner();
-}
-inline void WorkspaceBillingInfo::_internal_set_is_billing_owner(bool value) {
-  
-  _impl_.is_billing_owner_ = value;
-}
-inline void WorkspaceBillingInfo::set_is_billing_owner(bool value) {
-  _internal_set_is_billing_owner(value);
-  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.is_billing_owner)
-}
-
-// bool has_usable_quota = 3;
-inline void WorkspaceBillingInfo::clear_has_usable_quota() {
-  _impl_.has_usable_quota_ = false;
-}
-inline bool WorkspaceBillingInfo::_internal_has_usable_quota() const {
-  return _impl_.has_usable_quota_;
-}
-inline bool WorkspaceBillingInfo::has_usable_quota() const {
-  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.has_usable_quota)
-  return _internal_has_usable_quota();
-}
-inline void WorkspaceBillingInfo::_internal_set_has_usable_quota(bool value) {
-  
-  _impl_.has_usable_quota_ = value;
-}
-inline void WorkspaceBillingInfo::set_has_usable_quota(bool value) {
-  _internal_set_has_usable_quota(value);
-  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.has_usable_quota)
-}
-
-// .ai.inworld.studio.v1alpha.WorkspaceBillingInfo.QuotaDetails quota_details = 4;
-inline bool WorkspaceBillingInfo::_internal_has_quota_details() const {
-  return this != internal_default_instance() && _impl_.quota_details_ != nullptr;
-}
-inline bool WorkspaceBillingInfo::has_quota_details() const {
-  return _internal_has_quota_details();
-}
-inline void WorkspaceBillingInfo::clear_quota_details() {
-  if (GetArenaForAllocation() == nullptr && _impl_.quota_details_ != nullptr) {
-    delete _impl_.quota_details_;
-  }
-  _impl_.quota_details_ = nullptr;
-}
-inline const ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails& WorkspaceBillingInfo::_internal_quota_details() const {
-  const ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails* p = _impl_.quota_details_;
-  return p != nullptr ? *p : reinterpret_cast<const ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails&>(
-      ::ai::inworld::studio::v1alpha::_WorkspaceBillingInfo_QuotaDetails_default_instance_);
-}
-inline const ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails& WorkspaceBillingInfo::quota_details() const {
-  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.quota_details)
-  return _internal_quota_details();
-}
-inline void WorkspaceBillingInfo::unsafe_arena_set_allocated_quota_details(
-    ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails* quota_details) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.quota_details_);
-  }
-  _impl_.quota_details_ = quota_details;
-  if (quota_details) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.quota_details)
-}
-inline ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails* WorkspaceBillingInfo::release_quota_details() {
-  
-  ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails* temp = _impl_.quota_details_;
-  _impl_.quota_details_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails* WorkspaceBillingInfo::unsafe_arena_release_quota_details() {
-  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.quota_details)
-  
-  ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails* temp = _impl_.quota_details_;
-  _impl_.quota_details_ = nullptr;
-  return temp;
-}
-inline ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails* WorkspaceBillingInfo::_internal_mutable_quota_details() {
-  
-  if (_impl_.quota_details_ == nullptr) {
-    auto* p = CreateMaybeMessage<::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails>(GetArenaForAllocation());
-    _impl_.quota_details_ = p;
-  }
-  return _impl_.quota_details_;
-}
-inline ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails* WorkspaceBillingInfo::mutable_quota_details() {
-  ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails* _msg = _internal_mutable_quota_details();
-  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.quota_details)
-  return _msg;
-}
-inline void WorkspaceBillingInfo::set_allocated_quota_details(::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaDetails* quota_details) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete _impl_.quota_details_;
-  }
-  if (quota_details) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(quota_details);
-    if (message_arena != submessage_arena) {
-      quota_details = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, quota_details, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  _impl_.quota_details_ = quota_details;
-  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.WorkspaceBillingInfo.quota_details)
-}
-
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -8007,15 +8046,15 @@ inline void WorkspaceBillingInfo::set_allocated_quota_details(::ai::inworld::stu
 
 PROTOBUF_NAMESPACE_OPEN
 
+template <> struct is_proto_enum< ::ai::inworld::studio::v1alpha::Workspace_RuntimeAccess> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ai::inworld::studio::v1alpha::Workspace_RuntimeAccess>() {
+  return ::ai::inworld::studio::v1alpha::Workspace_RuntimeAccess_descriptor();
+}
 template <> struct is_proto_enum< ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest_ResourceType> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest_ResourceType>() {
   return ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest_ResourceType_descriptor();
-}
-template <> struct is_proto_enum< ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaSource> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaSource>() {
-  return ::ai::inworld::studio::v1alpha::WorkspaceBillingInfo_QuotaSource_descriptor();
 }
 template <> struct is_proto_enum< ::ai::inworld::studio::v1alpha::WorkspaceItemView> : ::std::true_type {};
 template <>

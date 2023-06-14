@@ -38,6 +38,7 @@
 #include <google/protobuf/empty.pb.h>
 #include <google/protobuf/field_mask.pb.h>
 #include <google/protobuf/timestamp.pb.h>
+#include "options.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto
@@ -59,6 +60,9 @@ namespace v1alpha {
 class AcceptTosRequest;
 struct AcceptTosRequestDefaultTypeInternal;
 extern AcceptTosRequestDefaultTypeInternal _AcceptTosRequest_default_instance_;
+class DeleteUserRequest;
+struct DeleteUserRequestDefaultTypeInternal;
+extern DeleteUserRequestDefaultTypeInternal _DeleteUserRequest_default_instance_;
 class GenerateTokenUserRequest;
 struct GenerateTokenUserRequestDefaultTypeInternal;
 extern GenerateTokenUserRequestDefaultTypeInternal _GenerateTokenUserRequest_default_instance_;
@@ -83,6 +87,7 @@ extern UserDefaultTypeInternal _User_default_instance_;
 }  // namespace ai
 PROTOBUF_NAMESPACE_OPEN
 template<> ::ai::inworld::studio::v1alpha::AcceptTosRequest* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::AcceptTosRequest>(Arena*);
+template<> ::ai::inworld::studio::v1alpha::DeleteUserRequest* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::DeleteUserRequest>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::GenerateTokenUserRequest>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::GenerateTokenUserResponse>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::GetUserRequest* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::GetUserRequest>(Arena*);
@@ -1318,6 +1323,9 @@ class User final :
     kNameFieldNumber = 1,
     kOculusIdFieldNumber = 3,
     kFirebaseIdFieldNumber = 4,
+    kDisplayNameFieldNumber = 8,
+    kRoleFieldNumber = 9,
+    kApplicationFieldNumber = 10,
     kTosAcceptanceVersionFieldNumber = 5,
     kMarketingConsentFieldNumber = 6,
     kMarketingPlatformPurposeFieldNumber = 7,
@@ -1364,6 +1372,48 @@ class User final :
   std::string* _internal_mutable_firebase_id();
   public:
 
+  // string display_name = 8 [(.ai.inworld.options.examples) = {
+  void clear_display_name();
+  const std::string& display_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_display_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_display_name();
+  PROTOBUF_NODISCARD std::string* release_display_name();
+  void set_allocated_display_name(std::string* display_name);
+  private:
+  const std::string& _internal_display_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_display_name(const std::string& value);
+  std::string* _internal_mutable_display_name();
+  public:
+
+  // string role = 9;
+  void clear_role();
+  const std::string& role() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_role(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_role();
+  PROTOBUF_NODISCARD std::string* release_role();
+  void set_allocated_role(std::string* role);
+  private:
+  const std::string& _internal_role() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_role(const std::string& value);
+  std::string* _internal_mutable_role();
+  public:
+
+  // string application = 10;
+  void clear_application();
+  const std::string& application() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_application(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_application();
+  PROTOBUF_NODISCARD std::string* release_application();
+  void set_allocated_application(std::string* application);
+  private:
+  const std::string& _internal_application() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_application(const std::string& value);
+  std::string* _internal_mutable_application();
+  public:
+
   // int32 tos_acceptance_version = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];
   void clear_tos_acceptance_version();
   int32_t tos_acceptance_version() const;
@@ -1402,9 +1452,165 @@ class User final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr oculus_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr firebase_id_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr display_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr role_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr application_;
     int32_t tos_acceptance_version_;
     int marketing_consent_;
     int marketing_platform_purpose_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto;
+};
+// -------------------------------------------------------------------
+
+class DeleteUserRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.DeleteUserRequest) */ {
+ public:
+  inline DeleteUserRequest() : DeleteUserRequest(nullptr) {}
+  ~DeleteUserRequest() override;
+  explicit PROTOBUF_CONSTEXPR DeleteUserRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  DeleteUserRequest(const DeleteUserRequest& from);
+  DeleteUserRequest(DeleteUserRequest&& from) noexcept
+    : DeleteUserRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline DeleteUserRequest& operator=(const DeleteUserRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DeleteUserRequest& operator=(DeleteUserRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const DeleteUserRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DeleteUserRequest* internal_default_instance() {
+    return reinterpret_cast<const DeleteUserRequest*>(
+               &_DeleteUserRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  friend void swap(DeleteUserRequest& a, DeleteUserRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DeleteUserRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DeleteUserRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  DeleteUserRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<DeleteUserRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const DeleteUserRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const DeleteUserRequest& from) {
+    DeleteUserRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DeleteUserRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.studio.v1alpha.DeleteUserRequest";
+  }
+  protected:
+  explicit DeleteUserRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNameFieldNumber = 1,
+  };
+  // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
+  void clear_name();
+  const std::string& name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_name();
+  PROTOBUF_NODISCARD std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.DeleteUserRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -2305,9 +2511,215 @@ inline void User::set_marketing_platform_purpose(::ai::inworld::studio::v1alpha:
   // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.User.marketing_platform_purpose)
 }
 
+// string display_name = 8 [(.ai.inworld.options.examples) = {
+inline void User::clear_display_name() {
+  _impl_.display_name_.ClearToEmpty();
+}
+inline const std::string& User::display_name() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.User.display_name)
+  return _internal_display_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void User::set_display_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.display_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.User.display_name)
+}
+inline std::string* User::mutable_display_name() {
+  std::string* _s = _internal_mutable_display_name();
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.User.display_name)
+  return _s;
+}
+inline const std::string& User::_internal_display_name() const {
+  return _impl_.display_name_.Get();
+}
+inline void User::_internal_set_display_name(const std::string& value) {
+  
+  _impl_.display_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* User::_internal_mutable_display_name() {
+  
+  return _impl_.display_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* User::release_display_name() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.User.display_name)
+  return _impl_.display_name_.Release();
+}
+inline void User::set_allocated_display_name(std::string* display_name) {
+  if (display_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.display_name_.SetAllocated(display_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.display_name_.IsDefault()) {
+    _impl_.display_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.User.display_name)
+}
+
+// string role = 9;
+inline void User::clear_role() {
+  _impl_.role_.ClearToEmpty();
+}
+inline const std::string& User::role() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.User.role)
+  return _internal_role();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void User::set_role(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.role_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.User.role)
+}
+inline std::string* User::mutable_role() {
+  std::string* _s = _internal_mutable_role();
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.User.role)
+  return _s;
+}
+inline const std::string& User::_internal_role() const {
+  return _impl_.role_.Get();
+}
+inline void User::_internal_set_role(const std::string& value) {
+  
+  _impl_.role_.Set(value, GetArenaForAllocation());
+}
+inline std::string* User::_internal_mutable_role() {
+  
+  return _impl_.role_.Mutable(GetArenaForAllocation());
+}
+inline std::string* User::release_role() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.User.role)
+  return _impl_.role_.Release();
+}
+inline void User::set_allocated_role(std::string* role) {
+  if (role != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.role_.SetAllocated(role, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.role_.IsDefault()) {
+    _impl_.role_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.User.role)
+}
+
+// string application = 10;
+inline void User::clear_application() {
+  _impl_.application_.ClearToEmpty();
+}
+inline const std::string& User::application() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.User.application)
+  return _internal_application();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void User::set_application(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.application_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.User.application)
+}
+inline std::string* User::mutable_application() {
+  std::string* _s = _internal_mutable_application();
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.User.application)
+  return _s;
+}
+inline const std::string& User::_internal_application() const {
+  return _impl_.application_.Get();
+}
+inline void User::_internal_set_application(const std::string& value) {
+  
+  _impl_.application_.Set(value, GetArenaForAllocation());
+}
+inline std::string* User::_internal_mutable_application() {
+  
+  return _impl_.application_.Mutable(GetArenaForAllocation());
+}
+inline std::string* User::release_application() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.User.application)
+  return _impl_.application_.Release();
+}
+inline void User::set_allocated_application(std::string* application) {
+  if (application != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.application_.SetAllocated(application, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.application_.IsDefault()) {
+    _impl_.application_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.User.application)
+}
+
+// -------------------------------------------------------------------
+
+// DeleteUserRequest
+
+// string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
+inline void DeleteUserRequest::clear_name() {
+  _impl_.name_.ClearToEmpty();
+}
+inline const std::string& DeleteUserRequest::name() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.DeleteUserRequest.name)
+  return _internal_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void DeleteUserRequest::set_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.DeleteUserRequest.name)
+}
+inline std::string* DeleteUserRequest::mutable_name() {
+  std::string* _s = _internal_mutable_name();
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.DeleteUserRequest.name)
+  return _s;
+}
+inline const std::string& DeleteUserRequest::_internal_name() const {
+  return _impl_.name_.Get();
+}
+inline void DeleteUserRequest::_internal_set_name(const std::string& value) {
+  
+  _impl_.name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* DeleteUserRequest::_internal_mutable_name() {
+  
+  return _impl_.name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* DeleteUserRequest::release_name() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.DeleteUserRequest.name)
+  return _impl_.name_.Release();
+}
+inline void DeleteUserRequest::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.name_.IsDefault()) {
+    _impl_.name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.DeleteUserRequest.name)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

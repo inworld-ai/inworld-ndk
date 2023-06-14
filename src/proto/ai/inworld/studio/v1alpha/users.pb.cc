@@ -115,6 +115,9 @@ PROTOBUF_CONSTEXPR User::User(
     /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.oculus_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.firebase_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.display_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.role_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.application_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.tos_acceptance_version_)*/0
   , /*decltype(_impl_.marketing_consent_)*/0
   , /*decltype(_impl_.marketing_platform_purpose_)*/0
@@ -128,11 +131,24 @@ struct UserDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 UserDefaultTypeInternal _User_default_instance_;
+PROTOBUF_CONSTEXPR DeleteUserRequest::DeleteUserRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct DeleteUserRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR DeleteUserRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~DeleteUserRequestDefaultTypeInternal() {}
+  union {
+    DeleteUserRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DeleteUserRequestDefaultTypeInternal _DeleteUserRequest_default_instance_;
 }  // namespace v1alpha
 }  // namespace studio
 }  // namespace inworld
 }  // namespace ai
-static ::_pb::Metadata file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto[7];
+static ::_pb::Metadata file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto[8];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto[3];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto = nullptr;
 
@@ -197,6 +213,16 @@ const uint32_t TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto::offs
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::User, _impl_.tos_acceptance_version_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::User, _impl_.marketing_consent_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::User, _impl_.marketing_platform_purpose_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::User, _impl_.display_name_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::User, _impl_.role_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::User, _impl_.application_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::DeleteUserRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::DeleteUserRequest, _impl_.name_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::ai::inworld::studio::v1alpha::GenerateTokenUserRequest)},
@@ -206,6 +232,7 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 33, -1, -1, sizeof(::ai::inworld::studio::v1alpha::AcceptTosRequest)},
   { 40, -1, -1, sizeof(::ai::inworld::studio::v1alpha::UpdateUserRequest)},
   { 48, -1, -1, sizeof(::ai::inworld::studio::v1alpha::User)},
+  { 63, -1, -1, sizeof(::ai::inworld::studio::v1alpha::DeleteUserRequest)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -216,6 +243,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::ai::inworld::studio::v1alpha::_AcceptTosRequest_default_instance_._instance,
   &::ai::inworld::studio::v1alpha::_UpdateUserRequest_default_instance_._instance,
   &::ai::inworld::studio::v1alpha::_User_default_instance_._instance,
+  &::ai::inworld::studio::v1alpha::_DeleteUserRequest_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -225,68 +253,75 @@ const char descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fusers_2ep
   "o\032\037google/api/field_behavior.proto\032\031goog"
   "le/api/resource.proto\032\033google/protobuf/e"
   "mpty.proto\032 google/protobuf/field_mask.p"
-  "roto\032\037google/protobuf/timestamp.proto\"a\n"
-  "\030GenerateTokenUserRequest\0226\n\004type\030\001 \001(\0162"
-  "#.ai.inworld.studio.v1alpha.AuthTypeB\003\340A"
-  "\002\022\r\n\005token\030\002 \001(\t\"\206\001\n\031GenerateTokenUserRe"
-  "sponse\022\r\n\005token\030\001 \001(\t\022\014\n\004type\030\002 \001(\t\0223\n\017e"
-  "xpiration_time\030\003 \001(\0132\032.google.protobuf.T"
-  "imestamp\022\027\n\nis_created\030\004 \001(\010B\003\340A\003\"[\n\022Lin"
-  "kAccountRequest\022)\n\004name\030\001 \001(\tB\033\340A\002\372A\025\n\023a"
-  "pi.inworld.ai/User\022\032\n\022oculus_oauth_token"
-  "\030\002 \001(\t\";\n\016GetUserRequest\022)\n\004name\030\001 \001(\tB\033"
-  "\340A\002\372A\025\n\023api.inworld.ai/User\"=\n\020AcceptTos"
-  "Request\022)\n\004user\030\001 \001(\tB\033\340A\002\372A\025\n\023api.inwor"
-  "ld.ai/User\"}\n\021UpdateUserRequest\0222\n\004user\030"
-  "\001 \001(\0132\037.ai.inworld.studio.v1alpha.UserB\003"
-  "\340A\002\0224\n\013update_mask\030\002 \001(\0132\032.google.protob"
-  "uf.FieldMaskB\003\340A\002\"\312\002\n\004User\022\021\n\004name\030\001 \001(\t"
-  "B\003\340A\002\022\026\n\toculus_id\030\003 \001(\tB\003\340A\003\022\030\n\013firebas"
-  "e_id\030\004 \001(\tB\003\340A\003\022#\n\026tos_acceptance_versio"
-  "n\030\005 \001(\005B\003\340A\003\022F\n\021marketing_consent\030\006 \001(\0162"
-  "+.ai.inworld.studio.v1alpha.MarketingCon"
-  "sent\022W\n\032marketing_platform_purpose\030\007 \001(\016"
-  "23.ai.inworld.studio.v1alpha.MarketingPl"
-  "atformPurpose:&\352A#\n\023api.inworld.ai/User\022"
-  "\014users/{user}J\004\010\002\020\003R\tgoogle_id*t\n\020Market"
-  "ingConsent\022!\n\035MARKETING_CONSENT_UNSPECIF"
-  "IED\020\000\022\036\n\032MARKETING_CONSENT_DECLINED\020\001\022\035\n"
-  "\031MARKETING_CONSENT_GRANTED\020\002*\270\002\n\030Marketi"
-  "ngPlatformPurpose\022*\n&MARKETING_PLATFORM_"
-  "PURPOSE_UNSPECIFIED\020\000\0221\n-MARKETING_PLATF"
-  "ORM_PURPOSE_GAME_AND_METAVERSE\020\001\022,\n(MARK"
-  "ETING_PLATFORM_PURPOSE_ENTERTAINMENT\020\002\0222"
-  "\n.MARKETING_PLATFORM_PURPOSE_SALES_AND_M"
-  "ARKETING\020\003\0225\n1MARKETING_PLATFORM_PURPOSE"
-  "_TRAINING_AND_EDUCATION\020\004\022$\n MARKETING_P"
-  "LATFORM_PURPOSE_OTHER\020\005*_\n\010AuthType\022\031\n\025A"
-  "UTH_TYPE_UNSPECIFIED\020\000\022\032\n\026AUTH_TYPE_OCUL"
-  "US_NONCE\020\002\022\026\n\022AUTH_TYPE_FIREBASE\020\003\"\004\010\001\020\001"
-  "2\337\005\n\005Users\022\253\001\n\021GenerateTokenUser\0223.ai.in"
-  "world.studio.v1alpha.GenerateTokenUserRe"
-  "quest\0324.ai.inworld.studio.v1alpha.Genera"
-  "teTokenUserResponse\"+\202\323\344\223\002%\" /v1alpha/us"
-  "ers:generateTokenUser:\001*\022\201\001\n\017LinkAccount"
-  "User\022-.ai.inworld.studio.v1alpha.LinkAcc"
-  "ountRequest\032\026.google.protobuf.Empty\"\'\202\323\344"
-  "\223\002!\"\034/v1alpha/{name=users/*}:link:\001*\022}\n\007"
-  "GetUser\022).ai.inworld.studio.v1alpha.GetU"
-  "serRequest\032\037.ai.inworld.studio.v1alpha.U"
-  "ser\"&\202\323\344\223\002\031\022\027/v1alpha/{name=users/*}\332A\004n"
-  "ame\022\232\001\n\nUpdateUser\022,.ai.inworld.studio.v"
-  "1alpha.UpdateUserRequest\032\037.ai.inworld.st"
-  "udio.v1alpha.User\"=\202\323\344\223\002$2\034/v1alpha/{use"
-  "r.name=users/*}:\004user\332A\020user,update_mask"
-  "\022\207\001\n\tAcceptTos\022+.ai.inworld.studio.v1alp"
-  "ha.AcceptTosRequest\032\037.ai.inworld.studio."
-  "v1alpha.User\",\202\323\344\223\002&\"!/v1alpha/{user=use"
-  "rs/*}:acceptTos:\001*B\224\001\n\031ai.inworld.studio"
-  ".v1alphaB\nUsersProtoP\001ZMgithub.com/inwor"
-  "ld-ai/inworld/serving/grpc-gateway/build"
-  "/proto/studio/v1alpha\252\002\031Ai.Inworld.Studi"
-  "o.V1Alphab\006proto3"
+  "roto\032\037google/protobuf/timestamp.proto\032\ro"
+  "ptions.proto\"a\n\030GenerateTokenUserRequest"
+  "\0226\n\004type\030\001 \001(\0162#.ai.inworld.studio.v1alp"
+  "ha.AuthTypeB\003\340A\002\022\r\n\005token\030\002 \001(\t\"\206\001\n\031Gene"
+  "rateTokenUserResponse\022\r\n\005token\030\001 \001(\t\022\014\n\004"
+  "type\030\002 \001(\t\0223\n\017expiration_time\030\003 \001(\0132\032.go"
+  "ogle.protobuf.Timestamp\022\027\n\nis_created\030\004 "
+  "\001(\010B\003\340A\003\"[\n\022LinkAccountRequest\022)\n\004name\030\001"
+  " \001(\tB\033\340A\002\372A\025\n\023api.inworld.ai/User\022\032\n\022ocu"
+  "lus_oauth_token\030\002 \001(\t\";\n\016GetUserRequest\022"
+  ")\n\004name\030\001 \001(\tB\033\340A\002\372A\025\n\023api.inworld.ai/Us"
+  "er\"=\n\020AcceptTosRequest\022)\n\004user\030\001 \001(\tB\033\340A"
+  "\002\372A\025\n\023api.inworld.ai/User\"}\n\021UpdateUserR"
+  "equest\0222\n\004user\030\001 \001(\0132\037.ai.inworld.studio"
+  ".v1alpha.UserB\003\340A\002\0224\n\013update_mask\030\002 \001(\0132"
+  "\032.google.protobuf.FieldMaskB\003\340A\002\"\234\003\n\004Use"
+  "r\022\021\n\004name\030\001 \001(\tB\003\340A\002\022\026\n\toculus_id\030\003 \001(\tB"
+  "\003\340A\003\022\030\n\013firebase_id\030\004 \001(\tB\003\340A\003\022#\n\026tos_ac"
+  "ceptance_version\030\005 \001(\005B\003\340A\003\022F\n\021marketing"
+  "_consent\030\006 \001(\0162+.ai.inworld.studio.v1alp"
+  "ha.MarketingConsent\022W\n\032marketing_platfor"
+  "m_purpose\030\007 \001(\01623.ai.inworld.studio.v1al"
+  "pha.MarketingPlatformPurpose\022-\n\014display_"
+  "name\030\010 \001(\tB\027\242\317\"\023\n\021\032\017display name #1\022\014\n\004r"
+  "ole\030\t \001(\t\022\023\n\013application\030\n \001(\t:&\352A#\n\023api"
+  ".inworld.ai/User\022\014users/{user}J\004\010\002\020\003R\tgo"
+  "ogle_id\">\n\021DeleteUserRequest\022)\n\004name\030\001 \001"
+  "(\tB\033\340A\002\372A\025\n\023api.inworld.ai/User*t\n\020Marke"
+  "tingConsent\022!\n\035MARKETING_CONSENT_UNSPECI"
+  "FIED\020\000\022\036\n\032MARKETING_CONSENT_DECLINED\020\001\022\035"
+  "\n\031MARKETING_CONSENT_GRANTED\020\002*\270\002\n\030Market"
+  "ingPlatformPurpose\022*\n&MARKETING_PLATFORM"
+  "_PURPOSE_UNSPECIFIED\020\000\0221\n-MARKETING_PLAT"
+  "FORM_PURPOSE_GAME_AND_METAVERSE\020\001\022,\n(MAR"
+  "KETING_PLATFORM_PURPOSE_ENTERTAINMENT\020\002\022"
+  "2\n.MARKETING_PLATFORM_PURPOSE_SALES_AND_"
+  "MARKETING\020\003\0225\n1MARKETING_PLATFORM_PURPOS"
+  "E_TRAINING_AND_EDUCATION\020\004\022$\n MARKETING_"
+  "PLATFORM_PURPOSE_OTHER\020\005*_\n\010AuthType\022\031\n\025"
+  "AUTH_TYPE_UNSPECIFIED\020\000\022\032\n\026AUTH_TYPE_OCU"
+  "LUS_NONCE\020\002\022\026\n\022AUTH_TYPE_FIREBASE\020\003\"\004\010\001\020"
+  "\0012\333\006\n\005Users\022\253\001\n\021GenerateTokenUser\0223.ai.i"
+  "nworld.studio.v1alpha.GenerateTokenUserR"
+  "equest\0324.ai.inworld.studio.v1alpha.Gener"
+  "ateTokenUserResponse\"+\202\323\344\223\002%\" /v1alpha/u"
+  "sers:generateTokenUser:\001*\022\201\001\n\017LinkAccoun"
+  "tUser\022-.ai.inworld.studio.v1alpha.LinkAc"
+  "countRequest\032\026.google.protobuf.Empty\"\'\202\323"
+  "\344\223\002!\"\034/v1alpha/{name=users/*}:link:\001*\022}\n"
+  "\007GetUser\022).ai.inworld.studio.v1alpha.Get"
+  "UserRequest\032\037.ai.inworld.studio.v1alpha."
+  "User\"&\202\323\344\223\002\031\022\027/v1alpha/{name=users/*}\332A\004"
+  "name\022\232\001\n\nUpdateUser\022,.ai.inworld.studio."
+  "v1alpha.UpdateUserRequest\032\037.ai.inworld.s"
+  "tudio.v1alpha.User\"=\202\323\344\223\002$2\034/v1alpha/{us"
+  "er.name=users/*}:\004user\332A\020user,update_mas"
+  "k\022\207\001\n\tAcceptTos\022+.ai.inworld.studio.v1al"
+  "pha.AcceptTosRequest\032\037.ai.inworld.studio"
+  ".v1alpha.User\",\202\323\344\223\002&\"!/v1alpha/{user=us"
+  "ers/*}:acceptTos:\001*\022z\n\nDeleteUser\022,.ai.i"
+  "nworld.studio.v1alpha.DeleteUserRequest\032"
+  "\026.google.protobuf.Empty\"&\202\323\344\223\002\031*\027/v1alph"
+  "a/{name=users/*}\332A\004nameB\224\001\n\031ai.inworld.s"
+  "tudio.v1alphaB\nUsersProtoP\001ZMgithub.com/"
+  "inworld-ai/inworld/serving/grpc-gateway/"
+  "build/proto/studio/v1alpha\252\002\031Ai.Inworld."
+  "Studio.V1Alphab\006proto3"
   ;
-static const ::_pbi::DescriptorTable* const descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto_deps[7] = {
+static const ::_pbi::DescriptorTable* const descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto_deps[8] = {
   &::descriptor_table_google_2fapi_2fannotations_2eproto,
   &::descriptor_table_google_2fapi_2fclient_2eproto,
   &::descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto,
@@ -294,12 +329,13 @@ static const ::_pbi::DescriptorTable* const descriptor_table_ai_2finworld_2fstud
   &::descriptor_table_google_2fprotobuf_2fempty_2eproto,
   &::descriptor_table_google_2fprotobuf_2ffield_5fmask_2eproto,
   &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto,
+  &::descriptor_table_options_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto = {
-    false, false, 2617, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto,
+    false, false, 2902, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto,
     "ai/inworld/studio/v1alpha/users.proto",
-    &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto_once, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto_deps, 7, 7,
+    &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto_once, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto_deps, 8, 8,
     schemas, file_default_instances, TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto::offsets,
     file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto, file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto,
     file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto,
@@ -1851,6 +1887,9 @@ User::User(const User& from)
       decltype(_impl_.name_){}
     , decltype(_impl_.oculus_id_){}
     , decltype(_impl_.firebase_id_){}
+    , decltype(_impl_.display_name_){}
+    , decltype(_impl_.role_){}
+    , decltype(_impl_.application_){}
     , decltype(_impl_.tos_acceptance_version_){}
     , decltype(_impl_.marketing_consent_){}
     , decltype(_impl_.marketing_platform_purpose_){}
@@ -1881,6 +1920,30 @@ User::User(const User& from)
     _this->_impl_.firebase_id_.Set(from._internal_firebase_id(), 
       _this->GetArenaForAllocation());
   }
+  _impl_.display_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.display_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_display_name().empty()) {
+    _this->_impl_.display_name_.Set(from._internal_display_name(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.role_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.role_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_role().empty()) {
+    _this->_impl_.role_.Set(from._internal_role(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.application_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.application_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_application().empty()) {
+    _this->_impl_.application_.Set(from._internal_application(), 
+      _this->GetArenaForAllocation());
+  }
   ::memcpy(&_impl_.tos_acceptance_version_, &from._impl_.tos_acceptance_version_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.marketing_platform_purpose_) -
     reinterpret_cast<char*>(&_impl_.tos_acceptance_version_)) + sizeof(_impl_.marketing_platform_purpose_));
@@ -1895,6 +1958,9 @@ inline void User::SharedCtor(
       decltype(_impl_.name_){}
     , decltype(_impl_.oculus_id_){}
     , decltype(_impl_.firebase_id_){}
+    , decltype(_impl_.display_name_){}
+    , decltype(_impl_.role_){}
+    , decltype(_impl_.application_){}
     , decltype(_impl_.tos_acceptance_version_){0}
     , decltype(_impl_.marketing_consent_){0}
     , decltype(_impl_.marketing_platform_purpose_){0}
@@ -1912,6 +1978,18 @@ inline void User::SharedCtor(
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.firebase_id_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.display_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.display_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.role_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.role_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.application_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.application_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 User::~User() {
@@ -1928,6 +2006,9 @@ inline void User::SharedDtor() {
   _impl_.name_.Destroy();
   _impl_.oculus_id_.Destroy();
   _impl_.firebase_id_.Destroy();
+  _impl_.display_name_.Destroy();
+  _impl_.role_.Destroy();
+  _impl_.application_.Destroy();
 }
 
 void User::SetCachedSize(int size) const {
@@ -1943,6 +2024,9 @@ void User::Clear() {
   _impl_.name_.ClearToEmpty();
   _impl_.oculus_id_.ClearToEmpty();
   _impl_.firebase_id_.ClearToEmpty();
+  _impl_.display_name_.ClearToEmpty();
+  _impl_.role_.ClearToEmpty();
+  _impl_.application_.ClearToEmpty();
   ::memset(&_impl_.tos_acceptance_version_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&_impl_.marketing_platform_purpose_) -
       reinterpret_cast<char*>(&_impl_.tos_acceptance_version_)) + sizeof(_impl_.marketing_platform_purpose_));
@@ -2008,6 +2092,36 @@ const char* User::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_marketing_platform_purpose(static_cast<::ai::inworld::studio::v1alpha::MarketingPlatformPurpose>(val));
+        } else
+          goto handle_unusual;
+        continue;
+      // string display_name = 8 [(.ai.inworld.options.examples) = {
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
+          auto str = _internal_mutable_display_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "ai.inworld.studio.v1alpha.User.display_name"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string role = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 74)) {
+          auto str = _internal_mutable_role();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "ai.inworld.studio.v1alpha.User.role"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string application = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
+          auto str = _internal_mutable_application();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "ai.inworld.studio.v1alpha.User.application"));
         } else
           goto handle_unusual;
         continue;
@@ -2090,6 +2204,36 @@ uint8_t* User::_InternalSerialize(
       7, this->_internal_marketing_platform_purpose(), target);
   }
 
+  // string display_name = 8 [(.ai.inworld.options.examples) = {
+  if (!this->_internal_display_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_display_name().data(), static_cast<int>(this->_internal_display_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.studio.v1alpha.User.display_name");
+    target = stream->WriteStringMaybeAliased(
+        8, this->_internal_display_name(), target);
+  }
+
+  // string role = 9;
+  if (!this->_internal_role().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_role().data(), static_cast<int>(this->_internal_role().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.studio.v1alpha.User.role");
+    target = stream->WriteStringMaybeAliased(
+        9, this->_internal_role(), target);
+  }
+
+  // string application = 10;
+  if (!this->_internal_application().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_application().data(), static_cast<int>(this->_internal_application().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.studio.v1alpha.User.application");
+    target = stream->WriteStringMaybeAliased(
+        10, this->_internal_application(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2125,6 +2269,27 @@ size_t User::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_firebase_id());
+  }
+
+  // string display_name = 8 [(.ai.inworld.options.examples) = {
+  if (!this->_internal_display_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_display_name());
+  }
+
+  // string role = 9;
+  if (!this->_internal_role().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_role());
+  }
+
+  // string application = 10;
+  if (!this->_internal_application().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_application());
   }
 
   // int32 tos_acceptance_version = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];
@@ -2171,6 +2336,15 @@ void User::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_
   if (!from._internal_firebase_id().empty()) {
     _this->_internal_set_firebase_id(from._internal_firebase_id());
   }
+  if (!from._internal_display_name().empty()) {
+    _this->_internal_set_display_name(from._internal_display_name());
+  }
+  if (!from._internal_role().empty()) {
+    _this->_internal_set_role(from._internal_role());
+  }
+  if (!from._internal_application().empty()) {
+    _this->_internal_set_application(from._internal_application());
+  }
   if (from._internal_tos_acceptance_version() != 0) {
     _this->_internal_set_tos_acceptance_version(from._internal_tos_acceptance_version());
   }
@@ -2211,6 +2385,18 @@ void User::InternalSwap(User* other) {
       &_impl_.firebase_id_, lhs_arena,
       &other->_impl_.firebase_id_, rhs_arena
   );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.display_name_, lhs_arena,
+      &other->_impl_.display_name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.role_, lhs_arena,
+      &other->_impl_.role_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.application_, lhs_arena,
+      &other->_impl_.application_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(User, _impl_.marketing_platform_purpose_)
       + sizeof(User::_impl_.marketing_platform_purpose_)
@@ -2223,6 +2409,209 @@ void User::InternalSwap(User* other) {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto[6]);
+}
+
+// ===================================================================
+
+class DeleteUserRequest::_Internal {
+ public:
+};
+
+DeleteUserRequest::DeleteUserRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.DeleteUserRequest)
+}
+DeleteUserRequest::DeleteUserRequest(const DeleteUserRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  DeleteUserRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.name_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_name().empty()) {
+    _this->_impl_.name_.Set(from._internal_name(), 
+      _this->GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.DeleteUserRequest)
+}
+
+inline void DeleteUserRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.name_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+DeleteUserRequest::~DeleteUserRequest() {
+  // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.DeleteUserRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void DeleteUserRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.name_.Destroy();
+}
+
+void DeleteUserRequest::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void DeleteUserRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:ai.inworld.studio.v1alpha.DeleteUserRequest)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.name_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DeleteUserRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "ai.inworld.studio.v1alpha.DeleteUserRequest.name"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* DeleteUserRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.DeleteUserRequest)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
+  if (!this->_internal_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.studio.v1alpha.DeleteUserRequest.name");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_name(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.DeleteUserRequest)
+  return target;
+}
+
+size_t DeleteUserRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ai.inworld.studio.v1alpha.DeleteUserRequest)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
+  if (!this->_internal_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_name());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData DeleteUserRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    DeleteUserRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*DeleteUserRequest::GetClassData() const { return &_class_data_; }
+
+
+void DeleteUserRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<DeleteUserRequest*>(&to_msg);
+  auto& from = static_cast<const DeleteUserRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.DeleteUserRequest)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_name().empty()) {
+    _this->_internal_set_name(from._internal_name());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void DeleteUserRequest::CopyFrom(const DeleteUserRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ai.inworld.studio.v1alpha.DeleteUserRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DeleteUserRequest::IsInitialized() const {
+  return true;
+}
+
+void DeleteUserRequest::InternalSwap(DeleteUserRequest* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.name_, lhs_arena,
+      &other->_impl_.name_, rhs_arena
+  );
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DeleteUserRequest::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto_once,
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto[7]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -2258,6 +2647,10 @@ Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::UpdateUserRequest >(A
 template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::User*
 Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::User >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::User >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::DeleteUserRequest*
+Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::DeleteUserRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::DeleteUserRequest >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 
