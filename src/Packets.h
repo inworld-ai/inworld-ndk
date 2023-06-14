@@ -314,7 +314,7 @@ namespace Inworld {
 		std::vector<std::string> _UtteranceIds;
     };
 
-   /* class INWORLDAINDK_API SimpleGestureEvent : public Packet
+    class INWORLDAINDK_API SimpleGestureEvent : public Packet
     {
     public:
 		SimpleGestureEvent() = default;
@@ -340,7 +340,7 @@ namespace Inworld {
     private:
         InworldPakets::GestureEvent_Type _Gesture;
 		InworldPakets::Playback _Playback;
-    };*/
+    };
 
     class INWORLDAINDK_API CustomGestureEvent : public Packet
     {

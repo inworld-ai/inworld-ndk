@@ -85,26 +85,7 @@ namespace Inworld {
 
     void DataEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
     {
-        Proto.mutable_data_chunk()->set_chunk(std::move(_Chunk));
-        Proto.mutable_data_chunk()->set_type(std::move(GetType()));
-        AudioDataEvent ade = AudioDataEvent(Proto);
-        for (const auto& phoneme_info : ade.GetPhonemeInfos())
-        {
-            // Convert PhonemeInfo to AdditionalPhonemeInfo
-            auto additional_phoneme_info = Proto.mutable_data_chunk()->add_additional_phoneme_info();
-
-            additional_phoneme_info->set_phoneme(phoneme_info.Code);
-
-            // Convert float to google::protobuf::Duration
-            google::protobuf::Duration* duration = new google::protobuf::Duration();
-            // Converting to nanoseconds assuming phoneme_info.Timestamp is in seconds
-            duration->set_seconds(static_cast<int64_t>(phoneme_info.Timestamp));
-            duration->set_nanos((phoneme_info.Timestamp - static_cast<int64_t>(phoneme_info.Timestamp)) * 1e9);
-
-            additional_phoneme_info->set_allocated_start_offset(duration);
-        }
-        //Proto.mutable_data_chunk()->mutable_additional_phoneme_info(). = ade.GetPhonemeInfos().;
-        //Proto.mutable_audio_chunk()->set_chunk(std::move(_Chunk));
+        Proto.mutable_audio_chunk()->set_chunk(std::move(_Chunk));
     }
 
     AudioDataEvent::AudioDataEvent(const InworldPakets::InworldPacket& GrpcPacket) : DataEvent(GrpcPacket)
@@ -139,7 +120,7 @@ namespace Inworld {
         }
     }
 
-    /*void SimpleGestureEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+    void SimpleGestureEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
     {
         Proto.mutable_gesture()->set_type(_Gesture);
         Proto.mutable_gesture()->set_playback(_Playback);
@@ -148,7 +129,7 @@ namespace Inworld {
 	void CustomGestureEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
 	{
 		
-	}*/
+	}
 
 	void CustomEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
 	{
