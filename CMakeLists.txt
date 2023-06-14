@@ -61,6 +61,7 @@ add_library(InworldNDK SHARED ${FilesALL})
 target_include_directories(InworldNDK PUBLIC
     ${ThirdPartyDir}/include
     ${ThirdPartyDir}/grpc/include
+    ${ThirdPartyDir}/grpc/third_party/abseil-cpp
     ${ThirdPartyDir}/grpc/third_party/protobuf/src
     ${ThirdPartyDir}/grpc/third_party
     src
