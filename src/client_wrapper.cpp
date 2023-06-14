@@ -74,19 +74,7 @@ extern "C" {
                 if (Packet != nullptr || Packet != NULL)
                 {
                     DebugLog("INVOKING PACKET CALLBACK FROM DLL");
-                    InworldPakets::InworldPacket pkt = Packet.get()->ToProto();
-
-                    if (pkt.has_audio_chunk())
-                    {
-                        DebugLog("DLL Packet data audio chunk is not null");
-                        if (pkt.audio_chunk().chunk().empty())
-                        {
-                            DebugLog("DLL Packet data audio chunk is not empty");// chunk is " + Packet->ToProto().audio_chunk().chunk());
-
-                        }
-                        else
-                            DebugLog("DLL PACKET CHUNK IS EMPTY DESPITE VALID AUDIO CHUNK");
-                    }
+                    InworldPakets::InworldPacket pkt = Packet.get()->ToProto();                    
 
                     if (pkt.has_data_chunk())
                     {
@@ -216,8 +204,12 @@ extern "C" {
             DebugLog("Failed to deserialize InworldPacket");
             return;
         }
+        else
+            DebugLog("DESERIALIZED INWORLD PACKET IN DLL BEFORE SENDING SUCCESSFULLY");
 
-        std::shared_ptr<Inworld::Packet> resolvedPacket = ResolvePackets(packet);
+        std::shared_ptr<Inworld::Packet> resolvedPacket = std::make_shared<Inworld::Packet>(packet); //ResolvePackets(packet);
+
+        DebugLog("JUST RESOLVED PACKED IN DLL BEFORE SENDING");
         wrapper->client.SendPacket(resolvedPacket);
         std::ostringstream ss;
         ss << "DLL SENDING A PACKET FROM THE DLL OF TYPE " << resolvedPacket.get()->ToProto().GetTypeName();
@@ -260,6 +252,7 @@ extern "C" {
         }
         else
         {
+            //pkt = std::make_shared<Inworld::Packet>(packet);
             //std::make_shared<Inworld::Packet>(packet);
             DebugLog("Unsupported outgoing event: ");
             DebugLog(packet.DebugString().c_str());

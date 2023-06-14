@@ -57,10 +57,10 @@ void Inworld::RunnableRead::Run()
 		{
 			Packet = std::make_shared<Inworld::EmotionEvent>(IncomingPacket);
 		}
-		else if (IncomingPacket.has_gesture())
+		/*else if (IncomingPacket.has_gesture())
 		{
 			Packet = std::make_shared<Inworld::SimpleGestureEvent>(IncomingPacket);
-		}
+		}*/
 		else if (IncomingPacket.has_custom())
 		{
 			Packet = std::make_shared<Inworld::CustomEvent>(IncomingPacket);
