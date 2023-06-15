@@ -6,44 +6,6 @@
 
 extern "C" {
 
-    /*typedef enum {
-        ConnectionState_Idle,
-        ConnectionState_Connecting,
-        ConnectionState_Connected,
-        ConnectionState_Failed,
-        ConnectionState_Paused,
-        ConnectionState_Disconnected,
-        ConnectionState_Reconnecting
-    } ConnectionState;*/
-
-
- /*   typedef struct {
-        char* AuthUrl;
-        char* LoadSceneUrl;
-        char* SceneName;
-        char* ApiKey;
-        char* ApiSecret;
-        char* PlayerName;
-        char* Token;
-        char* SessionId;
-    } ClientOptions;*/
-
-
-    //typedef struct {
-    //    char* BrainName;
-    //    char* AgentId;
-    //    char* GivenName;
-    //} AgentInfo;
-
-    //typedef struct {
-    //    AgentInfo* data;
-    //    int size;
-    //} AgentInfoArray;
-
-  /*  struct PacketWrapper {
-        std::shared_ptr<InworldPakets::InworldPacket> packet;
-    };*/
-
     struct ClientWrapper {
         Inworld::Client client;
     };
@@ -60,7 +22,7 @@ extern "C" {
 
    //possibly unneccessary creates circular dependencies with wrapping parameters and protobuf classes 
    __declspec(dllexport) void ClientWrapper_SendPacket(ClientWrapper* wrapper, const void* data, size_t size);
-   std::shared_ptr<Inworld::Packet> ResolvePackets(InworldPakets::InworldPacket packet);
+   //std::shared_ptr<Inworld::Packet> ResolvePackets(InworldPakets::InworldPacket packet);
 
    __declspec(dllexport) void ClientWrapper_SendTextMessage(ClientWrapper* wrapper, const char* AgentId, const char* Text);
    __declspec(dllexport) void ClientWrapper_SendSoundMessage(ClientWrapper* wrapper, const char* AgentId, const char* Data);
@@ -79,7 +41,7 @@ extern "C" {
    __declspec(dllexport) void ClientWrapper_StopClient(ClientWrapper* wrapper);
    __declspec(dllexport) void ClientWrapper_DestroyClient(ClientWrapper* wrapper);
 
-   __declspec(dllexport) ConnectionState GetConnectionState(ClientWrapper* wrapper);
+   //__declspec(dllexport) ConnectionState GetConnectionState(ClientWrapper* wrapper);
    __declspec(dllexport) bool ClientWrapper_GetConnectionError(ClientWrapper* wrapper, char* OutErrorMessage, int BufferSize, int32_t* OutErrorCode);
     
    __declspec(dllexport) void ClientWrapper_Update(ClientWrapper* wrapper);

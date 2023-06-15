@@ -1,6 +1,6 @@
 #include "client_wrapper.h"
 #include <memory>
-
+using namespace inworld::ndkData;
 //Inworld::ClientBase::ConnectionState toCppConnectionState(ConnectionState state) {
 //    return static_cast<Inworld::ClientBase::ConnectionState>(state);
 //}
@@ -67,7 +67,7 @@ extern "C" {
     // InitClient
     void ClientWrapper_InitClient(ClientWrapper* wrapper, const char* UserId, const char* ClientId, const char* ClientVer, ConnectionStateCallbackType ConnectionStateCallback, PacketCallbackType PacketCallback) {
         wrapper->client.InitClient(UserId, ClientId, ClientVer,
-            [ConnectionStateCallback](ConnectionState ConnectionState) {
+            [ConnectionStateCallback](Inworld::Client::ConnectionState ConnectionState) {
                 ConnectionStateCallback(static_cast<int>(ConnectionState));
             },
             [PacketCallback](std::shared_ptr<Inworld::Packet> Packet) {
@@ -133,6 +133,13 @@ extern "C" {
             DebugLog("START CLIENT FAILED TO DESRIALIZE OPTIONS with callback");
             return;
         }
+        Inworld::ClientOptions opt;
+        opt.ApiKey = options.api_key();
+        opt.ApiSecret = options.api_secret();
+        opt.AuthUrl = options.auth_url();
+        opt.LoadSceneUrl = options.load_scene_url();
+        opt.PlayerName = options.player_name();
+        opt.SceneName = options.scene_name();
 
         SessionInfo sessionInfo;
         if(!sessionInfo.ParseFromArray(serialized_sessionInfo, serialized_sessionInfo_size))
@@ -143,9 +150,14 @@ extern "C" {
         }
         else
         {
+            Inworld::SessionInfo session_info;
+            session_info.Token = sessionInfo.token();
+            session_info.ExpirationTime = sessionInfo.expirationtime();
+            session_info.SessionId = sessionInfo.sessionid();
+            
             DebugLog("STARTing CLIENT succesful deserialization of OPTIONS AND SESSION INFO with callback");
             // Start the client
-            wrapper->client.StartClient(options, sessionInfo, [LoadSceneCallback](const std::vector<AgentInfo>& AgentInfos) {
+            wrapper->client.StartClient(opt, session_info, [LoadSceneCallback](const std::vector<Inworld::AgentInfo>& AgentInfos) {
                 if (AgentInfos.empty())
                 {
                     DebugLog("AGENT INFOS IS EMPTY IN LOADSCENE CALLBACK");
@@ -156,7 +168,10 @@ extern "C" {
                     // Fill agent_info_array with data from AgentInfos vector
                     for (const auto& agent_info : AgentInfos) {
                         AgentInfo* added_agent_info = agent_info_array.add_agent_info_list();
-                        *added_agent_info = agent_info;
+                        //*added_agent_info = agent_info;
+                        added_agent_info->set_agentid(agent_info.AgentId);
+                        added_agent_info->set_brainname(agent_info.BrainName);
+                        added_agent_info->set_givenname(agent_info.GivenName);
                     }
 
                     int serialized_data_size = agent_info_array.ByteSize();
@@ -216,22 +231,15 @@ extern "C" {
             DebugLog("Failed to deserialize InworldPacket");
             return;
         }
-
-        std::shared_ptr<Inworld::Packet> resolvedPacket = ResolvePackets(packet);
-        wrapper->client.SendPacket(resolvedPacket);
-        std::ostringstream ss;
-        ss << "DLL SENDING A PACKET FROM THE DLL OF TYPE " << resolvedPacket.get()->ToProto().GetTypeName();
-        DebugLog(ss.str().c_str());
-    }
-
-    std::shared_ptr<Inworld::Packet> ResolvePackets(InworldPakets::InworldPacket packet)
-    {
+        
         std::shared_ptr<Inworld::Packet> pkt = nullptr;
-
+        std::string type = "unknown";
         // TextEvent
         if (packet.has_text())
         {
             pkt = std::make_shared<Inworld::TextEvent>(packet);
+            type = pkt.get()->ToProto().GetTypeName();
+            wrapper->client.SendPacket(pkt);
 
         }
         // AudioDataEvent
@@ -240,23 +248,29 @@ extern "C" {
             std::cout << "AUDIO DATA EVENT CREATED IN NDK" << std::endl;
 
             pkt = std::make_shared<Inworld::AudioDataEvent>(packet);
+            type = pkt.get()->ToProto().GetTypeName();
+            wrapper->client.SendPacket(pkt);
         }
         // ControlEvent
         else if (packet.has_control())
         {
             pkt = std::make_shared<Inworld::ControlEvent>(packet);
+            type = pkt.get()->ToProto().GetTypeName();
+            wrapper->client.SendPacket(pkt);
         }
         // CancelResponseEvent
         else if (packet.has_cancelresponses())
         {
-            auto cre = std::make_shared<Inworld::CancelResponseEvent>();
-            cre->ToProto();
-            pkt = cre;
+            auto pkt = std::make_shared<Inworld::CancelResponseEvent>();
+            type = pkt.get()->ToProto().GetTypeName();
+            wrapper->client.SendPacket(pkt);
         }
         // CustomEvent
         else if (packet.has_custom())
         {
             pkt = std::make_shared<Inworld::CustomEvent>(packet);
+            type = pkt.get()->ToProto().GetTypeName();
+            wrapper->client.SendPacket(pkt);
         }
         else
         {
@@ -264,8 +278,10 @@ extern "C" {
             DebugLog("Unsupported outgoing event: ");
             DebugLog(packet.DebugString().c_str());
         }
-
-        return pkt;
+        
+        std::ostringstream ss;
+        ss << "DLL SENDING A PACKET FROM THE DLL OF TYPE " << type;
+        DebugLog(ss.str().c_str());
     }
 
 
@@ -320,11 +336,6 @@ extern "C" {
     // StopAudioSession
     void ClientWrapper_StopAudioSession(ClientWrapper* wrapper, const char* AgentId) {
         wrapper->client.StopAudioSession(AgentId);
-    }
-
-    ConnectionState GetConnectionState(ClientWrapper* wrapper)
-    {
-        return (wrapper->client.GetConnectionState());
     }
 
     // GetConnectionError

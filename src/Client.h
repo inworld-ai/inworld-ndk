@@ -19,40 +19,39 @@
 
 
 using PacketQueue = Inworld::SharedQueue<std::shared_ptr<Inworld::Packet>>;
-using namespace inworld::ndkData;
 
 namespace Inworld
 {
-	//struct INWORLDAINDK_API ClientOptions
-	//{
-	//	std::string AuthUrl;
-	//	std::string LoadSceneUrl;
-	//	std::string SceneName;
-	//	std::string ApiKey;
-	//	std::string ApiSecret;
-	//	std::string PlayerName;
-	//};
+	struct INWORLDAINDK_API ClientOptions
+	{
+		std::string AuthUrl;
+		std::string LoadSceneUrl;
+		std::string SceneName;
+		std::string ApiKey;
+		std::string ApiSecret;
+		std::string PlayerName;
+	};
 
-	/*struct INWORLDAINDK_API SessionInfo
+	struct INWORLDAINDK_API SessionInfo
 	{
 		std::string SessionId;
 		std::string Token;
 		int64_t ExpirationTime;
 
 		bool IsValid() const;
-	};*/
+	};
 
-	/*struct INWORLDAINDK_API AgentInfo
+	struct INWORLDAINDK_API AgentInfo
 	{
 		std::string BrainName;
 		std::string AgentId;
 		std::string GivenName;
-	};*/
+	};
 
 	class INWORLDAINDK_API ClientBase
 	{
 	public:
-		/*enum class ConnectionState : uint8_t 
+		enum class ConnectionState : uint8_t 
 		{
 			Idle,
 			Connecting,
@@ -61,7 +60,7 @@ namespace Inworld
 			Paused,
 			Disconnected,
 			Reconnecting
-		};*/
+		};
 
 		ClientBase() = default;
 		virtual ~ClientBase() = default;
@@ -143,7 +142,7 @@ namespace Inworld
 
 		ClientOptions _ClientOptions;
 		SessionInfo _SessionInfo;
-		bool IsSessionValid(const SessionInfo& session);
+		//bool IsSessionValid(const SessionInfo& session);
 
 		AECFilter _EchoFilter;
 	};
