@@ -31,7 +31,7 @@ jobs:
               exit 1
           fi
           exit 0
-    - name: build
+    - name: build-mac
       shell: bash
       run: |
           sh mac-build.sh > BuildLog.txt -Wait -NoNewWindow -PassThru
