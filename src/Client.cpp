@@ -496,11 +496,6 @@ void Inworld::ClientBase::TryToStartWriteTask()
 	}
 }
 
-bool Inworld::SessionInfo::IsValid() const
-{
-	return !Token.empty() && !SessionId.empty() && ExpirationTime > std::time(0);
-}
-
 void Inworld::Client::Update()
 {
 	ExecutePendingTasks();

@@ -9,6 +9,9 @@
 
 #include "proto/ProtoDisableWarning.h"
 #include "proto/packets.pb.h"
+
+#include "Types.h"
+
 #include <google/protobuf/util/time_util.h>
 #include <vector>
 #include <chrono>
@@ -247,8 +250,6 @@ namespace Inworld {
 	protected:
 		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const = 0;
 	};
-
-	struct AgentInfo;
 
 	class INWORLDAINDK_API ChangeSceneEvent : public MutationEvent
 	{

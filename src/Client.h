@@ -11,6 +11,7 @@
 #include <functional>
 
 #include <future>
+#include "Types.h"
 #include "Packets.h"
 #include "Utils/SharedQueue.h"
 #include "AsyncRoutine.h"
@@ -29,22 +30,6 @@ namespace Inworld
 		std::string ApiKey;
 		std::string ApiSecret;
 		std::string PlayerName;
-	};
-
-	struct INWORLDAINDK_API SessionInfo
-	{
-		std::string SessionId;
-		std::string Token;
-		int64_t ExpirationTime;
-
-		bool IsValid() const;
-	};
-
-	struct INWORLDAINDK_API AgentInfo
-	{
-		std::string BrainName;
-		std::string AgentId;
-		std::string GivenName;
 	};
 
 	class INWORLDAINDK_API ClientBase
