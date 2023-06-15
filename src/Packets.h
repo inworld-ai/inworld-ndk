@@ -96,7 +96,6 @@ namespace Inworld {
     class ControlEvent;
     class EmotionEvent;
     class CancelResponseEvent;
-    class SimpleGestureEvent;
     class CustomGestureEvent;
 	class CustomEvent;
 
@@ -111,7 +110,6 @@ namespace Inworld {
         virtual void Visit(const ControlEvent& Event) {  }
         virtual void Visit(const EmotionEvent& Event) {  }
         virtual void Visit(const CancelResponseEvent& Event) {  }
-        virtual void Visit(const SimpleGestureEvent& Event) {  }
         virtual void Visit(const CustomGestureEvent& Event) {  }
 		virtual void Visit(const CustomEvent& Event) {  }
     };

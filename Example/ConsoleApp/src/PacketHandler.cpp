@@ -23,11 +23,6 @@ void NDKApp::PacketHandler::Visit(const Inworld::CustomGestureEvent& Event)
 	Inworld::Log("{}: Custom gesture: {}", Event._Routing._Source._Name, Event.GetCustomGesture());
 }
 
-void NDKApp::PacketHandler::Visit(const Inworld::SimpleGestureEvent& Event)
-{
-	Inworld::Log("{}: Simple gesture: {}", Event._Routing._Source._Name, (int32_t)Event.GetSimpleGesture());
-}
-
 void NDKApp::PacketHandler::Visit(const Inworld::CancelResponseEvent& Event)
 {
 
