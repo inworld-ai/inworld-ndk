@@ -31,7 +31,7 @@ jobs:
             exit 1
           }
           exit 0
-    - name: build
+    - name: build-win
       shell: pwsh
       run: |
           Start-Process -FilePath "win-build.bat" " > BuildLog.txt" -Wait -NoNewWindow -PassThru
