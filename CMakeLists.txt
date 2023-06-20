@@ -328,8 +328,8 @@ if (AEC AND WIN32)
 endif()
 
 foreach(LibFile IN LISTS LibFiles)
-    add_custom_command(TARGET InworldNDK POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy ${LibFile} ${PackageLibDir})
+    #add_custom_command(TARGET InworldNDK POST_BUILD
+    #    COMMAND ${CMAKE_COMMAND} -E copy ${LibFile} ${PackageLibDir})
 endforeach()
 
 add_custom_command(TARGET InworldNDK POST_BUILD
