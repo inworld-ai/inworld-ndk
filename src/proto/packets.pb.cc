@@ -61,17 +61,6 @@ class PacketIdDefaultTypeInternal {
 class InworldPacketDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<InworldPacket> _instance;
-  const ::ai::inworld::packets::TextEvent* text_;
-  const ::ai::inworld::packets::ControlEvent* control_;
-  const ::ai::inworld::packets::AudioChunk* audio_chunk_;
-  const ::ai::inworld::packets::CustomEvent* custom_;
-  const ::ai::inworld::packets::CancelResponsesEvent* cancelresponses_;
-  const ::ai::inworld::packets::EmotionEvent* emotion_;
-  const ::ai::inworld::packets::DataChunk* data_chunk_;
-  const ::ai::inworld::packets::ActionEvent* action_;
-  const ::ai::inworld::packets::MutationEvent* mutation_;
-  const ::ai::inworld::packets::LoadSceneOutputEvent* load_scene_output_;
-  const ::ai::inworld::packets::DebugInfoEvent* debug_info_;
 } _InworldPacket_default_instance_;
 class TextEventDefaultTypeInternal {
  public:
@@ -104,8 +93,6 @@ class EmotionEventDefaultTypeInternal {
 class DataChunkDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<DataChunk> _instance;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr chunk_;
-  ::PROTOBUF_NAMESPACE_ID::int64 duration_ms_;
 } _DataChunk_default_instance_;
 class AdditionalPhonemeInfoDefaultTypeInternal {
  public:
@@ -114,7 +101,6 @@ class AdditionalPhonemeInfoDefaultTypeInternal {
 class ActionEventDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ActionEvent> _instance;
-  const ::ai::inworld::packets::NarratedAction* narrated_action_;
 } _ActionEvent_default_instance_;
 class NarratedActionDefaultTypeInternal {
  public:
@@ -131,11 +117,6 @@ class RelationInfoDefaultTypeInternal {
 class MutationEventDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<MutationEvent> _instance;
-  const ::ai::inworld::packets::CancelResponses* cancel_responses_;
-  const ::ai::inworld::packets::RegenerateResponse* regenerate_response_;
-  const ::ai::inworld::packets::ApplyResponse* apply_response_;
-  const ::ai::inworld::packets::LoadScene* load_scene_;
-  const ::ai::inworld::packets::ModifyExactResponse* modify_exact_response_;
 } _MutationEvent_default_instance_;
 class CancelResponsesDefaultTypeInternal {
  public:
@@ -168,7 +149,6 @@ class LoadSceneOutputEventDefaultTypeInternal {
 class DebugInfoEventDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<DebugInfoEvent> _instance;
-  const ::ai::inworld::packets::RelationInfo* relation_;
 } _DebugInfoEvent_default_instance_;
 }  // namespace packets
 }  // namespace inworld
@@ -181,7 +161,6 @@ static void InitDefaultsscc_info_ActionEvent_packets_2eproto() {
     new (ptr) ::ai::inworld::packets::ActionEvent();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::packets::ActionEvent::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ActionEvent_packets_2eproto =
@@ -196,7 +175,6 @@ static void InitDefaultsscc_info_Actor_packets_2eproto() {
     new (ptr) ::ai::inworld::packets::Actor();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::packets::Actor::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Actor_packets_2eproto =
@@ -210,7 +188,6 @@ static void InitDefaultsscc_info_AdditionalPhonemeInfo_packets_2eproto() {
     new (ptr) ::ai::inworld::packets::AdditionalPhonemeInfo();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::packets::AdditionalPhonemeInfo::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_AdditionalPhonemeInfo_packets_2eproto =
@@ -225,7 +202,6 @@ static void InitDefaultsscc_info_ApplyResponse_packets_2eproto() {
     new (ptr) ::ai::inworld::packets::ApplyResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::packets::ApplyResponse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ApplyResponse_packets_2eproto =
@@ -240,7 +216,6 @@ static void InitDefaultsscc_info_AudioChunk_packets_2eproto() {
     new (ptr) ::ai::inworld::packets::AudioChunk();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::packets::AudioChunk::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_AudioChunk_packets_2eproto =
@@ -254,7 +229,6 @@ static void InitDefaultsscc_info_CancelResponses_packets_2eproto() {
     new (ptr) ::ai::inworld::packets::CancelResponses();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::packets::CancelResponses::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_CancelResponses_packets_2eproto =
@@ -268,7 +242,6 @@ static void InitDefaultsscc_info_CancelResponsesEvent_packets_2eproto() {
     new (ptr) ::ai::inworld::packets::CancelResponsesEvent();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::packets::CancelResponsesEvent::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_CancelResponsesEvent_packets_2eproto =
@@ -282,7 +255,6 @@ static void InitDefaultsscc_info_ControlEvent_packets_2eproto() {
     new (ptr) ::ai::inworld::packets::ControlEvent();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::packets::ControlEvent::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ControlEvent_packets_2eproto =
@@ -297,7 +269,6 @@ static void InitDefaultsscc_info_CustomEvent_packets_2eproto() {
     new (ptr) ::ai::inworld::packets::CustomEvent();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::packets::CustomEvent::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CustomEvent_packets_2eproto =
@@ -312,7 +283,6 @@ static void InitDefaultsscc_info_CustomEvent_Parameter_packets_2eproto() {
     new (ptr) ::ai::inworld::packets::CustomEvent_Parameter();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::packets::CustomEvent_Parameter::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_CustomEvent_Parameter_packets_2eproto =
@@ -326,7 +296,6 @@ static void InitDefaultsscc_info_DataChunk_packets_2eproto() {
     new (ptr) ::ai::inworld::packets::DataChunk();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::packets::DataChunk::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_DataChunk_packets_2eproto =
@@ -341,7 +310,6 @@ static void InitDefaultsscc_info_DebugInfoEvent_packets_2eproto() {
     new (ptr) ::ai::inworld::packets::DebugInfoEvent();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::packets::DebugInfoEvent::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_DebugInfoEvent_packets_2eproto =
@@ -356,7 +324,6 @@ static void InitDefaultsscc_info_EmotionEvent_packets_2eproto() {
     new (ptr) ::ai::inworld::packets::EmotionEvent();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::packets::EmotionEvent::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_EmotionEvent_packets_2eproto =
@@ -370,7 +337,6 @@ static void InitDefaultsscc_info_InworldPacket_packets_2eproto() {
     new (ptr) ::ai::inworld::packets::InworldPacket();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::packets::InworldPacket::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<14> scc_info_InworldPacket_packets_2eproto =
@@ -398,7 +364,6 @@ static void InitDefaultsscc_info_LoadScene_packets_2eproto() {
     new (ptr) ::ai::inworld::packets::LoadScene();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::packets::LoadScene::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_LoadScene_packets_2eproto =
@@ -412,7 +377,6 @@ static void InitDefaultsscc_info_LoadSceneOutputEvent_packets_2eproto() {
     new (ptr) ::ai::inworld::packets::LoadSceneOutputEvent();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::packets::LoadSceneOutputEvent::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_LoadSceneOutputEvent_packets_2eproto =
@@ -427,7 +391,6 @@ static void InitDefaultsscc_info_LoadSceneOutputEvent_Agent_packets_2eproto() {
     new (ptr) ::ai::inworld::packets::LoadSceneOutputEvent_Agent();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::packets::LoadSceneOutputEvent_Agent::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_LoadSceneOutputEvent_Agent_packets_2eproto =
@@ -441,7 +404,6 @@ static void InitDefaultsscc_info_ModifyExactResponse_packets_2eproto() {
     new (ptr) ::ai::inworld::packets::ModifyExactResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::packets::ModifyExactResponse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModifyExactResponse_packets_2eproto =
@@ -455,7 +417,6 @@ static void InitDefaultsscc_info_MutationEvent_packets_2eproto() {
     new (ptr) ::ai::inworld::packets::MutationEvent();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::packets::MutationEvent::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_MutationEvent_packets_2eproto =
@@ -474,7 +435,6 @@ static void InitDefaultsscc_info_NarratedAction_packets_2eproto() {
     new (ptr) ::ai::inworld::packets::NarratedAction();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::packets::NarratedAction::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_NarratedAction_packets_2eproto =
@@ -488,7 +448,6 @@ static void InitDefaultsscc_info_PacketId_packets_2eproto() {
     new (ptr) ::ai::inworld::packets::PacketId();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::packets::PacketId::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_PacketId_packets_2eproto =
@@ -502,7 +461,6 @@ static void InitDefaultsscc_info_RegenerateResponse_packets_2eproto() {
     new (ptr) ::ai::inworld::packets::RegenerateResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::packets::RegenerateResponse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_RegenerateResponse_packets_2eproto =
@@ -516,7 +474,6 @@ static void InitDefaultsscc_info_RelationInfo_packets_2eproto() {
     new (ptr) ::ai::inworld::packets::RelationInfo();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::packets::RelationInfo::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_RelationInfo_packets_2eproto =
@@ -531,7 +488,6 @@ static void InitDefaultsscc_info_RelationInfo_RelationAttributes_packets_2eproto
     new (ptr) ::ai::inworld::packets::RelationInfo_RelationAttributes();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::packets::RelationInfo_RelationAttributes::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_RelationInfo_RelationAttributes_packets_2eproto =
@@ -545,7 +501,6 @@ static void InitDefaultsscc_info_Routing_packets_2eproto() {
     new (ptr) ::ai::inworld::packets::Routing();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::packets::Routing::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Routing_packets_2eproto =
@@ -560,7 +515,6 @@ static void InitDefaultsscc_info_TextEvent_packets_2eproto() {
     new (ptr) ::ai::inworld::packets::TextEvent();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::packets::TextEvent::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_TextEvent_packets_2eproto =
@@ -602,17 +556,17 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_packets_2eproto::offsets[] PRO
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::InworldPacket, timestamp_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::InworldPacket, routing_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::InworldPacket, packet_id_),
-  offsetof(::ai::inworld::packets::InworldPacketDefaultTypeInternal, text_),
-  offsetof(::ai::inworld::packets::InworldPacketDefaultTypeInternal, control_),
-  offsetof(::ai::inworld::packets::InworldPacketDefaultTypeInternal, audio_chunk_),
-  offsetof(::ai::inworld::packets::InworldPacketDefaultTypeInternal, custom_),
-  offsetof(::ai::inworld::packets::InworldPacketDefaultTypeInternal, cancelresponses_),
-  offsetof(::ai::inworld::packets::InworldPacketDefaultTypeInternal, emotion_),
-  offsetof(::ai::inworld::packets::InworldPacketDefaultTypeInternal, data_chunk_),
-  offsetof(::ai::inworld::packets::InworldPacketDefaultTypeInternal, action_),
-  offsetof(::ai::inworld::packets::InworldPacketDefaultTypeInternal, mutation_),
-  offsetof(::ai::inworld::packets::InworldPacketDefaultTypeInternal, load_scene_output_),
-  offsetof(::ai::inworld::packets::InworldPacketDefaultTypeInternal, debug_info_),
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::InworldPacket, packet_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::TextEvent, _internal_metadata_),
@@ -674,8 +628,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_packets_2eproto::offsets[] PRO
   ~0u,  // no _extensions_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::DataChunk, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
-  offsetof(::ai::inworld::packets::DataChunkDefaultTypeInternal, chunk_),
-  offsetof(::ai::inworld::packets::DataChunkDefaultTypeInternal, duration_ms_),
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::DataChunk, type_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::DataChunk, additional_phoneme_info_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::DataChunk, data_),
@@ -691,7 +645,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_packets_2eproto::offsets[] PRO
   ~0u,  // no _extensions_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::ActionEvent, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
-  offsetof(::ai::inworld::packets::ActionEventDefaultTypeInternal, narrated_action_),
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::ActionEvent, playback_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::ActionEvent, action_),
   ~0u,  // no _has_bits_
@@ -722,11 +676,11 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_packets_2eproto::offsets[] PRO
   ~0u,  // no _extensions_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::MutationEvent, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
-  offsetof(::ai::inworld::packets::MutationEventDefaultTypeInternal, cancel_responses_),
-  offsetof(::ai::inworld::packets::MutationEventDefaultTypeInternal, regenerate_response_),
-  offsetof(::ai::inworld::packets::MutationEventDefaultTypeInternal, apply_response_),
-  offsetof(::ai::inworld::packets::MutationEventDefaultTypeInternal, load_scene_),
-  offsetof(::ai::inworld::packets::MutationEventDefaultTypeInternal, modify_exact_response_),
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::MutationEvent, mutation_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::CancelResponses, _internal_metadata_),
@@ -779,7 +733,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_packets_2eproto::offsets[] PRO
   ~0u,  // no _extensions_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::DebugInfoEvent, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
-  offsetof(::ai::inworld::packets::DebugInfoEventDefaultTypeInternal, relation_),
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::DebugInfoEvent, info_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -1215,8 +1169,6 @@ bool Playback_IsValid(int value) {
 
 // ===================================================================
 
-void Actor::InitAsDefaultInstance() {
-}
 class Actor::_Internal {
  public:
 };
@@ -1232,7 +1184,7 @@ Actor::Actor(const Actor& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   type_ = from.type_;
@@ -1277,14 +1229,13 @@ void Actor::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   type_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* Actor::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1452,12 +1403,6 @@ void Actor::InternalSwap(Actor* other) {
 
 // ===================================================================
 
-void Routing::InitAsDefaultInstance() {
-  ::ai::inworld::packets::_Routing_default_instance_._instance.get_mutable()->source_ = const_cast< ::ai::inworld::packets::Actor*>(
-      ::ai::inworld::packets::Actor::internal_default_instance());
-  ::ai::inworld::packets::_Routing_default_instance_._instance.get_mutable()->target_ = const_cast< ::ai::inworld::packets::Actor*>(
-      ::ai::inworld::packets::Actor::internal_default_instance());
-}
 class Routing::_Internal {
  public:
   static const ::ai::inworld::packets::Actor& source(const Routing* msg);
@@ -1496,8 +1441,9 @@ Routing::Routing(const Routing& from)
 
 void Routing::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Routing_packets_2eproto.base);
-  ::memset(&source_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&target_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&source_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&target_) -
       reinterpret_cast<char*>(&source_)) + sizeof(target_));
 }
 
@@ -1547,7 +1493,6 @@ void Routing::Clear() {
 
 const char* Routing::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1716,8 +1661,6 @@ void Routing::InternalSwap(Routing* other) {
 
 // ===================================================================
 
-void PacketId::InitAsDefaultInstance() {
-}
 class PacketId::_Internal {
  public:
 };
@@ -1733,22 +1676,22 @@ PacketId::PacketId(const PacketId& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   packet_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_packet_id().empty()) {
-    packet_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_packet_id(),
+    packet_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_packet_id(), 
       GetArena());
   }
   utterance_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_utterance_id().empty()) {
-    utterance_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_utterance_id(),
+    utterance_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_utterance_id(), 
       GetArena());
   }
   interaction_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_interaction_id().empty()) {
-    interaction_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_interaction_id(),
+    interaction_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_interaction_id(), 
       GetArena());
   }
   correlation_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_correlation_id().empty()) {
-    correlation_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_correlation_id(),
+    correlation_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_correlation_id(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.packets.PacketId)
@@ -1797,16 +1740,15 @@ void PacketId::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  packet_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  utterance_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  interaction_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  correlation_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  packet_id_.ClearToEmpty();
+  utterance_id_.ClearToEmpty();
+  interaction_id_.ClearToEmpty();
+  correlation_id_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* PacketId::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -2039,36 +1981,6 @@ void PacketId::InternalSwap(PacketId* other) {
 
 // ===================================================================
 
-void InworldPacket::InitAsDefaultInstance() {
-  ::ai::inworld::packets::_InworldPacket_default_instance_._instance.get_mutable()->timestamp_ = const_cast< PROTOBUF_NAMESPACE_ID::Timestamp*>(
-      PROTOBUF_NAMESPACE_ID::Timestamp::internal_default_instance());
-  ::ai::inworld::packets::_InworldPacket_default_instance_._instance.get_mutable()->routing_ = const_cast< ::ai::inworld::packets::Routing*>(
-      ::ai::inworld::packets::Routing::internal_default_instance());
-  ::ai::inworld::packets::_InworldPacket_default_instance_._instance.get_mutable()->packet_id_ = const_cast< ::ai::inworld::packets::PacketId*>(
-      ::ai::inworld::packets::PacketId::internal_default_instance());
-  ::ai::inworld::packets::_InworldPacket_default_instance_.text_ = const_cast< ::ai::inworld::packets::TextEvent*>(
-      ::ai::inworld::packets::TextEvent::internal_default_instance());
-  ::ai::inworld::packets::_InworldPacket_default_instance_.control_ = const_cast< ::ai::inworld::packets::ControlEvent*>(
-      ::ai::inworld::packets::ControlEvent::internal_default_instance());
-  ::ai::inworld::packets::_InworldPacket_default_instance_.audio_chunk_ = const_cast< ::ai::inworld::packets::AudioChunk*>(
-      ::ai::inworld::packets::AudioChunk::internal_default_instance());
-  ::ai::inworld::packets::_InworldPacket_default_instance_.custom_ = const_cast< ::ai::inworld::packets::CustomEvent*>(
-      ::ai::inworld::packets::CustomEvent::internal_default_instance());
-  ::ai::inworld::packets::_InworldPacket_default_instance_.cancelresponses_ = const_cast< ::ai::inworld::packets::CancelResponsesEvent*>(
-      ::ai::inworld::packets::CancelResponsesEvent::internal_default_instance());
-  ::ai::inworld::packets::_InworldPacket_default_instance_.emotion_ = const_cast< ::ai::inworld::packets::EmotionEvent*>(
-      ::ai::inworld::packets::EmotionEvent::internal_default_instance());
-  ::ai::inworld::packets::_InworldPacket_default_instance_.data_chunk_ = const_cast< ::ai::inworld::packets::DataChunk*>(
-      ::ai::inworld::packets::DataChunk::internal_default_instance());
-  ::ai::inworld::packets::_InworldPacket_default_instance_.action_ = const_cast< ::ai::inworld::packets::ActionEvent*>(
-      ::ai::inworld::packets::ActionEvent::internal_default_instance());
-  ::ai::inworld::packets::_InworldPacket_default_instance_.mutation_ = const_cast< ::ai::inworld::packets::MutationEvent*>(
-      ::ai::inworld::packets::MutationEvent::internal_default_instance());
-  ::ai::inworld::packets::_InworldPacket_default_instance_.load_scene_output_ = const_cast< ::ai::inworld::packets::LoadSceneOutputEvent*>(
-      ::ai::inworld::packets::LoadSceneOutputEvent::internal_default_instance());
-  ::ai::inworld::packets::_InworldPacket_default_instance_.debug_info_ = const_cast< ::ai::inworld::packets::DebugInfoEvent*>(
-      ::ai::inworld::packets::DebugInfoEvent::internal_default_instance());
-}
 class InworldPacket::_Internal {
  public:
   static const PROTOBUF_NAMESPACE_ID::Timestamp& timestamp(const InworldPacket* msg);
@@ -2393,8 +2305,9 @@ InworldPacket::InworldPacket(const InworldPacket& from)
 
 void InworldPacket::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_InworldPacket_packets_2eproto.base);
-  ::memset(&timestamp_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&packet_id_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&timestamp_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&packet_id_) -
       reinterpret_cast<char*>(&timestamp_)) + sizeof(packet_id_));
   clear_has_packet();
 }
@@ -2531,7 +2444,6 @@ void InworldPacket::Clear() {
 
 const char* InworldPacket::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -3023,8 +2935,6 @@ void InworldPacket::InternalSwap(InworldPacket* other) {
 
 // ===================================================================
 
-void TextEvent::InitAsDefaultInstance() {
-}
 class TextEvent::_Internal {
  public:
 };
@@ -3040,7 +2950,7 @@ TextEvent::TextEvent(const TextEvent& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   text_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_text().empty()) {
-    text_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_text(),
+    text_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_text(), 
       GetArena());
   }
   ::memcpy(&source_type_, &from.source_type_,
@@ -3052,8 +2962,9 @@ TextEvent::TextEvent(const TextEvent& from)
 void TextEvent::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_TextEvent_packets_2eproto.base);
   text_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&source_type_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&final_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&source_type_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&final_) -
       reinterpret_cast<char*>(&source_type_)) + sizeof(final_));
 }
 
@@ -3089,7 +3000,7 @@ void TextEvent::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  text_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  text_.ClearToEmpty();
   ::memset(&source_type_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&final_) -
       reinterpret_cast<char*>(&source_type_)) + sizeof(final_));
@@ -3098,7 +3009,6 @@ void TextEvent::Clear() {
 
 const char* TextEvent::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -3292,10 +3202,6 @@ void TextEvent::InternalSwap(TextEvent* other) {
 
 // ===================================================================
 
-void ControlEvent::InitAsDefaultInstance() {
-  ::ai::inworld::packets::_ControlEvent_default_instance_._instance.get_mutable()->payload_ = const_cast< PROTOBUF_NAMESPACE_ID::Struct*>(
-      PROTOBUF_NAMESPACE_ID::Struct::internal_default_instance());
-}
 class ControlEvent::_Internal {
  public:
   static const PROTOBUF_NAMESPACE_ID::Struct& payload(const ControlEvent* msg);
@@ -3322,7 +3228,7 @@ ControlEvent::ControlEvent(const ControlEvent& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_description().empty()) {
-    description_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_description(),
+    description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_description(), 
       GetArena());
   }
   if (from._internal_has_payload()) {
@@ -3337,8 +3243,9 @@ ControlEvent::ControlEvent(const ControlEvent& from)
 void ControlEvent::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ControlEvent_packets_2eproto.base);
   description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&payload_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&action_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&payload_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&action_) -
       reinterpret_cast<char*>(&payload_)) + sizeof(action_));
 }
 
@@ -3375,7 +3282,7 @@ void ControlEvent::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  description_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  description_.ClearToEmpty();
   if (GetArena() == nullptr && payload_ != nullptr) {
     delete payload_;
   }
@@ -3386,7 +3293,6 @@ void ControlEvent::Clear() {
 
 const char* ControlEvent::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -3584,8 +3490,6 @@ void ControlEvent::InternalSwap(ControlEvent* other) {
 
 // ===================================================================
 
-void AudioChunk::InitAsDefaultInstance() {
-}
 class AudioChunk::_Internal {
  public:
 };
@@ -3601,7 +3505,7 @@ AudioChunk::AudioChunk(const AudioChunk& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   chunk_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_chunk().empty()) {
-    chunk_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_chunk(),
+    chunk_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_chunk(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.packets.AudioChunk)
@@ -3644,13 +3548,12 @@ void AudioChunk::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  chunk_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  chunk_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* AudioChunk::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -3788,8 +3691,6 @@ void AudioChunk::InternalSwap(AudioChunk* other) {
 
 // ===================================================================
 
-void CustomEvent_Parameter::InitAsDefaultInstance() {
-}
 class CustomEvent_Parameter::_Internal {
  public:
 };
@@ -3805,12 +3706,12 @@ CustomEvent_Parameter::CustomEvent_Parameter(const CustomEvent_Parameter& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_value().empty()) {
-    value_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_value(),
+    value_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_value(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.packets.CustomEvent.Parameter)
@@ -3855,14 +3756,13 @@ void CustomEvent_Parameter::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  value_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
+  value_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* CustomEvent_Parameter::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -4035,8 +3935,6 @@ void CustomEvent_Parameter::InternalSwap(CustomEvent_Parameter* other) {
 
 // ===================================================================
 
-void CustomEvent::InitAsDefaultInstance() {
-}
 class CustomEvent::_Internal {
  public:
 };
@@ -4054,7 +3952,7 @@ CustomEvent::CustomEvent(const CustomEvent& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   playback_ = from.playback_;
@@ -4100,14 +3998,13 @@ void CustomEvent::Clear() {
   (void) cached_has_bits;
 
   parameters_.Clear();
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   playback_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* CustomEvent::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -4304,8 +4201,6 @@ void CustomEvent::InternalSwap(CustomEvent* other) {
 
 // ===================================================================
 
-void CancelResponsesEvent::InitAsDefaultInstance() {
-}
 class CancelResponsesEvent::_Internal {
  public:
 };
@@ -4323,7 +4218,7 @@ CancelResponsesEvent::CancelResponsesEvent(const CancelResponsesEvent& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   interaction_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_interaction_id().empty()) {
-    interaction_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_interaction_id(),
+    interaction_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_interaction_id(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.packets.CancelResponsesEvent)
@@ -4367,13 +4262,12 @@ void CancelResponsesEvent::Clear() {
   (void) cached_has_bits;
 
   utterance_id_.Clear();
-  interaction_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  interaction_id_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* CancelResponsesEvent::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -4550,8 +4444,6 @@ void CancelResponsesEvent::InternalSwap(CancelResponsesEvent* other) {
 
 // ===================================================================
 
-void EmotionEvent::InitAsDefaultInstance() {
-}
 class EmotionEvent::_Internal {
  public:
 };
@@ -4572,8 +4464,9 @@ EmotionEvent::EmotionEvent(const EmotionEvent& from)
 }
 
 void EmotionEvent::SharedCtor() {
-  ::memset(&joy_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&strength_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&joy_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&strength_) -
       reinterpret_cast<char*>(&joy_)) + sizeof(strength_));
 }
 
@@ -4616,7 +4509,6 @@ void EmotionEvent::Clear() {
 
 const char* EmotionEvent::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -4867,11 +4759,6 @@ void EmotionEvent::InternalSwap(EmotionEvent* other) {
 
 // ===================================================================
 
-void DataChunk::InitAsDefaultInstance() {
-  ::ai::inworld::packets::_DataChunk_default_instance_.chunk_.UnsafeSetDefault(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::ai::inworld::packets::_DataChunk_default_instance_.duration_ms_ = PROTOBUF_LONGLONG(0);
-}
 class DataChunk::_Internal {
  public:
 };
@@ -4943,7 +4830,7 @@ void DataChunk::clear_data() {
 // @@protoc_insertion_point(one_of_clear_start:ai.inworld.packets.DataChunk)
   switch (data_case()) {
     case kChunk: {
-      data_.chunk_.Destroy(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+      data_.chunk_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
       break;
     }
     case kDurationMs: {
@@ -4972,7 +4859,6 @@ void DataChunk::Clear() {
 
 const char* DataChunk::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -5200,10 +5086,6 @@ void DataChunk::InternalSwap(DataChunk* other) {
 
 // ===================================================================
 
-void AdditionalPhonemeInfo::InitAsDefaultInstance() {
-  ::ai::inworld::packets::_AdditionalPhonemeInfo_default_instance_._instance.get_mutable()->start_offset_ = const_cast< PROTOBUF_NAMESPACE_ID::Duration*>(
-      PROTOBUF_NAMESPACE_ID::Duration::internal_default_instance());
-}
 class AdditionalPhonemeInfo::_Internal {
  public:
   static const PROTOBUF_NAMESPACE_ID::Duration& start_offset(const AdditionalPhonemeInfo* msg);
@@ -5230,7 +5112,7 @@ AdditionalPhonemeInfo::AdditionalPhonemeInfo(const AdditionalPhonemeInfo& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   phoneme_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_phoneme().empty()) {
-    phoneme_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_phoneme(),
+    phoneme_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_phoneme(), 
       GetArena());
   }
   if (from._internal_has_start_offset()) {
@@ -5280,7 +5162,7 @@ void AdditionalPhonemeInfo::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  phoneme_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  phoneme_.ClearToEmpty();
   if (GetArena() == nullptr && start_offset_ != nullptr) {
     delete start_offset_;
   }
@@ -5290,7 +5172,6 @@ void AdditionalPhonemeInfo::Clear() {
 
 const char* AdditionalPhonemeInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -5459,10 +5340,6 @@ void AdditionalPhonemeInfo::InternalSwap(AdditionalPhonemeInfo* other) {
 
 // ===================================================================
 
-void ActionEvent::InitAsDefaultInstance() {
-  ::ai::inworld::packets::_ActionEvent_default_instance_.narrated_action_ = const_cast< ::ai::inworld::packets::NarratedAction*>(
-      ::ai::inworld::packets::NarratedAction::internal_default_instance());
-}
 class ActionEvent::_Internal {
  public:
   static const ::ai::inworld::packets::NarratedAction& narrated_action(const ActionEvent* msg);
@@ -5574,7 +5451,6 @@ void ActionEvent::Clear() {
 
 const char* ActionEvent::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -5750,8 +5626,6 @@ void ActionEvent::InternalSwap(ActionEvent* other) {
 
 // ===================================================================
 
-void NarratedAction::InitAsDefaultInstance() {
-}
 class NarratedAction::_Internal {
  public:
 };
@@ -5767,7 +5641,7 @@ NarratedAction::NarratedAction(const NarratedAction& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   content_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_content().empty()) {
-    content_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_content(),
+    content_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_content(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.packets.NarratedAction)
@@ -5810,13 +5684,12 @@ void NarratedAction::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  content_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  content_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* NarratedAction::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -5959,8 +5832,6 @@ void NarratedAction::InternalSwap(NarratedAction* other) {
 
 // ===================================================================
 
-void RelationInfo_RelationAttributes::InitAsDefaultInstance() {
-}
 class RelationInfo_RelationAttributes::_Internal {
  public:
 };
@@ -5981,8 +5852,9 @@ RelationInfo_RelationAttributes::RelationInfo_RelationAttributes(const RelationI
 }
 
 void RelationInfo_RelationAttributes::SharedCtor() {
-  ::memset(&trust_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&attraction_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&trust_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&attraction_) -
       reinterpret_cast<char*>(&trust_)) + sizeof(attraction_));
 }
 
@@ -6025,7 +5897,6 @@ void RelationInfo_RelationAttributes::Clear() {
 
 const char* RelationInfo_RelationAttributes::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -6259,12 +6130,6 @@ void RelationInfo_RelationAttributes::InternalSwap(RelationInfo_RelationAttribut
 
 // ===================================================================
 
-void RelationInfo::InitAsDefaultInstance() {
-  ::ai::inworld::packets::_RelationInfo_default_instance_._instance.get_mutable()->relation_state_ = const_cast< ::ai::inworld::packets::RelationInfo_RelationAttributes*>(
-      ::ai::inworld::packets::RelationInfo_RelationAttributes::internal_default_instance());
-  ::ai::inworld::packets::_RelationInfo_default_instance_._instance.get_mutable()->relation_update_ = const_cast< ::ai::inworld::packets::RelationInfo_RelationAttributes*>(
-      ::ai::inworld::packets::RelationInfo_RelationAttributes::internal_default_instance());
-}
 class RelationInfo::_Internal {
  public:
   static const ::ai::inworld::packets::RelationInfo_RelationAttributes& relation_state(const RelationInfo* msg);
@@ -6303,8 +6168,9 @@ RelationInfo::RelationInfo(const RelationInfo& from)
 
 void RelationInfo::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_RelationInfo_packets_2eproto.base);
-  ::memset(&relation_state_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&relation_update_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&relation_state_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&relation_update_) -
       reinterpret_cast<char*>(&relation_state_)) + sizeof(relation_update_));
 }
 
@@ -6354,7 +6220,6 @@ void RelationInfo::Clear() {
 
 const char* RelationInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -6523,18 +6388,6 @@ void RelationInfo::InternalSwap(RelationInfo* other) {
 
 // ===================================================================
 
-void MutationEvent::InitAsDefaultInstance() {
-  ::ai::inworld::packets::_MutationEvent_default_instance_.cancel_responses_ = const_cast< ::ai::inworld::packets::CancelResponses*>(
-      ::ai::inworld::packets::CancelResponses::internal_default_instance());
-  ::ai::inworld::packets::_MutationEvent_default_instance_.regenerate_response_ = const_cast< ::ai::inworld::packets::RegenerateResponse*>(
-      ::ai::inworld::packets::RegenerateResponse::internal_default_instance());
-  ::ai::inworld::packets::_MutationEvent_default_instance_.apply_response_ = const_cast< ::ai::inworld::packets::ApplyResponse*>(
-      ::ai::inworld::packets::ApplyResponse::internal_default_instance());
-  ::ai::inworld::packets::_MutationEvent_default_instance_.load_scene_ = const_cast< ::ai::inworld::packets::LoadScene*>(
-      ::ai::inworld::packets::LoadScene::internal_default_instance());
-  ::ai::inworld::packets::_MutationEvent_default_instance_.modify_exact_response_ = const_cast< ::ai::inworld::packets::ModifyExactResponse*>(
-      ::ai::inworld::packets::ModifyExactResponse::internal_default_instance());
-}
 class MutationEvent::_Internal {
  public:
   static const ::ai::inworld::packets::CancelResponses& cancel_responses(const MutationEvent* msg);
@@ -6763,7 +6616,6 @@ void MutationEvent::Clear() {
 
 const char* MutationEvent::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -7018,8 +6870,6 @@ void MutationEvent::InternalSwap(MutationEvent* other) {
 
 // ===================================================================
 
-void CancelResponses::InitAsDefaultInstance() {
-}
 class CancelResponses::_Internal {
  public:
 };
@@ -7037,7 +6887,7 @@ CancelResponses::CancelResponses(const CancelResponses& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   interaction_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_interaction_id().empty()) {
-    interaction_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_interaction_id(),
+    interaction_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_interaction_id(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.packets.CancelResponses)
@@ -7081,13 +6931,12 @@ void CancelResponses::Clear() {
   (void) cached_has_bits;
 
   utterance_id_.Clear();
-  interaction_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  interaction_id_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* CancelResponses::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -7264,8 +7113,6 @@ void CancelResponses::InternalSwap(CancelResponses* other) {
 
 // ===================================================================
 
-void RegenerateResponse::InitAsDefaultInstance() {
-}
 class RegenerateResponse::_Internal {
  public:
 };
@@ -7281,7 +7128,7 @@ RegenerateResponse::RegenerateResponse(const RegenerateResponse& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   interaction_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_interaction_id().empty()) {
-    interaction_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_interaction_id(),
+    interaction_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_interaction_id(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.packets.RegenerateResponse)
@@ -7324,13 +7171,12 @@ void RegenerateResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  interaction_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  interaction_id_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* RegenerateResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -7473,10 +7319,6 @@ void RegenerateResponse::InternalSwap(RegenerateResponse* other) {
 
 // ===================================================================
 
-void ApplyResponse::InitAsDefaultInstance() {
-  ::ai::inworld::packets::_ApplyResponse_default_instance_._instance.get_mutable()->packet_id_ = const_cast< ::ai::inworld::packets::PacketId*>(
-      ::ai::inworld::packets::PacketId::internal_default_instance());
-}
 class ApplyResponse::_Internal {
  public:
   static const ::ai::inworld::packets::PacketId& packet_id(const ApplyResponse* msg);
@@ -7549,7 +7391,6 @@ void ApplyResponse::Clear() {
 
 const char* ApplyResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -7688,8 +7529,6 @@ void ApplyResponse::InternalSwap(ApplyResponse* other) {
 
 // ===================================================================
 
-void LoadScene::InitAsDefaultInstance() {
-}
 class LoadScene::_Internal {
  public:
 };
@@ -7705,7 +7544,7 @@ LoadScene::LoadScene(const LoadScene& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.packets.LoadScene)
@@ -7748,13 +7587,12 @@ void LoadScene::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* LoadScene::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -7897,8 +7735,6 @@ void LoadScene::InternalSwap(LoadScene* other) {
 
 // ===================================================================
 
-void ModifyExactResponse::InitAsDefaultInstance() {
-}
 class ModifyExactResponse::_Internal {
  public:
 };
@@ -7914,12 +7750,12 @@ ModifyExactResponse::ModifyExactResponse(const ModifyExactResponse& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   interaction_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_interaction_id().empty()) {
-    interaction_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_interaction_id(),
+    interaction_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_interaction_id(), 
       GetArena());
   }
   exact_text_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_exact_text().empty()) {
-    exact_text_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_exact_text(),
+    exact_text_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_exact_text(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.packets.ModifyExactResponse)
@@ -7964,14 +7800,13 @@ void ModifyExactResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  interaction_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  exact_text_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  interaction_id_.ClearToEmpty();
+  exact_text_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* ModifyExactResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -8144,8 +7979,6 @@ void ModifyExactResponse::InternalSwap(ModifyExactResponse* other) {
 
 // ===================================================================
 
-void LoadSceneOutputEvent_Agent::InitAsDefaultInstance() {
-}
 class LoadSceneOutputEvent_Agent::_Internal {
  public:
 };
@@ -8161,17 +7994,17 @@ LoadSceneOutputEvent_Agent::LoadSceneOutputEvent_Agent(const LoadSceneOutputEven
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   agent_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_agent_id().empty()) {
-    agent_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_agent_id(),
+    agent_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_agent_id(), 
       GetArena());
   }
   brain_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_brain_name().empty()) {
-    brain_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_brain_name(),
+    brain_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_brain_name(), 
       GetArena());
   }
   given_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_given_name().empty()) {
-    given_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_given_name(),
+    given_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_given_name(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.packets.LoadSceneOutputEvent.Agent)
@@ -8218,15 +8051,14 @@ void LoadSceneOutputEvent_Agent::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  agent_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  brain_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  given_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  agent_id_.ClearToEmpty();
+  brain_name_.ClearToEmpty();
+  given_name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* LoadSceneOutputEvent_Agent::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -8429,8 +8261,6 @@ void LoadSceneOutputEvent_Agent::InternalSwap(LoadSceneOutputEvent_Agent* other)
 
 // ===================================================================
 
-void LoadSceneOutputEvent::InitAsDefaultInstance() {
-}
 class LoadSceneOutputEvent::_Internal {
  public:
 };
@@ -8490,7 +8320,6 @@ void LoadSceneOutputEvent::Clear() {
 
 const char* LoadSceneOutputEvent::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -8632,10 +8461,6 @@ void LoadSceneOutputEvent::InternalSwap(LoadSceneOutputEvent* other) {
 
 // ===================================================================
 
-void DebugInfoEvent::InitAsDefaultInstance() {
-  ::ai::inworld::packets::_DebugInfoEvent_default_instance_.relation_ = const_cast< ::ai::inworld::packets::RelationInfo*>(
-      ::ai::inworld::packets::RelationInfo::internal_default_instance());
-}
 class DebugInfoEvent::_Internal {
  public:
   static const ::ai::inworld::packets::RelationInfo& relation(const DebugInfoEvent* msg);
@@ -8744,7 +8569,6 @@ void DebugInfoEvent::Clear() {
 
 const char* DebugInfoEvent::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);

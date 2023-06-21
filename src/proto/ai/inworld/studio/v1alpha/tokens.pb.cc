@@ -44,7 +44,6 @@ static void InitDefaultsscc_info_GenerateDefaultSessionTokenRequest_tokens_2epro
     new (ptr) ::ai::inworld::studio::v1alpha::GenerateDefaultSessionTokenRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::GenerateDefaultSessionTokenRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GenerateDefaultSessionTokenRequest_tokens_2eproto =
@@ -58,7 +57,6 @@ static void InitDefaultsscc_info_GenerateSessionTokenRequest_tokens_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::GenerateSessionTokenRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::GenerateSessionTokenRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GenerateSessionTokenRequest_tokens_2eproto =
@@ -72,7 +70,6 @@ static void InitDefaultsscc_info_SessionAccessToken_tokens_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::SessionAccessToken();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::SessionAccessToken::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_SessionAccessToken_tokens_2eproto =
@@ -180,10 +177,6 @@ namespace v1alpha {
 
 // ===================================================================
 
-void SessionAccessToken::InitAsDefaultInstance() {
-  ::ai::inworld::studio::v1alpha::_SessionAccessToken_default_instance_._instance.get_mutable()->expiration_time_ = const_cast< PROTOBUF_NAMESPACE_ID::Timestamp*>(
-      PROTOBUF_NAMESPACE_ID::Timestamp::internal_default_instance());
-}
 class SessionAccessToken::_Internal {
  public:
   static const PROTOBUF_NAMESPACE_ID::Timestamp& expiration_time(const SessionAccessToken* msg);
@@ -210,17 +203,17 @@ SessionAccessToken::SessionAccessToken(const SessionAccessToken& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_token().empty()) {
-    token_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_token(),
+    token_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_token(), 
       GetArena());
   }
   type_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_type().empty()) {
-    type_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_type(),
+    type_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_type(), 
       GetArena());
   }
   session_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_session_id().empty()) {
-    session_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_session_id(),
+    session_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_session_id(), 
       GetArena());
   }
   if (from._internal_has_expiration_time()) {
@@ -274,9 +267,9 @@ void SessionAccessToken::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  token_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  type_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  session_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  token_.ClearToEmpty();
+  type_.ClearToEmpty();
+  session_id_.ClearToEmpty();
   if (GetArena() == nullptr && expiration_time_ != nullptr) {
     delete expiration_time_;
   }
@@ -286,7 +279,6 @@ void SessionAccessToken::Clear() {
 
 const char* SessionAccessToken::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -515,8 +507,6 @@ void SessionAccessToken::InternalSwap(SessionAccessToken* other) {
 
 // ===================================================================
 
-void GenerateSessionTokenRequest::InitAsDefaultInstance() {
-}
 class GenerateSessionTokenRequest::_Internal {
  public:
 };
@@ -532,7 +522,7 @@ GenerateSessionTokenRequest::GenerateSessionTokenRequest(const GenerateSessionTo
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   key_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_key().empty()) {
-    key_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_key(),
+    key_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_key(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.GenerateSessionTokenRequest)
@@ -575,13 +565,12 @@ void GenerateSessionTokenRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  key_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  key_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* GenerateSessionTokenRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -724,8 +713,6 @@ void GenerateSessionTokenRequest::InternalSwap(GenerateSessionTokenRequest* othe
 
 // ===================================================================
 
-void GenerateDefaultSessionTokenRequest::InitAsDefaultInstance() {
-}
 class GenerateDefaultSessionTokenRequest::_Internal {
  public:
 };
@@ -741,7 +728,7 @@ GenerateDefaultSessionTokenRequest::GenerateDefaultSessionTokenRequest(const Gen
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   parent_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_parent().empty()) {
-    parent_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_parent(),
+    parent_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_parent(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.GenerateDefaultSessionTokenRequest)
@@ -784,13 +771,12 @@ void GenerateDefaultSessionTokenRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  parent_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  parent_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* GenerateDefaultSessionTokenRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);

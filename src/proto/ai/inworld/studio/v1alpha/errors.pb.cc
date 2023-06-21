@@ -45,7 +45,6 @@ static void InitDefaultsscc_info_BadRequest_errors_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::BadRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::BadRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_BadRequest_errors_2eproto =
@@ -60,7 +59,6 @@ static void InitDefaultsscc_info_BadRequest_FieldViolation_errors_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::BadRequest_FieldViolation();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::BadRequest_FieldViolation::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_BadRequest_FieldViolation_errors_2eproto =
@@ -74,7 +72,6 @@ static void InitDefaultsscc_info_BadRequest_FieldViolation_MetadataEntry_DoNotUs
     void* ptr = &::ai::inworld::studio::v1alpha::_BadRequest_FieldViolation_MetadataEntry_DoNotUse_default_instance_;
     new (ptr) ::ai::inworld::studio::v1alpha::BadRequest_FieldViolation_MetadataEntry_DoNotUse();
   }
-  ::ai::inworld::studio::v1alpha::BadRequest_FieldViolation_MetadataEntry_DoNotUse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_BadRequest_FieldViolation_MetadataEntry_DoNotUse_errors_2eproto =
@@ -177,8 +174,6 @@ void BadRequest_FieldViolation_MetadataEntry_DoNotUse::MergeFrom(
 
 // ===================================================================
 
-void BadRequest_FieldViolation::InitAsDefaultInstance() {
-}
 class BadRequest_FieldViolation::_Internal {
  public:
 };
@@ -196,12 +191,12 @@ BadRequest_FieldViolation::BadRequest_FieldViolation(const BadRequest_FieldViola
   metadata_.MergeFrom(from.metadata_);
   field_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_field().empty()) {
-    field_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_field(),
+    field_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_field(), 
       GetArena());
   }
   description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_description().empty()) {
-    description_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_description(),
+    description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_description(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.BadRequest.FieldViolation)
@@ -247,14 +242,13 @@ void BadRequest_FieldViolation::Clear() {
   (void) cached_has_bits;
 
   metadata_.Clear();
-  field_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  description_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  field_.ClearToEmpty();
+  description_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* BadRequest_FieldViolation::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -495,8 +489,6 @@ void BadRequest_FieldViolation::InternalSwap(BadRequest_FieldViolation* other) {
 
 // ===================================================================
 
-void BadRequest::InitAsDefaultInstance() {
-}
 class BadRequest::_Internal {
  public:
 };
@@ -556,7 +548,6 @@ void BadRequest::Clear() {
 
 const char* BadRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);

@@ -35,7 +35,6 @@ static void InitDefaultsscc_info_ExampleValue_options_2eproto() {
     new (ptr) ::ai::inworld::options::ExampleValue();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::options::ExampleValue::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ExampleValue_options_2eproto =
@@ -97,8 +96,6 @@ namespace options {
 
 // ===================================================================
 
-void ExampleValue::InitAsDefaultInstance() {
-}
 class ExampleValue::_Internal {
  public:
 };
@@ -161,7 +158,6 @@ void ExampleValue::Clear() {
 
 const char* ExampleValue::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);

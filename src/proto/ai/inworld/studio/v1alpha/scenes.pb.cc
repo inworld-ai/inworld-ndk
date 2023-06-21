@@ -103,7 +103,6 @@ static void InitDefaultsscc_info_CreateSceneRequest_scenes_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::CreateSceneRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::CreateSceneRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CreateSceneRequest_scenes_2eproto =
@@ -118,7 +117,6 @@ static void InitDefaultsscc_info_DeleteSceneRequest_scenes_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::DeleteSceneRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::DeleteSceneRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_DeleteSceneRequest_scenes_2eproto =
@@ -132,7 +130,6 @@ static void InitDefaultsscc_info_DeploySceneAsyncMetadata_scenes_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::DeploySceneAsyncMetadata();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::DeploySceneAsyncMetadata::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_DeploySceneAsyncMetadata_scenes_2eproto =
@@ -146,7 +143,6 @@ static void InitDefaultsscc_info_DeploySceneAsyncResponse_scenes_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::DeploySceneAsyncResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::DeploySceneAsyncResponse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_DeploySceneAsyncResponse_scenes_2eproto =
@@ -160,7 +156,6 @@ static void InitDefaultsscc_info_DeploySceneRequest_scenes_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::DeploySceneRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::DeploySceneRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_DeploySceneRequest_scenes_2eproto =
@@ -174,7 +169,6 @@ static void InitDefaultsscc_info_GetSceneRequest_scenes_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::GetSceneRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::GetSceneRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GetSceneRequest_scenes_2eproto =
@@ -188,7 +182,6 @@ static void InitDefaultsscc_info_ListScenesRequest_scenes_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::ListScenesRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::ListScenesRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ListScenesRequest_scenes_2eproto =
@@ -202,7 +195,6 @@ static void InitDefaultsscc_info_ListScenesResponse_scenes_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::ListScenesResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::ListScenesResponse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ListScenesResponse_scenes_2eproto =
@@ -217,7 +209,6 @@ static void InitDefaultsscc_info_Scene_scenes_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::Scene();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::Scene::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_Scene_scenes_2eproto =
@@ -234,7 +225,6 @@ static void InitDefaultsscc_info_Scene_CharacterReference_scenes_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::Scene_CharacterReference();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::Scene_CharacterReference::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Scene_CharacterReference_scenes_2eproto =
@@ -249,7 +239,6 @@ static void InitDefaultsscc_info_Scene_CharacterReference_Character_scenes_2epro
     new (ptr) ::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_Scene_CharacterReference_Character_scenes_2eproto =
@@ -265,7 +254,6 @@ static void InitDefaultsscc_info_Scene_CharacterReference_Character_CharacterAss
     new (ptr) ::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character_CharacterAssets();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character_CharacterAssets::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Scene_CharacterReference_Character_CharacterAssets_scenes_2eproto =
@@ -279,7 +267,6 @@ static void InitDefaultsscc_info_Scene_CharacterReference_Character_CharacterDes
     new (ptr) ::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character_CharacterDescription();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character_CharacterDescription::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Scene_CharacterReference_Character_CharacterDescription_scenes_2eproto =
@@ -293,7 +280,6 @@ static void InitDefaultsscc_info_Scene_Meta_scenes_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::Scene_Meta();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::Scene_Meta::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Scene_Meta_scenes_2eproto =
@@ -307,7 +293,6 @@ static void InitDefaultsscc_info_Scene_SceneTrigger_scenes_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::Scene_SceneTrigger();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::Scene_SceneTrigger::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Scene_SceneTrigger_scenes_2eproto =
@@ -321,7 +306,6 @@ static void InitDefaultsscc_info_UpdateSceneRequest_scenes_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::UpdateSceneRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::UpdateSceneRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_UpdateSceneRequest_scenes_2eproto =
@@ -658,8 +642,6 @@ bool SceneItemView_IsValid(int value) {
 
 // ===================================================================
 
-void GetSceneRequest::InitAsDefaultInstance() {
-}
 class GetSceneRequest::_Internal {
  public:
 };
@@ -675,7 +657,7 @@ GetSceneRequest::GetSceneRequest(const GetSceneRequest& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   view_ = from.view_;
@@ -720,14 +702,13 @@ void GetSceneRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   view_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* GetSceneRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -895,8 +876,6 @@ void GetSceneRequest::InternalSwap(GetSceneRequest* other) {
 
 // ===================================================================
 
-void ListScenesRequest::InitAsDefaultInstance() {
-}
 class ListScenesRequest::_Internal {
  public:
 };
@@ -912,17 +891,17 @@ ListScenesRequest::ListScenesRequest(const ListScenesRequest& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   parent_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_parent().empty()) {
-    parent_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_parent(),
+    parent_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_parent(), 
       GetArena());
   }
   page_token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_page_token().empty()) {
-    page_token_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_page_token(),
+    page_token_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_page_token(), 
       GetArena());
   }
   filter_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_filter().empty()) {
-    filter_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_filter(),
+    filter_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_filter(), 
       GetArena());
   }
   page_size_ = from.page_size_;
@@ -971,16 +950,15 @@ void ListScenesRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  parent_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  page_token_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  filter_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  parent_.ClearToEmpty();
+  page_token_.ClearToEmpty();
+  filter_.ClearToEmpty();
   page_size_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* ListScenesRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1207,10 +1185,6 @@ void ListScenesRequest::InternalSwap(ListScenesRequest* other) {
 
 // ===================================================================
 
-void CreateSceneRequest::InitAsDefaultInstance() {
-  ::ai::inworld::studio::v1alpha::_CreateSceneRequest_default_instance_._instance.get_mutable()->scene_ = const_cast< ::ai::inworld::studio::v1alpha::Scene*>(
-      ::ai::inworld::studio::v1alpha::Scene::internal_default_instance());
-}
 class CreateSceneRequest::_Internal {
  public:
   static const ::ai::inworld::studio::v1alpha::Scene& scene(const CreateSceneRequest* msg);
@@ -1231,7 +1205,7 @@ CreateSceneRequest::CreateSceneRequest(const CreateSceneRequest& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   parent_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_parent().empty()) {
-    parent_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_parent(),
+    parent_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_parent(), 
       GetArena());
   }
   if (from._internal_has_scene()) {
@@ -1281,7 +1255,7 @@ void CreateSceneRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  parent_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  parent_.ClearToEmpty();
   if (GetArena() == nullptr && scene_ != nullptr) {
     delete scene_;
   }
@@ -1291,7 +1265,6 @@ void CreateSceneRequest::Clear() {
 
 const char* CreateSceneRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1460,12 +1433,6 @@ void CreateSceneRequest::InternalSwap(CreateSceneRequest* other) {
 
 // ===================================================================
 
-void UpdateSceneRequest::InitAsDefaultInstance() {
-  ::ai::inworld::studio::v1alpha::_UpdateSceneRequest_default_instance_._instance.get_mutable()->scene_ = const_cast< ::ai::inworld::studio::v1alpha::Scene*>(
-      ::ai::inworld::studio::v1alpha::Scene::internal_default_instance());
-  ::ai::inworld::studio::v1alpha::_UpdateSceneRequest_default_instance_._instance.get_mutable()->update_mask_ = const_cast< PROTOBUF_NAMESPACE_ID::FieldMask*>(
-      PROTOBUF_NAMESPACE_ID::FieldMask::internal_default_instance());
-}
 class UpdateSceneRequest::_Internal {
  public:
   static const ::ai::inworld::studio::v1alpha::Scene& scene(const UpdateSceneRequest* msg);
@@ -1510,8 +1477,9 @@ UpdateSceneRequest::UpdateSceneRequest(const UpdateSceneRequest& from)
 
 void UpdateSceneRequest::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_UpdateSceneRequest_scenes_2eproto.base);
-  ::memset(&scene_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&update_mask_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&scene_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&update_mask_) -
       reinterpret_cast<char*>(&scene_)) + sizeof(update_mask_));
 }
 
@@ -1561,7 +1529,6 @@ void UpdateSceneRequest::Clear() {
 
 const char* UpdateSceneRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1730,8 +1697,6 @@ void UpdateSceneRequest::InternalSwap(UpdateSceneRequest* other) {
 
 // ===================================================================
 
-void DeleteSceneRequest::InitAsDefaultInstance() {
-}
 class DeleteSceneRequest::_Internal {
  public:
 };
@@ -1747,7 +1712,7 @@ DeleteSceneRequest::DeleteSceneRequest(const DeleteSceneRequest& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.DeleteSceneRequest)
@@ -1790,13 +1755,12 @@ void DeleteSceneRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* DeleteSceneRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1939,8 +1903,6 @@ void DeleteSceneRequest::InternalSwap(DeleteSceneRequest* other) {
 
 // ===================================================================
 
-void Scene_CharacterReference_Character_CharacterDescription::InitAsDefaultInstance() {
-}
 class Scene_CharacterReference_Character_CharacterDescription::_Internal {
  public:
 };
@@ -1956,12 +1918,12 @@ Scene_CharacterReference_Character_CharacterDescription::Scene_CharacterReferenc
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   given_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_given_name().empty()) {
-    given_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_given_name(),
+    given_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_given_name(), 
       GetArena());
   }
   description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_description().empty()) {
-    description_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_description(),
+    description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_description(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.CharacterDescription)
@@ -2006,14 +1968,13 @@ void Scene_CharacterReference_Character_CharacterDescription::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  given_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  description_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  given_name_.ClearToEmpty();
+  description_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* Scene_CharacterReference_Character_CharacterDescription::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -2186,8 +2147,6 @@ void Scene_CharacterReference_Character_CharacterDescription::InternalSwap(Scene
 
 // ===================================================================
 
-void Scene_CharacterReference_Character_CharacterAssets::InitAsDefaultInstance() {
-}
 class Scene_CharacterReference_Character_CharacterAssets::_Internal {
  public:
 };
@@ -2203,32 +2162,32 @@ Scene_CharacterReference_Character_CharacterAssets::Scene_CharacterReference_Cha
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   rpm_model_uri_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_rpm_model_uri().empty()) {
-    rpm_model_uri_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_rpm_model_uri(),
+    rpm_model_uri_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_rpm_model_uri(), 
       GetArena());
   }
   rpm_image_uri_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_rpm_image_uri().empty()) {
-    rpm_image_uri_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_rpm_image_uri(),
+    rpm_image_uri_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_rpm_image_uri(), 
       GetArena());
   }
   rpm_image_uri_portrait_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_rpm_image_uri_portrait().empty()) {
-    rpm_image_uri_portrait_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_rpm_image_uri_portrait(),
+    rpm_image_uri_portrait_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_rpm_image_uri_portrait(), 
       GetArena());
   }
   rpm_image_uri_posture_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_rpm_image_uri_posture().empty()) {
-    rpm_image_uri_posture_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_rpm_image_uri_posture(),
+    rpm_image_uri_posture_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_rpm_image_uri_posture(), 
       GetArena());
   }
   avatar_img_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_avatar_img().empty()) {
-    avatar_img_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_avatar_img(),
+    avatar_img_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_avatar_img(), 
       GetArena());
   }
   avatar_img_original_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_avatar_img_original().empty()) {
-    avatar_img_original_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_avatar_img_original(),
+    avatar_img_original_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_avatar_img_original(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.Scene.CharacterReference.Character.CharacterAssets)
@@ -2281,18 +2240,17 @@ void Scene_CharacterReference_Character_CharacterAssets::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  rpm_model_uri_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  rpm_image_uri_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  rpm_image_uri_portrait_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  rpm_image_uri_posture_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  avatar_img_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  avatar_img_original_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  rpm_model_uri_.ClearToEmpty();
+  rpm_image_uri_.ClearToEmpty();
+  rpm_image_uri_portrait_.ClearToEmpty();
+  rpm_image_uri_posture_.ClearToEmpty();
+  avatar_img_.ClearToEmpty();
+  avatar_img_original_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* Scene_CharacterReference_Character_CharacterAssets::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -2585,12 +2543,6 @@ void Scene_CharacterReference_Character_CharacterAssets::InternalSwap(Scene_Char
 
 // ===================================================================
 
-void Scene_CharacterReference_Character::InitAsDefaultInstance() {
-  ::ai::inworld::studio::v1alpha::_Scene_CharacterReference_Character_default_instance_._instance.get_mutable()->default_character_description_ = const_cast< ::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character_CharacterDescription*>(
-      ::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character_CharacterDescription::internal_default_instance());
-  ::ai::inworld::studio::v1alpha::_Scene_CharacterReference_Character_default_instance_._instance.get_mutable()->default_character_assets_ = const_cast< ::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character_CharacterAssets*>(
-      ::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character_CharacterAssets::internal_default_instance());
-}
 class Scene_CharacterReference_Character::_Internal {
  public:
   static const ::ai::inworld::studio::v1alpha::Scene_CharacterReference_Character_CharacterDescription& default_character_description(const Scene_CharacterReference_Character* msg);
@@ -2616,7 +2568,7 @@ Scene_CharacterReference_Character::Scene_CharacterReference_Character(const Sce
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   additional_agent_info_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_additional_agent_info().empty()) {
-    additional_agent_info_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_additional_agent_info(),
+    additional_agent_info_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_additional_agent_info(), 
       GetArena());
   }
   if (from._internal_has_default_character_description()) {
@@ -2635,8 +2587,9 @@ Scene_CharacterReference_Character::Scene_CharacterReference_Character(const Sce
 void Scene_CharacterReference_Character::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Scene_CharacterReference_Character_scenes_2eproto.base);
   additional_agent_info_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&default_character_description_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&default_character_assets_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&default_character_description_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&default_character_assets_) -
       reinterpret_cast<char*>(&default_character_description_)) + sizeof(default_character_assets_));
 }
 
@@ -2674,7 +2627,7 @@ void Scene_CharacterReference_Character::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  additional_agent_info_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  additional_agent_info_.ClearToEmpty();
   if (GetArena() == nullptr && default_character_description_ != nullptr) {
     delete default_character_description_;
   }
@@ -2688,7 +2641,6 @@ void Scene_CharacterReference_Character::Clear() {
 
 const char* Scene_CharacterReference_Character::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -2887,8 +2839,6 @@ void Scene_CharacterReference_Character::InternalSwap(Scene_CharacterReference_C
 
 // ===================================================================
 
-void Scene_CharacterReference::InitAsDefaultInstance() {
-}
 class Scene_CharacterReference::_Internal {
  public:
 };
@@ -2906,12 +2856,12 @@ Scene_CharacterReference::Scene_CharacterReference(const Scene_CharacterReferenc
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   character_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_character().empty()) {
-    character_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_character(),
+    character_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_character(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.Scene.CharacterReference)
@@ -2957,14 +2907,13 @@ void Scene_CharacterReference::Clear() {
   (void) cached_has_bits;
 
   character_overloads_.Clear();
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  character_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
+  character_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* Scene_CharacterReference::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -3166,8 +3115,6 @@ void Scene_CharacterReference::InternalSwap(Scene_CharacterReference* other) {
 
 // ===================================================================
 
-void Scene_SceneTrigger::InitAsDefaultInstance() {
-}
 class Scene_SceneTrigger::_Internal {
  public:
 };
@@ -3183,12 +3130,12 @@ Scene_SceneTrigger::Scene_SceneTrigger(const Scene_SceneTrigger& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   trigger_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_trigger().empty()) {
-    trigger_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_trigger(),
+    trigger_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_trigger(), 
       GetArena());
   }
   description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_description().empty()) {
-    description_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_description(),
+    description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_description(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.Scene.SceneTrigger)
@@ -3233,14 +3180,13 @@ void Scene_SceneTrigger::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  trigger_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  description_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  trigger_.ClearToEmpty();
+  description_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* Scene_SceneTrigger::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -3413,8 +3359,6 @@ void Scene_SceneTrigger::InternalSwap(Scene_SceneTrigger* other) {
 
 // ===================================================================
 
-void Scene_Meta::InitAsDefaultInstance() {
-}
 class Scene_Meta::_Internal {
  public:
 };
@@ -3435,8 +3379,9 @@ Scene_Meta::Scene_Meta(const Scene_Meta& from)
 }
 
 void Scene_Meta::SharedCtor() {
-  ::memset(&total_triggers_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&total_common_knowledge_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&total_triggers_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&total_common_knowledge_) -
       reinterpret_cast<char*>(&total_triggers_)) + sizeof(total_common_knowledge_));
 }
 
@@ -3479,7 +3424,6 @@ void Scene_Meta::Clear() {
 
 const char* Scene_Meta::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -3667,10 +3611,6 @@ void Scene_Meta::InternalSwap(Scene_Meta* other) {
 
 // ===================================================================
 
-void Scene::InitAsDefaultInstance() {
-  ::ai::inworld::studio::v1alpha::_Scene_default_instance_._instance.get_mutable()->meta_ = const_cast< ::ai::inworld::studio::v1alpha::Scene_Meta*>(
-      ::ai::inworld::studio::v1alpha::Scene_Meta::internal_default_instance());
-}
 class Scene::_Internal {
  public:
   static const ::ai::inworld::studio::v1alpha::Scene_Meta& meta(const Scene* msg);
@@ -3697,22 +3637,22 @@ Scene::Scene(const Scene& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_description().empty()) {
-    description_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_description(),
+    description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_description(), 
       GetArena());
   }
   display_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_display_name().empty()) {
-    display_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_display_name(),
+    display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_display_name(), 
       GetArena());
   }
   time_period_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_time_period().empty()) {
-    time_period_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_time_period(),
+    time_period_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_time_period(), 
       GetArena());
   }
   if (from._internal_has_meta()) {
@@ -3771,10 +3711,10 @@ void Scene::Clear() {
   scene_triggers_.Clear();
   character_references_.Clear();
   common_knowledges_.Clear();
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  description_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  display_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  time_period_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
+  description_.ClearToEmpty();
+  display_name_.ClearToEmpty();
+  time_period_.ClearToEmpty();
   if (GetArena() == nullptr && meta_ != nullptr) {
     delete meta_;
   }
@@ -3784,7 +3724,6 @@ void Scene::Clear() {
 
 const char* Scene::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -4135,8 +4074,6 @@ void Scene::InternalSwap(Scene* other) {
 
 // ===================================================================
 
-void ListScenesResponse::InitAsDefaultInstance() {
-}
 class ListScenesResponse::_Internal {
  public:
 };
@@ -4154,7 +4091,7 @@ ListScenesResponse::ListScenesResponse(const ListScenesResponse& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   next_page_token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_next_page_token().empty()) {
-    next_page_token_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_next_page_token(),
+    next_page_token_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_next_page_token(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.ListScenesResponse)
@@ -4198,13 +4135,12 @@ void ListScenesResponse::Clear() {
   (void) cached_has_bits;
 
   scenes_.Clear();
-  next_page_token_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  next_page_token_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* ListScenesResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -4376,8 +4312,6 @@ void ListScenesResponse::InternalSwap(ListScenesResponse* other) {
 
 // ===================================================================
 
-void DeploySceneRequest::InitAsDefaultInstance() {
-}
 class DeploySceneRequest::_Internal {
  public:
 };
@@ -4393,7 +4327,7 @@ DeploySceneRequest::DeploySceneRequest(const DeploySceneRequest& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.DeploySceneRequest)
@@ -4436,13 +4370,12 @@ void DeploySceneRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* DeploySceneRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -4585,8 +4518,6 @@ void DeploySceneRequest::InternalSwap(DeploySceneRequest* other) {
 
 // ===================================================================
 
-void DeploySceneAsyncMetadata::InitAsDefaultInstance() {
-}
 class DeploySceneAsyncMetadata::_Internal {
  public:
 };
@@ -4642,7 +4573,6 @@ void DeploySceneAsyncMetadata::Clear() {
 
 const char* DeploySceneAsyncMetadata::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -4750,8 +4680,6 @@ void DeploySceneAsyncMetadata::InternalSwap(DeploySceneAsyncMetadata* other) {
 
 // ===================================================================
 
-void DeploySceneAsyncResponse::InitAsDefaultInstance() {
-}
 class DeploySceneAsyncResponse::_Internal {
  public:
 };
@@ -4807,7 +4735,6 @@ void DeploySceneAsyncResponse::Clear() {
 
 const char* DeploySceneAsyncResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);

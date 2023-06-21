@@ -31,7 +31,6 @@ class Voice_ElevenLabsMetadataDefaultTypeInternal {
 class VoiceDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Voice> _instance;
-  const ::ai::inworld::voices::Voice_ElevenLabsMetadata* elevenlabs_metadata_;
 } _Voice_default_instance_;
 }  // namespace voices
 }  // namespace inworld
@@ -44,7 +43,6 @@ static void InitDefaultsscc_info_Voice_voices_2eproto() {
     new (ptr) ::ai::inworld::voices::Voice();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::voices::Voice::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_Voice_voices_2eproto =
@@ -60,7 +58,6 @@ static void InitDefaultsscc_info_Voice_ElevenLabsMetadata_voices_2eproto() {
     new (ptr) ::ai::inworld::voices::Voice_ElevenLabsMetadata();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::voices::Voice_ElevenLabsMetadata::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Voice_ElevenLabsMetadata_voices_2eproto =
@@ -73,7 +70,6 @@ static void InitDefaultsscc_info_Voice_PhonemesOverridesEntry_DoNotUse_voices_2e
     void* ptr = &::ai::inworld::voices::_Voice_PhonemesOverridesEntry_DoNotUse_default_instance_;
     new (ptr) ::ai::inworld::voices::Voice_PhonemesOverridesEntry_DoNotUse();
   }
-  ::ai::inworld::voices::Voice_PhonemesOverridesEntry_DoNotUse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Voice_PhonemesOverridesEntry_DoNotUse_voices_2eproto =
@@ -112,7 +108,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_voices_2eproto::offsets[] PROT
   PROTOBUF_FIELD_OFFSET(::ai::inworld::voices::Voice, robotic_voice_filter_level_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::voices::Voice, phonemes_overrides_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::voices::Voice, age_),
-  offsetof(::ai::inworld::voices::VoiceDefaultTypeInternal, elevenlabs_metadata_),
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::ai::inworld::voices::Voice, tts_metadata_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -240,8 +236,6 @@ void Voice_PhonemesOverridesEntry_DoNotUse::MergeFrom(
 
 // ===================================================================
 
-void Voice_ElevenLabsMetadata::InitAsDefaultInstance() {
-}
 class Voice_ElevenLabsMetadata::_Internal {
  public:
 };
@@ -257,7 +251,7 @@ Voice_ElevenLabsMetadata::Voice_ElevenLabsMetadata(const Voice_ElevenLabsMetadat
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   voice_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_voice_id().empty()) {
-    voice_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_voice_id(),
+    voice_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_voice_id(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.voices.Voice.ElevenLabsMetadata)
@@ -300,13 +294,12 @@ void Voice_ElevenLabsMetadata::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  voice_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  voice_id_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* Voice_ElevenLabsMetadata::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -449,10 +442,6 @@ void Voice_ElevenLabsMetadata::InternalSwap(Voice_ElevenLabsMetadata* other) {
 
 // ===================================================================
 
-void Voice::InitAsDefaultInstance() {
-  ::ai::inworld::voices::_Voice_default_instance_.elevenlabs_metadata_ = const_cast< ::ai::inworld::voices::Voice_ElevenLabsMetadata*>(
-      ::ai::inworld::voices::Voice_ElevenLabsMetadata::internal_default_instance());
-}
 class Voice::_Internal {
  public:
   static const ::ai::inworld::voices::Voice_ElevenLabsMetadata& elevenlabs_metadata(const Voice* msg);
@@ -490,7 +479,7 @@ Voice::Voice(const Voice& from)
   phonemes_overrides_.MergeFrom(from.phonemes_overrides_);
   basename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_basename().empty()) {
-    basename_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_basename(),
+    basename_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_basename(), 
       GetArena());
   }
   ::memcpy(&tts_type_, &from.tts_type_,
@@ -512,8 +501,9 @@ Voice::Voice(const Voice& from)
 void Voice::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Voice_voices_2eproto.base);
   basename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&tts_type_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&age_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&tts_type_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&age_) -
       reinterpret_cast<char*>(&tts_type_)) + sizeof(age_));
   clear_has_tts_metadata();
 }
@@ -571,7 +561,7 @@ void Voice::Clear() {
   (void) cached_has_bits;
 
   phonemes_overrides_.Clear();
-  basename_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  basename_.ClearToEmpty();
   ::memset(&tts_type_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&age_) -
       reinterpret_cast<char*>(&tts_type_)) + sizeof(age_));
@@ -581,7 +571,6 @@ void Voice::Clear() {
 
 const char* Voice::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);

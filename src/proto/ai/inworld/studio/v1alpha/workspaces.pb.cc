@@ -139,7 +139,6 @@ static void InitDefaultsscc_info_CreateWorkspaceRequest_workspaces_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CreateWorkspaceRequest_workspaces_2eproto =
@@ -154,7 +153,6 @@ static void InitDefaultsscc_info_DeleteWorkspaceRequest_workspaces_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_DeleteWorkspaceRequest_workspaces_2eproto =
@@ -168,7 +166,6 @@ static void InitDefaultsscc_info_GenerateResourceNameRequest_workspaces_2eproto(
     new (ptr) ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GenerateResourceNameRequest_workspaces_2eproto =
@@ -182,7 +179,6 @@ static void InitDefaultsscc_info_GenerateResourceNameResponse_workspaces_2eproto
     new (ptr) ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GenerateResourceNameResponse_workspaces_2eproto =
@@ -196,7 +192,6 @@ static void InitDefaultsscc_info_GetWorkspaceLimitInfoRequest_workspaces_2eproto
     new (ptr) ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GetWorkspaceLimitInfoRequest_workspaces_2eproto =
@@ -210,7 +205,6 @@ static void InitDefaultsscc_info_GetWorkspaceRequest_workspaces_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::GetWorkspaceRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::GetWorkspaceRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GetWorkspaceRequest_workspaces_2eproto =
@@ -224,7 +218,6 @@ static void InitDefaultsscc_info_GetWorkspaceShareInfoRequest_workspaces_2eproto
     new (ptr) ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GetWorkspaceShareInfoRequest_workspaces_2eproto =
@@ -238,7 +231,6 @@ static void InitDefaultsscc_info_ImpressionEventRequest_workspaces_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::ImpressionEventRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::ImpressionEventRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ImpressionEventRequest_workspaces_2eproto =
@@ -253,7 +245,6 @@ static void InitDefaultsscc_info_ImpressionEventRequest_ImpressionEventData_work
     new (ptr) ::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::ImpressionEventRequest_ImpressionEventData::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ImpressionEventRequest_ImpressionEventData_workspaces_2eproto =
@@ -268,7 +259,6 @@ static void InitDefaultsscc_info_ListWorkspacesRequest_workspaces_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::ListWorkspacesRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::ListWorkspacesRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ListWorkspacesRequest_workspaces_2eproto =
@@ -282,7 +272,6 @@ static void InitDefaultsscc_info_ListWorkspacesResponse_workspaces_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::ListWorkspacesResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::ListWorkspacesResponse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ListWorkspacesResponse_workspaces_2eproto =
@@ -297,7 +286,6 @@ static void InitDefaultsscc_info_ShareWorkspaceRequest_workspaces_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ShareWorkspaceRequest_workspaces_2eproto =
@@ -311,7 +299,6 @@ static void InitDefaultsscc_info_UpdateWorkspaceRequest_workspaces_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_UpdateWorkspaceRequest_workspaces_2eproto =
@@ -327,7 +314,6 @@ static void InitDefaultsscc_info_Workspace_workspaces_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::Workspace();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::Workspace::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Workspace_workspaces_2eproto =
@@ -342,7 +328,6 @@ static void InitDefaultsscc_info_Workspace_Meta_workspaces_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::Workspace_Meta();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::Workspace_Meta::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Workspace_Meta_workspaces_2eproto =
@@ -356,7 +341,6 @@ static void InitDefaultsscc_info_WorkspaceLimitInfo_workspaces_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_WorkspaceLimitInfo_workspaces_2eproto =
@@ -375,7 +359,6 @@ static void InitDefaultsscc_info_WorkspaceLimitInfo_BillingAccountLimit_workspac
     new (ptr) ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_BillingAccountLimit();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_BillingAccountLimit::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_WorkspaceLimitInfo_BillingAccountLimit_workspaces_2eproto =
@@ -389,7 +372,6 @@ static void InitDefaultsscc_info_WorkspaceLimitInfo_CharacterLimit_workspaces_2e
     new (ptr) ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_WorkspaceLimitInfo_CharacterLimit_workspaces_2eproto =
@@ -404,7 +386,6 @@ static void InitDefaultsscc_info_WorkspaceLimitInfo_CharacterLimit_CharacterDesc
     new (ptr) ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit_workspaces_2eproto =
@@ -419,7 +400,6 @@ static void InitDefaultsscc_info_WorkspaceLimitInfo_CommonKnowledgeLimit_workspa
     new (ptr) ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CommonKnowledgeLimit();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CommonKnowledgeLimit::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_WorkspaceLimitInfo_CommonKnowledgeLimit_workspaces_2eproto =
@@ -434,7 +414,6 @@ static void InitDefaultsscc_info_WorkspaceLimitInfo_SceneLimit_workspaces_2eprot
     new (ptr) ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_WorkspaceLimitInfo_SceneLimit_workspaces_2eproto =
@@ -448,7 +427,6 @@ static void InitDefaultsscc_info_WorkspaceLimitInfo_TextListLimit_workspaces_2ep
     new (ptr) ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_WorkspaceLimitInfo_TextListLimit_workspaces_2eproto =
@@ -462,7 +440,6 @@ static void InitDefaultsscc_info_WorkspaceLimitInfo_WorkspaceLimit_workspaces_2e
     new (ptr) ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_WorkspaceLimit();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_WorkspaceLimit::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_WorkspaceLimitInfo_WorkspaceLimit_workspaces_2eproto =
@@ -476,7 +453,6 @@ static void InitDefaultsscc_info_WorkspaceShareInfo_workspaces_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::WorkspaceShareInfo();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::WorkspaceShareInfo::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_WorkspaceShareInfo_workspaces_2eproto =
@@ -1008,8 +984,6 @@ bool WorkspaceItemView_IsValid(int value) {
 
 // ===================================================================
 
-void GetWorkspaceRequest::InitAsDefaultInstance() {
-}
 class GetWorkspaceRequest::_Internal {
  public:
 };
@@ -1025,7 +999,7 @@ GetWorkspaceRequest::GetWorkspaceRequest(const GetWorkspaceRequest& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   view_ = from.view_;
@@ -1070,14 +1044,13 @@ void GetWorkspaceRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   view_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* GetWorkspaceRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1245,8 +1218,6 @@ void GetWorkspaceRequest::InternalSwap(GetWorkspaceRequest* other) {
 
 // ===================================================================
 
-void ListWorkspacesRequest::InitAsDefaultInstance() {
-}
 class ListWorkspacesRequest::_Internal {
  public:
 };
@@ -1262,7 +1233,7 @@ ListWorkspacesRequest::ListWorkspacesRequest(const ListWorkspacesRequest& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   page_token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_page_token().empty()) {
-    page_token_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_page_token(),
+    page_token_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_page_token(), 
       GetArena());
   }
   page_size_ = from.page_size_;
@@ -1307,14 +1278,13 @@ void ListWorkspacesRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  page_token_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  page_token_.ClearToEmpty();
   page_size_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* ListWorkspacesRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1481,10 +1451,6 @@ void ListWorkspacesRequest::InternalSwap(ListWorkspacesRequest* other) {
 
 // ===================================================================
 
-void CreateWorkspaceRequest::InitAsDefaultInstance() {
-  ::ai::inworld::studio::v1alpha::_CreateWorkspaceRequest_default_instance_._instance.get_mutable()->workspace_ = const_cast< ::ai::inworld::studio::v1alpha::Workspace*>(
-      ::ai::inworld::studio::v1alpha::Workspace::internal_default_instance());
-}
 class CreateWorkspaceRequest::_Internal {
  public:
   static const ::ai::inworld::studio::v1alpha::Workspace& workspace(const CreateWorkspaceRequest* msg);
@@ -1557,7 +1523,6 @@ void CreateWorkspaceRequest::Clear() {
 
 const char* CreateWorkspaceRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1696,12 +1661,6 @@ void CreateWorkspaceRequest::InternalSwap(CreateWorkspaceRequest* other) {
 
 // ===================================================================
 
-void UpdateWorkspaceRequest::InitAsDefaultInstance() {
-  ::ai::inworld::studio::v1alpha::_UpdateWorkspaceRequest_default_instance_._instance.get_mutable()->workspace_ = const_cast< ::ai::inworld::studio::v1alpha::Workspace*>(
-      ::ai::inworld::studio::v1alpha::Workspace::internal_default_instance());
-  ::ai::inworld::studio::v1alpha::_UpdateWorkspaceRequest_default_instance_._instance.get_mutable()->update_mask_ = const_cast< PROTOBUF_NAMESPACE_ID::FieldMask*>(
-      PROTOBUF_NAMESPACE_ID::FieldMask::internal_default_instance());
-}
 class UpdateWorkspaceRequest::_Internal {
  public:
   static const ::ai::inworld::studio::v1alpha::Workspace& workspace(const UpdateWorkspaceRequest* msg);
@@ -1746,8 +1705,9 @@ UpdateWorkspaceRequest::UpdateWorkspaceRequest(const UpdateWorkspaceRequest& fro
 
 void UpdateWorkspaceRequest::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_UpdateWorkspaceRequest_workspaces_2eproto.base);
-  ::memset(&workspace_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&update_mask_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&workspace_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&update_mask_) -
       reinterpret_cast<char*>(&workspace_)) + sizeof(update_mask_));
 }
 
@@ -1797,7 +1757,6 @@ void UpdateWorkspaceRequest::Clear() {
 
 const char* UpdateWorkspaceRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1966,8 +1925,6 @@ void UpdateWorkspaceRequest::InternalSwap(UpdateWorkspaceRequest* other) {
 
 // ===================================================================
 
-void DeleteWorkspaceRequest::InitAsDefaultInstance() {
-}
 class DeleteWorkspaceRequest::_Internal {
  public:
 };
@@ -1983,7 +1940,7 @@ DeleteWorkspaceRequest::DeleteWorkspaceRequest(const DeleteWorkspaceRequest& fro
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   force_ = from.force_;
@@ -2028,14 +1985,13 @@ void DeleteWorkspaceRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   force_ = false;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* DeleteWorkspaceRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -2200,10 +2156,6 @@ void DeleteWorkspaceRequest::InternalSwap(DeleteWorkspaceRequest* other) {
 
 // ===================================================================
 
-void ImpressionEventRequest_ImpressionEventData::InitAsDefaultInstance() {
-  ::ai::inworld::studio::v1alpha::_ImpressionEventRequest_ImpressionEventData_default_instance_._instance.get_mutable()->event_time_ = const_cast< PROTOBUF_NAMESPACE_ID::Timestamp*>(
-      PROTOBUF_NAMESPACE_ID::Timestamp::internal_default_instance());
-}
 class ImpressionEventRequest_ImpressionEventData::_Internal {
  public:
   static const PROTOBUF_NAMESPACE_ID::Timestamp& event_time(const ImpressionEventRequest_ImpressionEventData* msg);
@@ -2230,22 +2182,22 @@ ImpressionEventRequest_ImpressionEventData::ImpressionEventRequest_ImpressionEve
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   feature_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_feature().empty()) {
-    feature_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_feature(),
+    feature_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_feature(), 
       GetArena());
   }
   variant_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_variant().empty()) {
-    variant_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_variant(),
+    variant_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_variant(), 
       GetArena());
   }
   payload_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_payload().empty()) {
-    payload_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_payload(),
+    payload_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_payload(), 
       GetArena());
   }
   stickiness_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_stickiness().empty()) {
-    stickiness_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_stickiness(),
+    stickiness_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_stickiness(), 
       GetArena());
   }
   if (from._internal_has_event_time()) {
@@ -2301,10 +2253,10 @@ void ImpressionEventRequest_ImpressionEventData::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  feature_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  variant_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  payload_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  stickiness_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  feature_.ClearToEmpty();
+  variant_.ClearToEmpty();
+  payload_.ClearToEmpty();
+  stickiness_.ClearToEmpty();
   if (GetArena() == nullptr && event_time_ != nullptr) {
     delete event_time_;
   }
@@ -2314,7 +2266,6 @@ void ImpressionEventRequest_ImpressionEventData::Clear() {
 
 const char* ImpressionEventRequest_ImpressionEventData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -2573,8 +2524,6 @@ void ImpressionEventRequest_ImpressionEventData::InternalSwap(ImpressionEventReq
 
 // ===================================================================
 
-void ImpressionEventRequest::InitAsDefaultInstance() {
-}
 class ImpressionEventRequest::_Internal {
  public:
 };
@@ -2592,7 +2541,7 @@ ImpressionEventRequest::ImpressionEventRequest(const ImpressionEventRequest& fro
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.ImpressionEventRequest)
@@ -2636,13 +2585,12 @@ void ImpressionEventRequest::Clear() {
   (void) cached_has_bits;
 
   data_.Clear();
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* ImpressionEventRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -2814,8 +2762,6 @@ void ImpressionEventRequest::InternalSwap(ImpressionEventRequest* other) {
 
 // ===================================================================
 
-void Workspace_Meta::InitAsDefaultInstance() {
-}
 class Workspace_Meta::_Internal {
  public:
 };
@@ -2836,8 +2782,9 @@ Workspace_Meta::Workspace_Meta(const Workspace_Meta& from)
 }
 
 void Workspace_Meta::SharedCtor() {
-  ::memset(&total_characters_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&total_common_knowledge_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&total_characters_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&total_common_knowledge_) -
       reinterpret_cast<char*>(&total_characters_)) + sizeof(total_common_knowledge_));
 }
 
@@ -2880,7 +2827,6 @@ void Workspace_Meta::Clear() {
 
 const char* Workspace_Meta::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -3091,10 +3037,6 @@ void Workspace_Meta::InternalSwap(Workspace_Meta* other) {
 
 // ===================================================================
 
-void Workspace::InitAsDefaultInstance() {
-  ::ai::inworld::studio::v1alpha::_Workspace_default_instance_._instance.get_mutable()->meta_ = const_cast< ::ai::inworld::studio::v1alpha::Workspace_Meta*>(
-      ::ai::inworld::studio::v1alpha::Workspace_Meta::internal_default_instance());
-}
 class Workspace::_Internal {
  public:
   static const ::ai::inworld::studio::v1alpha::Workspace_Meta& meta(const Workspace* msg);
@@ -3117,17 +3059,17 @@ Workspace::Workspace(const Workspace& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   display_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_display_name().empty()) {
-    display_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_display_name(),
+    display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_display_name(), 
       GetArena());
   }
   billing_account_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_billing_account().empty()) {
-    billing_account_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_billing_account(),
+    billing_account_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_billing_account(), 
       GetArena());
   }
   if (from._internal_has_meta()) {
@@ -3144,8 +3086,9 @@ void Workspace::SharedCtor() {
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   display_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   billing_account_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&meta_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&runtime_access_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&meta_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&runtime_access_) -
       reinterpret_cast<char*>(&meta_)) + sizeof(runtime_access_));
 }
 
@@ -3185,9 +3128,9 @@ void Workspace::Clear() {
   (void) cached_has_bits;
 
   experimental_features_.Clear();
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  display_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  billing_account_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
+  display_name_.ClearToEmpty();
+  billing_account_.ClearToEmpty();
   if (GetArena() == nullptr && meta_ != nullptr) {
     delete meta_;
   }
@@ -3198,7 +3141,6 @@ void Workspace::Clear() {
 
 const char* Workspace::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -3490,8 +3432,6 @@ void Workspace::InternalSwap(Workspace* other) {
 
 // ===================================================================
 
-void ListWorkspacesResponse::InitAsDefaultInstance() {
-}
 class ListWorkspacesResponse::_Internal {
  public:
 };
@@ -3509,7 +3449,7 @@ ListWorkspacesResponse::ListWorkspacesResponse(const ListWorkspacesResponse& fro
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   next_page_token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_next_page_token().empty()) {
-    next_page_token_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_next_page_token(),
+    next_page_token_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_next_page_token(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.ListWorkspacesResponse)
@@ -3553,13 +3493,12 @@ void ListWorkspacesResponse::Clear() {
   (void) cached_has_bits;
 
   workspaces_.Clear();
-  next_page_token_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  next_page_token_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* ListWorkspacesResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -3731,8 +3670,6 @@ void ListWorkspacesResponse::InternalSwap(ListWorkspacesResponse* other) {
 
 // ===================================================================
 
-void ShareWorkspaceRequest::InitAsDefaultInstance() {
-}
 class ShareWorkspaceRequest::_Internal {
  public:
 };
@@ -3750,7 +3687,7 @@ ShareWorkspaceRequest::ShareWorkspaceRequest(const ShareWorkspaceRequest& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.ShareWorkspaceRequest)
@@ -3794,13 +3731,12 @@ void ShareWorkspaceRequest::Clear() {
   (void) cached_has_bits;
 
   emails_.Clear();
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* ShareWorkspaceRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -3977,8 +3913,6 @@ void ShareWorkspaceRequest::InternalSwap(ShareWorkspaceRequest* other) {
 
 // ===================================================================
 
-void GenerateResourceNameRequest::InitAsDefaultInstance() {
-}
 class GenerateResourceNameRequest::_Internal {
  public:
 };
@@ -3994,12 +3928,12 @@ GenerateResourceNameRequest::GenerateResourceNameRequest(const GenerateResourceN
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   workspace_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_workspace().empty()) {
-    workspace_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_workspace(),
+    workspace_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_workspace(), 
       GetArena());
   }
   display_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_display_name().empty()) {
-    display_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_display_name(),
+    display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_display_name(), 
       GetArena());
   }
   resource_type_ = from.resource_type_;
@@ -4046,15 +3980,14 @@ void GenerateResourceNameRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  workspace_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  display_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  workspace_.ClearToEmpty();
+  display_name_.ClearToEmpty();
   resource_type_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* GenerateResourceNameRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -4252,8 +4185,6 @@ void GenerateResourceNameRequest::InternalSwap(GenerateResourceNameRequest* othe
 
 // ===================================================================
 
-void GenerateResourceNameResponse::InitAsDefaultInstance() {
-}
 class GenerateResourceNameResponse::_Internal {
  public:
 };
@@ -4269,7 +4200,7 @@ GenerateResourceNameResponse::GenerateResourceNameResponse(const GenerateResourc
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   resource_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_resource().empty()) {
-    resource_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_resource(),
+    resource_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_resource(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.GenerateResourceNameResponse)
@@ -4312,13 +4243,12 @@ void GenerateResourceNameResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  resource_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  resource_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* GenerateResourceNameResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -4461,8 +4391,6 @@ void GenerateResourceNameResponse::InternalSwap(GenerateResourceNameResponse* ot
 
 // ===================================================================
 
-void GetWorkspaceShareInfoRequest::InitAsDefaultInstance() {
-}
 class GetWorkspaceShareInfoRequest::_Internal {
  public:
 };
@@ -4478,7 +4406,7 @@ GetWorkspaceShareInfoRequest::GetWorkspaceShareInfoRequest(const GetWorkspaceSha
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.GetWorkspaceShareInfoRequest)
@@ -4521,13 +4449,12 @@ void GetWorkspaceShareInfoRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* GetWorkspaceShareInfoRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -4670,8 +4597,6 @@ void GetWorkspaceShareInfoRequest::InternalSwap(GetWorkspaceShareInfoRequest* ot
 
 // ===================================================================
 
-void WorkspaceShareInfo::InitAsDefaultInstance() {
-}
 class WorkspaceShareInfo::_Internal {
  public:
 };
@@ -4731,7 +4656,6 @@ void WorkspaceShareInfo::Clear() {
 
 const char* WorkspaceShareInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -4878,8 +4802,6 @@ void WorkspaceShareInfo::InternalSwap(WorkspaceShareInfo* other) {
 
 // ===================================================================
 
-void GetWorkspaceLimitInfoRequest::InitAsDefaultInstance() {
-}
 class GetWorkspaceLimitInfoRequest::_Internal {
  public:
 };
@@ -4895,7 +4817,7 @@ GetWorkspaceLimitInfoRequest::GetWorkspaceLimitInfoRequest(const GetWorkspaceLim
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.GetWorkspaceLimitInfoRequest)
@@ -4938,13 +4860,12 @@ void GetWorkspaceLimitInfoRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* GetWorkspaceLimitInfoRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -5087,8 +5008,6 @@ void GetWorkspaceLimitInfoRequest::InternalSwap(GetWorkspaceLimitInfoRequest* ot
 
 // ===================================================================
 
-void WorkspaceLimitInfo_TextListLimit::InitAsDefaultInstance() {
-}
 class WorkspaceLimitInfo_TextListLimit::_Internal {
  public:
 };
@@ -5109,8 +5028,9 @@ WorkspaceLimitInfo_TextListLimit::WorkspaceLimitInfo_TextListLimit(const Workspa
 }
 
 void WorkspaceLimitInfo_TextListLimit::SharedCtor() {
-  ::memset(&item_max_length_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&total_items_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&item_max_length_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&total_items_) -
       reinterpret_cast<char*>(&item_max_length_)) + sizeof(total_items_));
 }
 
@@ -5153,7 +5073,6 @@ void WorkspaceLimitInfo_TextListLimit::Clear() {
 
 const char* WorkspaceLimitInfo_TextListLimit::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -5318,14 +5237,6 @@ void WorkspaceLimitInfo_TextListLimit::InternalSwap(WorkspaceLimitInfo_TextListL
 
 // ===================================================================
 
-void WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::InitAsDefaultInstance() {
-  ::ai::inworld::studio::v1alpha::_WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit_default_instance_._instance.get_mutable()->hobby_or_interests_ = const_cast< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit*>(
-      ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit::internal_default_instance());
-  ::ai::inworld::studio::v1alpha::_WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit_default_instance_._instance.get_mutable()->nicknames_ = const_cast< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit*>(
-      ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit::internal_default_instance());
-  ::ai::inworld::studio::v1alpha::_WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit_default_instance_._instance.get_mutable()->personality_adjectives_ = const_cast< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit*>(
-      ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit::internal_default_instance());
-}
 class WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::_Internal {
  public:
   static const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit& hobby_or_interests(const WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit* msg);
@@ -5377,8 +5288,9 @@ WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::WorkspaceLimitInfo_
 
 void WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit_workspaces_2eproto.base);
-  ::memset(&hobby_or_interests_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&flaws_max_length_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&hobby_or_interests_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&flaws_max_length_) -
       reinterpret_cast<char*>(&hobby_or_interests_)) + sizeof(flaws_max_length_));
 }
 
@@ -5436,7 +5348,6 @@ void WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::Clear() {
 
 const char* WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -5745,10 +5656,6 @@ void WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::InternalSwap(W
 
 // ===================================================================
 
-void WorkspaceLimitInfo_CharacterLimit::InitAsDefaultInstance() {
-  ::ai::inworld::studio::v1alpha::_WorkspaceLimitInfo_CharacterLimit_default_instance_._instance.get_mutable()->character_description_ = const_cast< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit*>(
-      ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::internal_default_instance());
-}
 class WorkspaceLimitInfo_CharacterLimit::_Internal {
  public:
   static const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit& character_description(const WorkspaceLimitInfo_CharacterLimit* msg);
@@ -5780,8 +5687,9 @@ WorkspaceLimitInfo_CharacterLimit::WorkspaceLimitInfo_CharacterLimit(const Works
 
 void WorkspaceLimitInfo_CharacterLimit::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_WorkspaceLimitInfo_CharacterLimit_workspaces_2eproto.base);
-  ::memset(&character_description_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&total_common_knowledge_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&character_description_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&total_common_knowledge_) -
       reinterpret_cast<char*>(&character_description_)) + sizeof(total_common_knowledge_));
 }
 
@@ -5829,7 +5737,6 @@ void WorkspaceLimitInfo_CharacterLimit::Clear() {
 
 const char* WorkspaceLimitInfo_CharacterLimit::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -6042,8 +5949,6 @@ void WorkspaceLimitInfo_CharacterLimit::InternalSwap(WorkspaceLimitInfo_Characte
 
 // ===================================================================
 
-void WorkspaceLimitInfo_SceneLimit::InitAsDefaultInstance() {
-}
 class WorkspaceLimitInfo_SceneLimit::_Internal {
  public:
 };
@@ -6064,8 +5969,9 @@ WorkspaceLimitInfo_SceneLimit::WorkspaceLimitInfo_SceneLimit(const WorkspaceLimi
 }
 
 void WorkspaceLimitInfo_SceneLimit::SharedCtor() {
-  ::memset(&description_max_length_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&total_common_knowledge_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&description_max_length_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&total_common_knowledge_) -
       reinterpret_cast<char*>(&description_max_length_)) + sizeof(total_common_knowledge_));
 }
 
@@ -6108,7 +6014,6 @@ void WorkspaceLimitInfo_SceneLimit::Clear() {
 
 const char* WorkspaceLimitInfo_SceneLimit::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -6342,8 +6247,6 @@ void WorkspaceLimitInfo_SceneLimit::InternalSwap(WorkspaceLimitInfo_SceneLimit* 
 
 // ===================================================================
 
-void WorkspaceLimitInfo_WorkspaceLimit::InitAsDefaultInstance() {
-}
 class WorkspaceLimitInfo_WorkspaceLimit::_Internal {
  public:
 };
@@ -6364,8 +6267,9 @@ WorkspaceLimitInfo_WorkspaceLimit::WorkspaceLimitInfo_WorkspaceLimit(const Works
 }
 
 void WorkspaceLimitInfo_WorkspaceLimit::SharedCtor() {
-  ::memset(&display_name_max_length_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&total_common_knowledge_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&display_name_max_length_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&total_common_knowledge_) -
       reinterpret_cast<char*>(&display_name_max_length_)) + sizeof(total_common_knowledge_));
 }
 
@@ -6408,7 +6312,6 @@ void WorkspaceLimitInfo_WorkspaceLimit::Clear() {
 
 const char* WorkspaceLimitInfo_WorkspaceLimit::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -6665,8 +6568,6 @@ void WorkspaceLimitInfo_WorkspaceLimit::InternalSwap(WorkspaceLimitInfo_Workspac
 
 // ===================================================================
 
-void WorkspaceLimitInfo_BillingAccountLimit::InitAsDefaultInstance() {
-}
 class WorkspaceLimitInfo_BillingAccountLimit::_Internal {
  public:
 };
@@ -6725,7 +6626,6 @@ void WorkspaceLimitInfo_BillingAccountLimit::Clear() {
 
 const char* WorkspaceLimitInfo_BillingAccountLimit::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -6862,10 +6762,6 @@ void WorkspaceLimitInfo_BillingAccountLimit::InternalSwap(WorkspaceLimitInfo_Bil
 
 // ===================================================================
 
-void WorkspaceLimitInfo_CommonKnowledgeLimit::InitAsDefaultInstance() {
-  ::ai::inworld::studio::v1alpha::_WorkspaceLimitInfo_CommonKnowledgeLimit_default_instance_._instance.get_mutable()->memory_records_ = const_cast< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit*>(
-      ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit::internal_default_instance());
-}
 class WorkspaceLimitInfo_CommonKnowledgeLimit::_Internal {
  public:
   static const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit& memory_records(const WorkspaceLimitInfo_CommonKnowledgeLimit* msg);
@@ -6897,8 +6793,9 @@ WorkspaceLimitInfo_CommonKnowledgeLimit::WorkspaceLimitInfo_CommonKnowledgeLimit
 
 void WorkspaceLimitInfo_CommonKnowledgeLimit::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_WorkspaceLimitInfo_CommonKnowledgeLimit_workspaces_2eproto.base);
-  ::memset(&memory_records_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&description_max_length_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&memory_records_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&description_max_length_) -
       reinterpret_cast<char*>(&memory_records_)) + sizeof(description_max_length_));
 }
 
@@ -6946,7 +6843,6 @@ void WorkspaceLimitInfo_CommonKnowledgeLimit::Clear() {
 
 const char* WorkspaceLimitInfo_CommonKnowledgeLimit::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -7136,18 +7032,6 @@ void WorkspaceLimitInfo_CommonKnowledgeLimit::InternalSwap(WorkspaceLimitInfo_Co
 
 // ===================================================================
 
-void WorkspaceLimitInfo::InitAsDefaultInstance() {
-  ::ai::inworld::studio::v1alpha::_WorkspaceLimitInfo_default_instance_._instance.get_mutable()->character_ = const_cast< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit*>(
-      ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit::internal_default_instance());
-  ::ai::inworld::studio::v1alpha::_WorkspaceLimitInfo_default_instance_._instance.get_mutable()->scene_ = const_cast< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit*>(
-      ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit::internal_default_instance());
-  ::ai::inworld::studio::v1alpha::_WorkspaceLimitInfo_default_instance_._instance.get_mutable()->workspace_ = const_cast< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_WorkspaceLimit*>(
-      ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_WorkspaceLimit::internal_default_instance());
-  ::ai::inworld::studio::v1alpha::_WorkspaceLimitInfo_default_instance_._instance.get_mutable()->billing_account_ = const_cast< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_BillingAccountLimit*>(
-      ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_BillingAccountLimit::internal_default_instance());
-  ::ai::inworld::studio::v1alpha::_WorkspaceLimitInfo_default_instance_._instance.get_mutable()->common_knowledge_ = const_cast< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CommonKnowledgeLimit*>(
-      ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CommonKnowledgeLimit::internal_default_instance());
-}
 class WorkspaceLimitInfo::_Internal {
  public:
   static const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit& character(const WorkspaceLimitInfo* msg);
@@ -7216,8 +7100,9 @@ WorkspaceLimitInfo::WorkspaceLimitInfo(const WorkspaceLimitInfo& from)
 
 void WorkspaceLimitInfo::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_WorkspaceLimitInfo_workspaces_2eproto.base);
-  ::memset(&character_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&common_knowledge_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&character_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&common_knowledge_) -
       reinterpret_cast<char*>(&character_)) + sizeof(common_knowledge_));
 }
 
@@ -7282,7 +7167,6 @@ void WorkspaceLimitInfo::Clear() {
 
 const char* WorkspaceLimitInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);

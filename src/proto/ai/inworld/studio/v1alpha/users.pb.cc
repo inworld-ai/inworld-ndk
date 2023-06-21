@@ -66,7 +66,6 @@ static void InitDefaultsscc_info_AcceptTosRequest_users_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::AcceptTosRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::AcceptTosRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_AcceptTosRequest_users_2eproto =
@@ -80,7 +79,6 @@ static void InitDefaultsscc_info_DeleteUserRequest_users_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::DeleteUserRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::DeleteUserRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_DeleteUserRequest_users_2eproto =
@@ -94,7 +92,6 @@ static void InitDefaultsscc_info_GenerateTokenUserRequest_users_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GenerateTokenUserRequest_users_2eproto =
@@ -108,7 +105,6 @@ static void InitDefaultsscc_info_GenerateTokenUserResponse_users_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_GenerateTokenUserResponse_users_2eproto =
@@ -123,7 +119,6 @@ static void InitDefaultsscc_info_GetUserRequest_users_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::GetUserRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::GetUserRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GetUserRequest_users_2eproto =
@@ -137,7 +132,6 @@ static void InitDefaultsscc_info_LinkAccountRequest_users_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::LinkAccountRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::LinkAccountRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_LinkAccountRequest_users_2eproto =
@@ -151,7 +145,6 @@ static void InitDefaultsscc_info_UpdateUserRequest_users_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::UpdateUserRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::UpdateUserRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_UpdateUserRequest_users_2eproto =
@@ -167,7 +160,6 @@ static void InitDefaultsscc_info_User_users_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::User();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::User::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_User_users_2eproto =
@@ -422,8 +414,6 @@ bool AuthType_IsValid(int value) {
 
 // ===================================================================
 
-void GenerateTokenUserRequest::InitAsDefaultInstance() {
-}
 class GenerateTokenUserRequest::_Internal {
  public:
 };
@@ -439,7 +429,7 @@ GenerateTokenUserRequest::GenerateTokenUserRequest(const GenerateTokenUserReques
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_token().empty()) {
-    token_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_token(),
+    token_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_token(), 
       GetArena());
   }
   type_ = from.type_;
@@ -484,14 +474,13 @@ void GenerateTokenUserRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  token_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  token_.ClearToEmpty();
   type_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* GenerateTokenUserRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -659,10 +648,6 @@ void GenerateTokenUserRequest::InternalSwap(GenerateTokenUserRequest* other) {
 
 // ===================================================================
 
-void GenerateTokenUserResponse::InitAsDefaultInstance() {
-  ::ai::inworld::studio::v1alpha::_GenerateTokenUserResponse_default_instance_._instance.get_mutable()->expiration_time_ = const_cast< PROTOBUF_NAMESPACE_ID::Timestamp*>(
-      PROTOBUF_NAMESPACE_ID::Timestamp::internal_default_instance());
-}
 class GenerateTokenUserResponse::_Internal {
  public:
   static const PROTOBUF_NAMESPACE_ID::Timestamp& expiration_time(const GenerateTokenUserResponse* msg);
@@ -689,12 +674,12 @@ GenerateTokenUserResponse::GenerateTokenUserResponse(const GenerateTokenUserResp
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_token().empty()) {
-    token_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_token(),
+    token_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_token(), 
       GetArena());
   }
   type_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_type().empty()) {
-    type_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_type(),
+    type_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_type(), 
       GetArena());
   }
   if (from._internal_has_expiration_time()) {
@@ -710,8 +695,9 @@ void GenerateTokenUserResponse::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_GenerateTokenUserResponse_users_2eproto.base);
   token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   type_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&expiration_time_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&is_created_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&expiration_time_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&is_created_) -
       reinterpret_cast<char*>(&expiration_time_)) + sizeof(is_created_));
 }
 
@@ -749,8 +735,8 @@ void GenerateTokenUserResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  token_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  type_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  token_.ClearToEmpty();
+  type_.ClearToEmpty();
   if (GetArena() == nullptr && expiration_time_ != nullptr) {
     delete expiration_time_;
   }
@@ -761,7 +747,6 @@ void GenerateTokenUserResponse::Clear() {
 
 const char* GenerateTokenUserResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -986,8 +971,6 @@ void GenerateTokenUserResponse::InternalSwap(GenerateTokenUserResponse* other) {
 
 // ===================================================================
 
-void LinkAccountRequest::InitAsDefaultInstance() {
-}
 class LinkAccountRequest::_Internal {
  public:
 };
@@ -1003,12 +986,12 @@ LinkAccountRequest::LinkAccountRequest(const LinkAccountRequest& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   oculus_oauth_token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_oculus_oauth_token().empty()) {
-    oculus_oauth_token_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_oculus_oauth_token(),
+    oculus_oauth_token_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_oculus_oauth_token(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.LinkAccountRequest)
@@ -1053,14 +1036,13 @@ void LinkAccountRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  oculus_oauth_token_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
+  oculus_oauth_token_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* LinkAccountRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1233,8 +1215,6 @@ void LinkAccountRequest::InternalSwap(LinkAccountRequest* other) {
 
 // ===================================================================
 
-void GetUserRequest::InitAsDefaultInstance() {
-}
 class GetUserRequest::_Internal {
  public:
 };
@@ -1250,7 +1230,7 @@ GetUserRequest::GetUserRequest(const GetUserRequest& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.GetUserRequest)
@@ -1293,13 +1273,12 @@ void GetUserRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* GetUserRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1442,8 +1421,6 @@ void GetUserRequest::InternalSwap(GetUserRequest* other) {
 
 // ===================================================================
 
-void AcceptTosRequest::InitAsDefaultInstance() {
-}
 class AcceptTosRequest::_Internal {
  public:
 };
@@ -1459,7 +1436,7 @@ AcceptTosRequest::AcceptTosRequest(const AcceptTosRequest& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   user_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_user().empty()) {
-    user_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_user(),
+    user_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_user(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.AcceptTosRequest)
@@ -1502,13 +1479,12 @@ void AcceptTosRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  user_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  user_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* AcceptTosRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1651,12 +1627,6 @@ void AcceptTosRequest::InternalSwap(AcceptTosRequest* other) {
 
 // ===================================================================
 
-void UpdateUserRequest::InitAsDefaultInstance() {
-  ::ai::inworld::studio::v1alpha::_UpdateUserRequest_default_instance_._instance.get_mutable()->user_ = const_cast< ::ai::inworld::studio::v1alpha::User*>(
-      ::ai::inworld::studio::v1alpha::User::internal_default_instance());
-  ::ai::inworld::studio::v1alpha::_UpdateUserRequest_default_instance_._instance.get_mutable()->update_mask_ = const_cast< PROTOBUF_NAMESPACE_ID::FieldMask*>(
-      PROTOBUF_NAMESPACE_ID::FieldMask::internal_default_instance());
-}
 class UpdateUserRequest::_Internal {
  public:
   static const ::ai::inworld::studio::v1alpha::User& user(const UpdateUserRequest* msg);
@@ -1701,8 +1671,9 @@ UpdateUserRequest::UpdateUserRequest(const UpdateUserRequest& from)
 
 void UpdateUserRequest::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_UpdateUserRequest_users_2eproto.base);
-  ::memset(&user_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&update_mask_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&user_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&update_mask_) -
       reinterpret_cast<char*>(&user_)) + sizeof(update_mask_));
 }
 
@@ -1752,7 +1723,6 @@ void UpdateUserRequest::Clear() {
 
 const char* UpdateUserRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1921,8 +1891,6 @@ void UpdateUserRequest::InternalSwap(UpdateUserRequest* other) {
 
 // ===================================================================
 
-void User::InitAsDefaultInstance() {
-}
 class User::_Internal {
  public:
 };
@@ -1938,32 +1906,32 @@ User::User(const User& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   oculus_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_oculus_id().empty()) {
-    oculus_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_oculus_id(),
+    oculus_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_oculus_id(), 
       GetArena());
   }
   firebase_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_firebase_id().empty()) {
-    firebase_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_firebase_id(),
+    firebase_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_firebase_id(), 
       GetArena());
   }
   display_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_display_name().empty()) {
-    display_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_display_name(),
+    display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_display_name(), 
       GetArena());
   }
   role_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_role().empty()) {
-    role_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_role(),
+    role_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_role(), 
       GetArena());
   }
   application_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_application().empty()) {
-    application_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_application(),
+    application_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_application(), 
       GetArena());
   }
   ::memcpy(&tos_acceptance_version_, &from.tos_acceptance_version_,
@@ -1980,8 +1948,9 @@ void User::SharedCtor() {
   display_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   role_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   application_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&tos_acceptance_version_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&marketing_platform_purpose_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&tos_acceptance_version_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&marketing_platform_purpose_) -
       reinterpret_cast<char*>(&tos_acceptance_version_)) + sizeof(marketing_platform_purpose_));
 }
 
@@ -2022,12 +1991,12 @@ void User::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  oculus_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  firebase_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  display_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  role_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  application_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
+  oculus_id_.ClearToEmpty();
+  firebase_id_.ClearToEmpty();
+  display_name_.ClearToEmpty();
+  role_.ClearToEmpty();
+  application_.ClearToEmpty();
   ::memset(&tos_acceptance_version_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&marketing_platform_purpose_) -
       reinterpret_cast<char*>(&tos_acceptance_version_)) + sizeof(marketing_platform_purpose_));
@@ -2036,7 +2005,6 @@ void User::Clear() {
 
 const char* User::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -2406,8 +2374,6 @@ void User::InternalSwap(User* other) {
 
 // ===================================================================
 
-void DeleteUserRequest::InitAsDefaultInstance() {
-}
 class DeleteUserRequest::_Internal {
  public:
 };
@@ -2423,7 +2389,7 @@ DeleteUserRequest::DeleteUserRequest(const DeleteUserRequest& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.DeleteUserRequest)
@@ -2466,13 +2432,12 @@ void DeleteUserRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* DeleteUserRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);

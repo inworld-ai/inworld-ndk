@@ -49,10 +49,6 @@ class SetEmotionContextActionDefaultTypeInternal {
 class BehavioralContextActionDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<BehavioralContextAction> _instance;
-  const ::ai::inworld::studio::v1alpha::TellExactTextContextAction* tell_exact_;
-  const ::ai::inworld::studio::v1alpha::TellInstructedContextAction* tell_instructed_;
-  const ::ai::inworld::studio::v1alpha::SendCustomEventContextAction* send_custom_event_;
-  const ::ai::inworld::studio::v1alpha::SetEmotionContextAction* set_emotion_;
 } _BehavioralContextAction_default_instance_;
 class BehavioralContextInteractionDefaultTypeInternal {
  public:
@@ -74,7 +70,6 @@ static void InitDefaultsscc_info_BehavioralContext_behavioral_5fcontexts_2eproto
     new (ptr) ::ai::inworld::studio::v1alpha::BehavioralContext();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::BehavioralContext::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_BehavioralContext_behavioral_5fcontexts_2eproto =
@@ -90,7 +85,6 @@ static void InitDefaultsscc_info_BehavioralContextAction_behavioral_5fcontexts_2
     new (ptr) ::ai::inworld::studio::v1alpha::BehavioralContextAction();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::BehavioralContextAction::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<4> scc_info_BehavioralContextAction_behavioral_5fcontexts_2eproto =
@@ -108,7 +102,6 @@ static void InitDefaultsscc_info_BehavioralContextInteraction_behavioral_5fconte
     new (ptr) ::ai::inworld::studio::v1alpha::BehavioralContextInteraction();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::BehavioralContextInteraction::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_BehavioralContextInteraction_behavioral_5fcontexts_2eproto =
@@ -123,7 +116,6 @@ static void InitDefaultsscc_info_BehavioralContextProperties_behavioral_5fcontex
     new (ptr) ::ai::inworld::studio::v1alpha::BehavioralContextProperties();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::BehavioralContextProperties::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_BehavioralContextProperties_behavioral_5fcontexts_2eproto =
@@ -137,7 +129,6 @@ static void InitDefaultsscc_info_SendCustomEventContextAction_behavioral_5fconte
     new (ptr) ::ai::inworld::studio::v1alpha::SendCustomEventContextAction();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::SendCustomEventContextAction::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_SendCustomEventContextAction_behavioral_5fcontexts_2eproto =
@@ -151,7 +142,6 @@ static void InitDefaultsscc_info_SetEmotionContextAction_behavioral_5fcontexts_2
     new (ptr) ::ai::inworld::studio::v1alpha::SetEmotionContextAction();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::SetEmotionContextAction::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_SetEmotionContextAction_behavioral_5fcontexts_2eproto =
@@ -165,7 +155,6 @@ static void InitDefaultsscc_info_TellExactTextContextAction_behavioral_5fcontext
     new (ptr) ::ai::inworld::studio::v1alpha::TellExactTextContextAction();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::TellExactTextContextAction::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_TellExactTextContextAction_behavioral_5fcontexts_2eproto =
@@ -179,7 +168,6 @@ static void InitDefaultsscc_info_TellInstructedContextAction_behavioral_5fcontex
     new (ptr) ::ai::inworld::studio::v1alpha::TellInstructedContextAction();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::TellInstructedContextAction::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_TellInstructedContextAction_behavioral_5fcontexts_2eproto =
@@ -228,10 +216,10 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_behavioral_5fcontexts_2eproto:
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::BehavioralContextAction, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::BehavioralContextAction, uuid_),
-  offsetof(::ai::inworld::studio::v1alpha::BehavioralContextActionDefaultTypeInternal, tell_exact_),
-  offsetof(::ai::inworld::studio::v1alpha::BehavioralContextActionDefaultTypeInternal, tell_instructed_),
-  offsetof(::ai::inworld::studio::v1alpha::BehavioralContextActionDefaultTypeInternal, send_custom_event_),
-  offsetof(::ai::inworld::studio::v1alpha::BehavioralContextActionDefaultTypeInternal, set_emotion_),
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::BehavioralContextAction, action_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::BehavioralContextInteraction, _internal_metadata_),
@@ -405,8 +393,6 @@ bool SpaffCode_IsValid(int value) {
 
 // ===================================================================
 
-void BehavioralContextProperties::InitAsDefaultInstance() {
-}
 class BehavioralContextProperties::_Internal {
  public:
 };
@@ -427,8 +413,9 @@ BehavioralContextProperties::BehavioralContextProperties(const BehavioralContext
 }
 
 void BehavioralContextProperties::SharedCtor() {
-  ::memset(&priority_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&is_default_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&priority_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&is_default_) -
       reinterpret_cast<char*>(&priority_)) + sizeof(is_default_));
 }
 
@@ -471,7 +458,6 @@ void BehavioralContextProperties::Clear() {
 
 const char* BehavioralContextProperties::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -655,8 +641,6 @@ void BehavioralContextProperties::InternalSwap(BehavioralContextProperties* othe
 
 // ===================================================================
 
-void TellExactTextContextAction::InitAsDefaultInstance() {
-}
 class TellExactTextContextAction::_Internal {
  public:
 };
@@ -672,7 +656,7 @@ TellExactTextContextAction::TellExactTextContextAction(const TellExactTextContex
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   exact_text_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_exact_text().empty()) {
-    exact_text_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_exact_text(),
+    exact_text_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_exact_text(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.TellExactTextContextAction)
@@ -715,13 +699,12 @@ void TellExactTextContextAction::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  exact_text_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  exact_text_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* TellExactTextContextAction::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -864,8 +847,6 @@ void TellExactTextContextAction::InternalSwap(TellExactTextContextAction* other)
 
 // ===================================================================
 
-void TellInstructedContextAction::InitAsDefaultInstance() {
-}
 class TellInstructedContextAction::_Internal {
  public:
 };
@@ -881,7 +862,7 @@ TellInstructedContextAction::TellInstructedContextAction(const TellInstructedCon
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   speech_instruction_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_speech_instruction().empty()) {
-    speech_instruction_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_speech_instruction(),
+    speech_instruction_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_speech_instruction(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.TellInstructedContextAction)
@@ -924,13 +905,12 @@ void TellInstructedContextAction::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  speech_instruction_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  speech_instruction_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* TellInstructedContextAction::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1073,8 +1053,6 @@ void TellInstructedContextAction::InternalSwap(TellInstructedContextAction* othe
 
 // ===================================================================
 
-void SendCustomEventContextAction::InitAsDefaultInstance() {
-}
 class SendCustomEventContextAction::_Internal {
  public:
 };
@@ -1090,7 +1068,7 @@ SendCustomEventContextAction::SendCustomEventContextAction(const SendCustomEvent
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   custom_event_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_custom_event().empty()) {
-    custom_event_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_custom_event(),
+    custom_event_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_custom_event(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.SendCustomEventContextAction)
@@ -1133,13 +1111,12 @@ void SendCustomEventContextAction::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  custom_event_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  custom_event_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* SendCustomEventContextAction::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1282,8 +1259,6 @@ void SendCustomEventContextAction::InternalSwap(SendCustomEventContextAction* ot
 
 // ===================================================================
 
-void SetEmotionContextAction::InitAsDefaultInstance() {
-}
 class SetEmotionContextAction::_Internal {
  public:
 };
@@ -1342,7 +1317,6 @@ void SetEmotionContextAction::Clear() {
 
 const char* SetEmotionContextAction::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1480,16 +1454,6 @@ void SetEmotionContextAction::InternalSwap(SetEmotionContextAction* other) {
 
 // ===================================================================
 
-void BehavioralContextAction::InitAsDefaultInstance() {
-  ::ai::inworld::studio::v1alpha::_BehavioralContextAction_default_instance_.tell_exact_ = const_cast< ::ai::inworld::studio::v1alpha::TellExactTextContextAction*>(
-      ::ai::inworld::studio::v1alpha::TellExactTextContextAction::internal_default_instance());
-  ::ai::inworld::studio::v1alpha::_BehavioralContextAction_default_instance_.tell_instructed_ = const_cast< ::ai::inworld::studio::v1alpha::TellInstructedContextAction*>(
-      ::ai::inworld::studio::v1alpha::TellInstructedContextAction::internal_default_instance());
-  ::ai::inworld::studio::v1alpha::_BehavioralContextAction_default_instance_.send_custom_event_ = const_cast< ::ai::inworld::studio::v1alpha::SendCustomEventContextAction*>(
-      ::ai::inworld::studio::v1alpha::SendCustomEventContextAction::internal_default_instance());
-  ::ai::inworld::studio::v1alpha::_BehavioralContextAction_default_instance_.set_emotion_ = const_cast< ::ai::inworld::studio::v1alpha::SetEmotionContextAction*>(
-      ::ai::inworld::studio::v1alpha::SetEmotionContextAction::internal_default_instance());
-}
 class BehavioralContextAction::_Internal {
  public:
   static const ::ai::inworld::studio::v1alpha::TellExactTextContextAction& tell_exact(const BehavioralContextAction* msg);
@@ -1585,7 +1549,7 @@ BehavioralContextAction::BehavioralContextAction(const BehavioralContextAction& 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   uuid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_uuid().empty()) {
-    uuid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_uuid(),
+    uuid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_uuid(), 
       GetArena());
   }
   clear_has_action();
@@ -1689,14 +1653,13 @@ void BehavioralContextAction::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  uuid_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  uuid_.ClearToEmpty();
   clear_action();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* BehavioralContextAction::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1955,8 +1918,6 @@ void BehavioralContextAction::InternalSwap(BehavioralContextAction* other) {
 
 // ===================================================================
 
-void BehavioralContextInteraction::InitAsDefaultInstance() {
-}
 class BehavioralContextInteraction::_Internal {
  public:
 };
@@ -1974,7 +1935,7 @@ BehavioralContextInteraction::BehavioralContextInteraction(const BehavioralConte
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   uuid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_uuid().empty()) {
-    uuid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_uuid(),
+    uuid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_uuid(), 
       GetArena());
   }
   interaction_type_ = from.interaction_type_;
@@ -2020,14 +1981,13 @@ void BehavioralContextInteraction::Clear() {
   (void) cached_has_bits;
 
   actions_.Clear();
-  uuid_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  uuid_.ClearToEmpty();
   interaction_type_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* BehavioralContextInteraction::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -2224,10 +2184,6 @@ void BehavioralContextInteraction::InternalSwap(BehavioralContextInteraction* ot
 
 // ===================================================================
 
-void BehavioralContext::InitAsDefaultInstance() {
-  ::ai::inworld::studio::v1alpha::_BehavioralContext_default_instance_._instance.get_mutable()->properties_ = const_cast< ::ai::inworld::studio::v1alpha::BehavioralContextProperties*>(
-      ::ai::inworld::studio::v1alpha::BehavioralContextProperties::internal_default_instance());
-}
 class BehavioralContext::_Internal {
  public:
   static const ::ai::inworld::studio::v1alpha::BehavioralContextProperties& properties(const BehavioralContext* msg);
@@ -2252,12 +2208,12 @@ BehavioralContext::BehavioralContext(const BehavioralContext& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   motivation_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_motivation().empty()) {
-    motivation_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_motivation(),
+    motivation_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_motivation(), 
       GetArena());
   }
   if (from._internal_has_properties()) {
@@ -2311,8 +2267,8 @@ void BehavioralContext::Clear() {
 
   triggers_.Clear();
   behavioral_context_interaction_.Clear();
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  motivation_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
+  motivation_.ClearToEmpty();
   if (GetArena() == nullptr && properties_ != nullptr) {
     delete properties_;
   }
@@ -2322,7 +2278,6 @@ void BehavioralContext::Clear() {
 
 const char* BehavioralContext::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);

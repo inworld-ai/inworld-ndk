@@ -66,7 +66,6 @@ static void InitDefaultsscc_info_ActivateApiKeyRequest_apikeys_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ActivateApiKeyRequest_apikeys_2eproto =
@@ -80,7 +79,6 @@ static void InitDefaultsscc_info_ApiKey_apikeys_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::ApiKey();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::ApiKey::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ApiKey_apikeys_2eproto =
@@ -95,7 +93,6 @@ static void InitDefaultsscc_info_ApiKey_UsageLimits_apikeys_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::ApiKey_UsageLimits();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::ApiKey_UsageLimits::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ApiKey_UsageLimits_apikeys_2eproto =
@@ -110,7 +107,6 @@ static void InitDefaultsscc_info_DeleteApiKeyRequest_apikeys_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_DeleteApiKeyRequest_apikeys_2eproto =
@@ -124,7 +120,6 @@ static void InitDefaultsscc_info_GenerateApiKeyRequest_apikeys_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GenerateApiKeyRequest_apikeys_2eproto =
@@ -138,7 +133,6 @@ static void InitDefaultsscc_info_ListApiKeysRequest_apikeys_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::ListApiKeysRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::ListApiKeysRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ListApiKeysRequest_apikeys_2eproto =
@@ -152,7 +146,6 @@ static void InitDefaultsscc_info_ListApiKeysResponse_apikeys_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::ListApiKeysResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::ListApiKeysResponse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ListApiKeysResponse_apikeys_2eproto =
@@ -167,7 +160,6 @@ static void InitDefaultsscc_info_SuspendApiKeyRequest_apikeys_2eproto() {
     new (ptr) ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_SuspendApiKeyRequest_apikeys_2eproto =
@@ -386,10 +378,6 @@ constexpr int ApiKey::State_ARRAYSIZE;
 
 // ===================================================================
 
-void ApiKey_UsageLimits::InitAsDefaultInstance() {
-  ::ai::inworld::studio::v1alpha::_ApiKey_UsageLimits_default_instance_._instance.get_mutable()->expiration_time_ = const_cast< PROTOBUF_NAMESPACE_ID::Timestamp*>(
-      PROTOBUF_NAMESPACE_ID::Timestamp::internal_default_instance());
-}
 class ApiKey_UsageLimits::_Internal {
  public:
   static const PROTOBUF_NAMESPACE_ID::Timestamp& expiration_time(const ApiKey_UsageLimits* msg);
@@ -427,8 +415,9 @@ ApiKey_UsageLimits::ApiKey_UsageLimits(const ApiKey_UsageLimits& from)
 
 void ApiKey_UsageLimits::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ApiKey_UsageLimits_apikeys_2eproto.base);
-  ::memset(&expiration_time_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&max_concurrent_sessions_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&expiration_time_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&max_concurrent_sessions_) -
       reinterpret_cast<char*>(&expiration_time_)) + sizeof(max_concurrent_sessions_));
 }
 
@@ -476,7 +465,6 @@ void ApiKey_UsageLimits::Clear() {
 
 const char* ApiKey_UsageLimits::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -689,10 +677,6 @@ void ApiKey_UsageLimits::InternalSwap(ApiKey_UsageLimits* other) {
 
 // ===================================================================
 
-void ApiKey::InitAsDefaultInstance() {
-  ::ai::inworld::studio::v1alpha::_ApiKey_default_instance_._instance.get_mutable()->usage_limits_ = const_cast< ::ai::inworld::studio::v1alpha::ApiKey_UsageLimits*>(
-      ::ai::inworld::studio::v1alpha::ApiKey_UsageLimits::internal_default_instance());
-}
 class ApiKey::_Internal {
  public:
   static const ::ai::inworld::studio::v1alpha::ApiKey_UsageLimits& usage_limits(const ApiKey* msg);
@@ -713,17 +697,17 @@ ApiKey::ApiKey(const ApiKey& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   key_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_key().empty()) {
-    key_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_key(),
+    key_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_key(), 
       GetArena());
   }
   secret_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_secret().empty()) {
-    secret_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_secret(),
+    secret_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_secret(), 
       GetArena());
   }
   if (from._internal_has_usage_limits()) {
@@ -740,8 +724,9 @@ void ApiKey::SharedCtor() {
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   key_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   secret_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&usage_limits_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&state_) -
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&usage_limits_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&state_) -
       reinterpret_cast<char*>(&usage_limits_)) + sizeof(state_));
 }
 
@@ -780,9 +765,9 @@ void ApiKey::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  key_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  secret_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
+  key_.ClearToEmpty();
+  secret_.ClearToEmpty();
   if (GetArena() == nullptr && usage_limits_ != nullptr) {
     delete usage_limits_;
   }
@@ -793,7 +778,6 @@ void ApiKey::Clear() {
 
 const char* ApiKey::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1051,8 +1035,6 @@ void ApiKey::InternalSwap(ApiKey* other) {
 
 // ===================================================================
 
-void GenerateApiKeyRequest::InitAsDefaultInstance() {
-}
 class GenerateApiKeyRequest::_Internal {
  public:
 };
@@ -1068,7 +1050,7 @@ GenerateApiKeyRequest::GenerateApiKeyRequest(const GenerateApiKeyRequest& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   parent_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_parent().empty()) {
-    parent_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_parent(),
+    parent_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_parent(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.GenerateApiKeyRequest)
@@ -1111,13 +1093,12 @@ void GenerateApiKeyRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  parent_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  parent_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* GenerateApiKeyRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1260,8 +1241,6 @@ void GenerateApiKeyRequest::InternalSwap(GenerateApiKeyRequest* other) {
 
 // ===================================================================
 
-void ListApiKeysRequest::InitAsDefaultInstance() {
-}
 class ListApiKeysRequest::_Internal {
  public:
 };
@@ -1277,12 +1256,12 @@ ListApiKeysRequest::ListApiKeysRequest(const ListApiKeysRequest& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   parent_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_parent().empty()) {
-    parent_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_parent(),
+    parent_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_parent(), 
       GetArena());
   }
   page_token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_page_token().empty()) {
-    page_token_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_page_token(),
+    page_token_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_page_token(), 
       GetArena());
   }
   page_size_ = from.page_size_;
@@ -1329,15 +1308,14 @@ void ListApiKeysRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  parent_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  page_token_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  parent_.ClearToEmpty();
+  page_token_.ClearToEmpty();
   page_size_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* ListApiKeysRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1534,8 +1512,6 @@ void ListApiKeysRequest::InternalSwap(ListApiKeysRequest* other) {
 
 // ===================================================================
 
-void SuspendApiKeyRequest::InitAsDefaultInstance() {
-}
 class SuspendApiKeyRequest::_Internal {
  public:
 };
@@ -1551,7 +1527,7 @@ SuspendApiKeyRequest::SuspendApiKeyRequest(const SuspendApiKeyRequest& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.SuspendApiKeyRequest)
@@ -1594,13 +1570,12 @@ void SuspendApiKeyRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* SuspendApiKeyRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1743,8 +1718,6 @@ void SuspendApiKeyRequest::InternalSwap(SuspendApiKeyRequest* other) {
 
 // ===================================================================
 
-void ActivateApiKeyRequest::InitAsDefaultInstance() {
-}
 class ActivateApiKeyRequest::_Internal {
  public:
 };
@@ -1760,7 +1733,7 @@ ActivateApiKeyRequest::ActivateApiKeyRequest(const ActivateApiKeyRequest& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.ActivateApiKeyRequest)
@@ -1803,13 +1776,12 @@ void ActivateApiKeyRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* ActivateApiKeyRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -1952,8 +1924,6 @@ void ActivateApiKeyRequest::InternalSwap(ActivateApiKeyRequest* other) {
 
 // ===================================================================
 
-void DeleteApiKeyRequest::InitAsDefaultInstance() {
-}
 class DeleteApiKeyRequest::_Internal {
  public:
 };
@@ -1969,7 +1939,7 @@ DeleteApiKeyRequest::DeleteApiKeyRequest(const DeleteApiKeyRequest& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.DeleteApiKeyRequest)
@@ -2012,13 +1982,12 @@ void DeleteApiKeyRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* DeleteApiKeyRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -2161,8 +2130,6 @@ void DeleteApiKeyRequest::InternalSwap(DeleteApiKeyRequest* other) {
 
 // ===================================================================
 
-void ListApiKeysResponse::InitAsDefaultInstance() {
-}
 class ListApiKeysResponse::_Internal {
  public:
 };
@@ -2180,7 +2147,7 @@ ListApiKeysResponse::ListApiKeysResponse(const ListApiKeysResponse& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   next_page_token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_next_page_token().empty()) {
-    next_page_token_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_next_page_token(),
+    next_page_token_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_next_page_token(), 
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.ListApiKeysResponse)
@@ -2224,13 +2191,12 @@ void ListApiKeysResponse::Clear() {
   (void) cached_has_bits;
 
   api_keys_.Clear();
-  next_page_token_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  next_page_token_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* ListApiKeysResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
