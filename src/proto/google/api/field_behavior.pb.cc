@@ -16,53 +16,45 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
-
-PROTOBUF_PRAGMA_INIT_SEG
-
-namespace _pb = ::PROTOBUF_NAMESPACE_ID;
-namespace _pbi = _pb::internal;
-
 namespace google {
 namespace api {
 }  // namespace api
 }  // namespace google
-static const ::_pb::EnumDescriptor* file_level_enum_descriptors_google_2fapi_2ffield_5fbehavior_2eproto[1];
-static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_google_2fapi_2ffield_5fbehavior_2eproto = nullptr;
-const uint32_t TableStruct_google_2fapi_2ffield_5fbehavior_2eproto::offsets[1] = {};
-static constexpr ::_pbi::MigrationSchema* schemas = nullptr;
-static constexpr ::_pb::Message* const* file_default_instances = nullptr;
+static constexpr ::PROTOBUF_NAMESPACE_ID::Metadata* file_level_metadata_google_2fapi_2ffield_5fbehavior_2eproto = nullptr;
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_google_2fapi_2ffield_5fbehavior_2eproto[1];
+static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_google_2fapi_2ffield_5fbehavior_2eproto = nullptr;
+const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_google_2fapi_2ffield_5fbehavior_2eproto::offsets[1] = {};
+static constexpr ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema* schemas = nullptr;
+static constexpr ::PROTOBUF_NAMESPACE_ID::Message* const* file_default_instances = nullptr;
 
 const char descriptor_table_protodef_google_2fapi_2ffield_5fbehavior_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\037google/api/field_behavior.proto\022\ngoogl"
   "e.api\032 google/protobuf/descriptor.proto*"
-  "\217\001\n\rFieldBehavior\022\036\n\032FIELD_BEHAVIOR_UNSP"
-  "ECIFIED\020\000\022\014\n\010OPTIONAL\020\001\022\014\n\010REQUIRED\020\002\022\017\n"
-  "\013OUTPUT_ONLY\020\003\022\016\n\nINPUT_ONLY\020\004\022\r\n\tIMMUTA"
-  "BLE\020\005\022\022\n\016UNORDERED_LIST\020\006:Q\n\016field_behav"
-  "ior\022\035.google.protobuf.FieldOptions\030\234\010 \003("
-  "\0162\031.google.api.FieldBehaviorBp\n\016com.goog"
-  "le.apiB\022FieldBehaviorProtoP\001ZAgoogle.gol"
-  "ang.org/genproto/googleapis/api/annotati"
-  "ons;annotations\242\002\004GAPIb\006proto3"
+  "{\n\rFieldBehavior\022\036\n\032FIELD_BEHAVIOR_UNSPE"
+  "CIFIED\020\000\022\014\n\010OPTIONAL\020\001\022\014\n\010REQUIRED\020\002\022\017\n\013"
+  "OUTPUT_ONLY\020\003\022\016\n\nINPUT_ONLY\020\004\022\r\n\tIMMUTAB"
+  "LE\020\005:Q\n\016field_behavior\022\035.google.protobuf"
+  ".FieldOptions\030\234\010 \003(\0162\031.google.api.FieldB"
+  "ehaviorBp\n\016com.google.apiB\022FieldBehavior"
+  "ProtoP\001ZAgoogle.golang.org/genproto/goog"
+  "leapis/api/annotations;annotations\242\002\004GAP"
+  "Ib\006proto3"
   ;
-static const ::_pbi::DescriptorTable* const descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto_deps[1] = {
+static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
 };
-static ::_pbi::once_flag descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto_once;
-const ::_pbi::DescriptorTable descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto = {
-    false, false, 430, descriptor_table_protodef_google_2fapi_2ffield_5fbehavior_2eproto,
-    "google/api/field_behavior.proto",
-    &descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto_once, descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto_deps, 1, 0,
-    schemas, file_default_instances, TableStruct_google_2fapi_2ffield_5fbehavior_2eproto::offsets,
-    nullptr, file_level_enum_descriptors_google_2fapi_2ffield_5fbehavior_2eproto,
-    file_level_service_descriptors_google_2fapi_2ffield_5fbehavior_2eproto,
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto_sccs[1] = {
 };
-PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto_getter() {
-  return &descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto;
-}
+static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto_once;
+const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto = {
+  false, false, descriptor_table_protodef_google_2fapi_2ffield_5fbehavior_2eproto, "google/api/field_behavior.proto", 409,
+  &descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto_once, descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto_sccs, descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto_deps, 0, 1,
+  schemas, file_default_instances, TableStruct_google_2fapi_2ffield_5fbehavior_2eproto::offsets,
+  file_level_metadata_google_2fapi_2ffield_5fbehavior_2eproto, 0, file_level_enum_descriptors_google_2fapi_2ffield_5fbehavior_2eproto, file_level_service_descriptors_google_2fapi_2ffield_5fbehavior_2eproto,
+};
 
 // Force running AddDescriptors() at dynamic initialization time.
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_google_2fapi_2ffield_5fbehavior_2eproto(&descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto);
+static bool dynamic_init_dummy_google_2fapi_2ffield_5fbehavior_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto)), true);
 namespace google {
 namespace api {
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* FieldBehavior_descriptor() {
@@ -77,16 +69,15 @@ bool FieldBehavior_IsValid(int value) {
     case 3:
     case 4:
     case 5:
-    case 6:
       return true;
     default:
       return false;
   }
 }
 
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::PROTOBUF_NAMESPACE_ID::FieldOptions,
-    ::PROTOBUF_NAMESPACE_ID::internal::RepeatedEnumTypeTraits< ::google::api::FieldBehavior, ::google::api::FieldBehavior_IsValid>, 14, true>
-  field_behavior(kFieldBehaviorFieldNumber, static_cast< ::google::api::FieldBehavior >(0), nullptr);
+::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::FieldOptions,
+    ::PROTOBUF_NAMESPACE_ID::internal::RepeatedEnumTypeTraits< ::google::api::FieldBehavior, ::google::api::FieldBehavior_IsValid>, 14, true >
+  field_behavior(kFieldBehaviorFieldNumber, static_cast< ::google::api::FieldBehavior >(0));
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace api
