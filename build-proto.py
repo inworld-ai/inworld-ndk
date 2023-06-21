@@ -65,3 +65,5 @@ Generate(CurDir + "ThirdParty/api-common-protos/google/api/client.proto", "src/p
 Generate(CurDir + "ThirdParty/api-common-protos/google/api/field_behavior.proto", "src/proto/google/api")
 Generate(CurDir + "ThirdParty/api-common-protos/google/api/http.proto", "src/proto/google/api")
 Generate(CurDir + "ThirdParty/api-common-protos/google/api/resource.proto", "src/proto/google/api")
+Generate(CurDir + "ThirdParty/api-common-protos/google/longrunning/operations.proto", "src/proto/google/longrunning")
+Generate(CurDir + "ThirdParty/api-common-protos/google/rpc/status.proto", "src/proto/google/rpc")

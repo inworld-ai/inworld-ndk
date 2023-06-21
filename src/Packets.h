@@ -92,7 +92,6 @@ namespace Inworld {
     class ControlEvent;
     class EmotionEvent;
     class CancelResponseEvent;
-    class SimpleGestureEvent;
     class CustomGestureEvent;
 	class CustomEvent;
 
@@ -106,7 +105,6 @@ namespace Inworld {
         virtual void Visit(const ControlEvent& Event) {  }
         virtual void Visit(const EmotionEvent& Event) {  }
         virtual void Visit(const CancelResponseEvent& Event) {  }
-        virtual void Visit(const SimpleGestureEvent& Event) {  }
         virtual void Visit(const CustomGestureEvent& Event) {  }
 		virtual void Visit(const CustomEvent& Event) {  }
     };
@@ -312,34 +310,6 @@ namespace Inworld {
     private:
 		std::string _InteractionId;
 		std::vector<std::string> _UtteranceIds;
-    };
-
-    class INWORLDAINDK_API SimpleGestureEvent : public Packet
-    {
-    public:
-		SimpleGestureEvent() = default;
-		SimpleGestureEvent(const InworldPakets::InworldPacket& GrpcPacket)
-            : Packet(GrpcPacket)
-            , _Gesture(GrpcPacket.gesture().type())
-			, _Playback(GrpcPacket.gesture().playback())
-        {}
-		SimpleGestureEvent(InworldPakets::GestureEvent_Type Gesture, InworldPakets::Playback Playback, const Routing& Routing)
-            : Packet(Routing)
-            , _Gesture(Gesture)
-			, _Playback(Playback)
-        {}
-
-        virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
-
-        InworldPakets::GestureEvent_Type GetSimpleGesture() const { return _Gesture; }
-		InworldPakets::Playback GetPlayback() const { return _Playback; }
-
-    protected:
-        virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
-
-    private:
-        InworldPakets::GestureEvent_Type _Gesture;
-		InworldPakets::Playback _Playback;
     };
 
     class INWORLDAINDK_API CustomGestureEvent : public Packet
