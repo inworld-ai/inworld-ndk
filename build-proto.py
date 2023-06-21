@@ -21,7 +21,6 @@ def Generate(File, OutDir):
     LastSlashIdx = File.rfind('/')
     CmdLine += " --proto_path=" + File[0:LastSlashIdx]
       
-    CmdLine += " --proto_path=" + CurDir + "ThirdParty/api-common-protos"
     CmdLine += " --proto_path=" + CurDir + "ThirdParty/grpc/third_party/googleapis"
     CmdLine += " --proto_path=" + CurDir + "ThirdParty/grpc/third_party/protobuf/src"
     CmdLine += " --proto_path=" + InworldRepo + "grpc-stub/world-engine/src/main/proto"
