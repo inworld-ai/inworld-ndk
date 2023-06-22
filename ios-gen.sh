@@ -1,3 +1,3 @@
 mkdir build
 cd build
-cmake -G Xcode .. -DAEC=False -DIOS=True -DCMAKE_TOOLCHAIN_FILE=./ios.toolchain.cmake -DPLATFORM=OS64
+cmake -G Xcode .. -DAEC=False -DIOS=True -DCMAKE_TOOLCHAIN_FILE=./ios.toolchain.cmake -DPLATFORM=OS64 -DCARES_INSTALL=OFF
