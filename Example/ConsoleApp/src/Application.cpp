@@ -9,9 +9,9 @@
 #include "Utils/Log.h"
 
 // !!! Fill out this options !!!
-constexpr std::string_view g_SceneName = "workspaces/artem_v_test/scenes/demo";
-constexpr std::string_view g_ApiKey = "MGhJJ0I9PyX7T53Ua70RePz2zbAgoINp";
-constexpr std::string_view g_ApiSecret = "uoKoKBXD6zeLjgihbWHdgV3fzwS6DB0TEXlBUpuW4ts3LCzcWYxxA2VGT6SsC8RR";
+constexpr std::string_view g_SceneName = "";
+constexpr std::string_view g_ApiKey = "";
+constexpr std::string_view g_ApiSecret = "";
 
 void NDKApp::App::Run()
 {
