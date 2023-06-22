@@ -2,7 +2,7 @@
 // If you make any local change, they will be lost.
 // source: http.proto
 // Original file comments:
-// Copyright 2018 Google LLC
+// Copyright 2018 Google LLC.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,6 +15,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+//
 //
 #ifndef GRPC_http_2eproto__INCLUDED
 #define GRPC_http_2eproto__INCLUDED

@@ -10,8 +10,10 @@ def AddLineToFileStart(Filename, Line):
     print("Adding " + Line + " to " + Filename)
     with open(Filename, 'r+') as File:
         Content = File.read()
-        File.seek(0, 0)
-        File.write(Line.rstrip('\r\n') + '\n' + Content)
+        ContentStart = Content[0:len(Line)]
+        if Line != ContentStart:
+            File.seek(0, 0)
+            File.write(Line.rstrip('\r\n') + '\n' + Content)
 
 def Generate(File, OutDir):
     print("------------------------------------------")
