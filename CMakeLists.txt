@@ -272,22 +272,13 @@ set(LibFiles
     ${AbslDir}/base/${ConfigDirName}/${LibPref}absl_raw_logging_internal.${LibExt}
     ${AbslDir}/base/${ConfigDirName}/${LibPref}absl_spinlock_wait.${LibExt}
     ${AbslDir}/base/${ConfigDirName}/${LibPref}absl_throw_delegate.${LibExt}
-    ${AbslDir}/base/${ConfigDirName}/${LibPref}absl_strerror.${LibExt}
     ${AbslDir}/types/${ConfigDirName}/${LibPref}absl_bad_optional_access.${LibExt}
-    ${AbslDir}/types/${ConfigDirName}/${LibPref}absl_bad_variant_access.${LibExt}
-    ${AbslDir}/hash/${ConfigDirName}/${LibPref}absl_city.${LibExt}
-    ${AbslDir}/hash/${ConfigDirName}/${LibPref}absl_hash.${LibExt}
-    ${AbslDir}/hash/${ConfigDirName}/${LibPref}absl_low_level_hash.${LibExt}
-    ${AbslDir}/strings/${ConfigDirName}/${LibPref}absl_cordz_handle.${LibExt}
     ${AbslDir}/strings/${ConfigDirName}/${LibPref}absl_cord.${LibExt}
-    ${AbslDir}/strings/${ConfigDirName}/${LibPref}absl_cordz_info.${LibExt}
     ${AbslDir}/strings/${ConfigDirName}/${LibPref}absl_str_format_internal.${LibExt}
     ${AbslDir}/strings/${ConfigDirName}/${LibPref}absl_strings.${LibExt}
     ${AbslDir}/strings/${ConfigDirName}/${LibPref}absl_strings_internal.${LibExt}
-    ${AbslDir}/strings/${ConfigDirName}/${LibPref}absl_cord_internal.${LibExt}
     ${AbslDir}/debugging/${ConfigDirName}/${LibPref}absl_symbolize.${LibExt}
     ${AbslDir}/debugging/${ConfigDirName}/${LibPref}absl_stacktrace.${LibExt}
-    ${AbslDir}/debugging/${ConfigDirName}/${LibPref}absl_demangle_internal.${LibExt}
     ${AbslDir}/synchronization/${ConfigDirName}/${LibPref}absl_graphcycles_internal.${LibExt}
     ${AbslDir}/synchronization/${ConfigDirName}/${LibPref}absl_synchronization.${LibExt}
     ${AbslDir}/numeric/${ConfigDirName}/${LibPref}absl_int128.${LibExt}
@@ -295,18 +286,6 @@ set(LibFiles
     ${AbslDir}/status/${ConfigDirName}/${LibPref}absl_statusor.${LibExt}
     ${AbslDir}/time/${ConfigDirName}/${LibPref}absl_time.${LibExt}
     ${AbslDir}/time/${ConfigDirName}/${LibPref}absl_time_zone.${LibExt}
-    ${AbslDir}/container/${ConfigDirName}/${LibPref}absl_raw_hash_set.${LibExt}
-    ${AbslDir}/random/${ConfigDirName}/${LibPref}absl_random_internal_pool_urbg.${LibExt}
-    ${AbslDir}/random/${ConfigDirName}/${LibPref}absl_random_internal_randen.${LibExt}
-    ${AbslDir}/random/${ConfigDirName}/${LibPref}absl_random_internal_randen_hwaes_impl.${LibExt}
-    ${AbslDir}/random/${ConfigDirName}/${LibPref}absl_random_internal_randen_slow.${LibExt}
-    ${AbslDir}/random/${ConfigDirName}/${LibPref}absl_random_internal_seed_material.${LibExt}
-    ${AbslDir}/random/${ConfigDirName}/${LibPref}absl_random_seed_gen_exception.${LibExt}
-    ${AbslDir}/random/${ConfigDirName}/${LibPref}absl_random_internal_randen_hwaes.${LibExt}
-    ${AbslDir}/random/${ConfigDirName}/${LibPref}absl_random_internal_platform.${LibExt}
-    ${AbslDir}/crc/${ConfigDirName}/${LibPref}absl_crc_cord_state.${LibExt}
-    ${AbslDir}/crc/${ConfigDirName}/${LibPref}absl_crc32c.${LibExt}
-    ${AbslDir}/crc/${ConfigDirName}/${LibPref}absl_crc_internal.${LibExt}
     ${GrpcDir}/${ConfigDirName}/${LibPref}address_sorting.${LibExt}
     ${GrpcDir}/${ConfigDirName}/${LibPref}gpr.${LibExt}
     ${GrpcDir}/${ConfigDirName}/${LibPref}grpc.${LibExt}
@@ -328,8 +307,8 @@ if (AEC AND WIN32)
 endif()
 
 foreach(LibFile IN LISTS LibFiles)
-    #add_custom_command(TARGET InworldNDK POST_BUILD
-    #    COMMAND ${CMAKE_COMMAND} -E copy ${LibFile} ${PackageLibDir})
+    add_custom_command(TARGET InworldNDK POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy ${LibFile} ${PackageLibDir})
 endforeach()
 
 add_custom_command(TARGET InworldNDK POST_BUILD
