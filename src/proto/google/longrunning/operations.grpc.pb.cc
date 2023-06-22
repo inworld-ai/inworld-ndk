@@ -28,6 +28,7 @@ static const char* Operations_method_names[] = {
   "/google.longrunning.Operations/GetOperation",
   "/google.longrunning.Operations/DeleteOperation",
   "/google.longrunning.Operations/CancelOperation",
+  "/google.longrunning.Operations/WaitOperation",
 };
 
 std::unique_ptr< Operations::Stub> Operations::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -41,6 +42,7 @@ Operations::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel
   , rpcmethod_GetOperation_(Operations_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_DeleteOperation_(Operations_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_CancelOperation_(Operations_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_WaitOperation_(Operations_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status Operations::Stub::ListOperations(::grpc::ClientContext* context, const ::google::longrunning::ListOperationsRequest& request, ::google::longrunning::ListOperationsResponse* response) {
@@ -135,6 +137,29 @@ void Operations::Stub::experimental_async::CancelOperation(::grpc::ClientContext
   return result;
 }
 
+::grpc::Status Operations::Stub::WaitOperation(::grpc::ClientContext* context, const ::google::longrunning::WaitOperationRequest& request, ::google::longrunning::Operation* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::google::longrunning::WaitOperationRequest, ::google::longrunning::Operation, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_WaitOperation_, context, request, response);
+}
+
+void Operations::Stub::experimental_async::WaitOperation(::grpc::ClientContext* context, const ::google::longrunning::WaitOperationRequest* request, ::google::longrunning::Operation* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::google::longrunning::WaitOperationRequest, ::google::longrunning::Operation, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_WaitOperation_, context, request, response, std::move(f));
+}
+
+void Operations::Stub::experimental_async::WaitOperation(::grpc::ClientContext* context, const ::google::longrunning::WaitOperationRequest* request, ::google::longrunning::Operation* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_WaitOperation_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>* Operations::Stub::PrepareAsyncWaitOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::WaitOperationRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::longrunning::Operation, ::google::longrunning::WaitOperationRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_WaitOperation_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>* Operations::Stub::AsyncWaitOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::WaitOperationRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncWaitOperationRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
 Operations::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Operations_method_names[0],
@@ -176,6 +201,16 @@ Operations::Service::Service() {
              ::google::protobuf::Empty* resp) {
                return service->CancelOperation(ctx, req, resp);
              }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Operations_method_names[4],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Operations::Service, ::google::longrunning::WaitOperationRequest, ::google::longrunning::Operation, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](Operations::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::google::longrunning::WaitOperationRequest* req,
+             ::google::longrunning::Operation* resp) {
+               return service->WaitOperation(ctx, req, resp);
+             }, this)));
 }
 
 Operations::Service::~Service() {
@@ -203,6 +238,13 @@ Operations::Service::~Service() {
 }
 
 ::grpc::Status Operations::Service::CancelOperation(::grpc::ServerContext* context, const ::google::longrunning::CancelOperationRequest* request, ::google::protobuf::Empty* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Operations::Service::WaitOperation(::grpc::ServerContext* context, const ::google::longrunning::WaitOperationRequest* request, ::google::longrunning::Operation* response) {
   (void) context;
   (void) request;
   (void) response;

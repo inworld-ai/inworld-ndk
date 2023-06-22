@@ -16,7 +16,9 @@
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 extern PROTOBUF_INTERNAL_EXPORT_google_2flongrunning_2foperations_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_Operation_google_2flongrunning_2foperations_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_google_2flongrunning_2foperations_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_OperationInfo_google_2flongrunning_2foperations_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_google_2fprotobuf_2fany_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Any_google_2fprotobuf_2fany_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_google_2fprotobuf_2fduration_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Duration_google_2fprotobuf_2fduration_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_google_2frpc_2fstatus_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Status_google_2frpc_2fstatus_2eproto;
 namespace google {
 namespace longrunning {
@@ -44,6 +46,14 @@ class DeleteOperationRequestDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<DeleteOperationRequest> _instance;
 } _DeleteOperationRequest_default_instance_;
+class WaitOperationRequestDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<WaitOperationRequest> _instance;
+} _WaitOperationRequest_default_instance_;
+class OperationInfoDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<OperationInfo> _instance;
+} _OperationInfo_default_instance_;
 }  // namespace longrunning
 }  // namespace google
 static void InitDefaultsscc_info_CancelOperationRequest_google_2flongrunning_2foperations_2eproto() {
@@ -127,7 +137,34 @@ static void InitDefaultsscc_info_Operation_google_2flongrunning_2foperations_2ep
       &scc_info_Any_google_2fprotobuf_2fany_2eproto.base,
       &scc_info_Status_google_2frpc_2fstatus_2eproto.base,}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_google_2flongrunning_2foperations_2eproto[6];
+static void InitDefaultsscc_info_OperationInfo_google_2flongrunning_2foperations_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::google::longrunning::_OperationInfo_default_instance_;
+    new (ptr) ::google::longrunning::OperationInfo();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_OperationInfo_google_2flongrunning_2foperations_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_OperationInfo_google_2flongrunning_2foperations_2eproto}, {}};
+
+static void InitDefaultsscc_info_WaitOperationRequest_google_2flongrunning_2foperations_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::google::longrunning::_WaitOperationRequest_default_instance_;
+    new (ptr) ::google::longrunning::WaitOperationRequest();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_WaitOperationRequest_google_2flongrunning_2foperations_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_WaitOperationRequest_google_2flongrunning_2foperations_2eproto}, {
+      &scc_info_Duration_google_2fprotobuf_2fduration_2eproto.base,}};
+
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_google_2flongrunning_2foperations_2eproto[8];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_google_2flongrunning_2foperations_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_google_2flongrunning_2foperations_2eproto = nullptr;
 
@@ -177,6 +214,20 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_google_2flongrunning_2foperati
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::google::longrunning::DeleteOperationRequest, name_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::google::longrunning::WaitOperationRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::google::longrunning::WaitOperationRequest, name_),
+  PROTOBUF_FIELD_OFFSET(::google::longrunning::WaitOperationRequest, timeout_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::google::longrunning::OperationInfo, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::google::longrunning::OperationInfo, response_type_),
+  PROTOBUF_FIELD_OFFSET(::google::longrunning::OperationInfo, metadata_type_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::google::longrunning::Operation)},
@@ -185,6 +236,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 26, -1, sizeof(::google::longrunning::ListOperationsResponse)},
   { 33, -1, sizeof(::google::longrunning::CancelOperationRequest)},
   { 39, -1, sizeof(::google::longrunning::DeleteOperationRequest)},
+  { 45, -1, sizeof(::google::longrunning::WaitOperationRequest)},
+  { 52, -1, sizeof(::google::longrunning::OperationInfo)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -194,64 +247,83 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::google::longrunning::_ListOperationsResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::google::longrunning::_CancelOperationRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::google::longrunning::_DeleteOperationRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::google::longrunning::_WaitOperationRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::google::longrunning::_OperationInfo_default_instance_),
 };
 
 const char descriptor_table_protodef_google_2flongrunning_2foperations_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n#google/longrunning/operations.proto\022\022g"
   "oogle.longrunning\032\034google/api/annotation"
-  "s.proto\032\031google/protobuf/any.proto\032\033goog"
-  "le/protobuf/empty.proto\032\027google/rpc/stat"
-  "us.proto\"\250\001\n\tOperation\022\014\n\004name\030\001 \001(\t\022&\n\010"
-  "metadata\030\002 \001(\0132\024.google.protobuf.Any\022\014\n\004"
-  "done\030\003 \001(\010\022#\n\005error\030\004 \001(\0132\022.google.rpc.S"
-  "tatusH\000\022(\n\010response\030\005 \001(\0132\024.google.proto"
-  "buf.AnyH\000B\010\n\006result\"#\n\023GetOperationReque"
-  "st\022\014\n\004name\030\001 \001(\t\"\\\n\025ListOperationsReques"
-  "t\022\014\n\004name\030\004 \001(\t\022\016\n\006filter\030\001 \001(\t\022\021\n\tpage_"
-  "size\030\002 \001(\005\022\022\n\npage_token\030\003 \001(\t\"d\n\026ListOp"
-  "erationsResponse\0221\n\noperations\030\001 \003(\0132\035.g"
-  "oogle.longrunning.Operation\022\027\n\017next_page"
-  "_token\030\002 \001(\t\"&\n\026CancelOperationRequest\022\014"
-  "\n\004name\030\001 \001(\t\"&\n\026DeleteOperationRequest\022\014"
-  "\n\004name\030\001 \001(\t2\214\004\n\nOperations\022\206\001\n\016ListOper"
-  "ations\022).google.longrunning.ListOperatio"
-  "nsRequest\032*.google.longrunning.ListOpera"
-  "tionsResponse\"\035\202\323\344\223\002\027\022\025/v1/{name=operati"
-  "ons}\022x\n\014GetOperation\022\'.google.longrunnin"
-  "g.GetOperationRequest\032\035.google.longrunni"
-  "ng.Operation\" \202\323\344\223\002\032\022\030/v1/{name=operatio"
-  "ns/**}\022w\n\017DeleteOperation\022*.google.longr"
-  "unning.DeleteOperationRequest\032\026.google.p"
-  "rotobuf.Empty\" \202\323\344\223\002\032*\030/v1/{name=operati"
-  "ons/**}\022\201\001\n\017CancelOperation\022*.google.lon"
-  "grunning.CancelOperationRequest\032\026.google"
-  ".protobuf.Empty\"*\202\323\344\223\002$\"\037/v1/{name=opera"
-  "tions/**}:cancel:\001*B\224\001\n\026com.google.longr"
-  "unningB\017OperationsProtoP\001Z=google.golang"
-  ".org/genproto/googleapis/longrunning;lon"
-  "grunning\252\002\022Google.LongRunning\312\002\022Google\\L"
-  "ongRunningb\006proto3"
+  "s.proto\032\027google/api/client.proto\032\031google"
+  "/protobuf/any.proto\032\036google/protobuf/dur"
+  "ation.proto\032\033google/protobuf/empty.proto"
+  "\032\027google/rpc/status.proto\032 google/protob"
+  "uf/descriptor.proto\"\250\001\n\tOperation\022\014\n\004nam"
+  "e\030\001 \001(\t\022&\n\010metadata\030\002 \001(\0132\024.google.proto"
+  "buf.Any\022\014\n\004done\030\003 \001(\010\022#\n\005error\030\004 \001(\0132\022.g"
+  "oogle.rpc.StatusH\000\022(\n\010response\030\005 \001(\0132\024.g"
+  "oogle.protobuf.AnyH\000B\010\n\006result\"#\n\023GetOpe"
+  "rationRequest\022\014\n\004name\030\001 \001(\t\"\\\n\025ListOpera"
+  "tionsRequest\022\014\n\004name\030\004 \001(\t\022\016\n\006filter\030\001 \001"
+  "(\t\022\021\n\tpage_size\030\002 \001(\005\022\022\n\npage_token\030\003 \001("
+  "\t\"d\n\026ListOperationsResponse\0221\n\noperation"
+  "s\030\001 \003(\0132\035.google.longrunning.Operation\022\027"
+  "\n\017next_page_token\030\002 \001(\t\"&\n\026CancelOperati"
+  "onRequest\022\014\n\004name\030\001 \001(\t\"&\n\026DeleteOperati"
+  "onRequest\022\014\n\004name\030\001 \001(\t\"P\n\024WaitOperation"
+  "Request\022\014\n\004name\030\001 \001(\t\022*\n\007timeout\030\002 \001(\0132\031"
+  ".google.protobuf.Duration\"=\n\rOperationIn"
+  "fo\022\025\n\rresponse_type\030\001 \001(\t\022\025\n\rmetadata_ty"
+  "pe\030\002 \001(\t2\252\005\n\nOperations\022\224\001\n\016ListOperatio"
+  "ns\022).google.longrunning.ListOperationsRe"
+  "quest\032*.google.longrunning.ListOperation"
+  "sResponse\"+\202\323\344\223\002\027\022\025/v1/{name=operations}"
+  "\332A\013name,filter\022\177\n\014GetOperation\022\'.google."
+  "longrunning.GetOperationRequest\032\035.google"
+  ".longrunning.Operation\"\'\202\323\344\223\002\032\022\030/v1/{nam"
+  "e=operations/**}\332A\004name\022~\n\017DeleteOperati"
+  "on\022*.google.longrunning.DeleteOperationR"
+  "equest\032\026.google.protobuf.Empty\"\'\202\323\344\223\002\032*\030"
+  "/v1/{name=operations/**}\332A\004name\022\210\001\n\017Canc"
+  "elOperation\022*.google.longrunning.CancelO"
+  "perationRequest\032\026.google.protobuf.Empty\""
+  "1\202\323\344\223\002$\"\037/v1/{name=operations/**}:cancel"
+  ":\001*\332A\004name\022Z\n\rWaitOperation\022(.google.lon"
+  "grunning.WaitOperationRequest\032\035.google.l"
+  "ongrunning.Operation\"\000\032\035\312A\032longrunning.g"
+  "oogleapis.com:Z\n\016operation_info\022\036.google"
+  ".protobuf.MethodOptions\030\231\010 \001(\0132!.google."
+  "longrunning.OperationInfoB\227\001\n\026com.google"
+  ".longrunningB\017OperationsProtoP\001Z=google."
+  "golang.org/genproto/googleapis/longrunni"
+  "ng;longrunning\370\001\001\252\002\022Google.LongRunning\312\002"
+  "\022Google\\LongRunningb\006proto3"
   ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_google_2flongrunning_2foperations_2eproto_deps[4] = {
+static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_google_2flongrunning_2foperations_2eproto_deps[7] = {
   &::descriptor_table_google_2fapi_2fannotations_2eproto,
+  &::descriptor_table_google_2fapi_2fclient_2eproto,
   &::descriptor_table_google_2fprotobuf_2fany_2eproto,
+  &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
+  &::descriptor_table_google_2fprotobuf_2fduration_2eproto,
   &::descriptor_table_google_2fprotobuf_2fempty_2eproto,
   &::descriptor_table_google_2frpc_2fstatus_2eproto,
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_google_2flongrunning_2foperations_2eproto_sccs[6] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_google_2flongrunning_2foperations_2eproto_sccs[8] = {
   &scc_info_CancelOperationRequest_google_2flongrunning_2foperations_2eproto.base,
   &scc_info_DeleteOperationRequest_google_2flongrunning_2foperations_2eproto.base,
   &scc_info_GetOperationRequest_google_2flongrunning_2foperations_2eproto.base,
   &scc_info_ListOperationsRequest_google_2flongrunning_2foperations_2eproto.base,
   &scc_info_ListOperationsResponse_google_2flongrunning_2foperations_2eproto.base,
   &scc_info_Operation_google_2flongrunning_2foperations_2eproto.base,
+  &scc_info_OperationInfo_google_2flongrunning_2foperations_2eproto.base,
+  &scc_info_WaitOperationRequest_google_2flongrunning_2foperations_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_google_2flongrunning_2foperations_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_google_2flongrunning_2foperations_2eproto = {
-  false, false, descriptor_table_protodef_google_2flongrunning_2foperations_2eproto, "google/longrunning/operations.proto", 1338,
-  &descriptor_table_google_2flongrunning_2foperations_2eproto_once, descriptor_table_google_2flongrunning_2foperations_2eproto_sccs, descriptor_table_google_2flongrunning_2foperations_2eproto_deps, 6, 4,
+  false, false, descriptor_table_protodef_google_2flongrunning_2foperations_2eproto, "google/longrunning/operations.proto", 1827,
+  &descriptor_table_google_2flongrunning_2foperations_2eproto_once, descriptor_table_google_2flongrunning_2foperations_2eproto_sccs, descriptor_table_google_2flongrunning_2foperations_2eproto_deps, 8, 7,
   schemas, file_default_instances, TableStruct_google_2flongrunning_2foperations_2eproto::offsets,
-  file_level_metadata_google_2flongrunning_2foperations_2eproto, 6, file_level_enum_descriptors_google_2flongrunning_2foperations_2eproto, file_level_service_descriptors_google_2flongrunning_2foperations_2eproto,
+  file_level_metadata_google_2flongrunning_2foperations_2eproto, 8, file_level_enum_descriptors_google_2flongrunning_2foperations_2eproto, file_level_service_descriptors_google_2flongrunning_2foperations_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -1871,6 +1943,507 @@ void DeleteOperationRequest::InternalSwap(DeleteOperationRequest* other) {
 }
 
 
+// ===================================================================
+
+class WaitOperationRequest::_Internal {
+ public:
+  static const PROTOBUF_NAMESPACE_ID::Duration& timeout(const WaitOperationRequest* msg);
+};
+
+const PROTOBUF_NAMESPACE_ID::Duration&
+WaitOperationRequest::_Internal::timeout(const WaitOperationRequest* msg) {
+  return *msg->timeout_;
+}
+void WaitOperationRequest::clear_timeout() {
+  if (GetArena() == nullptr && timeout_ != nullptr) {
+    delete timeout_;
+  }
+  timeout_ = nullptr;
+}
+WaitOperationRequest::WaitOperationRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:google.longrunning.WaitOperationRequest)
+}
+WaitOperationRequest::WaitOperationRequest(const WaitOperationRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_name().empty()) {
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
+      GetArena());
+  }
+  if (from._internal_has_timeout()) {
+    timeout_ = new PROTOBUF_NAMESPACE_ID::Duration(*from.timeout_);
+  } else {
+    timeout_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:google.longrunning.WaitOperationRequest)
+}
+
+void WaitOperationRequest::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_WaitOperationRequest_google_2flongrunning_2foperations_2eproto.base);
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  timeout_ = nullptr;
+}
+
+WaitOperationRequest::~WaitOperationRequest() {
+  // @@protoc_insertion_point(destructor:google.longrunning.WaitOperationRequest)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void WaitOperationRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete timeout_;
+}
+
+void WaitOperationRequest::ArenaDtor(void* object) {
+  WaitOperationRequest* _this = reinterpret_cast< WaitOperationRequest* >(object);
+  (void)_this;
+}
+void WaitOperationRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void WaitOperationRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const WaitOperationRequest& WaitOperationRequest::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_WaitOperationRequest_google_2flongrunning_2foperations_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void WaitOperationRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:google.longrunning.WaitOperationRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  name_.ClearToEmpty();
+  if (GetArena() == nullptr && timeout_ != nullptr) {
+    delete timeout_;
+  }
+  timeout_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* WaitOperationRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string name = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "google.longrunning.WaitOperationRequest.name"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .google.protobuf.Duration timeout = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_timeout(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* WaitOperationRequest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:google.longrunning.WaitOperationRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string name = 1;
+  if (this->name().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "google.longrunning.WaitOperationRequest.name");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_name(), target);
+  }
+
+  // .google.protobuf.Duration timeout = 2;
+  if (this->has_timeout()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::timeout(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:google.longrunning.WaitOperationRequest)
+  return target;
+}
+
+size_t WaitOperationRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:google.longrunning.WaitOperationRequest)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string name = 1;
+  if (this->name().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_name());
+  }
+
+  // .google.protobuf.Duration timeout = 2;
+  if (this->has_timeout()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *timeout_);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void WaitOperationRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:google.longrunning.WaitOperationRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const WaitOperationRequest* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<WaitOperationRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:google.longrunning.WaitOperationRequest)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:google.longrunning.WaitOperationRequest)
+    MergeFrom(*source);
+  }
+}
+
+void WaitOperationRequest::MergeFrom(const WaitOperationRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:google.longrunning.WaitOperationRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.name().size() > 0) {
+    _internal_set_name(from._internal_name());
+  }
+  if (from.has_timeout()) {
+    _internal_mutable_timeout()->PROTOBUF_NAMESPACE_ID::Duration::MergeFrom(from._internal_timeout());
+  }
+}
+
+void WaitOperationRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:google.longrunning.WaitOperationRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void WaitOperationRequest::CopyFrom(const WaitOperationRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:google.longrunning.WaitOperationRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WaitOperationRequest::IsInitialized() const {
+  return true;
+}
+
+void WaitOperationRequest::InternalSwap(WaitOperationRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  swap(timeout_, other->timeout_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata WaitOperationRequest::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class OperationInfo::_Internal {
+ public:
+};
+
+OperationInfo::OperationInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:google.longrunning.OperationInfo)
+}
+OperationInfo::OperationInfo(const OperationInfo& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  response_type_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_response_type().empty()) {
+    response_type_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_response_type(), 
+      GetArena());
+  }
+  metadata_type_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_metadata_type().empty()) {
+    metadata_type_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_metadata_type(), 
+      GetArena());
+  }
+  // @@protoc_insertion_point(copy_constructor:google.longrunning.OperationInfo)
+}
+
+void OperationInfo::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_OperationInfo_google_2flongrunning_2foperations_2eproto.base);
+  response_type_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  metadata_type_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+OperationInfo::~OperationInfo() {
+  // @@protoc_insertion_point(destructor:google.longrunning.OperationInfo)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void OperationInfo::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  response_type_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  metadata_type_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void OperationInfo::ArenaDtor(void* object) {
+  OperationInfo* _this = reinterpret_cast< OperationInfo* >(object);
+  (void)_this;
+}
+void OperationInfo::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void OperationInfo::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const OperationInfo& OperationInfo::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_OperationInfo_google_2flongrunning_2foperations_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void OperationInfo::Clear() {
+// @@protoc_insertion_point(message_clear_start:google.longrunning.OperationInfo)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  response_type_.ClearToEmpty();
+  metadata_type_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* OperationInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string response_type = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_response_type();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "google.longrunning.OperationInfo.response_type"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string metadata_type = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_metadata_type();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "google.longrunning.OperationInfo.metadata_type"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* OperationInfo::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:google.longrunning.OperationInfo)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string response_type = 1;
+  if (this->response_type().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_response_type().data(), static_cast<int>(this->_internal_response_type().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "google.longrunning.OperationInfo.response_type");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_response_type(), target);
+  }
+
+  // string metadata_type = 2;
+  if (this->metadata_type().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_metadata_type().data(), static_cast<int>(this->_internal_metadata_type().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "google.longrunning.OperationInfo.metadata_type");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_metadata_type(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:google.longrunning.OperationInfo)
+  return target;
+}
+
+size_t OperationInfo::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:google.longrunning.OperationInfo)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string response_type = 1;
+  if (this->response_type().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_response_type());
+  }
+
+  // string metadata_type = 2;
+  if (this->metadata_type().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_metadata_type());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void OperationInfo::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:google.longrunning.OperationInfo)
+  GOOGLE_DCHECK_NE(&from, this);
+  const OperationInfo* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<OperationInfo>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:google.longrunning.OperationInfo)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:google.longrunning.OperationInfo)
+    MergeFrom(*source);
+  }
+}
+
+void OperationInfo::MergeFrom(const OperationInfo& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:google.longrunning.OperationInfo)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.response_type().size() > 0) {
+    _internal_set_response_type(from._internal_response_type());
+  }
+  if (from.metadata_type().size() > 0) {
+    _internal_set_metadata_type(from._internal_metadata_type());
+  }
+}
+
+void OperationInfo::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:google.longrunning.OperationInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void OperationInfo::CopyFrom(const OperationInfo& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:google.longrunning.OperationInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool OperationInfo::IsInitialized() const {
+  return true;
+}
+
+void OperationInfo::InternalSwap(OperationInfo* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  response_type_.Swap(&other->response_type_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  metadata_type_.Swap(&other->metadata_type_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata OperationInfo::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::MethodOptions,
+    ::PROTOBUF_NAMESPACE_ID::internal::MessageTypeTraits< ::google::longrunning::OperationInfo >, 11, false >
+  operation_info(kOperationInfoFieldNumber, ::google::longrunning::OperationInfo::default_instance());
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace longrunning
 }  // namespace google
@@ -1892,6 +2465,12 @@ template<> PROTOBUF_NOINLINE ::google::longrunning::CancelOperationRequest* Aren
 }
 template<> PROTOBUF_NOINLINE ::google::longrunning::DeleteOperationRequest* Arena::CreateMaybeMessage< ::google::longrunning::DeleteOperationRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::google::longrunning::DeleteOperationRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::google::longrunning::WaitOperationRequest* Arena::CreateMaybeMessage< ::google::longrunning::WaitOperationRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::google::longrunning::WaitOperationRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::google::longrunning::OperationInfo* Arena::CreateMaybeMessage< ::google::longrunning::OperationInfo >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::google::longrunning::OperationInfo >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 
