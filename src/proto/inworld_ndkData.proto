@@ -1,6 +1,84 @@
 syntax = "proto3";
 
 package inworld.ndkData;
+option csharp_namespace = "Inworld.NDK";
+
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+
+message Token {
+  string token = 1;
+  string type = 2;
+  google.protobuf.Timestamp expirationTime = 3;
+  string sessionId = 4;
+
+  bool IsValid = 5;
+}
+
+message LoadSceneRequest {
+  ClientRequest client = 1;
+  UserRequest user = 2;
+  CapabilitiesRequest capabilities = 3;
+  UserSettings userSetting = 4;
+}
+
+message LoadSceneResponse {
+  repeated InworldCharacterData agents = 1;
+  string key = 2;
+  google.protobuf.Any previousState = 3; // TODO: Solve packets from saved data.
+}
+
+message UserRequest {
+  string name = 1;
+}
+
+message UserSettings {
+  bool viewTranscriptConsent = 1;
+  PlayerProfile playerProfile = 2;
+}
+
+message PlayerProfile {
+  repeated Fields fields = 1;
+}
+
+message Fields {
+  string fieldId = 1;
+  string fieldValue = 2;
+}
+
+message ClientRequest {
+  string id = 1;
+  string version = 2;
+}
+
+message CapabilitiesRequest {
+  bool audio = 1;
+  bool emotions = 2;
+  bool interruptions = 3;
+  bool narratedActions = 4;
+  bool silence = 5;
+  bool text = 6;
+  bool triggers = 7;
+  bool continuation = 8;
+  bool turnBasedStt = 9;
+  bool phonemeInfo = 10;
+}
+
+message InworldCharacterData {
+  string agentId = 1;
+  string brainName = 2;
+  string givenName = 3;
+  CharacterAssets characterAssets = 4;
+  bytes thumbnail = 5;
+}
+
+message CharacterAssets {
+  string rpmModelUri = 1;
+  string rpmImageUriPortrait = 2;
+  string rpmImageUriPosture = 3;
+  string avatarImg = 4;
+  string avatarImgOriginal = 5;
+}
 
 message ClientOptions {
     string auth_url = 1;
