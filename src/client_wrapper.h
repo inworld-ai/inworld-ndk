@@ -31,7 +31,7 @@ extern "C" {
    //std::shared_ptr<Inworld::Packet> ResolvePackets(InworldPakets::InworldPacket packet);
 
    __declspec(dllexport) void ClientWrapper_SendTextMessage(ClientWrapper* wrapper, const char* AgentId, const char* Text);
-   __declspec(dllexport) void ClientWrapper_SendSoundMessage(ClientWrapper* wrapper, const char* AgentId, const char* Data);
+   __declspec(dllexport) void ClientWrapper_SendSoundMessage(ClientWrapper* wrapper, const char* AgentId, const uint8_t* Data, int data_size);
    __declspec(dllexport) void ClientWrapper_SendSoundMessageWithAEC(ClientWrapper* wrapper, const char* AgentId, const int16_t* InputData, int InputDataSize, const int16_t* OutputData, int OutputDataSize);
    __declspec(dllexport) void ClientWrapper_SendCustomEvent(ClientWrapper* wrapper, const char* AgentId, const char* Name);
 

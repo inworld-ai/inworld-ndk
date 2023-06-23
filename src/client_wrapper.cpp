@@ -235,8 +235,10 @@ extern "C" {
     }
 
     // SendSoundMessage
-    void ClientWrapper_SendSoundMessage(ClientWrapper* wrapper, const char* AgentId, const char* Data) {
-        wrapper->client.SendSoundMessage(AgentId, Data);
+    void ClientWrapper_SendSoundMessage(ClientWrapper* wrapper, const char* AgentId, const uint8_t* Data, int data_size) {
+        std::vector<uint8_t> byteArray(Data, Data + data_size);
+        std::string audioData(byteArray.begin(), byteArray.end());
+        wrapper->client.SendSoundMessage(AgentId, audioData);
     }
 
     // SendSoundMessageWithAEC
