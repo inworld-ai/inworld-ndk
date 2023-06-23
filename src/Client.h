@@ -164,3 +164,4 @@ namespace Inworld
 		SharedQueue<std::function<void()>> _MainThreadTasks;
 	};
 }
+
