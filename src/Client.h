@@ -12,7 +12,6 @@
 
 #include <future>
 #include "Packets.h"
-#include "proto/inworld_ndkData.pb.h"
 #include "Utils/SharedQueue.h"
 #include "AsyncRoutine.h"
 #include "AECFilter.h"
@@ -142,7 +141,6 @@ namespace Inworld
 
 		ClientOptions _ClientOptions;
 		SessionInfo _SessionInfo;
-		//bool IsSessionValid(const SessionInfo& session);
 
 		AECFilter _EchoFilter;
 	};
@@ -166,4 +164,3 @@ namespace Inworld
 		SharedQueue<std::function<void()>> _MainThreadTasks;
 	};
 }
-

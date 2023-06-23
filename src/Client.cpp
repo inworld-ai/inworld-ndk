@@ -141,10 +141,10 @@ void Inworld::ClientBase::GenerateToken(std::function<void()> GenerateTokenCallb
 			{
 				if (_SessionInfo.SessionId.empty())
 				{
-					_SessionInfo.SessionId = (Token.session_id());
+					_SessionInfo.SessionId = Token.session_id();
 				}
-				_SessionInfo.Token = (Token.token());
-				_SessionInfo.ExpirationTime = (std::time(0) + std::max(std::min(Token.expiration_time().seconds() - std::time(0), gMaxTokenLifespan), 0ll));
+				_SessionInfo.Token = Token.token();
+				_SessionInfo.ExpirationTime = std::time(0) + std::max(std::min(Token.expiration_time().seconds() - std::time(0), gMaxTokenLifespan), 0ll);
 
 				AddTaskToMainThread([this, Status]()
 				{
@@ -331,18 +331,18 @@ void Inworld::ClientBase::OnSceneLoaded(const grpc::Status& Status, const Inworl
 	for (int32_t i = 0; i < Response.agents_size(); i++)
 	{
 		AgentInfo Info;
-		Info.BrainName = (Response.agents(i).brain_name().c_str());
-		Info.AgentId = (Response.agents(i).agent_id().c_str());
-		Info.GivenName = (Response.agents(i).given_name().c_str());
+		Info.BrainName = Response.agents(i).brain_name().c_str();
+		Info.AgentId = Response.agents(i).agent_id().c_str();
+		Info.GivenName = Response.agents(i).given_name().c_str();
 		AgentInfos.push_back(Info);
 
 		Inworld::Log("Character registered: %s, Id: %s, GivenName: %s", ARG_STR(Info.BrainName), ARG_STR(Info.AgentId), ARG_STR(Info.GivenName));
 	}
 
 	AgentInfo Info;
-	Info.BrainName =("__DUMMY__");
-	Info.AgentId = ("__DUMMY__");
-	Info.GivenName = ("__DUMMY__");
+	Info.BrainName = "__DUMMY__";
+	Info.AgentId = "__DUMMY__";
+	Info.GivenName = "__DUMMY__";
 	AgentInfos.push_back(Info);
 
 	_OnLoadSceneCallback(AgentInfos);
@@ -494,7 +494,6 @@ bool Inworld::SessionInfo::IsValid() const
 	return !Token.empty() && !SessionId.empty() && ExpirationTime > std::time(0);
 }
 
-
 void Inworld::Client::Update()
 {
 	ExecutePendingTasks();
@@ -513,4 +512,3 @@ void Inworld::Client::ExecutePendingTasks()
 		Task();
 	}
 }
-

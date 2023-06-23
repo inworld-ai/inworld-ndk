@@ -1,58 +1,14 @@
+/**
+ * Copyright 2022 Theai, Inc. (DBA Inworld)
+ *
+ * Use of this source code is governed by the Inworld.ai Software Development Kit License Agreement
+ * that can be found in the LICENSE.md file or at https://www.inworld.ai/sdk-license
+ */
 #include "client_wrapper.h"
 #include <memory>
 using namespace inworld::ndkData;
-//Inworld::ClientBase::ConnectionState toCppConnectionState(ConnectionState state) {
-//    return static_cast<Inworld::ClientBase::ConnectionState>(state);
-//}
 
-//Inworld::ClientOptions toCppClientOptions(const ClientOptions* options) {
-//    Inworld::ClientOptions cppOptions;
-//    cppOptions.AuthUrl = options->AuthUrl;
-//    cppOptions.LoadSceneUrl = options->LoadSceneUrl;
-//    cppOptions.SceneName = options->SceneName;
-//    cppOptions.ApiKey = options->ApiKey;
-//    cppOptions.ApiSecret = options->ApiSecret;
-//    cppOptions.PlayerName = options->PlayerName;
-//    cppOptions.Token = options->Token;
-//    cppOptions.SessionId = options->SessionId;
-//    return cppOptions;
-//}
 extern "C" {
-
-  
-
-  /*  ConnectionState toCConnectionState(Inworld::ClientBase::ConnectionState state) {
-        return static_cast<ConnectionState>(state);
-    }
-
-    AgentInfoArray createAgentInfoArray(const std::vector<Inworld::AgentInfo>& agentInfos) {
-        AgentInfoArray array;
-        array.size = static_cast<int>(agentInfos.size());
-        array.data = new AgentInfo[array.size];
-
-        for (int i = 0; i < array.size; ++i) {
-            array.data[i].brain_name() = new char[agentInfos[i].brain_name().size() + 1];
-            strcpy(array.data[i].brain_name(), agentInfos[i].brain_name().c_str());
-
-            array.data[i].agent_id() = new char[agentInfos[i].agent_id().size() + 1];
-            strcpy(array.data[i].agent_id(), agentInfos[i].agent_id().c_str());
-
-            array.data[i].given_name() = new char[agentInfos[i].given_name().size() + 1];
-            strcpy(array.data[i].given_name(), agentInfos[i].given_name().c_str());
-        }
-
-        return array;
-    }*/
-
-   /* void destroyAgentInfoArray(AgentInfoArray* array) {
-        for (int i = 0; i < array->size; ++i) {
-            delete[] array->data[i].brain_name();
-            delete[] array->data[i].agent_id();
-            delete[] array->data[i].given_name();
-        }
-
-        delete[] array->data;
-    }*/
 
     // ClientWrapper instantiation and destruction
     ClientWrapper* ClientWrapper_create() {
@@ -73,43 +29,11 @@ extern "C" {
             [PacketCallback](std::shared_ptr<Inworld::Packet> Packet) {
                 if (Packet != nullptr || Packet != NULL)
                 {
-                    DebugLog("INVOKING PACKET CALLBACK FROM DLL");
-                    InworldPakets::InworldPacket pkt = Packet.get()->ToProto();
-
-                    if (pkt.has_audio_chunk())
-                    {
-                        DebugLog("DLL Packet data audio chunk is not null");
-                        if (pkt.audio_chunk().chunk().empty())
-                        {
-                            DebugLog("DLL Packet data audio chunk is not empty");// chunk is " + Packet->ToProto().audio_chunk().chunk());
-
-                        }
-                        else
-                            DebugLog("DLL PACKET CHUNK IS EMPTY DESPITE VALID AUDIO CHUNK");
-                    }
-
-                    if (pkt.has_data_chunk())
-                    {
-                        DebugLog("DLL Packet has valid data chunk");
-                        if (pkt.data_chunk().type() == InworldPakets::DataChunk_DataType_AUDIO)
-                        {
-                            DebugLog("Packet DATA CHUNK TYPE IS AUDIO in the DLL");
-                            if (pkt.data_chunk().additional_phoneme_info().empty())
-                                DebugLog("DLL Packet data chunk phonemes are empty");
-                            else
-                            {
-                                DebugLog("DLL SHOULD HAVE RECEIVED VALID PHONEMES");
-                            }
-                        }
-                    }
+                    InworldPakets::InworldPacket pkt = Packet.get()->ToProto();                    
 
                     int serialized_data_size = pkt.ByteSize();
                     unsigned char* serialized_data = static_cast<unsigned char*>(CoTaskMemAlloc(serialized_data_size));
                     pkt.SerializeToArray(serialized_data, serialized_data_size);
-
-                    std::ostringstream ss;
-                    ss << "PACKET NDK callback packet size is " << serialized_data_size;
-                    DebugLog(ss.str().c_str());
 
                     if (serialized_data_size < 0)
                     {
