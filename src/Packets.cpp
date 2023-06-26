@@ -120,12 +120,6 @@ namespace Inworld {
         }
     }
 
-    void SimpleGestureEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
-    {
-        Proto.mutable_gesture()->set_type(_Gesture);
-        Proto.mutable_gesture()->set_playback(_Playback);
-	}
-
 	void CustomGestureEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
 	{
 		

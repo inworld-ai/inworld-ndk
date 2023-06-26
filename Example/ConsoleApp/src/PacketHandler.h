@@ -18,7 +18,6 @@ namespace NDKApp
 		virtual void Visit(const Inworld::ControlEvent& Event) override;
 		virtual void Visit(const Inworld::EmotionEvent& Event) override;
 		virtual void Visit(const Inworld::CancelResponseEvent& Event) override;
-		virtual void Visit(const Inworld::SimpleGestureEvent& Event) override;
 		virtual void Visit(const Inworld::CustomGestureEvent& Event) override;
 		virtual void Visit(const Inworld::CustomEvent& Event) override;
 	};
