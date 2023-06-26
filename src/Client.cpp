@@ -59,6 +59,13 @@ void Inworld::ClientBase::SendPacket(std::shared_ptr<Inworld::Packet> Packet)
 	TryToStartWriteTask();
 }
 
+std::shared_ptr<Inworld::ChangeSceneEvent> Inworld::ClientBase::ChangeScene(const std::string& AgentId, const std::string& Scene)
+{
+	auto Packet = std::make_shared<ChangeSceneEvent>(Scene, Routing());
+	SendPacket(Packet);
+	return Packet;
+}
+
 std::shared_ptr<Inworld::TextEvent> Inworld::ClientBase::SendTextMessage(const std::string& AgentId, const std::string& Text)
 {
 	auto Packet = std::make_shared<TextEvent>(Text, Routing::Player2Agent(AgentId));

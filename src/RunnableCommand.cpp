@@ -63,6 +63,15 @@ void Inworld::RunnableRead::Run()
 		{
 			Packet = std::make_shared<Inworld::CustomEvent>(IncomingPacket);
 		}
+		else if (IncomingPacket.has_load_scene_output())
+		{
+			Packet = std::make_shared<Inworld::ChangeSceneEvent>(IncomingPacket);
+		}
+		else
+		{
+			// Unknown packet type
+			continue;
+		}
 
 		_Packets.PushBack(Packet);
 
@@ -125,6 +134,7 @@ grpc::Status Inworld::RunnableLoadScene::RunProcess()
 	Capabilities->set_emotion_streaming(true);
 	Capabilities->set_silence_events(true);
 	Capabilities->set_phoneme_info(true);
+	Capabilities->set_load_scene_in_session(true);
 
 	auto* User = LoadSceneRequest.mutable_user();
 	User->set_id(_UserId);
