@@ -85,7 +85,7 @@ namespace Inworld {
 
     void AudioDataEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
     {
-        Proto.mutable_audio_chunk()->set_chunk(std::move(GetDataChunk()));
+        Proto.mutable_audio_chunk()->set_chunk(GetDataChunk());
     }
 
     AudioDataEvent::AudioDataEvent(const InworldPakets::InworldPacket& GrpcPacket) : DataEvent(GrpcPacket)
