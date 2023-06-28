@@ -91,6 +91,13 @@ std::shared_ptr<Inworld::CustomEvent> Inworld::ClientBase::SendCustomEvent(std::
 	return Packet;
 }
 
+std::shared_ptr<Inworld::ChangeSceneEvent> Inworld::ClientBase::SendChangeSceneEvent(const std::string& Scene)
+{
+	auto Packet = std::make_shared<ChangeSceneEvent>(Scene, Routing());
+	SendPacket(Packet);
+	return Packet;
+}
+
 void Inworld::ClientBase::CancelResponse(const std::string& AgentId, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds)
 {
 	auto Packet = std::make_shared<Inworld::CancelResponseEvent>(
@@ -487,11 +494,6 @@ void Inworld::ClientBase::TryToStartWriteTask()
 			);
 		}
 	}
-}
-
-bool Inworld::SessionInfo::IsValid() const
-{
-	return !Token.empty() && !SessionId.empty() && ExpirationTime > std::time(0);
 }
 
 void Inworld::Client::Update()
