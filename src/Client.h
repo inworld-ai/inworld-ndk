@@ -16,6 +16,7 @@
 #include "Utils/SharedQueue.h"
 #include "AsyncRoutine.h"
 #include "AECFilter.h"
+#include "RunnableCommand.h"
 
 
 using PacketQueue = Inworld::SharedQueue<std::shared_ptr<Inworld::Packet>>;
@@ -30,6 +31,7 @@ namespace Inworld
 		std::string ApiKey;
 		std::string ApiSecret;
 		std::string PlayerName;
+		CapabilitySet Capabilities;
 	};
 
 	class INWORLDAINDK_API ClientBase

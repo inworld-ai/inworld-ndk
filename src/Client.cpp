@@ -307,6 +307,7 @@ void Inworld::ClientBase::LoadScene()
 			_UserId,
 			_ClientId,
 			_ClientVer,
+			_ClientOptions.Capabilities,
 			[this](const grpc::Status& Status, const InworldEngine::LoadSceneResponse& Response)
 			{
 				AddTaskToMainThread([this, Status, Response]() {
