@@ -69,7 +69,9 @@ target_include_directories(InworldNDK PUBLIC
     src/ThirdParty
 )
 
-target_compile_features(InworldNDK PUBLIC cxx_std_20)
+if (NOT ANDROID)
+    target_compile_features(InworldNDK PUBLIC cxx_std_20)
+endif()
 
 target_compile_definitions(InworldNDK PUBLIC INWORLDAINDK_API=)
 
@@ -103,7 +105,7 @@ endfunction()
 CheckPathValid(${ZlibDir})
 CheckPathValid(${OpenSSLDir})
 
-if (IOS)
+if (IOS OR ANDROID)
     set(CMAKE_MAKE_PROGRAM /usr/bin/make)
     set(CMAKE_POLICY_DEFAULT_CMP0063 NEW)
     set(CMAKE_CXX_VISIBILITY_PRESET hidden)
