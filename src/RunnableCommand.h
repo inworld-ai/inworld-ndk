@@ -205,16 +205,33 @@ namespace Inworld
 		bool LoadSceneInSession = false;
 	};
 
+	struct UserSettings
+	{
+		struct PlayerProfile
+		{
+			struct PlayerField
+			{
+				std::string Id;
+				std::string Value;
+			};
+
+			std::vector<PlayerField> Fields;
+		};
+
+		PlayerProfile Profile;
+	};
+
 	class INWORLDAINDK_API RunnableLoadScene : public RunnableRequest<InworldEngine::WorldEngine, InworldEngine::LoadSceneResponse>
 	{
 	public:
-		RunnableLoadScene(const std::string& Token, const std::string& SessionId, const std::string& LoadSceneUrl, const std::string& SceneName, const std::string& PlayerName, const std::string& UserId, const std::string& ClientId, const std::string& ClientVersion, const CapabilitySet& Capabilities, std::function<void(const grpc::Status&, const InworldEngine::LoadSceneResponse&)> Callback = nullptr)
+		RunnableLoadScene(const std::string& Token, const std::string& SessionId, const std::string& LoadSceneUrl, const std::string& SceneName, const std::string& PlayerName, const std::string& UserId, const UserSettings& UserSettings, const std::string& ClientId, const std::string& ClientVersion, const CapabilitySet& Capabilities, std::function<void(const grpc::Status&, const InworldEngine::LoadSceneResponse&)> Callback = nullptr)
 			: RunnableRequest(LoadSceneUrl, Callback)
 			, _Token(Token)
 			, _SessionId(SessionId)
 			, _SceneName(SceneName)
 			, _PlayerName(PlayerName)
 			, _UserId(UserId)
+			, _UserSettings(UserSettings)
 			, _ClientId(ClientId)
 			, _ClientVersion(ClientVersion)
 			, _Capabilities(Capabilities)
@@ -238,6 +255,7 @@ namespace Inworld
 		std::string _SceneName;
 		std::string _PlayerName;
 		std::string _UserId;
+		UserSettings _UserSettings;
 		std::string _ClientId;
 		std::string _ClientVersion;
 		CapabilitySet _Capabilities;

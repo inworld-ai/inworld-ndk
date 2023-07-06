@@ -305,6 +305,7 @@ void Inworld::ClientBase::LoadScene()
 			_ClientOptions.SceneName,
 			_ClientOptions.PlayerName,
 			_UserId,
+			_ClientOptions.UserSettings,
 			_ClientId,
 			_ClientVer,
 			_ClientOptions.Capabilities,
