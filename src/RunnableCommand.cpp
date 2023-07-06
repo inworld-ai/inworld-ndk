@@ -144,6 +144,16 @@ grpc::Status Inworld::RunnableLoadScene::RunProcess()
 	Client->set_id(_ClientId);
 	Client->set_version(_ClientVersion);
 
+	auto* UserSettings = LoadSceneRequest.mutable_user_settings();
+	auto* PlayerProfile = UserSettings->mutable_player_profile();
+	for (const auto& Field : _UserSettings.Profile.Fields)
+	{
+		PlayerProfile->add_fields();
+		auto* PlayerField = PlayerProfile->mutable_fields(PlayerProfile->fields_size() - 1);
+		PlayerField->set_field_id(Field.Id);
+		PlayerField->set_field_value(Field.Value);
+	}
+
 	auto& Ctx = UpdateContext({
 		{ "authorization", std::string("Bearer ") + _Token },
 		{ "session-id", _SessionId }

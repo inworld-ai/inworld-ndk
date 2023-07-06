@@ -32,6 +32,7 @@ namespace Inworld
 		std::string ApiSecret;
 		std::string PlayerName;
 		CapabilitySet Capabilities;
+		UserSettings UserSettings;
 	};
 
 	class INWORLDAINDK_API ClientBase
