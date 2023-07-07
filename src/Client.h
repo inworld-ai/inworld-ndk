@@ -11,10 +11,12 @@
 #include <functional>
 
 #include <future>
+#include "Types.h"
 #include "Packets.h"
 #include "Utils/SharedQueue.h"
 #include "AsyncRoutine.h"
 #include "AECFilter.h"
+#include "RunnableCommand.h"
 
 
 using PacketQueue = Inworld::SharedQueue<std::shared_ptr<Inworld::Packet>>;
@@ -29,22 +31,7 @@ namespace Inworld
 		std::string ApiKey;
 		std::string ApiSecret;
 		std::string PlayerName;
-	};
-
-	struct INWORLDAINDK_API SessionInfo
-	{
-		std::string SessionId;
-		std::string Token;
-		int64_t ExpirationTime;
-
-		bool IsValid() const;
-	};
-
-	struct INWORLDAINDK_API AgentInfo
-	{
-		std::string BrainName;
-		std::string AgentId;
-		std::string GivenName;
+		CapabilitySet Capabilities;
 	};
 
 	class INWORLDAINDK_API ClientBase
@@ -70,6 +57,8 @@ namespace Inworld
 		virtual std::shared_ptr<DataEvent> SendSoundMessage(const std::string& AgentId, const std::string& Data);
 		virtual std::shared_ptr<DataEvent> SendSoundMessageWithAEC(const std::string& AgentId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
 		virtual std::shared_ptr<CustomEvent> SendCustomEvent(std::string AgentId, const std::string& Name);
+		
+		virtual std::shared_ptr<ChangeSceneEvent> SendChangeSceneEvent(const std::string& Scene);
 
 		virtual void CancelResponse(const std::string& AgentId, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds);
 

@@ -59,13 +59,18 @@ void Inworld::RunnableRead::Run()
 		{
 			Packet = std::make_shared<Inworld::EmotionEvent>(IncomingPacket);
 		}
-		else if (IncomingPacket.has_gesture())
-		{
-			Packet = std::make_shared<Inworld::SimpleGestureEvent>(IncomingPacket);
-		}
 		else if (IncomingPacket.has_custom())
 		{
 			Packet = std::make_shared<Inworld::CustomEvent>(IncomingPacket);
+		}
+		else if (IncomingPacket.has_load_scene_output())
+		{
+			Packet = std::make_shared<Inworld::ChangeSceneEvent>(IncomingPacket);
+		}
+		else
+		{
+			// Unknown packet type
+			continue;
 		}
 
 		_Packets.PushBack(Packet);
@@ -119,16 +124,17 @@ grpc::Status Inworld::RunnableLoadScene::RunProcess()
 	LoadSceneRequest.set_name(_SceneName);
 
 	auto* Capabilities = LoadSceneRequest.mutable_capabilities();
-	Capabilities->set_animations(false);
-	Capabilities->set_text(true);
-	Capabilities->set_audio(true);
-	Capabilities->set_emotions(true);
-	Capabilities->set_gestures(true);
-	Capabilities->set_interruptions(true);
-	Capabilities->set_triggers(true);
-	Capabilities->set_emotion_streaming(true);
-	Capabilities->set_silence_events(true);
-	Capabilities->set_phoneme_info(true);
+	Capabilities->set_animations(_Capabilities.Animations);
+	Capabilities->set_text(_Capabilities.Text);
+	Capabilities->set_audio(_Capabilities.Audio);
+	Capabilities->set_emotions(_Capabilities.Emotions);
+	Capabilities->set_gestures(_Capabilities.Gestures);
+	Capabilities->set_interruptions(_Capabilities.Interruptions);
+	Capabilities->set_triggers(_Capabilities.Triggers);
+	Capabilities->set_emotion_streaming(_Capabilities.EmotionStreaming);
+	Capabilities->set_silence_events(_Capabilities.SilenceEvents);
+	Capabilities->set_phoneme_info(_Capabilities.PhonemeInfo);
+	Capabilities->set_load_scene_in_session(_Capabilities.LoadSceneInSession);
 
 	auto* User = LoadSceneRequest.mutable_user();
 	User->set_id(_UserId);

@@ -9,6 +9,9 @@
 
 #include "proto/ProtoDisableWarning.h"
 #include "proto/packets.pb.h"
+
+#include "Types.h"
+
 #include <google/protobuf/util/time_util.h>
 #include <vector>
 #include <chrono>
@@ -88,13 +91,13 @@ namespace Inworld {
     class TextEvent;
     class DataEvent;
     class AudioDataEvent;
-	class SilenceEvent;
+    class SilenceEvent;
     class ControlEvent;
     class EmotionEvent;
     class CancelResponseEvent;
-    class SimpleGestureEvent;
     class CustomGestureEvent;
-	class CustomEvent;
+    class CustomEvent;
+		class ChangeSceneEvent;
 
     class INWORLDAINDK_API PacketVisitor
     {
@@ -102,13 +105,13 @@ namespace Inworld {
         virtual void Visit(const TextEvent& Event) {  }
         virtual void Visit(const DataEvent& Event) {  }
         virtual void Visit(const AudioDataEvent& Event) {  }
-		virtual void Visit(const SilenceEvent& Event) {  }
+        virtual void Visit(const SilenceEvent& Event) {  }
         virtual void Visit(const ControlEvent& Event) {  }
         virtual void Visit(const EmotionEvent& Event) {  }
         virtual void Visit(const CancelResponseEvent& Event) {  }
-        virtual void Visit(const SimpleGestureEvent& Event) {  }
         virtual void Visit(const CustomGestureEvent& Event) {  }
-		virtual void Visit(const CustomEvent& Event) {  }
+        virtual void Visit(const CustomEvent& Event) {  }
+				virtual void Visit(const ChangeSceneEvent& Event) {  }
     };
 
 	struct EmotionalState;
@@ -196,6 +199,7 @@ namespace Inworld {
 
     protected:
         virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+
 		// protobuf stores bytes data as string, to save copy time we can use same data type.
 		std::string _Chunk;
 	};
@@ -294,54 +298,6 @@ namespace Inworld {
 		InworldPakets::EmotionEvent_Strength _Strength;
     };
 
-    class INWORLDAINDK_API CancelResponseEvent : public Packet
-    {
-    public:
-		CancelResponseEvent() = default;
-        CancelResponseEvent(const std::string& InteractionId, const std::vector<std::string>& UtteranceIds, const Routing& Routing) 
-			: Packet(Routing)
-			, _InteractionId(InteractionId)
-            , _UtteranceIds(UtteranceIds)
-		{}
-
-        virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
-
-    protected:
-        virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
-
-    private:
-		std::string _InteractionId;
-		std::vector<std::string> _UtteranceIds;
-    };
-
-    class INWORLDAINDK_API SimpleGestureEvent : public Packet
-    {
-    public:
-		SimpleGestureEvent() = default;
-		SimpleGestureEvent(const InworldPakets::InworldPacket& GrpcPacket)
-            : Packet(GrpcPacket)
-            , _Gesture(GrpcPacket.gesture().type())
-			, _Playback(GrpcPacket.gesture().playback())
-        {}
-		SimpleGestureEvent(InworldPakets::GestureEvent_Type Gesture, InworldPakets::Playback Playback, const Routing& Routing)
-            : Packet(Routing)
-            , _Gesture(Gesture)
-			, _Playback(Playback)
-        {}
-
-        virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
-
-        InworldPakets::GestureEvent_Type GetSimpleGesture() const { return _Gesture; }
-		InworldPakets::Playback GetPlayback() const { return _Playback; }
-
-    protected:
-        virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
-
-    private:
-        InworldPakets::GestureEvent_Type _Gesture;
-		InworldPakets::Playback _Playback;
-    };
-
     class INWORLDAINDK_API CustomGestureEvent : public Packet
     {
     public:
@@ -390,6 +346,63 @@ namespace Inworld {
 
 	private:
 		std::string _Name;
+	};
+
+	class INWORLDAINDK_API MutationEvent : public Packet
+	{
+	public:
+		MutationEvent() = default;
+		MutationEvent(const InworldPakets::InworldPacket& GrpcPacket)
+			: Packet(GrpcPacket)
+		{}
+		MutationEvent(const Routing& Routing)
+			: Packet(Routing)
+		{}
+
+	protected:
+		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const = 0;
+	};
+
+	class INWORLDAINDK_API CancelResponseEvent : public MutationEvent
+	{
+	public:
+		CancelResponseEvent() = default;
+		CancelResponseEvent(const std::string& InteractionId, const std::vector<std::string>& UtteranceIds, const Routing& Routing)
+			: MutationEvent(Routing)
+			, _InteractionId(InteractionId)
+			, _UtteranceIds(UtteranceIds)
+		{}
+
+		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
+
+	protected:
+		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+
+	private:
+		std::string _InteractionId;
+		std::vector<std::string> _UtteranceIds;
+	};
+
+	class INWORLDAINDK_API ChangeSceneEvent : public MutationEvent
+	{
+	public:
+		ChangeSceneEvent() = default;
+		ChangeSceneEvent(const InworldPakets::InworldPacket& GrpcPacket);
+		ChangeSceneEvent(const std::string& SceneName, const Routing& Routing)
+			: MutationEvent(Routing)
+			, _SceneName(SceneName)
+		{}
+
+		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
+
+		const std::vector<AgentInfo>& GetAgentInfos() const { return _AgentInfos; }
+
+	protected:
+		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+
+	private:
+		std::string _SceneName;
+		std::vector<AgentInfo> _AgentInfos;
 	};
 
 }
