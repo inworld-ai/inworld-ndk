@@ -69,9 +69,7 @@ target_include_directories(InworldNDK PUBLIC
     src/ThirdParty
 )
 
-if (NOT ANDROID)
-    target_compile_features(InworldNDK PUBLIC cxx_std_20)
-endif()
+target_compile_features(InworldNDK PUBLIC cxx_std_20)
 
 target_compile_definitions(InworldNDK PUBLIC INWORLDAINDK_API=)
 
