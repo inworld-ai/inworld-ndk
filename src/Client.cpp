@@ -151,7 +151,7 @@ void Inworld::ClientBase::GenerateToken(std::function<void()> GenerateTokenCallb
 					_SessionInfo.SessionId = Token.session_id();
 				}
 				_SessionInfo.Token = Token.token();
-				_SessionInfo.ExpirationTime = std::time(0) + std::max(std::min(Token.expiration_time().seconds() - std::time(0), gMaxTokenLifespan), 0ll);
+				_SessionInfo.ExpirationTime = std::time(0) + std::max(std::min(Token.expiration_time().seconds() - std::time(0), gMaxTokenLifespan), int64_t(0));
 
 				AddTaskToMainThread([this, Status]()
 				{
