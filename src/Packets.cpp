@@ -83,9 +83,9 @@ namespace Inworld {
         Proto.mutable_control()->set_action(_Action);
     }
 
-    void DataEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+    void AudioDataEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
     {
-        Proto.mutable_audio_chunk()->set_chunk(std::move(_Chunk));
+        Proto.mutable_audio_chunk()->set_chunk(GetDataChunk());
     }
 
     AudioDataEvent::AudioDataEvent(const InworldPakets::InworldPacket& GrpcPacket) : DataEvent(GrpcPacket)
@@ -111,15 +111,6 @@ namespace Inworld {
         Proto.mutable_emotion()->set_behavior(_Behavior);
     }
 
-    void CancelResponseEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
-    {
-        Proto.mutable_cancelresponses()->set_interaction_id(_InteractionId);
-        for (const auto& UtteranceId : _UtteranceIds)
-        {
-            Proto.mutable_cancelresponses()->add_utterance_id(UtteranceId);
-        }
-    }
-
 	void CustomGestureEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
 	{
 		
@@ -134,5 +125,34 @@ namespace Inworld {
 	{
     
 	}
+
+    void CancelResponseEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+    {
+        auto* mutable_cancel_responses = Proto.mutable_mutation()->mutable_cancel_responses();
+        mutable_cancel_responses->set_interaction_id(_InteractionId);
+        for (const auto& UtteranceId : _UtteranceIds)
+        {
+            mutable_cancel_responses->add_utterance_id(UtteranceId);
+        }
+    }
+
+    ChangeSceneEvent::ChangeSceneEvent(const InworldPakets::InworldPacket& GrpcPacket) : MutationEvent(GrpcPacket)
+    {
+        _AgentInfos.reserve(GrpcPacket.load_scene_output().agents_size());
+        for (const auto& agent : GrpcPacket.load_scene_output().agents())
+        {
+            _AgentInfos.emplace_back();
+            Inworld::AgentInfo& back = _AgentInfos.back();
+            back.AgentId = agent.agent_id();
+            back.BrainName = agent.brain_name();
+            back.GivenName = agent.given_name();
+        }
+    }
+
+    void ChangeSceneEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+    {
+        auto* mutable_load_scene = Proto.mutable_mutation()->mutable_load_scene();
+        mutable_load_scene->set_name(_SceneName);
+    }
 
 }

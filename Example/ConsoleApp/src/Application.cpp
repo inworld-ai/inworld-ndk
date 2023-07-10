@@ -99,6 +99,18 @@ void NDKApp::App::Run()
 	Options.ApiKey = g_ApiKey;
 	Options.ApiSecret = g_ApiSecret;
 
+	Options.Capabilities.Animations = false;
+	Options.Capabilities.Text = true;
+	Options.Capabilities.Audio = true;
+	Options.Capabilities.Emotions = true;
+	Options.Capabilities.Gestures = true;
+	Options.Capabilities.Interruptions = true;
+	Options.Capabilities.Triggers = true;
+	Options.Capabilities.EmotionStreaming = true;
+	Options.Capabilities.SilenceEvents = true;
+	Options.Capabilities.PhonemeInfo = true;
+	Options.Capabilities.LoadSceneInSession = true;
+
 	std::vector<Inworld::AgentInfo> AgentInfos;
 
 	_Client.InitClient(

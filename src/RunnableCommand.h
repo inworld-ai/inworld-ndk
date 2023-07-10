@@ -190,10 +190,25 @@ namespace Inworld
 		std::string _ApiSecret;
 	};
 
+	struct CapabilitySet
+	{
+		bool Animations = false;
+		bool Text = false;
+		bool Audio = false;
+		bool Emotions = false;
+		bool Gestures = false;
+		bool Interruptions = false;
+		bool Triggers = false;
+		bool EmotionStreaming = false;
+		bool SilenceEvents = false;
+		bool PhonemeInfo = false;
+		bool LoadSceneInSession = false;
+	};
+
 	class INWORLDAINDK_API RunnableLoadScene : public RunnableRequest<InworldEngine::WorldEngine, InworldEngine::LoadSceneResponse>
 	{
 	public:
-		RunnableLoadScene(const std::string& Token, const std::string& SessionId, const std::string& LoadSceneUrl, const std::string& SceneName, const std::string& PlayerName, const std::string& UserId, const std::string& ClientId, const std::string& ClientVersion, std::function<void(const grpc::Status&, const InworldEngine::LoadSceneResponse&)> Callback = nullptr)
+		RunnableLoadScene(const std::string& Token, const std::string& SessionId, const std::string& LoadSceneUrl, const std::string& SceneName, const std::string& PlayerName, const std::string& UserId, const std::string& ClientId, const std::string& ClientVersion, const CapabilitySet& Capabilities, std::function<void(const grpc::Status&, const InworldEngine::LoadSceneResponse&)> Callback = nullptr)
 			: RunnableRequest(LoadSceneUrl, Callback)
 			, _Token(Token)
 			, _SessionId(SessionId)
@@ -202,6 +217,7 @@ namespace Inworld
 			, _UserId(UserId)
 			, _ClientId(ClientId)
 			, _ClientVersion(ClientVersion)
+			, _Capabilities(Capabilities)
 		{}
 
 		virtual ~RunnableLoadScene() = default;
@@ -224,6 +240,7 @@ namespace Inworld
 		std::string _UserId;
 		std::string _ClientId;
 		std::string _ClientVersion;
+		CapabilitySet _Capabilities;
 	};
 
 	class INWORLDAINDK_API RunnableGenerateUserTokenRequest : public RunnableRequest<InworldV1alpha::Users, InworldV1alpha::GenerateTokenUserResponse>
