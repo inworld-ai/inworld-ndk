@@ -85,7 +85,7 @@ namespace Inworld {
         Proto.mutable_control()->set_action(_Action);
     }
 
-    void AudioDataEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+    void DataEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
     {
         Proto.mutable_data_chunk()->set_chunk(_Chunk);
     }
