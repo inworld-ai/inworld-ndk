@@ -64,6 +64,22 @@ extern "C" {
         opt.LoadSceneUrl = options.load_scene_url();
         opt.PlayerName = options.player_name();
         opt.SceneName = options.scene_name();
+        if(options.has_capabilities())
+        {
+            opt.Capabilities.Animations = options.capabilities().animations();
+            opt.Capabilities.Audio = options.capabilities().audio();
+            opt.Capabilities.Text = options.capabilities().text();
+            opt.Capabilities.Emotions = options.capabilities().emotions();
+            opt.Capabilities.Gestures = options.capabilities().gestures();
+            opt.Capabilities.Interruptions = options.capabilities().interruptions();
+            opt.Capabilities.Triggers = options.capabilities().triggers();
+            opt.Capabilities.EmotionStreaming = options.capabilities().emotionstreaming();
+            opt.Capabilities.SilenceEvents = options.capabilities().silenceevents();
+            opt.Capabilities.PhonemeInfo = options.capabilities().phonemeinfo();
+            opt.Capabilities.LoadSceneInSession = options.capabilities().loadsceneinsession();
+            DebugLog("SETTING CAPABILITIES IN DLL");
+        }
+        
 
         SessionInfo sessionInfo;
         if(!sessionInfo.ParseFromArray(serialized_sessionInfo, serialized_sessionInfo_size))
