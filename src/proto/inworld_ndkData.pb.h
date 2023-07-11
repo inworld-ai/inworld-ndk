@@ -31,6 +31,8 @@
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
+#include <google/protobuf/any.pb.h>
+#include <google/protobuf/timestamp.pb.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_inworld_5fndkData_2eproto
@@ -53,19 +55,63 @@ extern AgentInfoDefaultTypeInternal _AgentInfo_default_instance_;
 class AgentInfoArray;
 struct AgentInfoArrayDefaultTypeInternal;
 extern AgentInfoArrayDefaultTypeInternal _AgentInfoArray_default_instance_;
+class CapabilitiesRequest;
+struct CapabilitiesRequestDefaultTypeInternal;
+extern CapabilitiesRequestDefaultTypeInternal _CapabilitiesRequest_default_instance_;
+class CharacterAssets;
+struct CharacterAssetsDefaultTypeInternal;
+extern CharacterAssetsDefaultTypeInternal _CharacterAssets_default_instance_;
 class ClientOptions;
 struct ClientOptionsDefaultTypeInternal;
 extern ClientOptionsDefaultTypeInternal _ClientOptions_default_instance_;
+class ClientRequest;
+struct ClientRequestDefaultTypeInternal;
+extern ClientRequestDefaultTypeInternal _ClientRequest_default_instance_;
+class Fields;
+struct FieldsDefaultTypeInternal;
+extern FieldsDefaultTypeInternal _Fields_default_instance_;
+class InworldCharacterData;
+struct InworldCharacterDataDefaultTypeInternal;
+extern InworldCharacterDataDefaultTypeInternal _InworldCharacterData_default_instance_;
+class LoadSceneRequest;
+struct LoadSceneRequestDefaultTypeInternal;
+extern LoadSceneRequestDefaultTypeInternal _LoadSceneRequest_default_instance_;
+class LoadSceneResponse;
+struct LoadSceneResponseDefaultTypeInternal;
+extern LoadSceneResponseDefaultTypeInternal _LoadSceneResponse_default_instance_;
+class PlayerProfile;
+struct PlayerProfileDefaultTypeInternal;
+extern PlayerProfileDefaultTypeInternal _PlayerProfile_default_instance_;
 class SessionInfo;
 struct SessionInfoDefaultTypeInternal;
 extern SessionInfoDefaultTypeInternal _SessionInfo_default_instance_;
+class Token;
+struct TokenDefaultTypeInternal;
+extern TokenDefaultTypeInternal _Token_default_instance_;
+class UserRequest;
+struct UserRequestDefaultTypeInternal;
+extern UserRequestDefaultTypeInternal _UserRequest_default_instance_;
+class UserSettings;
+struct UserSettingsDefaultTypeInternal;
+extern UserSettingsDefaultTypeInternal _UserSettings_default_instance_;
 }  // namespace ndkData
 }  // namespace inworld
 PROTOBUF_NAMESPACE_OPEN
 template<> ::inworld::ndkData::AgentInfo* Arena::CreateMaybeMessage<::inworld::ndkData::AgentInfo>(Arena*);
 template<> ::inworld::ndkData::AgentInfoArray* Arena::CreateMaybeMessage<::inworld::ndkData::AgentInfoArray>(Arena*);
+template<> ::inworld::ndkData::CapabilitiesRequest* Arena::CreateMaybeMessage<::inworld::ndkData::CapabilitiesRequest>(Arena*);
+template<> ::inworld::ndkData::CharacterAssets* Arena::CreateMaybeMessage<::inworld::ndkData::CharacterAssets>(Arena*);
 template<> ::inworld::ndkData::ClientOptions* Arena::CreateMaybeMessage<::inworld::ndkData::ClientOptions>(Arena*);
+template<> ::inworld::ndkData::ClientRequest* Arena::CreateMaybeMessage<::inworld::ndkData::ClientRequest>(Arena*);
+template<> ::inworld::ndkData::Fields* Arena::CreateMaybeMessage<::inworld::ndkData::Fields>(Arena*);
+template<> ::inworld::ndkData::InworldCharacterData* Arena::CreateMaybeMessage<::inworld::ndkData::InworldCharacterData>(Arena*);
+template<> ::inworld::ndkData::LoadSceneRequest* Arena::CreateMaybeMessage<::inworld::ndkData::LoadSceneRequest>(Arena*);
+template<> ::inworld::ndkData::LoadSceneResponse* Arena::CreateMaybeMessage<::inworld::ndkData::LoadSceneResponse>(Arena*);
+template<> ::inworld::ndkData::PlayerProfile* Arena::CreateMaybeMessage<::inworld::ndkData::PlayerProfile>(Arena*);
 template<> ::inworld::ndkData::SessionInfo* Arena::CreateMaybeMessage<::inworld::ndkData::SessionInfo>(Arena*);
+template<> ::inworld::ndkData::Token* Arena::CreateMaybeMessage<::inworld::ndkData::Token>(Arena*);
+template<> ::inworld::ndkData::UserRequest* Arena::CreateMaybeMessage<::inworld::ndkData::UserRequest>(Arena*);
+template<> ::inworld::ndkData::UserSettings* Arena::CreateMaybeMessage<::inworld::ndkData::UserSettings>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace inworld {
 namespace ndkData {
@@ -101,6 +147,2144 @@ inline bool ConnectionState_Parse(
     ConnectionState_descriptor(), name, value);
 }
 // ===================================================================
+
+class Token final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inworld.ndkData.Token) */ {
+ public:
+  inline Token() : Token(nullptr) {}
+  ~Token() override;
+  explicit PROTOBUF_CONSTEXPR Token(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Token(const Token& from);
+  Token(Token&& from) noexcept
+    : Token() {
+    *this = ::std::move(from);
+  }
+
+  inline Token& operator=(const Token& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Token& operator=(Token&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Token& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Token* internal_default_instance() {
+    return reinterpret_cast<const Token*>(
+               &_Token_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(Token& a, Token& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Token* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Token* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Token* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Token>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Token& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const Token& from) {
+    Token::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Token* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "inworld.ndkData.Token";
+  }
+  protected:
+  explicit Token(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTokenFieldNumber = 1,
+    kTypeFieldNumber = 2,
+    kSessionIdFieldNumber = 4,
+    kExpirationTimeFieldNumber = 3,
+    kIsValidFieldNumber = 5,
+  };
+  // string token = 1;
+  void clear_token();
+  const std::string& token() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_token(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_token();
+  PROTOBUF_NODISCARD std::string* release_token();
+  void set_allocated_token(std::string* token);
+  private:
+  const std::string& _internal_token() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_token(const std::string& value);
+  std::string* _internal_mutable_token();
+  public:
+
+  // string type = 2;
+  void clear_type();
+  const std::string& type() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_type(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_type();
+  PROTOBUF_NODISCARD std::string* release_type();
+  void set_allocated_type(std::string* type);
+  private:
+  const std::string& _internal_type() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_type(const std::string& value);
+  std::string* _internal_mutable_type();
+  public:
+
+  // string sessionId = 4;
+  void clear_sessionid();
+  const std::string& sessionid() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_sessionid(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_sessionid();
+  PROTOBUF_NODISCARD std::string* release_sessionid();
+  void set_allocated_sessionid(std::string* sessionid);
+  private:
+  const std::string& _internal_sessionid() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_sessionid(const std::string& value);
+  std::string* _internal_mutable_sessionid();
+  public:
+
+  // .google.protobuf.Timestamp expirationTime = 3;
+  bool has_expirationtime() const;
+  private:
+  bool _internal_has_expirationtime() const;
+  public:
+  void clear_expirationtime();
+  const ::PROTOBUF_NAMESPACE_ID::Timestamp& expirationtime() const;
+  PROTOBUF_NODISCARD ::PROTOBUF_NAMESPACE_ID::Timestamp* release_expirationtime();
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* mutable_expirationtime();
+  void set_allocated_expirationtime(::PROTOBUF_NAMESPACE_ID::Timestamp* expirationtime);
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Timestamp& _internal_expirationtime() const;
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* _internal_mutable_expirationtime();
+  public:
+  void unsafe_arena_set_allocated_expirationtime(
+      ::PROTOBUF_NAMESPACE_ID::Timestamp* expirationtime);
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* unsafe_arena_release_expirationtime();
+
+  // bool IsValid = 5;
+  void clear_isvalid();
+  bool isvalid() const;
+  void set_isvalid(bool value);
+  private:
+  bool _internal_isvalid() const;
+  void _internal_set_isvalid(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:inworld.ndkData.Token)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr token_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr type_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sessionid_;
+    ::PROTOBUF_NAMESPACE_ID::Timestamp* expirationtime_;
+    bool isvalid_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_inworld_5fndkData_2eproto;
+};
+// -------------------------------------------------------------------
+
+class LoadSceneRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inworld.ndkData.LoadSceneRequest) */ {
+ public:
+  inline LoadSceneRequest() : LoadSceneRequest(nullptr) {}
+  ~LoadSceneRequest() override;
+  explicit PROTOBUF_CONSTEXPR LoadSceneRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  LoadSceneRequest(const LoadSceneRequest& from);
+  LoadSceneRequest(LoadSceneRequest&& from) noexcept
+    : LoadSceneRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline LoadSceneRequest& operator=(const LoadSceneRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline LoadSceneRequest& operator=(LoadSceneRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const LoadSceneRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const LoadSceneRequest* internal_default_instance() {
+    return reinterpret_cast<const LoadSceneRequest*>(
+               &_LoadSceneRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(LoadSceneRequest& a, LoadSceneRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(LoadSceneRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(LoadSceneRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  LoadSceneRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<LoadSceneRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const LoadSceneRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const LoadSceneRequest& from) {
+    LoadSceneRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(LoadSceneRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "inworld.ndkData.LoadSceneRequest";
+  }
+  protected:
+  explicit LoadSceneRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kClientFieldNumber = 1,
+    kUserFieldNumber = 2,
+    kCapabilitiesFieldNumber = 3,
+    kUserSettingFieldNumber = 4,
+  };
+  // .inworld.ndkData.ClientRequest client = 1;
+  bool has_client() const;
+  private:
+  bool _internal_has_client() const;
+  public:
+  void clear_client();
+  const ::inworld::ndkData::ClientRequest& client() const;
+  PROTOBUF_NODISCARD ::inworld::ndkData::ClientRequest* release_client();
+  ::inworld::ndkData::ClientRequest* mutable_client();
+  void set_allocated_client(::inworld::ndkData::ClientRequest* client);
+  private:
+  const ::inworld::ndkData::ClientRequest& _internal_client() const;
+  ::inworld::ndkData::ClientRequest* _internal_mutable_client();
+  public:
+  void unsafe_arena_set_allocated_client(
+      ::inworld::ndkData::ClientRequest* client);
+  ::inworld::ndkData::ClientRequest* unsafe_arena_release_client();
+
+  // .inworld.ndkData.UserRequest user = 2;
+  bool has_user() const;
+  private:
+  bool _internal_has_user() const;
+  public:
+  void clear_user();
+  const ::inworld::ndkData::UserRequest& user() const;
+  PROTOBUF_NODISCARD ::inworld::ndkData::UserRequest* release_user();
+  ::inworld::ndkData::UserRequest* mutable_user();
+  void set_allocated_user(::inworld::ndkData::UserRequest* user);
+  private:
+  const ::inworld::ndkData::UserRequest& _internal_user() const;
+  ::inworld::ndkData::UserRequest* _internal_mutable_user();
+  public:
+  void unsafe_arena_set_allocated_user(
+      ::inworld::ndkData::UserRequest* user);
+  ::inworld::ndkData::UserRequest* unsafe_arena_release_user();
+
+  // .inworld.ndkData.CapabilitiesRequest capabilities = 3;
+  bool has_capabilities() const;
+  private:
+  bool _internal_has_capabilities() const;
+  public:
+  void clear_capabilities();
+  const ::inworld::ndkData::CapabilitiesRequest& capabilities() const;
+  PROTOBUF_NODISCARD ::inworld::ndkData::CapabilitiesRequest* release_capabilities();
+  ::inworld::ndkData::CapabilitiesRequest* mutable_capabilities();
+  void set_allocated_capabilities(::inworld::ndkData::CapabilitiesRequest* capabilities);
+  private:
+  const ::inworld::ndkData::CapabilitiesRequest& _internal_capabilities() const;
+  ::inworld::ndkData::CapabilitiesRequest* _internal_mutable_capabilities();
+  public:
+  void unsafe_arena_set_allocated_capabilities(
+      ::inworld::ndkData::CapabilitiesRequest* capabilities);
+  ::inworld::ndkData::CapabilitiesRequest* unsafe_arena_release_capabilities();
+
+  // .inworld.ndkData.UserSettings userSetting = 4;
+  bool has_usersetting() const;
+  private:
+  bool _internal_has_usersetting() const;
+  public:
+  void clear_usersetting();
+  const ::inworld::ndkData::UserSettings& usersetting() const;
+  PROTOBUF_NODISCARD ::inworld::ndkData::UserSettings* release_usersetting();
+  ::inworld::ndkData::UserSettings* mutable_usersetting();
+  void set_allocated_usersetting(::inworld::ndkData::UserSettings* usersetting);
+  private:
+  const ::inworld::ndkData::UserSettings& _internal_usersetting() const;
+  ::inworld::ndkData::UserSettings* _internal_mutable_usersetting();
+  public:
+  void unsafe_arena_set_allocated_usersetting(
+      ::inworld::ndkData::UserSettings* usersetting);
+  ::inworld::ndkData::UserSettings* unsafe_arena_release_usersetting();
+
+  // @@protoc_insertion_point(class_scope:inworld.ndkData.LoadSceneRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::inworld::ndkData::ClientRequest* client_;
+    ::inworld::ndkData::UserRequest* user_;
+    ::inworld::ndkData::CapabilitiesRequest* capabilities_;
+    ::inworld::ndkData::UserSettings* usersetting_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_inworld_5fndkData_2eproto;
+};
+// -------------------------------------------------------------------
+
+class LoadSceneResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inworld.ndkData.LoadSceneResponse) */ {
+ public:
+  inline LoadSceneResponse() : LoadSceneResponse(nullptr) {}
+  ~LoadSceneResponse() override;
+  explicit PROTOBUF_CONSTEXPR LoadSceneResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  LoadSceneResponse(const LoadSceneResponse& from);
+  LoadSceneResponse(LoadSceneResponse&& from) noexcept
+    : LoadSceneResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline LoadSceneResponse& operator=(const LoadSceneResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline LoadSceneResponse& operator=(LoadSceneResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const LoadSceneResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const LoadSceneResponse* internal_default_instance() {
+    return reinterpret_cast<const LoadSceneResponse*>(
+               &_LoadSceneResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(LoadSceneResponse& a, LoadSceneResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(LoadSceneResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(LoadSceneResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  LoadSceneResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<LoadSceneResponse>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const LoadSceneResponse& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const LoadSceneResponse& from) {
+    LoadSceneResponse::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(LoadSceneResponse* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "inworld.ndkData.LoadSceneResponse";
+  }
+  protected:
+  explicit LoadSceneResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kAgentsFieldNumber = 1,
+    kKeyFieldNumber = 2,
+    kPreviousStateFieldNumber = 3,
+  };
+  // repeated .inworld.ndkData.InworldCharacterData agents = 1;
+  int agents_size() const;
+  private:
+  int _internal_agents_size() const;
+  public:
+  void clear_agents();
+  ::inworld::ndkData::InworldCharacterData* mutable_agents(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inworld::ndkData::InworldCharacterData >*
+      mutable_agents();
+  private:
+  const ::inworld::ndkData::InworldCharacterData& _internal_agents(int index) const;
+  ::inworld::ndkData::InworldCharacterData* _internal_add_agents();
+  public:
+  const ::inworld::ndkData::InworldCharacterData& agents(int index) const;
+  ::inworld::ndkData::InworldCharacterData* add_agents();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inworld::ndkData::InworldCharacterData >&
+      agents() const;
+
+  // string key = 2;
+  void clear_key();
+  const std::string& key() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_key(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_key();
+  PROTOBUF_NODISCARD std::string* release_key();
+  void set_allocated_key(std::string* key);
+  private:
+  const std::string& _internal_key() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_key(const std::string& value);
+  std::string* _internal_mutable_key();
+  public:
+
+  // .google.protobuf.Any previousState = 3;
+  bool has_previousstate() const;
+  private:
+  bool _internal_has_previousstate() const;
+  public:
+  void clear_previousstate();
+  const ::PROTOBUF_NAMESPACE_ID::Any& previousstate() const;
+  PROTOBUF_NODISCARD ::PROTOBUF_NAMESPACE_ID::Any* release_previousstate();
+  ::PROTOBUF_NAMESPACE_ID::Any* mutable_previousstate();
+  void set_allocated_previousstate(::PROTOBUF_NAMESPACE_ID::Any* previousstate);
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Any& _internal_previousstate() const;
+  ::PROTOBUF_NAMESPACE_ID::Any* _internal_mutable_previousstate();
+  public:
+  void unsafe_arena_set_allocated_previousstate(
+      ::PROTOBUF_NAMESPACE_ID::Any* previousstate);
+  ::PROTOBUF_NAMESPACE_ID::Any* unsafe_arena_release_previousstate();
+
+  // @@protoc_insertion_point(class_scope:inworld.ndkData.LoadSceneResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inworld::ndkData::InworldCharacterData > agents_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr key_;
+    ::PROTOBUF_NAMESPACE_ID::Any* previousstate_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_inworld_5fndkData_2eproto;
+};
+// -------------------------------------------------------------------
+
+class UserRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inworld.ndkData.UserRequest) */ {
+ public:
+  inline UserRequest() : UserRequest(nullptr) {}
+  ~UserRequest() override;
+  explicit PROTOBUF_CONSTEXPR UserRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  UserRequest(const UserRequest& from);
+  UserRequest(UserRequest&& from) noexcept
+    : UserRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline UserRequest& operator=(const UserRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline UserRequest& operator=(UserRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const UserRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const UserRequest* internal_default_instance() {
+    return reinterpret_cast<const UserRequest*>(
+               &_UserRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(UserRequest& a, UserRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(UserRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(UserRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  UserRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<UserRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const UserRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const UserRequest& from) {
+    UserRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(UserRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "inworld.ndkData.UserRequest";
+  }
+  protected:
+  explicit UserRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNameFieldNumber = 1,
+  };
+  // string name = 1;
+  void clear_name();
+  const std::string& name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_name();
+  PROTOBUF_NODISCARD std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // @@protoc_insertion_point(class_scope:inworld.ndkData.UserRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_inworld_5fndkData_2eproto;
+};
+// -------------------------------------------------------------------
+
+class UserSettings final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inworld.ndkData.UserSettings) */ {
+ public:
+  inline UserSettings() : UserSettings(nullptr) {}
+  ~UserSettings() override;
+  explicit PROTOBUF_CONSTEXPR UserSettings(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  UserSettings(const UserSettings& from);
+  UserSettings(UserSettings&& from) noexcept
+    : UserSettings() {
+    *this = ::std::move(from);
+  }
+
+  inline UserSettings& operator=(const UserSettings& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline UserSettings& operator=(UserSettings&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const UserSettings& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const UserSettings* internal_default_instance() {
+    return reinterpret_cast<const UserSettings*>(
+               &_UserSettings_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(UserSettings& a, UserSettings& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(UserSettings* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(UserSettings* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  UserSettings* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<UserSettings>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const UserSettings& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const UserSettings& from) {
+    UserSettings::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(UserSettings* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "inworld.ndkData.UserSettings";
+  }
+  protected:
+  explicit UserSettings(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPlayerProfileFieldNumber = 2,
+    kViewTranscriptConsentFieldNumber = 1,
+  };
+  // .inworld.ndkData.PlayerProfile playerProfile = 2;
+  bool has_playerprofile() const;
+  private:
+  bool _internal_has_playerprofile() const;
+  public:
+  void clear_playerprofile();
+  const ::inworld::ndkData::PlayerProfile& playerprofile() const;
+  PROTOBUF_NODISCARD ::inworld::ndkData::PlayerProfile* release_playerprofile();
+  ::inworld::ndkData::PlayerProfile* mutable_playerprofile();
+  void set_allocated_playerprofile(::inworld::ndkData::PlayerProfile* playerprofile);
+  private:
+  const ::inworld::ndkData::PlayerProfile& _internal_playerprofile() const;
+  ::inworld::ndkData::PlayerProfile* _internal_mutable_playerprofile();
+  public:
+  void unsafe_arena_set_allocated_playerprofile(
+      ::inworld::ndkData::PlayerProfile* playerprofile);
+  ::inworld::ndkData::PlayerProfile* unsafe_arena_release_playerprofile();
+
+  // bool viewTranscriptConsent = 1;
+  void clear_viewtranscriptconsent();
+  bool viewtranscriptconsent() const;
+  void set_viewtranscriptconsent(bool value);
+  private:
+  bool _internal_viewtranscriptconsent() const;
+  void _internal_set_viewtranscriptconsent(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:inworld.ndkData.UserSettings)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::inworld::ndkData::PlayerProfile* playerprofile_;
+    bool viewtranscriptconsent_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_inworld_5fndkData_2eproto;
+};
+// -------------------------------------------------------------------
+
+class PlayerProfile final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inworld.ndkData.PlayerProfile) */ {
+ public:
+  inline PlayerProfile() : PlayerProfile(nullptr) {}
+  ~PlayerProfile() override;
+  explicit PROTOBUF_CONSTEXPR PlayerProfile(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  PlayerProfile(const PlayerProfile& from);
+  PlayerProfile(PlayerProfile&& from) noexcept
+    : PlayerProfile() {
+    *this = ::std::move(from);
+  }
+
+  inline PlayerProfile& operator=(const PlayerProfile& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline PlayerProfile& operator=(PlayerProfile&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const PlayerProfile& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const PlayerProfile* internal_default_instance() {
+    return reinterpret_cast<const PlayerProfile*>(
+               &_PlayerProfile_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  friend void swap(PlayerProfile& a, PlayerProfile& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(PlayerProfile* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(PlayerProfile* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  PlayerProfile* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<PlayerProfile>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const PlayerProfile& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const PlayerProfile& from) {
+    PlayerProfile::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(PlayerProfile* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "inworld.ndkData.PlayerProfile";
+  }
+  protected:
+  explicit PlayerProfile(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kFieldsFieldNumber = 1,
+  };
+  // repeated .inworld.ndkData.Fields fields = 1;
+  int fields_size() const;
+  private:
+  int _internal_fields_size() const;
+  public:
+  void clear_fields();
+  ::inworld::ndkData::Fields* mutable_fields(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inworld::ndkData::Fields >*
+      mutable_fields();
+  private:
+  const ::inworld::ndkData::Fields& _internal_fields(int index) const;
+  ::inworld::ndkData::Fields* _internal_add_fields();
+  public:
+  const ::inworld::ndkData::Fields& fields(int index) const;
+  ::inworld::ndkData::Fields* add_fields();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inworld::ndkData::Fields >&
+      fields() const;
+
+  // @@protoc_insertion_point(class_scope:inworld.ndkData.PlayerProfile)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inworld::ndkData::Fields > fields_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_inworld_5fndkData_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Fields final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inworld.ndkData.Fields) */ {
+ public:
+  inline Fields() : Fields(nullptr) {}
+  ~Fields() override;
+  explicit PROTOBUF_CONSTEXPR Fields(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Fields(const Fields& from);
+  Fields(Fields&& from) noexcept
+    : Fields() {
+    *this = ::std::move(from);
+  }
+
+  inline Fields& operator=(const Fields& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Fields& operator=(Fields&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Fields& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Fields* internal_default_instance() {
+    return reinterpret_cast<const Fields*>(
+               &_Fields_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  friend void swap(Fields& a, Fields& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Fields* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Fields* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Fields* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Fields>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Fields& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const Fields& from) {
+    Fields::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Fields* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "inworld.ndkData.Fields";
+  }
+  protected:
+  explicit Fields(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kFieldIdFieldNumber = 1,
+    kFieldValueFieldNumber = 2,
+  };
+  // string fieldId = 1;
+  void clear_fieldid();
+  const std::string& fieldid() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_fieldid(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_fieldid();
+  PROTOBUF_NODISCARD std::string* release_fieldid();
+  void set_allocated_fieldid(std::string* fieldid);
+  private:
+  const std::string& _internal_fieldid() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_fieldid(const std::string& value);
+  std::string* _internal_mutable_fieldid();
+  public:
+
+  // string fieldValue = 2;
+  void clear_fieldvalue();
+  const std::string& fieldvalue() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_fieldvalue(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_fieldvalue();
+  PROTOBUF_NODISCARD std::string* release_fieldvalue();
+  void set_allocated_fieldvalue(std::string* fieldvalue);
+  private:
+  const std::string& _internal_fieldvalue() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_fieldvalue(const std::string& value);
+  std::string* _internal_mutable_fieldvalue();
+  public:
+
+  // @@protoc_insertion_point(class_scope:inworld.ndkData.Fields)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr fieldid_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr fieldvalue_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_inworld_5fndkData_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ClientRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inworld.ndkData.ClientRequest) */ {
+ public:
+  inline ClientRequest() : ClientRequest(nullptr) {}
+  ~ClientRequest() override;
+  explicit PROTOBUF_CONSTEXPR ClientRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ClientRequest(const ClientRequest& from);
+  ClientRequest(ClientRequest&& from) noexcept
+    : ClientRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline ClientRequest& operator=(const ClientRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ClientRequest& operator=(ClientRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ClientRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ClientRequest* internal_default_instance() {
+    return reinterpret_cast<const ClientRequest*>(
+               &_ClientRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  friend void swap(ClientRequest& a, ClientRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ClientRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ClientRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ClientRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ClientRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ClientRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ClientRequest& from) {
+    ClientRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ClientRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "inworld.ndkData.ClientRequest";
+  }
+  protected:
+  explicit ClientRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kIdFieldNumber = 1,
+    kVersionFieldNumber = 2,
+  };
+  // string id = 1;
+  void clear_id();
+  const std::string& id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_id();
+  PROTOBUF_NODISCARD std::string* release_id();
+  void set_allocated_id(std::string* id);
+  private:
+  const std::string& _internal_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_id(const std::string& value);
+  std::string* _internal_mutable_id();
+  public:
+
+  // string version = 2;
+  void clear_version();
+  const std::string& version() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_version(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_version();
+  PROTOBUF_NODISCARD std::string* release_version();
+  void set_allocated_version(std::string* version);
+  private:
+  const std::string& _internal_version() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_version(const std::string& value);
+  std::string* _internal_mutable_version();
+  public:
+
+  // @@protoc_insertion_point(class_scope:inworld.ndkData.ClientRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr version_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_inworld_5fndkData_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CapabilitiesRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inworld.ndkData.CapabilitiesRequest) */ {
+ public:
+  inline CapabilitiesRequest() : CapabilitiesRequest(nullptr) {}
+  ~CapabilitiesRequest() override;
+  explicit PROTOBUF_CONSTEXPR CapabilitiesRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CapabilitiesRequest(const CapabilitiesRequest& from);
+  CapabilitiesRequest(CapabilitiesRequest&& from) noexcept
+    : CapabilitiesRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline CapabilitiesRequest& operator=(const CapabilitiesRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CapabilitiesRequest& operator=(CapabilitiesRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CapabilitiesRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CapabilitiesRequest* internal_default_instance() {
+    return reinterpret_cast<const CapabilitiesRequest*>(
+               &_CapabilitiesRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  friend void swap(CapabilitiesRequest& a, CapabilitiesRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CapabilitiesRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CapabilitiesRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CapabilitiesRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CapabilitiesRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CapabilitiesRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CapabilitiesRequest& from) {
+    CapabilitiesRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CapabilitiesRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "inworld.ndkData.CapabilitiesRequest";
+  }
+  protected:
+  explicit CapabilitiesRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kAnimationsFieldNumber = 1,
+    kTextFieldNumber = 2,
+    kAudioFieldNumber = 3,
+    kEmotionsFieldNumber = 4,
+    kGesturesFieldNumber = 5,
+    kInterruptionsFieldNumber = 6,
+    kTriggersFieldNumber = 7,
+    kEmotionStreamingFieldNumber = 8,
+    kSilenceEventsFieldNumber = 9,
+    kPhonemeInfoFieldNumber = 10,
+    kLoadSceneInSessionFieldNumber = 11,
+  };
+  // bool Animations = 1;
+  void clear_animations();
+  bool animations() const;
+  void set_animations(bool value);
+  private:
+  bool _internal_animations() const;
+  void _internal_set_animations(bool value);
+  public:
+
+  // bool Text = 2;
+  void clear_text();
+  bool text() const;
+  void set_text(bool value);
+  private:
+  bool _internal_text() const;
+  void _internal_set_text(bool value);
+  public:
+
+  // bool Audio = 3;
+  void clear_audio();
+  bool audio() const;
+  void set_audio(bool value);
+  private:
+  bool _internal_audio() const;
+  void _internal_set_audio(bool value);
+  public:
+
+  // bool Emotions = 4;
+  void clear_emotions();
+  bool emotions() const;
+  void set_emotions(bool value);
+  private:
+  bool _internal_emotions() const;
+  void _internal_set_emotions(bool value);
+  public:
+
+  // bool Gestures = 5;
+  void clear_gestures();
+  bool gestures() const;
+  void set_gestures(bool value);
+  private:
+  bool _internal_gestures() const;
+  void _internal_set_gestures(bool value);
+  public:
+
+  // bool Interruptions = 6;
+  void clear_interruptions();
+  bool interruptions() const;
+  void set_interruptions(bool value);
+  private:
+  bool _internal_interruptions() const;
+  void _internal_set_interruptions(bool value);
+  public:
+
+  // bool Triggers = 7;
+  void clear_triggers();
+  bool triggers() const;
+  void set_triggers(bool value);
+  private:
+  bool _internal_triggers() const;
+  void _internal_set_triggers(bool value);
+  public:
+
+  // bool EmotionStreaming = 8;
+  void clear_emotionstreaming();
+  bool emotionstreaming() const;
+  void set_emotionstreaming(bool value);
+  private:
+  bool _internal_emotionstreaming() const;
+  void _internal_set_emotionstreaming(bool value);
+  public:
+
+  // bool SilenceEvents = 9;
+  void clear_silenceevents();
+  bool silenceevents() const;
+  void set_silenceevents(bool value);
+  private:
+  bool _internal_silenceevents() const;
+  void _internal_set_silenceevents(bool value);
+  public:
+
+  // bool PhonemeInfo = 10;
+  void clear_phonemeinfo();
+  bool phonemeinfo() const;
+  void set_phonemeinfo(bool value);
+  private:
+  bool _internal_phonemeinfo() const;
+  void _internal_set_phonemeinfo(bool value);
+  public:
+
+  // bool LoadSceneInSession = 11;
+  void clear_loadsceneinsession();
+  bool loadsceneinsession() const;
+  void set_loadsceneinsession(bool value);
+  private:
+  bool _internal_loadsceneinsession() const;
+  void _internal_set_loadsceneinsession(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:inworld.ndkData.CapabilitiesRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    bool animations_;
+    bool text_;
+    bool audio_;
+    bool emotions_;
+    bool gestures_;
+    bool interruptions_;
+    bool triggers_;
+    bool emotionstreaming_;
+    bool silenceevents_;
+    bool phonemeinfo_;
+    bool loadsceneinsession_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_inworld_5fndkData_2eproto;
+};
+// -------------------------------------------------------------------
+
+class InworldCharacterData final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inworld.ndkData.InworldCharacterData) */ {
+ public:
+  inline InworldCharacterData() : InworldCharacterData(nullptr) {}
+  ~InworldCharacterData() override;
+  explicit PROTOBUF_CONSTEXPR InworldCharacterData(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  InworldCharacterData(const InworldCharacterData& from);
+  InworldCharacterData(InworldCharacterData&& from) noexcept
+    : InworldCharacterData() {
+    *this = ::std::move(from);
+  }
+
+  inline InworldCharacterData& operator=(const InworldCharacterData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline InworldCharacterData& operator=(InworldCharacterData&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const InworldCharacterData& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const InworldCharacterData* internal_default_instance() {
+    return reinterpret_cast<const InworldCharacterData*>(
+               &_InworldCharacterData_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  friend void swap(InworldCharacterData& a, InworldCharacterData& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(InworldCharacterData* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(InworldCharacterData* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  InworldCharacterData* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<InworldCharacterData>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const InworldCharacterData& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const InworldCharacterData& from) {
+    InworldCharacterData::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(InworldCharacterData* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "inworld.ndkData.InworldCharacterData";
+  }
+  protected:
+  explicit InworldCharacterData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kAgentIdFieldNumber = 1,
+    kBrainNameFieldNumber = 2,
+    kGivenNameFieldNumber = 3,
+    kThumbnailFieldNumber = 5,
+    kCharacterAssetsFieldNumber = 4,
+  };
+  // string agentId = 1;
+  void clear_agentid();
+  const std::string& agentid() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_agentid(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_agentid();
+  PROTOBUF_NODISCARD std::string* release_agentid();
+  void set_allocated_agentid(std::string* agentid);
+  private:
+  const std::string& _internal_agentid() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_agentid(const std::string& value);
+  std::string* _internal_mutable_agentid();
+  public:
+
+  // string brainName = 2;
+  void clear_brainname();
+  const std::string& brainname() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_brainname(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_brainname();
+  PROTOBUF_NODISCARD std::string* release_brainname();
+  void set_allocated_brainname(std::string* brainname);
+  private:
+  const std::string& _internal_brainname() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_brainname(const std::string& value);
+  std::string* _internal_mutable_brainname();
+  public:
+
+  // string givenName = 3;
+  void clear_givenname();
+  const std::string& givenname() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_givenname(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_givenname();
+  PROTOBUF_NODISCARD std::string* release_givenname();
+  void set_allocated_givenname(std::string* givenname);
+  private:
+  const std::string& _internal_givenname() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_givenname(const std::string& value);
+  std::string* _internal_mutable_givenname();
+  public:
+
+  // bytes thumbnail = 5;
+  void clear_thumbnail();
+  const std::string& thumbnail() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_thumbnail(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_thumbnail();
+  PROTOBUF_NODISCARD std::string* release_thumbnail();
+  void set_allocated_thumbnail(std::string* thumbnail);
+  private:
+  const std::string& _internal_thumbnail() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_thumbnail(const std::string& value);
+  std::string* _internal_mutable_thumbnail();
+  public:
+
+  // .inworld.ndkData.CharacterAssets characterAssets = 4;
+  bool has_characterassets() const;
+  private:
+  bool _internal_has_characterassets() const;
+  public:
+  void clear_characterassets();
+  const ::inworld::ndkData::CharacterAssets& characterassets() const;
+  PROTOBUF_NODISCARD ::inworld::ndkData::CharacterAssets* release_characterassets();
+  ::inworld::ndkData::CharacterAssets* mutable_characterassets();
+  void set_allocated_characterassets(::inworld::ndkData::CharacterAssets* characterassets);
+  private:
+  const ::inworld::ndkData::CharacterAssets& _internal_characterassets() const;
+  ::inworld::ndkData::CharacterAssets* _internal_mutable_characterassets();
+  public:
+  void unsafe_arena_set_allocated_characterassets(
+      ::inworld::ndkData::CharacterAssets* characterassets);
+  ::inworld::ndkData::CharacterAssets* unsafe_arena_release_characterassets();
+
+  // @@protoc_insertion_point(class_scope:inworld.ndkData.InworldCharacterData)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr agentid_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr brainname_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr givenname_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr thumbnail_;
+    ::inworld::ndkData::CharacterAssets* characterassets_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_inworld_5fndkData_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CharacterAssets final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inworld.ndkData.CharacterAssets) */ {
+ public:
+  inline CharacterAssets() : CharacterAssets(nullptr) {}
+  ~CharacterAssets() override;
+  explicit PROTOBUF_CONSTEXPR CharacterAssets(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CharacterAssets(const CharacterAssets& from);
+  CharacterAssets(CharacterAssets&& from) noexcept
+    : CharacterAssets() {
+    *this = ::std::move(from);
+  }
+
+  inline CharacterAssets& operator=(const CharacterAssets& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CharacterAssets& operator=(CharacterAssets&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CharacterAssets& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CharacterAssets* internal_default_instance() {
+    return reinterpret_cast<const CharacterAssets*>(
+               &_CharacterAssets_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    10;
+
+  friend void swap(CharacterAssets& a, CharacterAssets& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CharacterAssets* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CharacterAssets* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CharacterAssets* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CharacterAssets>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CharacterAssets& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CharacterAssets& from) {
+    CharacterAssets::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CharacterAssets* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "inworld.ndkData.CharacterAssets";
+  }
+  protected:
+  explicit CharacterAssets(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRpmModelUriFieldNumber = 1,
+    kRpmImageUriPortraitFieldNumber = 2,
+    kRpmImageUriPostureFieldNumber = 3,
+    kAvatarImgFieldNumber = 4,
+    kAvatarImgOriginalFieldNumber = 5,
+  };
+  // string rpmModelUri = 1;
+  void clear_rpmmodeluri();
+  const std::string& rpmmodeluri() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_rpmmodeluri(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_rpmmodeluri();
+  PROTOBUF_NODISCARD std::string* release_rpmmodeluri();
+  void set_allocated_rpmmodeluri(std::string* rpmmodeluri);
+  private:
+  const std::string& _internal_rpmmodeluri() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_rpmmodeluri(const std::string& value);
+  std::string* _internal_mutable_rpmmodeluri();
+  public:
+
+  // string rpmImageUriPortrait = 2;
+  void clear_rpmimageuriportrait();
+  const std::string& rpmimageuriportrait() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_rpmimageuriportrait(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_rpmimageuriportrait();
+  PROTOBUF_NODISCARD std::string* release_rpmimageuriportrait();
+  void set_allocated_rpmimageuriportrait(std::string* rpmimageuriportrait);
+  private:
+  const std::string& _internal_rpmimageuriportrait() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_rpmimageuriportrait(const std::string& value);
+  std::string* _internal_mutable_rpmimageuriportrait();
+  public:
+
+  // string rpmImageUriPosture = 3;
+  void clear_rpmimageuriposture();
+  const std::string& rpmimageuriposture() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_rpmimageuriposture(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_rpmimageuriposture();
+  PROTOBUF_NODISCARD std::string* release_rpmimageuriposture();
+  void set_allocated_rpmimageuriposture(std::string* rpmimageuriposture);
+  private:
+  const std::string& _internal_rpmimageuriposture() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_rpmimageuriposture(const std::string& value);
+  std::string* _internal_mutable_rpmimageuriposture();
+  public:
+
+  // string avatarImg = 4;
+  void clear_avatarimg();
+  const std::string& avatarimg() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_avatarimg(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_avatarimg();
+  PROTOBUF_NODISCARD std::string* release_avatarimg();
+  void set_allocated_avatarimg(std::string* avatarimg);
+  private:
+  const std::string& _internal_avatarimg() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_avatarimg(const std::string& value);
+  std::string* _internal_mutable_avatarimg();
+  public:
+
+  // string avatarImgOriginal = 5;
+  void clear_avatarimgoriginal();
+  const std::string& avatarimgoriginal() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_avatarimgoriginal(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_avatarimgoriginal();
+  PROTOBUF_NODISCARD std::string* release_avatarimgoriginal();
+  void set_allocated_avatarimgoriginal(std::string* avatarimgoriginal);
+  private:
+  const std::string& _internal_avatarimgoriginal() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_avatarimgoriginal(const std::string& value);
+  std::string* _internal_mutable_avatarimgoriginal();
+  public:
+
+  // @@protoc_insertion_point(class_scope:inworld.ndkData.CharacterAssets)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr rpmmodeluri_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr rpmimageuriportrait_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr rpmimageuriposture_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr avatarimg_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr avatarimgoriginal_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_inworld_5fndkData_2eproto;
+};
+// -------------------------------------------------------------------
 
 class ClientOptions final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:inworld.ndkData.ClientOptions) */ {
@@ -150,7 +2334,7 @@ class ClientOptions final :
                &_ClientOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    11;
 
   friend void swap(ClientOptions& a, ClientOptions& b) {
     a.Swap(&b);
@@ -231,6 +2415,7 @@ class ClientOptions final :
     kPlayerNameFieldNumber = 6,
     kTokenFieldNumber = 7,
     kSessionIdFieldNumber = 8,
+    kCapabilitiesFieldNumber = 9,
   };
   // string auth_url = 1;
   void clear_auth_url();
@@ -344,6 +2529,24 @@ class ClientOptions final :
   std::string* _internal_mutable_session_id();
   public:
 
+  // .inworld.ndkData.CapabilitiesRequest capabilities = 9;
+  bool has_capabilities() const;
+  private:
+  bool _internal_has_capabilities() const;
+  public:
+  void clear_capabilities();
+  const ::inworld::ndkData::CapabilitiesRequest& capabilities() const;
+  PROTOBUF_NODISCARD ::inworld::ndkData::CapabilitiesRequest* release_capabilities();
+  ::inworld::ndkData::CapabilitiesRequest* mutable_capabilities();
+  void set_allocated_capabilities(::inworld::ndkData::CapabilitiesRequest* capabilities);
+  private:
+  const ::inworld::ndkData::CapabilitiesRequest& _internal_capabilities() const;
+  ::inworld::ndkData::CapabilitiesRequest* _internal_mutable_capabilities();
+  public:
+  void unsafe_arena_set_allocated_capabilities(
+      ::inworld::ndkData::CapabilitiesRequest* capabilities);
+  ::inworld::ndkData::CapabilitiesRequest* unsafe_arena_release_capabilities();
+
   // @@protoc_insertion_point(class_scope:inworld.ndkData.ClientOptions)
  private:
   class _Internal;
@@ -360,6 +2563,7 @@ class ClientOptions final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr player_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr token_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr session_id_;
+    ::inworld::ndkData::CapabilitiesRequest* capabilities_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -415,7 +2619,7 @@ class AgentInfo final :
                &_AgentInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    12;
 
   friend void swap(AgentInfo& a, AgentInfo& b) {
     a.Swap(&b);
@@ -600,7 +2804,7 @@ class SessionInfo final :
                &_SessionInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    13;
 
   friend void swap(SessionInfo& a, SessionInfo& b) {
     a.Swap(&b);
@@ -791,7 +2995,7 @@ class AgentInfoArray final :
                &_AgentInfoArray_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    14;
 
   friend void swap(AgentInfoArray& a, AgentInfoArray& b) {
     a.Swap(&b);
@@ -907,6 +3111,2000 @@ class AgentInfoArray final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// Token
+
+// string token = 1;
+inline void Token::clear_token() {
+  _impl_.token_.ClearToEmpty();
+}
+inline const std::string& Token::token() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.Token.token)
+  return _internal_token();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Token::set_token(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.token_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:inworld.ndkData.Token.token)
+}
+inline std::string* Token::mutable_token() {
+  std::string* _s = _internal_mutable_token();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.Token.token)
+  return _s;
+}
+inline const std::string& Token::_internal_token() const {
+  return _impl_.token_.Get();
+}
+inline void Token::_internal_set_token(const std::string& value) {
+  
+  _impl_.token_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Token::_internal_mutable_token() {
+  
+  return _impl_.token_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Token::release_token() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.Token.token)
+  return _impl_.token_.Release();
+}
+inline void Token::set_allocated_token(std::string* token) {
+  if (token != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.token_.SetAllocated(token, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.token_.IsDefault()) {
+    _impl_.token_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.Token.token)
+}
+
+// string type = 2;
+inline void Token::clear_type() {
+  _impl_.type_.ClearToEmpty();
+}
+inline const std::string& Token::type() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.Token.type)
+  return _internal_type();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Token::set_type(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.type_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:inworld.ndkData.Token.type)
+}
+inline std::string* Token::mutable_type() {
+  std::string* _s = _internal_mutable_type();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.Token.type)
+  return _s;
+}
+inline const std::string& Token::_internal_type() const {
+  return _impl_.type_.Get();
+}
+inline void Token::_internal_set_type(const std::string& value) {
+  
+  _impl_.type_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Token::_internal_mutable_type() {
+  
+  return _impl_.type_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Token::release_type() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.Token.type)
+  return _impl_.type_.Release();
+}
+inline void Token::set_allocated_type(std::string* type) {
+  if (type != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.type_.SetAllocated(type, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.type_.IsDefault()) {
+    _impl_.type_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.Token.type)
+}
+
+// .google.protobuf.Timestamp expirationTime = 3;
+inline bool Token::_internal_has_expirationtime() const {
+  return this != internal_default_instance() && _impl_.expirationtime_ != nullptr;
+}
+inline bool Token::has_expirationtime() const {
+  return _internal_has_expirationtime();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Timestamp& Token::_internal_expirationtime() const {
+  const ::PROTOBUF_NAMESPACE_ID::Timestamp* p = _impl_.expirationtime_;
+  return p != nullptr ? *p : reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Timestamp&>(
+      ::PROTOBUF_NAMESPACE_ID::_Timestamp_default_instance_);
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Timestamp& Token::expirationtime() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.Token.expirationTime)
+  return _internal_expirationtime();
+}
+inline void Token::unsafe_arena_set_allocated_expirationtime(
+    ::PROTOBUF_NAMESPACE_ID::Timestamp* expirationtime) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.expirationtime_);
+  }
+  _impl_.expirationtime_ = expirationtime;
+  if (expirationtime) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:inworld.ndkData.Token.expirationTime)
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* Token::release_expirationtime() {
+  
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* temp = _impl_.expirationtime_;
+  _impl_.expirationtime_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* Token::unsafe_arena_release_expirationtime() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.Token.expirationTime)
+  
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* temp = _impl_.expirationtime_;
+  _impl_.expirationtime_ = nullptr;
+  return temp;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* Token::_internal_mutable_expirationtime() {
+  
+  if (_impl_.expirationtime_ == nullptr) {
+    auto* p = CreateMaybeMessage<::PROTOBUF_NAMESPACE_ID::Timestamp>(GetArenaForAllocation());
+    _impl_.expirationtime_ = p;
+  }
+  return _impl_.expirationtime_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* Token::mutable_expirationtime() {
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* _msg = _internal_mutable_expirationtime();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.Token.expirationTime)
+  return _msg;
+}
+inline void Token::set_allocated_expirationtime(::PROTOBUF_NAMESPACE_ID::Timestamp* expirationtime) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.expirationtime_);
+  }
+  if (expirationtime) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(expirationtime));
+    if (message_arena != submessage_arena) {
+      expirationtime = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, expirationtime, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.expirationtime_ = expirationtime;
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.Token.expirationTime)
+}
+
+// string sessionId = 4;
+inline void Token::clear_sessionid() {
+  _impl_.sessionid_.ClearToEmpty();
+}
+inline const std::string& Token::sessionid() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.Token.sessionId)
+  return _internal_sessionid();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Token::set_sessionid(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.sessionid_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:inworld.ndkData.Token.sessionId)
+}
+inline std::string* Token::mutable_sessionid() {
+  std::string* _s = _internal_mutable_sessionid();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.Token.sessionId)
+  return _s;
+}
+inline const std::string& Token::_internal_sessionid() const {
+  return _impl_.sessionid_.Get();
+}
+inline void Token::_internal_set_sessionid(const std::string& value) {
+  
+  _impl_.sessionid_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Token::_internal_mutable_sessionid() {
+  
+  return _impl_.sessionid_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Token::release_sessionid() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.Token.sessionId)
+  return _impl_.sessionid_.Release();
+}
+inline void Token::set_allocated_sessionid(std::string* sessionid) {
+  if (sessionid != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.sessionid_.SetAllocated(sessionid, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.sessionid_.IsDefault()) {
+    _impl_.sessionid_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.Token.sessionId)
+}
+
+// bool IsValid = 5;
+inline void Token::clear_isvalid() {
+  _impl_.isvalid_ = false;
+}
+inline bool Token::_internal_isvalid() const {
+  return _impl_.isvalid_;
+}
+inline bool Token::isvalid() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.Token.IsValid)
+  return _internal_isvalid();
+}
+inline void Token::_internal_set_isvalid(bool value) {
+  
+  _impl_.isvalid_ = value;
+}
+inline void Token::set_isvalid(bool value) {
+  _internal_set_isvalid(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.Token.IsValid)
+}
+
+// -------------------------------------------------------------------
+
+// LoadSceneRequest
+
+// .inworld.ndkData.ClientRequest client = 1;
+inline bool LoadSceneRequest::_internal_has_client() const {
+  return this != internal_default_instance() && _impl_.client_ != nullptr;
+}
+inline bool LoadSceneRequest::has_client() const {
+  return _internal_has_client();
+}
+inline void LoadSceneRequest::clear_client() {
+  if (GetArenaForAllocation() == nullptr && _impl_.client_ != nullptr) {
+    delete _impl_.client_;
+  }
+  _impl_.client_ = nullptr;
+}
+inline const ::inworld::ndkData::ClientRequest& LoadSceneRequest::_internal_client() const {
+  const ::inworld::ndkData::ClientRequest* p = _impl_.client_;
+  return p != nullptr ? *p : reinterpret_cast<const ::inworld::ndkData::ClientRequest&>(
+      ::inworld::ndkData::_ClientRequest_default_instance_);
+}
+inline const ::inworld::ndkData::ClientRequest& LoadSceneRequest::client() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.LoadSceneRequest.client)
+  return _internal_client();
+}
+inline void LoadSceneRequest::unsafe_arena_set_allocated_client(
+    ::inworld::ndkData::ClientRequest* client) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.client_);
+  }
+  _impl_.client_ = client;
+  if (client) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:inworld.ndkData.LoadSceneRequest.client)
+}
+inline ::inworld::ndkData::ClientRequest* LoadSceneRequest::release_client() {
+  
+  ::inworld::ndkData::ClientRequest* temp = _impl_.client_;
+  _impl_.client_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::inworld::ndkData::ClientRequest* LoadSceneRequest::unsafe_arena_release_client() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.LoadSceneRequest.client)
+  
+  ::inworld::ndkData::ClientRequest* temp = _impl_.client_;
+  _impl_.client_ = nullptr;
+  return temp;
+}
+inline ::inworld::ndkData::ClientRequest* LoadSceneRequest::_internal_mutable_client() {
+  
+  if (_impl_.client_ == nullptr) {
+    auto* p = CreateMaybeMessage<::inworld::ndkData::ClientRequest>(GetArenaForAllocation());
+    _impl_.client_ = p;
+  }
+  return _impl_.client_;
+}
+inline ::inworld::ndkData::ClientRequest* LoadSceneRequest::mutable_client() {
+  ::inworld::ndkData::ClientRequest* _msg = _internal_mutable_client();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.LoadSceneRequest.client)
+  return _msg;
+}
+inline void LoadSceneRequest::set_allocated_client(::inworld::ndkData::ClientRequest* client) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.client_;
+  }
+  if (client) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(client);
+    if (message_arena != submessage_arena) {
+      client = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, client, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.client_ = client;
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.LoadSceneRequest.client)
+}
+
+// .inworld.ndkData.UserRequest user = 2;
+inline bool LoadSceneRequest::_internal_has_user() const {
+  return this != internal_default_instance() && _impl_.user_ != nullptr;
+}
+inline bool LoadSceneRequest::has_user() const {
+  return _internal_has_user();
+}
+inline void LoadSceneRequest::clear_user() {
+  if (GetArenaForAllocation() == nullptr && _impl_.user_ != nullptr) {
+    delete _impl_.user_;
+  }
+  _impl_.user_ = nullptr;
+}
+inline const ::inworld::ndkData::UserRequest& LoadSceneRequest::_internal_user() const {
+  const ::inworld::ndkData::UserRequest* p = _impl_.user_;
+  return p != nullptr ? *p : reinterpret_cast<const ::inworld::ndkData::UserRequest&>(
+      ::inworld::ndkData::_UserRequest_default_instance_);
+}
+inline const ::inworld::ndkData::UserRequest& LoadSceneRequest::user() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.LoadSceneRequest.user)
+  return _internal_user();
+}
+inline void LoadSceneRequest::unsafe_arena_set_allocated_user(
+    ::inworld::ndkData::UserRequest* user) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.user_);
+  }
+  _impl_.user_ = user;
+  if (user) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:inworld.ndkData.LoadSceneRequest.user)
+}
+inline ::inworld::ndkData::UserRequest* LoadSceneRequest::release_user() {
+  
+  ::inworld::ndkData::UserRequest* temp = _impl_.user_;
+  _impl_.user_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::inworld::ndkData::UserRequest* LoadSceneRequest::unsafe_arena_release_user() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.LoadSceneRequest.user)
+  
+  ::inworld::ndkData::UserRequest* temp = _impl_.user_;
+  _impl_.user_ = nullptr;
+  return temp;
+}
+inline ::inworld::ndkData::UserRequest* LoadSceneRequest::_internal_mutable_user() {
+  
+  if (_impl_.user_ == nullptr) {
+    auto* p = CreateMaybeMessage<::inworld::ndkData::UserRequest>(GetArenaForAllocation());
+    _impl_.user_ = p;
+  }
+  return _impl_.user_;
+}
+inline ::inworld::ndkData::UserRequest* LoadSceneRequest::mutable_user() {
+  ::inworld::ndkData::UserRequest* _msg = _internal_mutable_user();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.LoadSceneRequest.user)
+  return _msg;
+}
+inline void LoadSceneRequest::set_allocated_user(::inworld::ndkData::UserRequest* user) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.user_;
+  }
+  if (user) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(user);
+    if (message_arena != submessage_arena) {
+      user = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, user, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.user_ = user;
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.LoadSceneRequest.user)
+}
+
+// .inworld.ndkData.CapabilitiesRequest capabilities = 3;
+inline bool LoadSceneRequest::_internal_has_capabilities() const {
+  return this != internal_default_instance() && _impl_.capabilities_ != nullptr;
+}
+inline bool LoadSceneRequest::has_capabilities() const {
+  return _internal_has_capabilities();
+}
+inline void LoadSceneRequest::clear_capabilities() {
+  if (GetArenaForAllocation() == nullptr && _impl_.capabilities_ != nullptr) {
+    delete _impl_.capabilities_;
+  }
+  _impl_.capabilities_ = nullptr;
+}
+inline const ::inworld::ndkData::CapabilitiesRequest& LoadSceneRequest::_internal_capabilities() const {
+  const ::inworld::ndkData::CapabilitiesRequest* p = _impl_.capabilities_;
+  return p != nullptr ? *p : reinterpret_cast<const ::inworld::ndkData::CapabilitiesRequest&>(
+      ::inworld::ndkData::_CapabilitiesRequest_default_instance_);
+}
+inline const ::inworld::ndkData::CapabilitiesRequest& LoadSceneRequest::capabilities() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.LoadSceneRequest.capabilities)
+  return _internal_capabilities();
+}
+inline void LoadSceneRequest::unsafe_arena_set_allocated_capabilities(
+    ::inworld::ndkData::CapabilitiesRequest* capabilities) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.capabilities_);
+  }
+  _impl_.capabilities_ = capabilities;
+  if (capabilities) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:inworld.ndkData.LoadSceneRequest.capabilities)
+}
+inline ::inworld::ndkData::CapabilitiesRequest* LoadSceneRequest::release_capabilities() {
+  
+  ::inworld::ndkData::CapabilitiesRequest* temp = _impl_.capabilities_;
+  _impl_.capabilities_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::inworld::ndkData::CapabilitiesRequest* LoadSceneRequest::unsafe_arena_release_capabilities() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.LoadSceneRequest.capabilities)
+  
+  ::inworld::ndkData::CapabilitiesRequest* temp = _impl_.capabilities_;
+  _impl_.capabilities_ = nullptr;
+  return temp;
+}
+inline ::inworld::ndkData::CapabilitiesRequest* LoadSceneRequest::_internal_mutable_capabilities() {
+  
+  if (_impl_.capabilities_ == nullptr) {
+    auto* p = CreateMaybeMessage<::inworld::ndkData::CapabilitiesRequest>(GetArenaForAllocation());
+    _impl_.capabilities_ = p;
+  }
+  return _impl_.capabilities_;
+}
+inline ::inworld::ndkData::CapabilitiesRequest* LoadSceneRequest::mutable_capabilities() {
+  ::inworld::ndkData::CapabilitiesRequest* _msg = _internal_mutable_capabilities();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.LoadSceneRequest.capabilities)
+  return _msg;
+}
+inline void LoadSceneRequest::set_allocated_capabilities(::inworld::ndkData::CapabilitiesRequest* capabilities) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.capabilities_;
+  }
+  if (capabilities) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(capabilities);
+    if (message_arena != submessage_arena) {
+      capabilities = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, capabilities, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.capabilities_ = capabilities;
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.LoadSceneRequest.capabilities)
+}
+
+// .inworld.ndkData.UserSettings userSetting = 4;
+inline bool LoadSceneRequest::_internal_has_usersetting() const {
+  return this != internal_default_instance() && _impl_.usersetting_ != nullptr;
+}
+inline bool LoadSceneRequest::has_usersetting() const {
+  return _internal_has_usersetting();
+}
+inline void LoadSceneRequest::clear_usersetting() {
+  if (GetArenaForAllocation() == nullptr && _impl_.usersetting_ != nullptr) {
+    delete _impl_.usersetting_;
+  }
+  _impl_.usersetting_ = nullptr;
+}
+inline const ::inworld::ndkData::UserSettings& LoadSceneRequest::_internal_usersetting() const {
+  const ::inworld::ndkData::UserSettings* p = _impl_.usersetting_;
+  return p != nullptr ? *p : reinterpret_cast<const ::inworld::ndkData::UserSettings&>(
+      ::inworld::ndkData::_UserSettings_default_instance_);
+}
+inline const ::inworld::ndkData::UserSettings& LoadSceneRequest::usersetting() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.LoadSceneRequest.userSetting)
+  return _internal_usersetting();
+}
+inline void LoadSceneRequest::unsafe_arena_set_allocated_usersetting(
+    ::inworld::ndkData::UserSettings* usersetting) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.usersetting_);
+  }
+  _impl_.usersetting_ = usersetting;
+  if (usersetting) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:inworld.ndkData.LoadSceneRequest.userSetting)
+}
+inline ::inworld::ndkData::UserSettings* LoadSceneRequest::release_usersetting() {
+  
+  ::inworld::ndkData::UserSettings* temp = _impl_.usersetting_;
+  _impl_.usersetting_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::inworld::ndkData::UserSettings* LoadSceneRequest::unsafe_arena_release_usersetting() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.LoadSceneRequest.userSetting)
+  
+  ::inworld::ndkData::UserSettings* temp = _impl_.usersetting_;
+  _impl_.usersetting_ = nullptr;
+  return temp;
+}
+inline ::inworld::ndkData::UserSettings* LoadSceneRequest::_internal_mutable_usersetting() {
+  
+  if (_impl_.usersetting_ == nullptr) {
+    auto* p = CreateMaybeMessage<::inworld::ndkData::UserSettings>(GetArenaForAllocation());
+    _impl_.usersetting_ = p;
+  }
+  return _impl_.usersetting_;
+}
+inline ::inworld::ndkData::UserSettings* LoadSceneRequest::mutable_usersetting() {
+  ::inworld::ndkData::UserSettings* _msg = _internal_mutable_usersetting();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.LoadSceneRequest.userSetting)
+  return _msg;
+}
+inline void LoadSceneRequest::set_allocated_usersetting(::inworld::ndkData::UserSettings* usersetting) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.usersetting_;
+  }
+  if (usersetting) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(usersetting);
+    if (message_arena != submessage_arena) {
+      usersetting = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, usersetting, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.usersetting_ = usersetting;
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.LoadSceneRequest.userSetting)
+}
+
+// -------------------------------------------------------------------
+
+// LoadSceneResponse
+
+// repeated .inworld.ndkData.InworldCharacterData agents = 1;
+inline int LoadSceneResponse::_internal_agents_size() const {
+  return _impl_.agents_.size();
+}
+inline int LoadSceneResponse::agents_size() const {
+  return _internal_agents_size();
+}
+inline void LoadSceneResponse::clear_agents() {
+  _impl_.agents_.Clear();
+}
+inline ::inworld::ndkData::InworldCharacterData* LoadSceneResponse::mutable_agents(int index) {
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.LoadSceneResponse.agents)
+  return _impl_.agents_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inworld::ndkData::InworldCharacterData >*
+LoadSceneResponse::mutable_agents() {
+  // @@protoc_insertion_point(field_mutable_list:inworld.ndkData.LoadSceneResponse.agents)
+  return &_impl_.agents_;
+}
+inline const ::inworld::ndkData::InworldCharacterData& LoadSceneResponse::_internal_agents(int index) const {
+  return _impl_.agents_.Get(index);
+}
+inline const ::inworld::ndkData::InworldCharacterData& LoadSceneResponse::agents(int index) const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.LoadSceneResponse.agents)
+  return _internal_agents(index);
+}
+inline ::inworld::ndkData::InworldCharacterData* LoadSceneResponse::_internal_add_agents() {
+  return _impl_.agents_.Add();
+}
+inline ::inworld::ndkData::InworldCharacterData* LoadSceneResponse::add_agents() {
+  ::inworld::ndkData::InworldCharacterData* _add = _internal_add_agents();
+  // @@protoc_insertion_point(field_add:inworld.ndkData.LoadSceneResponse.agents)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inworld::ndkData::InworldCharacterData >&
+LoadSceneResponse::agents() const {
+  // @@protoc_insertion_point(field_list:inworld.ndkData.LoadSceneResponse.agents)
+  return _impl_.agents_;
+}
+
+// string key = 2;
+inline void LoadSceneResponse::clear_key() {
+  _impl_.key_.ClearToEmpty();
+}
+inline const std::string& LoadSceneResponse::key() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.LoadSceneResponse.key)
+  return _internal_key();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void LoadSceneResponse::set_key(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.key_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:inworld.ndkData.LoadSceneResponse.key)
+}
+inline std::string* LoadSceneResponse::mutable_key() {
+  std::string* _s = _internal_mutable_key();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.LoadSceneResponse.key)
+  return _s;
+}
+inline const std::string& LoadSceneResponse::_internal_key() const {
+  return _impl_.key_.Get();
+}
+inline void LoadSceneResponse::_internal_set_key(const std::string& value) {
+  
+  _impl_.key_.Set(value, GetArenaForAllocation());
+}
+inline std::string* LoadSceneResponse::_internal_mutable_key() {
+  
+  return _impl_.key_.Mutable(GetArenaForAllocation());
+}
+inline std::string* LoadSceneResponse::release_key() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.LoadSceneResponse.key)
+  return _impl_.key_.Release();
+}
+inline void LoadSceneResponse::set_allocated_key(std::string* key) {
+  if (key != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.key_.SetAllocated(key, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.key_.IsDefault()) {
+    _impl_.key_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.LoadSceneResponse.key)
+}
+
+// .google.protobuf.Any previousState = 3;
+inline bool LoadSceneResponse::_internal_has_previousstate() const {
+  return this != internal_default_instance() && _impl_.previousstate_ != nullptr;
+}
+inline bool LoadSceneResponse::has_previousstate() const {
+  return _internal_has_previousstate();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Any& LoadSceneResponse::_internal_previousstate() const {
+  const ::PROTOBUF_NAMESPACE_ID::Any* p = _impl_.previousstate_;
+  return p != nullptr ? *p : reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Any&>(
+      ::PROTOBUF_NAMESPACE_ID::_Any_default_instance_);
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Any& LoadSceneResponse::previousstate() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.LoadSceneResponse.previousState)
+  return _internal_previousstate();
+}
+inline void LoadSceneResponse::unsafe_arena_set_allocated_previousstate(
+    ::PROTOBUF_NAMESPACE_ID::Any* previousstate) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.previousstate_);
+  }
+  _impl_.previousstate_ = previousstate;
+  if (previousstate) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:inworld.ndkData.LoadSceneResponse.previousState)
+}
+inline ::PROTOBUF_NAMESPACE_ID::Any* LoadSceneResponse::release_previousstate() {
+  
+  ::PROTOBUF_NAMESPACE_ID::Any* temp = _impl_.previousstate_;
+  _impl_.previousstate_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Any* LoadSceneResponse::unsafe_arena_release_previousstate() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.LoadSceneResponse.previousState)
+  
+  ::PROTOBUF_NAMESPACE_ID::Any* temp = _impl_.previousstate_;
+  _impl_.previousstate_ = nullptr;
+  return temp;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Any* LoadSceneResponse::_internal_mutable_previousstate() {
+  
+  if (_impl_.previousstate_ == nullptr) {
+    auto* p = CreateMaybeMessage<::PROTOBUF_NAMESPACE_ID::Any>(GetArenaForAllocation());
+    _impl_.previousstate_ = p;
+  }
+  return _impl_.previousstate_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Any* LoadSceneResponse::mutable_previousstate() {
+  ::PROTOBUF_NAMESPACE_ID::Any* _msg = _internal_mutable_previousstate();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.LoadSceneResponse.previousState)
+  return _msg;
+}
+inline void LoadSceneResponse::set_allocated_previousstate(::PROTOBUF_NAMESPACE_ID::Any* previousstate) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.previousstate_);
+  }
+  if (previousstate) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(previousstate));
+    if (message_arena != submessage_arena) {
+      previousstate = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, previousstate, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.previousstate_ = previousstate;
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.LoadSceneResponse.previousState)
+}
+
+// -------------------------------------------------------------------
+
+// UserRequest
+
+// string name = 1;
+inline void UserRequest::clear_name() {
+  _impl_.name_.ClearToEmpty();
+}
+inline const std::string& UserRequest::name() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.UserRequest.name)
+  return _internal_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void UserRequest::set_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:inworld.ndkData.UserRequest.name)
+}
+inline std::string* UserRequest::mutable_name() {
+  std::string* _s = _internal_mutable_name();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.UserRequest.name)
+  return _s;
+}
+inline const std::string& UserRequest::_internal_name() const {
+  return _impl_.name_.Get();
+}
+inline void UserRequest::_internal_set_name(const std::string& value) {
+  
+  _impl_.name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* UserRequest::_internal_mutable_name() {
+  
+  return _impl_.name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* UserRequest::release_name() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.UserRequest.name)
+  return _impl_.name_.Release();
+}
+inline void UserRequest::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.name_.IsDefault()) {
+    _impl_.name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.UserRequest.name)
+}
+
+// -------------------------------------------------------------------
+
+// UserSettings
+
+// bool viewTranscriptConsent = 1;
+inline void UserSettings::clear_viewtranscriptconsent() {
+  _impl_.viewtranscriptconsent_ = false;
+}
+inline bool UserSettings::_internal_viewtranscriptconsent() const {
+  return _impl_.viewtranscriptconsent_;
+}
+inline bool UserSettings::viewtranscriptconsent() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.UserSettings.viewTranscriptConsent)
+  return _internal_viewtranscriptconsent();
+}
+inline void UserSettings::_internal_set_viewtranscriptconsent(bool value) {
+  
+  _impl_.viewtranscriptconsent_ = value;
+}
+inline void UserSettings::set_viewtranscriptconsent(bool value) {
+  _internal_set_viewtranscriptconsent(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.UserSettings.viewTranscriptConsent)
+}
+
+// .inworld.ndkData.PlayerProfile playerProfile = 2;
+inline bool UserSettings::_internal_has_playerprofile() const {
+  return this != internal_default_instance() && _impl_.playerprofile_ != nullptr;
+}
+inline bool UserSettings::has_playerprofile() const {
+  return _internal_has_playerprofile();
+}
+inline void UserSettings::clear_playerprofile() {
+  if (GetArenaForAllocation() == nullptr && _impl_.playerprofile_ != nullptr) {
+    delete _impl_.playerprofile_;
+  }
+  _impl_.playerprofile_ = nullptr;
+}
+inline const ::inworld::ndkData::PlayerProfile& UserSettings::_internal_playerprofile() const {
+  const ::inworld::ndkData::PlayerProfile* p = _impl_.playerprofile_;
+  return p != nullptr ? *p : reinterpret_cast<const ::inworld::ndkData::PlayerProfile&>(
+      ::inworld::ndkData::_PlayerProfile_default_instance_);
+}
+inline const ::inworld::ndkData::PlayerProfile& UserSettings::playerprofile() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.UserSettings.playerProfile)
+  return _internal_playerprofile();
+}
+inline void UserSettings::unsafe_arena_set_allocated_playerprofile(
+    ::inworld::ndkData::PlayerProfile* playerprofile) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.playerprofile_);
+  }
+  _impl_.playerprofile_ = playerprofile;
+  if (playerprofile) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:inworld.ndkData.UserSettings.playerProfile)
+}
+inline ::inworld::ndkData::PlayerProfile* UserSettings::release_playerprofile() {
+  
+  ::inworld::ndkData::PlayerProfile* temp = _impl_.playerprofile_;
+  _impl_.playerprofile_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::inworld::ndkData::PlayerProfile* UserSettings::unsafe_arena_release_playerprofile() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.UserSettings.playerProfile)
+  
+  ::inworld::ndkData::PlayerProfile* temp = _impl_.playerprofile_;
+  _impl_.playerprofile_ = nullptr;
+  return temp;
+}
+inline ::inworld::ndkData::PlayerProfile* UserSettings::_internal_mutable_playerprofile() {
+  
+  if (_impl_.playerprofile_ == nullptr) {
+    auto* p = CreateMaybeMessage<::inworld::ndkData::PlayerProfile>(GetArenaForAllocation());
+    _impl_.playerprofile_ = p;
+  }
+  return _impl_.playerprofile_;
+}
+inline ::inworld::ndkData::PlayerProfile* UserSettings::mutable_playerprofile() {
+  ::inworld::ndkData::PlayerProfile* _msg = _internal_mutable_playerprofile();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.UserSettings.playerProfile)
+  return _msg;
+}
+inline void UserSettings::set_allocated_playerprofile(::inworld::ndkData::PlayerProfile* playerprofile) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.playerprofile_;
+  }
+  if (playerprofile) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(playerprofile);
+    if (message_arena != submessage_arena) {
+      playerprofile = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, playerprofile, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.playerprofile_ = playerprofile;
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.UserSettings.playerProfile)
+}
+
+// -------------------------------------------------------------------
+
+// PlayerProfile
+
+// repeated .inworld.ndkData.Fields fields = 1;
+inline int PlayerProfile::_internal_fields_size() const {
+  return _impl_.fields_.size();
+}
+inline int PlayerProfile::fields_size() const {
+  return _internal_fields_size();
+}
+inline void PlayerProfile::clear_fields() {
+  _impl_.fields_.Clear();
+}
+inline ::inworld::ndkData::Fields* PlayerProfile::mutable_fields(int index) {
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.PlayerProfile.fields)
+  return _impl_.fields_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inworld::ndkData::Fields >*
+PlayerProfile::mutable_fields() {
+  // @@protoc_insertion_point(field_mutable_list:inworld.ndkData.PlayerProfile.fields)
+  return &_impl_.fields_;
+}
+inline const ::inworld::ndkData::Fields& PlayerProfile::_internal_fields(int index) const {
+  return _impl_.fields_.Get(index);
+}
+inline const ::inworld::ndkData::Fields& PlayerProfile::fields(int index) const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.PlayerProfile.fields)
+  return _internal_fields(index);
+}
+inline ::inworld::ndkData::Fields* PlayerProfile::_internal_add_fields() {
+  return _impl_.fields_.Add();
+}
+inline ::inworld::ndkData::Fields* PlayerProfile::add_fields() {
+  ::inworld::ndkData::Fields* _add = _internal_add_fields();
+  // @@protoc_insertion_point(field_add:inworld.ndkData.PlayerProfile.fields)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::inworld::ndkData::Fields >&
+PlayerProfile::fields() const {
+  // @@protoc_insertion_point(field_list:inworld.ndkData.PlayerProfile.fields)
+  return _impl_.fields_;
+}
+
+// -------------------------------------------------------------------
+
+// Fields
+
+// string fieldId = 1;
+inline void Fields::clear_fieldid() {
+  _impl_.fieldid_.ClearToEmpty();
+}
+inline const std::string& Fields::fieldid() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.Fields.fieldId)
+  return _internal_fieldid();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Fields::set_fieldid(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.fieldid_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:inworld.ndkData.Fields.fieldId)
+}
+inline std::string* Fields::mutable_fieldid() {
+  std::string* _s = _internal_mutable_fieldid();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.Fields.fieldId)
+  return _s;
+}
+inline const std::string& Fields::_internal_fieldid() const {
+  return _impl_.fieldid_.Get();
+}
+inline void Fields::_internal_set_fieldid(const std::string& value) {
+  
+  _impl_.fieldid_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Fields::_internal_mutable_fieldid() {
+  
+  return _impl_.fieldid_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Fields::release_fieldid() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.Fields.fieldId)
+  return _impl_.fieldid_.Release();
+}
+inline void Fields::set_allocated_fieldid(std::string* fieldid) {
+  if (fieldid != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.fieldid_.SetAllocated(fieldid, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.fieldid_.IsDefault()) {
+    _impl_.fieldid_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.Fields.fieldId)
+}
+
+// string fieldValue = 2;
+inline void Fields::clear_fieldvalue() {
+  _impl_.fieldvalue_.ClearToEmpty();
+}
+inline const std::string& Fields::fieldvalue() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.Fields.fieldValue)
+  return _internal_fieldvalue();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Fields::set_fieldvalue(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.fieldvalue_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:inworld.ndkData.Fields.fieldValue)
+}
+inline std::string* Fields::mutable_fieldvalue() {
+  std::string* _s = _internal_mutable_fieldvalue();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.Fields.fieldValue)
+  return _s;
+}
+inline const std::string& Fields::_internal_fieldvalue() const {
+  return _impl_.fieldvalue_.Get();
+}
+inline void Fields::_internal_set_fieldvalue(const std::string& value) {
+  
+  _impl_.fieldvalue_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Fields::_internal_mutable_fieldvalue() {
+  
+  return _impl_.fieldvalue_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Fields::release_fieldvalue() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.Fields.fieldValue)
+  return _impl_.fieldvalue_.Release();
+}
+inline void Fields::set_allocated_fieldvalue(std::string* fieldvalue) {
+  if (fieldvalue != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.fieldvalue_.SetAllocated(fieldvalue, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.fieldvalue_.IsDefault()) {
+    _impl_.fieldvalue_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.Fields.fieldValue)
+}
+
+// -------------------------------------------------------------------
+
+// ClientRequest
+
+// string id = 1;
+inline void ClientRequest::clear_id() {
+  _impl_.id_.ClearToEmpty();
+}
+inline const std::string& ClientRequest::id() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.ClientRequest.id)
+  return _internal_id();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ClientRequest::set_id(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.id_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:inworld.ndkData.ClientRequest.id)
+}
+inline std::string* ClientRequest::mutable_id() {
+  std::string* _s = _internal_mutable_id();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.ClientRequest.id)
+  return _s;
+}
+inline const std::string& ClientRequest::_internal_id() const {
+  return _impl_.id_.Get();
+}
+inline void ClientRequest::_internal_set_id(const std::string& value) {
+  
+  _impl_.id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ClientRequest::_internal_mutable_id() {
+  
+  return _impl_.id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ClientRequest::release_id() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.ClientRequest.id)
+  return _impl_.id_.Release();
+}
+inline void ClientRequest::set_allocated_id(std::string* id) {
+  if (id != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.id_.SetAllocated(id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.id_.IsDefault()) {
+    _impl_.id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.ClientRequest.id)
+}
+
+// string version = 2;
+inline void ClientRequest::clear_version() {
+  _impl_.version_.ClearToEmpty();
+}
+inline const std::string& ClientRequest::version() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.ClientRequest.version)
+  return _internal_version();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ClientRequest::set_version(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.version_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:inworld.ndkData.ClientRequest.version)
+}
+inline std::string* ClientRequest::mutable_version() {
+  std::string* _s = _internal_mutable_version();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.ClientRequest.version)
+  return _s;
+}
+inline const std::string& ClientRequest::_internal_version() const {
+  return _impl_.version_.Get();
+}
+inline void ClientRequest::_internal_set_version(const std::string& value) {
+  
+  _impl_.version_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ClientRequest::_internal_mutable_version() {
+  
+  return _impl_.version_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ClientRequest::release_version() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.ClientRequest.version)
+  return _impl_.version_.Release();
+}
+inline void ClientRequest::set_allocated_version(std::string* version) {
+  if (version != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.version_.SetAllocated(version, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.version_.IsDefault()) {
+    _impl_.version_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.ClientRequest.version)
+}
+
+// -------------------------------------------------------------------
+
+// CapabilitiesRequest
+
+// bool Animations = 1;
+inline void CapabilitiesRequest::clear_animations() {
+  _impl_.animations_ = false;
+}
+inline bool CapabilitiesRequest::_internal_animations() const {
+  return _impl_.animations_;
+}
+inline bool CapabilitiesRequest::animations() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.Animations)
+  return _internal_animations();
+}
+inline void CapabilitiesRequest::_internal_set_animations(bool value) {
+  
+  _impl_.animations_ = value;
+}
+inline void CapabilitiesRequest::set_animations(bool value) {
+  _internal_set_animations(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.Animations)
+}
+
+// bool Text = 2;
+inline void CapabilitiesRequest::clear_text() {
+  _impl_.text_ = false;
+}
+inline bool CapabilitiesRequest::_internal_text() const {
+  return _impl_.text_;
+}
+inline bool CapabilitiesRequest::text() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.Text)
+  return _internal_text();
+}
+inline void CapabilitiesRequest::_internal_set_text(bool value) {
+  
+  _impl_.text_ = value;
+}
+inline void CapabilitiesRequest::set_text(bool value) {
+  _internal_set_text(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.Text)
+}
+
+// bool Audio = 3;
+inline void CapabilitiesRequest::clear_audio() {
+  _impl_.audio_ = false;
+}
+inline bool CapabilitiesRequest::_internal_audio() const {
+  return _impl_.audio_;
+}
+inline bool CapabilitiesRequest::audio() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.Audio)
+  return _internal_audio();
+}
+inline void CapabilitiesRequest::_internal_set_audio(bool value) {
+  
+  _impl_.audio_ = value;
+}
+inline void CapabilitiesRequest::set_audio(bool value) {
+  _internal_set_audio(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.Audio)
+}
+
+// bool Emotions = 4;
+inline void CapabilitiesRequest::clear_emotions() {
+  _impl_.emotions_ = false;
+}
+inline bool CapabilitiesRequest::_internal_emotions() const {
+  return _impl_.emotions_;
+}
+inline bool CapabilitiesRequest::emotions() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.Emotions)
+  return _internal_emotions();
+}
+inline void CapabilitiesRequest::_internal_set_emotions(bool value) {
+  
+  _impl_.emotions_ = value;
+}
+inline void CapabilitiesRequest::set_emotions(bool value) {
+  _internal_set_emotions(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.Emotions)
+}
+
+// bool Gestures = 5;
+inline void CapabilitiesRequest::clear_gestures() {
+  _impl_.gestures_ = false;
+}
+inline bool CapabilitiesRequest::_internal_gestures() const {
+  return _impl_.gestures_;
+}
+inline bool CapabilitiesRequest::gestures() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.Gestures)
+  return _internal_gestures();
+}
+inline void CapabilitiesRequest::_internal_set_gestures(bool value) {
+  
+  _impl_.gestures_ = value;
+}
+inline void CapabilitiesRequest::set_gestures(bool value) {
+  _internal_set_gestures(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.Gestures)
+}
+
+// bool Interruptions = 6;
+inline void CapabilitiesRequest::clear_interruptions() {
+  _impl_.interruptions_ = false;
+}
+inline bool CapabilitiesRequest::_internal_interruptions() const {
+  return _impl_.interruptions_;
+}
+inline bool CapabilitiesRequest::interruptions() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.Interruptions)
+  return _internal_interruptions();
+}
+inline void CapabilitiesRequest::_internal_set_interruptions(bool value) {
+  
+  _impl_.interruptions_ = value;
+}
+inline void CapabilitiesRequest::set_interruptions(bool value) {
+  _internal_set_interruptions(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.Interruptions)
+}
+
+// bool Triggers = 7;
+inline void CapabilitiesRequest::clear_triggers() {
+  _impl_.triggers_ = false;
+}
+inline bool CapabilitiesRequest::_internal_triggers() const {
+  return _impl_.triggers_;
+}
+inline bool CapabilitiesRequest::triggers() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.Triggers)
+  return _internal_triggers();
+}
+inline void CapabilitiesRequest::_internal_set_triggers(bool value) {
+  
+  _impl_.triggers_ = value;
+}
+inline void CapabilitiesRequest::set_triggers(bool value) {
+  _internal_set_triggers(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.Triggers)
+}
+
+// bool EmotionStreaming = 8;
+inline void CapabilitiesRequest::clear_emotionstreaming() {
+  _impl_.emotionstreaming_ = false;
+}
+inline bool CapabilitiesRequest::_internal_emotionstreaming() const {
+  return _impl_.emotionstreaming_;
+}
+inline bool CapabilitiesRequest::emotionstreaming() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.EmotionStreaming)
+  return _internal_emotionstreaming();
+}
+inline void CapabilitiesRequest::_internal_set_emotionstreaming(bool value) {
+  
+  _impl_.emotionstreaming_ = value;
+}
+inline void CapabilitiesRequest::set_emotionstreaming(bool value) {
+  _internal_set_emotionstreaming(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.EmotionStreaming)
+}
+
+// bool SilenceEvents = 9;
+inline void CapabilitiesRequest::clear_silenceevents() {
+  _impl_.silenceevents_ = false;
+}
+inline bool CapabilitiesRequest::_internal_silenceevents() const {
+  return _impl_.silenceevents_;
+}
+inline bool CapabilitiesRequest::silenceevents() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.SilenceEvents)
+  return _internal_silenceevents();
+}
+inline void CapabilitiesRequest::_internal_set_silenceevents(bool value) {
+  
+  _impl_.silenceevents_ = value;
+}
+inline void CapabilitiesRequest::set_silenceevents(bool value) {
+  _internal_set_silenceevents(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.SilenceEvents)
+}
+
+// bool PhonemeInfo = 10;
+inline void CapabilitiesRequest::clear_phonemeinfo() {
+  _impl_.phonemeinfo_ = false;
+}
+inline bool CapabilitiesRequest::_internal_phonemeinfo() const {
+  return _impl_.phonemeinfo_;
+}
+inline bool CapabilitiesRequest::phonemeinfo() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.PhonemeInfo)
+  return _internal_phonemeinfo();
+}
+inline void CapabilitiesRequest::_internal_set_phonemeinfo(bool value) {
+  
+  _impl_.phonemeinfo_ = value;
+}
+inline void CapabilitiesRequest::set_phonemeinfo(bool value) {
+  _internal_set_phonemeinfo(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.PhonemeInfo)
+}
+
+// bool LoadSceneInSession = 11;
+inline void CapabilitiesRequest::clear_loadsceneinsession() {
+  _impl_.loadsceneinsession_ = false;
+}
+inline bool CapabilitiesRequest::_internal_loadsceneinsession() const {
+  return _impl_.loadsceneinsession_;
+}
+inline bool CapabilitiesRequest::loadsceneinsession() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.LoadSceneInSession)
+  return _internal_loadsceneinsession();
+}
+inline void CapabilitiesRequest::_internal_set_loadsceneinsession(bool value) {
+  
+  _impl_.loadsceneinsession_ = value;
+}
+inline void CapabilitiesRequest::set_loadsceneinsession(bool value) {
+  _internal_set_loadsceneinsession(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.LoadSceneInSession)
+}
+
+// -------------------------------------------------------------------
+
+// InworldCharacterData
+
+// string agentId = 1;
+inline void InworldCharacterData::clear_agentid() {
+  _impl_.agentid_.ClearToEmpty();
+}
+inline const std::string& InworldCharacterData::agentid() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.InworldCharacterData.agentId)
+  return _internal_agentid();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void InworldCharacterData::set_agentid(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.agentid_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:inworld.ndkData.InworldCharacterData.agentId)
+}
+inline std::string* InworldCharacterData::mutable_agentid() {
+  std::string* _s = _internal_mutable_agentid();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.InworldCharacterData.agentId)
+  return _s;
+}
+inline const std::string& InworldCharacterData::_internal_agentid() const {
+  return _impl_.agentid_.Get();
+}
+inline void InworldCharacterData::_internal_set_agentid(const std::string& value) {
+  
+  _impl_.agentid_.Set(value, GetArenaForAllocation());
+}
+inline std::string* InworldCharacterData::_internal_mutable_agentid() {
+  
+  return _impl_.agentid_.Mutable(GetArenaForAllocation());
+}
+inline std::string* InworldCharacterData::release_agentid() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.InworldCharacterData.agentId)
+  return _impl_.agentid_.Release();
+}
+inline void InworldCharacterData::set_allocated_agentid(std::string* agentid) {
+  if (agentid != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.agentid_.SetAllocated(agentid, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.agentid_.IsDefault()) {
+    _impl_.agentid_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.InworldCharacterData.agentId)
+}
+
+// string brainName = 2;
+inline void InworldCharacterData::clear_brainname() {
+  _impl_.brainname_.ClearToEmpty();
+}
+inline const std::string& InworldCharacterData::brainname() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.InworldCharacterData.brainName)
+  return _internal_brainname();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void InworldCharacterData::set_brainname(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.brainname_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:inworld.ndkData.InworldCharacterData.brainName)
+}
+inline std::string* InworldCharacterData::mutable_brainname() {
+  std::string* _s = _internal_mutable_brainname();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.InworldCharacterData.brainName)
+  return _s;
+}
+inline const std::string& InworldCharacterData::_internal_brainname() const {
+  return _impl_.brainname_.Get();
+}
+inline void InworldCharacterData::_internal_set_brainname(const std::string& value) {
+  
+  _impl_.brainname_.Set(value, GetArenaForAllocation());
+}
+inline std::string* InworldCharacterData::_internal_mutable_brainname() {
+  
+  return _impl_.brainname_.Mutable(GetArenaForAllocation());
+}
+inline std::string* InworldCharacterData::release_brainname() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.InworldCharacterData.brainName)
+  return _impl_.brainname_.Release();
+}
+inline void InworldCharacterData::set_allocated_brainname(std::string* brainname) {
+  if (brainname != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.brainname_.SetAllocated(brainname, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.brainname_.IsDefault()) {
+    _impl_.brainname_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.InworldCharacterData.brainName)
+}
+
+// string givenName = 3;
+inline void InworldCharacterData::clear_givenname() {
+  _impl_.givenname_.ClearToEmpty();
+}
+inline const std::string& InworldCharacterData::givenname() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.InworldCharacterData.givenName)
+  return _internal_givenname();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void InworldCharacterData::set_givenname(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.givenname_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:inworld.ndkData.InworldCharacterData.givenName)
+}
+inline std::string* InworldCharacterData::mutable_givenname() {
+  std::string* _s = _internal_mutable_givenname();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.InworldCharacterData.givenName)
+  return _s;
+}
+inline const std::string& InworldCharacterData::_internal_givenname() const {
+  return _impl_.givenname_.Get();
+}
+inline void InworldCharacterData::_internal_set_givenname(const std::string& value) {
+  
+  _impl_.givenname_.Set(value, GetArenaForAllocation());
+}
+inline std::string* InworldCharacterData::_internal_mutable_givenname() {
+  
+  return _impl_.givenname_.Mutable(GetArenaForAllocation());
+}
+inline std::string* InworldCharacterData::release_givenname() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.InworldCharacterData.givenName)
+  return _impl_.givenname_.Release();
+}
+inline void InworldCharacterData::set_allocated_givenname(std::string* givenname) {
+  if (givenname != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.givenname_.SetAllocated(givenname, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.givenname_.IsDefault()) {
+    _impl_.givenname_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.InworldCharacterData.givenName)
+}
+
+// .inworld.ndkData.CharacterAssets characterAssets = 4;
+inline bool InworldCharacterData::_internal_has_characterassets() const {
+  return this != internal_default_instance() && _impl_.characterassets_ != nullptr;
+}
+inline bool InworldCharacterData::has_characterassets() const {
+  return _internal_has_characterassets();
+}
+inline void InworldCharacterData::clear_characterassets() {
+  if (GetArenaForAllocation() == nullptr && _impl_.characterassets_ != nullptr) {
+    delete _impl_.characterassets_;
+  }
+  _impl_.characterassets_ = nullptr;
+}
+inline const ::inworld::ndkData::CharacterAssets& InworldCharacterData::_internal_characterassets() const {
+  const ::inworld::ndkData::CharacterAssets* p = _impl_.characterassets_;
+  return p != nullptr ? *p : reinterpret_cast<const ::inworld::ndkData::CharacterAssets&>(
+      ::inworld::ndkData::_CharacterAssets_default_instance_);
+}
+inline const ::inworld::ndkData::CharacterAssets& InworldCharacterData::characterassets() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.InworldCharacterData.characterAssets)
+  return _internal_characterassets();
+}
+inline void InworldCharacterData::unsafe_arena_set_allocated_characterassets(
+    ::inworld::ndkData::CharacterAssets* characterassets) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.characterassets_);
+  }
+  _impl_.characterassets_ = characterassets;
+  if (characterassets) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:inworld.ndkData.InworldCharacterData.characterAssets)
+}
+inline ::inworld::ndkData::CharacterAssets* InworldCharacterData::release_characterassets() {
+  
+  ::inworld::ndkData::CharacterAssets* temp = _impl_.characterassets_;
+  _impl_.characterassets_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::inworld::ndkData::CharacterAssets* InworldCharacterData::unsafe_arena_release_characterassets() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.InworldCharacterData.characterAssets)
+  
+  ::inworld::ndkData::CharacterAssets* temp = _impl_.characterassets_;
+  _impl_.characterassets_ = nullptr;
+  return temp;
+}
+inline ::inworld::ndkData::CharacterAssets* InworldCharacterData::_internal_mutable_characterassets() {
+  
+  if (_impl_.characterassets_ == nullptr) {
+    auto* p = CreateMaybeMessage<::inworld::ndkData::CharacterAssets>(GetArenaForAllocation());
+    _impl_.characterassets_ = p;
+  }
+  return _impl_.characterassets_;
+}
+inline ::inworld::ndkData::CharacterAssets* InworldCharacterData::mutable_characterassets() {
+  ::inworld::ndkData::CharacterAssets* _msg = _internal_mutable_characterassets();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.InworldCharacterData.characterAssets)
+  return _msg;
+}
+inline void InworldCharacterData::set_allocated_characterassets(::inworld::ndkData::CharacterAssets* characterassets) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.characterassets_;
+  }
+  if (characterassets) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(characterassets);
+    if (message_arena != submessage_arena) {
+      characterassets = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, characterassets, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.characterassets_ = characterassets;
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.InworldCharacterData.characterAssets)
+}
+
+// bytes thumbnail = 5;
+inline void InworldCharacterData::clear_thumbnail() {
+  _impl_.thumbnail_.ClearToEmpty();
+}
+inline const std::string& InworldCharacterData::thumbnail() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.InworldCharacterData.thumbnail)
+  return _internal_thumbnail();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void InworldCharacterData::set_thumbnail(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.thumbnail_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:inworld.ndkData.InworldCharacterData.thumbnail)
+}
+inline std::string* InworldCharacterData::mutable_thumbnail() {
+  std::string* _s = _internal_mutable_thumbnail();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.InworldCharacterData.thumbnail)
+  return _s;
+}
+inline const std::string& InworldCharacterData::_internal_thumbnail() const {
+  return _impl_.thumbnail_.Get();
+}
+inline void InworldCharacterData::_internal_set_thumbnail(const std::string& value) {
+  
+  _impl_.thumbnail_.Set(value, GetArenaForAllocation());
+}
+inline std::string* InworldCharacterData::_internal_mutable_thumbnail() {
+  
+  return _impl_.thumbnail_.Mutable(GetArenaForAllocation());
+}
+inline std::string* InworldCharacterData::release_thumbnail() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.InworldCharacterData.thumbnail)
+  return _impl_.thumbnail_.Release();
+}
+inline void InworldCharacterData::set_allocated_thumbnail(std::string* thumbnail) {
+  if (thumbnail != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.thumbnail_.SetAllocated(thumbnail, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.thumbnail_.IsDefault()) {
+    _impl_.thumbnail_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.InworldCharacterData.thumbnail)
+}
+
+// -------------------------------------------------------------------
+
+// CharacterAssets
+
+// string rpmModelUri = 1;
+inline void CharacterAssets::clear_rpmmodeluri() {
+  _impl_.rpmmodeluri_.ClearToEmpty();
+}
+inline const std::string& CharacterAssets::rpmmodeluri() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CharacterAssets.rpmModelUri)
+  return _internal_rpmmodeluri();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CharacterAssets::set_rpmmodeluri(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.rpmmodeluri_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CharacterAssets.rpmModelUri)
+}
+inline std::string* CharacterAssets::mutable_rpmmodeluri() {
+  std::string* _s = _internal_mutable_rpmmodeluri();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.CharacterAssets.rpmModelUri)
+  return _s;
+}
+inline const std::string& CharacterAssets::_internal_rpmmodeluri() const {
+  return _impl_.rpmmodeluri_.Get();
+}
+inline void CharacterAssets::_internal_set_rpmmodeluri(const std::string& value) {
+  
+  _impl_.rpmmodeluri_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CharacterAssets::_internal_mutable_rpmmodeluri() {
+  
+  return _impl_.rpmmodeluri_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CharacterAssets::release_rpmmodeluri() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.CharacterAssets.rpmModelUri)
+  return _impl_.rpmmodeluri_.Release();
+}
+inline void CharacterAssets::set_allocated_rpmmodeluri(std::string* rpmmodeluri) {
+  if (rpmmodeluri != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.rpmmodeluri_.SetAllocated(rpmmodeluri, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.rpmmodeluri_.IsDefault()) {
+    _impl_.rpmmodeluri_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.CharacterAssets.rpmModelUri)
+}
+
+// string rpmImageUriPortrait = 2;
+inline void CharacterAssets::clear_rpmimageuriportrait() {
+  _impl_.rpmimageuriportrait_.ClearToEmpty();
+}
+inline const std::string& CharacterAssets::rpmimageuriportrait() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CharacterAssets.rpmImageUriPortrait)
+  return _internal_rpmimageuriportrait();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CharacterAssets::set_rpmimageuriportrait(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.rpmimageuriportrait_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CharacterAssets.rpmImageUriPortrait)
+}
+inline std::string* CharacterAssets::mutable_rpmimageuriportrait() {
+  std::string* _s = _internal_mutable_rpmimageuriportrait();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.CharacterAssets.rpmImageUriPortrait)
+  return _s;
+}
+inline const std::string& CharacterAssets::_internal_rpmimageuriportrait() const {
+  return _impl_.rpmimageuriportrait_.Get();
+}
+inline void CharacterAssets::_internal_set_rpmimageuriportrait(const std::string& value) {
+  
+  _impl_.rpmimageuriportrait_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CharacterAssets::_internal_mutable_rpmimageuriportrait() {
+  
+  return _impl_.rpmimageuriportrait_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CharacterAssets::release_rpmimageuriportrait() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.CharacterAssets.rpmImageUriPortrait)
+  return _impl_.rpmimageuriportrait_.Release();
+}
+inline void CharacterAssets::set_allocated_rpmimageuriportrait(std::string* rpmimageuriportrait) {
+  if (rpmimageuriportrait != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.rpmimageuriportrait_.SetAllocated(rpmimageuriportrait, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.rpmimageuriportrait_.IsDefault()) {
+    _impl_.rpmimageuriportrait_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.CharacterAssets.rpmImageUriPortrait)
+}
+
+// string rpmImageUriPosture = 3;
+inline void CharacterAssets::clear_rpmimageuriposture() {
+  _impl_.rpmimageuriposture_.ClearToEmpty();
+}
+inline const std::string& CharacterAssets::rpmimageuriposture() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CharacterAssets.rpmImageUriPosture)
+  return _internal_rpmimageuriposture();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CharacterAssets::set_rpmimageuriposture(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.rpmimageuriposture_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CharacterAssets.rpmImageUriPosture)
+}
+inline std::string* CharacterAssets::mutable_rpmimageuriposture() {
+  std::string* _s = _internal_mutable_rpmimageuriposture();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.CharacterAssets.rpmImageUriPosture)
+  return _s;
+}
+inline const std::string& CharacterAssets::_internal_rpmimageuriposture() const {
+  return _impl_.rpmimageuriposture_.Get();
+}
+inline void CharacterAssets::_internal_set_rpmimageuriposture(const std::string& value) {
+  
+  _impl_.rpmimageuriposture_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CharacterAssets::_internal_mutable_rpmimageuriposture() {
+  
+  return _impl_.rpmimageuriposture_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CharacterAssets::release_rpmimageuriposture() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.CharacterAssets.rpmImageUriPosture)
+  return _impl_.rpmimageuriposture_.Release();
+}
+inline void CharacterAssets::set_allocated_rpmimageuriposture(std::string* rpmimageuriposture) {
+  if (rpmimageuriposture != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.rpmimageuriposture_.SetAllocated(rpmimageuriposture, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.rpmimageuriposture_.IsDefault()) {
+    _impl_.rpmimageuriposture_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.CharacterAssets.rpmImageUriPosture)
+}
+
+// string avatarImg = 4;
+inline void CharacterAssets::clear_avatarimg() {
+  _impl_.avatarimg_.ClearToEmpty();
+}
+inline const std::string& CharacterAssets::avatarimg() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CharacterAssets.avatarImg)
+  return _internal_avatarimg();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CharacterAssets::set_avatarimg(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.avatarimg_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CharacterAssets.avatarImg)
+}
+inline std::string* CharacterAssets::mutable_avatarimg() {
+  std::string* _s = _internal_mutable_avatarimg();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.CharacterAssets.avatarImg)
+  return _s;
+}
+inline const std::string& CharacterAssets::_internal_avatarimg() const {
+  return _impl_.avatarimg_.Get();
+}
+inline void CharacterAssets::_internal_set_avatarimg(const std::string& value) {
+  
+  _impl_.avatarimg_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CharacterAssets::_internal_mutable_avatarimg() {
+  
+  return _impl_.avatarimg_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CharacterAssets::release_avatarimg() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.CharacterAssets.avatarImg)
+  return _impl_.avatarimg_.Release();
+}
+inline void CharacterAssets::set_allocated_avatarimg(std::string* avatarimg) {
+  if (avatarimg != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.avatarimg_.SetAllocated(avatarimg, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.avatarimg_.IsDefault()) {
+    _impl_.avatarimg_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.CharacterAssets.avatarImg)
+}
+
+// string avatarImgOriginal = 5;
+inline void CharacterAssets::clear_avatarimgoriginal() {
+  _impl_.avatarimgoriginal_.ClearToEmpty();
+}
+inline const std::string& CharacterAssets::avatarimgoriginal() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CharacterAssets.avatarImgOriginal)
+  return _internal_avatarimgoriginal();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CharacterAssets::set_avatarimgoriginal(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.avatarimgoriginal_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CharacterAssets.avatarImgOriginal)
+}
+inline std::string* CharacterAssets::mutable_avatarimgoriginal() {
+  std::string* _s = _internal_mutable_avatarimgoriginal();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.CharacterAssets.avatarImgOriginal)
+  return _s;
+}
+inline const std::string& CharacterAssets::_internal_avatarimgoriginal() const {
+  return _impl_.avatarimgoriginal_.Get();
+}
+inline void CharacterAssets::_internal_set_avatarimgoriginal(const std::string& value) {
+  
+  _impl_.avatarimgoriginal_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CharacterAssets::_internal_mutable_avatarimgoriginal() {
+  
+  return _impl_.avatarimgoriginal_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CharacterAssets::release_avatarimgoriginal() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.CharacterAssets.avatarImgOriginal)
+  return _impl_.avatarimgoriginal_.Release();
+}
+inline void CharacterAssets::set_allocated_avatarimgoriginal(std::string* avatarimgoriginal) {
+  if (avatarimgoriginal != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.avatarimgoriginal_.SetAllocated(avatarimgoriginal, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.avatarimgoriginal_.IsDefault()) {
+    _impl_.avatarimgoriginal_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.CharacterAssets.avatarImgOriginal)
+}
+
+// -------------------------------------------------------------------
+
 // ClientOptions
 
 // string auth_url = 1;
@@ -1309,6 +5507,96 @@ inline void ClientOptions::set_allocated_session_id(std::string* session_id) {
   // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.ClientOptions.session_id)
 }
 
+// .inworld.ndkData.CapabilitiesRequest capabilities = 9;
+inline bool ClientOptions::_internal_has_capabilities() const {
+  return this != internal_default_instance() && _impl_.capabilities_ != nullptr;
+}
+inline bool ClientOptions::has_capabilities() const {
+  return _internal_has_capabilities();
+}
+inline void ClientOptions::clear_capabilities() {
+  if (GetArenaForAllocation() == nullptr && _impl_.capabilities_ != nullptr) {
+    delete _impl_.capabilities_;
+  }
+  _impl_.capabilities_ = nullptr;
+}
+inline const ::inworld::ndkData::CapabilitiesRequest& ClientOptions::_internal_capabilities() const {
+  const ::inworld::ndkData::CapabilitiesRequest* p = _impl_.capabilities_;
+  return p != nullptr ? *p : reinterpret_cast<const ::inworld::ndkData::CapabilitiesRequest&>(
+      ::inworld::ndkData::_CapabilitiesRequest_default_instance_);
+}
+inline const ::inworld::ndkData::CapabilitiesRequest& ClientOptions::capabilities() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.ClientOptions.capabilities)
+  return _internal_capabilities();
+}
+inline void ClientOptions::unsafe_arena_set_allocated_capabilities(
+    ::inworld::ndkData::CapabilitiesRequest* capabilities) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.capabilities_);
+  }
+  _impl_.capabilities_ = capabilities;
+  if (capabilities) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:inworld.ndkData.ClientOptions.capabilities)
+}
+inline ::inworld::ndkData::CapabilitiesRequest* ClientOptions::release_capabilities() {
+  
+  ::inworld::ndkData::CapabilitiesRequest* temp = _impl_.capabilities_;
+  _impl_.capabilities_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::inworld::ndkData::CapabilitiesRequest* ClientOptions::unsafe_arena_release_capabilities() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.ClientOptions.capabilities)
+  
+  ::inworld::ndkData::CapabilitiesRequest* temp = _impl_.capabilities_;
+  _impl_.capabilities_ = nullptr;
+  return temp;
+}
+inline ::inworld::ndkData::CapabilitiesRequest* ClientOptions::_internal_mutable_capabilities() {
+  
+  if (_impl_.capabilities_ == nullptr) {
+    auto* p = CreateMaybeMessage<::inworld::ndkData::CapabilitiesRequest>(GetArenaForAllocation());
+    _impl_.capabilities_ = p;
+  }
+  return _impl_.capabilities_;
+}
+inline ::inworld::ndkData::CapabilitiesRequest* ClientOptions::mutable_capabilities() {
+  ::inworld::ndkData::CapabilitiesRequest* _msg = _internal_mutable_capabilities();
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.ClientOptions.capabilities)
+  return _msg;
+}
+inline void ClientOptions::set_allocated_capabilities(::inworld::ndkData::CapabilitiesRequest* capabilities) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.capabilities_;
+  }
+  if (capabilities) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(capabilities);
+    if (message_arena != submessage_arena) {
+      capabilities = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, capabilities, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.capabilities_ = capabilities;
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.ClientOptions.capabilities)
+}
+
 // -------------------------------------------------------------------
 
 // AgentInfo
@@ -1654,6 +5942,28 @@ AgentInfoArray::agent_info_list() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
