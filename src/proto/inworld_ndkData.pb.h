@@ -1644,6 +1644,9 @@ class CapabilitiesRequest PROTOBUF_FINAL :
     kSilenceEventsFieldNumber = 9,
     kPhonemeInfoFieldNumber = 10,
     kLoadSceneInSessionFieldNumber = 11,
+    kTurnBasedSTTFieldNumber = 12,
+    kContinuationFieldNumber = 13,
+    kNarratedActionsFieldNumber = 14,
   };
   // bool Animations = 1;
   void clear_animations();
@@ -1744,6 +1747,33 @@ class CapabilitiesRequest PROTOBUF_FINAL :
   void _internal_set_loadsceneinsession(bool value);
   public:
 
+  // bool TurnBasedSTT = 12;
+  void clear_turnbasedstt();
+  bool turnbasedstt() const;
+  void set_turnbasedstt(bool value);
+  private:
+  bool _internal_turnbasedstt() const;
+  void _internal_set_turnbasedstt(bool value);
+  public:
+
+  // bool Continuation = 13;
+  void clear_continuation();
+  bool continuation() const;
+  void set_continuation(bool value);
+  private:
+  bool _internal_continuation() const;
+  void _internal_set_continuation(bool value);
+  public:
+
+  // bool NarratedActions = 14;
+  void clear_narratedactions();
+  bool narratedactions() const;
+  void set_narratedactions(bool value);
+  private:
+  bool _internal_narratedactions() const;
+  void _internal_set_narratedactions(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:inworld.ndkData.CapabilitiesRequest)
  private:
   class _Internal;
@@ -1762,6 +1792,9 @@ class CapabilitiesRequest PROTOBUF_FINAL :
   bool silenceevents_;
   bool phonemeinfo_;
   bool loadsceneinsession_;
+  bool turnbasedstt_;
+  bool continuation_;
+  bool narratedactions_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_inworld_5fndkData_2eproto;
 };
@@ -4490,6 +4523,66 @@ inline void CapabilitiesRequest::_internal_set_loadsceneinsession(bool value) {
 inline void CapabilitiesRequest::set_loadsceneinsession(bool value) {
   _internal_set_loadsceneinsession(value);
   // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.LoadSceneInSession)
+}
+
+// bool TurnBasedSTT = 12;
+inline void CapabilitiesRequest::clear_turnbasedstt() {
+  turnbasedstt_ = false;
+}
+inline bool CapabilitiesRequest::_internal_turnbasedstt() const {
+  return turnbasedstt_;
+}
+inline bool CapabilitiesRequest::turnbasedstt() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.TurnBasedSTT)
+  return _internal_turnbasedstt();
+}
+inline void CapabilitiesRequest::_internal_set_turnbasedstt(bool value) {
+  
+  turnbasedstt_ = value;
+}
+inline void CapabilitiesRequest::set_turnbasedstt(bool value) {
+  _internal_set_turnbasedstt(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.TurnBasedSTT)
+}
+
+// bool Continuation = 13;
+inline void CapabilitiesRequest::clear_continuation() {
+  continuation_ = false;
+}
+inline bool CapabilitiesRequest::_internal_continuation() const {
+  return continuation_;
+}
+inline bool CapabilitiesRequest::continuation() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.Continuation)
+  return _internal_continuation();
+}
+inline void CapabilitiesRequest::_internal_set_continuation(bool value) {
+  
+  continuation_ = value;
+}
+inline void CapabilitiesRequest::set_continuation(bool value) {
+  _internal_set_continuation(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.Continuation)
+}
+
+// bool NarratedActions = 14;
+inline void CapabilitiesRequest::clear_narratedactions() {
+  narratedactions_ = false;
+}
+inline bool CapabilitiesRequest::_internal_narratedactions() const {
+  return narratedactions_;
+}
+inline bool CapabilitiesRequest::narratedactions() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.NarratedActions)
+  return _internal_narratedactions();
+}
+inline void CapabilitiesRequest::_internal_set_narratedactions(bool value) {
+  
+  narratedactions_ = value;
+}
+inline void CapabilitiesRequest::set_narratedactions(bool value) {
+  _internal_set_narratedactions(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.NarratedActions)
 }
 
 // -------------------------------------------------------------------

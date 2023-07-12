@@ -377,6 +377,9 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_inworld_5fndkData_2eproto::off
   PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, silenceevents_),
   PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, phonemeinfo_),
   PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, loadsceneinsession_),
+  PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, turnbasedstt_),
+  PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, continuation_),
+  PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, narratedactions_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::inworld::ndkData::InworldCharacterData, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -445,12 +448,12 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 46, -1, sizeof(::inworld::ndkData::Fields)},
   { 53, -1, sizeof(::inworld::ndkData::ClientRequest)},
   { 60, -1, sizeof(::inworld::ndkData::CapabilitiesRequest)},
-  { 76, -1, sizeof(::inworld::ndkData::InworldCharacterData)},
-  { 86, -1, sizeof(::inworld::ndkData::CharacterAssets)},
-  { 96, -1, sizeof(::inworld::ndkData::ClientOptions)},
-  { 110, -1, sizeof(::inworld::ndkData::AgentInfo)},
-  { 118, -1, sizeof(::inworld::ndkData::SessionInfo)},
-  { 127, -1, sizeof(::inworld::ndkData::AgentInfoArray)},
+  { 79, -1, sizeof(::inworld::ndkData::InworldCharacterData)},
+  { 89, -1, sizeof(::inworld::ndkData::CharacterAssets)},
+  { 99, -1, sizeof(::inworld::ndkData::ClientOptions)},
+  { 113, -1, sizeof(::inworld::ndkData::AgentInfo)},
+  { 121, -1, sizeof(::inworld::ndkData::SessionInfo)},
+  { 130, -1, sizeof(::inworld::ndkData::AgentInfoArray)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -493,36 +496,38 @@ const char descriptor_table_protodef_inworld_5fndkData_2eproto[] PROTOBUF_SECTIO
   "\rPlayerProfile\022\'\n\006fields\030\001 \003(\0132\027.inworld"
   ".ndkData.Fields\"-\n\006Fields\022\017\n\007fieldId\030\001 \001"
   "(\t\022\022\n\nfieldValue\030\002 \001(\t\",\n\rClientRequest\022"
-  "\n\n\002id\030\001 \001(\t\022\017\n\007version\030\002 \001(\t\"\365\001\n\023Capabil"
+  "\n\n\002id\030\001 \001(\t\022\017\n\007version\030\002 \001(\t\"\272\002\n\023Capabil"
   "itiesRequest\022\022\n\nAnimations\030\001 \001(\010\022\014\n\004Text"
   "\030\002 \001(\010\022\r\n\005Audio\030\003 \001(\010\022\020\n\010Emotions\030\004 \001(\010\022"
   "\020\n\010Gestures\030\005 \001(\010\022\025\n\rInterruptions\030\006 \001(\010"
   "\022\020\n\010Triggers\030\007 \001(\010\022\030\n\020EmotionStreaming\030\010"
   " \001(\010\022\025\n\rSilenceEvents\030\t \001(\010\022\023\n\013PhonemeIn"
-  "fo\030\n \001(\010\022\032\n\022LoadSceneInSession\030\013 \001(\010\"\233\001\n"
-  "\024InworldCharacterData\022\017\n\007agentId\030\001 \001(\t\022\021"
-  "\n\tbrainName\030\002 \001(\t\022\021\n\tgivenName\030\003 \001(\t\0229\n\017"
-  "characterAssets\030\004 \001(\0132 .inworld.ndkData."
-  "CharacterAssets\022\021\n\tthumbnail\030\005 \001(\014\"\215\001\n\017C"
-  "haracterAssets\022\023\n\013rpmModelUri\030\001 \001(\t\022\033\n\023r"
-  "pmImageUriPortrait\030\002 \001(\t\022\032\n\022rpmImageUriP"
-  "osture\030\003 \001(\t\022\021\n\tavatarImg\030\004 \001(\t\022\031\n\021avata"
-  "rImgOriginal\030\005 \001(\t\"\346\001\n\rClientOptions\022\020\n\010"
-  "auth_url\030\001 \001(\t\022\026\n\016load_scene_url\030\002 \001(\t\022\022"
-  "\n\nscene_name\030\003 \001(\t\022\017\n\007api_key\030\004 \001(\t\022\022\n\na"
-  "pi_secret\030\005 \001(\t\022\023\n\013player_name\030\006 \001(\t\022\r\n\005"
-  "token\030\007 \001(\t\022\022\n\nsession_id\030\010 \001(\t\022:\n\014capab"
-  "ilities\030\t \001(\0132$.inworld.ndkData.Capabili"
-  "tiesRequest\"B\n\tAgentInfo\022\021\n\tBrainName\030\001 "
-  "\001(\t\022\017\n\007AgentId\030\002 \001(\t\022\021\n\tGivenName\030\003 \001(\t\""
-  "X\n\013SessionInfo\022\021\n\tSessionId\030\001 \001(\t\022\r\n\005Tok"
-  "en\030\002 \001(\t\022\026\n\016ExpirationTime\030\003 \001(\003\022\017\n\007IsVa"
-  "lid\030\004 \001(\010\"E\n\016AgentInfoArray\0223\n\017agent_inf"
-  "o_list\030\001 \003(\0132\032.inworld.ndkData.AgentInfo"
-  "*v\n\017ConnectionState\022\010\n\004Idle\020\000\022\016\n\nConnect"
-  "ing\020\001\022\r\n\tConnected\020\002\022\n\n\006Failed\020\003\022\n\n\006Paus"
-  "ed\020\004\022\020\n\014Disconnected\020\005\022\020\n\014Reconnecting\020\006"
-  "B\016\252\002\013Inworld.NDKb\006proto3"
+  "fo\030\n \001(\010\022\032\n\022LoadSceneInSession\030\013 \001(\010\022\024\n\014"
+  "TurnBasedSTT\030\014 \001(\010\022\024\n\014Continuation\030\r \001(\010"
+  "\022\027\n\017NarratedActions\030\016 \001(\010\"\233\001\n\024InworldCha"
+  "racterData\022\017\n\007agentId\030\001 \001(\t\022\021\n\tbrainName"
+  "\030\002 \001(\t\022\021\n\tgivenName\030\003 \001(\t\0229\n\017characterAs"
+  "sets\030\004 \001(\0132 .inworld.ndkData.CharacterAs"
+  "sets\022\021\n\tthumbnail\030\005 \001(\014\"\215\001\n\017CharacterAss"
+  "ets\022\023\n\013rpmModelUri\030\001 \001(\t\022\033\n\023rpmImageUriP"
+  "ortrait\030\002 \001(\t\022\032\n\022rpmImageUriPosture\030\003 \001("
+  "\t\022\021\n\tavatarImg\030\004 \001(\t\022\031\n\021avatarImgOrigina"
+  "l\030\005 \001(\t\"\346\001\n\rClientOptions\022\020\n\010auth_url\030\001 "
+  "\001(\t\022\026\n\016load_scene_url\030\002 \001(\t\022\022\n\nscene_nam"
+  "e\030\003 \001(\t\022\017\n\007api_key\030\004 \001(\t\022\022\n\napi_secret\030\005"
+  " \001(\t\022\023\n\013player_name\030\006 \001(\t\022\r\n\005token\030\007 \001(\t"
+  "\022\022\n\nsession_id\030\010 \001(\t\022:\n\014capabilities\030\t \001"
+  "(\0132$.inworld.ndkData.CapabilitiesRequest"
+  "\"B\n\tAgentInfo\022\021\n\tBrainName\030\001 \001(\t\022\017\n\007Agen"
+  "tId\030\002 \001(\t\022\021\n\tGivenName\030\003 \001(\t\"X\n\013SessionI"
+  "nfo\022\021\n\tSessionId\030\001 \001(\t\022\r\n\005Token\030\002 \001(\t\022\026\n"
+  "\016ExpirationTime\030\003 \001(\003\022\017\n\007IsValid\030\004 \001(\010\"E"
+  "\n\016AgentInfoArray\0223\n\017agent_info_list\030\001 \003("
+  "\0132\032.inworld.ndkData.AgentInfo*v\n\017Connect"
+  "ionState\022\010\n\004Idle\020\000\022\016\n\nConnecting\020\001\022\r\n\tCo"
+  "nnected\020\002\022\n\n\006Failed\020\003\022\n\n\006Paused\020\004\022\020\n\014Dis"
+  "connected\020\005\022\020\n\014Reconnecting\020\006B\016\252\002\013Inworl"
+  "d.NDKb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_inworld_5fndkData_2eproto_deps[2] = {
   &::descriptor_table_google_2fprotobuf_2fany_2eproto,
@@ -547,7 +552,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_inw
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_inworld_5fndkData_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_inworld_5fndkData_2eproto = {
-  false, false, descriptor_table_protodef_inworld_5fndkData_2eproto, "inworld_ndkData.proto", 2024,
+  false, false, descriptor_table_protodef_inworld_5fndkData_2eproto, "inworld_ndkData.proto", 2093,
   &descriptor_table_inworld_5fndkData_2eproto_once, descriptor_table_inworld_5fndkData_2eproto_sccs, descriptor_table_inworld_5fndkData_2eproto_deps, 15, 2,
   schemas, file_default_instances, TableStruct_inworld_5fndkData_2eproto::offsets,
   file_level_metadata_inworld_5fndkData_2eproto, 15, file_level_enum_descriptors_inworld_5fndkData_2eproto, file_level_service_descriptors_inworld_5fndkData_2eproto,
@@ -2713,16 +2718,16 @@ CapabilitiesRequest::CapabilitiesRequest(const CapabilitiesRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&animations_, &from.animations_,
-    static_cast<size_t>(reinterpret_cast<char*>(&loadsceneinsession_) -
-    reinterpret_cast<char*>(&animations_)) + sizeof(loadsceneinsession_));
+    static_cast<size_t>(reinterpret_cast<char*>(&narratedactions_) -
+    reinterpret_cast<char*>(&animations_)) + sizeof(narratedactions_));
   // @@protoc_insertion_point(copy_constructor:inworld.ndkData.CapabilitiesRequest)
 }
 
 void CapabilitiesRequest::SharedCtor() {
   ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
       reinterpret_cast<char*>(&animations_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&loadsceneinsession_) -
-      reinterpret_cast<char*>(&animations_)) + sizeof(loadsceneinsession_));
+      0, static_cast<size_t>(reinterpret_cast<char*>(&narratedactions_) -
+      reinterpret_cast<char*>(&animations_)) + sizeof(narratedactions_));
 }
 
 CapabilitiesRequest::~CapabilitiesRequest() {
@@ -2757,8 +2762,8 @@ void CapabilitiesRequest::Clear() {
   (void) cached_has_bits;
 
   ::memset(&animations_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&loadsceneinsession_) -
-      reinterpret_cast<char*>(&animations_)) + sizeof(loadsceneinsession_));
+      reinterpret_cast<char*>(&narratedactions_) -
+      reinterpret_cast<char*>(&animations_)) + sizeof(narratedactions_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2843,6 +2848,27 @@ const char* CapabilitiesRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAME
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
           loadsceneinsession_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bool TurnBasedSTT = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
+          turnbasedstt_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bool Continuation = 13;
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 104)) {
+          continuation_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bool NarratedActions = 14;
+      case 14:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 112)) {
+          narratedactions_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -2940,6 +2966,24 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(11, this->_internal_loadsceneinsession(), target);
   }
 
+  // bool TurnBasedSTT = 12;
+  if (this->turnbasedstt() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(12, this->_internal_turnbasedstt(), target);
+  }
+
+  // bool Continuation = 13;
+  if (this->continuation() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(13, this->_internal_continuation(), target);
+  }
+
+  // bool NarratedActions = 14;
+  if (this->narratedactions() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(14, this->_internal_narratedactions(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -3011,6 +3055,21 @@ size_t CapabilitiesRequest::ByteSizeLong() const {
     total_size += 1 + 1;
   }
 
+  // bool TurnBasedSTT = 12;
+  if (this->turnbasedstt() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // bool Continuation = 13;
+  if (this->continuation() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // bool NarratedActions = 14;
+  if (this->narratedactions() != 0) {
+    total_size += 1 + 1;
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -3075,6 +3134,15 @@ void CapabilitiesRequest::MergeFrom(const CapabilitiesRequest& from) {
   if (from.loadsceneinsession() != 0) {
     _internal_set_loadsceneinsession(from._internal_loadsceneinsession());
   }
+  if (from.turnbasedstt() != 0) {
+    _internal_set_turnbasedstt(from._internal_turnbasedstt());
+  }
+  if (from.continuation() != 0) {
+    _internal_set_continuation(from._internal_continuation());
+  }
+  if (from.narratedactions() != 0) {
+    _internal_set_narratedactions(from._internal_narratedactions());
+  }
 }
 
 void CapabilitiesRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -3099,8 +3167,8 @@ void CapabilitiesRequest::InternalSwap(CapabilitiesRequest* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CapabilitiesRequest, loadsceneinsession_)
-      + sizeof(CapabilitiesRequest::loadsceneinsession_)
+      PROTOBUF_FIELD_OFFSET(CapabilitiesRequest, narratedactions_)
+      + sizeof(CapabilitiesRequest::narratedactions_)
       - PROTOBUF_FIELD_OFFSET(CapabilitiesRequest, animations_)>(
           reinterpret_cast<char*>(&animations_),
           reinterpret_cast<char*>(&other->animations_));

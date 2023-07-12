@@ -77,6 +77,9 @@ extern "C" {
             opt.Capabilities.SilenceEvents = options.capabilities().silenceevents();
             opt.Capabilities.PhonemeInfo = options.capabilities().phonemeinfo();
             opt.Capabilities.LoadSceneInSession = options.capabilities().loadsceneinsession();
+            opt.Capabilities.TurnBasedSTT = options.capabilities().turnbasedstt();
+            opt.Capabilities.NarratedActions = options.capabilities().narratedactions();
+            opt.Capabilities.Continuation = options.capabilities().continuation();
             DebugLog("SETTING CAPABILITIES IN DLL");
         }
         
