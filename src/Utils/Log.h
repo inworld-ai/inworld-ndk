@@ -27,6 +27,7 @@ namespace Inworld { using LogFormatType = std::string; }
 #else
 #include <string>
 #endif
+#include <iostream>
 
 namespace Inworld
 {
@@ -78,6 +79,8 @@ namespace Inworld
 		ConvertToSpdFmt(fmt);
 		spdlog::info(format::vformat(fmt, format::make_format_args(args...)));
 	}
+	
+	void stdLog(std::string fmt);
 	
 	template<typename... Args>
 	void LogError(std::string fmt, Args &&... args)

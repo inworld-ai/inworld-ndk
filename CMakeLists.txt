@@ -56,7 +56,7 @@ file(GLOB_RECURSE FilesALL
     src/*.c
 )
 
-add_library(InworldNDK ${FilesALL})
+add_library(InworldNDK SHARED ${FilesALL})
 
 target_include_directories(InworldNDK PUBLIC
     ${ThirdPartyDir}/include

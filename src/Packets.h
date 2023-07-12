@@ -198,9 +198,8 @@ namespace Inworld {
 		virtual const InworldPakets::DataChunk_DataType GetType() const = 0;
 
     protected:
-        virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const = 0;
+        virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
 
-	private:
 		// protobuf stores bytes data as string, to save copy time we can use same data type.
 		std::string _Chunk;
 	};
@@ -225,10 +224,9 @@ namespace Inworld {
 		};
 
 		const std::vector<PhonemeInfo>& GetPhonemeInfos() const { return _PhonemeInfos; }
-
 	protected:
 		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
-
+		
 	private:
 		std::vector<PhonemeInfo> _PhonemeInfos;
 	};
