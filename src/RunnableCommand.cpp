@@ -135,6 +135,10 @@ grpc::Status Inworld::RunnableLoadScene::RunProcess()
 	Capabilities->set_silence_events(_Capabilities.SilenceEvents);
 	Capabilities->set_phoneme_info(_Capabilities.PhonemeInfo);
 	Capabilities->set_load_scene_in_session(_Capabilities.LoadSceneInSession);
+	Capabilities->set_narrated_actions(_Capabilities.NarratedActions);
+	Capabilities->set_continuation(_Capabilities.Continuation);
+	Capabilities->set_turn_based_stt(_Capabilities.TurnBasedSTT);
+	
 
 	auto* User = LoadSceneRequest.mutable_user();
 	User->set_id(_UserId);
