@@ -116,9 +116,25 @@ namespace Inworld {
 		
 	}
 
+    CustomEvent::CustomEvent(const InworldPakets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
+    {
+        _Name = GrpcPacket.custom().name().data();
+        for(const auto& Param : GrpcPacket.custom().parameters())
+        {
+            _Params.insert(std::make_pair<std::string, std::string>(Param.name().data(), Param.value().data()));
+        }
+    }
+
 	void CustomEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
 	{
-        Proto.mutable_custom()->set_name(_Name);
+        auto* mutable_custom = Proto.mutable_custom();
+        mutable_custom->set_name(_Name);
+        for (const std::pair<const std::string, std::string>& Param : _Params)
+        {
+            auto* param = mutable_custom->add_parameters();
+            param->set_name(Param.first);
+            param->set_value(Param.second);
+        }
 	}
 
 	void SilenceEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
