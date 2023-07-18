@@ -104,6 +104,8 @@ header:
     - '**/DEPS'
     - '**/proto/**'
     - '**/include/**'
+    - '**/Unity_NDK/proto/**'
+
     
   comment: on-failure
 
