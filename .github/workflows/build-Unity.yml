@@ -5,7 +5,7 @@
 # * that can be found in the LICENSE.md file or at https://www.inworld.ai/sdk-license
 # *************************************************************************************************/
 
-name: build-win
+name: build-Unity
 
 on:
   pull_request:
@@ -15,7 +15,7 @@ on:
 
 
 jobs:
-  build-win:
+  build-Unity:
     runs-on: windows-2022
     steps:
     - uses: actions/checkout@v2
@@ -31,7 +31,7 @@ jobs:
             exit 1
           }
           exit 0
-    - name: build-win
+    - name: build-Unity
       shell: pwsh
       run: |
           Start-Process -FilePath "win-build.bat" " > BuildLog.txt" -Wait -NoNewWindow -PassThru
