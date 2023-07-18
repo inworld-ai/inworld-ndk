@@ -56,18 +56,38 @@ file(GLOB_RECURSE FilesALL
     src/*.c
 )
 
-add_library(InworldNDK SHARED ${FilesALL})
+if(UNITY_NDK)
+    message("UNITY_NDK is true")
 
-target_include_directories(InworldNDK PUBLIC
-    ${ThirdPartyDir}/include
-    ${ThirdPartyDir}/grpc/include
-    ${ThirdPartyDir}/grpc/third_party/abseil-cpp
-    ${ThirdPartyDir}/grpc/third_party/protobuf/src
-    ${ThirdPartyDir}/grpc/third_party
-    src
-    src/proto
-    src/ThirdParty
-)
+    add_library(InworldNDK SHARED ${FilesALL})
+
+    target_include_directories(InworldNDK PUBLIC
+        ${ThirdPartyDir}/include
+        ${ThirdPartyDir}/grpc/include
+        ${ThirdPartyDir}/grpc/third_party/abseil-cpp
+        ${ThirdPartyDir}/grpc/third_party/protobuf/src
+        ${ThirdPartyDir}/grpc/third_party
+        src
+        src/proto
+        src/ThirdParty
+        src/Unity_NDK
+    )
+else()
+    message("unity-ndk is false")
+
+     add_library(InworldNDK ${FilesALL})
+
+    target_include_directories(InworldNDK PUBLIC
+        ${ThirdPartyDir}/include
+        ${ThirdPartyDir}/grpc/include
+        ${ThirdPartyDir}/grpc/third_party/abseil-cpp
+        ${ThirdPartyDir}/grpc/third_party/protobuf/src
+        ${ThirdPartyDir}/grpc/third_party
+        src
+        src/proto
+        src/ThirdParty
+    )
+endif()
 
 target_compile_features(InworldNDK PUBLIC cxx_std_20)
 
