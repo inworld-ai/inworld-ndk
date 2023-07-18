@@ -59,6 +59,15 @@ file(GLOB_RECURSE FilesALL
 if(UNITY_NDK)
     message("UNITY_NDK is true")
 
+    file(GLOB_RECURSE UnityNDKFiles
+        Unity_NDK/*.h
+        Unity_NDK/*.cpp
+        Unity_NDK/*.cc
+        Unity_NDK/*.c
+    )
+        
+    list(APPEND FilesALL ${UnityNDKFiles})
+
     add_library(InworldNDK SHARED ${FilesALL})
 
     target_include_directories(InworldNDK PUBLIC
@@ -70,12 +79,12 @@ if(UNITY_NDK)
         src
         src/proto
         src/ThirdParty
-        src/Unity_NDK
+        ${CMAKE_CURRENT_SOURCE_DIR}/Unity_NDK
     )
 else()
     message("unity-ndk is false")
 
-     add_library(InworldNDK ${FilesALL})
+    add_library(InworldNDK ${FilesALL})
 
     target_include_directories(InworldNDK PUBLIC
         ${ThirdPartyDir}/include
@@ -85,7 +94,7 @@ else()
         ${ThirdPartyDir}/grpc/third_party
         src
         src/proto
-        src/ThirdParty
+        ThirdParty
     )
 endif()
 
