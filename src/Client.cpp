@@ -13,6 +13,7 @@
 #include "grpc/impl/codegen/log.h"
 
 #include <vector>
+#include <unordered_map>
 #include <functional>
 #include <cstring>
 #include <algorithm>
@@ -84,9 +85,9 @@ std::shared_ptr<Inworld::DataEvent> Inworld::ClientBase::SendSoundMessageWithAEC
 	return SendSoundMessage(AgentId, Data);
 }
 
-std::shared_ptr<Inworld::CustomEvent> Inworld::ClientBase::SendCustomEvent(std::string AgentId, const std::string& Name)
+std::shared_ptr<Inworld::CustomEvent> Inworld::ClientBase::SendCustomEvent(std::string AgentId, const std::string& Name, const std::unordered_map<std::string, std::string>& Params)
 {
-	auto Packet = std::make_shared<CustomEvent>(Name, Routing::Player2Agent(AgentId));
+	auto Packet = std::make_shared<CustomEvent>(Name, Params, Routing::Player2Agent(AgentId));
 	SendPacket(Packet);
 	return Packet;
 }
@@ -305,6 +306,7 @@ void Inworld::ClientBase::LoadScene()
 			_ClientOptions.SceneName,
 			_ClientOptions.PlayerName,
 			_UserId,
+			_ClientOptions.UserSettings,
 			_ClientId,
 			_ClientVer,
 			_ClientOptions.Capabilities,

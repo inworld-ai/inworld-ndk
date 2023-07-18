@@ -14,6 +14,7 @@
 
 #include <google/protobuf/util/time_util.h>
 #include <vector>
+#include <unordered_map>
 #include <chrono>
 
 namespace InworldPakets = ai::inworld::packets;
@@ -328,24 +329,24 @@ namespace Inworld {
 	{
 	public:
 		CustomEvent() = default;
-		CustomEvent(const InworldPakets::InworldPacket& GrpcPacket)
-			: Packet(GrpcPacket)
-			, _Name(GrpcPacket.custom().name().data())
-		{}
-		CustomEvent(const std::string& Name, const Routing& Routing)
+		CustomEvent(const InworldPakets::InworldPacket& GrpcPacket);
+		CustomEvent(const std::string& Name, const std::unordered_map<std::string, std::string>& Params, const Routing& Routing)
 			: Packet(Routing)
 			, _Name(Name)
+			, _Params(Params)
 		{}
 
 		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
 
 		const std::string& GetName() const { return _Name; }
+		const std::unordered_map<std::string, std::string>& GetParams() const { return _Params; }
 
 	protected:
 		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
 
 	private:
 		std::string _Name;
+		std::unordered_map<std::string, std::string> _Params;
 	};
 
 	class INWORLDAINDK_API MutationEvent : public Packet

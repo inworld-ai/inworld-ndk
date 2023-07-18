@@ -1,6 +1,6 @@
 # Inworld.AI NDK
 
-The **Inworld AI NDK** enables Developers to integrate Inworld.ai characters into a C++ application. We use **Inworld NDK** in our [**Unreal Engine SDK**](https://docs.inworld.ai/docs/tutorial-integrations/unreal-engine/) and in other higher level integrations later. 
+The **Inworld AI NDK** enables Developers to integrate Inworld.ai characters into a C++ application. We use **Inworld NDK** in our [**Unreal Engine SDK**](https://docs.inworld.ai/docs/tutorial-integrations/unreal-engine/) and in other higher level integrations. 
 
 ## Platforms
 
