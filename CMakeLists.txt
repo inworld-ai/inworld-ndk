@@ -81,6 +81,8 @@ if(UNITY_NDK)
         src/ThirdParty
         ${CMAKE_CURRENT_SOURCE_DIR}/Unity_NDK
     )
+
+    target_compile_definitions(InworldNDK PUBLIC UNITY_NDK)
 else()
     message("unity-ndk is false")
 

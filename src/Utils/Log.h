@@ -73,14 +73,17 @@ namespace Inworld
 		namespace format = fmt;
 	#endif
 
+	void stdLog(std::string fmt);
+
 	template<typename... Args>
 	void Log(std::string fmt, Args &&... args)
 	{
 		ConvertToSpdFmt(fmt);
 		spdlog::info(format::vformat(fmt, format::make_format_args(args...)));
-	}
-	
-	void stdLog(std::string fmt);
+#if UNITY_NDK
+		stdLog(fmt);
+#endif
+	}	
 	
 	template<typename... Args>
 	void LogError(std::string fmt, Args &&... args)
@@ -88,6 +91,11 @@ namespace Inworld
 		ConvertToSpdFmt(fmt);
 		const auto message = format::vformat(fmt, format::make_format_args(args...));
 		spdlog::error("{} (SessionId: {})", message.c_str(), g_SessionId.c_str());
+#if UNITY_NDK
+		std::ostringstream ss;
+		ss << message.c_str() << " SessionID: "<< g_SessionId.c_str();
+		stdLog(ss.str().c_str());
+#endif
 	}
 
 	#define ARG_STR(str) str.c_str()

@@ -7,7 +7,7 @@
 #define CLIENT_WRAPPER_H
 
 #include <stdint.h>
-#include "inworld_ndkData.pb.h"
+#include "proto/inworld_ndkData.pb.h"
 #include "Client.h"
 
 extern "C" {
