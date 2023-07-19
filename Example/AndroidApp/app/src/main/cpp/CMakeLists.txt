@@ -78,13 +78,13 @@ set(LibFiles
     ${LibDir}/libgrpc.a
     ${LibDir}/libgrpc++.a
     ${LibDir}/libcares.a
-    ${LibDir}/libprotobuf.a
+    ${LibDir}/libprotobufd.a
     ${LibDir}/libre2.a
     ${LibDir}/libupb.a
     ${LibDir}/libcrypto.a
     ${LibDir}/libssl.a
     ${LibDir}/libz.a
-    ${LibDir}/libspdlog.a
+    ${LibDir}/libspdlogd.a
 )
 
 foreach(LibFile IN LISTS LibFiles)

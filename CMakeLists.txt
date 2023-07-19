@@ -291,6 +291,14 @@ else()
     set(ConfigDirNameCares /$<CONFIGURATION>)
 endif()
 
+if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+    set(LibProtobufName libprotobufd)
+    set(LibSpglogName spdlogd)
+else()
+    set(LibProtobufName libprotobufd)
+    set(LibSpglogName spdlog)
+endif()
+
 set(LibFiles 
     ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}InworldNDK.${LibExt}
     ${AbslDir}/base${ConfigDirName}/${LibPref}absl_base.${LibExt}
@@ -317,13 +325,13 @@ set(LibFiles
     ${GrpcDir}${ConfigDirName}/${LibPref}grpc.${LibExt}
     ${GrpcDir}${ConfigDirName}/${LibPref}grpc++.${LibExt}
     ${GrpcDir}/third_party/cares/cares/lib${ConfigDirNameCares}/${LibPref}cares.${LibExt}
-    ${GrpcDir}/third_party/protobuf${ConfigDirName}/libprotobuf.${LibExt}
+    ${GrpcDir}/third_party/protobuf${ConfigDirName}/${LibProtobufName}.${LibExt}
     ${GrpcDir}/third_party/re2${ConfigDirName}/${LibPref}re2.${LibExt}
     ${GrpcDir}${ConfigDirName}/${LibPref}upb.${LibExt}
     ${OPENSSL_SSL_LIBRARY}
     ${OPENSSL_CRYPTO_LIBRARY}
     ${ZLIB_LIBRARY_RELEASE}
-    ${CMAKE_CURRENT_SOURCE_DIR}/build/ThirdParty/spdlog/${LibPref}spdlog.${LibExt}
+    ${CMAKE_CURRENT_SOURCE_DIR}/build/ThirdParty/spdlog/${LibPref}${LibSpglogName}.${LibExt}
 
 )
 
