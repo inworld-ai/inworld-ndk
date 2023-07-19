@@ -331,9 +331,12 @@ set(LibFiles
     ${OPENSSL_SSL_LIBRARY}
     ${OPENSSL_CRYPTO_LIBRARY}
     ${ZLIB_LIBRARY_RELEASE}
-    ${CMAKE_CURRENT_SOURCE_DIR}/build/ThirdParty/spdlog/${LibPref}${LibSpglogName}.${LibExt}
-
 )
+
+if (ANDROID)
+    list(APPEND LibFiles
+    ${CMAKE_CURRENT_SOURCE_DIR}/build/ThirdParty/spdlog/${LibPref}${LibSpglogName}.${LibExt})
+endif()
 
 if (AEC AND WIN32)
     list(APPEND LibFiles 

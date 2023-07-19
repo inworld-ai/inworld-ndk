@@ -71,6 +71,11 @@ Java_com_example_inworldexample_MainActivity_InworldLoadScene(JNIEnv* env, jobje
 
                         });
 
+    for (;;)
+    {
+        InworldClient->Update();
+    }
+
     std::string hello = "InworldClient start...";
     return env->NewStringUTF(hello.c_str());
 }

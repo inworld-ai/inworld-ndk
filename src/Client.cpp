@@ -47,7 +47,7 @@ static void GrpcLog(gpr_log_func_args* args)
 		return;
 	}
 	
-	Inworld::LogError("GRPC Severinity: %d. %s - %s::%d",
+	Inworld::LogError("GRPC Svr: %d. %s - %s::%d",
 		args->severity,
 		ARG_CHAR(args->message),
 		ARG_CHAR(args->file),
