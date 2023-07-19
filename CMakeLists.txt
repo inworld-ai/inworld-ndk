@@ -295,7 +295,7 @@ if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
     set(LibProtobufName libprotobufd)
     set(LibSpglogName spdlogd)
 else()
-    set(LibProtobufName libprotobufd)
+    set(LibProtobufName libprotobuf)
     set(LibSpglogName spdlog)
 endif()
 
