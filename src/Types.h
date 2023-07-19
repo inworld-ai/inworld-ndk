@@ -8,6 +8,7 @@
 #pragma once
 
 #include <time.h>
+#include <string>
 
 namespace Inworld
 {

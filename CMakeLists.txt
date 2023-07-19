@@ -1,4 +1,4 @@
-﻿cmake_minimum_required (VERSION 3.23)
+﻿cmake_minimum_required (VERSION 3.22)
 
 function(GroupSourcesByFolder target)
     set(SOURCE_GROUP_DELIMITER "/")
@@ -44,8 +44,8 @@ endif()
 # InworldNDK setup
 project(InworldNDK)
 
-set(CMAKE_BUILD_TYPE Release)
-set(CMAKE_CONFIGURATION_TYPES Release)
+#set(CMAKE_BUILD_TYPE Release)
+#set(CMAKE_CONFIGURATION_TYPES Release)
 
 set(ThirdPartyDir ${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty)
 
@@ -58,12 +58,14 @@ file(GLOB_RECURSE FilesALL
 
 add_library(InworldNDK ${FilesALL})
 
+if(ANDROID)
+    set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -fPIC")
+    target_compile_definitions(InworldNDK PRIVATE ANDROID=1)
+endif()
+
 target_include_directories(InworldNDK PUBLIC
     ${ThirdPartyDir}/include
     ${ThirdPartyDir}/grpc/include
-    ${ThirdPartyDir}/grpc/third_party/abseil-cpp
-    ${ThirdPartyDir}/grpc/third_party/protobuf/src
-    ${ThirdPartyDir}/grpc/third_party
     src
     src/proto
     src/ThirdParty
@@ -103,7 +105,7 @@ endfunction()
 CheckPathValid(${ZlibDir})
 CheckPathValid(${OpenSSLDir})
 
-if (IOS)
+if (IOS OR ANDROID)
     set(CMAKE_MAKE_PROGRAM /usr/bin/make)
     set(CMAKE_POLICY_DEFAULT_CMP0063 NEW)
     set(CMAKE_CXX_VISIBILITY_PRESET hidden)
@@ -151,6 +153,11 @@ if (WIN32)
     set(LibcryptoPlatformSubpath Lib/Win64/VS2015/Release/libcrypto.lib)
     set(LibsslPlatformSubpath Lib/Win64/VS2015/Release/libssl.lib)
     set(OpensslIncludeSubpath include/Win64/VS2015)
+elseif (ANDROID)
+    set(ZlibPlatformSubpath lib/Android/aarch64-linux-android/libz.a)
+    set(LibcryptoPlatformSubpath Lib/Android/arm64/libcrypto.a)
+    set(LibsslPlatformSubpath Lib/Android/arm64/libssl.a)
+    set(OpensslIncludeSubpath include/Android)
 elseif (IOS)
     set(ZlibPlatformSubpath lib/iOS/libz.a)
     set(LibcryptoPlatformSubpath Lib/IOS/libcrypto.a)
@@ -187,6 +194,15 @@ CheckPathValid(${OPENSSL_ROOT_DIR})
 CheckPathValid(${OPENSSL_SSL_LIBRARY})
 
 add_subdirectory(ThirdParty/grpc)
+
+if (ANDROID)
+    target_include_directories(grpc PUBLIC
+        ${ThirdPartyDir}/OpenSSL/1.1.1n/include/Android
+    )
+    target_include_directories(grpc++ PUBLIC
+        ${ThirdPartyDir}/OpenSSL/1.1.1n/include/Android
+    )
+endif()
 
 target_link_libraries(InworldNDK PUBLIC grpc)
 target_link_libraries(InworldNDK PUBLIC grpc++)
@@ -244,6 +260,10 @@ if (WIN32)
     set(PackageLibDir  ${PackageDir}/lib/Win64)
     set(LibExt lib)
     set(LibPref "")
+elseif (ANDROID)
+    set(PackageLibDir  ${PackageDir}/lib/Android)
+    set(LibExt a)
+    set(LibPref lib)
 elseif (IOS)
     set(PackageLibDir  ${PackageDir}/lib/iOS)
     set(LibExt a)
@@ -260,43 +280,51 @@ add_custom_command(TARGET InworldNDK POST_BUILD
 set(GrpcDir ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc)
 set(AbslDir ${GrpcDir}/third_party/abseil-cpp/absl)
 
-set(ConfigDirName $<CONFIGURATION>)
 if (IOS)
-    set(ConfigDirName ${ConfigDirName}-iphoneos)
+    set(ConfigDirName /$<CONFIGURATION>-iphoneos)
+    set(ConfigDirNameCares /$<CONFIGURATION>)
+elseif (ANDROID)
+    set(ConfigDirName "")
+    set(ConfigDirNameCares "")
+else()
+    set(ConfigDirName /$<CONFIGURATION>)
+    set(ConfigDirNameCares /$<CONFIGURATION>)
 endif()
 
 set(LibFiles 
-    ${CMAKE_CURRENT_BINARY_DIR}/${ConfigDirName}/${LibPref}InworldNDK.${LibExt}
-    ${AbslDir}/base/${ConfigDirName}/${LibPref}absl_base.${LibExt}
-    ${AbslDir}/base/${ConfigDirName}/${LibPref}absl_malloc_internal.${LibExt}
-    ${AbslDir}/base/${ConfigDirName}/${LibPref}absl_raw_logging_internal.${LibExt}
-    ${AbslDir}/base/${ConfigDirName}/${LibPref}absl_spinlock_wait.${LibExt}
-    ${AbslDir}/base/${ConfigDirName}/${LibPref}absl_throw_delegate.${LibExt}
-    ${AbslDir}/types/${ConfigDirName}/${LibPref}absl_bad_optional_access.${LibExt}
-    ${AbslDir}/strings/${ConfigDirName}/${LibPref}absl_cord.${LibExt}
-    ${AbslDir}/strings/${ConfigDirName}/${LibPref}absl_str_format_internal.${LibExt}
-    ${AbslDir}/strings/${ConfigDirName}/${LibPref}absl_strings.${LibExt}
-    ${AbslDir}/strings/${ConfigDirName}/${LibPref}absl_strings_internal.${LibExt}
-    ${AbslDir}/debugging/${ConfigDirName}/${LibPref}absl_symbolize.${LibExt}
-    ${AbslDir}/debugging/${ConfigDirName}/${LibPref}absl_stacktrace.${LibExt}
-    ${AbslDir}/synchronization/${ConfigDirName}/${LibPref}absl_graphcycles_internal.${LibExt}
-    ${AbslDir}/synchronization/${ConfigDirName}/${LibPref}absl_synchronization.${LibExt}
-    ${AbslDir}/numeric/${ConfigDirName}/${LibPref}absl_int128.${LibExt}
-    ${AbslDir}/status/${ConfigDirName}/${LibPref}absl_status.${LibExt}
-    ${AbslDir}/status/${ConfigDirName}/${LibPref}absl_statusor.${LibExt}
-    ${AbslDir}/time/${ConfigDirName}/${LibPref}absl_time.${LibExt}
-    ${AbslDir}/time/${ConfigDirName}/${LibPref}absl_time_zone.${LibExt}
-    ${GrpcDir}/${ConfigDirName}/${LibPref}address_sorting.${LibExt}
-    ${GrpcDir}/${ConfigDirName}/${LibPref}gpr.${LibExt}
-    ${GrpcDir}/${ConfigDirName}/${LibPref}grpc.${LibExt}
-    ${GrpcDir}/${ConfigDirName}/${LibPref}grpc++.${LibExt}
-    ${GrpcDir}/third_party/cares/cares/lib/$<CONFIGURATION>/${LibPref}cares.${LibExt}
-    ${GrpcDir}/third_party/protobuf/${ConfigDirName}/libprotobuf.${LibExt}
-    ${GrpcDir}/third_party/re2/${ConfigDirName}/${LibPref}re2.${LibExt}
-    ${GrpcDir}/${ConfigDirName}/${LibPref}upb.${LibExt}
+    ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}InworldNDK.${LibExt}
+    ${AbslDir}/base${ConfigDirName}/${LibPref}absl_base.${LibExt}
+    ${AbslDir}/base${ConfigDirName}/${LibPref}absl_malloc_internal.${LibExt}
+    ${AbslDir}/base${ConfigDirName}/${LibPref}absl_raw_logging_internal.${LibExt}
+    ${AbslDir}/base${ConfigDirName}/${LibPref}absl_spinlock_wait.${LibExt}
+    ${AbslDir}/base${ConfigDirName}/${LibPref}absl_throw_delegate.${LibExt}
+    ${AbslDir}/types${ConfigDirName}/${LibPref}absl_bad_optional_access.${LibExt}
+    ${AbslDir}/strings${ConfigDirName}/${LibPref}absl_cord.${LibExt}
+    ${AbslDir}/strings${ConfigDirName}/${LibPref}absl_str_format_internal.${LibExt}
+    ${AbslDir}/strings${ConfigDirName}/${LibPref}absl_strings.${LibExt}
+    ${AbslDir}/strings${ConfigDirName}/${LibPref}absl_strings_internal.${LibExt}
+    ${AbslDir}/debugging${ConfigDirName}/${LibPref}absl_symbolize.${LibExt}
+    ${AbslDir}/debugging${ConfigDirName}/${LibPref}absl_stacktrace.${LibExt}
+    ${AbslDir}/synchronization${ConfigDirName}/${LibPref}absl_graphcycles_internal.${LibExt}
+    ${AbslDir}/synchronization${ConfigDirName}/${LibPref}absl_synchronization.${LibExt}
+    ${AbslDir}/numeric${ConfigDirName}/${LibPref}absl_int128.${LibExt}
+    ${AbslDir}/status${ConfigDirName}/${LibPref}absl_status.${LibExt}
+    ${AbslDir}/status${ConfigDirName}/${LibPref}absl_statusor.${LibExt}
+    ${AbslDir}/time${ConfigDirName}/${LibPref}absl_time.${LibExt}
+    ${AbslDir}/time${ConfigDirName}/${LibPref}absl_time_zone.${LibExt}
+    ${GrpcDir}${ConfigDirName}/${LibPref}address_sorting.${LibExt}
+    ${GrpcDir}${ConfigDirName}/${LibPref}gpr.${LibExt}
+    ${GrpcDir}${ConfigDirName}/${LibPref}grpc.${LibExt}
+    ${GrpcDir}${ConfigDirName}/${LibPref}grpc++.${LibExt}
+    ${GrpcDir}/third_party/cares/cares/lib${ConfigDirNameCares}/${LibPref}cares.${LibExt}
+    ${GrpcDir}/third_party/protobuf${ConfigDirName}/libprotobuf.${LibExt}
+    ${GrpcDir}/third_party/re2${ConfigDirName}/${LibPref}re2.${LibExt}
+    ${GrpcDir}${ConfigDirName}/${LibPref}upb.${LibExt}
+    ${OPENSSL_SSL_LIBRARY}
+    ${OPENSSL_CRYPTO_LIBRARY}
     ${ZLIB_LIBRARY_RELEASE}
-    ${LIB_EAY_LIBRARY_RELEASE}
-    ${SSL_EAY_RELEASE}
+    ${CMAKE_CURRENT_SOURCE_DIR}/build/ThirdParty/spdlog/${LibPref}spdlog.${LibExt}
+
 )
 
 if (AEC AND WIN32)
@@ -309,11 +337,22 @@ endif()
 foreach(LibFile IN LISTS LibFiles)
     add_custom_command(TARGET InworldNDK POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy ${LibFile} ${PackageLibDir})
+    message("Copy lib to package: ${LibFile}")
 endforeach()
 
-add_custom_command(TARGET InworldNDK POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory 
-    ${ThirdPartyDir}/include  ${PackageDir}/include)
+function(CopyIncludeDir Path)
+    add_custom_command(TARGET InworldNDK POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory 
+        ${Path}  ${PackageDir}/include)
+    message("Copy include dir to package: ${Path}")
+endfunction()
+
+CopyIncludeDir(${ThirdPartyDir}/include)
+CopyIncludeDir(${ThirdPartyDir}/grpc/include)
+CopyIncludeDir(${ThirdPartyDir}/spdlog/include)
+CopyIncludeDir(${OPENSSL_INCLUDE_DIR})
+CopyIncludeDir(${ZLIB_INCLUDE_DIR})
+
 add_custom_command(TARGET InworldNDK POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory 
     ${PROJECT_SOURCE_DIR}/src  ${PackageDir}/src)
@@ -338,6 +377,6 @@ if (NOT IOS)
     if (AEC AND WIN32)
         add_custom_command(TARGET InworldNDKApp POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy
-            ${PROJECT_SOURCE_DIR}/ThirdParty/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll  ${PackageDir}/${ConfigDirName})
+            ${PROJECT_SOURCE_DIR}/ThirdParty/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll  ${PackageDir}${ConfigDirName})
     endif()
 endif()
