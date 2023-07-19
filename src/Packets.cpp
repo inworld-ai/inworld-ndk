@@ -94,16 +94,7 @@ namespace Inworld {
     {
         Proto.mutable_data_chunk()->set_chunk(_Chunk);
         Proto.mutable_data_chunk()->set_type(GetType());
-        Proto.mutable_timestamp()->set_seconds(google::protobuf::util::TimeUtil::GetCurrentTime().seconds());
-        Proto.mutable_timestamp()->set_nanos(google::protobuf::util::TimeUtil::GetCurrentTime().nanos());
-        Proto.mutable_packet_id()->set_packet_id(_PacketId._UID);
-        Proto.mutable_packet_id()->set_utterance_id(_PacketId._UtteranceId);
-        Proto.mutable_packet_id()->set_interaction_id(_PacketId._InteractionId);
-        Proto.mutable_routing()->mutable_source()->set_name(_Routing._Source._Name);
-        Proto.mutable_routing()->mutable_source()->set_type(_Routing._Source._Type);
-        Proto.mutable_routing()->mutable_target()->set_name(_Routing._Target._Name);
-        Proto.mutable_routing()->mutable_target()->set_type(_Routing._Target._Type);
-        //Proto.mutable_routing()->source() = _Routing._Source.ToProto();
+        
         if(GetType() == InworldPakets::DataChunk_DataType_AUDIO)
         {
             for (const auto& phoneme_info : GetPhonemeInfos())
@@ -114,7 +105,6 @@ namespace Inworld {
                 info->mutable_start_offset()->set_nanos((phoneme_info.Timestamp - std::floor(phoneme_info.Timestamp)) * 1000000000);
             }
         }
-        Inworld::stdLog("SETTING CHUNK IN UPDATED AUDIO DATA EVENT FROM DLL phoneme count is " + std::to_string(Proto.data_chunk().additional_phoneme_info_size()));
     }
 
     AudioDataEvent::AudioDataEvent(const InworldPakets::InworldPacket& GrpcPacket) : DataEvent(GrpcPacket)

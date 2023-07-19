@@ -267,10 +267,12 @@ extern "C" {
         wrapper->client.SendSoundMessageWithAEC(AgentId, inputVector, outputVector);
     }
 
-    // SendCustomEvent
-    void ClientWrapper_SendCustomEvent(ClientWrapper* wrapper, const char* AgentId, const char* Name) {
-        wrapper->client.SendCustomEvent(AgentId, Name);
-    }
+    // Leaving commented in case protobufs are removed in the future currently already accounted for through
+    // SendPacket
+    // // SendCustomEvent
+    // void ClientWrapper_SendCustomEvent(ClientWrapper* wrapper, const char* AgentId, const char* Name) {
+    //     wrapper->client.SendCustomEvent(AgentId, Name);
+    // }
 
 
     // StartAudioSession

@@ -28,12 +28,11 @@ extern "C" {
 
    //possibly unneccessary creates circular dependencies with wrapping parameters and protobuf classes 
    __declspec(dllexport) void ClientWrapper_SendPacket(ClientWrapper* wrapper, const void* data, size_t size);
-   //std::shared_ptr<Inworld::Packet> ResolvePackets(InworldPakets::InworldPacket packet);
 
    __declspec(dllexport) void ClientWrapper_SendTextMessage(ClientWrapper* wrapper, const char* AgentId, const char* Text);
    __declspec(dllexport) void ClientWrapper_SendSoundMessage(ClientWrapper* wrapper, const char* AgentId, const uint8_t* Data, int data_size);
    __declspec(dllexport) void ClientWrapper_SendSoundMessageWithAEC(ClientWrapper* wrapper, const char* AgentId, const int16_t* InputData, int InputDataSize, const int16_t* OutputData, int OutputDataSize);
-   __declspec(dllexport) void ClientWrapper_SendCustomEvent(ClientWrapper* wrapper, const char* AgentId, const char* Name);
+   //__declspec(dllexport) void ClientWrapper_SendCustomEvent(ClientWrapper* wrapper, const char* AgentId, const char* Name);
 
    __declspec(dllexport) void ClientWrapper_CancelResponse(ClientWrapper* wrapper, const char* AgentId, const char* InteractionId, const char** UtteranceIds, int UtteranceIdsCount);
 
