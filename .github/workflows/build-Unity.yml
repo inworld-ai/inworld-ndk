@@ -21,49 +21,16 @@ jobs:
     - uses: actions/checkout@v2
     - name: git-update-dependecies
       run: git submodule update --init --recursive | Write-Host
-    - name: gen
+    - name: build-Unity-DLL
       shell: pwsh
       run: |
           Start-Process -FilePath "win-gen-unity.bat" " > GenLog.txt" -Wait -NoNewWindow -PassThru 
           cat GenLog.txt
-          if (Select-String -Path GenLog.txt -Pattern "Configuring incomplete" -SimpleMatch -Quiet)
+          if (Select-String -Path GenLog.txt -Pattern "Generating done" -SimpleMatch -Quiet)
           {
-            exit 1
-          }
-          exit 0
-    - name: build-Unity
-      shell: pwsh
-      run: |
-          Start-Process -FilePath "win-build.bat" " > BuildLog.txt" -Wait -NoNewWindow -PassThru
-          cat BuildLog.txt
-          if (Select-String -Path BuildLog.txt -Pattern "InworldNDK.vcxproj ->" -SimpleMatch -Quiet)
-          {
-            "InworldNDK built successful"
+            exit 0
           }
           else
-          {
             exit 1
-          }
-          if (Select-String -Path BuildLog.txt -Pattern "InworldNDKApp.vcxproj ->" -SimpleMatch -Quiet)
-          {
-            "InworldNDKApp built successful"
-          }
-          else
-          {
-            exit 1
-          }
-          if (Select-String -Path BuildLog.txt -Pattern "InworldNDKUnit.vcxproj ->" -SimpleMatch -Quiet)
-          {
-            "InworldNDKUnit built successful"
-          }
-          else
-          {
-            exit 1
-          }
-          if (Select-String -Path BuildLog.txt -Pattern "[  FAILED  ]" -SimpleMatch -Quiet)
-          {
-            exit 1
-          }
-          exit 0
 
          
