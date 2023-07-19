@@ -5,7 +5,7 @@
 # * that can be found in the LICENSE.md file or at https://www.inworld.ai/sdk-license
 # *************************************************************************************************/
 
-name: build-Unity
+name: build-Unity-win
 
 on:
   pull_request:
@@ -21,18 +21,33 @@ jobs:
     - uses: actions/checkout@v2
     - name: git-update-dependecies
       run: git submodule update --init --recursive | Write-Host
-    - name: build-Unity-DLL
+    - name: gen-unityDLL-sln
       shell: pwsh
       run: |
           Start-Process -FilePath "win-gen-unity.bat" " > GenLog.txt" -Wait -NoNewWindow -PassThru 
           cat GenLog.txt
-          if (Select-String -Path GenLog.txt -Pattern "Generating done" -SimpleMatch -Quiet)
+          if (Select-String -Path GenLog.txt -Pattern "Generating incomplete" -SimpleMatch -Quiet)
           {
-            exit 0
+            exit 1
+          }
+          exit 0
+    - name: build-UnityDLL
+      shell: pwsh
+      run: |
+          Start-Process -FilePath "win-Unity-build.bat" " > BuildLog.txt" -Wait -NoNewWindow -PassThru
+          cat BuildLog.txt
+          if (Select-String -Path BuildLog.txt -Pattern "InworldNDK.vcxproj ->" -SimpleMatch -Quiet)
+          {
+            "InworldNDK built successful"
           }
           else
           {
             exit 1
           }
+          if (Select-String -Path BuildLog.txt -Pattern "[  FAILED  ]" -SimpleMatch -Quiet)
+          {
+            exit 1
+          }
+          exit 0
 
          
