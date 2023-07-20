@@ -9,19 +9,15 @@ The **Inworld NDK** is a library built by CMake. It contains all the source code
 <table>
   <tr>
     <td><b>Windows</b></td>
-    <td>Supported</td>
   </tr>
   <tr>
     <td><b>Mac</b></td>
-    <td>Supported</td>
   </tr>
   <tr>
     <td><b>iOS</b></td>
-    <td>Supported</td>
   </tr>
   <tr>
     <td><b>Android</b></td>
-    <td>Coming soon</td>
   </tr>
 </table>
 
@@ -37,11 +33,32 @@ The **Inworld NDK** is a library built by CMake. It contains all the source code
 
 1. Clone *Main* branch or a specific repo release, e.g. *git clone https://github.com/inworld-ai/inworld-ndk.git --branch=v1.0.0*
 2. Call *git submodule update --init --recursive* to make sure all dependency submodules are initialized and updated
-3. If you going to run **InworldNDKApp**(testing console application) fill out client options in *Example/ConsoleApp/src/Application.cpp*. If you don't have an **Inworld.ai** account yet see more information [here](https://docs.inworld.ai/docs/intro)
-4. Run *gen* script for your platform (*win-gen.bat*, *mac-gen.sh*) to generate project files
-5. Run *build* script for your platform (*win-build.bat*, *mac-build.sh*) to build **InworldNDK** static lib, **InworldNDKApp** and unit tests.
+3. If you going to run **InworldNDKApp**(testing console application for Windows and Mac) fill out client options in *Example/ConsoleApp/src/Application.cpp*. If you don't have an **Inworld.ai** account yet see more information [here](https://docs.inworld.ai/docs/intro)
+4. Run *gen* script for your platform (*win-gen.bat*, *mac-gen.sh* etc..) to generate project files
+5. Run *build* script for your platform (*win-build.bat*, *mac-build.sh* etc..) to build **InworldNDK** static lib, **InworldNDKApp**(Win, Mac) and unit tests.
 
-After build's succeed you have *build/Package* folder with all the source and binaries(including dependencies). You can run *build/Release/InworldNDKApp* executable and text message with your characters in console.
+After build's succeed you have *build/Package* folder with all the source and binaries(including dependencies). You can run *build/Release/InworldNDKApp* executable(Win, Mac) and text message with your characters in console.
+
+### Android
+
+> **_NOTE:_**  Tested on MacOS only
+
+To build for Android: 
+- Duplicate *android-gen.sh* script and rename it to *android-gen-local.sh*
+- Open *android-gen-local.sh* with a text editor and configure the flags *CMAKE_SYSTEM_VERSION*(target device Android API), *CMAKE_ANDROID_ARCH_ABI*(target devide architecture) and *CMAKE_ANDROID_NDK*(path to Android NDK on your machine)
+- Run *android-gen-local.sh*
+- Run *android-build.sh*
+
+#### Android Example Application
+
+Find Android Example App project in Exaple/AndroidApp. To run the App:
+- Build Android binaries(see section above)
+- Open Exaple/AndroidApp project in *Android Studio*(tested on Android Studio Flamingo | 2022.2.1 Patch 2)
+- Fill *Options.SceneName*, *Options.ApiKey* and *Options.ApiSecret* in app/cpp/cpp/native-lib.cpp. If you don't have an **Inworld.ai** account yet see more information [here](https://docs.inworld.ai/docs/intro)
+- Build and run on device or emulator
+- Inworld Client is created and started on MainActivity's onCreate, a greeting to a character is sent when Inworld session is started. See *Logcat* for logs, filter by *InworldNDK*
+- See app/cpp/cpp/CMakeLists.txt as an example on how to link with Inworld
+- See app/cpp/cpp/native-lib.cpp as an example on how to create and start Inworld Client
 
 #### Acoustic Echo Cancellation, *AEC* (Windows)
 
