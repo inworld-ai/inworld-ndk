@@ -94,16 +94,14 @@ namespace Inworld {
     {
         Proto.mutable_data_chunk()->set_chunk(_Chunk);
         Proto.mutable_data_chunk()->set_type(GetType());
-        
-        if(GetType() == InworldPakets::DataChunk_DataType_AUDIO)
+
+        for (const auto& phoneme_info : GetPhonemeInfos())
         {
-            for (const auto& phoneme_info : GetPhonemeInfos())
-            {
-                auto* info = Proto.mutable_data_chunk()->add_additional_phoneme_info();
-                info->set_phoneme(phoneme_info.Code);
-                info->mutable_start_offset()->set_seconds(phoneme_info.Timestamp);
-                info->mutable_start_offset()->set_nanos((phoneme_info.Timestamp - std::floor(phoneme_info.Timestamp)) * 1000000000);
-            }
+            auto* info = Proto.mutable_data_chunk()->add_additional_phoneme_info();
+            info->set_phoneme(phoneme_info.Code);
+            info->mutable_start_offset()->set_seconds(phoneme_info.Timestamp);
+            info->mutable_start_offset()->set_nanos(
+                (phoneme_info.Timestamp - std::floor(phoneme_info.Timestamp)) * 1000000000);
         }
     }
 

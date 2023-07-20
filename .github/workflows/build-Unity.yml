@@ -34,7 +34,7 @@ jobs:
     - name: build-UnityDLL
       shell: pwsh
       run: |
-          Start-Process -FilePath "win-Unity-build.bat" " > BuildLog.txt" -Wait -NoNewWindow -PassThru
+          Start-Process -FilePath "win-build-unity.bat" " > BuildLog.txt" -Wait -NoNewWindow -PassThru
           cat BuildLog.txt
           if (Select-String -Path BuildLog.txt -Pattern "InworldNDK.vcxproj ->" -SimpleMatch -Quiet)
           {

@@ -70,23 +70,15 @@ if(UNITY_NDK)
 
     add_library(InworldNDK SHARED ${FilesALL})
 
-    target_include_directories(InworldNDK PUBLIC
-        ${ThirdPartyDir}/include
-        ${ThirdPartyDir}/grpc/include
-        ${ThirdPartyDir}/grpc/third_party/abseil-cpp
-        ${ThirdPartyDir}/grpc/third_party/protobuf/src
-        ${ThirdPartyDir}/grpc/third_party
-        src
-        src/proto
-        src/ThirdParty
+    target_include_directories(InworldNDK PUBLIC        
         ${CMAKE_CURRENT_SOURCE_DIR}/Unity_NDK
     )
 
     target_compile_definitions(InworldNDK PUBLIC UNITY_NDK)
 else()
     message("unity-ndk is false")
-
     add_library(InworldNDK ${FilesALL})
+endif()
 
     target_include_directories(InworldNDK PUBLIC
         ${ThirdPartyDir}/include
@@ -98,7 +90,6 @@ else()
         src/proto
         ThirdParty
     )
-endif()
 
 target_compile_features(InworldNDK PUBLIC cxx_std_20)
 
