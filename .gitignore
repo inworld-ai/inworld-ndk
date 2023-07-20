@@ -51,3 +51,5 @@ CTestTestfile.cmake
 _deps
 
 build/
+
+android-gen-local.sh

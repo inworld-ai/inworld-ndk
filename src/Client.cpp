@@ -46,11 +46,11 @@ static void GrpcLog(gpr_log_func_args* args)
 	{
 		return;
 	}
-
-	Inworld::LogError("GRPC %s::%d: %s",
+	
+	Inworld::LogError("GRPC %s %s::%d",
+		ARG_CHAR(args->message),
 		ARG_CHAR(args->file),
-		args->line,
-		ARG_CHAR(args->message));
+		args->line);
 }
 
 void Inworld::ClientBase::SendPacket(std::shared_ptr<Inworld::Packet> Packet)
@@ -152,7 +152,7 @@ void Inworld::ClientBase::GenerateToken(std::function<void()> GenerateTokenCallb
 					_SessionInfo.SessionId = Token.session_id();
 				}
 				_SessionInfo.Token = Token.token();
-				_SessionInfo.ExpirationTime = std::time(0) + std::max(std::min(Token.expiration_time().seconds() - std::time(0), gMaxTokenLifespan), 0ll);
+				_SessionInfo.ExpirationTime = std::time(0) + std::max(std::min(Token.expiration_time().seconds() - std::time(0), gMaxTokenLifespan), int64_t(0));
 
 				AddTaskToMainThread([this, Status]()
 				{

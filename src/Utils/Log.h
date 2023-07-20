@@ -9,23 +9,26 @@
 
 
 #ifdef INWORLD_LOG
-#ifdef INWORLD_UNREAL
-#include "CoreMinimal.h"
-#include "InworldAINdkModule.h"
-#include "Runtime/Launch/Resources/Version.h"
-#if ENGINE_MAJOR_VERSION > 4
-#include <string_view>
-namespace Inworld { using LogFormatType = std::string_view; }
+	#ifdef INWORLD_UNREAL
+		#include "CoreMinimal.h"
+		#include "InworldAINdkModule.h"
+		#include "Runtime/Launch/Resources/Version.h"
+		#if ENGINE_MAJOR_VERSION > 4
+			#include <string_view>
+			namespace Inworld { using LogFormatType = std::string_view; }
+		#else
+			#include <string>
+			namespace Inworld { using LogFormatType = std::string; }
+		#endif
+	#else
+		#include "spdlog/spdlog.h"
+		#include <string>
+		#if ANDROID
+			#include <android/log.h>
+		#endif
+	#endif
 #else
-#include <string>
-namespace Inworld { using LogFormatType = std::string; }
-#endif
-#else
-#include "spdlog/spdlog.h"
-#include <string>
-#endif
-#else
-#include <string>
+	#include <string>
 #endif
 
 namespace Inworld
@@ -76,7 +79,24 @@ namespace Inworld
 	void Log(std::string fmt, Args &&... args)
 	{
 		ConvertToSpdFmt(fmt);
-		spdlog::info(format::vformat(fmt, format::make_format_args(args...)));
+		const auto message = format::vformat(fmt, format::make_format_args(args...));
+	#if ANDROID
+		__android_log_print(ANDROID_LOG_INFO, "InworldNDK", "%s", message.c_str());
+	#else
+		spdlog::info(message);
+	#endif
+	}
+
+	template<typename... Args>
+	void LogWarning(std::string fmt, Args &&... args)
+	{
+		ConvertToSpdFmt(fmt);
+		const auto message = format::vformat(fmt, format::make_format_args(args...));
+	#if ANDROID
+		__android_log_print(ANDROID_LOG_WARN, "InworldNDK", "%s", message.c_str());
+	#else
+		spdlog::warn(message);
+	#endif
 	}
 	
 	template<typename... Args>
@@ -84,7 +104,11 @@ namespace Inworld
 	{
 		ConvertToSpdFmt(fmt);
 		const auto message = format::vformat(fmt, format::make_format_args(args...));
+	#if ANDROID
+		__android_log_print(ANDROID_LOG_ERROR, "InworldNDK", "%s (SessionId: %s)", message.c_str(), g_SessionId.c_str());
+	#else
 		spdlog::error("{} (SessionId: {})", message.c_str(), g_SessionId.c_str());
+	#endif
 	}
 
 	#define ARG_STR(str) str.c_str()

@@ -104,6 +104,7 @@ header:
     - '**/DEPS'
     - '**/proto/**'
     - '**/include/**'
+    - 'Example/AndroidApp/**'
     
   comment: on-failure
 
