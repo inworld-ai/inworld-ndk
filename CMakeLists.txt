@@ -60,10 +60,10 @@ if(UNITY_NDK)
     message("UNITY_NDK is true")
 
     file(GLOB_RECURSE UnityNDKFiles
-        Unity_NDK/*.h
-        Unity_NDK/*.cpp
-        Unity_NDK/*.cc
-        Unity_NDK/*.c
+        Example/Unity_NDK/*.h
+        Example/Unity_NDK/*.cpp
+        Example/Unity_NDK/*.cc
+        Example/Unity_NDK/*.c
     )
         
     list(APPEND FilesALL ${UnityNDKFiles})
@@ -71,7 +71,7 @@ if(UNITY_NDK)
     add_library(InworldNDK SHARED ${FilesALL})
 
     target_include_directories(InworldNDK PUBLIC        
-        ${CMAKE_CURRENT_SOURCE_DIR}/Unity_NDK
+        ${CMAKE_CURRENT_SOURCE_DIR}/Example/Unity_NDK
     )
 
     target_compile_definitions(InworldNDK PUBLIC UNITY_NDK)
