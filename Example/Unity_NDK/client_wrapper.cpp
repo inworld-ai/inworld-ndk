@@ -135,9 +135,6 @@ extern "C" {
                         return;
                     }
                     LoadSceneCallback(serialized_data, serialized_data_size);
-
-                    // Remember to delete the allocated buffer when you're done using it.
-                    //delete[] serialized_data;
                 }
                 });
             DebugLog("STARTed CLIENT with callback");
@@ -155,9 +152,10 @@ extern "C" {
         std::string cppagent_id(AgentId);
         std::string cppInteractionId(InteractionId);
         std::vector<std::string> cppUtteranceIds;
+        cppUtteranceIds.reserve(UtteranceIdsCount);
 
         for (int i = 0; i < UtteranceIdsCount; i++) {
-            cppUtteranceIds.push_back(std::string(UtteranceIds[i]));
+            cppUtteranceIds.emplace_back(std::string(UtteranceIds[i]));
         }
 
         wrapper->client.CancelResponse(cppagent_id, cppInteractionId, cppUtteranceIds);
@@ -181,39 +179,26 @@ extern "C" {
         if (packet.has_text())
         {
             pkt = std::make_shared<Inworld::TextEvent>(packet);
-            type = pkt.get()->ToProto().GetTypeName();
-            wrapper->client.SendPacket(pkt);
-
         }
         // AudioDataEvent
         else if (packet.has_data_chunk() && packet.data_chunk().type() == InworldPakets::DataChunk_DataType_AUDIO)
         {
-            std::cout << "AUDIO DATA EVENT CREATED IN NDK" << std::endl;
-
             pkt = std::make_shared<Inworld::AudioDataEvent>(packet);
-            type = pkt.get()->ToProto().GetTypeName();
-            wrapper->client.SendPacket(pkt);
         }
         // ControlEvent
         else if (packet.has_control())
         {
-            pkt = std::make_shared<Inworld::ControlEvent>(packet);
-            type = pkt.get()->ToProto().GetTypeName();
-            wrapper->client.SendPacket(pkt);
+            pkt = std::make_shared<Inworld::ControlEvent>(packet);            
         }
         // CancelResponseEvent
         else if (packet.has_cancelresponses())
         {
-            auto pkt = std::make_shared<Inworld::CancelResponseEvent>();
-            type = pkt.get()->ToProto().GetTypeName();
-            wrapper->client.SendPacket(pkt);
+            auto pkt = std::make_shared<Inworld::CancelResponseEvent>();            
         }
         // CustomEvent
         else if (packet.has_custom())
         {
-            pkt = std::make_shared<Inworld::CustomEvent>(packet);
-            type = pkt.get()->ToProto().GetTypeName();
-            wrapper->client.SendPacket(pkt);
+            pkt = std::make_shared<Inworld::CustomEvent>(packet);            
         }
         else
         {
@@ -221,10 +206,17 @@ extern "C" {
             DebugLog("Unsupported outgoing event: ");
             DebugLog(packet.DebugString().c_str());
         }
-        
-        std::ostringstream ss;
-        ss << "DLL SENDING A PACKET FROM THE DLL OF TYPE " << type;
-        DebugLog(ss.str().c_str());
+
+        if(pkt)
+        {
+            type = pkt.get()->ToProto().GetTypeName();
+            wrapper->client.SendPacket(pkt);
+        }
+        // commented to avoid spam/clutter
+        // leaving in case of future debugging in future
+        // std::ostringstream ss;
+        // ss << "DLL SENDING A PACKET FROM THE DLL OF TYPE " << type;
+        // DebugLog(ss.str().c_str());
     }
 
 
@@ -291,6 +283,9 @@ extern "C" {
         int32_t errorCode;
         bool result = wrapper->client.GetConnectionError(errorMessage, errorCode);
 
+        if(!result)
+            return false;
+        
         strncpy(OutErrorMessage, errorMessage.c_str(), BufferSize - 1);
         OutErrorMessage[BufferSize - 1] = '\0';
         *OutErrorCode = errorCode;
