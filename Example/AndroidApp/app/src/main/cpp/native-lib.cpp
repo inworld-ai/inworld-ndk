@@ -27,9 +27,9 @@ Java_com_example_inworldexample_MainActivity_InworldStartClient(JNIEnv* env, job
     Options.PlayerName = "Player";
 
     // Fill this values!
-    Options.SceneName = "workspaces/artem_v_test/scenes/demo";
-    Options.ApiKey = "MGhJJ0I9PyX7T53Ua70RePz2zbAgoINp";
-    Options.ApiSecret = "uoKoKBXD6zeLjgihbWHdgV3fzwS6DB0TEXlBUpuW4ts3LCzcWYxxA2VGT6SsC8RR";
+    Options.SceneName = "";
+    Options.ApiKey = "";
+    Options.ApiSecret = "";
 
     if (Options.SceneName.empty() ||
             Options.ApiKey.empty() ||
