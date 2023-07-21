@@ -119,15 +119,16 @@ namespace Inworld
 	{
 		ConvertToSpdFmt(fmt);
 		const auto message = format::vformat(fmt, format::make_format_args(args...));
-	#if ANDROID
+#if ANDROID
 		__android_log_print(ANDROID_LOG_ERROR, "InworldNDK", "%s (SessionId: %s)", message.c_str(), g_SessionId.c_str());
-	#else
+#else
 		spdlog::error("{} (SessionId: {})", message.c_str(), g_SessionId.c_str());
-  #if UNITY_NDK
+#endif
+#if UNITY_NDK
 		std::ostringstream ss;
-		ss << message.c_str() << " SessionID: "<< g_SessionId.c_str();
+		ss << message.c_str() << " SessionID: " << g_SessionId.c_str();
 		stdLog(ss.str().c_str());
-  #endif
+#endif
 	}
 
 	#define ARG_STR(str) str.c_str()
