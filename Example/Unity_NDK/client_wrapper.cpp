@@ -27,7 +27,7 @@ extern "C" {
                 ConnectionStateCallback(static_cast<int>(ConnectionState));
             },
             [PacketCallback](std::shared_ptr<Inworld::Packet> Packet) {
-                if (Packet != nullptr || Packet != NULL)
+                if (Packet != nullptr)
                 {
                     InworldPakets::InworldPacket pkt = Packet.get()->ToProto();                    
 
@@ -50,13 +50,23 @@ extern "C" {
     void ClientWrapper_StartClientWithCallback(ClientWrapper* wrapper, const uint8_t* serialized_options, int serialized_options_size, const uint8_t* serialized_sessionInfo, int serialized_sessionInfo_size, LoadSceneCallbackType LoadSceneCallback) {
         DebugLog("ABOUT TO START CLIENT with callback begin deserializing options");
 
-        // Deserialize ClientOptions from byte array
-        ClientOptions options;
-        if (!options.ParseFromArray(serialized_options, serialized_options_size)) {
+        SessionInfo sessionInfo;
+        if(!sessionInfo.ParseFromArray(serialized_sessionInfo, serialized_sessionInfo_size))
+        {
             // Handle deserialization error
-            DebugLog("START CLIENT FAILED TO DESRIALIZE OPTIONS with callback");
+            DebugLog("START CLIENT FAILED TO DESERIALIZE SESSION INFO");
             return;
         }
+
+        // Deserialize ClientOptions from byte array
+        ClientOptions options;
+        if (!options.ParseFromArray(serialized_options, serialized_options_size))
+        {
+            // Handle deserialization error
+            DebugLog("START CLIENT FAILED TO DESERIALIZE CLIENT OPTIONS");
+            return;
+        }
+
         Inworld::ClientOptions opt;
         opt.ApiKey = options.api_key();
         opt.ApiSecret = options.api_secret();
@@ -64,7 +74,7 @@ extern "C" {
         opt.LoadSceneUrl = options.load_scene_url();
         opt.PlayerName = options.player_name();
         opt.SceneName = options.scene_name();
-        if(options.has_capabilities())
+        if (options.has_capabilities())
         {
             opt.Capabilities.Animations = options.capabilities().animations();
             opt.Capabilities.Audio = options.capabilities().audio();
@@ -80,66 +90,62 @@ extern "C" {
             opt.Capabilities.TurnBasedSTT = options.capabilities().turnbasedstt();
             opt.Capabilities.NarratedActions = options.capabilities().narratedactions();
             opt.Capabilities.Continuation = options.capabilities().continuation();
-            DebugLog("SETTING CAPABILITIES IN DLL");
-        }
-        
-
-        SessionInfo sessionInfo;
-        if(!sessionInfo.ParseFromArray(serialized_sessionInfo, serialized_sessionInfo_size))
-        {
-            // Handle deserialization error
-            DebugLog("START CLIENT FAILED TO DESRIALIZE session info with callback");
-            return;
         }
         else
         {
-            Inworld::SessionInfo session_info;
-            session_info.Token = sessionInfo.token();
-            session_info.ExpirationTime = sessionInfo.expirationtime();
-            session_info.SessionId = sessionInfo.sessionid();
-            
-            DebugLog("STARTing CLIENT succesful deserialization of OPTIONS AND SESSION INFO with callback");
-            // Start the client
-            wrapper->client.StartClient(opt, session_info, [LoadSceneCallback](const std::vector<Inworld::AgentInfo>& AgentInfos) {
-                if (AgentInfos.empty())
-                {
-                    DebugLog("AGENT INFOS IS EMPTY IN LOADSCENE CALLBACK");
-                }
-                else if (LoadSceneCallback != nullptr) {
-                    AgentInfoArray agent_info_array;
-
-                    // Fill agent_info_array with data from AgentInfos vector
-                    for (const auto& agent_info : AgentInfos) {
-                        AgentInfo* added_agent_info = agent_info_array.add_agent_info_list();
-                        //*added_agent_info = agent_info;
-                        added_agent_info->set_agentid(agent_info.AgentId);
-                        added_agent_info->set_brainname(agent_info.BrainName);
-                        added_agent_info->set_givenname(agent_info.GivenName);
-                    }
-
-                    int serialized_data_size = agent_info_array.ByteSize();
-                    /*unsigned char* serialized_data = new unsigned char[serialized_data_size];
-                    agent_info_array.SerializeToArray(serialized_data, serialized_data_size);*/
-
-                    unsigned char* serialized_data = static_cast<unsigned char*>(CoTaskMemAlloc(serialized_data_size));
-                    agent_info_array.SerializeToArray(serialized_data, serialized_data_size);
-
-
-                    std::ostringstream ss;
-                    ss << "Serialized_agent_info_array size: " << serialized_data_size;
-                    DebugLog(ss.str().c_str());
-
-                    if (serialized_data_size < 0)
-                    {
-                        DebugLog("AGENT INFO SIZE LESS THAN 0 AND IS INVALID");
-                        return;
-                    }
-                    LoadSceneCallback(serialized_data, serialized_data_size);
-                }
-                });
-            DebugLog("STARTed CLIENT with callback");
-
+            DebugLog("NO CAPABILITIES SET IN THE CLIENT OPTIONS");
         }
+
+        Inworld::SessionInfo session_info;
+        session_info.Token = sessionInfo.token();
+        session_info.ExpirationTime = sessionInfo.expirationtime();
+        session_info.SessionId = sessionInfo.sessionid();
+
+        DebugLog("STARTing CLIENT succesful deserialization of OPTIONS AND SESSION INFO with callback");
+        // Start the client
+        wrapper->client.StartClient(opt, session_info,
+                                    [LoadSceneCallback](const std::vector<Inworld::AgentInfo>& AgentInfos)
+                                    {
+                                        if (AgentInfos.empty())
+                                        {
+                                            DebugLog("AGENT INFOS IS EMPTY IN LOADSCENE CALLBACK");
+                                        }
+                                        else if (LoadSceneCallback != nullptr)
+                                        {
+                                            AgentInfoArray agent_info_array;
+
+                                            // Fill agent_info_array with data from AgentInfos vector
+                                            for (const auto& agent_info : AgentInfos)
+                                            {
+                                                AgentInfo* added_agent_info = agent_info_array.add_agent_info_list();
+                                                //*added_agent_info = agent_info;
+                                                added_agent_info->set_agentid(agent_info.AgentId);
+                                                added_agent_info->set_brainname(agent_info.BrainName);
+                                                added_agent_info->set_givenname(agent_info.GivenName);
+                                            }
+
+                                            int serialized_data_size = agent_info_array.ByteSize();
+                                            /*unsigned char* serialized_data = new unsigned char[serialized_data_size];
+                                            agent_info_array.SerializeToArray(serialized_data, serialized_data_size);*/
+
+                                            unsigned char* serialized_data = static_cast<uint8_t*>(CoTaskMemAlloc(
+                                                serialized_data_size));
+                                            agent_info_array.SerializeToArray(serialized_data, serialized_data_size);
+
+
+                                            std::ostringstream ss;
+                                            ss << "Serialized_agent_info_array size: " << serialized_data_size;
+                                            DebugLog(ss.str().c_str());
+
+                                            if (serialized_data_size < 0)
+                                            {
+                                                DebugLog("AGENT INFO SIZE LESS THAN 0 AND IS INVALID");
+                                                return;
+                                            }
+                                            LoadSceneCallback(serialized_data, serialized_data_size);
+                                        }
+                                    });
+        DebugLog("STARTED CLIENT FROM DLL");
     }
 
     //Cancel Response 
@@ -169,7 +175,7 @@ extern "C" {
         // ParseFromArray returns false if deserialization failed (e.g., corrupted data)
         if (!packet.ParseFromArray(data, size)) {
             // Handle deserialization error
-            DebugLog("Failed to deserialize InworldPacket");
+            DebugLog("Failed to deserialize InworldPacket before sending");
             return;
         }
         

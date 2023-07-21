@@ -10,8 +10,6 @@
 
 #include <random>
 
-#include "Utils/Log.h"
-
 namespace Inworld {
 
     std::string RandomUUID()
