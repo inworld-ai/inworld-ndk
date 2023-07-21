@@ -155,7 +155,7 @@ extern "C" {
         cppUtteranceIds.reserve(UtteranceIdsCount);
 
         for (int i = 0; i < UtteranceIdsCount; i++) {
-            cppUtteranceIds.emplace_back(std::string(UtteranceIds[i]));
+            cppUtteranceIds.emplace_back(UtteranceIds[i]);
         }
 
         wrapper->client.CancelResponse(cppagent_id, cppInteractionId, cppUtteranceIds);
