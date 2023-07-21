@@ -104,7 +104,8 @@ header:
     - '**/DEPS'
     - '**/proto/**'
     - '**/include/**'
-    - '**/Unity_NDK/proto/**'
+    - 'Example/Unity_NDK/proto/**'
+    - 'Example/AndroidApp/**'
 
     
   comment: on-failure
