@@ -124,7 +124,7 @@ namespace Inworld
 		spdlog::error("{} (SessionId: {})", message.c_str(), g_SessionId.c_str());
 	#endif
 	#if UNITY_NDK
-		std::cout << "{} (SessionId: {})", message.c_str(), g_SessionId.c_str() << std::endl;
+		std::cout << message << " (SessionId: " << g_SessionId << ")" << std::endl;
 	#endif
 	}
 
