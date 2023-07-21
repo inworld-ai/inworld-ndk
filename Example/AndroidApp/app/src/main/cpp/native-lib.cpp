@@ -52,7 +52,6 @@ Java_com_example_inworldexample_MainActivity_InworldStartClient(JNIEnv* env, job
 
     std::vector<Inworld::AgentInfo> AgentInfos;
 
-    //InworldClient = std::make_unique<Inworld::Client>();
     InworldClient.InitClient(
             "DefaultAndroidUserNDK",
             "DefaultAndroidClientNDK",
