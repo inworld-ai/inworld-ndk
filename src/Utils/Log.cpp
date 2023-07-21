@@ -66,11 +66,6 @@ FString Inworld::PrintfImpl(const TCHAR* Fmt, ...)
 }
 #else
 
-void Inworld::stdLog(std::string fmt)
-{
-	std::cout << fmt << std::endl;
-}
-
 void Inworld::ConvertToSpdFmt(std::string& fmt)
 {
 	for (int32_t i = 0; i < fmt.size(); i++)
