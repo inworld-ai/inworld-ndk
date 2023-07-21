@@ -203,6 +203,9 @@ namespace Inworld
 		bool SilenceEvents = false;
 		bool PhonemeInfo = false;
 		bool LoadSceneInSession = false;
+		bool Continuation = true;
+		bool TurnBasedSTT = true;
+		bool NarratedActions = true;
 	};
 
 	struct UserSettings

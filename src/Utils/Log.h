@@ -27,6 +27,9 @@
 		#if ANDROID
 			#include <android/log.h>
 		#endif
+		#if UNITY_NDK
+			#include <iostream>
+		#endif
 	#endif
 #else
 	#include <string>
@@ -75,11 +78,17 @@ namespace Inworld
 	#else
 		namespace format = fmt;
 	#endif
-
+				
 	template<typename... Args>
 	void Log(std::string fmt, Args &&... args)
 	{
 		ConvertToSpdFmt(fmt);
+
+		spdlog::info(format::vformat(fmt, format::make_format_args(args...)));
+	#if UNITY_NDK
+		std::cout << fmt << std::endl;
+	#endif
+
 		const auto message = format::vformat(fmt, format::make_format_args(args...));
 	#if ANDROID
 		__android_log_print(ANDROID_LOG_INFO, "InworldNDK", "%s", message.c_str());
@@ -93,6 +102,10 @@ namespace Inworld
 	{
 		ConvertToSpdFmt(fmt);
 		const auto message = format::vformat(fmt, format::make_format_args(args...));
+	#if UNITY_NDK
+		std::cout << fmt << std::endl;
+	#endif
+    
 	#if ANDROID
 		__android_log_print(ANDROID_LOG_WARN, "InworldNDK", "%s", message.c_str());
 	#else
@@ -109,6 +122,9 @@ namespace Inworld
 		__android_log_print(ANDROID_LOG_ERROR, "InworldNDK", "%s (SessionId: %s)", message.c_str(), g_SessionId.c_str());
 	#else
 		spdlog::error("{} (SessionId: {})", message.c_str(), g_SessionId.c_str());
+	#endif
+	#if UNITY_NDK
+		std::cout << message << " (SessionId: " << g_SessionId << ")" << std::endl;
 	#endif
 	}
 

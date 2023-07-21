@@ -56,7 +56,29 @@ file(GLOB_RECURSE FilesALL
     src/*.c
 )
 
-add_library(InworldNDK ${FilesALL})
+if(UNITY_NDK)
+    message("UNITY_NDK is true")
+
+    file(GLOB_RECURSE UnityNDKFiles
+        Example/Unity_NDK/*.h
+        Example/Unity_NDK/*.cpp
+        Example/Unity_NDK/*.cc
+        Example/Unity_NDK/*.c
+    )
+        
+    list(APPEND FilesALL ${UnityNDKFiles})
+
+    add_library(InworldNDK SHARED ${FilesALL})
+
+    target_include_directories(InworldNDK PUBLIC        
+        ${CMAKE_CURRENT_SOURCE_DIR}/Example/Unity_NDK
+    )
+
+    target_compile_definitions(InworldNDK PUBLIC UNITY_NDK)
+else()
+    message("unity-ndk is false")
+    add_library(InworldNDK ${FilesALL})
+endif()
 
 if(ANDROID)
     set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -fPIC")
