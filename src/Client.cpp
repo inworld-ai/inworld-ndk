@@ -255,7 +255,7 @@ void Inworld::ClientBase::StopClient()
 
 void Inworld::ClientBase::DestroyClient()
 {
-	StopReaderWriter();
+	StopClient();
 	_AsyncLoadSceneTask->Stop();
 }
 
