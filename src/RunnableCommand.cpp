@@ -144,6 +144,8 @@ grpc::Status Inworld::RunnableLoadScene::RunProcess()
 	User->set_id(_UserId);
 	User->set_name(_PlayerName);
 
+	Inworld::Log("RunnableLoadScene User id: %s", ARG_STR(_UserId));
+
 	auto* Client = LoadSceneRequest.mutable_client();
 	Client->set_id(_ClientId);
 	Client->set_version(_ClientVersion);
