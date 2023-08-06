@@ -8,6 +8,7 @@
 #include "RunnableCommand.h"
 #include "Packets.h"
 #include "Utils/Utils.h"
+#include "Utils/Log.h"
 
 #include <iomanip>
 #include <random>
