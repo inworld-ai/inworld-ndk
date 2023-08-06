@@ -35,6 +35,7 @@
 #include <google/protobuf/duration.pb.h>
 #include <google/protobuf/struct.pb.h>
 #include <google/protobuf/timestamp.pb.h>
+#include "options.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_packets_2eproto
@@ -50,7 +51,7 @@ struct TableStruct_packets_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[26]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[27]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -138,6 +139,9 @@ extern RoutingDefaultTypeInternal _Routing_default_instance_;
 class TextEvent;
 class TextEventDefaultTypeInternal;
 extern TextEventDefaultTypeInternal _TextEvent_default_instance_;
+class TextEvent_ModelInfo;
+class TextEvent_ModelInfoDefaultTypeInternal;
+extern TextEvent_ModelInfoDefaultTypeInternal _TextEvent_ModelInfo_default_instance_;
 }  // namespace packets
 }  // namespace inworld
 }  // namespace ai
@@ -168,6 +172,7 @@ template<> ::ai::inworld::packets::RelationInfo* Arena::CreateMaybeMessage<::ai:
 template<> ::ai::inworld::packets::RelationInfo_RelationAttributes* Arena::CreateMaybeMessage<::ai::inworld::packets::RelationInfo_RelationAttributes>(Arena*);
 template<> ::ai::inworld::packets::Routing* Arena::CreateMaybeMessage<::ai::inworld::packets::Routing>(Arena*);
 template<> ::ai::inworld::packets::TextEvent* Arena::CreateMaybeMessage<::ai::inworld::packets::TextEvent>(Arena*);
+template<> ::ai::inworld::packets::TextEvent_ModelInfo* Arena::CreateMaybeMessage<::ai::inworld::packets::TextEvent_ModelInfo>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace ai {
 namespace inworld {
@@ -332,7 +337,6 @@ inline bool EmotionEvent_Strength_Parse(
 enum DataChunk_DataType : int {
   DataChunk_DataType_UNSPECIFIED = 0,
   DataChunk_DataType_AUDIO = 1,
-  DataChunk_DataType_ANIMATION = 2,
   DataChunk_DataType_SILENCE = 3,
   DataChunk_DataType_STATE = 4,
   DataChunk_DataType_DataChunk_DataType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
@@ -356,6 +360,33 @@ inline bool DataChunk_DataType_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, DataChunk_DataType* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<DataChunk_DataType>(
     DataChunk_DataType_descriptor(), name, value);
+}
+enum DataChunk_AudioFormat : int {
+  DataChunk_AudioFormat_UNSPECIFIED_AUDIO_FORMAT = 0,
+  DataChunk_AudioFormat_AUDIO_MP3 = 1,
+  DataChunk_AudioFormat_AUDIO_PCM_16000 = 2,
+  DataChunk_AudioFormat_AUDIO_PCM_22050 = 3,
+  DataChunk_AudioFormat_DataChunk_AudioFormat_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  DataChunk_AudioFormat_DataChunk_AudioFormat_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool DataChunk_AudioFormat_IsValid(int value);
+constexpr DataChunk_AudioFormat DataChunk_AudioFormat_AudioFormat_MIN = DataChunk_AudioFormat_UNSPECIFIED_AUDIO_FORMAT;
+constexpr DataChunk_AudioFormat DataChunk_AudioFormat_AudioFormat_MAX = DataChunk_AudioFormat_AUDIO_PCM_22050;
+constexpr int DataChunk_AudioFormat_AudioFormat_ARRAYSIZE = DataChunk_AudioFormat_AudioFormat_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DataChunk_AudioFormat_descriptor();
+template<typename T>
+inline const std::string& DataChunk_AudioFormat_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, DataChunk_AudioFormat>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function DataChunk_AudioFormat_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    DataChunk_AudioFormat_descriptor(), enum_t_value);
+}
+inline bool DataChunk_AudioFormat_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, DataChunk_AudioFormat* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<DataChunk_AudioFormat>(
+    DataChunk_AudioFormat_descriptor(), name, value);
 }
 enum Playback : int {
   UNSPECIFIED = 0,
@@ -1375,6 +1406,167 @@ class InworldPacket PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class TextEvent_ModelInfo PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.packets.TextEvent.ModelInfo) */ {
+ public:
+  inline TextEvent_ModelInfo() : TextEvent_ModelInfo(nullptr) {}
+  virtual ~TextEvent_ModelInfo();
+
+  TextEvent_ModelInfo(const TextEvent_ModelInfo& from);
+  TextEvent_ModelInfo(TextEvent_ModelInfo&& from) noexcept
+    : TextEvent_ModelInfo() {
+    *this = ::std::move(from);
+  }
+
+  inline TextEvent_ModelInfo& operator=(const TextEvent_ModelInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline TextEvent_ModelInfo& operator=(TextEvent_ModelInfo&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const TextEvent_ModelInfo& default_instance();
+
+  static inline const TextEvent_ModelInfo* internal_default_instance() {
+    return reinterpret_cast<const TextEvent_ModelInfo*>(
+               &_TextEvent_ModelInfo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(TextEvent_ModelInfo& a, TextEvent_ModelInfo& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(TextEvent_ModelInfo* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(TextEvent_ModelInfo* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline TextEvent_ModelInfo* New() const final {
+    return CreateMaybeMessage<TextEvent_ModelInfo>(nullptr);
+  }
+
+  TextEvent_ModelInfo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<TextEvent_ModelInfo>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const TextEvent_ModelInfo& from);
+  void MergeFrom(const TextEvent_ModelInfo& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(TextEvent_ModelInfo* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.packets.TextEvent.ModelInfo";
+  }
+  protected:
+  explicit TextEvent_ModelInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_packets_2eproto);
+    return ::descriptor_table_packets_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kServiceFieldNumber = 1,
+    kModelFieldNumber = 2,
+  };
+  // string service = 1;
+  void clear_service();
+  const std::string& service() const;
+  void set_service(const std::string& value);
+  void set_service(std::string&& value);
+  void set_service(const char* value);
+  void set_service(const char* value, size_t size);
+  std::string* mutable_service();
+  std::string* release_service();
+  void set_allocated_service(std::string* service);
+  private:
+  const std::string& _internal_service() const;
+  void _internal_set_service(const std::string& value);
+  std::string* _internal_mutable_service();
+  public:
+
+  // string model = 2;
+  void clear_model();
+  const std::string& model() const;
+  void set_model(const std::string& value);
+  void set_model(std::string&& value);
+  void set_model(const char* value);
+  void set_model(const char* value, size_t size);
+  std::string* mutable_model();
+  std::string* release_model();
+  void set_allocated_model(std::string* model);
+  private:
+  const std::string& _internal_model() const;
+  void _internal_set_model(const std::string& value);
+  std::string* _internal_mutable_model();
+  public:
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.packets.TextEvent.ModelInfo)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr service_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr model_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_packets_2eproto;
+};
+// -------------------------------------------------------------------
+
 class TextEvent PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.packets.TextEvent) */ {
  public:
@@ -1416,7 +1608,7 @@ class TextEvent PROTOBUF_FINAL :
                &_TextEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   friend void swap(TextEvent& a, TextEvent& b) {
     a.Swap(&b);
@@ -1484,6 +1676,8 @@ class TextEvent PROTOBUF_FINAL :
 
   // nested types ----------------------------------------------------
 
+  typedef TextEvent_ModelInfo ModelInfo;
+
   typedef TextEvent_SourceType SourceType;
   static constexpr SourceType UNKNOWN =
     TextEvent_SourceType_UNKNOWN;
@@ -1524,6 +1718,7 @@ class TextEvent PROTOBUF_FINAL :
 
   enum : int {
     kTextFieldNumber = 1,
+    kModelInfoFieldNumber = 4,
     kSourceTypeFieldNumber = 2,
     kFinalFieldNumber = 3,
   };
@@ -1542,6 +1737,24 @@ class TextEvent PROTOBUF_FINAL :
   void _internal_set_text(const std::string& value);
   std::string* _internal_mutable_text();
   public:
+
+  // .ai.inworld.packets.TextEvent.ModelInfo model_info = 4 [(.ai.inworld.options.field_mode) = HIDDEN];
+  bool has_model_info() const;
+  private:
+  bool _internal_has_model_info() const;
+  public:
+  void clear_model_info();
+  const ::ai::inworld::packets::TextEvent_ModelInfo& model_info() const;
+  ::ai::inworld::packets::TextEvent_ModelInfo* release_model_info();
+  ::ai::inworld::packets::TextEvent_ModelInfo* mutable_model_info();
+  void set_allocated_model_info(::ai::inworld::packets::TextEvent_ModelInfo* model_info);
+  private:
+  const ::ai::inworld::packets::TextEvent_ModelInfo& _internal_model_info() const;
+  ::ai::inworld::packets::TextEvent_ModelInfo* _internal_mutable_model_info();
+  public:
+  void unsafe_arena_set_allocated_model_info(
+      ::ai::inworld::packets::TextEvent_ModelInfo* model_info);
+  ::ai::inworld::packets::TextEvent_ModelInfo* unsafe_arena_release_model_info();
 
   // .ai.inworld.packets.TextEvent.SourceType source_type = 2;
   void clear_source_type();
@@ -1569,6 +1782,7 @@ class TextEvent PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr text_;
+  ::ai::inworld::packets::TextEvent_ModelInfo* model_info_;
   int source_type_;
   bool final_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -1617,7 +1831,7 @@ class ControlEvent PROTOBUF_FINAL :
                &_ControlEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(ControlEvent& a, ControlEvent& b) {
     a.Swap(&b);
@@ -1837,7 +2051,7 @@ class AudioChunk PROTOBUF_FINAL :
                &_AudioChunk_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(AudioChunk& a, AudioChunk& b) {
     a.Swap(&b);
@@ -1980,7 +2194,7 @@ class CustomEvent_Parameter PROTOBUF_FINAL :
                &_CustomEvent_Parameter_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(CustomEvent_Parameter& a, CustomEvent_Parameter& b) {
     a.Swap(&b);
@@ -2141,7 +2355,7 @@ class CustomEvent PROTOBUF_FINAL :
                &_CustomEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(CustomEvent& a, CustomEvent& b) {
     a.Swap(&b);
@@ -2317,7 +2531,7 @@ class CancelResponsesEvent PROTOBUF_FINAL :
                &_CancelResponsesEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(CancelResponsesEvent& a, CancelResponsesEvent& b) {
     a.Swap(&b);
@@ -2486,7 +2700,7 @@ class EmotionEvent PROTOBUF_FINAL :
                &_EmotionEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(EmotionEvent& a, EmotionEvent& b) {
     a.Swap(&b);
@@ -2781,7 +2995,7 @@ class DataChunk PROTOBUF_FINAL :
                &_DataChunk_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(DataChunk& a, DataChunk& b) {
     a.Swap(&b);
@@ -2854,8 +3068,6 @@ class DataChunk PROTOBUF_FINAL :
     DataChunk_DataType_UNSPECIFIED;
   static constexpr DataType AUDIO =
     DataChunk_DataType_AUDIO;
-  static constexpr DataType ANIMATION =
-    DataChunk_DataType_ANIMATION;
   static constexpr DataType SILENCE =
     DataChunk_DataType_SILENCE;
   static constexpr DataType STATE =
@@ -2885,11 +3097,46 @@ class DataChunk PROTOBUF_FINAL :
     return DataChunk_DataType_Parse(name, value);
   }
 
+  typedef DataChunk_AudioFormat AudioFormat;
+  static constexpr AudioFormat UNSPECIFIED_AUDIO_FORMAT =
+    DataChunk_AudioFormat_UNSPECIFIED_AUDIO_FORMAT;
+  static constexpr AudioFormat AUDIO_MP3 =
+    DataChunk_AudioFormat_AUDIO_MP3;
+  static constexpr AudioFormat AUDIO_PCM_16000 =
+    DataChunk_AudioFormat_AUDIO_PCM_16000;
+  static constexpr AudioFormat AUDIO_PCM_22050 =
+    DataChunk_AudioFormat_AUDIO_PCM_22050;
+  static inline bool AudioFormat_IsValid(int value) {
+    return DataChunk_AudioFormat_IsValid(value);
+  }
+  static constexpr AudioFormat AudioFormat_MIN =
+    DataChunk_AudioFormat_AudioFormat_MIN;
+  static constexpr AudioFormat AudioFormat_MAX =
+    DataChunk_AudioFormat_AudioFormat_MAX;
+  static constexpr int AudioFormat_ARRAYSIZE =
+    DataChunk_AudioFormat_AudioFormat_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  AudioFormat_descriptor() {
+    return DataChunk_AudioFormat_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& AudioFormat_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, AudioFormat>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function AudioFormat_Name.");
+    return DataChunk_AudioFormat_Name(enum_t_value);
+  }
+  static inline bool AudioFormat_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      AudioFormat* value) {
+    return DataChunk_AudioFormat_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
 
   enum : int {
     kAdditionalPhonemeInfoFieldNumber = 4,
     kTypeFieldNumber = 2,
+    kAudioFormatFieldNumber = 5,
     kChunkFieldNumber = 1,
     kDurationMsFieldNumber = 3,
   };
@@ -2918,6 +3165,15 @@ class DataChunk PROTOBUF_FINAL :
   private:
   ::ai::inworld::packets::DataChunk_DataType _internal_type() const;
   void _internal_set_type(::ai::inworld::packets::DataChunk_DataType value);
+  public:
+
+  // .ai.inworld.packets.DataChunk.AudioFormat audioFormat = 5;
+  void clear_audioformat();
+  ::ai::inworld::packets::DataChunk_AudioFormat audioformat() const;
+  void set_audioformat(::ai::inworld::packets::DataChunk_AudioFormat value);
+  private:
+  ::ai::inworld::packets::DataChunk_AudioFormat _internal_audioformat() const;
+  void _internal_set_audioformat(::ai::inworld::packets::DataChunk_AudioFormat value);
   public:
 
   // bytes chunk = 1;
@@ -2967,6 +3223,7 @@ class DataChunk PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::AdditionalPhonemeInfo > additional_phoneme_info_;
   int type_;
+  int audioformat_;
   union DataUnion {
     DataUnion() {}
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr chunk_;
@@ -3020,7 +3277,7 @@ class AdditionalPhonemeInfo PROTOBUF_FINAL :
                &_AdditionalPhonemeInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(AdditionalPhonemeInfo& a, AdditionalPhonemeInfo& b) {
     a.Swap(&b);
@@ -3188,7 +3445,7 @@ class ActionEvent PROTOBUF_FINAL :
                &_ActionEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(ActionEvent& a, ActionEvent& b) {
     a.Swap(&b);
@@ -3355,7 +3612,7 @@ class NarratedAction PROTOBUF_FINAL :
                &_NarratedAction_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(NarratedAction& a, NarratedAction& b) {
     a.Swap(&b);
@@ -3498,7 +3755,7 @@ class RelationInfo_RelationAttributes PROTOBUF_FINAL :
                &_RelationInfo_RelationAttributes_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(RelationInfo_RelationAttributes& a, RelationInfo_RelationAttributes& b) {
     a.Swap(&b);
@@ -3678,7 +3935,7 @@ class RelationInfo PROTOBUF_FINAL :
                &_RelationInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(RelationInfo& a, RelationInfo& b) {
     a.Swap(&b);
@@ -3854,7 +4111,7 @@ class MutationEvent PROTOBUF_FINAL :
                &_MutationEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(MutationEvent& a, MutationEvent& b) {
     a.Swap(&b);
@@ -4094,7 +4351,7 @@ class CancelResponses PROTOBUF_FINAL :
                &_CancelResponses_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(CancelResponses& a, CancelResponses& b) {
     a.Swap(&b);
@@ -4263,7 +4520,7 @@ class RegenerateResponse PROTOBUF_FINAL :
                &_RegenerateResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(RegenerateResponse& a, RegenerateResponse& b) {
     a.Swap(&b);
@@ -4406,7 +4663,7 @@ class ApplyResponse PROTOBUF_FINAL :
                &_ApplyResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(ApplyResponse& a, ApplyResponse& b) {
     a.Swap(&b);
@@ -4551,7 +4808,7 @@ class LoadScene PROTOBUF_FINAL :
                &_LoadScene_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(LoadScene& a, LoadScene& b) {
     a.Swap(&b);
@@ -4694,7 +4951,7 @@ class ModifyExactResponse PROTOBUF_FINAL :
                &_ModifyExactResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(ModifyExactResponse& a, ModifyExactResponse& b) {
     a.Swap(&b);
@@ -4855,7 +5112,7 @@ class LoadSceneOutputEvent_Agent PROTOBUF_FINAL :
                &_LoadSceneOutputEvent_Agent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   friend void swap(LoadSceneOutputEvent_Agent& a, LoadSceneOutputEvent_Agent& b) {
     a.Swap(&b);
@@ -5034,7 +5291,7 @@ class LoadSceneOutputEvent PROTOBUF_FINAL :
                &_LoadSceneOutputEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    25;
 
   friend void swap(LoadSceneOutputEvent& a, LoadSceneOutputEvent& b) {
     a.Swap(&b);
@@ -5186,7 +5443,7 @@ class DebugInfoEvent PROTOBUF_FINAL :
                &_DebugInfoEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    26;
 
   friend void swap(DebugInfoEvent& a, DebugInfoEvent& b) {
     a.Swap(&b);
@@ -6870,6 +7127,132 @@ inline InworldPacket::PacketCase InworldPacket::packet_case() const {
 }
 // -------------------------------------------------------------------
 
+// TextEvent_ModelInfo
+
+// string service = 1;
+inline void TextEvent_ModelInfo::clear_service() {
+  service_.ClearToEmpty();
+}
+inline const std::string& TextEvent_ModelInfo::service() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.TextEvent.ModelInfo.service)
+  return _internal_service();
+}
+inline void TextEvent_ModelInfo::set_service(const std::string& value) {
+  _internal_set_service(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.TextEvent.ModelInfo.service)
+}
+inline std::string* TextEvent_ModelInfo::mutable_service() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.TextEvent.ModelInfo.service)
+  return _internal_mutable_service();
+}
+inline const std::string& TextEvent_ModelInfo::_internal_service() const {
+  return service_.Get();
+}
+inline void TextEvent_ModelInfo::_internal_set_service(const std::string& value) {
+  
+  service_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void TextEvent_ModelInfo::set_service(std::string&& value) {
+  
+  service_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.packets.TextEvent.ModelInfo.service)
+}
+inline void TextEvent_ModelInfo::set_service(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  service_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.packets.TextEvent.ModelInfo.service)
+}
+inline void TextEvent_ModelInfo::set_service(const char* value,
+    size_t size) {
+  
+  service_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.packets.TextEvent.ModelInfo.service)
+}
+inline std::string* TextEvent_ModelInfo::_internal_mutable_service() {
+  
+  return service_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* TextEvent_ModelInfo::release_service() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.TextEvent.ModelInfo.service)
+  return service_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void TextEvent_ModelInfo::set_allocated_service(std::string* service) {
+  if (service != nullptr) {
+    
+  } else {
+    
+  }
+  service_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), service,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.TextEvent.ModelInfo.service)
+}
+
+// string model = 2;
+inline void TextEvent_ModelInfo::clear_model() {
+  model_.ClearToEmpty();
+}
+inline const std::string& TextEvent_ModelInfo::model() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.TextEvent.ModelInfo.model)
+  return _internal_model();
+}
+inline void TextEvent_ModelInfo::set_model(const std::string& value) {
+  _internal_set_model(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.TextEvent.ModelInfo.model)
+}
+inline std::string* TextEvent_ModelInfo::mutable_model() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.TextEvent.ModelInfo.model)
+  return _internal_mutable_model();
+}
+inline const std::string& TextEvent_ModelInfo::_internal_model() const {
+  return model_.Get();
+}
+inline void TextEvent_ModelInfo::_internal_set_model(const std::string& value) {
+  
+  model_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void TextEvent_ModelInfo::set_model(std::string&& value) {
+  
+  model_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.packets.TextEvent.ModelInfo.model)
+}
+inline void TextEvent_ModelInfo::set_model(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  model_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.packets.TextEvent.ModelInfo.model)
+}
+inline void TextEvent_ModelInfo::set_model(const char* value,
+    size_t size) {
+  
+  model_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.packets.TextEvent.ModelInfo.model)
+}
+inline std::string* TextEvent_ModelInfo::_internal_mutable_model() {
+  
+  return model_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* TextEvent_ModelInfo::release_model() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.TextEvent.ModelInfo.model)
+  return model_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void TextEvent_ModelInfo::set_allocated_model(std::string* model) {
+  if (model != nullptr) {
+    
+  } else {
+    
+  }
+  model_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), model,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.TextEvent.ModelInfo.model)
+}
+
+// -------------------------------------------------------------------
+
 // TextEvent
 
 // string text = 1;
@@ -6971,6 +7354,89 @@ inline void TextEvent::_internal_set_final(bool value) {
 inline void TextEvent::set_final(bool value) {
   _internal_set_final(value);
   // @@protoc_insertion_point(field_set:ai.inworld.packets.TextEvent.final)
+}
+
+// .ai.inworld.packets.TextEvent.ModelInfo model_info = 4 [(.ai.inworld.options.field_mode) = HIDDEN];
+inline bool TextEvent::_internal_has_model_info() const {
+  return this != internal_default_instance() && model_info_ != nullptr;
+}
+inline bool TextEvent::has_model_info() const {
+  return _internal_has_model_info();
+}
+inline void TextEvent::clear_model_info() {
+  if (GetArena() == nullptr && model_info_ != nullptr) {
+    delete model_info_;
+  }
+  model_info_ = nullptr;
+}
+inline const ::ai::inworld::packets::TextEvent_ModelInfo& TextEvent::_internal_model_info() const {
+  const ::ai::inworld::packets::TextEvent_ModelInfo* p = model_info_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ai::inworld::packets::TextEvent_ModelInfo&>(
+      ::ai::inworld::packets::_TextEvent_ModelInfo_default_instance_);
+}
+inline const ::ai::inworld::packets::TextEvent_ModelInfo& TextEvent::model_info() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.TextEvent.model_info)
+  return _internal_model_info();
+}
+inline void TextEvent::unsafe_arena_set_allocated_model_info(
+    ::ai::inworld::packets::TextEvent_ModelInfo* model_info) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(model_info_);
+  }
+  model_info_ = model_info;
+  if (model_info) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.packets.TextEvent.model_info)
+}
+inline ::ai::inworld::packets::TextEvent_ModelInfo* TextEvent::release_model_info() {
+  
+  ::ai::inworld::packets::TextEvent_ModelInfo* temp = model_info_;
+  model_info_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::ai::inworld::packets::TextEvent_ModelInfo* TextEvent::unsafe_arena_release_model_info() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.TextEvent.model_info)
+  
+  ::ai::inworld::packets::TextEvent_ModelInfo* temp = model_info_;
+  model_info_ = nullptr;
+  return temp;
+}
+inline ::ai::inworld::packets::TextEvent_ModelInfo* TextEvent::_internal_mutable_model_info() {
+  
+  if (model_info_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ai::inworld::packets::TextEvent_ModelInfo>(GetArena());
+    model_info_ = p;
+  }
+  return model_info_;
+}
+inline ::ai::inworld::packets::TextEvent_ModelInfo* TextEvent::mutable_model_info() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.TextEvent.model_info)
+  return _internal_mutable_model_info();
+}
+inline void TextEvent::set_allocated_model_info(::ai::inworld::packets::TextEvent_ModelInfo* model_info) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete model_info_;
+  }
+  if (model_info) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(model_info);
+    if (message_arena != submessage_arena) {
+      model_info = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, model_info, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  model_info_ = model_info;
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.TextEvent.model_info)
 }
 
 // -------------------------------------------------------------------
@@ -7916,6 +8382,26 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::
 DataChunk::additional_phoneme_info() const {
   // @@protoc_insertion_point(field_list:ai.inworld.packets.DataChunk.additional_phoneme_info)
   return additional_phoneme_info_;
+}
+
+// .ai.inworld.packets.DataChunk.AudioFormat audioFormat = 5;
+inline void DataChunk::clear_audioformat() {
+  audioformat_ = 0;
+}
+inline ::ai::inworld::packets::DataChunk_AudioFormat DataChunk::_internal_audioformat() const {
+  return static_cast< ::ai::inworld::packets::DataChunk_AudioFormat >(audioformat_);
+}
+inline ::ai::inworld::packets::DataChunk_AudioFormat DataChunk::audioformat() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.DataChunk.audioFormat)
+  return _internal_audioformat();
+}
+inline void DataChunk::_internal_set_audioformat(::ai::inworld::packets::DataChunk_AudioFormat value) {
+  
+  audioformat_ = value;
+}
+inline void DataChunk::set_audioformat(::ai::inworld::packets::DataChunk_AudioFormat value) {
+  _internal_set_audioformat(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.DataChunk.audioFormat)
 }
 
 inline bool DataChunk::has_data() const {
@@ -9743,6 +10229,8 @@ inline DebugInfoEvent::InfoCase DebugInfoEvent::info_case() const {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -9781,6 +10269,11 @@ template <> struct is_proto_enum< ::ai::inworld::packets::DataChunk_DataType> : 
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ai::inworld::packets::DataChunk_DataType>() {
   return ::ai::inworld::packets::DataChunk_DataType_descriptor();
+}
+template <> struct is_proto_enum< ::ai::inworld::packets::DataChunk_AudioFormat> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ai::inworld::packets::DataChunk_AudioFormat>() {
+  return ::ai::inworld::packets::DataChunk_AudioFormat_descriptor();
 }
 template <> struct is_proto_enum< ::ai::inworld::packets::Playback> : ::std::true_type {};
 template <>

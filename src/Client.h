@@ -25,8 +25,7 @@ namespace Inworld
 {
 	struct INWORLDAINDK_API ClientOptions
 	{
-		std::string AuthUrl;
-		std::string LoadSceneUrl;
+		std::string ServerUrl;
 		std::string SceneName;
 		std::string ApiKey;
 		std::string ApiSecret;

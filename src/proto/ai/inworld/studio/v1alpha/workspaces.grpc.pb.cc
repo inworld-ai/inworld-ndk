@@ -31,6 +31,7 @@ static const char* Workspaces_method_names[] = {
   "/ai.inworld.studio.v1alpha.Workspaces/UpdateWorkspace",
   "/ai.inworld.studio.v1alpha.Workspaces/CreateWorkspace",
   "/ai.inworld.studio.v1alpha.Workspaces/DeleteWorkspace",
+  "/ai.inworld.studio.v1alpha.Workspaces/CloneWorkspace",
   "/ai.inworld.studio.v1alpha.Workspaces/ShareWorkspace",
   "/ai.inworld.studio.v1alpha.Workspaces/generateResourceName",
   "/ai.inworld.studio.v1alpha.Workspaces/GetWorkspaceShareInfo",
@@ -50,11 +51,12 @@ Workspaces::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel
   , rpcmethod_UpdateWorkspace_(Workspaces_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_CreateWorkspace_(Workspaces_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_DeleteWorkspace_(Workspaces_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_ShareWorkspace_(Workspaces_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_generateResourceName_(Workspaces_method_names[6], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetWorkspaceShareInfo_(Workspaces_method_names[7], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetWorkspaceLimitInfo_(Workspaces_method_names[8], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SendImpressionEvent_(Workspaces_method_names[9], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_CloneWorkspace_(Workspaces_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_ShareWorkspace_(Workspaces_method_names[6], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_generateResourceName_(Workspaces_method_names[7], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetWorkspaceShareInfo_(Workspaces_method_names[8], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetWorkspaceLimitInfo_(Workspaces_method_names[9], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SendImpressionEvent_(Workspaces_method_names[10], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status Workspaces::Stub::GetWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceRequest& request, ::ai::inworld::studio::v1alpha::Workspace* response) {
@@ -168,6 +170,29 @@ void Workspaces::Stub::experimental_async::DeleteWorkspace(::grpc::ClientContext
 ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Workspaces::Stub::AsyncDeleteWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncDeleteWorkspaceRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status Workspaces::Stub::CloneWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest& request, ::ai::inworld::studio::v1alpha::Workspace* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_CloneWorkspace_, context, request, response);
+}
+
+void Workspaces::Stub::experimental_async::CloneWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CloneWorkspace_, context, request, response, std::move(f));
+}
+
+void Workspaces::Stub::experimental_async::CloneWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CloneWorkspace_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Workspace>* Workspaces::Stub::PrepareAsyncCloneWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::Workspace, ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_CloneWorkspace_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Workspace>* Workspaces::Stub::AsyncCloneWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncCloneWorkspaceRaw(context, request, cq);
   result->StartCall();
   return result;
 }
@@ -341,6 +366,16 @@ Workspaces::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Workspaces_method_names[5],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](Workspaces::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest* req,
+             ::ai::inworld::studio::v1alpha::Workspace* resp) {
+               return service->CloneWorkspace(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Workspaces_method_names[6],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](Workspaces::Service* service,
              ::grpc::ServerContext* ctx,
@@ -349,7 +384,7 @@ Workspaces::Service::Service() {
                return service->ShareWorkspace(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Workspaces_method_names[6],
+      Workspaces_method_names[7],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](Workspaces::Service* service,
@@ -359,7 +394,7 @@ Workspaces::Service::Service() {
                return service->generateResourceName(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Workspaces_method_names[7],
+      Workspaces_method_names[8],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](Workspaces::Service* service,
@@ -369,7 +404,7 @@ Workspaces::Service::Service() {
                return service->GetWorkspaceShareInfo(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Workspaces_method_names[8],
+      Workspaces_method_names[9],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](Workspaces::Service* service,
@@ -379,7 +414,7 @@ Workspaces::Service::Service() {
                return service->GetWorkspaceLimitInfo(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Workspaces_method_names[9],
+      Workspaces_method_names[10],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](Workspaces::Service* service,
@@ -422,6 +457,13 @@ Workspaces::Service::~Service() {
 }
 
 ::grpc::Status Workspaces::Service::DeleteWorkspace(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf::Empty* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Workspaces::Service::CloneWorkspace(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response) {
   (void) context;
   (void) request;
   (void) response;

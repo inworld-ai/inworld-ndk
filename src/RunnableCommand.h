@@ -170,11 +170,11 @@ namespace Inworld
 		std::function<void(const grpc::Status& Status, const TResponse& Response)> _Callback;
 	};
 
-	class INWORLDAINDK_API RunnableGenerateSessionToken : public RunnableRequest<InworldV1alpha::Tokens, InworldV1alpha::SessionAccessToken>
+	class INWORLDAINDK_API RunnableGenerateSessionToken : public RunnableRequest<InworldEngine::WorldEngine, InworldEngine::AccessToken>
 	{
 	public:
-		RunnableGenerateSessionToken(const std::string& AuthUrl, const std::string& ApiKey, const std::string& ApiSecret, std::function<void(const grpc::Status&, const InworldV1alpha::SessionAccessToken&)> Callback = nullptr)
-			: RunnableRequest(AuthUrl, Callback)
+		RunnableGenerateSessionToken(const std::string& ServerUrl, const std::string& ApiKey, const std::string& ApiSecret, std::function<void(const grpc::Status&, const InworldEngine::AccessToken&)> Callback = nullptr)
+			: RunnableRequest(ServerUrl, Callback)
 			, _ApiKey(ApiKey)
 			, _ApiSecret(ApiSecret)
 		{}
@@ -227,8 +227,8 @@ namespace Inworld
 	class INWORLDAINDK_API RunnableLoadScene : public RunnableRequest<InworldEngine::WorldEngine, InworldEngine::LoadSceneResponse>
 	{
 	public:
-		RunnableLoadScene(const std::string& Token, const std::string& SessionId, const std::string& LoadSceneUrl, const std::string& SceneName, const std::string& PlayerName, const std::string& UserId, const UserSettings& UserSettings, const std::string& ClientId, const std::string& ClientVersion, const CapabilitySet& Capabilities, std::function<void(const grpc::Status&, const InworldEngine::LoadSceneResponse&)> Callback = nullptr)
-			: RunnableRequest(LoadSceneUrl, Callback)
+		RunnableLoadScene(const std::string& Token, const std::string& SessionId, const std::string& ServerUrl, const std::string& SceneName, const std::string& PlayerName, const std::string& UserId, const UserSettings& UserSettings, const std::string& ClientId, const std::string& ClientVersion, const CapabilitySet& Capabilities, std::function<void(const grpc::Status&, const InworldEngine::LoadSceneResponse&)> Callback = nullptr)
+			: RunnableRequest(ServerUrl, Callback)
 			, _Token(Token)
 			, _SessionId(SessionId)
 			, _SceneName(SceneName)

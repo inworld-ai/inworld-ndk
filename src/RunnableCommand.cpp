@@ -110,12 +110,12 @@ void Inworld::RunnableWrite::Run()
 
 grpc::Status Inworld::RunnableGenerateSessionToken::RunProcess()
 {
-	InworldV1alpha::GenerateSessionTokenRequest AuthRequest;
+	InworldEngine::GenerateTokenRequest AuthRequest;
 	AuthRequest.set_key(_ApiKey);
 
 	auto& AuthCtx = UpdateContext({ {"authorization", GenerateHeader() } });
 
-	return CreateStub()->GenerateSessionToken(AuthCtx.get(), AuthRequest, &_Response);
+	return CreateStub()->GenerateToken(AuthCtx.get(), AuthRequest, &_Response);
 }
 
 grpc::Status Inworld::RunnableLoadScene::RunProcess()
@@ -124,7 +124,6 @@ grpc::Status Inworld::RunnableLoadScene::RunProcess()
 	LoadSceneRequest.set_name(_SceneName);
 
 	auto* Capabilities = LoadSceneRequest.mutable_capabilities();
-	Capabilities->set_animations(_Capabilities.Animations);
 	Capabilities->set_text(_Capabilities.Text);
 	Capabilities->set_audio(_Capabilities.Audio);
 	Capabilities->set_emotions(_Capabilities.Emotions);
@@ -197,8 +196,8 @@ std::string Inworld::RunnableGenerateSessionToken::GenerateHeader() const
 
 	std::vector<std::string> CryptoArgs = {
 		CurrentTime,
-		_ServerUrl,
-		"ai.inworld.studio.v1alpha.Tokens/GenerateSessionToken",
+		"api-engine.inworld.ai",
+		"ai.inworld.engine.WorldEngine/GenerateToken",
 		Nonce,
 		"iw1_request"
 	};

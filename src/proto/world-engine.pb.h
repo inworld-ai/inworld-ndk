@@ -403,7 +403,6 @@ class CapabilitiesRequest PROTOBUF_FINAL :
     kInterruptionsFieldNumber = 4,
     kTriggersFieldNumber = 5,
     kEmotionsFieldNumber = 6,
-    kAnimationsFieldNumber = 7,
     kTurnBasedSttFieldNumber = 8,
     kEmotionStreamingFieldNumber = 9,
     kSilenceEventsFieldNumber = 10,
@@ -415,6 +414,7 @@ class CapabilitiesRequest PROTOBUF_FINAL :
     kLoadSceneInSessionFieldNumber = 16,
     kRelationsFieldNumber = 17,
     kDebugInfoFieldNumber = 18,
+    kTtsMp3FieldNumber = 19,
   };
   // bool audio = 1;
   void clear_audio();
@@ -434,10 +434,10 @@ class CapabilitiesRequest PROTOBUF_FINAL :
   void _internal_set_text(bool value);
   public:
 
-  // bool gestures = 3;
-  void clear_gestures();
-  bool gestures() const;
-  void set_gestures(bool value);
+  // bool gestures = 3 [deprecated = true];
+  PROTOBUF_DEPRECATED void clear_gestures();
+  PROTOBUF_DEPRECATED bool gestures() const;
+  PROTOBUF_DEPRECATED void set_gestures(bool value);
   private:
   bool _internal_gestures() const;
   void _internal_set_gestures(bool value);
@@ -452,10 +452,10 @@ class CapabilitiesRequest PROTOBUF_FINAL :
   void _internal_set_interruptions(bool value);
   public:
 
-  // bool triggers = 5;
-  void clear_triggers();
-  bool triggers() const;
-  void set_triggers(bool value);
+  // bool triggers = 5 [deprecated = true];
+  PROTOBUF_DEPRECATED void clear_triggers();
+  PROTOBUF_DEPRECATED bool triggers() const;
+  PROTOBUF_DEPRECATED void set_triggers(bool value);
   private:
   bool _internal_triggers() const;
   void _internal_set_triggers(bool value);
@@ -468,15 +468,6 @@ class CapabilitiesRequest PROTOBUF_FINAL :
   private:
   bool _internal_emotions() const;
   void _internal_set_emotions(bool value);
-  public:
-
-  // bool animations = 7;
-  void clear_animations();
-  bool animations() const;
-  void set_animations(bool value);
-  private:
-  bool _internal_animations() const;
-  void _internal_set_animations(bool value);
   public:
 
   // bool turn_based_stt = 8;
@@ -578,6 +569,15 @@ class CapabilitiesRequest PROTOBUF_FINAL :
   void _internal_set_debug_info(bool value);
   public:
 
+  // bool tts_mp3 = 19;
+  void clear_tts_mp3();
+  bool tts_mp3() const;
+  void set_tts_mp3(bool value);
+  private:
+  bool _internal_tts_mp3() const;
+  void _internal_set_tts_mp3(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:ai.inworld.engine.CapabilitiesRequest)
  private:
   class _Internal;
@@ -591,7 +591,6 @@ class CapabilitiesRequest PROTOBUF_FINAL :
   bool interruptions_;
   bool triggers_;
   bool emotions_;
-  bool animations_;
   bool turn_based_stt_;
   bool emotion_streaming_;
   bool silence_events_;
@@ -603,6 +602,7 @@ class CapabilitiesRequest PROTOBUF_FINAL :
   bool load_scene_in_session_;
   bool relations_;
   bool debug_info_;
+  bool tts_mp3_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_world_2dengine_2eproto;
 };
@@ -6132,7 +6132,7 @@ inline void CapabilitiesRequest::set_text(bool value) {
   // @@protoc_insertion_point(field_set:ai.inworld.engine.CapabilitiesRequest.text)
 }
 
-// bool gestures = 3;
+// bool gestures = 3 [deprecated = true];
 inline void CapabilitiesRequest::clear_gestures() {
   gestures_ = false;
 }
@@ -6172,7 +6172,7 @@ inline void CapabilitiesRequest::set_interruptions(bool value) {
   // @@protoc_insertion_point(field_set:ai.inworld.engine.CapabilitiesRequest.interruptions)
 }
 
-// bool triggers = 5;
+// bool triggers = 5 [deprecated = true];
 inline void CapabilitiesRequest::clear_triggers() {
   triggers_ = false;
 }
@@ -6210,26 +6210,6 @@ inline void CapabilitiesRequest::_internal_set_emotions(bool value) {
 inline void CapabilitiesRequest::set_emotions(bool value) {
   _internal_set_emotions(value);
   // @@protoc_insertion_point(field_set:ai.inworld.engine.CapabilitiesRequest.emotions)
-}
-
-// bool animations = 7;
-inline void CapabilitiesRequest::clear_animations() {
-  animations_ = false;
-}
-inline bool CapabilitiesRequest::_internal_animations() const {
-  return animations_;
-}
-inline bool CapabilitiesRequest::animations() const {
-  // @@protoc_insertion_point(field_get:ai.inworld.engine.CapabilitiesRequest.animations)
-  return _internal_animations();
-}
-inline void CapabilitiesRequest::_internal_set_animations(bool value) {
-  
-  animations_ = value;
-}
-inline void CapabilitiesRequest::set_animations(bool value) {
-  _internal_set_animations(value);
-  // @@protoc_insertion_point(field_set:ai.inworld.engine.CapabilitiesRequest.animations)
 }
 
 // bool turn_based_stt = 8;
@@ -6450,6 +6430,26 @@ inline void CapabilitiesRequest::_internal_set_debug_info(bool value) {
 inline void CapabilitiesRequest::set_debug_info(bool value) {
   _internal_set_debug_info(value);
   // @@protoc_insertion_point(field_set:ai.inworld.engine.CapabilitiesRequest.debug_info)
+}
+
+// bool tts_mp3 = 19;
+inline void CapabilitiesRequest::clear_tts_mp3() {
+  tts_mp3_ = false;
+}
+inline bool CapabilitiesRequest::_internal_tts_mp3() const {
+  return tts_mp3_;
+}
+inline bool CapabilitiesRequest::tts_mp3() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.CapabilitiesRequest.tts_mp3)
+  return _internal_tts_mp3();
+}
+inline void CapabilitiesRequest::_internal_set_tts_mp3(bool value) {
+  
+  tts_mp3_ = value;
+}
+inline void CapabilitiesRequest::set_tts_mp3(bool value) {
+  _internal_set_tts_mp3(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.CapabilitiesRequest.tts_mp3)
 }
 
 // -------------------------------------------------------------------
