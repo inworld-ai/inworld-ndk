@@ -366,20 +366,21 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_inworld_5fndkData_2eproto::off
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, animations_),
-  PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, text_),
   PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, audio_),
   PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, emotions_),
-  PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, gestures_),
   PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, interruptions_),
+  PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, narratedactions_),
+  PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, silence_),
+  PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, text_),
   PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, triggers_),
+  PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, continuation_),
+  PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, turnbasedstt_),
+  PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, phonemeinfo_),
+  PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, animations_),
+  PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, gestures_),
   PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, emotionstreaming_),
   PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, silenceevents_),
-  PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, phonemeinfo_),
   PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, loadsceneinsession_),
-  PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, turnbasedstt_),
-  PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, continuation_),
-  PROTOBUF_FIELD_OFFSET(::inworld::ndkData::CapabilitiesRequest, narratedactions_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::inworld::ndkData::InworldCharacterData, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -413,6 +414,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_inworld_5fndkData_2eproto::off
   PROTOBUF_FIELD_OFFSET(::inworld::ndkData::ClientOptions, player_name_),
   PROTOBUF_FIELD_OFFSET(::inworld::ndkData::ClientOptions, token_),
   PROTOBUF_FIELD_OFFSET(::inworld::ndkData::ClientOptions, session_id_),
+  PROTOBUF_FIELD_OFFSET(::inworld::ndkData::ClientOptions, user_id_),
   PROTOBUF_FIELD_OFFSET(::inworld::ndkData::ClientOptions, capabilities_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::inworld::ndkData::AgentInfo, _internal_metadata_),
@@ -448,12 +450,12 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 46, -1, sizeof(::inworld::ndkData::Fields)},
   { 53, -1, sizeof(::inworld::ndkData::ClientRequest)},
   { 60, -1, sizeof(::inworld::ndkData::CapabilitiesRequest)},
-  { 79, -1, sizeof(::inworld::ndkData::InworldCharacterData)},
-  { 89, -1, sizeof(::inworld::ndkData::CharacterAssets)},
-  { 99, -1, sizeof(::inworld::ndkData::ClientOptions)},
-  { 113, -1, sizeof(::inworld::ndkData::AgentInfo)},
-  { 121, -1, sizeof(::inworld::ndkData::SessionInfo)},
-  { 130, -1, sizeof(::inworld::ndkData::AgentInfoArray)},
+  { 80, -1, sizeof(::inworld::ndkData::InworldCharacterData)},
+  { 90, -1, sizeof(::inworld::ndkData::CharacterAssets)},
+  { 100, -1, sizeof(::inworld::ndkData::ClientOptions)},
+  { 115, -1, sizeof(::inworld::ndkData::AgentInfo)},
+  { 123, -1, sizeof(::inworld::ndkData::SessionInfo)},
+  { 132, -1, sizeof(::inworld::ndkData::AgentInfoArray)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -496,38 +498,39 @@ const char descriptor_table_protodef_inworld_5fndkData_2eproto[] PROTOBUF_SECTIO
   "\rPlayerProfile\022\'\n\006fields\030\001 \003(\0132\027.inworld"
   ".ndkData.Fields\"-\n\006Fields\022\017\n\007fieldId\030\001 \001"
   "(\t\022\022\n\nfieldValue\030\002 \001(\t\",\n\rClientRequest\022"
-  "\n\n\002id\030\001 \001(\t\022\017\n\007version\030\002 \001(\t\"\272\002\n\023Capabil"
-  "itiesRequest\022\022\n\nAnimations\030\001 \001(\010\022\014\n\004Text"
-  "\030\002 \001(\010\022\r\n\005Audio\030\003 \001(\010\022\020\n\010Emotions\030\004 \001(\010\022"
-  "\020\n\010Gestures\030\005 \001(\010\022\025\n\rInterruptions\030\006 \001(\010"
-  "\022\020\n\010Triggers\030\007 \001(\010\022\030\n\020EmotionStreaming\030\010"
-  " \001(\010\022\025\n\rSilenceEvents\030\t \001(\010\022\023\n\013PhonemeIn"
-  "fo\030\n \001(\010\022\032\n\022LoadSceneInSession\030\013 \001(\010\022\024\n\014"
-  "TurnBasedSTT\030\014 \001(\010\022\024\n\014Continuation\030\r \001(\010"
-  "\022\027\n\017NarratedActions\030\016 \001(\010\"\233\001\n\024InworldCha"
-  "racterData\022\017\n\007agentId\030\001 \001(\t\022\021\n\tbrainName"
-  "\030\002 \001(\t\022\021\n\tgivenName\030\003 \001(\t\0229\n\017characterAs"
-  "sets\030\004 \001(\0132 .inworld.ndkData.CharacterAs"
-  "sets\022\021\n\tthumbnail\030\005 \001(\014\"\215\001\n\017CharacterAss"
-  "ets\022\023\n\013rpmModelUri\030\001 \001(\t\022\033\n\023rpmImageUriP"
-  "ortrait\030\002 \001(\t\022\032\n\022rpmImageUriPosture\030\003 \001("
-  "\t\022\021\n\tavatarImg\030\004 \001(\t\022\031\n\021avatarImgOrigina"
-  "l\030\005 \001(\t\"\346\001\n\rClientOptions\022\020\n\010auth_url\030\001 "
-  "\001(\t\022\026\n\016load_scene_url\030\002 \001(\t\022\022\n\nscene_nam"
-  "e\030\003 \001(\t\022\017\n\007api_key\030\004 \001(\t\022\022\n\napi_secret\030\005"
-  " \001(\t\022\023\n\013player_name\030\006 \001(\t\022\r\n\005token\030\007 \001(\t"
-  "\022\022\n\nsession_id\030\010 \001(\t\022:\n\014capabilities\030\t \001"
-  "(\0132$.inworld.ndkData.CapabilitiesRequest"
-  "\"B\n\tAgentInfo\022\021\n\tBrainName\030\001 \001(\t\022\017\n\007Agen"
-  "tId\030\002 \001(\t\022\021\n\tGivenName\030\003 \001(\t\"X\n\013SessionI"
-  "nfo\022\021\n\tSessionId\030\001 \001(\t\022\r\n\005Token\030\002 \001(\t\022\026\n"
-  "\016ExpirationTime\030\003 \001(\003\022\017\n\007IsValid\030\004 \001(\010\"E"
-  "\n\016AgentInfoArray\0223\n\017agent_info_list\030\001 \003("
-  "\0132\032.inworld.ndkData.AgentInfo*v\n\017Connect"
-  "ionState\022\010\n\004Idle\020\000\022\016\n\nConnecting\020\001\022\r\n\tCo"
-  "nnected\020\002\022\n\n\006Failed\020\003\022\n\n\006Paused\020\004\022\020\n\014Dis"
-  "connected\020\005\022\020\n\014Reconnecting\020\006B\016\252\002\013Inworl"
-  "d.NDKb\006proto3"
+  "\n\n\002id\030\001 \001(\t\022\017\n\007version\030\002 \001(\t\"\313\002\n\023Capabil"
+  "itiesRequest\022\r\n\005audio\030\001 \001(\010\022\020\n\010emotions\030"
+  "\002 \001(\010\022\025\n\rinterruptions\030\003 \001(\010\022\027\n\017narrated"
+  "Actions\030\004 \001(\010\022\017\n\007silence\030\005 \001(\010\022\014\n\004text\030\006"
+  " \001(\010\022\020\n\010triggers\030\007 \001(\010\022\024\n\014continuation\030\010"
+  " \001(\010\022\024\n\014turnBasedStt\030\t \001(\010\022\023\n\013phonemeInf"
+  "o\030\n \001(\010\022\022\n\nanimations\030\013 \001(\010\022\020\n\010gestures\030"
+  "\014 \001(\010\022\030\n\020emotionstreaming\030\r \001(\010\022\025\n\rsilen"
+  "ceevents\030\016 \001(\010\022\032\n\022loadsceneinsession\030\017 \001"
+  "(\010\"\233\001\n\024InworldCharacterData\022\017\n\007agentId\030\001"
+  " \001(\t\022\021\n\tbrainName\030\002 \001(\t\022\021\n\tgivenName\030\003 \001"
+  "(\t\0229\n\017characterAssets\030\004 \001(\0132 .inworld.nd"
+  "kData.CharacterAssets\022\021\n\tthumbnail\030\005 \001(\014"
+  "\"\215\001\n\017CharacterAssets\022\023\n\013rpmModelUri\030\001 \001("
+  "\t\022\033\n\023rpmImageUriPortrait\030\002 \001(\t\022\032\n\022rpmIma"
+  "geUriPosture\030\003 \001(\t\022\021\n\tavatarImg\030\004 \001(\t\022\031\n"
+  "\021avatarImgOriginal\030\005 \001(\t\"\367\001\n\rClientOptio"
+  "ns\022\020\n\010auth_url\030\001 \001(\t\022\026\n\016load_scene_url\030\002"
+  " \001(\t\022\022\n\nscene_name\030\003 \001(\t\022\017\n\007api_key\030\004 \001("
+  "\t\022\022\n\napi_secret\030\005 \001(\t\022\023\n\013player_name\030\006 \001"
+  "(\t\022\r\n\005token\030\007 \001(\t\022\022\n\nsession_id\030\010 \001(\t\022\017\n"
+  "\007user_id\030\t \001(\t\022:\n\014capabilities\030\n \001(\0132$.i"
+  "nworld.ndkData.CapabilitiesRequest\"B\n\tAg"
+  "entInfo\022\021\n\tBrainName\030\001 \001(\t\022\017\n\007AgentId\030\002 "
+  "\001(\t\022\021\n\tGivenName\030\003 \001(\t\"X\n\013SessionInfo\022\021\n"
+  "\tSessionId\030\001 \001(\t\022\r\n\005Token\030\002 \001(\t\022\026\n\016Expir"
+  "ationTime\030\003 \001(\003\022\017\n\007IsValid\030\004 \001(\010\"E\n\016Agen"
+  "tInfoArray\0223\n\017agent_info_list\030\001 \003(\0132\032.in"
+  "world.ndkData.AgentInfo*v\n\017ConnectionSta"
+  "te\022\010\n\004Idle\020\000\022\016\n\nConnecting\020\001\022\r\n\tConnecte"
+  "d\020\002\022\n\n\006Failed\020\003\022\n\n\006Paused\020\004\022\020\n\014Disconnec"
+  "ted\020\005\022\020\n\014Reconnecting\020\006B\016\252\002\013Inworld.NDKb"
+  "\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_inworld_5fndkData_2eproto_deps[2] = {
   &::descriptor_table_google_2fprotobuf_2fany_2eproto,
@@ -552,7 +555,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_inw
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_inworld_5fndkData_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_inworld_5fndkData_2eproto = {
-  false, false, descriptor_table_protodef_inworld_5fndkData_2eproto, "inworld_ndkData.proto", 2093,
+  false, false, descriptor_table_protodef_inworld_5fndkData_2eproto, "inworld_ndkData.proto", 2127,
   &descriptor_table_inworld_5fndkData_2eproto_once, descriptor_table_inworld_5fndkData_2eproto_sccs, descriptor_table_inworld_5fndkData_2eproto_deps, 15, 2,
   schemas, file_default_instances, TableStruct_inworld_5fndkData_2eproto::offsets,
   file_level_metadata_inworld_5fndkData_2eproto, 15, file_level_enum_descriptors_inworld_5fndkData_2eproto, file_level_service_descriptors_inworld_5fndkData_2eproto,
@@ -2717,17 +2720,17 @@ CapabilitiesRequest::CapabilitiesRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 CapabilitiesRequest::CapabilitiesRequest(const CapabilitiesRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&animations_, &from.animations_,
-    static_cast<size_t>(reinterpret_cast<char*>(&narratedactions_) -
-    reinterpret_cast<char*>(&animations_)) + sizeof(narratedactions_));
+  ::memcpy(&audio_, &from.audio_,
+    static_cast<size_t>(reinterpret_cast<char*>(&loadsceneinsession_) -
+    reinterpret_cast<char*>(&audio_)) + sizeof(loadsceneinsession_));
   // @@protoc_insertion_point(copy_constructor:inworld.ndkData.CapabilitiesRequest)
 }
 
 void CapabilitiesRequest::SharedCtor() {
   ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&animations_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&narratedactions_) -
-      reinterpret_cast<char*>(&animations_)) + sizeof(narratedactions_));
+      reinterpret_cast<char*>(&audio_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&loadsceneinsession_) -
+      reinterpret_cast<char*>(&audio_)) + sizeof(loadsceneinsession_));
 }
 
 CapabilitiesRequest::~CapabilitiesRequest() {
@@ -2761,9 +2764,9 @@ void CapabilitiesRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&animations_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&narratedactions_) -
-      reinterpret_cast<char*>(&animations_)) + sizeof(narratedactions_));
+  ::memset(&audio_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&loadsceneinsession_) -
+      reinterpret_cast<char*>(&audio_)) + sizeof(loadsceneinsession_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2774,101 +2777,108 @@ const char* CapabilitiesRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAME
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // bool Animations = 1;
+      // bool audio = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          animations_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool Text = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          text_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool Audio = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           audio_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // bool Emotions = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+      // bool emotions = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           emotions_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // bool Gestures = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
-          gestures_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool Interruptions = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+      // bool interruptions = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           interruptions_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // bool Triggers = 7;
+      // bool narratedActions = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          narratedactions_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bool silence = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          silence_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bool text = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+          text_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bool triggers = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           triggers_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // bool EmotionStreaming = 8;
+      // bool continuation = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
-          emotionstreaming_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          continuation_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // bool SilenceEvents = 9;
+      // bool turnBasedStt = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
-          silenceevents_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          turnbasedstt_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // bool PhonemeInfo = 10;
+      // bool phonemeInfo = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
           phonemeinfo_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // bool LoadSceneInSession = 11;
+      // bool animations = 11;
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
-          loadsceneinsession_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          animations_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // bool TurnBasedSTT = 12;
+      // bool gestures = 12;
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
-          turnbasedstt_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          gestures_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // bool Continuation = 13;
+      // bool emotionstreaming = 13;
       case 13:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 104)) {
-          continuation_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          emotionstreaming_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // bool NarratedActions = 14;
+      // bool silenceevents = 14;
       case 14:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 112)) {
-          narratedactions_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          silenceevents_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bool loadsceneinsession = 15;
+      case 15:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 120)) {
+          loadsceneinsession_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -2900,88 +2910,94 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bool Animations = 1;
-  if (this->animations() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_animations(), target);
-  }
-
-  // bool Text = 2;
-  if (this->text() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_text(), target);
-  }
-
-  // bool Audio = 3;
+  // bool audio = 1;
   if (this->audio() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_audio(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_audio(), target);
   }
 
-  // bool Emotions = 4;
+  // bool emotions = 2;
   if (this->emotions() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_emotions(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_emotions(), target);
   }
 
-  // bool Gestures = 5;
-  if (this->gestures() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_gestures(), target);
-  }
-
-  // bool Interruptions = 6;
+  // bool interruptions = 3;
   if (this->interruptions() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_interruptions(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_interruptions(), target);
   }
 
-  // bool Triggers = 7;
+  // bool narratedActions = 4;
+  if (this->narratedactions() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_narratedactions(), target);
+  }
+
+  // bool silence = 5;
+  if (this->silence() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_silence(), target);
+  }
+
+  // bool text = 6;
+  if (this->text() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_text(), target);
+  }
+
+  // bool triggers = 7;
   if (this->triggers() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(7, this->_internal_triggers(), target);
   }
 
-  // bool EmotionStreaming = 8;
-  if (this->emotionstreaming() != 0) {
+  // bool continuation = 8;
+  if (this->continuation() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(8, this->_internal_emotionstreaming(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(8, this->_internal_continuation(), target);
   }
 
-  // bool SilenceEvents = 9;
-  if (this->silenceevents() != 0) {
+  // bool turnBasedStt = 9;
+  if (this->turnbasedstt() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(9, this->_internal_silenceevents(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(9, this->_internal_turnbasedstt(), target);
   }
 
-  // bool PhonemeInfo = 10;
+  // bool phonemeInfo = 10;
   if (this->phonemeinfo() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(10, this->_internal_phonemeinfo(), target);
   }
 
-  // bool LoadSceneInSession = 11;
+  // bool animations = 11;
+  if (this->animations() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(11, this->_internal_animations(), target);
+  }
+
+  // bool gestures = 12;
+  if (this->gestures() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(12, this->_internal_gestures(), target);
+  }
+
+  // bool emotionstreaming = 13;
+  if (this->emotionstreaming() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(13, this->_internal_emotionstreaming(), target);
+  }
+
+  // bool silenceevents = 14;
+  if (this->silenceevents() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(14, this->_internal_silenceevents(), target);
+  }
+
+  // bool loadsceneinsession = 15;
   if (this->loadsceneinsession() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(11, this->_internal_loadsceneinsession(), target);
-  }
-
-  // bool TurnBasedSTT = 12;
-  if (this->turnbasedstt() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(12, this->_internal_turnbasedstt(), target);
-  }
-
-  // bool Continuation = 13;
-  if (this->continuation() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(13, this->_internal_continuation(), target);
-  }
-
-  // bool NarratedActions = 14;
-  if (this->narratedactions() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(14, this->_internal_narratedactions(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(15, this->_internal_loadsceneinsession(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3000,73 +3016,78 @@ size_t CapabilitiesRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // bool Animations = 1;
-  if (this->animations() != 0) {
-    total_size += 1 + 1;
-  }
-
-  // bool Text = 2;
-  if (this->text() != 0) {
-    total_size += 1 + 1;
-  }
-
-  // bool Audio = 3;
+  // bool audio = 1;
   if (this->audio() != 0) {
     total_size += 1 + 1;
   }
 
-  // bool Emotions = 4;
+  // bool emotions = 2;
   if (this->emotions() != 0) {
     total_size += 1 + 1;
   }
 
-  // bool Gestures = 5;
-  if (this->gestures() != 0) {
-    total_size += 1 + 1;
-  }
-
-  // bool Interruptions = 6;
+  // bool interruptions = 3;
   if (this->interruptions() != 0) {
     total_size += 1 + 1;
   }
 
-  // bool Triggers = 7;
+  // bool narratedActions = 4;
+  if (this->narratedactions() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // bool silence = 5;
+  if (this->silence() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // bool text = 6;
+  if (this->text() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // bool triggers = 7;
   if (this->triggers() != 0) {
     total_size += 1 + 1;
   }
 
-  // bool EmotionStreaming = 8;
-  if (this->emotionstreaming() != 0) {
-    total_size += 1 + 1;
-  }
-
-  // bool SilenceEvents = 9;
-  if (this->silenceevents() != 0) {
-    total_size += 1 + 1;
-  }
-
-  // bool PhonemeInfo = 10;
-  if (this->phonemeinfo() != 0) {
-    total_size += 1 + 1;
-  }
-
-  // bool LoadSceneInSession = 11;
-  if (this->loadsceneinsession() != 0) {
-    total_size += 1 + 1;
-  }
-
-  // bool TurnBasedSTT = 12;
-  if (this->turnbasedstt() != 0) {
-    total_size += 1 + 1;
-  }
-
-  // bool Continuation = 13;
+  // bool continuation = 8;
   if (this->continuation() != 0) {
     total_size += 1 + 1;
   }
 
-  // bool NarratedActions = 14;
-  if (this->narratedactions() != 0) {
+  // bool turnBasedStt = 9;
+  if (this->turnbasedstt() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // bool phonemeInfo = 10;
+  if (this->phonemeinfo() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // bool animations = 11;
+  if (this->animations() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // bool gestures = 12;
+  if (this->gestures() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // bool emotionstreaming = 13;
+  if (this->emotionstreaming() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // bool silenceevents = 14;
+  if (this->silenceevents() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // bool loadsceneinsession = 15;
+  if (this->loadsceneinsession() != 0) {
     total_size += 1 + 1;
   }
 
@@ -3101,26 +3122,41 @@ void CapabilitiesRequest::MergeFrom(const CapabilitiesRequest& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.animations() != 0) {
-    _internal_set_animations(from._internal_animations());
-  }
-  if (from.text() != 0) {
-    _internal_set_text(from._internal_text());
-  }
   if (from.audio() != 0) {
     _internal_set_audio(from._internal_audio());
   }
   if (from.emotions() != 0) {
     _internal_set_emotions(from._internal_emotions());
   }
-  if (from.gestures() != 0) {
-    _internal_set_gestures(from._internal_gestures());
-  }
   if (from.interruptions() != 0) {
     _internal_set_interruptions(from._internal_interruptions());
   }
+  if (from.narratedactions() != 0) {
+    _internal_set_narratedactions(from._internal_narratedactions());
+  }
+  if (from.silence() != 0) {
+    _internal_set_silence(from._internal_silence());
+  }
+  if (from.text() != 0) {
+    _internal_set_text(from._internal_text());
+  }
   if (from.triggers() != 0) {
     _internal_set_triggers(from._internal_triggers());
+  }
+  if (from.continuation() != 0) {
+    _internal_set_continuation(from._internal_continuation());
+  }
+  if (from.turnbasedstt() != 0) {
+    _internal_set_turnbasedstt(from._internal_turnbasedstt());
+  }
+  if (from.phonemeinfo() != 0) {
+    _internal_set_phonemeinfo(from._internal_phonemeinfo());
+  }
+  if (from.animations() != 0) {
+    _internal_set_animations(from._internal_animations());
+  }
+  if (from.gestures() != 0) {
+    _internal_set_gestures(from._internal_gestures());
   }
   if (from.emotionstreaming() != 0) {
     _internal_set_emotionstreaming(from._internal_emotionstreaming());
@@ -3128,20 +3164,8 @@ void CapabilitiesRequest::MergeFrom(const CapabilitiesRequest& from) {
   if (from.silenceevents() != 0) {
     _internal_set_silenceevents(from._internal_silenceevents());
   }
-  if (from.phonemeinfo() != 0) {
-    _internal_set_phonemeinfo(from._internal_phonemeinfo());
-  }
   if (from.loadsceneinsession() != 0) {
     _internal_set_loadsceneinsession(from._internal_loadsceneinsession());
-  }
-  if (from.turnbasedstt() != 0) {
-    _internal_set_turnbasedstt(from._internal_turnbasedstt());
-  }
-  if (from.continuation() != 0) {
-    _internal_set_continuation(from._internal_continuation());
-  }
-  if (from.narratedactions() != 0) {
-    _internal_set_narratedactions(from._internal_narratedactions());
   }
 }
 
@@ -3167,11 +3191,11 @@ void CapabilitiesRequest::InternalSwap(CapabilitiesRequest* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CapabilitiesRequest, narratedactions_)
-      + sizeof(CapabilitiesRequest::narratedactions_)
-      - PROTOBUF_FIELD_OFFSET(CapabilitiesRequest, animations_)>(
-          reinterpret_cast<char*>(&animations_),
-          reinterpret_cast<char*>(&other->animations_));
+      PROTOBUF_FIELD_OFFSET(CapabilitiesRequest, loadsceneinsession_)
+      + sizeof(CapabilitiesRequest::loadsceneinsession_)
+      - PROTOBUF_FIELD_OFFSET(CapabilitiesRequest, audio_)>(
+          reinterpret_cast<char*>(&audio_),
+          reinterpret_cast<char*>(&other->audio_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CapabilitiesRequest::GetMetadata() const {
@@ -3954,6 +3978,11 @@ ClientOptions::ClientOptions(const ClientOptions& from)
     session_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_session_id(), 
       GetArena());
   }
+  user_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_user_id().empty()) {
+    user_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_user_id(), 
+      GetArena());
+  }
   if (from._internal_has_capabilities()) {
     capabilities_ = new ::inworld::ndkData::CapabilitiesRequest(*from.capabilities_);
   } else {
@@ -3972,6 +4001,7 @@ void ClientOptions::SharedCtor() {
   player_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   session_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  user_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   capabilities_ = nullptr;
 }
 
@@ -3991,6 +4021,7 @@ void ClientOptions::SharedDtor() {
   player_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   token_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   session_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  user_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete capabilities_;
 }
 
@@ -4023,6 +4054,7 @@ void ClientOptions::Clear() {
   player_name_.ClearToEmpty();
   token_.ClearToEmpty();
   session_id_.ClearToEmpty();
+  user_id_.ClearToEmpty();
   if (GetArena() == nullptr && capabilities_ != nullptr) {
     delete capabilities_;
   }
@@ -4109,9 +4141,18 @@ const char* ClientOptions::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .inworld.ndkData.CapabilitiesRequest capabilities = 9;
+      // string user_id = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
+          auto str = _internal_mutable_user_id();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "inworld.ndkData.ClientOptions.user_id"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .inworld.ndkData.CapabilitiesRequest capabilities = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
           ptr = ctx->ParseMessage(_internal_mutable_capabilities(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
@@ -4224,12 +4265,22 @@ failure:
         8, this->_internal_session_id(), target);
   }
 
-  // .inworld.ndkData.CapabilitiesRequest capabilities = 9;
+  // string user_id = 9;
+  if (this->user_id().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_user_id().data(), static_cast<int>(this->_internal_user_id().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "inworld.ndkData.ClientOptions.user_id");
+    target = stream->WriteStringMaybeAliased(
+        9, this->_internal_user_id(), target);
+  }
+
+  // .inworld.ndkData.CapabilitiesRequest capabilities = 10;
   if (this->has_capabilities()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        9, _Internal::capabilities(this), target, stream);
+        10, _Internal::capabilities(this), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -4304,7 +4355,14 @@ size_t ClientOptions::ByteSizeLong() const {
         this->_internal_session_id());
   }
 
-  // .inworld.ndkData.CapabilitiesRequest capabilities = 9;
+  // string user_id = 9;
+  if (this->user_id().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_user_id());
+  }
+
+  // .inworld.ndkData.CapabilitiesRequest capabilities = 10;
   if (this->has_capabilities()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -4366,6 +4424,9 @@ void ClientOptions::MergeFrom(const ClientOptions& from) {
   if (from.session_id().size() > 0) {
     _internal_set_session_id(from._internal_session_id());
   }
+  if (from.user_id().size() > 0) {
+    _internal_set_user_id(from._internal_user_id());
+  }
   if (from.has_capabilities()) {
     _internal_mutable_capabilities()->::inworld::ndkData::CapabilitiesRequest::MergeFrom(from._internal_capabilities());
   }
@@ -4400,6 +4461,7 @@ void ClientOptions::InternalSwap(ClientOptions* other) {
   player_name_.Swap(&other->player_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   token_.Swap(&other->token_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   session_id_.Swap(&other->session_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  user_id_.Swap(&other->user_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   swap(capabilities_, other->capabilities_);
 }
 
