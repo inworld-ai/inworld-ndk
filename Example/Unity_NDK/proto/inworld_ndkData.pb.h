@@ -1633,40 +1633,23 @@ class CapabilitiesRequest PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kAnimationsFieldNumber = 1,
-    kTextFieldNumber = 2,
-    kAudioFieldNumber = 3,
-    kEmotionsFieldNumber = 4,
-    kGesturesFieldNumber = 5,
-    kInterruptionsFieldNumber = 6,
+    kAudioFieldNumber = 1,
+    kEmotionsFieldNumber = 2,
+    kInterruptionsFieldNumber = 3,
+    kNarratedActionsFieldNumber = 4,
+    kSilenceFieldNumber = 5,
+    kTextFieldNumber = 6,
     kTriggersFieldNumber = 7,
-    kEmotionStreamingFieldNumber = 8,
-    kSilenceEventsFieldNumber = 9,
+    kContinuationFieldNumber = 8,
+    kTurnBasedSttFieldNumber = 9,
     kPhonemeInfoFieldNumber = 10,
-    kLoadSceneInSessionFieldNumber = 11,
-    kTurnBasedSTTFieldNumber = 12,
-    kContinuationFieldNumber = 13,
-    kNarratedActionsFieldNumber = 14,
+    kAnimationsFieldNumber = 11,
+    kGesturesFieldNumber = 12,
+    kEmotionstreamingFieldNumber = 13,
+    kSilenceeventsFieldNumber = 14,
+    kLoadsceneinsessionFieldNumber = 15,
   };
-  // bool Animations = 1;
-  void clear_animations();
-  bool animations() const;
-  void set_animations(bool value);
-  private:
-  bool _internal_animations() const;
-  void _internal_set_animations(bool value);
-  public:
-
-  // bool Text = 2;
-  void clear_text();
-  bool text() const;
-  void set_text(bool value);
-  private:
-  bool _internal_text() const;
-  void _internal_set_text(bool value);
-  public:
-
-  // bool Audio = 3;
+  // bool audio = 1;
   void clear_audio();
   bool audio() const;
   void set_audio(bool value);
@@ -1675,7 +1658,7 @@ class CapabilitiesRequest PROTOBUF_FINAL :
   void _internal_set_audio(bool value);
   public:
 
-  // bool Emotions = 4;
+  // bool emotions = 2;
   void clear_emotions();
   bool emotions() const;
   void set_emotions(bool value);
@@ -1684,16 +1667,7 @@ class CapabilitiesRequest PROTOBUF_FINAL :
   void _internal_set_emotions(bool value);
   public:
 
-  // bool Gestures = 5;
-  void clear_gestures();
-  bool gestures() const;
-  void set_gestures(bool value);
-  private:
-  bool _internal_gestures() const;
-  void _internal_set_gestures(bool value);
-  public:
-
-  // bool Interruptions = 6;
+  // bool interruptions = 3;
   void clear_interruptions();
   bool interruptions() const;
   void set_interruptions(bool value);
@@ -1702,7 +1676,34 @@ class CapabilitiesRequest PROTOBUF_FINAL :
   void _internal_set_interruptions(bool value);
   public:
 
-  // bool Triggers = 7;
+  // bool narratedActions = 4;
+  void clear_narratedactions();
+  bool narratedactions() const;
+  void set_narratedactions(bool value);
+  private:
+  bool _internal_narratedactions() const;
+  void _internal_set_narratedactions(bool value);
+  public:
+
+  // bool silence = 5;
+  void clear_silence();
+  bool silence() const;
+  void set_silence(bool value);
+  private:
+  bool _internal_silence() const;
+  void _internal_set_silence(bool value);
+  public:
+
+  // bool text = 6;
+  void clear_text();
+  bool text() const;
+  void set_text(bool value);
+  private:
+  bool _internal_text() const;
+  void _internal_set_text(bool value);
+  public:
+
+  // bool triggers = 7;
   void clear_triggers();
   bool triggers() const;
   void set_triggers(bool value);
@@ -1711,52 +1712,7 @@ class CapabilitiesRequest PROTOBUF_FINAL :
   void _internal_set_triggers(bool value);
   public:
 
-  // bool EmotionStreaming = 8;
-  void clear_emotionstreaming();
-  bool emotionstreaming() const;
-  void set_emotionstreaming(bool value);
-  private:
-  bool _internal_emotionstreaming() const;
-  void _internal_set_emotionstreaming(bool value);
-  public:
-
-  // bool SilenceEvents = 9;
-  void clear_silenceevents();
-  bool silenceevents() const;
-  void set_silenceevents(bool value);
-  private:
-  bool _internal_silenceevents() const;
-  void _internal_set_silenceevents(bool value);
-  public:
-
-  // bool PhonemeInfo = 10;
-  void clear_phonemeinfo();
-  bool phonemeinfo() const;
-  void set_phonemeinfo(bool value);
-  private:
-  bool _internal_phonemeinfo() const;
-  void _internal_set_phonemeinfo(bool value);
-  public:
-
-  // bool LoadSceneInSession = 11;
-  void clear_loadsceneinsession();
-  bool loadsceneinsession() const;
-  void set_loadsceneinsession(bool value);
-  private:
-  bool _internal_loadsceneinsession() const;
-  void _internal_set_loadsceneinsession(bool value);
-  public:
-
-  // bool TurnBasedSTT = 12;
-  void clear_turnbasedstt();
-  bool turnbasedstt() const;
-  void set_turnbasedstt(bool value);
-  private:
-  bool _internal_turnbasedstt() const;
-  void _internal_set_turnbasedstt(bool value);
-  public:
-
-  // bool Continuation = 13;
+  // bool continuation = 8;
   void clear_continuation();
   bool continuation() const;
   void set_continuation(bool value);
@@ -1765,13 +1721,67 @@ class CapabilitiesRequest PROTOBUF_FINAL :
   void _internal_set_continuation(bool value);
   public:
 
-  // bool NarratedActions = 14;
-  void clear_narratedactions();
-  bool narratedactions() const;
-  void set_narratedactions(bool value);
+  // bool turnBasedStt = 9;
+  void clear_turnbasedstt();
+  bool turnbasedstt() const;
+  void set_turnbasedstt(bool value);
   private:
-  bool _internal_narratedactions() const;
-  void _internal_set_narratedactions(bool value);
+  bool _internal_turnbasedstt() const;
+  void _internal_set_turnbasedstt(bool value);
+  public:
+
+  // bool phonemeInfo = 10;
+  void clear_phonemeinfo();
+  bool phonemeinfo() const;
+  void set_phonemeinfo(bool value);
+  private:
+  bool _internal_phonemeinfo() const;
+  void _internal_set_phonemeinfo(bool value);
+  public:
+
+  // bool animations = 11;
+  void clear_animations();
+  bool animations() const;
+  void set_animations(bool value);
+  private:
+  bool _internal_animations() const;
+  void _internal_set_animations(bool value);
+  public:
+
+  // bool gestures = 12;
+  void clear_gestures();
+  bool gestures() const;
+  void set_gestures(bool value);
+  private:
+  bool _internal_gestures() const;
+  void _internal_set_gestures(bool value);
+  public:
+
+  // bool emotionstreaming = 13;
+  void clear_emotionstreaming();
+  bool emotionstreaming() const;
+  void set_emotionstreaming(bool value);
+  private:
+  bool _internal_emotionstreaming() const;
+  void _internal_set_emotionstreaming(bool value);
+  public:
+
+  // bool silenceevents = 14;
+  void clear_silenceevents();
+  bool silenceevents() const;
+  void set_silenceevents(bool value);
+  private:
+  bool _internal_silenceevents() const;
+  void _internal_set_silenceevents(bool value);
+  public:
+
+  // bool loadsceneinsession = 15;
+  void clear_loadsceneinsession();
+  bool loadsceneinsession() const;
+  void set_loadsceneinsession(bool value);
+  private:
+  bool _internal_loadsceneinsession() const;
+  void _internal_set_loadsceneinsession(bool value);
   public:
 
   // @@protoc_insertion_point(class_scope:inworld.ndkData.CapabilitiesRequest)
@@ -1781,20 +1791,21 @@ class CapabilitiesRequest PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  bool animations_;
-  bool text_;
   bool audio_;
   bool emotions_;
-  bool gestures_;
   bool interruptions_;
+  bool narratedactions_;
+  bool silence_;
+  bool text_;
   bool triggers_;
+  bool continuation_;
+  bool turnbasedstt_;
+  bool phonemeinfo_;
+  bool animations_;
+  bool gestures_;
   bool emotionstreaming_;
   bool silenceevents_;
-  bool phonemeinfo_;
   bool loadsceneinsession_;
-  bool turnbasedstt_;
-  bool continuation_;
-  bool narratedactions_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_inworld_5fndkData_2eproto;
 };
@@ -2344,46 +2355,30 @@ class ClientOptions PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kAuthUrlFieldNumber = 1,
-    kLoadSceneUrlFieldNumber = 2,
+    kServerUrlFieldNumber = 2,
     kSceneNameFieldNumber = 3,
     kApiKeyFieldNumber = 4,
     kApiSecretFieldNumber = 5,
     kPlayerNameFieldNumber = 6,
     kTokenFieldNumber = 7,
     kSessionIdFieldNumber = 8,
-    kCapabilitiesFieldNumber = 9,
+    kUserIdFieldNumber = 9,
+    kCapabilitiesFieldNumber = 10,
   };
-  // string auth_url = 1;
-  void clear_auth_url();
-  const std::string& auth_url() const;
-  void set_auth_url(const std::string& value);
-  void set_auth_url(std::string&& value);
-  void set_auth_url(const char* value);
-  void set_auth_url(const char* value, size_t size);
-  std::string* mutable_auth_url();
-  std::string* release_auth_url();
-  void set_allocated_auth_url(std::string* auth_url);
+  // string server_url = 2;
+  void clear_server_url();
+  const std::string& server_url() const;
+  void set_server_url(const std::string& value);
+  void set_server_url(std::string&& value);
+  void set_server_url(const char* value);
+  void set_server_url(const char* value, size_t size);
+  std::string* mutable_server_url();
+  std::string* release_server_url();
+  void set_allocated_server_url(std::string* server_url);
   private:
-  const std::string& _internal_auth_url() const;
-  void _internal_set_auth_url(const std::string& value);
-  std::string* _internal_mutable_auth_url();
-  public:
-
-  // string load_scene_url = 2;
-  void clear_load_scene_url();
-  const std::string& load_scene_url() const;
-  void set_load_scene_url(const std::string& value);
-  void set_load_scene_url(std::string&& value);
-  void set_load_scene_url(const char* value);
-  void set_load_scene_url(const char* value, size_t size);
-  std::string* mutable_load_scene_url();
-  std::string* release_load_scene_url();
-  void set_allocated_load_scene_url(std::string* load_scene_url);
-  private:
-  const std::string& _internal_load_scene_url() const;
-  void _internal_set_load_scene_url(const std::string& value);
-  std::string* _internal_mutable_load_scene_url();
+  const std::string& _internal_server_url() const;
+  void _internal_set_server_url(const std::string& value);
+  std::string* _internal_mutable_server_url();
   public:
 
   // string scene_name = 3;
@@ -2482,7 +2477,23 @@ class ClientOptions PROTOBUF_FINAL :
   std::string* _internal_mutable_session_id();
   public:
 
-  // .inworld.ndkData.CapabilitiesRequest capabilities = 9;
+  // string user_id = 9;
+  void clear_user_id();
+  const std::string& user_id() const;
+  void set_user_id(const std::string& value);
+  void set_user_id(std::string&& value);
+  void set_user_id(const char* value);
+  void set_user_id(const char* value, size_t size);
+  std::string* mutable_user_id();
+  std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
+  private:
+  const std::string& _internal_user_id() const;
+  void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
+  public:
+
+  // .inworld.ndkData.CapabilitiesRequest capabilities = 10;
   bool has_capabilities() const;
   private:
   bool _internal_has_capabilities() const;
@@ -2507,14 +2518,14 @@ class ClientOptions PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr auth_url_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr load_scene_url_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr server_url_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr scene_name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr api_key_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr api_secret_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr player_name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr token_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr session_id_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
   ::inworld::ndkData::CapabilitiesRequest* capabilities_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_inworld_5fndkData_2eproto;
@@ -4305,47 +4316,7 @@ inline void ClientRequest::set_allocated_version(std::string* version) {
 
 // CapabilitiesRequest
 
-// bool Animations = 1;
-inline void CapabilitiesRequest::clear_animations() {
-  animations_ = false;
-}
-inline bool CapabilitiesRequest::_internal_animations() const {
-  return animations_;
-}
-inline bool CapabilitiesRequest::animations() const {
-  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.Animations)
-  return _internal_animations();
-}
-inline void CapabilitiesRequest::_internal_set_animations(bool value) {
-  
-  animations_ = value;
-}
-inline void CapabilitiesRequest::set_animations(bool value) {
-  _internal_set_animations(value);
-  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.Animations)
-}
-
-// bool Text = 2;
-inline void CapabilitiesRequest::clear_text() {
-  text_ = false;
-}
-inline bool CapabilitiesRequest::_internal_text() const {
-  return text_;
-}
-inline bool CapabilitiesRequest::text() const {
-  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.Text)
-  return _internal_text();
-}
-inline void CapabilitiesRequest::_internal_set_text(bool value) {
-  
-  text_ = value;
-}
-inline void CapabilitiesRequest::set_text(bool value) {
-  _internal_set_text(value);
-  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.Text)
-}
-
-// bool Audio = 3;
+// bool audio = 1;
 inline void CapabilitiesRequest::clear_audio() {
   audio_ = false;
 }
@@ -4353,7 +4324,7 @@ inline bool CapabilitiesRequest::_internal_audio() const {
   return audio_;
 }
 inline bool CapabilitiesRequest::audio() const {
-  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.Audio)
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.audio)
   return _internal_audio();
 }
 inline void CapabilitiesRequest::_internal_set_audio(bool value) {
@@ -4362,10 +4333,10 @@ inline void CapabilitiesRequest::_internal_set_audio(bool value) {
 }
 inline void CapabilitiesRequest::set_audio(bool value) {
   _internal_set_audio(value);
-  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.Audio)
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.audio)
 }
 
-// bool Emotions = 4;
+// bool emotions = 2;
 inline void CapabilitiesRequest::clear_emotions() {
   emotions_ = false;
 }
@@ -4373,7 +4344,7 @@ inline bool CapabilitiesRequest::_internal_emotions() const {
   return emotions_;
 }
 inline bool CapabilitiesRequest::emotions() const {
-  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.Emotions)
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.emotions)
   return _internal_emotions();
 }
 inline void CapabilitiesRequest::_internal_set_emotions(bool value) {
@@ -4382,30 +4353,10 @@ inline void CapabilitiesRequest::_internal_set_emotions(bool value) {
 }
 inline void CapabilitiesRequest::set_emotions(bool value) {
   _internal_set_emotions(value);
-  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.Emotions)
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.emotions)
 }
 
-// bool Gestures = 5;
-inline void CapabilitiesRequest::clear_gestures() {
-  gestures_ = false;
-}
-inline bool CapabilitiesRequest::_internal_gestures() const {
-  return gestures_;
-}
-inline bool CapabilitiesRequest::gestures() const {
-  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.Gestures)
-  return _internal_gestures();
-}
-inline void CapabilitiesRequest::_internal_set_gestures(bool value) {
-  
-  gestures_ = value;
-}
-inline void CapabilitiesRequest::set_gestures(bool value) {
-  _internal_set_gestures(value);
-  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.Gestures)
-}
-
-// bool Interruptions = 6;
+// bool interruptions = 3;
 inline void CapabilitiesRequest::clear_interruptions() {
   interruptions_ = false;
 }
@@ -4413,7 +4364,7 @@ inline bool CapabilitiesRequest::_internal_interruptions() const {
   return interruptions_;
 }
 inline bool CapabilitiesRequest::interruptions() const {
-  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.Interruptions)
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.interruptions)
   return _internal_interruptions();
 }
 inline void CapabilitiesRequest::_internal_set_interruptions(bool value) {
@@ -4422,150 +4373,10 @@ inline void CapabilitiesRequest::_internal_set_interruptions(bool value) {
 }
 inline void CapabilitiesRequest::set_interruptions(bool value) {
   _internal_set_interruptions(value);
-  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.Interruptions)
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.interruptions)
 }
 
-// bool Triggers = 7;
-inline void CapabilitiesRequest::clear_triggers() {
-  triggers_ = false;
-}
-inline bool CapabilitiesRequest::_internal_triggers() const {
-  return triggers_;
-}
-inline bool CapabilitiesRequest::triggers() const {
-  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.Triggers)
-  return _internal_triggers();
-}
-inline void CapabilitiesRequest::_internal_set_triggers(bool value) {
-  
-  triggers_ = value;
-}
-inline void CapabilitiesRequest::set_triggers(bool value) {
-  _internal_set_triggers(value);
-  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.Triggers)
-}
-
-// bool EmotionStreaming = 8;
-inline void CapabilitiesRequest::clear_emotionstreaming() {
-  emotionstreaming_ = false;
-}
-inline bool CapabilitiesRequest::_internal_emotionstreaming() const {
-  return emotionstreaming_;
-}
-inline bool CapabilitiesRequest::emotionstreaming() const {
-  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.EmotionStreaming)
-  return _internal_emotionstreaming();
-}
-inline void CapabilitiesRequest::_internal_set_emotionstreaming(bool value) {
-  
-  emotionstreaming_ = value;
-}
-inline void CapabilitiesRequest::set_emotionstreaming(bool value) {
-  _internal_set_emotionstreaming(value);
-  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.EmotionStreaming)
-}
-
-// bool SilenceEvents = 9;
-inline void CapabilitiesRequest::clear_silenceevents() {
-  silenceevents_ = false;
-}
-inline bool CapabilitiesRequest::_internal_silenceevents() const {
-  return silenceevents_;
-}
-inline bool CapabilitiesRequest::silenceevents() const {
-  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.SilenceEvents)
-  return _internal_silenceevents();
-}
-inline void CapabilitiesRequest::_internal_set_silenceevents(bool value) {
-  
-  silenceevents_ = value;
-}
-inline void CapabilitiesRequest::set_silenceevents(bool value) {
-  _internal_set_silenceevents(value);
-  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.SilenceEvents)
-}
-
-// bool PhonemeInfo = 10;
-inline void CapabilitiesRequest::clear_phonemeinfo() {
-  phonemeinfo_ = false;
-}
-inline bool CapabilitiesRequest::_internal_phonemeinfo() const {
-  return phonemeinfo_;
-}
-inline bool CapabilitiesRequest::phonemeinfo() const {
-  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.PhonemeInfo)
-  return _internal_phonemeinfo();
-}
-inline void CapabilitiesRequest::_internal_set_phonemeinfo(bool value) {
-  
-  phonemeinfo_ = value;
-}
-inline void CapabilitiesRequest::set_phonemeinfo(bool value) {
-  _internal_set_phonemeinfo(value);
-  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.PhonemeInfo)
-}
-
-// bool LoadSceneInSession = 11;
-inline void CapabilitiesRequest::clear_loadsceneinsession() {
-  loadsceneinsession_ = false;
-}
-inline bool CapabilitiesRequest::_internal_loadsceneinsession() const {
-  return loadsceneinsession_;
-}
-inline bool CapabilitiesRequest::loadsceneinsession() const {
-  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.LoadSceneInSession)
-  return _internal_loadsceneinsession();
-}
-inline void CapabilitiesRequest::_internal_set_loadsceneinsession(bool value) {
-  
-  loadsceneinsession_ = value;
-}
-inline void CapabilitiesRequest::set_loadsceneinsession(bool value) {
-  _internal_set_loadsceneinsession(value);
-  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.LoadSceneInSession)
-}
-
-// bool TurnBasedSTT = 12;
-inline void CapabilitiesRequest::clear_turnbasedstt() {
-  turnbasedstt_ = false;
-}
-inline bool CapabilitiesRequest::_internal_turnbasedstt() const {
-  return turnbasedstt_;
-}
-inline bool CapabilitiesRequest::turnbasedstt() const {
-  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.TurnBasedSTT)
-  return _internal_turnbasedstt();
-}
-inline void CapabilitiesRequest::_internal_set_turnbasedstt(bool value) {
-  
-  turnbasedstt_ = value;
-}
-inline void CapabilitiesRequest::set_turnbasedstt(bool value) {
-  _internal_set_turnbasedstt(value);
-  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.TurnBasedSTT)
-}
-
-// bool Continuation = 13;
-inline void CapabilitiesRequest::clear_continuation() {
-  continuation_ = false;
-}
-inline bool CapabilitiesRequest::_internal_continuation() const {
-  return continuation_;
-}
-inline bool CapabilitiesRequest::continuation() const {
-  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.Continuation)
-  return _internal_continuation();
-}
-inline void CapabilitiesRequest::_internal_set_continuation(bool value) {
-  
-  continuation_ = value;
-}
-inline void CapabilitiesRequest::set_continuation(bool value) {
-  _internal_set_continuation(value);
-  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.Continuation)
-}
-
-// bool NarratedActions = 14;
+// bool narratedActions = 4;
 inline void CapabilitiesRequest::clear_narratedactions() {
   narratedactions_ = false;
 }
@@ -4573,7 +4384,7 @@ inline bool CapabilitiesRequest::_internal_narratedactions() const {
   return narratedactions_;
 }
 inline bool CapabilitiesRequest::narratedactions() const {
-  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.NarratedActions)
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.narratedActions)
   return _internal_narratedactions();
 }
 inline void CapabilitiesRequest::_internal_set_narratedactions(bool value) {
@@ -4582,7 +4393,227 @@ inline void CapabilitiesRequest::_internal_set_narratedactions(bool value) {
 }
 inline void CapabilitiesRequest::set_narratedactions(bool value) {
   _internal_set_narratedactions(value);
-  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.NarratedActions)
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.narratedActions)
+}
+
+// bool silence = 5;
+inline void CapabilitiesRequest::clear_silence() {
+  silence_ = false;
+}
+inline bool CapabilitiesRequest::_internal_silence() const {
+  return silence_;
+}
+inline bool CapabilitiesRequest::silence() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.silence)
+  return _internal_silence();
+}
+inline void CapabilitiesRequest::_internal_set_silence(bool value) {
+  
+  silence_ = value;
+}
+inline void CapabilitiesRequest::set_silence(bool value) {
+  _internal_set_silence(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.silence)
+}
+
+// bool text = 6;
+inline void CapabilitiesRequest::clear_text() {
+  text_ = false;
+}
+inline bool CapabilitiesRequest::_internal_text() const {
+  return text_;
+}
+inline bool CapabilitiesRequest::text() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.text)
+  return _internal_text();
+}
+inline void CapabilitiesRequest::_internal_set_text(bool value) {
+  
+  text_ = value;
+}
+inline void CapabilitiesRequest::set_text(bool value) {
+  _internal_set_text(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.text)
+}
+
+// bool triggers = 7;
+inline void CapabilitiesRequest::clear_triggers() {
+  triggers_ = false;
+}
+inline bool CapabilitiesRequest::_internal_triggers() const {
+  return triggers_;
+}
+inline bool CapabilitiesRequest::triggers() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.triggers)
+  return _internal_triggers();
+}
+inline void CapabilitiesRequest::_internal_set_triggers(bool value) {
+  
+  triggers_ = value;
+}
+inline void CapabilitiesRequest::set_triggers(bool value) {
+  _internal_set_triggers(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.triggers)
+}
+
+// bool continuation = 8;
+inline void CapabilitiesRequest::clear_continuation() {
+  continuation_ = false;
+}
+inline bool CapabilitiesRequest::_internal_continuation() const {
+  return continuation_;
+}
+inline bool CapabilitiesRequest::continuation() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.continuation)
+  return _internal_continuation();
+}
+inline void CapabilitiesRequest::_internal_set_continuation(bool value) {
+  
+  continuation_ = value;
+}
+inline void CapabilitiesRequest::set_continuation(bool value) {
+  _internal_set_continuation(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.continuation)
+}
+
+// bool turnBasedStt = 9;
+inline void CapabilitiesRequest::clear_turnbasedstt() {
+  turnbasedstt_ = false;
+}
+inline bool CapabilitiesRequest::_internal_turnbasedstt() const {
+  return turnbasedstt_;
+}
+inline bool CapabilitiesRequest::turnbasedstt() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.turnBasedStt)
+  return _internal_turnbasedstt();
+}
+inline void CapabilitiesRequest::_internal_set_turnbasedstt(bool value) {
+  
+  turnbasedstt_ = value;
+}
+inline void CapabilitiesRequest::set_turnbasedstt(bool value) {
+  _internal_set_turnbasedstt(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.turnBasedStt)
+}
+
+// bool phonemeInfo = 10;
+inline void CapabilitiesRequest::clear_phonemeinfo() {
+  phonemeinfo_ = false;
+}
+inline bool CapabilitiesRequest::_internal_phonemeinfo() const {
+  return phonemeinfo_;
+}
+inline bool CapabilitiesRequest::phonemeinfo() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.phonemeInfo)
+  return _internal_phonemeinfo();
+}
+inline void CapabilitiesRequest::_internal_set_phonemeinfo(bool value) {
+  
+  phonemeinfo_ = value;
+}
+inline void CapabilitiesRequest::set_phonemeinfo(bool value) {
+  _internal_set_phonemeinfo(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.phonemeInfo)
+}
+
+// bool animations = 11;
+inline void CapabilitiesRequest::clear_animations() {
+  animations_ = false;
+}
+inline bool CapabilitiesRequest::_internal_animations() const {
+  return animations_;
+}
+inline bool CapabilitiesRequest::animations() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.animations)
+  return _internal_animations();
+}
+inline void CapabilitiesRequest::_internal_set_animations(bool value) {
+  
+  animations_ = value;
+}
+inline void CapabilitiesRequest::set_animations(bool value) {
+  _internal_set_animations(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.animations)
+}
+
+// bool gestures = 12;
+inline void CapabilitiesRequest::clear_gestures() {
+  gestures_ = false;
+}
+inline bool CapabilitiesRequest::_internal_gestures() const {
+  return gestures_;
+}
+inline bool CapabilitiesRequest::gestures() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.gestures)
+  return _internal_gestures();
+}
+inline void CapabilitiesRequest::_internal_set_gestures(bool value) {
+  
+  gestures_ = value;
+}
+inline void CapabilitiesRequest::set_gestures(bool value) {
+  _internal_set_gestures(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.gestures)
+}
+
+// bool emotionstreaming = 13;
+inline void CapabilitiesRequest::clear_emotionstreaming() {
+  emotionstreaming_ = false;
+}
+inline bool CapabilitiesRequest::_internal_emotionstreaming() const {
+  return emotionstreaming_;
+}
+inline bool CapabilitiesRequest::emotionstreaming() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.emotionstreaming)
+  return _internal_emotionstreaming();
+}
+inline void CapabilitiesRequest::_internal_set_emotionstreaming(bool value) {
+  
+  emotionstreaming_ = value;
+}
+inline void CapabilitiesRequest::set_emotionstreaming(bool value) {
+  _internal_set_emotionstreaming(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.emotionstreaming)
+}
+
+// bool silenceevents = 14;
+inline void CapabilitiesRequest::clear_silenceevents() {
+  silenceevents_ = false;
+}
+inline bool CapabilitiesRequest::_internal_silenceevents() const {
+  return silenceevents_;
+}
+inline bool CapabilitiesRequest::silenceevents() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.silenceevents)
+  return _internal_silenceevents();
+}
+inline void CapabilitiesRequest::_internal_set_silenceevents(bool value) {
+  
+  silenceevents_ = value;
+}
+inline void CapabilitiesRequest::set_silenceevents(bool value) {
+  _internal_set_silenceevents(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.silenceevents)
+}
+
+// bool loadsceneinsession = 15;
+inline void CapabilitiesRequest::clear_loadsceneinsession() {
+  loadsceneinsession_ = false;
+}
+inline bool CapabilitiesRequest::_internal_loadsceneinsession() const {
+  return loadsceneinsession_;
+}
+inline bool CapabilitiesRequest::loadsceneinsession() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.CapabilitiesRequest.loadsceneinsession)
+  return _internal_loadsceneinsession();
+}
+inline void CapabilitiesRequest::_internal_set_loadsceneinsession(bool value) {
+  
+  loadsceneinsession_ = value;
+}
+inline void CapabilitiesRequest::set_loadsceneinsession(bool value) {
+  _internal_set_loadsceneinsession(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.CapabilitiesRequest.loadsceneinsession)
 }
 
 // -------------------------------------------------------------------
@@ -5229,126 +5260,65 @@ inline void CharacterAssets::set_allocated_avatarimgoriginal(std::string* avatar
 
 // ClientOptions
 
-// string auth_url = 1;
-inline void ClientOptions::clear_auth_url() {
-  auth_url_.ClearToEmpty();
+// string server_url = 2;
+inline void ClientOptions::clear_server_url() {
+  server_url_.ClearToEmpty();
 }
-inline const std::string& ClientOptions::auth_url() const {
-  // @@protoc_insertion_point(field_get:inworld.ndkData.ClientOptions.auth_url)
-  return _internal_auth_url();
+inline const std::string& ClientOptions::server_url() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.ClientOptions.server_url)
+  return _internal_server_url();
 }
-inline void ClientOptions::set_auth_url(const std::string& value) {
-  _internal_set_auth_url(value);
-  // @@protoc_insertion_point(field_set:inworld.ndkData.ClientOptions.auth_url)
+inline void ClientOptions::set_server_url(const std::string& value) {
+  _internal_set_server_url(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.ClientOptions.server_url)
 }
-inline std::string* ClientOptions::mutable_auth_url() {
-  // @@protoc_insertion_point(field_mutable:inworld.ndkData.ClientOptions.auth_url)
-  return _internal_mutable_auth_url();
+inline std::string* ClientOptions::mutable_server_url() {
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.ClientOptions.server_url)
+  return _internal_mutable_server_url();
 }
-inline const std::string& ClientOptions::_internal_auth_url() const {
-  return auth_url_.Get();
+inline const std::string& ClientOptions::_internal_server_url() const {
+  return server_url_.Get();
 }
-inline void ClientOptions::_internal_set_auth_url(const std::string& value) {
+inline void ClientOptions::_internal_set_server_url(const std::string& value) {
   
-  auth_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+  server_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
 }
-inline void ClientOptions::set_auth_url(std::string&& value) {
+inline void ClientOptions::set_server_url(std::string&& value) {
   
-  auth_url_.Set(
+  server_url_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:inworld.ndkData.ClientOptions.auth_url)
+  // @@protoc_insertion_point(field_set_rvalue:inworld.ndkData.ClientOptions.server_url)
 }
-inline void ClientOptions::set_auth_url(const char* value) {
+inline void ClientOptions::set_server_url(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
-  auth_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:inworld.ndkData.ClientOptions.auth_url)
+  server_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:inworld.ndkData.ClientOptions.server_url)
 }
-inline void ClientOptions::set_auth_url(const char* value,
+inline void ClientOptions::set_server_url(const char* value,
     size_t size) {
   
-  auth_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+  server_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:inworld.ndkData.ClientOptions.auth_url)
+  // @@protoc_insertion_point(field_set_pointer:inworld.ndkData.ClientOptions.server_url)
 }
-inline std::string* ClientOptions::_internal_mutable_auth_url() {
+inline std::string* ClientOptions::_internal_mutable_server_url() {
   
-  return auth_url_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+  return server_url_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
-inline std::string* ClientOptions::release_auth_url() {
-  // @@protoc_insertion_point(field_release:inworld.ndkData.ClientOptions.auth_url)
-  return auth_url_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+inline std::string* ClientOptions::release_server_url() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.ClientOptions.server_url)
+  return server_url_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline void ClientOptions::set_allocated_auth_url(std::string* auth_url) {
-  if (auth_url != nullptr) {
+inline void ClientOptions::set_allocated_server_url(std::string* server_url) {
+  if (server_url != nullptr) {
     
   } else {
     
   }
-  auth_url_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), auth_url,
+  server_url_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), server_url,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.ClientOptions.auth_url)
-}
-
-// string load_scene_url = 2;
-inline void ClientOptions::clear_load_scene_url() {
-  load_scene_url_.ClearToEmpty();
-}
-inline const std::string& ClientOptions::load_scene_url() const {
-  // @@protoc_insertion_point(field_get:inworld.ndkData.ClientOptions.load_scene_url)
-  return _internal_load_scene_url();
-}
-inline void ClientOptions::set_load_scene_url(const std::string& value) {
-  _internal_set_load_scene_url(value);
-  // @@protoc_insertion_point(field_set:inworld.ndkData.ClientOptions.load_scene_url)
-}
-inline std::string* ClientOptions::mutable_load_scene_url() {
-  // @@protoc_insertion_point(field_mutable:inworld.ndkData.ClientOptions.load_scene_url)
-  return _internal_mutable_load_scene_url();
-}
-inline const std::string& ClientOptions::_internal_load_scene_url() const {
-  return load_scene_url_.Get();
-}
-inline void ClientOptions::_internal_set_load_scene_url(const std::string& value) {
-  
-  load_scene_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void ClientOptions::set_load_scene_url(std::string&& value) {
-  
-  load_scene_url_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:inworld.ndkData.ClientOptions.load_scene_url)
-}
-inline void ClientOptions::set_load_scene_url(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  load_scene_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:inworld.ndkData.ClientOptions.load_scene_url)
-}
-inline void ClientOptions::set_load_scene_url(const char* value,
-    size_t size) {
-  
-  load_scene_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:inworld.ndkData.ClientOptions.load_scene_url)
-}
-inline std::string* ClientOptions::_internal_mutable_load_scene_url() {
-  
-  return load_scene_url_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* ClientOptions::release_load_scene_url() {
-  // @@protoc_insertion_point(field_release:inworld.ndkData.ClientOptions.load_scene_url)
-  return load_scene_url_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void ClientOptions::set_allocated_load_scene_url(std::string* load_scene_url) {
-  if (load_scene_url != nullptr) {
-    
-  } else {
-    
-  }
-  load_scene_url_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), load_scene_url,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.ClientOptions.load_scene_url)
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.ClientOptions.server_url)
 }
 
 // string scene_name = 3;
@@ -5717,7 +5687,68 @@ inline void ClientOptions::set_allocated_session_id(std::string* session_id) {
   // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.ClientOptions.session_id)
 }
 
-// .inworld.ndkData.CapabilitiesRequest capabilities = 9;
+// string user_id = 9;
+inline void ClientOptions::clear_user_id() {
+  user_id_.ClearToEmpty();
+}
+inline const std::string& ClientOptions::user_id() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.ClientOptions.user_id)
+  return _internal_user_id();
+}
+inline void ClientOptions::set_user_id(const std::string& value) {
+  _internal_set_user_id(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.ClientOptions.user_id)
+}
+inline std::string* ClientOptions::mutable_user_id() {
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.ClientOptions.user_id)
+  return _internal_mutable_user_id();
+}
+inline const std::string& ClientOptions::_internal_user_id() const {
+  return user_id_.Get();
+}
+inline void ClientOptions::_internal_set_user_id(const std::string& value) {
+  
+  user_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void ClientOptions::set_user_id(std::string&& value) {
+  
+  user_id_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:inworld.ndkData.ClientOptions.user_id)
+}
+inline void ClientOptions::set_user_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  user_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:inworld.ndkData.ClientOptions.user_id)
+}
+inline void ClientOptions::set_user_id(const char* value,
+    size_t size) {
+  
+  user_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:inworld.ndkData.ClientOptions.user_id)
+}
+inline std::string* ClientOptions::_internal_mutable_user_id() {
+  
+  return user_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* ClientOptions::release_user_id() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.ClientOptions.user_id)
+  return user_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void ClientOptions::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    
+  } else {
+    
+  }
+  user_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), user_id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.ClientOptions.user_id)
+}
+
+// .inworld.ndkData.CapabilitiesRequest capabilities = 10;
 inline bool ClientOptions::_internal_has_capabilities() const {
   return this != internal_default_instance() && capabilities_ != nullptr;
 }
