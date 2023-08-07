@@ -70,7 +70,6 @@ extern "C" {
         Inworld::ClientOptions opt;
         opt.ApiKey = options.api_key();
         opt.ApiSecret = options.api_secret();
-        opt.AuthUrl = options.auth_url();
         opt.LoadSceneUrl = options.load_scene_url();
         opt.PlayerName = options.player_name();
         opt.SceneName = options.scene_name();
