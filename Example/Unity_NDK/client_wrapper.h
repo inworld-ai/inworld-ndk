@@ -39,7 +39,7 @@ extern "C" {
    __declspec(dllexport) void ClientWrapper_StartAudioSession(ClientWrapper* wrapper, const char* AgentId);
    __declspec(dllexport) void ClientWrapper_StopAudioSession(ClientWrapper* wrapper, const char* AgentId);
 
-   __declspec(dllexport) void ClientWrapper_InitClient(ClientWrapper* wrapper, const char* UserId, const char* ClientId, const char* ClientVer, ConnectionStateCallbackType ConnectionStateCallback, PacketCallbackType PacketCallback);
+   __declspec(dllexport) void ClientWrapper_InitClient(ClientWrapper* wrapper, const char* ClientId, const char* ClientVer, ConnectionStateCallbackType ConnectionStateCallback, PacketCallbackType PacketCallback);
    __declspec(dllexport) void ClientWrapper_StartClientWithCallback(ClientWrapper* wrapper, const uint8_t* serialized_options, int serialized_options_size, const uint8_t* serialized_sessionInfo, int serialized_sessionInfo_size, LoadSceneCallbackType LoadSceneCallback);
    __declspec(dllexport) void ClientWrapper_PauseClient(ClientWrapper* wrapper);
    __declspec(dllexport) void ClientWrapper_ResumeClient(ClientWrapper* wrapper);

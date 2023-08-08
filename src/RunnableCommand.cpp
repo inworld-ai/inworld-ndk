@@ -8,6 +8,7 @@
 #include "RunnableCommand.h"
 #include "Packets.h"
 #include "Utils/Utils.h"
+#include "Utils/Log.h"
 
 #include <iomanip>
 #include <random>
@@ -142,6 +143,8 @@ grpc::Status Inworld::RunnableLoadScene::RunProcess()
 	auto* User = LoadSceneRequest.mutable_user();
 	User->set_id(_UserId);
 	User->set_name(_PlayerName);
+
+	Inworld::Log("RunnableLoadScene User id: %s", ARG_STR(_UserId));
 
 	auto* Client = LoadSceneRequest.mutable_client();
 	Client->set_id(_ClientId);

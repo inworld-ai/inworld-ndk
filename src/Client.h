@@ -30,6 +30,7 @@ namespace Inworld
 		std::string ApiKey;
 		std::string ApiSecret;
 		std::string PlayerName;
+		std::string UserId;
 		CapabilitySet Capabilities;
 		UserSettings UserSettings;
 	};
@@ -65,7 +66,7 @@ namespace Inworld
 		virtual void StartAudioSession(const std::string& AgentId);
 		virtual void StopAudioSession(const std::string& AgentId);
 
-		virtual void InitClient(std::string UserId,	std::string ClientId, std::string ClientVer, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback);
+		virtual void InitClient(std::string ClientId, std::string ClientVer, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback);
 		virtual void StartClient(const ClientOptions& Options, const SessionInfo& Info, std::function<void(const std::vector<AgentInfo>&)> LoadSceneCallback);
 		virtual void PauseClient();
 		virtual void ResumeClient();
@@ -124,7 +125,6 @@ namespace Inworld
 		std::string _ErrorMessage = std::string();
 		int32_t _ErrorCode = grpc::StatusCode::OK;
 
-		std::string _UserId;
 		std::string _ClientId;
 		std::string _ClientVer;
 

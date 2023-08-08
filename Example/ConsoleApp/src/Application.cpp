@@ -113,7 +113,6 @@ void NDKApp::App::Run()
 	std::vector<Inworld::AgentInfo> AgentInfos;
 
 	_Client.InitClient(
-		"DefaultUserNDK",
 		"DefaultClientNDK",
 		"1.0.0",
 		[this](Inworld::Client::ConnectionState ConnectionState)

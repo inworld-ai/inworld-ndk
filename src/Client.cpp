@@ -120,11 +120,10 @@ void Inworld::ClientBase::StopAudioSession(const std::string& AgentId)
 	SendPacket(Packet);
 }
 
-void Inworld::ClientBase::InitClient(std::string UserId, std::string ClientId, std::string ClientVer, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback)
+void Inworld::ClientBase::InitClient(std::string ClientId, std::string ClientVer, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback)
 {
 	gpr_set_log_function(GrpcLog);
 
-	_UserId = UserId;
 	_ClientId = ClientId;
 	_ClientVer = ClientVer;
 
@@ -255,7 +254,7 @@ void Inworld::ClientBase::StopClient()
 
 void Inworld::ClientBase::DestroyClient()
 {
-	StopReaderWriter();
+	StopClient();
 	_AsyncLoadSceneTask->Stop();
 }
 
@@ -304,7 +303,7 @@ void Inworld::ClientBase::LoadScene()
 			_ClientOptions.ServerUrl,
 			_ClientOptions.SceneName,
 			_ClientOptions.PlayerName,
-			_UserId,
+			_ClientOptions.UserId,
 			_ClientOptions.UserSettings,
 			_ClientId,
 			_ClientVer,

@@ -21,8 +21,8 @@ extern "C" {
     }
 
     // InitClient
-    void ClientWrapper_InitClient(ClientWrapper* wrapper, const char* UserId, const char* ClientId, const char* ClientVer, ConnectionStateCallbackType ConnectionStateCallback, PacketCallbackType PacketCallback) {
-        wrapper->client.InitClient(UserId, ClientId, ClientVer,
+    void ClientWrapper_InitClient(ClientWrapper* wrapper, const char* ClientId, const char* ClientVer, ConnectionStateCallbackType ConnectionStateCallback, PacketCallbackType PacketCallback) {
+        wrapper->client.InitClient(ClientId, ClientVer,
             [ConnectionStateCallback](Inworld::Client::ConnectionState ConnectionState) {
                 ConnectionStateCallback(static_cast<int>(ConnectionState));
             },
@@ -72,6 +72,7 @@ extern "C" {
         opt.ApiSecret = options.api_secret();
         opt.ServerUrl = options.server_url();
         opt.PlayerName = options.player_name();
+        opt.UserId = options.user_id();
         opt.SceneName = options.scene_name();
         if (options.has_capabilities())
         {
