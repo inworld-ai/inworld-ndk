@@ -55,7 +55,7 @@ struct TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[24]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[25]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -66,6 +66,9 @@ namespace ai {
 namespace inworld {
 namespace studio {
 namespace v1alpha {
+class CloneWorkspaceRequest;
+class CloneWorkspaceRequestDefaultTypeInternal;
+extern CloneWorkspaceRequestDefaultTypeInternal _CloneWorkspaceRequest_default_instance_;
 class CreateWorkspaceRequest;
 class CreateWorkspaceRequestDefaultTypeInternal;
 extern CreateWorkspaceRequestDefaultTypeInternal _CreateWorkspaceRequest_default_instance_;
@@ -143,6 +146,7 @@ extern Workspace_MetaDefaultTypeInternal _Workspace_Meta_default_instance_;
 }  // namespace inworld
 }  // namespace ai
 PROTOBUF_NAMESPACE_OPEN
+template<> ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::CloneWorkspaceRequest>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::CreateWorkspaceRequest>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::GenerateResourceNameRequest>(Arena*);
@@ -1026,6 +1030,167 @@ class DeleteWorkspaceRequest PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class CloneWorkspaceRequest PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.CloneWorkspaceRequest) */ {
+ public:
+  inline CloneWorkspaceRequest() : CloneWorkspaceRequest(nullptr) {}
+  virtual ~CloneWorkspaceRequest();
+
+  CloneWorkspaceRequest(const CloneWorkspaceRequest& from);
+  CloneWorkspaceRequest(CloneWorkspaceRequest&& from) noexcept
+    : CloneWorkspaceRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline CloneWorkspaceRequest& operator=(const CloneWorkspaceRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CloneWorkspaceRequest& operator=(CloneWorkspaceRequest&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CloneWorkspaceRequest& default_instance();
+
+  static inline const CloneWorkspaceRequest* internal_default_instance() {
+    return reinterpret_cast<const CloneWorkspaceRequest*>(
+               &_CloneWorkspaceRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  friend void swap(CloneWorkspaceRequest& a, CloneWorkspaceRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CloneWorkspaceRequest* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CloneWorkspaceRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CloneWorkspaceRequest* New() const final {
+    return CreateMaybeMessage<CloneWorkspaceRequest>(nullptr);
+  }
+
+  CloneWorkspaceRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CloneWorkspaceRequest>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CloneWorkspaceRequest& from);
+  void MergeFrom(const CloneWorkspaceRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CloneWorkspaceRequest* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.studio.v1alpha.CloneWorkspaceRequest";
+  }
+  protected:
+  explicit CloneWorkspaceRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto);
+    return ::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNameFieldNumber = 1,
+    kTargetWorkspaceFieldNumber = 2,
+  };
+  // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // string target_workspace = 2;
+  void clear_target_workspace();
+  const std::string& target_workspace() const;
+  void set_target_workspace(const std::string& value);
+  void set_target_workspace(std::string&& value);
+  void set_target_workspace(const char* value);
+  void set_target_workspace(const char* value, size_t size);
+  std::string* mutable_target_workspace();
+  std::string* release_target_workspace();
+  void set_allocated_target_workspace(std::string* target_workspace);
+  private:
+  const std::string& _internal_target_workspace() const;
+  void _internal_set_target_workspace(const std::string& value);
+  std::string* _internal_mutable_target_workspace();
+  public:
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.CloneWorkspaceRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr target_workspace_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto;
+};
+// -------------------------------------------------------------------
+
 class ImpressionEventRequest_ImpressionEventData PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.ImpressionEventRequest.ImpressionEventData) */ {
  public:
@@ -1067,7 +1232,7 @@ class ImpressionEventRequest_ImpressionEventData PROTOBUF_FINAL :
                &_ImpressionEventRequest_ImpressionEventData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(ImpressionEventRequest_ImpressionEventData& a, ImpressionEventRequest_ImpressionEventData& b) {
     a.Swap(&b);
@@ -1284,7 +1449,7 @@ class ImpressionEventRequest PROTOBUF_FINAL :
                &_ImpressionEventRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(ImpressionEventRequest& a, ImpressionEventRequest& b) {
     a.Swap(&b);
@@ -1449,7 +1614,7 @@ class Workspace_Meta PROTOBUF_FINAL :
                &_Workspace_Meta_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(Workspace_Meta& a, Workspace_Meta& b) {
     a.Swap(&b);
@@ -1618,7 +1783,7 @@ class Workspace PROTOBUF_FINAL :
                &_Workspace_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(Workspace& a, Workspace& b) {
     a.Swap(&b);
@@ -1888,7 +2053,7 @@ class ListWorkspacesResponse PROTOBUF_FINAL :
                &_ListWorkspacesResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(ListWorkspacesResponse& a, ListWorkspacesResponse& b) {
     a.Swap(&b);
@@ -2051,7 +2216,7 @@ class ShareWorkspaceRequest PROTOBUF_FINAL :
                &_ShareWorkspaceRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(ShareWorkspaceRequest& a, ShareWorkspaceRequest& b) {
     a.Swap(&b);
@@ -2220,7 +2385,7 @@ class GenerateResourceNameRequest PROTOBUF_FINAL :
                &_GenerateResourceNameRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(GenerateResourceNameRequest& a, GenerateResourceNameRequest& b) {
     a.Swap(&b);
@@ -2426,7 +2591,7 @@ class GenerateResourceNameResponse PROTOBUF_FINAL :
                &_GenerateResourceNameResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(GenerateResourceNameResponse& a, GenerateResourceNameResponse& b) {
     a.Swap(&b);
@@ -2569,7 +2734,7 @@ class GetWorkspaceShareInfoRequest PROTOBUF_FINAL :
                &_GetWorkspaceShareInfoRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(GetWorkspaceShareInfoRequest& a, GetWorkspaceShareInfoRequest& b) {
     a.Swap(&b);
@@ -2712,7 +2877,7 @@ class WorkspaceShareInfo PROTOBUF_FINAL :
                &_WorkspaceShareInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(WorkspaceShareInfo& a, WorkspaceShareInfo& b) {
     a.Swap(&b);
@@ -2863,7 +3028,7 @@ class GetWorkspaceLimitInfoRequest PROTOBUF_FINAL :
                &_GetWorkspaceLimitInfoRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(GetWorkspaceLimitInfoRequest& a, GetWorkspaceLimitInfoRequest& b) {
     a.Swap(&b);
@@ -3006,7 +3171,7 @@ class WorkspaceLimitInfo_TextListLimit PROTOBUF_FINAL :
                &_WorkspaceLimitInfo_TextListLimit_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(WorkspaceLimitInfo_TextListLimit& a, WorkspaceLimitInfo_TextListLimit& b) {
     a.Swap(&b);
@@ -3153,7 +3318,7 @@ class WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit PROTOBUF_FINAL
                &_WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit& a, WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit& b) {
     a.Swap(&b);
@@ -3393,7 +3558,7 @@ class WorkspaceLimitInfo_CharacterLimit PROTOBUF_FINAL :
                &_WorkspaceLimitInfo_CharacterLimit_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(WorkspaceLimitInfo_CharacterLimit& a, WorkspaceLimitInfo_CharacterLimit& b) {
     a.Swap(&b);
@@ -3573,7 +3738,7 @@ class WorkspaceLimitInfo_SceneLimit PROTOBUF_FINAL :
                &_WorkspaceLimitInfo_SceneLimit_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(WorkspaceLimitInfo_SceneLimit& a, WorkspaceLimitInfo_SceneLimit& b) {
     a.Swap(&b);
@@ -3753,7 +3918,7 @@ class WorkspaceLimitInfo_WorkspaceLimit PROTOBUF_FINAL :
                &_WorkspaceLimitInfo_WorkspaceLimit_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(WorkspaceLimitInfo_WorkspaceLimit& a, WorkspaceLimitInfo_WorkspaceLimit& b) {
     a.Swap(&b);
@@ -3944,7 +4109,7 @@ class WorkspaceLimitInfo_BillingAccountLimit PROTOBUF_FINAL :
                &_WorkspaceLimitInfo_BillingAccountLimit_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(WorkspaceLimitInfo_BillingAccountLimit& a, WorkspaceLimitInfo_BillingAccountLimit& b) {
     a.Swap(&b);
@@ -4080,7 +4245,7 @@ class WorkspaceLimitInfo_CommonKnowledgeLimit PROTOBUF_FINAL :
                &_WorkspaceLimitInfo_CommonKnowledgeLimit_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(WorkspaceLimitInfo_CommonKnowledgeLimit& a, WorkspaceLimitInfo_CommonKnowledgeLimit& b) {
     a.Swap(&b);
@@ -4247,7 +4412,7 @@ class WorkspaceLimitInfo PROTOBUF_FINAL :
                &_WorkspaceLimitInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   friend void swap(WorkspaceLimitInfo& a, WorkspaceLimitInfo& b) {
     a.Swap(&b);
@@ -4947,6 +5112,132 @@ inline void DeleteWorkspaceRequest::_internal_set_force(bool value) {
 inline void DeleteWorkspaceRequest::set_force(bool value) {
   _internal_set_force(value);
   // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.DeleteWorkspaceRequest.force)
+}
+
+// -------------------------------------------------------------------
+
+// CloneWorkspaceRequest
+
+// string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
+inline void CloneWorkspaceRequest::clear_name() {
+  name_.ClearToEmpty();
+}
+inline const std::string& CloneWorkspaceRequest::name() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.CloneWorkspaceRequest.name)
+  return _internal_name();
+}
+inline void CloneWorkspaceRequest::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.CloneWorkspaceRequest.name)
+}
+inline std::string* CloneWorkspaceRequest::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.CloneWorkspaceRequest.name)
+  return _internal_mutable_name();
+}
+inline const std::string& CloneWorkspaceRequest::_internal_name() const {
+  return name_.Get();
+}
+inline void CloneWorkspaceRequest::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CloneWorkspaceRequest::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.studio.v1alpha.CloneWorkspaceRequest.name)
+}
+inline void CloneWorkspaceRequest::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.studio.v1alpha.CloneWorkspaceRequest.name)
+}
+inline void CloneWorkspaceRequest::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.studio.v1alpha.CloneWorkspaceRequest.name)
+}
+inline std::string* CloneWorkspaceRequest::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CloneWorkspaceRequest::release_name() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.CloneWorkspaceRequest.name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CloneWorkspaceRequest::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.CloneWorkspaceRequest.name)
+}
+
+// string target_workspace = 2;
+inline void CloneWorkspaceRequest::clear_target_workspace() {
+  target_workspace_.ClearToEmpty();
+}
+inline const std::string& CloneWorkspaceRequest::target_workspace() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.CloneWorkspaceRequest.target_workspace)
+  return _internal_target_workspace();
+}
+inline void CloneWorkspaceRequest::set_target_workspace(const std::string& value) {
+  _internal_set_target_workspace(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.CloneWorkspaceRequest.target_workspace)
+}
+inline std::string* CloneWorkspaceRequest::mutable_target_workspace() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.CloneWorkspaceRequest.target_workspace)
+  return _internal_mutable_target_workspace();
+}
+inline const std::string& CloneWorkspaceRequest::_internal_target_workspace() const {
+  return target_workspace_.Get();
+}
+inline void CloneWorkspaceRequest::_internal_set_target_workspace(const std::string& value) {
+  
+  target_workspace_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CloneWorkspaceRequest::set_target_workspace(std::string&& value) {
+  
+  target_workspace_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.studio.v1alpha.CloneWorkspaceRequest.target_workspace)
+}
+inline void CloneWorkspaceRequest::set_target_workspace(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  target_workspace_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.studio.v1alpha.CloneWorkspaceRequest.target_workspace)
+}
+inline void CloneWorkspaceRequest::set_target_workspace(const char* value,
+    size_t size) {
+  
+  target_workspace_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.studio.v1alpha.CloneWorkspaceRequest.target_workspace)
+}
+inline std::string* CloneWorkspaceRequest::_internal_mutable_target_workspace() {
+  
+  return target_workspace_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CloneWorkspaceRequest::release_target_workspace() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.CloneWorkspaceRequest.target_workspace)
+  return target_workspace_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CloneWorkspaceRequest::set_allocated_target_workspace(std::string* target_workspace) {
+  if (target_workspace != nullptr) {
+    
+  } else {
+    
+  }
+  target_workspace_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), target_workspace,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.CloneWorkspaceRequest.target_workspace)
 }
 
 // -------------------------------------------------------------------
@@ -7833,6 +8124,8 @@ inline void WorkspaceLimitInfo::set_allocated_common_knowledge(::ai::inworld::st
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

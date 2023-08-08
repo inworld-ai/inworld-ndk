@@ -91,8 +91,7 @@ void NDKApp::App::Run()
 
 	Inworld::ClientOptions Options;
 
-	Options.AuthUrl = "api-studio.inworld.ai";
-	Options.LoadSceneUrl = "api-engine.inworld.ai:443";
+	Options.ServerUrl = "api-engine.inworld.ai:443";
 	Options.PlayerName = "Player";
 
 	Options.SceneName = g_SceneName;

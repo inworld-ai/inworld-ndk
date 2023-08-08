@@ -915,6 +915,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fstudio_2fv1alph
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterAssets, voice_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterAssets, avatar_img_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterAssets, avatar_img_original_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterAssets, avatar_background_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterAssets, avatar_material_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterInitialMood, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1222,44 +1224,44 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 47, -1, sizeof(::ai::inworld::studio::v1alpha::Character_BrainSettings)},
   { 53, -1, sizeof(::ai::inworld::studio::v1alpha::Character_BrainTrigger)},
   { 61, -1, sizeof(::ai::inworld::studio::v1alpha::Character_CharacterAssets)},
-  { 73, -1, sizeof(::ai::inworld::studio::v1alpha::Character_CharacterInitialMood)},
-  { 82, -1, sizeof(::ai::inworld::studio::v1alpha::Character_CharacterPersonality)},
-  { 91, -1, sizeof(::ai::inworld::studio::v1alpha::Character_Fact)},
-  { 99, -1, sizeof(::ai::inworld::studio::v1alpha::Character_Meta)},
-  { 107, -1, sizeof(::ai::inworld::studio::v1alpha::Character_SharedPortalInfo_InteractionCountStat)},
-  { 115, -1, sizeof(::ai::inworld::studio::v1alpha::Character_SharedPortalInfo)},
-  { 126, 133, sizeof(::ai::inworld::studio::v1alpha::Character_SafetyConfigEntry_DoNotUse)},
-  { 135, -1, sizeof(::ai::inworld::studio::v1alpha::Character)},
-  { 160, -1, sizeof(::ai::inworld::studio::v1alpha::GetCharacterRequest)},
-  { 167, -1, sizeof(::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest)},
-  { 173, -1, sizeof(::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest)},
-  { 180, -1, sizeof(::ai::inworld::studio::v1alpha::ListCharactersRequest)},
-  { 190, -1, sizeof(::ai::inworld::studio::v1alpha::CreateCharacterRequest)},
-  { 198, -1, sizeof(::ai::inworld::studio::v1alpha::UpdateCharacterRequest)},
-  { 205, -1, sizeof(::ai::inworld::studio::v1alpha::DeleteCharacterRequest)},
-  { 211, -1, sizeof(::ai::inworld::studio::v1alpha::DeployCharacterRequest)},
-  { 217, -1, sizeof(::ai::inworld::studio::v1alpha::CloneCharacterRequest)},
-  { 225, -1, sizeof(::ai::inworld::studio::v1alpha::ListCharactersResponse)},
-  { 232, -1, sizeof(::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest)},
-  { 239, -1, sizeof(::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest)},
-  { 246, -1, sizeof(::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest)},
-  { 253, -1, sizeof(::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse)},
-  { 260, -1, sizeof(::ai::inworld::studio::v1alpha::ShareCharacterRequest)},
-  { 267, -1, sizeof(::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest)},
-  { 276, -1, sizeof(::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest)},
-  { 282, -1, sizeof(::ai::inworld::studio::v1alpha::ListSharedCharactersRequest)},
-  { 290, -1, sizeof(::ai::inworld::studio::v1alpha::ListSharedCharactersResponse)},
-  { 297, -1, sizeof(::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_ConversationConfig_EngineSpec)},
-  { 309, -1, sizeof(::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_ConversationConfig)},
-  { 315, -1, sizeof(::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_SafetySpec)},
-  { 321, -1, sizeof(::ai::inworld::studio::v1alpha::CharacterAdvancedSettings)},
-  { 331, -1, sizeof(::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest)},
-  { 338, -1, sizeof(::ai::inworld::studio::v1alpha::CharacterShareInfo)},
-  { 344, -1, sizeof(::ai::inworld::studio::v1alpha::CheckDeployInfoRequest)},
-  { 350, -1, sizeof(::ai::inworld::studio::v1alpha::DeployCharacterAsyncMetadata)},
-  { 355, -1, sizeof(::ai::inworld::studio::v1alpha::DeployCharacterAsyncResponse)},
-  { 360, -1, sizeof(::ai::inworld::studio::v1alpha::CreateCharacterMetadata)},
-  { 365, -1, sizeof(::ai::inworld::studio::v1alpha::CheckDeployInfoResponse)},
+  { 75, -1, sizeof(::ai::inworld::studio::v1alpha::Character_CharacterInitialMood)},
+  { 84, -1, sizeof(::ai::inworld::studio::v1alpha::Character_CharacterPersonality)},
+  { 93, -1, sizeof(::ai::inworld::studio::v1alpha::Character_Fact)},
+  { 101, -1, sizeof(::ai::inworld::studio::v1alpha::Character_Meta)},
+  { 109, -1, sizeof(::ai::inworld::studio::v1alpha::Character_SharedPortalInfo_InteractionCountStat)},
+  { 117, -1, sizeof(::ai::inworld::studio::v1alpha::Character_SharedPortalInfo)},
+  { 128, 135, sizeof(::ai::inworld::studio::v1alpha::Character_SafetyConfigEntry_DoNotUse)},
+  { 137, -1, sizeof(::ai::inworld::studio::v1alpha::Character)},
+  { 162, -1, sizeof(::ai::inworld::studio::v1alpha::GetCharacterRequest)},
+  { 169, -1, sizeof(::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest)},
+  { 175, -1, sizeof(::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest)},
+  { 182, -1, sizeof(::ai::inworld::studio::v1alpha::ListCharactersRequest)},
+  { 192, -1, sizeof(::ai::inworld::studio::v1alpha::CreateCharacterRequest)},
+  { 200, -1, sizeof(::ai::inworld::studio::v1alpha::UpdateCharacterRequest)},
+  { 207, -1, sizeof(::ai::inworld::studio::v1alpha::DeleteCharacterRequest)},
+  { 213, -1, sizeof(::ai::inworld::studio::v1alpha::DeployCharacterRequest)},
+  { 219, -1, sizeof(::ai::inworld::studio::v1alpha::CloneCharacterRequest)},
+  { 227, -1, sizeof(::ai::inworld::studio::v1alpha::ListCharactersResponse)},
+  { 234, -1, sizeof(::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest)},
+  { 241, -1, sizeof(::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest)},
+  { 248, -1, sizeof(::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest)},
+  { 255, -1, sizeof(::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse)},
+  { 262, -1, sizeof(::ai::inworld::studio::v1alpha::ShareCharacterRequest)},
+  { 269, -1, sizeof(::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest)},
+  { 278, -1, sizeof(::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest)},
+  { 284, -1, sizeof(::ai::inworld::studio::v1alpha::ListSharedCharactersRequest)},
+  { 292, -1, sizeof(::ai::inworld::studio::v1alpha::ListSharedCharactersResponse)},
+  { 299, -1, sizeof(::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_ConversationConfig_EngineSpec)},
+  { 311, -1, sizeof(::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_ConversationConfig)},
+  { 317, -1, sizeof(::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_SafetySpec)},
+  { 323, -1, sizeof(::ai::inworld::studio::v1alpha::CharacterAdvancedSettings)},
+  { 333, -1, sizeof(::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest)},
+  { 340, -1, sizeof(::ai::inworld::studio::v1alpha::CharacterShareInfo)},
+  { 346, -1, sizeof(::ai::inworld::studio::v1alpha::CheckDeployInfoRequest)},
+  { 352, -1, sizeof(::ai::inworld::studio::v1alpha::DeployCharacterAsyncMetadata)},
+  { 357, -1, sizeof(::ai::inworld::studio::v1alpha::DeployCharacterAsyncResponse)},
+  { 362, -1, sizeof(::ai::inworld::studio::v1alpha::CreateCharacterMetadata)},
+  { 367, -1, sizeof(::ai::inworld::studio::v1alpha::CheckDeployInfoResponse)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1321,7 +1323,7 @@ const char descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fcharacter
   ".proto\032\roptions.proto\0323ai/inworld/studio"
   "/v1alpha/behavioral_contexts.proto\032&ai/i"
   "nworld/studio/v1alpha/scenes.proto\032\014voic"
-  "es.proto\"\243\'\n\tCharacter\022C\n\004name\030\001 \001(\tB5\242\317"
+  "es.proto\"\327\'\n\tCharacter\022C\n\004name\030\001 \001(\tB5\242\317"
   "\"1\n/\032-workspaces/workspace-1/characters/"
   "character-1\022\025\n\rlanguage_code\030\002 \001(\t\022`\n\035de"
   "fault_character_description\030\003 \001(\01329.ai.i"
@@ -1413,254 +1415,256 @@ const char descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fcharacter
   "isabled\030\001 \001(\010J\004\010\001\020\002J\004\010\003\020\004J\004\010\002\020\003J\004\010\003\020\004\032w\n"
   "\014BrainTrigger\022,\n\007trigger\030\001 \001(\tB\033\372A\030\n\026api"
   ".inworld.ai/Trigger\022\035\n\025situation_descrip"
-  "tion\030\002 \001(\t\022\032\n\022start_conversation\030\003 \001(\010\032\356"
-  "\001\n\017CharacterAssets\022\032\n\rrpm_model_uri\030\002 \001("
+  "tion\030\002 \001(\t\022\032\n\022start_conversation\030\003 \001(\010\032\242"
+  "\002\n\017CharacterAssets\022\032\n\rrpm_model_uri\030\002 \001("
   "\tB\003\340A\003\022\034\n\rrpm_image_uri\030\003 \001(\tB\005\030\001\340A\003\022#\n\026"
   "rpm_image_uri_portrait\030\004 \001(\tB\003\340A\003\022\"\n\025rpm"
   "_image_uri_posture\030\005 \001(\tB\003\340A\003\022\'\n\005voice\030\006"
   " \001(\0132\030.ai.inworld.voices.Voice\022\022\n\navatar"
-  "_img\030\007 \001(\t\022\033\n\023avatar_img_original\030\010 \001(\t\032"
-  "R\n\024CharacterInitialMood\022\013\n\003joy\030\001 \001(\005\022\014\n\004"
-  "fear\030\002 \001(\005\022\r\n\005trust\030\003 \001(\005\022\020\n\010surprise\030\004 "
-  "\001(\005\032[\n\024CharacterPersonality\022\020\n\010positive\030"
-  "\001 \001(\005\022\020\n\010peaceful\030\002 \001(\005\022\014\n\004open\030\003 \001(\005\022\021\n"
-  "\textravert\030\004 \001(\005\032Z\n\004Fact\022\014\n\004uuid\030\001 \001(\t\022\014"
-  "\n\004text\030\002 \003(\t\0226\n\004tags\030\003 \003(\0162(.ai.inworld."
-  "studio.v1alpha.Character.Tag\032U\n\004Meta\022\026\n\016"
-  "total_triggers\030\001 \001(\005\022\036\n\026total_common_kno"
-  "wledge\030\002 \001(\005\022\025\n\rgoals_version\030\003 \001(\005\032\306\002\n\020"
-  "SharedPortalInfo\022\021\n\tis_shared\030\001 \001(\010\022\016\n\006b"
-  "yline\030\002 \001(\t\022\016\n\006prompt\030\003 \001(\t\022\023\n\013short_ali"
-  "as\030\004 \001(\t\022\033\n\023allowed_on_showcase\030\005 \001(\010\022j\n"
-  "\026interaction_count_stat\030\006 \001(\0132J.ai.inwor"
-  "ld.studio.v1alpha.Character.SharedPortal"
-  "Info.InteractionCountStat\032a\n\024Interaction"
-  "CountStat\022\023\n\013total_count\030\001 \001(\005\022\032\n\022total_"
-  "unread_count\030\002 \001(\005\022\030\n\020total_read_count\030\003"
-  " \001(\005\032[\n\021SafetyConfigEntry\022\013\n\003key\030\001 \001(\t\0225"
-  "\n\005value\030\002 \001(\0162&.ai.inworld.studio.v1alph"
-  "a.SafetyLevel:\0028\001\">\n\003Tag\022\023\n\017TAG_UNSPECIF"
-  "IED\020\000\022\016\n\nTAG_MEMORY\020\001\022\022\n\016TAG_APPEARANCE\020"
-  "\002\"\220\001\n\025FourthWallContainment\022\'\n#FOURTH_WA"
-  "LL_CONTAINMENT_UNSPECIFIED\020\000\022$\n FOURTH_W"
-  "ALL_CONTAINMENT_DISABLED\020\001\022(\n$FOURTH_WAL"
-  "L_CONTAINMENT_EXPERIMENTAL\020\002:L\352AI\n\030api.i"
-  "nworld.ai/Character\022-workspaces/{workspa"
-  "ce}/characters/{character}J\004\010\006\020\007J\004\010\024\020\025\"\201"
-  "\001\n\023GetCharacterRequest\022.\n\004name\030\001 \001(\tB \340A"
-  "\002\372A\032\n\030api.inworld.ai/Character\022:\n\004view\030\002"
-  " \001(\0162,.ai.inworld.studio.v1alpha.Charact"
-  "erItemView\"U\n#GetCharacterAdvancedSettin"
-  "gsRequest\022.\n\004name\030\001 \001(\tB \340A\002\372A\032\n\030api.inw"
-  "orld.ai/Character\"\276\001\n&UpdateCharacterAdv"
-  "ancedSettingsRequest\022^\n\033character_advanc"
-  "ed_settings\030\001 \001(\01324.ai.inworld.studio.v1"
-  "alpha.CharacterAdvancedSettingsB\003\340A\002\0224\n\013"
-  "update_mask\030\002 \001(\0132\032.google.protobuf.Fiel"
-  "dMaskB\003\340A\002\"\322\001\n\025ListCharactersRequest\022J\n\006"
-  "parent\030\001 \001(\tB:\340A\002\372A4\n\030api.inworld.ai/Wor"
-  "kspace\022\030api.inworld.ai/Character\022\021\n\tpage"
-  "_size\030\002 \001(\005\022\022\n\npage_token\030\003 \001(\t\0226\n\004view\030"
-  "\004 \001(\0162(.ai.inworld.studio.v1alpha.Charac"
-  "terView\022\016\n\006filter\030\005 \001(\t\"\274\001\n\026CreateCharac"
-  "terRequest\022J\n\006parent\030\001 \001(\tB:\340A\002\372A4\n\030api."
-  "inworld.ai/Workspace\022\030api.inworld.ai/Cha"
-  "racter\022<\n\tcharacter\030\002 \001(\0132$.ai.inworld.s"
-  "tudio.v1alpha.CharacterB\003\340A\002\022\030\n\020skip_aut"
-  "o_create\030\003 \001(\010\"\214\001\n\026UpdateCharacterReques"
-  "t\022<\n\tcharacter\030\001 \001(\0132$.ai.inworld.studio"
-  ".v1alpha.CharacterB\003\340A\002\0224\n\013update_mask\030\002"
-  " \001(\0132\032.google.protobuf.FieldMaskB\003\340A\002\"H\n"
-  "\026DeleteCharacterRequest\022.\n\004name\030\001 \001(\tB \340"
-  "A\002\372A\032\n\030api.inworld.ai/Character\"H\n\026Deplo"
-  "yCharacterRequest\022.\n\004name\030\001 \001(\tB \340A\002\372A\032\n"
-  "\030api.inworld.ai/Character\"\223\001\n\025CloneChara"
-  "cterRequest\022.\n\004name\030\001 \001(\tB \340A\002\372A\032\n\030api.i"
-  "nworld.ai/Character\0223\n\tworkspace\030\002 \001(\tB "
-  "\340A\002\372A\032\n\030api.inworld.ai/Workspace\022\025\n\010new_"
-  "name\030\003 \001(\tB\003\340A\002\"k\n\026ListCharactersRespons"
-  "e\0228\n\ncharacters\030\001 \003(\0132$.ai.inworld.studi"
+  "_img\030\007 \001(\t\022\033\n\023avatar_img_original\030\010 \001(\t\022"
+  "\031\n\021avatar_background\030\t \001(\t\022\027\n\017avatar_mat"
+  "erial\030\n \001(\t\032R\n\024CharacterInitialMood\022\013\n\003j"
+  "oy\030\001 \001(\005\022\014\n\004fear\030\002 \001(\005\022\r\n\005trust\030\003 \001(\005\022\020\n"
+  "\010surprise\030\004 \001(\005\032[\n\024CharacterPersonality\022"
+  "\020\n\010positive\030\001 \001(\005\022\020\n\010peaceful\030\002 \001(\005\022\014\n\004o"
+  "pen\030\003 \001(\005\022\021\n\textravert\030\004 \001(\005\032Z\n\004Fact\022\014\n\004"
+  "uuid\030\001 \001(\t\022\014\n\004text\030\002 \003(\t\0226\n\004tags\030\003 \003(\0162("
+  ".ai.inworld.studio.v1alpha.Character.Tag"
+  "\032U\n\004Meta\022\026\n\016total_triggers\030\001 \001(\005\022\036\n\026tota"
+  "l_common_knowledge\030\002 \001(\005\022\025\n\rgoals_versio"
+  "n\030\003 \001(\005\032\306\002\n\020SharedPortalInfo\022\021\n\tis_share"
+  "d\030\001 \001(\010\022\016\n\006byline\030\002 \001(\t\022\016\n\006prompt\030\003 \001(\t\022"
+  "\023\n\013short_alias\030\004 \001(\t\022\033\n\023allowed_on_showc"
+  "ase\030\005 \001(\010\022j\n\026interaction_count_stat\030\006 \001("
+  "\0132J.ai.inworld.studio.v1alpha.Character."
+  "SharedPortalInfo.InteractionCountStat\032a\n"
+  "\024InteractionCountStat\022\023\n\013total_count\030\001 \001"
+  "(\005\022\032\n\022total_unread_count\030\002 \001(\005\022\030\n\020total_"
+  "read_count\030\003 \001(\005\032[\n\021SafetyConfigEntry\022\013\n"
+  "\003key\030\001 \001(\t\0225\n\005value\030\002 \001(\0162&.ai.inworld.s"
+  "tudio.v1alpha.SafetyLevel:\0028\001\">\n\003Tag\022\023\n\017"
+  "TAG_UNSPECIFIED\020\000\022\016\n\nTAG_MEMORY\020\001\022\022\n\016TAG"
+  "_APPEARANCE\020\002\"\220\001\n\025FourthWallContainment\022"
+  "\'\n#FOURTH_WALL_CONTAINMENT_UNSPECIFIED\020\000"
+  "\022$\n FOURTH_WALL_CONTAINMENT_DISABLED\020\001\022("
+  "\n$FOURTH_WALL_CONTAINMENT_EXPERIMENTAL\020\002"
+  ":L\352AI\n\030api.inworld.ai/Character\022-workspa"
+  "ces/{workspace}/characters/{character}J\004"
+  "\010\006\020\007J\004\010\024\020\025\"\201\001\n\023GetCharacterRequest\022.\n\004na"
+  "me\030\001 \001(\tB \340A\002\372A\032\n\030api.inworld.ai/Charact"
+  "er\022:\n\004view\030\002 \001(\0162,.ai.inworld.studio.v1a"
+  "lpha.CharacterItemView\"U\n#GetCharacterAd"
+  "vancedSettingsRequest\022.\n\004name\030\001 \001(\tB \340A\002"
+  "\372A\032\n\030api.inworld.ai/Character\"\276\001\n&Update"
+  "CharacterAdvancedSettingsRequest\022^\n\033char"
+  "acter_advanced_settings\030\001 \001(\01324.ai.inwor"
+  "ld.studio.v1alpha.CharacterAdvancedSetti"
+  "ngsB\003\340A\002\0224\n\013update_mask\030\002 \001(\0132\032.google.p"
+  "rotobuf.FieldMaskB\003\340A\002\"\322\001\n\025ListCharacter"
+  "sRequest\022J\n\006parent\030\001 \001(\tB:\340A\002\372A4\n\030api.in"
+  "world.ai/Workspace\022\030api.inworld.ai/Chara"
+  "cter\022\021\n\tpage_size\030\002 \001(\005\022\022\n\npage_token\030\003 "
+  "\001(\t\0226\n\004view\030\004 \001(\0162(.ai.inworld.studio.v1"
+  "alpha.CharacterView\022\016\n\006filter\030\005 \001(\t\"\274\001\n\026"
+  "CreateCharacterRequest\022J\n\006parent\030\001 \001(\tB:"
+  "\340A\002\372A4\n\030api.inworld.ai/Workspace\022\030api.in"
+  "world.ai/Character\022<\n\tcharacter\030\002 \001(\0132$."
+  "ai.inworld.studio.v1alpha.CharacterB\003\340A\002"
+  "\022\030\n\020skip_auto_create\030\003 \001(\010\"\214\001\n\026UpdateCha"
+  "racterRequest\022<\n\tcharacter\030\001 \001(\0132$.ai.in"
+  "world.studio.v1alpha.CharacterB\003\340A\002\0224\n\013u"
+  "pdate_mask\030\002 \001(\0132\032.google.protobuf.Field"
+  "MaskB\003\340A\002\"H\n\026DeleteCharacterRequest\022.\n\004n"
+  "ame\030\001 \001(\tB \340A\002\372A\032\n\030api.inworld.ai/Charac"
+  "ter\"H\n\026DeployCharacterRequest\022.\n\004name\030\001 "
+  "\001(\tB \340A\002\372A\032\n\030api.inworld.ai/Character\"\223\001"
+  "\n\025CloneCharacterRequest\022.\n\004name\030\001 \001(\tB \340"
+  "A\002\372A\032\n\030api.inworld.ai/Character\0223\n\tworks"
+  "pace\030\002 \001(\tB \340A\002\372A\032\n\030api.inworld.ai/Works"
+  "pace\022\025\n\010new_name\030\003 \001(\tB\003\340A\002\"k\n\026ListChara"
+  "ctersResponse\0228\n\ncharacters\030\001 \003(\0132$.ai.i"
+  "nworld.studio.v1alpha.Character\022\027\n\017next_"
+  "page_token\030\002 \001(\t\"\202\001\n\037ReplaceCharacterRpm"
+  "ModelRequest\022H\n\tcharacter\030\001 \001(\tB5\242\317\"1\n/\032"
+  "-workspaces/workspace-1/characters/chara"
+  "cter-1\022\025\n\rrpm_model_uri\030\002 \001(\t\"y\n\034Replace"
+  "CharacterImageRequest\022H\n\tcharacter\030\001 \001(\t"
+  "B5\242\317\"1\n/\032-workspaces/workspace-1/charact"
+  "ers/character-1\022\017\n\007content\030\002 \001(\014\"e\n\034Prev"
+  "iewPromptTemplateRequest\0223\n\tcharacter\030\001 "
+  "\001(\tB \340A\002\372A\032\n\030api.inworld.ai/Character\022\020\n"
+  "\010template\030\002 \001(\t\"D\n\035PreviewPromptTempalte"
+  "Response\022\016\n\006prompt\030\001 \001(\t\022\023\n\006errors\030\002 \003(\t"
+  "B\003\340A\003\"]\n\025ShareCharacterRequest\022.\n\004name\030\001"
+  " \001(\tB \340A\002\372A\032\n\030api.inworld.ai/Character\022\024"
+  "\n\014external_ids\030\002 \003(\t\"\212\001\n\033ShareCharacterP"
+  "ortalRequest\022.\n\004name\030\001 \001(\tB \340A\002\372A\032\n\030api."
+  "inworld.ai/Character\022\016\n\006byline\030\002 \001(\t\022\016\n\006"
+  "prompt\030\003 \001(\t\022\033\n\023allowed_on_showcase\030\004 \001("
+  "\010\"O\n\035UnshareCharacterPortalRequest\022.\n\004na"
+  "me\030\001 \001(\tB \340A\002\372A\032\n\030api.inworld.ai/Charact"
+  "er\"v\n\033ListSharedCharactersRequest\0220\n\006par"
+  "ent\030\001 \001(\tB \340A\002\372A\032\n\030api.inworld.ai/Worksp"
+  "ace\022\021\n\tpage_size\030\002 \001(\005\022\022\n\npage_token\030\003 \001"
+  "(\t\"x\n\034ListSharedCharactersResponse\022\?\n\021sh"
+  "ared_characters\030\001 \003(\0132$.ai.inworld.studi"
   "o.v1alpha.Character\022\027\n\017next_page_token\030\002"
-  " \001(\t\"\202\001\n\037ReplaceCharacterRpmModelRequest"
-  "\022H\n\tcharacter\030\001 \001(\tB5\242\317\"1\n/\032-workspaces/"
-  "workspace-1/characters/character-1\022\025\n\rrp"
-  "m_model_uri\030\002 \001(\t\"y\n\034ReplaceCharacterIma"
-  "geRequest\022H\n\tcharacter\030\001 \001(\tB5\242\317\"1\n/\032-wo"
-  "rkspaces/workspace-1/characters/characte"
-  "r-1\022\017\n\007content\030\002 \001(\014\"e\n\034PreviewPromptTem"
-  "plateRequest\0223\n\tcharacter\030\001 \001(\tB \340A\002\372A\032\n"
-  "\030api.inworld.ai/Character\022\020\n\010template\030\002 "
-  "\001(\t\"D\n\035PreviewPromptTempalteResponse\022\016\n\006"
-  "prompt\030\001 \001(\t\022\023\n\006errors\030\002 \003(\tB\003\340A\003\"]\n\025Sha"
-  "reCharacterRequest\022.\n\004name\030\001 \001(\tB \340A\002\372A\032"
-  "\n\030api.inworld.ai/Character\022\024\n\014external_i"
-  "ds\030\002 \003(\t\"\212\001\n\033ShareCharacterPortalRequest"
-  "\022.\n\004name\030\001 \001(\tB \340A\002\372A\032\n\030api.inworld.ai/C"
-  "haracter\022\016\n\006byline\030\002 \001(\t\022\016\n\006prompt\030\003 \001(\t"
-  "\022\033\n\023allowed_on_showcase\030\004 \001(\010\"O\n\035Unshare"
-  "CharacterPortalRequest\022.\n\004name\030\001 \001(\tB \340A"
-  "\002\372A\032\n\030api.inworld.ai/Character\"v\n\033ListSh"
-  "aredCharactersRequest\0220\n\006parent\030\001 \001(\tB \340"
-  "A\002\372A\032\n\030api.inworld.ai/Workspace\022\021\n\tpage_"
-  "size\030\002 \001(\005\022\022\n\npage_token\030\003 \001(\t\"x\n\034ListSh"
-  "aredCharactersResponse\022\?\n\021shared_charact"
-  "ers\030\001 \003(\0132$.ai.inworld.studio.v1alpha.Ch"
-  "aracter\022\027\n\017next_page_token\030\002 \001(\t\"\361\t\n\031Cha"
-  "racterAdvancedSettings\022U\n\004name\030\001 \001(\tBG\242\317"
-  "\"C\nA\032\?workspaces/workspace-1/characters/"
-  "character-1/advanced-settings\022d\n\023convers"
-  "ation_config\030\002 \001(\0132G.ai.inworld.studio.v"
-  "1alpha.CharacterAdvancedSettings.Convers"
-  "ationConfig\022\036\n\026custom_prompt_template\030\004 "
-  "\001(\t\022[\n\022speech_safety_spec\030\005 \001(\0132\?.ai.inw"
-  "orld.studio.v1alpha.CharacterAdvancedSet"
-  "tings.SafetySpec\022\035\n\025additional_agent_inf"
-  "o\030\006 \001(\t\032\245\002\n\022ConversationConfig\022g\n\013engine"
-  "_spec\030\001 \001(\0132R.ai.inworld.studio.v1alpha."
-  "CharacterAdvancedSettings.ConversationCo"
-  "nfig.EngineSpec\032\245\001\n\nEngineSpec\022\016\n\006engine"
-  "\030\001 \001(\t\022\023\n\013temperature\030\002 \001(\002\022\022\n\nmax_token"
-  "s\030\003 \001(\005\022\031\n\021frequency_penalty\030\004 \001(\002\022\030\n\020pr"
-  "esence_penalty\030\005 \001(\002\022\r\n\005top_p\030\006 \001(\002\022\032\n\022r"
-  "epetition_penalty\030\007 \001(\002\032j\n\nSafetySpec\022\\\n"
-  "\016allowed_topics\030\001 \003(\0162D.ai.inworld.studi"
-  "o.v1alpha.CharacterAdvancedSettings.Safe"
-  "tyTopicName\"\360\002\n\017SafetyTopicName\022!\n\035SAFET"
-  "Y_TOPIC_NAME_UNSPECIFIED\020\000\022 \n\034SAFETY_TOP"
-  "IC_NAME_SAFE_TOPIC\020\001\022\036\n\032SAFETY_TOPIC_NAM"
-  "E_POLITICS\020\002\022\036\n\032SAFETY_TOPIC_NAME_FINANC"
-  "ES\020\003\022&\n\"SAFETY_TOPIC_NAME_DISGUSTING_STU"
-  "FF\020\004\022!\n\035SAFETY_TOPIC_NAME_GENDER_BIAS\020\005\022"
-  "#\n\037SAFETY_TOPIC_NAME_SUBSTANCE_USE\020\006\022#\n\037"
-  "SAFETY_TOPIC_NAME_HEALTH_ADVICE\020\007\022\036\n\032SAF"
-  "ETY_TOPIC_NAME_RELIGION\020\010\022#\n\037SAFETY_TOPI"
-  "C_NAME_RELATIONSHIPS\020\t:n\352Ak\n(api.inworld"
-  ".ai/CharacterAdvancedSettings\022\?workspace"
-  "s/{workspace}/characters/{character}/adv"
-  "anced-settingsJ\004\010\003\020\004\"\216\001\n\034GetCharacterSha"
-  "reInfoRequest\022.\n\004name\030\001 \001(\tB \340A\002\372A\032\n\030api"
-  ".inworld.ai/Character\022>\n\004view\030\002 \001(\01620.ai"
-  ".inworld.studio.v1alpha.CharacterSharePu"
-  "rpose\"*\n\022CharacterShareInfo\022\024\n\014external_"
-  "ids\030\001 \003(\t\"M\n\026CheckDeployInfoRequest\0223\n\tc"
-  "haracter\030\001 \001(\tB \340A\002\372A\032\n\030api.inworld.ai/C"
-  "haracter\"\036\n\034DeployCharacterAsyncMetadata"
-  "\"\036\n\034DeployCharacterAsyncResponse\"\031\n\027Crea"
-  "teCharacterMetadata\"+\n\027CheckDeployInfoRe"
-  "sponse\022\020\n\010is_fresh\030\001 \001(\010*k\n\rCharacterVie"
-  "w\022\036\n\032CHARACTER_VIEW_UNSPECIFIED\020\000\022\032\n\026CHA"
-  "RACTER_VIEW_DEFAULT\020\001\022\036\n\032CHARACTER_VIEW_"
-  "WITH_SCENES\020\002*|\n\021CharacterItemView\022#\n\037CH"
-  "ARACTER_ITEM_VIEW_UNSPECIFIED\020\000\022\037\n\033CHARA"
-  "CTER_ITEM_VIEW_DEFAULT\020\001\022!\n\035CHARACTER_IT"
-  "EM_VIEW_WITH_META\020\002*\210\001\n\025CharacterSharePu"
-  "rpose\022\'\n#CHARACTER_SHARE_PURPOSE_UNSPECI"
-  "FIED\020\000\022\"\n\036CHARACTER_SHARE_PURPOSE_OCULUS"
-  "\020\001\022\"\n\036CHARACTER_SHARE_PURPOSE_PORTAL\020\002*\210"
-  "\001\n\013SafetyLevel\022\034\n\030SAFETY_LEVEL_UNSPECIFI"
-  "ED\020\000\022\033\n\027SAFETY_LEVEL_NO_CONTROL\020\001\022\035\n\031SAF"
-  "ETY_LEVEL_MILD_CONTROL\020\002\022\037\n\033SAFETY_LEVEL"
-  "_STRICT_CONTROL\020\0032\216\036\n\nCharacters\022\231\001\n\017Dep"
-  "loyCharacter\0221.ai.inworld.studio.v1alpha"
-  ".DeployCharacterRequest\032\026.google.protobu"
-  "f.Empty\";\202\323\344\223\0025\"0/v1alpha/{name=workspac"
-  "es/*/characters/*}:deploy:\001*\022\244\001\n\016CloneCh"
-  "aracter\0220.ai.inworld.studio.v1alpha.Clon"
-  "eCharacterRequest\032$.ai.inworld.studio.v1"
-  "alpha.Character\":\202\323\344\223\0024\"//v1alpha/{name="
-  "workspaces/*/characters/*}:clone:\001*\022\374\001\n\035"
-  "DeployCharacterAsynchronously\0221.ai.inwor"
-  "ld.studio.v1alpha.DeployCharacterRequest"
-  "\032\035.google.longrunning.Operation\"\210\001\202\323\344\223\002C"
-  "\">/v1alpha/{name=workspaces/*/characters"
-  "/*}:deployAsynchronously:\001*\312A<\n\034DeployCh"
-  "aracterAsyncResponse\022\034DeployCharacterAsy"
-  "ncMetadata\022\236\001\n\014GetCharacter\022..ai.inworld"
-  ".studio.v1alpha.GetCharacterRequest\032$.ai"
-  ".inworld.studio.v1alpha.Character\"8\202\323\344\223\002"
-  "+\022)/v1alpha/{name=workspaces/*/character"
-  "s/*}\332A\004name\022\261\001\n\016ListCharacters\0220.ai.inwo"
-  "rld.studio.v1alpha.ListCharactersRequest"
-  "\0321.ai.inworld.studio.v1alpha.ListCharact"
-  "ersResponse\":\202\323\344\223\002+\022)/v1alpha/{parent=wo"
-  "rkspaces/*}/characters\332A\006parent\022\312\001\n\017Upda"
-  "teCharacter\0221.ai.inworld.studio.v1alpha."
-  "UpdateCharacterRequest\032$.ai.inworld.stud"
-  "io.v1alpha.Character\"^\202\323\344\223\002@23/v1alpha/{"
-  "character.name=workspaces/*/characters/*"
-  "}:\tcharacter\332A\025character,update_mask\022\333\001\n"
-  "\017CreateCharacter\0221.ai.inworld.studio.v1a"
-  "lpha.CreateCharacterRequest\032\035.google.lon"
-  "grunning.Operation\"v\202\323\344\223\0026\")/v1alpha/{pa"
-  "rent=workspaces/*}/characters:\tcharacter"
-  "\332A\020parent,character\312A$\n\tCharacter\022\027Creat"
-  "eCharacterMetadata\022\226\001\n\017DeleteCharacter\0221"
-  ".ai.inworld.studio.v1alpha.DeleteCharact"
-  "erRequest\032\026.google.protobuf.Empty\"8\202\323\344\223\002"
-  "+*)/v1alpha/{name=workspaces/*/character"
-  "s/*}\332A\004name\022\334\001\n\030ReplaceCharacterRpmModel"
-  "\022:.ai.inworld.studio.v1alpha.ReplaceChar"
-  "acterRpmModelRequest\032$.ai.inworld.studio"
-  ".v1alpha.Character\"^\202\323\344\223\002L\"G/v1alpha/{ch"
-  "aracter=workspaces/*/characters/*}:repla"
-  "ceCharacterRpmModel:\001*\332A\tcharacter\022\323\001\n\025R"
-  "eplaceCharacterImage\0227.ai.inworld.studio"
-  ".v1alpha.ReplaceCharacterImageRequest\032$."
-  "ai.inworld.studio.v1alpha.Character\"[\202\323\344"
-  "\223\002I\"D/v1alpha/{character=workspaces/*/ch"
-  "aracters/*}:replaceCharacterImage:\001*\332A\tc"
-  "haracter\022\333\001\n\025PreviewPromptTemplate\0227.ai."
-  "inworld.studio.v1alpha.PreviewPromptTemp"
-  "lateRequest\0328.ai.inworld.studio.v1alpha."
-  "PreviewPromptTempalteResponse\"O\202\323\344\223\002I\"D/"
-  "v1alpha/{character=workspaces/*/characte"
-  "rs/*}:previewPromptTemplate:\001*\022\300\001\n\017Check"
-  "DeployInfo\0221.ai.inworld.studio.v1alpha.C"
-  "heckDeployInfoRequest\0322.ai.inworld.studi"
-  "o.v1alpha.CheckDeployInfoResponse\"F\202\323\344\223\002"
-  "@\022>/v1alpha/{character=workspaces/*/char"
-  "acters/*}:checkDeployInfo\022\340\001\n\034GetCharact"
-  "erAdvancedSettings\022>.ai.inworld.studio.v"
-  "1alpha.GetCharacterAdvancedSettingsReque"
-  "st\0324.ai.inworld.studio.v1alpha.Character"
-  "AdvancedSettings\"J\202\323\344\223\002=\022;/v1alpha/{name"
-  "=workspaces/*/characters/*/advanced-sett"
-  "ings}\332A\004name\022\303\002\n\037UpdateCharacterAdvanced"
-  "Settings\022A.ai.inworld.studio.v1alpha.Upd"
-  "ateCharacterAdvancedSettingsRequest\0324.ai"
-  ".inworld.studio.v1alpha.CharacterAdvance"
-  "dSettings\"\246\001\202\323\344\223\002v2W/v1alpha/{character_"
-  "advanced_settings.name=workspaces/*/char"
-  "acters/*/advanced-settings}:\033character_a"
-  "dvanced_settings\332A\'character_advanced_se"
-  "ttings,update_mask\022\235\001\n\016ShareCharacter\0220."
-  "ai.inworld.studio.v1alpha.ShareCharacter"
-  "Request\032\026.google.protobuf.Empty\"A\202\323\344\223\0024\""
-  "//v1alpha/{name=workspaces/*/characters/"
-  "*}:share:\001*\332A\004name\022\260\001\n\024ShareCharacterPor"
-  "tal\0226.ai.inworld.studio.v1alpha.ShareCha"
-  "racterPortalRequest\032\026.google.protobuf.Em"
-  "pty\"H\202\323\344\223\002;\"6/v1alpha/{name=workspaces/*"
-  "/characters/*/portal}:share:\001*\332A\004name\022\266\001"
-  "\n\026UnshareCharacterPortal\0228.ai.inworld.st"
-  "udio.v1alpha.UnshareCharacterPortalReque"
-  "st\032\026.google.protobuf.Empty\"J\202\323\344\223\002=\"8/v1a"
-  "lpha/{name=workspaces/*/characters/*/por"
-  "tal}:unshare:\001*\332A\004name\022\312\001\n\024ListSharedCha"
-  "racters\0226.ai.inworld.studio.v1alpha.List"
-  "SharedCharactersRequest\0327.ai.inworld.stu"
-  "dio.v1alpha.ListSharedCharactersResponse"
-  "\"A\202\323\344\223\0022\0220/v1alpha/{parent=workspaces/*}"
-  "/characters:shared\332A\006parent\022\314\001\n\025GetChara"
-  "cterShareInfo\0227.ai.inworld.studio.v1alph"
-  "a.GetCharacterShareInfoRequest\032-.ai.inwo"
-  "rld.studio.v1alpha.CharacterShareInfo\"K\202"
-  "\323\344\223\002>\022</v1alpha/{name=workspaces/*/chara"
-  "cters/*/characterShareInfo}\332A\004nameB\231\001\n\031a"
-  "i.inworld.studio.v1alphaB\017CharactersProt"
-  "oP\001ZMgithub.com/inworld-ai/inworld/servi"
-  "ng/grpc-gateway/build/proto/studio/v1alp"
-  "ha\252\002\031Ai.Inworld.Studio.V1Alphab\006proto3"
+  " \001(\t\"\361\t\n\031CharacterAdvancedSettings\022U\n\004na"
+  "me\030\001 \001(\tBG\242\317\"C\nA\032\?workspaces/workspace-1"
+  "/characters/character-1/advanced-setting"
+  "s\022d\n\023conversation_config\030\002 \001(\0132G.ai.inwo"
+  "rld.studio.v1alpha.CharacterAdvancedSett"
+  "ings.ConversationConfig\022\036\n\026custom_prompt"
+  "_template\030\004 \001(\t\022[\n\022speech_safety_spec\030\005 "
+  "\001(\0132\?.ai.inworld.studio.v1alpha.Characte"
+  "rAdvancedSettings.SafetySpec\022\035\n\025addition"
+  "al_agent_info\030\006 \001(\t\032\245\002\n\022ConversationConf"
+  "ig\022g\n\013engine_spec\030\001 \001(\0132R.ai.inworld.stu"
+  "dio.v1alpha.CharacterAdvancedSettings.Co"
+  "nversationConfig.EngineSpec\032\245\001\n\nEngineSp"
+  "ec\022\016\n\006engine\030\001 \001(\t\022\023\n\013temperature\030\002 \001(\002\022"
+  "\022\n\nmax_tokens\030\003 \001(\005\022\031\n\021frequency_penalty"
+  "\030\004 \001(\002\022\030\n\020presence_penalty\030\005 \001(\002\022\r\n\005top_"
+  "p\030\006 \001(\002\022\032\n\022repetition_penalty\030\007 \001(\002\032j\n\nS"
+  "afetySpec\022\\\n\016allowed_topics\030\001 \003(\0162D.ai.i"
+  "nworld.studio.v1alpha.CharacterAdvancedS"
+  "ettings.SafetyTopicName\"\360\002\n\017SafetyTopicN"
+  "ame\022!\n\035SAFETY_TOPIC_NAME_UNSPECIFIED\020\000\022 "
+  "\n\034SAFETY_TOPIC_NAME_SAFE_TOPIC\020\001\022\036\n\032SAFE"
+  "TY_TOPIC_NAME_POLITICS\020\002\022\036\n\032SAFETY_TOPIC"
+  "_NAME_FINANCES\020\003\022&\n\"SAFETY_TOPIC_NAME_DI"
+  "SGUSTING_STUFF\020\004\022!\n\035SAFETY_TOPIC_NAME_GE"
+  "NDER_BIAS\020\005\022#\n\037SAFETY_TOPIC_NAME_SUBSTAN"
+  "CE_USE\020\006\022#\n\037SAFETY_TOPIC_NAME_HEALTH_ADV"
+  "ICE\020\007\022\036\n\032SAFETY_TOPIC_NAME_RELIGION\020\010\022#\n"
+  "\037SAFETY_TOPIC_NAME_RELATIONSHIPS\020\t:n\352Ak\n"
+  "(api.inworld.ai/CharacterAdvancedSetting"
+  "s\022\?workspaces/{workspace}/characters/{ch"
+  "aracter}/advanced-settingsJ\004\010\003\020\004\"\216\001\n\034Get"
+  "CharacterShareInfoRequest\022.\n\004name\030\001 \001(\tB"
+  " \340A\002\372A\032\n\030api.inworld.ai/Character\022>\n\004vie"
+  "w\030\002 \001(\01620.ai.inworld.studio.v1alpha.Char"
+  "acterSharePurpose\"*\n\022CharacterShareInfo\022"
+  "\024\n\014external_ids\030\001 \003(\t\"M\n\026CheckDeployInfo"
+  "Request\0223\n\tcharacter\030\001 \001(\tB \340A\002\372A\032\n\030api."
+  "inworld.ai/Character\"\036\n\034DeployCharacterA"
+  "syncMetadata\"\036\n\034DeployCharacterAsyncResp"
+  "onse\"\031\n\027CreateCharacterMetadata\"+\n\027Check"
+  "DeployInfoResponse\022\020\n\010is_fresh\030\001 \001(\010*k\n\r"
+  "CharacterView\022\036\n\032CHARACTER_VIEW_UNSPECIF"
+  "IED\020\000\022\032\n\026CHARACTER_VIEW_DEFAULT\020\001\022\036\n\032CHA"
+  "RACTER_VIEW_WITH_SCENES\020\002*|\n\021CharacterIt"
+  "emView\022#\n\037CHARACTER_ITEM_VIEW_UNSPECIFIE"
+  "D\020\000\022\037\n\033CHARACTER_ITEM_VIEW_DEFAULT\020\001\022!\n\035"
+  "CHARACTER_ITEM_VIEW_WITH_META\020\002*\210\001\n\025Char"
+  "acterSharePurpose\022\'\n#CHARACTER_SHARE_PUR"
+  "POSE_UNSPECIFIED\020\000\022\"\n\036CHARACTER_SHARE_PU"
+  "RPOSE_OCULUS\020\001\022\"\n\036CHARACTER_SHARE_PURPOS"
+  "E_PORTAL\020\002*\210\001\n\013SafetyLevel\022\034\n\030SAFETY_LEV"
+  "EL_UNSPECIFIED\020\000\022\033\n\027SAFETY_LEVEL_NO_CONT"
+  "ROL\020\001\022\035\n\031SAFETY_LEVEL_MILD_CONTROL\020\002\022\037\n\033"
+  "SAFETY_LEVEL_STRICT_CONTROL\020\0032\216\036\n\nCharac"
+  "ters\022\231\001\n\017DeployCharacter\0221.ai.inworld.st"
+  "udio.v1alpha.DeployCharacterRequest\032\026.go"
+  "ogle.protobuf.Empty\";\202\323\344\223\0025\"0/v1alpha/{n"
+  "ame=workspaces/*/characters/*}:deploy:\001*"
+  "\022\244\001\n\016CloneCharacter\0220.ai.inworld.studio."
+  "v1alpha.CloneCharacterRequest\032$.ai.inwor"
+  "ld.studio.v1alpha.Character\":\202\323\344\223\0024\"//v1"
+  "alpha/{name=workspaces/*/characters/*}:c"
+  "lone:\001*\022\374\001\n\035DeployCharacterAsynchronousl"
+  "y\0221.ai.inworld.studio.v1alpha.DeployChar"
+  "acterRequest\032\035.google.longrunning.Operat"
+  "ion\"\210\001\202\323\344\223\002C\">/v1alpha/{name=workspaces/"
+  "*/characters/*}:deployAsynchronously:\001*\312"
+  "A<\n\034DeployCharacterAsyncResponse\022\034Deploy"
+  "CharacterAsyncMetadata\022\236\001\n\014GetCharacter\022"
+  "..ai.inworld.studio.v1alpha.GetCharacter"
+  "Request\032$.ai.inworld.studio.v1alpha.Char"
+  "acter\"8\202\323\344\223\002+\022)/v1alpha/{name=workspaces"
+  "/*/characters/*}\332A\004name\022\261\001\n\016ListCharacte"
+  "rs\0220.ai.inworld.studio.v1alpha.ListChara"
+  "ctersRequest\0321.ai.inworld.studio.v1alpha"
+  ".ListCharactersResponse\":\202\323\344\223\002+\022)/v1alph"
+  "a/{parent=workspaces/*}/characters\332A\006par"
+  "ent\022\312\001\n\017UpdateCharacter\0221.ai.inworld.stu"
+  "dio.v1alpha.UpdateCharacterRequest\032$.ai."
+  "inworld.studio.v1alpha.Character\"^\202\323\344\223\002@"
+  "23/v1alpha/{character.name=workspaces/*/"
+  "characters/*}:\tcharacter\332A\025character,upd"
+  "ate_mask\022\333\001\n\017CreateCharacter\0221.ai.inworl"
+  "d.studio.v1alpha.CreateCharacterRequest\032"
+  "\035.google.longrunning.Operation\"v\202\323\344\223\0026\")"
+  "/v1alpha/{parent=workspaces/*}/character"
+  "s:\tcharacter\332A\020parent,character\312A$\n\tChar"
+  "acter\022\027CreateCharacterMetadata\022\226\001\n\017Delet"
+  "eCharacter\0221.ai.inworld.studio.v1alpha.D"
+  "eleteCharacterRequest\032\026.google.protobuf."
+  "Empty\"8\202\323\344\223\002+*)/v1alpha/{name=workspaces"
+  "/*/characters/*}\332A\004name\022\334\001\n\030ReplaceChara"
+  "cterRpmModel\022:.ai.inworld.studio.v1alpha"
+  ".ReplaceCharacterRpmModelRequest\032$.ai.in"
+  "world.studio.v1alpha.Character\"^\202\323\344\223\002L\"G"
+  "/v1alpha/{character=workspaces/*/charact"
+  "ers/*}:replaceCharacterRpmModel:\001*\332A\tcha"
+  "racter\022\323\001\n\025ReplaceCharacterImage\0227.ai.in"
+  "world.studio.v1alpha.ReplaceCharacterIma"
+  "geRequest\032$.ai.inworld.studio.v1alpha.Ch"
+  "aracter\"[\202\323\344\223\002I\"D/v1alpha/{character=wor"
+  "kspaces/*/characters/*}:replaceCharacter"
+  "Image:\001*\332A\tcharacter\022\333\001\n\025PreviewPromptTe"
+  "mplate\0227.ai.inworld.studio.v1alpha.Previ"
+  "ewPromptTemplateRequest\0328.ai.inworld.stu"
+  "dio.v1alpha.PreviewPromptTempalteRespons"
+  "e\"O\202\323\344\223\002I\"D/v1alpha/{character=workspace"
+  "s/*/characters/*}:previewPromptTemplate:"
+  "\001*\022\300\001\n\017CheckDeployInfo\0221.ai.inworld.stud"
+  "io.v1alpha.CheckDeployInfoRequest\0322.ai.i"
+  "nworld.studio.v1alpha.CheckDeployInfoRes"
+  "ponse\"F\202\323\344\223\002@\022>/v1alpha/{character=works"
+  "paces/*/characters/*}:checkDeployInfo\022\340\001"
+  "\n\034GetCharacterAdvancedSettings\022>.ai.inwo"
+  "rld.studio.v1alpha.GetCharacterAdvancedS"
+  "ettingsRequest\0324.ai.inworld.studio.v1alp"
+  "ha.CharacterAdvancedSettings\"J\202\323\344\223\002=\022;/v"
+  "1alpha/{name=workspaces/*/characters/*/a"
+  "dvanced-settings}\332A\004name\022\303\002\n\037UpdateChara"
+  "cterAdvancedSettings\022A.ai.inworld.studio"
+  ".v1alpha.UpdateCharacterAdvancedSettings"
+  "Request\0324.ai.inworld.studio.v1alpha.Char"
+  "acterAdvancedSettings\"\246\001\202\323\344\223\002v2W/v1alpha"
+  "/{character_advanced_settings.name=works"
+  "paces/*/characters/*/advanced-settings}:"
+  "\033character_advanced_settings\332A\'character"
+  "_advanced_settings,update_mask\022\235\001\n\016Share"
+  "Character\0220.ai.inworld.studio.v1alpha.Sh"
+  "areCharacterRequest\032\026.google.protobuf.Em"
+  "pty\"A\202\323\344\223\0024\"//v1alpha/{name=workspaces/*"
+  "/characters/*}:share:\001*\332A\004name\022\260\001\n\024Share"
+  "CharacterPortal\0226.ai.inworld.studio.v1al"
+  "pha.ShareCharacterPortalRequest\032\026.google"
+  ".protobuf.Empty\"H\202\323\344\223\002;\"6/v1alpha/{name="
+  "workspaces/*/characters/*/portal}:share:"
+  "\001*\332A\004name\022\266\001\n\026UnshareCharacterPortal\0228.a"
+  "i.inworld.studio.v1alpha.UnshareCharacte"
+  "rPortalRequest\032\026.google.protobuf.Empty\"J"
+  "\202\323\344\223\002=\"8/v1alpha/{name=workspaces/*/char"
+  "acters/*/portal}:unshare:\001*\332A\004name\022\312\001\n\024L"
+  "istSharedCharacters\0226.ai.inworld.studio."
+  "v1alpha.ListSharedCharactersRequest\0327.ai"
+  ".inworld.studio.v1alpha.ListSharedCharac"
+  "tersResponse\"A\202\323\344\223\0022\0220/v1alpha/{parent=w"
+  "orkspaces/*}/characters:shared\332A\006parent\022"
+  "\314\001\n\025GetCharacterShareInfo\0227.ai.inworld.s"
+  "tudio.v1alpha.GetCharacterShareInfoReque"
+  "st\032-.ai.inworld.studio.v1alpha.Character"
+  "ShareInfo\"K\202\323\344\223\002>\022</v1alpha/{name=worksp"
+  "aces/*/characters/*/characterShareInfo}\332"
+  "A\004nameB\231\001\n\031ai.inworld.studio.v1alphaB\017Ch"
+  "aractersProtoP\001ZMgithub.com/inworld-ai/i"
+  "nworld/serving/grpc-gateway/build/proto/"
+  "studio/v1alpha\252\002\031Ai.Inworld.Studio.V1Alp"
+  "hab\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_deps[11] = {
   &::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fbehavioral_5fcontexts_2eproto,
@@ -1724,7 +1728,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto, "ai/inworld/studio/v1alpha/characters.proto", 13998,
+  false, false, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto, "ai/inworld/studio/v1alpha/characters.proto", 14050,
   &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_sccs, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_deps, 45, 11,
   schemas, file_default_instances, TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto::offsets,
   file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto, 45, file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto, file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto,
@@ -4134,6 +4138,16 @@ Character_CharacterAssets::Character_CharacterAssets(const Character_CharacterAs
     avatar_img_original_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_avatar_img_original(), 
       GetArena());
   }
+  avatar_background_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_avatar_background().empty()) {
+    avatar_background_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_avatar_background(), 
+      GetArena());
+  }
+  avatar_material_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_avatar_material().empty()) {
+    avatar_material_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_avatar_material(), 
+      GetArena());
+  }
   if (from._internal_has_voice()) {
     voice_ = new ::ai::inworld::voices::Voice(*from.voice_);
   } else {
@@ -4150,6 +4164,8 @@ void Character_CharacterAssets::SharedCtor() {
   rpm_image_uri_posture_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   avatar_img_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   avatar_img_original_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  avatar_background_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  avatar_material_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   voice_ = nullptr;
 }
 
@@ -4167,6 +4183,8 @@ void Character_CharacterAssets::SharedDtor() {
   rpm_image_uri_posture_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   avatar_img_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   avatar_img_original_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  avatar_background_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  avatar_material_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete voice_;
 }
 
@@ -4197,6 +4215,8 @@ void Character_CharacterAssets::Clear() {
   rpm_image_uri_posture_.ClearToEmpty();
   avatar_img_.ClearToEmpty();
   avatar_img_original_.ClearToEmpty();
+  avatar_background_.ClearToEmpty();
+  avatar_material_.ClearToEmpty();
   if (GetArena() == nullptr && voice_ != nullptr) {
     delete voice_;
   }
@@ -4269,6 +4289,24 @@ const char* Character_CharacterAssets::_InternalParse(const char* ptr, ::PROTOBU
           auto str = _internal_mutable_avatar_img_original();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_img_original"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string avatar_background = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
+          auto str = _internal_mutable_avatar_background();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_background"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string avatar_material = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
+          auto str = _internal_mutable_avatar_material();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_material"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -4368,6 +4406,26 @@ failure:
         8, this->_internal_avatar_img_original(), target);
   }
 
+  // string avatar_background = 9;
+  if (this->avatar_background().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_avatar_background().data(), static_cast<int>(this->_internal_avatar_background().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_background");
+    target = stream->WriteStringMaybeAliased(
+        9, this->_internal_avatar_background(), target);
+  }
+
+  // string avatar_material = 10;
+  if (this->avatar_material().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_avatar_material().data(), static_cast<int>(this->_internal_avatar_material().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_material");
+    target = stream->WriteStringMaybeAliased(
+        10, this->_internal_avatar_material(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -4426,6 +4484,20 @@ size_t Character_CharacterAssets::ByteSizeLong() const {
         this->_internal_avatar_img_original());
   }
 
+  // string avatar_background = 9;
+  if (this->avatar_background().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_avatar_background());
+  }
+
+  // string avatar_material = 10;
+  if (this->avatar_material().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_avatar_material());
+  }
+
   // .ai.inworld.voices.Voice voice = 6;
   if (this->has_voice()) {
     total_size += 1 +
@@ -4482,6 +4554,12 @@ void Character_CharacterAssets::MergeFrom(const Character_CharacterAssets& from)
   if (from.avatar_img_original().size() > 0) {
     _internal_set_avatar_img_original(from._internal_avatar_img_original());
   }
+  if (from.avatar_background().size() > 0) {
+    _internal_set_avatar_background(from._internal_avatar_background());
+  }
+  if (from.avatar_material().size() > 0) {
+    _internal_set_avatar_material(from._internal_avatar_material());
+  }
   if (from.has_voice()) {
     _internal_mutable_voice()->::ai::inworld::voices::Voice::MergeFrom(from._internal_voice());
   }
@@ -4514,6 +4592,8 @@ void Character_CharacterAssets::InternalSwap(Character_CharacterAssets* other) {
   rpm_image_uri_posture_.Swap(&other->rpm_image_uri_posture_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   avatar_img_.Swap(&other->avatar_img_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   avatar_img_original_.Swap(&other->avatar_img_original_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  avatar_background_.Swap(&other->avatar_background_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  avatar_material_.Swap(&other->avatar_material_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   swap(voice_, other->voice_);
 }
 

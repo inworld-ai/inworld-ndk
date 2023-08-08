@@ -2355,8 +2355,7 @@ class ClientOptions PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kAuthUrlFieldNumber = 1,
-    kLoadSceneUrlFieldNumber = 2,
+    kServerUrlFieldNumber = 2,
     kSceneNameFieldNumber = 3,
     kApiKeyFieldNumber = 4,
     kApiSecretFieldNumber = 5,
@@ -2366,36 +2365,20 @@ class ClientOptions PROTOBUF_FINAL :
     kUserIdFieldNumber = 9,
     kCapabilitiesFieldNumber = 10,
   };
-  // string auth_url = 1;
-  void clear_auth_url();
-  const std::string& auth_url() const;
-  void set_auth_url(const std::string& value);
-  void set_auth_url(std::string&& value);
-  void set_auth_url(const char* value);
-  void set_auth_url(const char* value, size_t size);
-  std::string* mutable_auth_url();
-  std::string* release_auth_url();
-  void set_allocated_auth_url(std::string* auth_url);
+  // string server_url = 2;
+  void clear_server_url();
+  const std::string& server_url() const;
+  void set_server_url(const std::string& value);
+  void set_server_url(std::string&& value);
+  void set_server_url(const char* value);
+  void set_server_url(const char* value, size_t size);
+  std::string* mutable_server_url();
+  std::string* release_server_url();
+  void set_allocated_server_url(std::string* server_url);
   private:
-  const std::string& _internal_auth_url() const;
-  void _internal_set_auth_url(const std::string& value);
-  std::string* _internal_mutable_auth_url();
-  public:
-
-  // string load_scene_url = 2;
-  void clear_load_scene_url();
-  const std::string& load_scene_url() const;
-  void set_load_scene_url(const std::string& value);
-  void set_load_scene_url(std::string&& value);
-  void set_load_scene_url(const char* value);
-  void set_load_scene_url(const char* value, size_t size);
-  std::string* mutable_load_scene_url();
-  std::string* release_load_scene_url();
-  void set_allocated_load_scene_url(std::string* load_scene_url);
-  private:
-  const std::string& _internal_load_scene_url() const;
-  void _internal_set_load_scene_url(const std::string& value);
-  std::string* _internal_mutable_load_scene_url();
+  const std::string& _internal_server_url() const;
+  void _internal_set_server_url(const std::string& value);
+  std::string* _internal_mutable_server_url();
   public:
 
   // string scene_name = 3;
@@ -2535,8 +2518,7 @@ class ClientOptions PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr auth_url_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr load_scene_url_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr server_url_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr scene_name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr api_key_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr api_secret_;
@@ -5278,126 +5260,65 @@ inline void CharacterAssets::set_allocated_avatarimgoriginal(std::string* avatar
 
 // ClientOptions
 
-// string auth_url = 1;
-inline void ClientOptions::clear_auth_url() {
-  auth_url_.ClearToEmpty();
+// string server_url = 2;
+inline void ClientOptions::clear_server_url() {
+  server_url_.ClearToEmpty();
 }
-inline const std::string& ClientOptions::auth_url() const {
-  // @@protoc_insertion_point(field_get:inworld.ndkData.ClientOptions.auth_url)
-  return _internal_auth_url();
+inline const std::string& ClientOptions::server_url() const {
+  // @@protoc_insertion_point(field_get:inworld.ndkData.ClientOptions.server_url)
+  return _internal_server_url();
 }
-inline void ClientOptions::set_auth_url(const std::string& value) {
-  _internal_set_auth_url(value);
-  // @@protoc_insertion_point(field_set:inworld.ndkData.ClientOptions.auth_url)
+inline void ClientOptions::set_server_url(const std::string& value) {
+  _internal_set_server_url(value);
+  // @@protoc_insertion_point(field_set:inworld.ndkData.ClientOptions.server_url)
 }
-inline std::string* ClientOptions::mutable_auth_url() {
-  // @@protoc_insertion_point(field_mutable:inworld.ndkData.ClientOptions.auth_url)
-  return _internal_mutable_auth_url();
+inline std::string* ClientOptions::mutable_server_url() {
+  // @@protoc_insertion_point(field_mutable:inworld.ndkData.ClientOptions.server_url)
+  return _internal_mutable_server_url();
 }
-inline const std::string& ClientOptions::_internal_auth_url() const {
-  return auth_url_.Get();
+inline const std::string& ClientOptions::_internal_server_url() const {
+  return server_url_.Get();
 }
-inline void ClientOptions::_internal_set_auth_url(const std::string& value) {
+inline void ClientOptions::_internal_set_server_url(const std::string& value) {
   
-  auth_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+  server_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
 }
-inline void ClientOptions::set_auth_url(std::string&& value) {
+inline void ClientOptions::set_server_url(std::string&& value) {
   
-  auth_url_.Set(
+  server_url_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:inworld.ndkData.ClientOptions.auth_url)
+  // @@protoc_insertion_point(field_set_rvalue:inworld.ndkData.ClientOptions.server_url)
 }
-inline void ClientOptions::set_auth_url(const char* value) {
+inline void ClientOptions::set_server_url(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
-  auth_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:inworld.ndkData.ClientOptions.auth_url)
+  server_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:inworld.ndkData.ClientOptions.server_url)
 }
-inline void ClientOptions::set_auth_url(const char* value,
+inline void ClientOptions::set_server_url(const char* value,
     size_t size) {
   
-  auth_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+  server_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:inworld.ndkData.ClientOptions.auth_url)
+  // @@protoc_insertion_point(field_set_pointer:inworld.ndkData.ClientOptions.server_url)
 }
-inline std::string* ClientOptions::_internal_mutable_auth_url() {
+inline std::string* ClientOptions::_internal_mutable_server_url() {
   
-  return auth_url_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+  return server_url_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
-inline std::string* ClientOptions::release_auth_url() {
-  // @@protoc_insertion_point(field_release:inworld.ndkData.ClientOptions.auth_url)
-  return auth_url_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+inline std::string* ClientOptions::release_server_url() {
+  // @@protoc_insertion_point(field_release:inworld.ndkData.ClientOptions.server_url)
+  return server_url_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline void ClientOptions::set_allocated_auth_url(std::string* auth_url) {
-  if (auth_url != nullptr) {
+inline void ClientOptions::set_allocated_server_url(std::string* server_url) {
+  if (server_url != nullptr) {
     
   } else {
     
   }
-  auth_url_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), auth_url,
+  server_url_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), server_url,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.ClientOptions.auth_url)
-}
-
-// string load_scene_url = 2;
-inline void ClientOptions::clear_load_scene_url() {
-  load_scene_url_.ClearToEmpty();
-}
-inline const std::string& ClientOptions::load_scene_url() const {
-  // @@protoc_insertion_point(field_get:inworld.ndkData.ClientOptions.load_scene_url)
-  return _internal_load_scene_url();
-}
-inline void ClientOptions::set_load_scene_url(const std::string& value) {
-  _internal_set_load_scene_url(value);
-  // @@protoc_insertion_point(field_set:inworld.ndkData.ClientOptions.load_scene_url)
-}
-inline std::string* ClientOptions::mutable_load_scene_url() {
-  // @@protoc_insertion_point(field_mutable:inworld.ndkData.ClientOptions.load_scene_url)
-  return _internal_mutable_load_scene_url();
-}
-inline const std::string& ClientOptions::_internal_load_scene_url() const {
-  return load_scene_url_.Get();
-}
-inline void ClientOptions::_internal_set_load_scene_url(const std::string& value) {
-  
-  load_scene_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void ClientOptions::set_load_scene_url(std::string&& value) {
-  
-  load_scene_url_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:inworld.ndkData.ClientOptions.load_scene_url)
-}
-inline void ClientOptions::set_load_scene_url(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  load_scene_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:inworld.ndkData.ClientOptions.load_scene_url)
-}
-inline void ClientOptions::set_load_scene_url(const char* value,
-    size_t size) {
-  
-  load_scene_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:inworld.ndkData.ClientOptions.load_scene_url)
-}
-inline std::string* ClientOptions::_internal_mutable_load_scene_url() {
-  
-  return load_scene_url_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* ClientOptions::release_load_scene_url() {
-  // @@protoc_insertion_point(field_release:inworld.ndkData.ClientOptions.load_scene_url)
-  return load_scene_url_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void ClientOptions::set_allocated_load_scene_url(std::string* load_scene_url) {
-  if (load_scene_url != nullptr) {
-    
-  } else {
-    
-  }
-  load_scene_url_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), load_scene_url,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.ClientOptions.load_scene_url)
+  // @@protoc_insertion_point(field_set_allocated:inworld.ndkData.ClientOptions.server_url)
 }
 
 // string scene_name = 3;

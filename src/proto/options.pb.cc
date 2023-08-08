@@ -42,7 +42,7 @@ static void InitDefaultsscc_info_ExampleValue_options_2eproto() {
       &scc_info_ListValue_google_2fprotobuf_2fstruct_2eproto.base,}};
 
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_options_2eproto[1];
-static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_options_2eproto = nullptr;
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_options_2eproto[1];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_options_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_options_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -65,13 +65,16 @@ const char descriptor_table_protodef_options_2eproto[] PROTOBUF_SECTION_VARIABLE
   "\n\roptions.proto\022\022ai.inworld.options\032 goo"
   "gle/protobuf/descriptor.proto\032\034google/pr"
   "otobuf/struct.proto\"7\n\014ExampleValue\022\'\n\007e"
-  "xample\030\001 \003(\0132\026.google.protobuf.Value:V\n\010"
-  "examples\022\035.google.protobuf.FieldOptions\030"
-  "\364\251\004 \001(\0132 .ai.inworld.options.ExampleValu"
-  "e\210\001\001Bt\n\022ai.inworld.optionsB\017OptionsProto"
-  "colZMgithub.com/inworld-ai/inworld/servi"
-  "ng/grpc-gateway/build/proto/engine/v1alp"
-  "hab\006proto3"
+  "xample\030\001 \003(\0132\026.google.protobuf.Value*3\n\t"
+  "FieldMode\022\032\n\026FIELD_MODE_UNSPECIFIED\020\000\022\n\n"
+  "\006HIDDEN\020\001:V\n\010examples\022\035.google.protobuf."
+  "FieldOptions\030\364\251\004 \001(\0132 .ai.inworld.option"
+  "s.ExampleValue\210\001\001:R\n\nfield_mode\022\035.google"
+  ".protobuf.FieldOptions\030\201\361\004 \003(\0162\035.ai.inwo"
+  "rld.options.FieldModeBt\n\022ai.inworld.opti"
+  "onsB\017OptionsProtocolZMgithub.com/inworld"
+  "-ai/inworld/serving/grpc-gateway/build/p"
+  "roto/engine/v1alphab\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_options_2eproto_deps[2] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -82,7 +85,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_opt
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_options_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_options_2eproto = {
-  false, false, descriptor_table_protodef_options_2eproto, "options.proto", 370,
+  false, false, descriptor_table_protodef_options_2eproto, "options.proto", 507,
   &descriptor_table_options_2eproto_once, descriptor_table_options_2eproto_sccs, descriptor_table_options_2eproto_deps, 1, 2,
   schemas, file_default_instances, TableStruct_options_2eproto::offsets,
   file_level_metadata_options_2eproto, 1, file_level_enum_descriptors_options_2eproto, file_level_service_descriptors_options_2eproto,
@@ -93,6 +96,20 @@ static bool dynamic_init_dummy_options_2eproto = (static_cast<void>(::PROTOBUF_N
 namespace ai {
 namespace inworld {
 namespace options {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* FieldMode_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_options_2eproto);
+  return file_level_enum_descriptors_options_2eproto[0];
+}
+bool FieldMode_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 // ===================================================================
 
@@ -299,6 +316,9 @@ void ExampleValue::InternalSwap(ExampleValue* other) {
 ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::FieldOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::MessageTypeTraits< ::ai::inworld::options::ExampleValue >, 11, false >
   examples(kExamplesFieldNumber, ::ai::inworld::options::ExampleValue::default_instance());
+::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::FieldOptions,
+    ::PROTOBUF_NAMESPACE_ID::internal::RepeatedEnumTypeTraits< ::ai::inworld::options::FieldMode, ::ai::inworld::options::FieldMode_IsValid>, 14, true >
+  field_mode(kFieldModeFieldNumber, static_cast< ::ai::inworld::options::FieldMode >(0));
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace options

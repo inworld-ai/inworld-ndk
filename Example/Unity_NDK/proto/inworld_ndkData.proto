@@ -86,8 +86,7 @@ message CharacterAssets {
 }
 
 message ClientOptions {
-    string auth_url = 1;
-    string load_scene_url = 2;
+    string server_url = 2;
     string scene_name = 3;
     string api_key = 4;
     string api_secret = 5;
