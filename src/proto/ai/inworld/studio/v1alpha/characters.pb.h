@@ -2116,6 +2116,8 @@ class Character_CharacterAssets PROTOBUF_FINAL :
     kRpmImageUriPostureFieldNumber = 5,
     kAvatarImgFieldNumber = 7,
     kAvatarImgOriginalFieldNumber = 8,
+    kAvatarBackgroundFieldNumber = 9,
+    kAvatarMaterialFieldNumber = 10,
     kVoiceFieldNumber = 6,
   };
   // string rpm_model_uri = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];
@@ -2214,6 +2216,38 @@ class Character_CharacterAssets PROTOBUF_FINAL :
   std::string* _internal_mutable_avatar_img_original();
   public:
 
+  // string avatar_background = 9;
+  void clear_avatar_background();
+  const std::string& avatar_background() const;
+  void set_avatar_background(const std::string& value);
+  void set_avatar_background(std::string&& value);
+  void set_avatar_background(const char* value);
+  void set_avatar_background(const char* value, size_t size);
+  std::string* mutable_avatar_background();
+  std::string* release_avatar_background();
+  void set_allocated_avatar_background(std::string* avatar_background);
+  private:
+  const std::string& _internal_avatar_background() const;
+  void _internal_set_avatar_background(const std::string& value);
+  std::string* _internal_mutable_avatar_background();
+  public:
+
+  // string avatar_material = 10;
+  void clear_avatar_material();
+  const std::string& avatar_material() const;
+  void set_avatar_material(const std::string& value);
+  void set_avatar_material(std::string&& value);
+  void set_avatar_material(const char* value);
+  void set_avatar_material(const char* value, size_t size);
+  std::string* mutable_avatar_material();
+  std::string* release_avatar_material();
+  void set_allocated_avatar_material(std::string* avatar_material);
+  private:
+  const std::string& _internal_avatar_material() const;
+  void _internal_set_avatar_material(const std::string& value);
+  std::string* _internal_mutable_avatar_material();
+  public:
+
   // .ai.inworld.voices.Voice voice = 6;
   bool has_voice() const;
   private:
@@ -2245,6 +2279,8 @@ class Character_CharacterAssets PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr rpm_image_uri_posture_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr avatar_img_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr avatar_img_original_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr avatar_background_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr avatar_material_;
   ::ai::inworld::voices::Voice* voice_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
@@ -10837,6 +10873,128 @@ inline void Character_CharacterAssets::set_allocated_avatar_img_original(std::st
   avatar_img_original_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), avatar_img_original,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_img_original)
+}
+
+// string avatar_background = 9;
+inline void Character_CharacterAssets::clear_avatar_background() {
+  avatar_background_.ClearToEmpty();
+}
+inline const std::string& Character_CharacterAssets::avatar_background() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_background)
+  return _internal_avatar_background();
+}
+inline void Character_CharacterAssets::set_avatar_background(const std::string& value) {
+  _internal_set_avatar_background(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_background)
+}
+inline std::string* Character_CharacterAssets::mutable_avatar_background() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_background)
+  return _internal_mutable_avatar_background();
+}
+inline const std::string& Character_CharacterAssets::_internal_avatar_background() const {
+  return avatar_background_.Get();
+}
+inline void Character_CharacterAssets::_internal_set_avatar_background(const std::string& value) {
+  
+  avatar_background_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Character_CharacterAssets::set_avatar_background(std::string&& value) {
+  
+  avatar_background_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_background)
+}
+inline void Character_CharacterAssets::set_avatar_background(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  avatar_background_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_background)
+}
+inline void Character_CharacterAssets::set_avatar_background(const char* value,
+    size_t size) {
+  
+  avatar_background_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_background)
+}
+inline std::string* Character_CharacterAssets::_internal_mutable_avatar_background() {
+  
+  return avatar_background_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Character_CharacterAssets::release_avatar_background() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_background)
+  return avatar_background_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Character_CharacterAssets::set_allocated_avatar_background(std::string* avatar_background) {
+  if (avatar_background != nullptr) {
+    
+  } else {
+    
+  }
+  avatar_background_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), avatar_background,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_background)
+}
+
+// string avatar_material = 10;
+inline void Character_CharacterAssets::clear_avatar_material() {
+  avatar_material_.ClearToEmpty();
+}
+inline const std::string& Character_CharacterAssets::avatar_material() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_material)
+  return _internal_avatar_material();
+}
+inline void Character_CharacterAssets::set_avatar_material(const std::string& value) {
+  _internal_set_avatar_material(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_material)
+}
+inline std::string* Character_CharacterAssets::mutable_avatar_material() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_material)
+  return _internal_mutable_avatar_material();
+}
+inline const std::string& Character_CharacterAssets::_internal_avatar_material() const {
+  return avatar_material_.Get();
+}
+inline void Character_CharacterAssets::_internal_set_avatar_material(const std::string& value) {
+  
+  avatar_material_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Character_CharacterAssets::set_avatar_material(std::string&& value) {
+  
+  avatar_material_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_material)
+}
+inline void Character_CharacterAssets::set_avatar_material(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  avatar_material_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_material)
+}
+inline void Character_CharacterAssets::set_avatar_material(const char* value,
+    size_t size) {
+  
+  avatar_material_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_material)
+}
+inline std::string* Character_CharacterAssets::_internal_mutable_avatar_material() {
+  
+  return avatar_material_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Character_CharacterAssets::release_avatar_material() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_material)
+  return avatar_material_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Character_CharacterAssets::set_allocated_avatar_material(std::string* avatar_material) {
+  if (avatar_material != nullptr) {
+    
+  } else {
+    
+  }
+  avatar_material_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), avatar_material,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_material)
 }
 
 // -------------------------------------------------------------------

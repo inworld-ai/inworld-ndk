@@ -24,7 +24,6 @@
 
 constexpr int64_t gMaxTokenLifespan = 60 * 45; // 45 minutes
 
-const std::string DefaultAuthUrl = "api-studio.inworld.ai";
 const std::string DefaultTargetUrl = "api-engine.inworld.ai:443";
 
 static void GrpcLog(gpr_log_func_args* args)
@@ -142,10 +141,10 @@ void Inworld::ClientBase::GenerateToken(std::function<void()> GenerateTokenCallb
 	_AsyncGenerateTokenTask->Start(
 		"InworldGenerateTokenTask",
 		std::make_unique<RunnableGenerateSessionToken>(
-			_ClientOptions.AuthUrl,
+			_ClientOptions.ServerUrl,
 			_ClientOptions.ApiKey,
 			_ClientOptions.ApiSecret,
-			[this](const grpc::Status& Status, const InworldV1alpha::SessionAccessToken& Token) mutable
+			[this](const grpc::Status& Status, const InworldEngine::AccessToken& Token) mutable
 			{
 				if (_SessionInfo.SessionId.empty())
 				{
@@ -302,7 +301,7 @@ void Inworld::ClientBase::LoadScene()
 		std::make_unique<RunnableLoadScene>(
 			_SessionInfo.Token,
 			_SessionInfo.SessionId,
-			_ClientOptions.LoadSceneUrl,
+			_ClientOptions.ServerUrl,
 			_ClientOptions.SceneName,
 			_ClientOptions.PlayerName,
 			_UserId,

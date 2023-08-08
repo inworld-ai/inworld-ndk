@@ -30,6 +30,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include <google/protobuf/descriptor.pb.h>
 #include <google/protobuf/struct.pb.h>
@@ -71,6 +72,31 @@ namespace ai {
 namespace inworld {
 namespace options {
 
+enum FieldMode : int {
+  FIELD_MODE_UNSPECIFIED = 0,
+  HIDDEN = 1,
+  FieldMode_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  FieldMode_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool FieldMode_IsValid(int value);
+constexpr FieldMode FieldMode_MIN = FIELD_MODE_UNSPECIFIED;
+constexpr FieldMode FieldMode_MAX = HIDDEN;
+constexpr int FieldMode_ARRAYSIZE = FieldMode_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* FieldMode_descriptor();
+template<typename T>
+inline const std::string& FieldMode_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, FieldMode>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function FieldMode_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    FieldMode_descriptor(), enum_t_value);
+}
+inline bool FieldMode_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, FieldMode* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<FieldMode>(
+    FieldMode_descriptor(), name, value);
+}
 // ===================================================================
 
 class ExampleValue PROTOBUF_FINAL :
@@ -222,6 +248,10 @@ static const int kExamplesFieldNumber = 70900;
 extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::FieldOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::MessageTypeTraits< ::ai::inworld::options::ExampleValue >, 11, false >
   examples;
+static const int kFieldModeFieldNumber = 80001;
+extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::FieldOptions,
+    ::PROTOBUF_NAMESPACE_ID::internal::RepeatedEnumTypeTraits< ::ai::inworld::options::FieldMode, ::ai::inworld::options::FieldMode_IsValid>, 14, true >
+  field_mode;
 
 // ===================================================================
 
@@ -276,6 +306,16 @@ ExampleValue::example() const {
 }  // namespace options
 }  // namespace inworld
 }  // namespace ai
+
+PROTOBUF_NAMESPACE_OPEN
+
+template <> struct is_proto_enum< ::ai::inworld::options::FieldMode> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ai::inworld::options::FieldMode>() {
+  return ::ai::inworld::options::FieldMode_descriptor();
+}
+
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 

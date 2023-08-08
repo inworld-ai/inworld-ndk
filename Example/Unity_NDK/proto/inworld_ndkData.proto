@@ -62,6 +62,11 @@ message CapabilitiesRequest {
   bool continuation = 8;
   bool turnBasedStt = 9;
   bool phonemeInfo = 10;
+  bool animations = 11;
+  bool gestures = 12;
+  bool emotionstreaming = 13;
+  bool silenceevents = 14;
+  bool loadsceneinsession = 15;
 }
 
 message InworldCharacterData {
@@ -81,14 +86,15 @@ message CharacterAssets {
 }
 
 message ClientOptions {
-    string auth_url = 1;
-    string load_scene_url = 2;
+    string server_url = 2;
     string scene_name = 3;
     string api_key = 4;
     string api_secret = 5;
     string player_name = 6;
     string token = 7;
     string session_id = 8;
+    string user_id = 9;
+    CapabilitiesRequest capabilities = 10;
 }
 
 message AgentInfo {
