@@ -1,4 +1,5 @@
 ﻿cmake_minimum_required (VERSION 3.22)
+option(UNITY_NDK FALSE)
 
 function(GroupSourcesByFolder target)
     set(SOURCE_GROUP_DELIMITER "/")
@@ -106,6 +107,17 @@ if (AEC)
         target_link_libraries(InworldNDK PUBLIC ${ThirdPartyDir}/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll.lib)
     endif()
     target_compile_definitions(InworldNDK PUBLIC INWORLD_AEC 1)
+endif()
+
+if (AEC_PREBUILT)
+   target_compile_definitions(InworldNDK PUBLIC INWORLD_AEC) # to enable aec ndk code
+   target_include_directories(InworldNDK PUBLIC aec/aecplugin) # to add include path
+   # link libs
+   target_link_libraries(InworldNDK PUBLIC ${ThirdPartyDir}/Prebuilt/Win64/webrtc_aec_plugin.dll.lib)
+   add_custom_command(TARGET InworldNDK POST_BUILD
+                   COMMAND ${CMAKE_COMMAND} -E copy_if_different
+                   ${ThirdPartyDir}/Prebuilt/Win64/webrtc_aec_plugin.dll
+                   ${CMAKE_CURRENT_SOURCE_DIR}/build)
 endif()
 
 # grpc setup
