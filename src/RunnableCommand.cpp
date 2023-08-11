@@ -113,7 +113,6 @@ void Inworld::RunnableWrite::Run()
 void Inworld::RunnableAudioDumper::Run()
 {
 	AudioDumper.OnSessionStart(FileName);
-	Inworld::Log("Audio dump started to %s", FileName.c_str());
 
 	while (!_IsDone)
 	{
@@ -127,8 +126,6 @@ void Inworld::RunnableAudioDumper::Run()
 	}
 
 	AudioDumper.OnSessionStop();
-	Inworld::Log("audio dump saved to %s", FileName.c_str());
-
 }
 #endif
 

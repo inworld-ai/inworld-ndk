@@ -119,10 +119,10 @@ void Inworld::ClientBase::SetAudioDumpEnabled(bool bEnabled, const std::string& 
 #ifdef INWORLD_AUDIO_DUMP
 	bDumpAudio = bEnabled;
 	_AudioDumpFileName = FileName;
-	_AsyncAudioDumper.Stop();
+	_AsyncAudioDumper->Stop();
 	if (bDumpAudio)
 	{
-		_AsyncAudioDumper.Start("InworldAudioDumper", std::make_unique<RunnableAudioDumper>(_AudioChunksToDump, _AudioDumpFileName));
+		_AsyncAudioDumper->Start("InworldAudioDumper", std::make_unique<RunnableAudioDumper>(_AudioChunksToDump, _AudioDumpFileName));
 		Inworld::Log("ASYNC audio dump STARTING");
 	}
 #endif
@@ -277,7 +277,7 @@ void Inworld::ClientBase::DestroyClient()
 	StopClient();
 	_AsyncLoadSceneTask->Stop();
 #ifdef INWORLD_AUDIO_DUMP
-	_AsyncAudioDumper.Stop();
+	_AsyncAudioDumper->Stop();
 #endif
 }
 

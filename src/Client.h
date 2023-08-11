@@ -91,6 +91,9 @@ namespace Inworld
 			_AsyncWriteTask = std::make_unique<TAsyncRoutine>();
 			_AsyncLoadSceneTask = std::make_unique<TAsyncRoutine>();
 			_AsyncGenerateTokenTask = std::make_unique<TAsyncRoutine>();
+#ifdef  INWORLD_AUDIO_DUMP
+			_AsyncAudioDumper = std::make_unique<TAsyncRoutine>();
+#endif			
 		}
 
 	private:
@@ -105,7 +108,7 @@ namespace Inworld
 		void TryToStartWriteTask();
 
 #ifdef INWORLD_AUDIO_DUMP
-		AsyncRoutine _AsyncAudioDumper;
+		std::unique_ptr<IAsyncRoutine> _AsyncAudioDumper;
 		SharedQueue<std::string> _AudioChunksToDump;
 		bool bDumpAudio = false;
 		std::string _AudioDumpFileName = "C:/Tmp/AudioDump.wav";

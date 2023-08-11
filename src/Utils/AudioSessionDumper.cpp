@@ -8,6 +8,7 @@
 #include "AudioSessionDumper.h"
 #include <fstream>
 
+#include "Log.h"
 #include "SharedQueue.h"
 
 #ifdef INWORLD_AUDIO_DUMP
@@ -45,6 +46,8 @@ void AudioSessionDumper::OnSessionStart(const std::string& InFileName)
 	std::ofstream OutStream(_FileName, std::ios::binary);
 	OutStream.clear();
 	OutStream.close();
+	Inworld::Log("Audio dump started to %s", _FileName.c_str());
+
 }
 
 void AudioSessionDumper::OnSessionStop()
@@ -65,5 +68,6 @@ void AudioSessionDumper::OnSessionStop()
 	OutStream.write(reinterpret_cast<const char*>(&WavStruct), sizeof(WavStruct));
 	OutStream.write(reinterpret_cast<const char*>(WaveData.data()), WaveSize);
 	OutStream.close();
+	Inworld::Log("audio dump saved to %s", _FileName.c_str());
 }
 #endif
