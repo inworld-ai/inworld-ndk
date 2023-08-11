@@ -38,7 +38,7 @@ extern "C" {
 
    __declspec(dllexport) void ClientWrapper_StartAudioSession(ClientWrapper* wrapper, const char* AgentId);
    __declspec(dllexport) void ClientWrapper_StopAudioSession(ClientWrapper* wrapper, const char* AgentId);
-
+    
    __declspec(dllexport) void ClientWrapper_InitClient(ClientWrapper* wrapper, const char* ClientId, const char* ClientVer, ConnectionStateCallbackType ConnectionStateCallback, PacketCallbackType PacketCallback);
    __declspec(dllexport) void ClientWrapper_StartClientWithCallback(ClientWrapper* wrapper, const uint8_t* serialized_options, int serialized_options_size, const uint8_t* serialized_sessionInfo, int serialized_sessionInfo_size, LoadSceneCallbackType LoadSceneCallback);
    __declspec(dllexport) void ClientWrapper_PauseClient(ClientWrapper* wrapper);
@@ -46,10 +46,12 @@ extern "C" {
    __declspec(dllexport) void ClientWrapper_StopClient(ClientWrapper* wrapper);
    __declspec(dllexport) void ClientWrapper_DestroyClient(ClientWrapper* wrapper);
 
-   //__declspec(dllexport) ConnectionState GetConnectionState(ClientWrapper* wrapper);
    __declspec(dllexport) bool ClientWrapper_GetConnectionError(ClientWrapper* wrapper, char* OutErrorMessage, int BufferSize, int32_t* OutErrorCode);
     
    __declspec(dllexport) void ClientWrapper_Update(ClientWrapper* wrapper);
    __declspec(dllexport) void DebugLog(const char* message);
 
+#if INWORLD_AUDIO_DUMP
+    __declspec(dllexport) void ClientWrapper_SetAudioDumpEnabled(ClientWrapper* wrapper, bool enabled, const char* FilePath);
+#endif
 }

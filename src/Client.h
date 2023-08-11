@@ -17,12 +17,32 @@
 #include "AsyncRoutine.h"
 #include "AECFilter.h"
 #include "RunnableCommand.h"
-
+#include "Utils/AudioSessionDumper.h"
+using namespace std;
 
 using PacketQueue = Inworld::SharedQueue<std::shared_ptr<Inworld::Packet>>;
 
 namespace Inworld
 {
+#if INWORLD_AUDIO_DUMP
+	class FRunnableAudioDumper : public Inworld::Runnable
+	{
+	public:
+		FRunnableAudioDumper(SharedQueue<std::string>& InAudioChuncks, const string& InFileName)
+			: AudioChuncks(InAudioChuncks)
+			, FileName(InFileName)
+		{}
+
+		string FileName;
+		virtual void Run() override;
+
+	private:
+
+		FAudioSessionDumper AudioDumper;
+		SharedQueue<std::string>& AudioChuncks;
+	};
+#endif
+	
 	struct INWORLDAINDK_API ClientOptions
 	{
 		std::string ServerUrl;
@@ -52,6 +72,12 @@ namespace Inworld
 		ClientBase() = default;
 		virtual ~ClientBase() = default;
 
+#if INWORLD_AUDIO_DUMP
+		FAudioSessionDumper AudioDumper;
+		bool bDumpAudio = false;
+		string AudioDumpFileName = "C:/Tmp/AudioDump.wav";
+#endif
+
 		void SendPacket(std::shared_ptr<Inworld::Packet> Packet);
 
 		virtual std::shared_ptr<TextEvent> SendTextMessage(const std::string& AgentId, const std::string& Text);
@@ -75,6 +101,8 @@ namespace Inworld
 
 		virtual void GenerateToken(std::function<void()> RefreshTokenCallback);
 
+		virtual void SetAudioDump(bool bEnabled, const std::string& FileName);
+		
 		ConnectionState GetConnectionState() const { return _ConnectionState; }
 		bool GetConnectionError(std::string& OutErrorMessage, int32_t& OutErrorCode) const;
 
@@ -102,6 +130,7 @@ namespace Inworld
 		void StopReaderWriter();
 		void TryToStartReadTask();
 		void TryToStartWriteTask();
+
 
 		std::function<void()> _OnGenerateTokenCallback;
 		std::function<void(const std::vector<AgentInfo>&)> _OnLoadSceneCallback;
@@ -140,6 +169,9 @@ namespace Inworld
 		Client()
 		{
 			CreateAsyncRoutines<Inworld::AsyncRoutine>();
+#if INWORLD_AUDIO_DUMP
+			AudioDumper = FAudioSessionDumper();
+#endif
 		}
 
 		virtual void Update() override;

@@ -22,6 +22,10 @@
 #undef min
 #undef max
 
+#if INWORLD_AUDIO_DUMP
+
+#endif
+
 constexpr int64_t gMaxTokenLifespan = 60 * 45; // 45 minutes
 
 const std::string DefaultTargetUrl = "api-engine.inworld.ai:443";
@@ -70,6 +74,9 @@ std::shared_ptr<Inworld::DataEvent> Inworld::ClientBase::SendSoundMessage(const 
 {
 	auto Packet = std::make_shared<AudioDataEvent>(Data, Routing::Player2Agent(AgentId));
 	SendPacket(Packet);
+#if INWORLD_AUDIO_DUMP
+	AudioDumper.OnMessage(Data);
+#endif
 	return Packet;
 }
 
@@ -108,16 +115,32 @@ void Inworld::ClientBase::CancelResponse(const std::string& AgentId, const std::
 	SendPacket(Packet);
 }
 
+void Inworld::ClientBase::SetAudioDump(bool bEnabled, const std::string& FileName)
+{
+#if INWORLD_AUDIO_DUMP
+	bDumpAudio = bEnabled;
+	AudioDumpFileName = FileName;
+#endif
+}
+
 void Inworld::ClientBase::StartAudioSession(const std::string& AgentId)
 {
 	auto Packet = std::make_shared<Inworld::ControlEvent>(ai::inworld::packets::ControlEvent_Action_AUDIO_SESSION_START, Inworld::Routing::Player2Agent(AgentId));
 	SendPacket(Packet);
+#if INWORLD_AUDIO_DUMP
+	AudioDumper.OnSessionStart(AudioDumpFileName);
+	Inworld::Log("Audio dump started to %s", AudioDumpFileName.c_str());
+#endif
 }
 
 void Inworld::ClientBase::StopAudioSession(const std::string& AgentId)
 {
 	auto Packet = std::make_shared<Inworld::ControlEvent>(ai::inworld::packets::ControlEvent_Action_AUDIO_SESSION_END, Inworld::Routing::Player2Agent(AgentId));
 	SendPacket(Packet);
+#if INWORLD_AUDIO_DUMP
+	AudioDumper.OnSessionStop();
+	Inworld::Log("audio dump saved to %s", AudioDumpFileName.c_str());
+#endif
 }
 
 void Inworld::ClientBase::InitClient(std::string ClientId, std::string ClientVer, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback)
