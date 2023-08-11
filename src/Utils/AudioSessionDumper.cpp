@@ -40,14 +40,14 @@ struct FWavHeader
 	uint32 Subchunk2Size;
 };
 
-void FAudioSessionDumper::OnMessage(const std::string& Msg)
+void AudioSessionDumper::OnMessage(const std::string& Msg)
 {
 	std::ofstream OutStream(FileName, std::ios::binary | std::ios_base::app);
 	OutStream.write((const char*)Msg.data(), Msg.size());
 	OutStream.close();
 }
 
-void FAudioSessionDumper::OnSessionStart(const std::string& InFileName)
+void AudioSessionDumper::OnSessionStart(const std::string& InFileName)
 {
 	FileName = InFileName;
 
@@ -56,7 +56,7 @@ void FAudioSessionDumper::OnSessionStart(const std::string& InFileName)
 	OutStream.close();
 }
 
-void FAudioSessionDumper::OnSessionStop()
+void AudioSessionDumper::OnSessionStop()
 {
 	std::ifstream InStream(FileName, std::ios::binary | std::ios::ate);
 	const int32 WaveSize = InStream.tellg();

@@ -11,7 +11,7 @@
 
 #if INWORLD_AUDIO_DUMP
 
-class FAudioSessionDumper
+class AudioSessionDumper
 {
 public:
 	void OnSessionStart(const std::string& InFileName);

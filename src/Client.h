@@ -17,20 +17,23 @@
 #include "AsyncRoutine.h"
 #include "AECFilter.h"
 #include "RunnableCommand.h"
+
+#if INWORLD_AUDIO_DUMP
 #include "Utils/AudioSessionDumper.h"
 using namespace std;
+#endif
 
 using PacketQueue = Inworld::SharedQueue<std::shared_ptr<Inworld::Packet>>;
 
 namespace Inworld
 {
 #if INWORLD_AUDIO_DUMP
-	class FRunnableAudioDumper : public Inworld::Runnable
+	class RunnableAudioDumper : public Inworld::Runnable
 	{
 	public:
-		FRunnableAudioDumper(SharedQueue<std::string>& InAudioChuncks, const string& InFileName)
-			: AudioChuncks(InAudioChuncks)
-			, FileName(InFileName)
+		RunnableAudioDumper(SharedQueue<std::string>& InAudioChuncks, const string& InFileName)
+			: FileName(InFileName)
+			  , AudioChuncks(InAudioChuncks)
 		{}
 
 		string FileName;
@@ -38,7 +41,7 @@ namespace Inworld
 
 	private:
 
-		FAudioSessionDumper AudioDumper;
+		AudioSessionDumper AudioDumper;
 		SharedQueue<std::string>& AudioChuncks;
 	};
 #endif
@@ -73,7 +76,8 @@ namespace Inworld
 		virtual ~ClientBase() = default;
 
 #if INWORLD_AUDIO_DUMP
-		FAudioSessionDumper AudioDumper;
+		AsyncRoutine AsyncAudioDumper;
+		SharedQueue<std::string> AudioChunksToDump;
 		bool bDumpAudio = false;
 		string AudioDumpFileName = "C:/Tmp/AudioDump.wav";
 #endif
@@ -169,9 +173,6 @@ namespace Inworld
 		Client()
 		{
 			CreateAsyncRoutines<Inworld::AsyncRoutine>();
-#if INWORLD_AUDIO_DUMP
-			AudioDumper = FAudioSessionDumper();
-#endif
 		}
 
 		virtual void Update() override;

@@ -22,9 +22,7 @@
 #undef min
 #undef max
 
-#if INWORLD_AUDIO_DUMP
 
-#endif
 
 constexpr int64_t gMaxTokenLifespan = 60 * 45; // 45 minutes
 
@@ -75,7 +73,7 @@ std::shared_ptr<Inworld::DataEvent> Inworld::ClientBase::SendSoundMessage(const 
 	auto Packet = std::make_shared<AudioDataEvent>(Data, Routing::Player2Agent(AgentId));
 	SendPacket(Packet);
 #if INWORLD_AUDIO_DUMP
-	AudioDumper.OnMessage(Data);
+	AudioChunksToDump.PushBack(Data);
 #endif
 	return Packet;
 }
@@ -120,6 +118,12 @@ void Inworld::ClientBase::SetAudioDump(bool bEnabled, const std::string& FileNam
 #if INWORLD_AUDIO_DUMP
 	bDumpAudio = bEnabled;
 	AudioDumpFileName = FileName;
+	AsyncAudioDumper.Stop();
+	if (bDumpAudio)
+	{
+		AsyncAudioDumper.Start("InworldAudioDumper", std::make_unique<RunnableAudioDumper>(AudioChunksToDump, AudioDumpFileName));
+		Inworld::Log("ASYNC audio dump STARTING");
+	}
 #endif
 }
 
@@ -127,20 +131,12 @@ void Inworld::ClientBase::StartAudioSession(const std::string& AgentId)
 {
 	auto Packet = std::make_shared<Inworld::ControlEvent>(ai::inworld::packets::ControlEvent_Action_AUDIO_SESSION_START, Inworld::Routing::Player2Agent(AgentId));
 	SendPacket(Packet);
-#if INWORLD_AUDIO_DUMP
-	AudioDumper.OnSessionStart(AudioDumpFileName);
-	Inworld::Log("Audio dump started to %s", AudioDumpFileName.c_str());
-#endif
 }
 
 void Inworld::ClientBase::StopAudioSession(const std::string& AgentId)
 {
 	auto Packet = std::make_shared<Inworld::ControlEvent>(ai::inworld::packets::ControlEvent_Action_AUDIO_SESSION_END, Inworld::Routing::Player2Agent(AgentId));
 	SendPacket(Packet);
-#if INWORLD_AUDIO_DUMP
-	AudioDumper.OnSessionStop();
-	Inworld::Log("audio dump saved to %s", AudioDumpFileName.c_str());
-#endif
 }
 
 void Inworld::ClientBase::InitClient(std::string ClientId, std::string ClientVer, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback)
@@ -538,4 +534,26 @@ void Inworld::Client::ExecutePendingTasks()
 		Task();
 	}
 }
+
+
+#if INWORLD_AUDIO_DUMP
+void Inworld::RunnableAudioDumper::Run()
+{
+	AudioDumper.OnSessionStart(FileName);
+	Inworld::Log("Audio dump started to %s", FileName.c_str());
+
+	while (!_IsDone)
+	{
+		std::string Chunk;
+		while (AudioChuncks.PopFront(Chunk))
+		{
+			AudioDumper.OnMessage(Chunk);
+		}
+	}
+
+	AudioDumper.OnSessionStop();
+	Inworld::Log("audio dump saved to %s", FileName.c_str());
+
+}
+#endif
 
