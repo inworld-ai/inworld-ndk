@@ -1,2 +1,2 @@
-python build.py
+python build.py WINDOWS
 pause

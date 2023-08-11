@@ -3,11 +3,27 @@ import sys
 import shutil
 import subprocess
 
+Platform = sys.argv[1]
+ScriptExt = ""
+ExeExt = ""
+if Platform == "WINDOWS":
+    ScriptExt = ".bat"
+    ExeExt = ".exe"
+elif Platform == "MAC":
+    ScriptExt = ""
+    ExeExt = ""
+else:
+    print("Unknown platform " + Platform)
+    sys.exit()
+
 def CmdExec(cmdline, workdir):
     print("Cmd: ", cmdline, " in ", workdir)
     tokens = cmdline.split()
     process = subprocess.Popen(tokens, cwd=workdir, shell=True, stdout=sys.stdout, stderr=subprocess.STDOUT)
-    process.wait()
+    res = process.communicate()
+    if tokens[0] != "git" and process.returncode != 0:
+        print("Error: ", res)
+        raise subprocess.CalledProcessError(process.returncode, process.args)
 
 def CopyFile(src, dst):
     os.chmod(dst, 777)
@@ -26,21 +42,23 @@ CheckoutSrcDir = CheckoutDir + "src/"
 NinjaDir = CheckoutSrcDir + "third_party/ninja/"
 
 CmdExec("git restore .", DepotToolsDir)
-CmdExec(DepotToolsDir + "gclient.bat", DepotToolsDir)
+CmdExec("%sgclient%s"%(DepotToolsDir, ScriptExt), DepotToolsDir)
 if not os.path.exists(CheckoutDir):
     os.mkdir(CheckoutDir)
-    CmdExec(DepotToolsDir + "fetch.bat --nohooks webrtc", CheckoutDir)
+
+if not os.path.exists(CheckoutSrcDir):
+    CmdExec("%sfetch%s --nohooks webrtc"%(DepotToolsDir,ScriptExt), CheckoutDir)
 
 CmdExec("git clean -xdf", CheckoutSrcDir)
 CmdExec("git restore .", CheckoutSrcDir)
 CmdExec("git checkout a261e72bc08539d8e1975b036d1b3c1e56ce2ce9", CheckoutSrcDir)
 
-CopyFile(RootDir + "Build.gn", CheckoutSrcDir + "examples")
-CopyFolder(RootDir + "aecplugin", CheckoutSrcDir + "examples/aecplugin")
+CopyFile("%sBuild.gn"%RootDir, "%sexamples"%CheckoutSrcDir)
+CopyFolder("%saecplugin"%RootDir, "%sexamples/aecplugin"%CheckoutSrcDir)
 
-CmdExec(DepotToolsDir + "gclient.bat sync", CheckoutSrcDir)
+CmdExec("%sgclient%s sync" % (DepotToolsDir, ScriptExt), CheckoutSrcDir)
 
-CmdExec(DepotToolsDir + "gn.bat gen out", CheckoutSrcDir)
-CmdExec(NinjaDir + "ninja.exe -C out", CheckoutSrcDir)
+CmdExec("%sgn%s gen out"%(DepotToolsDir, ScriptExt), CheckoutSrcDir)
+CmdExec("%sninja%s -C out"%(NinjaDir, ExeExt), CheckoutSrcDir)
 
 
