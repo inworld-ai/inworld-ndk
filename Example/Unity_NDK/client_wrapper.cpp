@@ -307,7 +307,7 @@ extern "C" {
 
     void ClientWrapper_SetAudioDumpEnabled(ClientWrapper* wrapper, bool enabled, const char* FilePath)
     {
-        wrapper->client.SetAudioDump(enabled, FilePath);
+        wrapper->client.SetAudioDumpEnabled(enabled, FilePath);
     }
     
     void DebugLog(const char* message)

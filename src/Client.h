@@ -18,34 +18,10 @@
 #include "AECFilter.h"
 #include "RunnableCommand.h"
 
-#if INWORLD_AUDIO_DUMP
-#include "Utils/AudioSessionDumper.h"
-using namespace std;
-#endif
-
 using PacketQueue = Inworld::SharedQueue<std::shared_ptr<Inworld::Packet>>;
 
 namespace Inworld
-{
-#if INWORLD_AUDIO_DUMP
-	class RunnableAudioDumper : public Inworld::Runnable
-	{
-	public:
-		RunnableAudioDumper(SharedQueue<std::string>& InAudioChuncks, const string& InFileName)
-			: FileName(InFileName)
-			  , AudioChuncks(InAudioChuncks)
-		{}
-
-		string FileName;
-		virtual void Run() override;
-
-	private:
-
-		AudioSessionDumper AudioDumper;
-		SharedQueue<std::string>& AudioChuncks;
-	};
-#endif
-	
+{	
 	struct INWORLDAINDK_API ClientOptions
 	{
 		std::string ServerUrl;
@@ -75,13 +51,6 @@ namespace Inworld
 		ClientBase() = default;
 		virtual ~ClientBase() = default;
 
-#if INWORLD_AUDIO_DUMP
-		AsyncRoutine AsyncAudioDumper;
-		SharedQueue<std::string> AudioChunksToDump;
-		bool bDumpAudio = false;
-		string AudioDumpFileName = "C:/Tmp/AudioDump.wav";
-#endif
-
 		void SendPacket(std::shared_ptr<Inworld::Packet> Packet);
 
 		virtual std::shared_ptr<TextEvent> SendTextMessage(const std::string& AgentId, const std::string& Text);
@@ -105,7 +74,7 @@ namespace Inworld
 
 		virtual void GenerateToken(std::function<void()> RefreshTokenCallback);
 
-		virtual void SetAudioDump(bool bEnabled, const std::string& FileName);
+		virtual void SetAudioDumpEnabled(bool bEnabled, const std::string& FileName);
 		
 		ConnectionState GetConnectionState() const { return _ConnectionState; }
 		bool GetConnectionError(std::string& OutErrorMessage, int32_t& OutErrorCode) const;
@@ -135,6 +104,12 @@ namespace Inworld
 		void TryToStartReadTask();
 		void TryToStartWriteTask();
 
+#ifdef INWORLD_AUDIO_DUMP
+		AsyncRoutine _AsyncAudioDumper;
+		SharedQueue<std::string> _AudioChunksToDump;
+		bool bDumpAudio = false;
+		std::string _AudioDumpFileName = "C:/Tmp/AudioDump.wav";
+#endif
 
 		std::function<void()> _OnGenerateTokenCallback;
 		std::function<void(const std::vector<AgentInfo>&)> _OnLoadSceneCallback;

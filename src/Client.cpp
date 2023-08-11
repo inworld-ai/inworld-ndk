@@ -72,8 +72,9 @@ std::shared_ptr<Inworld::DataEvent> Inworld::ClientBase::SendSoundMessage(const 
 {
 	auto Packet = std::make_shared<AudioDataEvent>(Data, Routing::Player2Agent(AgentId));
 	SendPacket(Packet);
-#if INWORLD_AUDIO_DUMP
-	AudioChunksToDump.PushBack(Data);
+#ifdef INWORLD_AUDIO_DUMP
+	if(bDumpAudio)
+		_AudioChunksToDump.PushBack(Data);
 #endif
 	return Packet;
 }
@@ -113,15 +114,15 @@ void Inworld::ClientBase::CancelResponse(const std::string& AgentId, const std::
 	SendPacket(Packet);
 }
 
-void Inworld::ClientBase::SetAudioDump(bool bEnabled, const std::string& FileName)
+void Inworld::ClientBase::SetAudioDumpEnabled(bool bEnabled, const std::string& FileName)
 {
-#if INWORLD_AUDIO_DUMP
+#ifdef INWORLD_AUDIO_DUMP
 	bDumpAudio = bEnabled;
-	AudioDumpFileName = FileName;
-	AsyncAudioDumper.Stop();
+	_AudioDumpFileName = FileName;
+	_AsyncAudioDumper.Stop();
 	if (bDumpAudio)
 	{
-		AsyncAudioDumper.Start("InworldAudioDumper", std::make_unique<RunnableAudioDumper>(AudioChunksToDump, AudioDumpFileName));
+		_AsyncAudioDumper.Start("InworldAudioDumper", std::make_unique<RunnableAudioDumper>(_AudioChunksToDump, _AudioDumpFileName));
 		Inworld::Log("ASYNC audio dump STARTING");
 	}
 #endif
@@ -275,8 +276,8 @@ void Inworld::ClientBase::DestroyClient()
 {
 	StopClient();
 	_AsyncLoadSceneTask->Stop();
-#if INWORLD_AUDIO_DUMP
-	AsyncAudioDumper.Stop();
+#ifdef INWORLD_AUDIO_DUMP
+	_AsyncAudioDumper.Stop();
 #endif
 }
 
@@ -537,28 +538,4 @@ void Inworld::Client::ExecutePendingTasks()
 		Task();
 	}
 }
-
-
-#if INWORLD_AUDIO_DUMP
-void Inworld::RunnableAudioDumper::Run()
-{
-	AudioDumper.OnSessionStart(FileName);
-	Inworld::Log("Audio dump started to %s", FileName.c_str());
-
-	while (!_IsDone)
-	{
-		std::this_thread::sleep_for(std::chrono::milliseconds(100));
-
-		std::string Chunk;
-		while (AudioChuncks.PopFront(Chunk))
-		{
-			AudioDumper.OnMessage(Chunk);
-		}
-	}
-
-	AudioDumper.OnSessionStop();
-	Inworld::Log("audio dump saved to %s", FileName.c_str());
-
-}
-#endif
 

@@ -51,7 +51,7 @@ extern "C" {
    __declspec(dllexport) void ClientWrapper_Update(ClientWrapper* wrapper);
    __declspec(dllexport) void DebugLog(const char* message);
 
-#if INWORLD_AUDIO_DUMP
+#ifdef INWORLD_AUDIO_DUMP
     __declspec(dllexport) void ClientWrapper_SetAudioDumpEnabled(ClientWrapper* wrapper, bool enabled, const char* FilePath);
 #endif
 }
