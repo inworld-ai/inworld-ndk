@@ -19,7 +19,7 @@ else:
 def CmdExec(cmdline, workdir):
     print("Cmd: ", cmdline, " in ", workdir)
     tokens = cmdline.split()
-    process = subprocess.Popen(tokens, cwd=workdir, shell=True, stdout=sys.stdout, stderr=subprocess.STDOUT)
+    process = subprocess.Popen(tokens, cwd=workdir, stdout=sys.stdout, stderr=subprocess.STDOUT)
     res = process.communicate()
     if tokens[0] != "git" and process.returncode != 0:
         print("Error: ", res)
