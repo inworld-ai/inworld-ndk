@@ -305,9 +305,16 @@ extern "C" {
         wrapper->client.Update();
     }
 
+    void ClientWrapper_SetAudioDumpEnabled(ClientWrapper* wrapper, bool enabled, const char* FilePath)
+    {
+        wrapper->client.SetAudioDumpEnabled(enabled, FilePath);
+    }
+    
     void DebugLog(const char* message)
     {
         std::cout << message << std::endl;
     }
 
 }
+
+
