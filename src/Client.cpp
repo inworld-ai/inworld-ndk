@@ -275,6 +275,9 @@ void Inworld::ClientBase::DestroyClient()
 {
 	StopClient();
 	_AsyncLoadSceneTask->Stop();
+#if INWORLD_AUDIO_DUMP
+	AsyncAudioDumper.Stop();
+#endif
 }
 
 bool Inworld::ClientBase::GetConnectionError(std::string& OutErrorMessage, int32_t& OutErrorCode) const
