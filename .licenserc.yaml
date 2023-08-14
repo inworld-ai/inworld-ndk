@@ -104,7 +104,7 @@ header:
     - '**/DEPS'
     - '**/proto/**'
     - '**/include/**'
-    - 'Example/Unity_NDK/proto/**'
+    - 'Example/Unity/proto/**'
     - 'Example/AndroidApp/**'
 
     
