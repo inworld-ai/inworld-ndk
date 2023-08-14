@@ -98,22 +98,19 @@ GroupSourcesByFolder(InworldNDK)
 
 # webrtc aec setup
 if (AEC)
-    add_subdirectory(ThirdParty/webrtc-aec)
+    target_compile_definitions(InworldNDK PUBLIC INWORLD_AEC)
+    target_include_directories(InworldNDK PUBLIC aec/aecplugin)
     if (WIN32)
-        target_link_libraries(InworldNDK PUBLIC ${ThirdPartyDir}/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll.lib)
+        target_link_libraries(InworldNDK PUBLIC ${ThirdPartyDir}/Prebuilt/Win64/webrtc_aec_plugin.dll.lib)
+        add_custom_command(TARGET InworldNDK POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            ${ThirdPartyDir}/Prebuilt/Win64/webrtc_aec_plugin.dll
+            ${CMAKE_CURRENT_SOURCE_DIR}/build)
+    elseif (MAC)
+        target_link_libraries(InworldNDK PUBLIC ${ThirdPartyDir}/Prebuilt/Mac/arm64/libwebrtc_aec_plugin.dylib)
+    else()
+        message(FATAL_ERROR "AEC: not supported")
     endif()
-    target_compile_definitions(InworldNDK PUBLIC INWORLD_AEC 1)
-endif()
-
-if (AEC_PREBUILT)
-   target_compile_definitions(InworldNDK PUBLIC INWORLD_AEC) # to enable aec ndk code
-   target_include_directories(InworldNDK PUBLIC aec/aecplugin) # to add include path
-   # link libs
-   target_link_libraries(InworldNDK PUBLIC ${ThirdPartyDir}/Prebuilt/Win64/webrtc_aec_plugin.dll.lib)
-   add_custom_command(TARGET InworldNDK POST_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy_if_different
-                   ${ThirdPartyDir}/Prebuilt/Win64/webrtc_aec_plugin.dll
-                   ${CMAKE_CURRENT_SOURCE_DIR}/build)
 endif()
 
 # grpc setup

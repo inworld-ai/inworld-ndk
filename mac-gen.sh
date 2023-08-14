@@ -1,3 +1,3 @@
 mkdir build
 cd build
-cmake -G Xcode .. -DAEC=False
+cmake -G Xcode .. -DAEC=True -DMAC=True
