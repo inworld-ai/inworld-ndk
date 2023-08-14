@@ -26,12 +26,15 @@ def CmdExec(cmdline, workdir):
         raise subprocess.CalledProcessError(process.returncode, process.args)
 
 def CopyFile(src, dst):
-    os.chmod(dst, 777)
+    print("Copy ", src, " to ", dst)
+    #os.chmod(dst, 777)
     shutil.copy(src, dst)
 
 def CopyFolder(src, dst):
+    print("Copy ", src, " to ", dst)
     if not os.path.exists(dst):
         os.mkdir(dst)
+        #os.chmod(dst, 777)
     shutil.copytree(src, dst, dirs_exist_ok=True)
 
 RootDir = os.getcwd() + "/"
@@ -47,16 +50,16 @@ if not os.path.exists(CheckoutDir):
     os.mkdir(CheckoutDir)
 
 if not os.path.exists(CheckoutSrcDir):
-    CmdExec("%sfetch%s --nohooks webrtc"%(DepotToolsDir,ScriptExt), CheckoutDir)
-
-CmdExec("git clean -xdf", CheckoutSrcDir)
-CmdExec("git restore .", CheckoutSrcDir)
-CmdExec("git checkout a261e72bc08539d8e1975b036d1b3c1e56ce2ce9", CheckoutSrcDir)
+    CmdExec("%sfetch%s --nohooks webrtc"%(DepotToolsDir, ScriptExt), CheckoutDir)
+    CmdExec("git clean -xdf", CheckoutSrcDir)
+    CmdExec("git restore .", CheckoutSrcDir)
+    CmdExec("git checkout a261e72bc08539d8e1975b036d1b3c1e56ce2ce9", CheckoutSrcDir)
+    CmdExec("%sgclient%s sync" % (DepotToolsDir, ScriptExt), CheckoutSrcDir)
+else:
+    CmdExec("%sgclient%s sync" % (DepotToolsDir, ScriptExt), CheckoutSrcDir)
 
 CopyFile("%sBuild.gn"%RootDir, "%sexamples"%CheckoutSrcDir)
 CopyFolder("%saecplugin"%RootDir, "%sexamples/aecplugin"%CheckoutSrcDir)
-
-CmdExec("%sgclient%s sync" % (DepotToolsDir, ScriptExt), CheckoutSrcDir)
 
 CmdExec("%sgn%s gen out"%(DepotToolsDir, ScriptExt), CheckoutSrcDir)
 CmdExec("%sninja%s -C out"%(NinjaDir, ExeExt), CheckoutSrcDir)
