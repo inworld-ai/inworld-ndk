@@ -365,11 +365,17 @@ if (ANDROID)
     ${CMAKE_CURRENT_SOURCE_DIR}/build/ThirdParty/spdlog/${LibPref}${LibSpglogName}.${LibExt})
 endif()
 
-if (AEC AND WIN32)
-    list(APPEND LibFiles 
-        ${ThirdPartyDir}/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll.lib
-        ${ThirdPartyDir}/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll
+if (AEC)
+    if (WIN32)
+        list(APPEND LibFiles 
+            ${ThirdPartyDir}/Prebuilt/Win64/webrtc_aec_plugin.dll.lib
+            ${ThirdPartyDir}/Prebuilt/Win64/webrtc_aec_plugin.dll
     )
+    elseif (MAC)
+        list(APPEND LibFiles 
+            ${ThirdPartyDir}/Prebuilt/Mac/arm64/libwebrtc_aec_plugin.dylib
+        )
+    endif()
 endif()
 
 foreach(LibFile IN LISTS LibFiles)
