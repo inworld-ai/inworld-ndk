@@ -1,5 +1,5 @@
 mkdir build
 cd build
-cmake .. -DAEC=False
+cmake .. -DAEC=True
 
 pause
