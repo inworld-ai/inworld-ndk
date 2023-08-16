@@ -27,7 +27,7 @@
 		#if ANDROID
 			#include <android/log.h>
 		#endif
-		#if UNITY_NDK
+		#if INWORLD_UNITY
 			#include <iostream>
 		#endif
 	#endif
@@ -85,7 +85,7 @@ namespace Inworld
 		ConvertToSpdFmt(fmt);
 
 		spdlog::info(format::vformat(fmt, format::make_format_args(args...)));
-	#if UNITY_NDK
+	#if INWORLD_UNITY
 		std::cout << fmt << std::endl;
 	#endif
 
@@ -102,7 +102,7 @@ namespace Inworld
 	{
 		ConvertToSpdFmt(fmt);
 		const auto message = format::vformat(fmt, format::make_format_args(args...));
-	#if UNITY_NDK
+	#if INWORLD_UNITY
 		std::cout << fmt << std::endl;
 	#endif
     
@@ -123,7 +123,7 @@ namespace Inworld
 	#else
 		spdlog::error("{} (SessionId: {})", message.c_str(), g_SessionId.c_str());
 	#endif
-	#if UNITY_NDK
+	#if INWORLD_UNITY
 		std::cout << message << " (SessionId: " << g_SessionId << ")" << std::endl;
 	#endif
 	}

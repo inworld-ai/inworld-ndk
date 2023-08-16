@@ -59,7 +59,11 @@ group("examples") {
   }
 
   if (is_android || is_win) {
-    deps += [ ":webrtc_unity_plugin", ":webrtc_aec_plugin" ]
+    deps += [ ":webrtc_unity_plugin" ]
+  }
+
+  if (is_android || is_win || is_mac) {
+    deps += [ ":webrtc_aec_plugin" ]
   }
 }
 
@@ -877,7 +881,7 @@ if (is_win || is_android) {
   }
 }
 
-if (is_win || is_android) {
+if (is_win || is_android || is_mac) {
   rtc_shared_library("webrtc_aec_plugin") {
     testonly = true
     sources = [

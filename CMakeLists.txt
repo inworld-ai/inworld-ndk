@@ -1,5 +1,5 @@
 ﻿cmake_minimum_required (VERSION 3.22)
-option(UNITY_NDK FALSE)
+option(UNITY FALSE)
 
 function(GroupSourcesByFolder target)
     set(SOURCE_GROUP_DELIMITER "/")
@@ -45,9 +45,6 @@ endif()
 # InworldNDK setup
 project(InworldNDK)
 
-#set(CMAKE_BUILD_TYPE Release)
-#set(CMAKE_CONFIGURATION_TYPES Release)
-
 set(ThirdPartyDir ${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty)
 
 file(GLOB_RECURSE FilesALL
@@ -57,14 +54,14 @@ file(GLOB_RECURSE FilesALL
     src/*.c
 )
 
-if(UNITY_NDK)
-    message("UNITY_NDK is true")
+if(UNITY)
+    message("Building for Unity...")
 
     file(GLOB_RECURSE UnityNDKFiles
-        Example/Unity_NDK/*.h
-        Example/Unity_NDK/*.cpp
-        Example/Unity_NDK/*.cc
-        Example/Unity_NDK/*.c
+        Example/Unity/*.h
+        Example/Unity/*.cpp
+        Example/Unity/*.cc
+        Example/Unity/*.c
     )
         
     list(APPEND FilesALL ${UnityNDKFiles})
@@ -72,12 +69,11 @@ if(UNITY_NDK)
     add_library(InworldNDK SHARED ${FilesALL})
 
     target_include_directories(InworldNDK PUBLIC        
-        ${CMAKE_CURRENT_SOURCE_DIR}/Example/Unity_NDK
+        ${CMAKE_CURRENT_SOURCE_DIR}/Example/Unity
     )
 
-    target_compile_definitions(InworldNDK PUBLIC UNITY_NDK)
+    target_compile_definitions(InworldNDK PUBLIC INWORLD_UNITY)
 else()
-    message("unity-ndk is false")
     add_library(InworldNDK ${FilesALL})
 endif()
 
@@ -102,22 +98,19 @@ GroupSourcesByFolder(InworldNDK)
 
 # webrtc aec setup
 if (AEC)
-    add_subdirectory(ThirdParty/webrtc-aec)
+    target_compile_definitions(InworldNDK PUBLIC INWORLD_AEC)
+    target_include_directories(InworldNDK PUBLIC aec/aecplugin)
     if (WIN32)
-        target_link_libraries(InworldNDK PUBLIC ${ThirdPartyDir}/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll.lib)
+        target_link_libraries(InworldNDK PUBLIC ${ThirdPartyDir}/Prebuilt/Win64/webrtc_aec_plugin.dll.lib)
+        add_custom_command(TARGET InworldNDK POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            ${ThirdPartyDir}/Prebuilt/Win64/webrtc_aec_plugin.dll
+            ${CMAKE_CURRENT_SOURCE_DIR}/build)
+    elseif (MAC)
+        target_link_libraries(InworldNDK PUBLIC ${ThirdPartyDir}/Prebuilt/Mac/arm64/libwebrtc_aec_plugin.dylib)
+    else()
+        message(FATAL_ERROR "AEC: not supported")
     endif()
-    target_compile_definitions(InworldNDK PUBLIC INWORLD_AEC 1)
-endif()
-
-if (AEC_PREBUILT)
-   target_compile_definitions(InworldNDK PUBLIC INWORLD_AEC) # to enable aec ndk code
-   target_include_directories(InworldNDK PUBLIC aec/aecplugin) # to add include path
-   # link libs
-   target_link_libraries(InworldNDK PUBLIC ${ThirdPartyDir}/Prebuilt/Win64/webrtc_aec_plugin.dll.lib)
-   add_custom_command(TARGET InworldNDK POST_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy_if_different
-                   ${ThirdPartyDir}/Prebuilt/Win64/webrtc_aec_plugin.dll
-                   ${CMAKE_CURRENT_SOURCE_DIR}/build)
 endif()
 
 # grpc setup
@@ -372,11 +365,17 @@ if (ANDROID)
     ${CMAKE_CURRENT_SOURCE_DIR}/build/ThirdParty/spdlog/${LibPref}${LibSpglogName}.${LibExt})
 endif()
 
-if (AEC AND WIN32)
-    list(APPEND LibFiles 
-        ${ThirdPartyDir}/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll.lib
-        ${ThirdPartyDir}/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll
+if (AEC)
+    if (WIN32)
+        list(APPEND LibFiles 
+            ${ThirdPartyDir}/Prebuilt/Win64/webrtc_aec_plugin.dll.lib
+            ${ThirdPartyDir}/Prebuilt/Win64/webrtc_aec_plugin.dll
     )
+    elseif (MAC)
+        list(APPEND LibFiles 
+            ${ThirdPartyDir}/Prebuilt/Mac/arm64/libwebrtc_aec_plugin.dylib
+        )
+    endif()
 endif()
 
 foreach(LibFile IN LISTS LibFiles)
@@ -403,7 +402,7 @@ add_custom_command(TARGET InworldNDK POST_BUILD
     ${PROJECT_SOURCE_DIR}/src  ${PackageDir}/src)
 
 # setup example
-if (NOT IOS)
+if (NOT IOS AND NOT ANDROID)
     set(SourceDir Example/ConsoleApp/src)
 
     file(GLOB_RECURSE FilesALL
@@ -422,6 +421,6 @@ if (NOT IOS)
     if (AEC AND WIN32)
         add_custom_command(TARGET InworldNDKApp POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy
-            ${PROJECT_SOURCE_DIR}/ThirdParty/webrtc-aec/webrtc-checkout/src/out/webrtc_aec_plugin.dll  ${PackageDir}${ConfigDirName})
+            ${PROJECT_SOURCE_DIR}/ThirdParty/Prebuilt/Win64/webrtc_aec_plugin.dll  ${PackageDir}${ConfigDirName})
     endif()
 endif()

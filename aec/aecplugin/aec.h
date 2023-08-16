@@ -14,6 +14,8 @@
 #define WEBRTC_PLUGIN_API __declspec(dllexport)
 #elif defined(WEBRTC_ANDROID)
 #define WEBRTC_PLUGIN_API __attribute__((visibility("default")))
+#elif defined(WEBRTC_MAC)
+#define WEBRTC_PLUGIN_API __attribute__((visibility("default")))
 #else
 #define WEBRTC_PLUGIN_API
 #endif
