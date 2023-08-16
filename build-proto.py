@@ -3,7 +3,6 @@ import sys
 import subprocess
 
 ProtoRepo = "C:/Projects/inworld/inworld-proto/"
-ProtoPath = ProtoRepo + "grpc-stub/world-engine/src/main/proto/"
 
 CurDir = os.getcwd() + "/"
 ProtocPath = CurDir + "build/ThirdParty/grpc/third_party/protobuf/Release/protoc.exe"
@@ -50,6 +49,7 @@ def Generate(Path, Filepath):
     
     print("------------------------------------------")
 
+ProtoPath = ProtoRepo + "grpc-stub/world-engine/src/main/proto/"
 Generate(ProtoPath, "world-engine.proto")
 Generate(ProtoPath, "packets.proto")
 Generate(ProtoPath, "voices.proto")
@@ -63,6 +63,8 @@ Generate(ProtoPath, "ai/inworld/studio/v1alpha/scenes.proto")
 Generate(ProtoPath, "ai/inworld/studio/v1alpha/tokens.proto")
 Generate(ProtoPath, "ai/inworld/studio/v1alpha/users.proto")
 Generate(ProtoPath, "ai/inworld/studio/v1alpha/workspaces.proto")
+
+Generate(ProtoRepo, "grpc-stub/platform-public/src/main/proto/ai/inworld/engine/v1/state_serialization.proto")
 
 Generate(CommonProtoPath, "google/api/annotations.proto")
 Generate(CommonProtoPath, "google/api/client.proto")
