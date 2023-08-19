@@ -24,6 +24,7 @@
 #include "ai/inworld/studio/v1alpha/scenes.grpc.pb.h"
 #include "ai/inworld/studio/v1alpha/characters.grpc.pb.h"
 #include "ai/inworld/studio/v1alpha/apikeys.grpc.pb.h"
+#include "grpc-stub/platform-public/src/main/proto/ai/inworld/engine/v1/state_serialization.grpc.pb.h"
 
 #include "Utils/Utils.h"
 #include "Utils/SharedQueue.h"
@@ -36,6 +37,7 @@
 namespace InworldEngine = ai::inworld::engine;
 namespace InworldPackets = ai::inworld::packets;
 namespace InworldV1alpha = ai::inworld::studio::v1alpha;
+namespace InworldEngineV1 = ai::inworld::engine::v1;
 
 using grpc::Channel;
 using grpc::ClientContext;
@@ -194,6 +196,24 @@ namespace Inworld
 		std::string _ApiSecret;
 	};
 
+	class INWORLDAINDK_API RunnableGetSessionState : public RunnableRequest<InworldEngineV1::StateSerialization, InworldEngineV1::SessionState>
+	{
+	public:
+		RunnableGetSessionState(const std::string& ServerUrl, const std::string& Token, const std::string& SessionName, std::function<void(const grpc::Status&, const InworldEngineV1::SessionState&)> Callback = nullptr)
+			: RunnableRequest(ServerUrl, Callback)
+			, _Token(Token)
+			, _SessionName(SessionName)
+		{}
+
+		virtual ~RunnableGetSessionState() = default;
+
+		virtual grpc::Status RunProcess() override;
+
+	private:
+		std::string _Token;
+		std::string _SessionName;
+	};
+
 	struct CapabilitySet
 	{
 		bool Animations = false;
@@ -231,7 +251,7 @@ namespace Inworld
 	class INWORLDAINDK_API RunnableLoadScene : public RunnableRequest<InworldEngine::WorldEngine, InworldEngine::LoadSceneResponse>
 	{
 	public:
-		RunnableLoadScene(const std::string& Token, const std::string& SessionId, const std::string& ServerUrl, const std::string& SceneName, const std::string& PlayerName, const std::string& UserId, const UserSettings& UserSettings, const std::string& ClientId, const std::string& ClientVersion, const CapabilitySet& Capabilities, std::function<void(const grpc::Status&, const InworldEngine::LoadSceneResponse&)> Callback = nullptr)
+		RunnableLoadScene(const std::string& Token, const std::string& SessionId, const std::string& ServerUrl, const std::string& SceneName, const std::string& PlayerName, const std::string& UserId, const UserSettings& UserSettings, const std::string& ClientId, const std::string& ClientVersion, const std::string& SessionState, const CapabilitySet& Capabilities, std::function<void(const grpc::Status&, const InworldEngine::LoadSceneResponse&)> Callback = nullptr)
 			: RunnableRequest(ServerUrl, Callback)
 			, _Token(Token)
 			, _SessionId(SessionId)
@@ -241,6 +261,7 @@ namespace Inworld
 			, _UserSettings(UserSettings)
 			, _ClientId(ClientId)
 			, _ClientVersion(ClientVersion)
+			, _SessionState(SessionState)
 			, _Capabilities(Capabilities)
 		{}
 
@@ -265,6 +286,7 @@ namespace Inworld
 		UserSettings _UserSettings;
 		std::string _ClientId;
 		std::string _ClientVersion;
+		std::string _SessionState;
 		CapabilitySet _Capabilities;
 	};
 

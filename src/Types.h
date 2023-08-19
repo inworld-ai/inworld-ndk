@@ -16,6 +16,7 @@ namespace Inworld
 	{
 		std::string SessionId;
 		std::string Token;
+		std::string SessionSavedState;
 		int64_t ExpirationTime;
 
 		bool IsValid() const

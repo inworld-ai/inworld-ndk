@@ -86,29 +86,66 @@ void NDKApp::App::Run()
 					Inworld::Log("{0} {1} {2}", Info.GivenName, Info.AgentId, Info.BrainName);
 				}
 			}
+		},
+		{
+			"Save",
+			"Save current session state",
+			[this](std::vector<std::string> Args)
+			{
+				_Client.SaveSessionState([this](std::string State, bool bSuccess)
+					{
+						if (!bSuccess)
+						{
+							Inworld::LogError("Save session failed");
+							return;
+						}
+
+						_SavedSessionState = State;
+						Inworld::Log("Session state saved, size '{0}'", State.size());
+					});
+			}
+		},
+		{
+			"Restart",
+			"Restart session with saved state",
+			[this](std::vector<std::string> Args)
+			{
+				_Client.StopClient();
+
+				Inworld::SessionInfo SessionInfo;
+				SessionInfo.SessionSavedState = _SavedSessionState;
+				_Client.StartClient(_Options, SessionInfo,
+					[this](std::vector<Inworld::AgentInfo> AgentInfos)
+					{
+						_AgentInfos = AgentInfos;
+						if (!AgentInfos.empty())
+						{
+							_CurrentAgentIdx = 0;
+							NotifyCurrentCharacter();
+						}
+					});
+			}
 		}
-		});
+});
 
-	Inworld::ClientOptions Options;
+	_Options.ServerUrl = "knivesout.dev.inworld.ai:443";
+	_Options.PlayerName = "Player";
 
-	Options.ServerUrl = "api-engine.inworld.ai:443";
-	Options.PlayerName = "Player";
+	_Options.SceneName = g_SceneName;
+	_Options.ApiKey = g_ApiKey;
+	_Options.ApiSecret = g_ApiSecret;
 
-	Options.SceneName = g_SceneName;
-	Options.ApiKey = g_ApiKey;
-	Options.ApiSecret = g_ApiSecret;
-
-	Options.Capabilities.Animations = false;
-	Options.Capabilities.Text = true;
-	Options.Capabilities.Audio = true;
-	Options.Capabilities.Emotions = true;
-	Options.Capabilities.Gestures = true;
-	Options.Capabilities.Interruptions = true;
-	Options.Capabilities.Triggers = true;
-	Options.Capabilities.EmotionStreaming = true;
-	Options.Capabilities.SilenceEvents = true;
-	Options.Capabilities.PhonemeInfo = true;
-	Options.Capabilities.LoadSceneInSession = true;
+	_Options.Capabilities.Animations = false;
+	_Options.Capabilities.Text = true;
+	_Options.Capabilities.Audio = true;
+	_Options.Capabilities.Emotions = true;
+	_Options.Capabilities.Gestures = true;
+	_Options.Capabilities.Interruptions = true;
+	_Options.Capabilities.Triggers = true;
+	_Options.Capabilities.EmotionStreaming = true;
+	_Options.Capabilities.SilenceEvents = true;
+	_Options.Capabilities.PhonemeInfo = true;
+	_Options.Capabilities.LoadSceneInSession = true;
 
 	std::vector<Inworld::AgentInfo> AgentInfos;
 
@@ -135,7 +172,7 @@ void NDKApp::App::Run()
 		);
 
 	Inworld::SessionInfo SessionInfo;
-	_Client.StartClient(Options, SessionInfo,
+	_Client.StartClient(_Options, SessionInfo,
 		[this](std::vector<Inworld::AgentInfo> AgentInfos)
 		{
 			_AgentInfos = AgentInfos;
