@@ -144,6 +144,12 @@ grpc::Status Inworld::RunnableLoadScene::RunProcess()
 	InworldEngine::LoadSceneRequest LoadSceneRequest;
 	LoadSceneRequest.set_name(_SceneName);
 
+	if (!_SessionState.empty())
+	{
+		auto* SessionState = LoadSceneRequest.mutable_session_continuation();
+		SessionState->set_previous_state(_SessionState);
+	}
+
 	auto* Capabilities = LoadSceneRequest.mutable_capabilities();
 	Capabilities->set_text(_Capabilities.Text);
 	Capabilities->set_audio(_Capabilities.Audio);
@@ -217,9 +223,10 @@ std::string Inworld::RunnableGenerateSessionToken::GenerateHeader() const
 		Nonce[i] = Chars[Distr(Gen)];
 	}
 
+	const std::string Url = _ServerUrl.substr(0, _ServerUrl.find(":"));
 	std::vector<std::string> CryptoArgs = {
 		CurrentTime,
-		"api-engine.inworld.ai",
+		Url,
 		"ai.inworld.engine.WorldEngine/GenerateToken",
 		Nonce,
 		"iw1_request"
@@ -265,6 +272,20 @@ std::unique_ptr<Inworld::Runnable> Inworld::MakeRunnableGenerateUserTokenRequest
 {
 	return std::make_unique<Inworld::RunnableGenerateUserTokenRequest>(InFirebaseToken, InServerUrl, InCallback);
 }
+
+
+grpc::Status Inworld::RunnableGetSessionState::RunProcess()
+{
+	InworldEngineV1::GetSessionStateRequest Request;
+	Request.set_name(_SessionName);
+
+	auto& Ctx = UpdateContext({
+		{ "authorization", std::string("Bearer ") + _Token }
+		});
+
+	return CreateStub()->GetSessionState(Ctx.get(), Request, &_Response);
+}
+
 
 grpc::Status Inworld::RunnableListWorkspacesRequest::RunProcess()
 {

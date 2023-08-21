@@ -83,8 +83,6 @@ namespace Inworld
 	void Log(std::string fmt, Args &&... args)
 	{
 		ConvertToSpdFmt(fmt);
-
-		spdlog::info(format::vformat(fmt, format::make_format_args(args...)));
 	#if INWORLD_UNITY
 		std::cout << fmt << std::endl;
 	#endif

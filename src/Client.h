@@ -71,6 +71,8 @@ namespace Inworld
 		virtual void ResumeClient();
 		virtual void StopClient();
 		virtual void DestroyClient();
+		
+		virtual void SaveSessionState(std::function<void(std::string, bool)> Callback);
 
 		virtual void GenerateToken(std::function<void()> RefreshTokenCallback);
 
@@ -91,6 +93,7 @@ namespace Inworld
 			_AsyncWriteTask = std::make_unique<TAsyncRoutine>();
 			_AsyncLoadSceneTask = std::make_unique<TAsyncRoutine>();
 			_AsyncGenerateTokenTask = std::make_unique<TAsyncRoutine>();
+			_AsyncGetSessionState = std::make_unique<TAsyncRoutine>();
 #ifdef  INWORLD_AUDIO_DUMP
 			_AsyncAudioDumper = std::make_unique<TAsyncRoutine>();
 #endif			
@@ -126,6 +129,7 @@ namespace Inworld
 		std::unique_ptr<IAsyncRoutine> _AsyncWriteTask;
 		std::unique_ptr<IAsyncRoutine> _AsyncGenerateTokenTask;
 		std::unique_ptr<IAsyncRoutine> _AsyncLoadSceneTask;
+		std::unique_ptr<IAsyncRoutine> _AsyncGetSessionState;
 
 		PacketQueue _IncomingPackets;
 		PacketQueue _OutgoingPackets;

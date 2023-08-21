@@ -1,10 +1,13 @@
 import os
+import sys
 import subprocess
 
-InworldRepo = "C:/Projects/inworld/inworld/"
+ProtoRepo = "C:/Projects/inworld/inworld-proto/"
+
 CurDir = os.getcwd() + "/"
 ProtocPath = CurDir + "build/ThirdParty/grpc/third_party/protobuf/Release/protoc.exe"
 CppPluginPath = CurDir + "build/ThirdParty/grpc/Release/grpc_cpp_plugin.exe"
+CommonProtoPath = CurDir + "ThirdParty/api-common-protos/"
 
 def AddLineToFileStart(Filename, Line):
     print("Adding " + Line + " to " + Filename)
@@ -20,7 +23,7 @@ def Generate(Path, Filepath):
 
     CmdLine = ProtocPath
     
-    CmdLine += " --proto_path=" + CurDir + "ThirdParty/api-common-protos"
+    CmdLine += " --proto_path=" + CommonProtoPath
     CmdLine += " --proto_path=" + CurDir + "ThirdParty/grpc/third_party/protobuf/src"
     CmdLine += " --proto_path=" + Path
 
@@ -33,7 +36,11 @@ def Generate(Path, Filepath):
     CmdLine += " " + Path + "/" + Filepath
      
     print(CmdLine)
-    subprocess.call(CmdLine, shell=True)
+    tokens = CmdLine.split()
+    process = subprocess.Popen(tokens, stdout=sys.stdout, stderr=subprocess.STDOUT)
+    res = process.communicate()
+    if process.returncode != 0:
+        raise subprocess.CalledProcessError(process.returncode, process.args)
 
     OutFilename = OutPath + "/" + Filepath
     OutFilename = OutFilename[0:OutFilename.rfind('.')]
@@ -42,24 +49,29 @@ def Generate(Path, Filepath):
     
     print("------------------------------------------")
 
-Generate(InworldRepo + "grpc-stub/world-engine/src/main/proto", "world-engine.proto")
-Generate(InworldRepo + "grpc-stub/world-engine/src/main/proto", "packets.proto")
-Generate(InworldRepo + "grpc-stub/world-engine/src/main/proto", "voices.proto")
-Generate(InworldRepo + "grpc-stub/world-engine/src/main/proto", "options.proto")
+ProtoPath = ProtoRepo + "grpc-stub/world-engine/src/main/proto/"
+Generate(ProtoPath, "world-engine.proto")
+Generate(ProtoPath, "packets.proto")
+Generate(ProtoPath, "voices.proto")
+Generate(ProtoPath, "options.proto")
 
-Generate(InworldRepo + "grpc-stub/world-engine/src/main/proto", "ai/inworld/studio/v1alpha/apikeys.proto")
-Generate(InworldRepo + "grpc-stub/world-engine/src/main/proto", "ai/inworld/studio/v1alpha/behavioral_contexts.proto")
-Generate(InworldRepo + "grpc-stub/world-engine/src/main/proto", "ai/inworld/studio/v1alpha/characters.proto")
-Generate(InworldRepo + "grpc-stub/world-engine/src/main/proto", "ai/inworld/studio/v1alpha/errors.proto")
-Generate(InworldRepo + "grpc-stub/world-engine/src/main/proto", "ai/inworld/studio/v1alpha/scenes.proto")
-Generate(InworldRepo + "grpc-stub/world-engine/src/main/proto", "ai/inworld/studio/v1alpha/tokens.proto")
-Generate(InworldRepo + "grpc-stub/world-engine/src/main/proto", "ai/inworld/studio/v1alpha/users.proto")
-Generate(InworldRepo + "grpc-stub/world-engine/src/main/proto", "ai/inworld/studio/v1alpha/workspaces.proto")
+Generate(ProtoPath, "ai/inworld/studio/v1alpha/apikeys.proto")
+Generate(ProtoPath, "ai/inworld/studio/v1alpha/behavioral_contexts.proto")
+Generate(ProtoPath, "ai/inworld/studio/v1alpha/characters.proto")
+Generate(ProtoPath, "ai/inworld/studio/v1alpha/errors.proto")
+Generate(ProtoPath, "ai/inworld/studio/v1alpha/scenes.proto")
+Generate(ProtoPath, "ai/inworld/studio/v1alpha/tokens.proto")
+Generate(ProtoPath, "ai/inworld/studio/v1alpha/users.proto")
+Generate(ProtoPath, "ai/inworld/studio/v1alpha/workspaces.proto")
 
-Generate(CurDir + "ThirdParty/api-common-protos", "google/api/annotations.proto")
-Generate(CurDir + "ThirdParty/api-common-protos", "google/api/client.proto")
-Generate(CurDir + "ThirdParty/api-common-protos", "google/api/field_behavior.proto")
-Generate(CurDir + "ThirdParty/api-common-protos", "google/api/http.proto")
-Generate(CurDir + "ThirdParty/api-common-protos", "google/api/resource.proto")
-Generate(CurDir + "ThirdParty/api-common-protos", "google/longrunning/operations.proto")
-Generate(CurDir + "ThirdParty/api-common-protos", "google/rpc/status.proto")
+Generate(ProtoRepo, "grpc-stub/platform-public/src/main/proto/ai/inworld/engine/v1/state_serialization.proto")
+
+Generate(CommonProtoPath, "google/api/annotations.proto")
+Generate(CommonProtoPath, "google/api/client.proto")
+Generate(CommonProtoPath, "google/api/field_behavior.proto")
+Generate(CommonProtoPath, "google/api/http.proto")
+Generate(CommonProtoPath, "google/api/resource.proto")
+Generate(CommonProtoPath, "google/longrunning/operations.proto")
+Generate(CommonProtoPath, "google/rpc/status.proto")
+
+print("Great success!")

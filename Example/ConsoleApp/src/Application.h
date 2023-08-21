@@ -27,9 +27,11 @@ namespace NDKApp
 		void NotifyCurrentCharacter();
 
 		Inworld::Client _Client;
+		Inworld::ClientOptions _Options;
 		CommandLineInterface _Cli;
 		PacketHandler _PacketHandler;
 
+		std::string _SavedSessionState;
 		std::vector<Inworld::AgentInfo> _AgentInfos;
 		int32_t _CurrentAgentIdx = -1;
 	};

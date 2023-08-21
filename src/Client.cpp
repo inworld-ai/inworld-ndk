@@ -281,6 +281,39 @@ void Inworld::ClientBase::DestroyClient()
 #endif
 }
 
+void Inworld::ClientBase::SaveSessionState(std::function<void(std::string, bool)> Callback)
+{
+	const size_t Pos = _ClientOptions.SceneName.find("scenes");
+	if (Pos == std::string::npos)
+	{
+		Inworld::LogError("Inworld::ClientBase::SaveSessionState: Couldn't form SessionName");
+		Callback({}, false);
+		return;
+	}
+
+	const std::string SessionName = _ClientOptions.SceneName.substr(0, Pos) + "sessions/" + _SessionInfo.SessionId;
+	_AsyncGetSessionState->Start(
+		"InworldSaveSession",
+		std::make_unique<RunnableGetSessionState>(
+			_ClientOptions.ServerUrl,
+			_SessionInfo.Token,
+			SessionName,
+			[this, Callback](const grpc::Status& Status, const InworldEngineV1::SessionState& State)
+			{
+				AddTaskToMainThread([this, Status, State, Callback]() {
+					if (!Status.ok())
+					{
+						Inworld::LogError("Save session state FALURE! %s, Code: %d", ARG_STR(Status.error_message()), (int32_t)Status.error_code());
+						Callback({}, false);
+						return;
+					}
+
+					Callback(State.state(), true);
+				});
+			}
+		));
+}
+
 bool Inworld::ClientBase::GetConnectionError(std::string& OutErrorMessage, int32_t& OutErrorCode) const
 {
 	OutErrorMessage = _ErrorMessage;
@@ -330,6 +363,7 @@ void Inworld::ClientBase::LoadScene()
 			_ClientOptions.UserSettings,
 			_ClientId,
 			_ClientVer,
+			_SessionInfo.SessionSavedState,
 			_ClientOptions.Capabilities,
 			[this](const grpc::Status& Status, const InworldEngine::LoadSceneResponse& Response)
 			{
