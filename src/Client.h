@@ -23,7 +23,7 @@ using PacketQueue = Inworld::SharedQueue<std::shared_ptr<Inworld::Packet>>;
 
 namespace Inworld
 {	
-	struct INWORLDAINDK_API ClientOptions
+	struct ClientOptions
 	{
 		std::string ServerUrl;
 		std::string SceneName;
@@ -35,7 +35,7 @@ namespace Inworld
 		UserSettings UserSettings;
 	};
 
-	class INWORLDAINDK_API ClientBase
+	class ClientBase
 	{
 	public:
 		enum class ConnectionState : uint8_t 
@@ -157,7 +157,7 @@ namespace Inworld
 		PerceivedLatencyTracker _LatencyTracker;
 	};
 
-	class INWORLDAINDK_API Client : public ClientBase
+	class Client : public ClientBase
 	{
 	public:
 		Client()

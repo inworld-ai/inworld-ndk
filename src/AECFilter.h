@@ -10,7 +10,7 @@
 
 namespace Inworld
 {
-	class INWORLDAINDK_API AECFilter
+	class AECFilter
 	{
 	public:
 		AECFilter();
