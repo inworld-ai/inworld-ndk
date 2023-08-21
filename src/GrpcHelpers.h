@@ -39,7 +39,7 @@ namespace Inworld
 			bool _bMale;
 		};
 
-		INWORLDAINDK_API CharacterInfo CreateCharacterInfo(const InworldV1alpha::Character& GrpcCharacter);
+		CharacterInfo CreateCharacterInfo(const InworldV1alpha::Character& GrpcCharacter);
 		
 	}
 }

@@ -24,7 +24,7 @@ namespace Inworld {
 	std::string RandomUUID();
 
 	// Represents agent or player.
-	struct INWORLDAINDK_API Actor
+	struct Actor
 	{
 		Actor() = default;
 		Actor(const InworldPakets::Actor& Actor) 
@@ -45,7 +45,7 @@ namespace Inworld {
 	};
 
 	// Source and target for packet.
-	struct INWORLDAINDK_API Routing
+	struct Routing
 	{
 		Routing() = default;
 		Routing(const InworldPakets::Routing& Routing) 
@@ -65,7 +65,7 @@ namespace Inworld {
         Actor _Target;
 	};
 
-	struct INWORLDAINDK_API PacketId {
+	struct PacketId {
 		// Constructs with all random parameters.
         PacketId() 
 			: PacketId(RandomUUID(), std::string(RandomUUID()), std::string(RandomUUID())) 
@@ -98,9 +98,9 @@ namespace Inworld {
     class CancelResponseEvent;
     class CustomGestureEvent;
     class CustomEvent;
-		class ChangeSceneEvent;
+    class ChangeSceneEvent;
 
-    class INWORLDAINDK_API PacketVisitor
+    class PacketVisitor
     {
     public:
         virtual void Visit(const TextEvent& Event) {  }
@@ -112,13 +112,13 @@ namespace Inworld {
         virtual void Visit(const CancelResponseEvent& Event) {  }
         virtual void Visit(const CustomGestureEvent& Event) {  }
         virtual void Visit(const CustomEvent& Event) {  }
-				virtual void Visit(const ChangeSceneEvent& Event) {  }
+        virtual void Visit(const ChangeSceneEvent& Event) {  }
     };
 
 	struct EmotionalState;
 
 	// Base class for all Inworld protocol packets
-	class INWORLDAINDK_API Packet
+	class Packet
     {
 	public:
         Packet() = default;
@@ -147,7 +147,7 @@ namespace Inworld {
 		std::chrono::system_clock::time_point _Timestamp = std::chrono::system_clock::now();
 	};
 
-	class INWORLDAINDK_API TextEvent : public Packet
+	class TextEvent : public Packet
 	{
 	public:
 		TextEvent() = default;
@@ -179,7 +179,7 @@ namespace Inworld {
 		InworldPakets::TextEvent_SourceType _SourceType;
 	};
 
-	class INWORLDAINDK_API DataEvent : public Packet
+	class DataEvent : public Packet
     {
 	public:
 		DataEvent() = default;
@@ -205,7 +205,7 @@ namespace Inworld {
 		std::string _Chunk;
 	};
 
-	class INWORLDAINDK_API AudioDataEvent : public DataEvent
+	class AudioDataEvent : public DataEvent
 	{
 	public:
 		AudioDataEvent() = default;
@@ -232,7 +232,7 @@ namespace Inworld {
 		std::vector<PhonemeInfo> _PhonemeInfos;
 	};
 
-	class INWORLDAINDK_API SilenceEvent : public Packet
+	class SilenceEvent : public Packet
 	{
 	public:
 		SilenceEvent() = default;
@@ -256,7 +256,7 @@ namespace Inworld {
 		float _Duration;
 	};
     
-	class INWORLDAINDK_API ControlEvent : public Packet
+	class ControlEvent : public Packet
     {
     public:
 		ControlEvent() = default;
@@ -280,7 +280,7 @@ namespace Inworld {
 		InworldPakets::ControlEvent_Action _Action;
     };
 
-    class INWORLDAINDK_API EmotionEvent : public Packet
+    class EmotionEvent : public Packet
     {
     public:
 		EmotionEvent() = default;
@@ -299,7 +299,7 @@ namespace Inworld {
 		InworldPakets::EmotionEvent_Strength _Strength;
     };
 
-    class INWORLDAINDK_API CustomGestureEvent : public Packet
+    class CustomGestureEvent : public Packet
     {
     public:
 		CustomGestureEvent() = default;
@@ -325,7 +325,7 @@ namespace Inworld {
 		InworldPakets::Playback _Playback;
 	};
 
-	class INWORLDAINDK_API CustomEvent : public Packet
+	class CustomEvent : public Packet
 	{
 	public:
 		CustomEvent() = default;
@@ -349,7 +349,7 @@ namespace Inworld {
 		std::unordered_map<std::string, std::string> _Params;
 	};
 
-	class INWORLDAINDK_API MutationEvent : public Packet
+	class MutationEvent : public Packet
 	{
 	public:
 		MutationEvent() = default;
@@ -364,7 +364,7 @@ namespace Inworld {
 		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const = 0;
 	};
 
-	class INWORLDAINDK_API CancelResponseEvent : public MutationEvent
+	class CancelResponseEvent : public MutationEvent
 	{
 	public:
 		CancelResponseEvent() = default;
@@ -384,7 +384,7 @@ namespace Inworld {
 		std::vector<std::string> _UtteranceIds;
 	};
 
-	class INWORLDAINDK_API ChangeSceneEvent : public MutationEvent
+	class ChangeSceneEvent : public MutationEvent
 	{
 	public:
 		ChangeSceneEvent() = default;

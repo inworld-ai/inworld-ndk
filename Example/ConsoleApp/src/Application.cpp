@@ -83,7 +83,7 @@ void NDKApp::App::Run()
 			{
 				for (auto& Info : _AgentInfos)
 				{
-					Inworld::Log("{0} {1} {2}", Info.GivenName, Info.AgentId, Info.BrainName);
+					Inworld::Log("{0} {1} {2}", ARG_STR(Info.GivenName), ARG_STR(Info.AgentId), ARG_STR(Info.BrainName));
 				}
 			}
 		},
@@ -158,7 +158,7 @@ void NDKApp::App::Run()
 			int32_t Code;
 			_Client.GetConnectionError(Error, Code);
 
-			Inworld::Log("Connection state: {0}. Error: {1}", static_cast<uint32_t>(ConnectionState), Error);
+			Inworld::Log("Connection state: {0}. Error: {1}", static_cast<uint32_t>(ConnectionState), ARG_STR(Error));
 
 			if (ConnectionState == Inworld::Client::ConnectionState::Disconnected)
 			{
@@ -200,7 +200,7 @@ void NDKApp::App::Run()
 
 void NDKApp::App::Error(std::string Msg)
 {
-	Inworld::Log("{0}", Msg);
+	Inworld::Log("{0}", ARG_STR(Msg));
 }
 
 void NDKApp::App::NextCharacter()
@@ -247,6 +247,6 @@ void NDKApp::App::NotifyCurrentCharacter()
 	if (_CurrentAgentIdx != -1)
 	{
 		auto& Info = _AgentInfos[_CurrentAgentIdx];
-		Inworld::Log("Current character: {} {}", Info.GivenName, Info.AgentId);
+		Inworld::Log("Current character: {} {}", ARG_STR(Info.GivenName), ARG_STR(Info.AgentId));
 	}
 }

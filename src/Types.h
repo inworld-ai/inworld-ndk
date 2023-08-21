@@ -12,7 +12,7 @@
 
 namespace Inworld
 {
-	struct INWORLDAINDK_API SessionInfo
+	struct SessionInfo
 	{
 		std::string SessionId;
 		std::string Token;
@@ -25,7 +25,7 @@ namespace Inworld
 		}
 	};
 
-	struct INWORLDAINDK_API AgentInfo
+	struct AgentInfo
 	{
 		std::string BrainName;
 		std::string AgentId;
