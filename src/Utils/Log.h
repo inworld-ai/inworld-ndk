@@ -27,9 +27,6 @@
 		#if ANDROID
 			#include <android/log.h>
 		#endif
-		#if INWORLD_UNITY
-			#include <iostream>
-		#endif
 	#endif
 #else
 	#include <string>
