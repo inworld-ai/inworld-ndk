@@ -1,6 +1,10 @@
 cmake_minimum_required (VERSION 3.22)
 option(UNITY FALSE)
 
+if(DISABLE_VS_TRACK_FILE_ACCESS)
+    set(CMAKE_VS_GLOBALS "TrackFileAccess=false")
+endif()
+
 function(GroupSourcesByFolder target)
     set(SOURCE_GROUP_DELIMITER "/")
     set(last_dir "")
