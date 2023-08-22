@@ -40,8 +40,8 @@ namespace Inworld
 	INWORLDAINDK_API void LogClearSessionId();
 
 #if INWORLD_UNITY
-	INWORLDAINDK_API void LogSetUnityLogCallback(void(*callback)(const char*, int severity));
-	inline std::function<void(const char *, int severity)> UnityLoggerCallback;
+	INWORLDAINDK_API void LogSetUnityLogCallback(void(*callback)(const char* message, int severity));
+	inline std::function<void(const char * message, int severity)> UnityLoggerCallback;
 
 #endif
 

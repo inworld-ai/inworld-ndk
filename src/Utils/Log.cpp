@@ -23,7 +23,7 @@ namespace Inworld
 
 #if INWORLD_UNITY
 
-	void LogSetUnityLogCallback(void(*callback)(const char*, int severity))
+	void LogSetUnityLogCallback(void(*callback)(const char* message, int severity))
 	{
 		UnityLoggerCallback = callback;
 	}
