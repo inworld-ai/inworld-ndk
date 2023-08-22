@@ -42,6 +42,12 @@ namespace Inworld
 	INWORLDAINDK_API void LogSetSessionId(const std::string Id);
 	INWORLDAINDK_API void LogClearSessionId();
 
+#if INWORLD_UNITY
+	INWORLDAINDK_API void LogSetUnityLogCallback(void(*callback)(const char*, int severity));
+	inline std::function<void(const char *, int severity)> UnityLoggerCallback;
+
+#endif
+
 #ifdef INWORLD_LOG
 #ifdef INWORLD_UNREAL
 	// copy of FString::PrintfImpl to avoid static asserts
@@ -83,15 +89,16 @@ namespace Inworld
 	void Log(std::string fmt, Args &&... args)
 	{
 		ConvertToSpdFmt(fmt);
-	#if INWORLD_UNITY
-		std::cout << fmt << std::endl;
-	#endif
-
+		
 		const auto message = format::vformat(fmt, format::make_format_args(args...));
 	#if ANDROID
 		__android_log_print(ANDROID_LOG_INFO, "InworldNDK", "%s", message.c_str());
 	#else
 		spdlog::info(message);
+	#endif
+
+	#if INWORLD_UNITY
+		UnityLoggerCallback(message.c_str(), 0);
 	#endif
 	}
 
@@ -101,7 +108,7 @@ namespace Inworld
 		ConvertToSpdFmt(fmt);
 		const auto message = format::vformat(fmt, format::make_format_args(args...));
 	#if INWORLD_UNITY
-		std::cout << fmt << std::endl;
+		UnityLoggerCallback(message.c_str(), 1);
 	#endif
     
 	#if ANDROID
@@ -122,7 +129,7 @@ namespace Inworld
 		spdlog::error("{} (SessionId: {})", message.c_str(), g_SessionId.c_str());
 	#endif
 	#if INWORLD_UNITY
-		std::cout << message << " (SessionId: " << g_SessionId << ")" << std::endl;
+		UnityLoggerCallback(message.c_str(), 2);
 	#endif
 	}
 

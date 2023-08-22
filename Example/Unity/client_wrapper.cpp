@@ -6,6 +6,8 @@
  */
 #include "client_wrapper.h"
 #include <memory>
+
+#include "Utils/Log.h"
 using namespace inworld::ndkData;
 
 extern "C" {
@@ -21,7 +23,7 @@ extern "C" {
     }
 
     // InitClient
-    void ClientWrapper_InitClient(ClientWrapper* wrapper, const char* ClientId, const char* ClientVer, ConnectionStateCallbackType ConnectionStateCallback, PacketCallbackType PacketCallback) {
+    void ClientWrapper_InitClient(ClientWrapper* wrapper, const char* ClientId, const char* ClientVer, ConnectionStateCallbackType ConnectionStateCallback, PacketCallbackType PacketCallback, LogCallbackType LogCallback) {
         wrapper->client.InitClient(ClientId, ClientVer,
             [ConnectionStateCallback](Inworld::Client::ConnectionState ConnectionState) {
                 ConnectionStateCallback(static_cast<int>(ConnectionState));
@@ -43,6 +45,8 @@ extern "C" {
                     PacketCallback(serialized_data, serialized_data_size);
                 }
             });
+        
+        Inworld::LogSetUnityLogCallback(LogCallback);
         DebugLog("INITIALIZED CLIENT FROM DLL");
     }
 
