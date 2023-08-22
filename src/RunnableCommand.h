@@ -196,7 +196,7 @@ namespace Inworld
 		std::string _ApiSecret;
 	};
 
-	class INWORLDAINDK_API RunnableGetSessionState : public RunnableRequest<InworldEngineV1::StateSerialization, InworldEngineV1::SessionState>
+	class RunnableGetSessionState : public RunnableRequest<InworldEngineV1::StateSerialization, InworldEngineV1::SessionState>
 	{
 	public:
 		RunnableGetSessionState(const std::string& ServerUrl, const std::string& Token, const std::string& SessionName, std::function<void(const grpc::Status&, const InworldEngineV1::SessionState&)> Callback = nullptr)
