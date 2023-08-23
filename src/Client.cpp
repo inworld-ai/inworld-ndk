@@ -185,6 +185,9 @@ void Inworld::ClientBase::GenerateToken(std::function<void()> GenerateTokenCallb
 					{
 						if (_OnGenerateTokenCallback)
 						{
+#if INWORLD_UNITY
+							UnitySessionTokenCallback(_SessionInfo);
+#endif
 							_OnGenerateTokenCallback();
 						}
 					}

@@ -23,7 +23,7 @@ extern "C" {
     }
 
     // InitClient
-    void ClientWrapper_InitClient(ClientWrapper* wrapper, const char* ClientId, const char* ClientVer, ConnectionStateCallbackType ConnectionStateCallback, PacketCallbackType PacketCallback, LogCallbackType LogCallback) {
+    void ClientWrapper_InitClient(ClientWrapper* wrapper, const char* ClientId, const char* ClientVer, ConnectionStateCallbackType ConnectionStateCallback, PacketCallbackType PacketCallback, LogCallbackType LogCallback, SessionTokenCallbackType SessionTokenCallback) {
         wrapper->client.InitClient(ClientId, ClientVer,
             [ConnectionStateCallback](Inworld::Client::ConnectionState ConnectionState) {
                 ConnectionStateCallback(static_cast<int>(ConnectionState));
@@ -45,6 +45,16 @@ extern "C" {
                     PacketCallback(serialized_data, serialized_data_size);
                 }
             });
+
+        wrapper->client.UnitySessionTokenCallback.operator=([SessionTokenCallback](Inworld::SessionInfo info) {
+            std::string jsonString = SerializeSessionInfo(info);
+    
+            // Convert the std::string to a null-terminated C-string for interop.
+            char* serialized_data = static_cast<char*>(CoTaskMemAlloc(jsonString.size() + 1)); // +1 for null terminator
+            strcpy(serialized_data, jsonString.c_str());
+
+            SessionTokenCallback(serialized_data);
+        });
         
         Inworld::LogSetUnityLogCallback(LogCallback);
         DebugLog("INITIALIZED CLIENT FROM DLL");

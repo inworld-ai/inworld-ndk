@@ -81,6 +81,10 @@ namespace Inworld
 		ConnectionState GetConnectionState() const { return _ConnectionState; }
 		bool GetConnectionError(std::string& OutErrorMessage, int32_t& OutErrorCode) const;
 
+#ifdef INWORLD_UNITY
+		std::function<void(SessionInfo)> UnitySessionTokenCallback;
+#endif
+		
 		virtual void Update() {}
 
 	protected:
