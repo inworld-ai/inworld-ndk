@@ -21,6 +21,14 @@ namespace Inworld
 		g_SessionId = "Unknown";
 	}
 
+#if INWORLD_UNITY
+
+	void LogSetUnityLogCallback(void(*callback)(const char* message, int severity))
+	{
+		UnityLoggerCallback = callback;
+	}
+#endif
+
 }
 
 #ifdef INWORLD_LOG
