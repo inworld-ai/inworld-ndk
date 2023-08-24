@@ -266,6 +266,8 @@ void Inworld::ClientBase::StopClient()
 
 	StopReaderWriter();
 	_AsyncLoadSceneTask->Stop();
+	_AsyncGenerateTokenTask->Stop();
+	_AsyncGetSessionState->Stop();
 	_ClientOptions = ClientOptions();
 	_SessionInfo = SessionInfo();
 	SetConnectionState(ConnectionState::Idle);
@@ -275,7 +277,6 @@ void Inworld::ClientBase::StopClient()
 void Inworld::ClientBase::DestroyClient()
 {
 	StopClient();
-	_AsyncLoadSceneTask->Stop();
 #ifdef INWORLD_AUDIO_DUMP
 	_AsyncAudioDumper->Stop();
 #endif
