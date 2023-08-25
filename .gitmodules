@@ -1,7 +1,3 @@
-
-[submodule "ThirdParty/grpc"]
-	path = ThirdParty/grpc
-	url = https://github.com/grpc/grpc.git
 [submodule "ThirdParty/depot-tools"]
 	path = ThirdParty/depot-tools
 	url = https://chromium.googlesource.com/chromium/tools/depot_tools.git
