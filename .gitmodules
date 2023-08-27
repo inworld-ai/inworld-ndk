@@ -7,7 +7,3 @@
 [submodule "ThirdParty/spdlog"]
 	path = ThirdParty/spdlog
 	url = https://github.com/gabime/spdlog.git
-[submodule "ThirdParty/grpc"]
-	path = ThirdParty/grpc
-	url = https://github.com/inworld-ai/inworld-ndk-grpc
-	branch = inworld-main
