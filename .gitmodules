@@ -10,3 +10,4 @@
 [submodule "ThirdParty/grpc"]
 	path = ThirdParty/grpc
 	url = https://github.com/inworld-ai/inworld-ndk-grpc
+	branch = inworld-main
