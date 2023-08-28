@@ -28,7 +28,7 @@ namespace Inworld
 	class AsyncRoutine : public IAsyncRoutine
 	{
 	public:
-		virtual ~AsyncRoutine() = default;
+		virtual ~AsyncRoutine() { Stop(); }
 
 		virtual void Start(std::string ThreadName, std::unique_ptr<Runnable> Runnable) override;
 		virtual void Stop() override;
