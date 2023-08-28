@@ -51,6 +51,8 @@ namespace Inworld
 		ClientBase() = default;
 		virtual ~ClientBase() = default;
 
+		SessionInfo GetSessionInfo();
+		void SetOptions(ClientOptions options);
 		void SendPacket(std::shared_ptr<Inworld::Packet> Packet);
 
 		virtual std::shared_ptr<TextEvent> SendTextMessage(const std::string& AgentId, const std::string& Text);
@@ -80,10 +82,6 @@ namespace Inworld
 		
 		ConnectionState GetConnectionState() const { return _ConnectionState; }
 		bool GetConnectionError(std::string& OutErrorMessage, int32_t& OutErrorCode) const;
-
-#ifdef INWORLD_UNITY
-		std::function<void(SessionInfo)> UnitySessionTokenCallback;
-#endif
 		
 		virtual void Update() {}
 

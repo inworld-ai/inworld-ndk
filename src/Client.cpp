@@ -54,6 +54,16 @@ static void GrpcLog(gpr_log_func_args* args)
 		args->line);
 }
 
+Inworld::SessionInfo Inworld::ClientBase::GetSessionInfo()
+{
+	return _SessionInfo;
+}
+
+void Inworld::ClientBase::SetOptions(ClientOptions options)
+{
+	_ClientOptions = options;
+}
+
 void Inworld::ClientBase::SendPacket(std::shared_ptr<Inworld::Packet> Packet)
 {
 	_OutgoingPackets.PushBack(Packet);
@@ -185,9 +195,6 @@ void Inworld::ClientBase::GenerateToken(std::function<void()> GenerateTokenCallb
 					{
 						if (_OnGenerateTokenCallback)
 						{
-#if INWORLD_UNITY
-							UnitySessionTokenCallback(_SessionInfo);
-#endif
 							_OnGenerateTokenCallback();
 						}
 					}

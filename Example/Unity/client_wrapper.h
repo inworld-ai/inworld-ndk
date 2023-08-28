@@ -40,9 +40,9 @@ extern "C" {
 
    __declspec(dllexport) void ClientWrapper_StartAudioSession(ClientWrapper* wrapper, const char* AgentId);
    __declspec(dllexport) void ClientWrapper_StopAudioSession(ClientWrapper* wrapper, const char* AgentId);
-    
-   __declspec(dllexport) void ClientWrapper_InitClient(ClientWrapper* wrapper, const char* ClientId, const char* ClientVer, ConnectionStateCallbackType ConnectionStateCallback, PacketCallbackType PacketCallback, LogCallbackType LogCallback, SessionTokenCallbackType SessionTokenCallback);
-   __declspec(dllexport) void ClientWrapper_StartClientWithCallback(ClientWrapper* wrapper, const uint8_t* serialized_options, int serialized_options_size, const uint8_t* serialized_sessionInfo, int serialized_sessionInfo_size, LoadSceneCallbackType LoadSceneCallback);
+
+   __declspec(dllexport) void ClientWrapper_InitClient(ClientWrapper* wrapper, const char* ClientId, const char* ClientVer, ConnectionStateCallbackType ConnectionStateCallback, PacketCallbackType PacketCallback, LogCallbackType LogCallback);
+   __declspec(dllexport) void ClientWrapper_StartClientWithCallback(ClientWrapper* wrapper, const uint8_t* serialized_options, int serialized_options_size, const uint8_t* serialized_sessionInfo, int serialized_sessionInfo_size, LoadSceneCallbackType LoadSceneCallback, SessionTokenCallbackType SessionTokenCallback);
    __declspec(dllexport) void ClientWrapper_PauseClient(ClientWrapper* wrapper);
    __declspec(dllexport) void ClientWrapper_ResumeClient(ClientWrapper* wrapper);
    __declspec(dllexport) void ClientWrapper_StopClient(ClientWrapper* wrapper);
@@ -53,15 +53,16 @@ extern "C" {
    __declspec(dllexport) void ClientWrapper_Update(ClientWrapper* wrapper);
    __declspec(dllexport) void DebugLog(const char* message);
 
-    std::string SerializeSessionInfo(const Inworld::SessionInfo& info) {
-        std::stringstream ss;
-        ss << info.SessionId << "|"
-           << info.Token << "|"
-           << info.SessionSavedState << "|"
-           << info.ExpirationTime;
-        return ss.str();
-    }
 #ifdef INWORLD_AUDIO_DUMP
     __declspec(dllexport) void ClientWrapper_SetAudioDumpEnabled(ClientWrapper* wrapper, bool enabled, const char* FilePath);
 #endif
+}
+
+inline std::string SerializeSessionInfo(const Inworld::SessionInfo& info) {
+    std::stringstream ss;
+    ss << info.SessionId << "|"
+       << info.Token << "|"
+       << info.SessionSavedState << "|"
+       << info.ExpirationTime;
+    return ss.str();
 }
