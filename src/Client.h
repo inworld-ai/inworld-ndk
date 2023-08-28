@@ -17,6 +17,7 @@
 #include "AsyncRoutine.h"
 #include "AECFilter.h"
 #include "RunnableCommand.h"
+#include "Utils/PerceivedLatencyTracker.h"
 
 using PacketQueue = Inworld::SharedQueue<std::shared_ptr<Inworld::Packet>>;
 
@@ -83,6 +84,11 @@ namespace Inworld
 
 		virtual void Update() {}
 
+		void SetPerceivedLatencyTrackerCallback(PerceivedLatencyCallback Cb) { _LatencyTracker.SetCallback(Cb); }
+		void ClearPerceivedLatencyTrackerCallback() { _LatencyTracker.ClearCallback(); }
+
+		void SetPerceivedLatencyTrackerWarningLatency(int32_t Ms) { _LatencyTracker.SetWarningLatency(Ms); }
+
 	protected:
 		virtual void AddTaskToMainThread(std::function<void()> Task) = 0;
 
@@ -147,6 +153,7 @@ namespace Inworld
 		SessionInfo _SessionInfo;
 
 		AECFilter _EchoFilter;
+		PerceivedLatencyTracker _LatencyTracker;
 	};
 
 	class INWORLDAINDK_API Client : public ClientBase

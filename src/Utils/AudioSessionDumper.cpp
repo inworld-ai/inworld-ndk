@@ -15,7 +15,7 @@
 
 constexpr uint32_t gSamplesPerSec = 16000;
 
-struct FWavHeader 
+struct WavHeader 
 {
 	uint8_t RIFF[4] = { 'R', 'I', 'F', 'F' };
 	uint32_t ChunkSize;
@@ -60,8 +60,8 @@ void AudioSessionDumper::OnSessionStop()
 	InStream.read(reinterpret_cast<char*>(WaveData.data()), WaveSize);
 	InStream.close();
 
-	FWavHeader WavStruct;
-	WavStruct.ChunkSize = sizeof(FWavHeader) - 8;
+	WavHeader WavStruct;
+	WavStruct.ChunkSize = sizeof(WavHeader) - 8;
 	WavStruct.Subchunk2Size = WaveSize;
 
 	std::ofstream OutStream(_FileName, std::ios::binary);
