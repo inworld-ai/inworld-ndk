@@ -59,9 +59,10 @@ const Inworld::SessionInfo& Inworld::ClientBase::GetSessionInfo() const
 	return _SessionInfo;
 }
 
-void Inworld::ClientBase::SetOptions(ClientOptions options)
+void Inworld::ClientBase::SetOptions(const ClientOptions& options)
 {
 	_ClientOptions = options;
+
 }
 
 void Inworld::ClientBase::SendPacket(std::shared_ptr<Inworld::Packet> Packet)

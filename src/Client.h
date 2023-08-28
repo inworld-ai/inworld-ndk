@@ -84,7 +84,7 @@ namespace Inworld
 		virtual void Update() {}
 
 		const SessionInfo& GetSessionInfo() const;
-		void SetOptions(ClientOptions options);		
+		void SetOptions(const ClientOptions& options);		
 
 	protected:
 		virtual void AddTaskToMainThread(std::function<void()> Task) = 0;
