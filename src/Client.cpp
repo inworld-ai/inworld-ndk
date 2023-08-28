@@ -54,7 +54,7 @@ static void GrpcLog(gpr_log_func_args* args)
 		args->line);
 }
 
-Inworld::SessionInfo Inworld::ClientBase::GetSessionInfo()
+const Inworld::SessionInfo& Inworld::ClientBase::GetSessionInfo() const
 {
 	return _SessionInfo;
 }

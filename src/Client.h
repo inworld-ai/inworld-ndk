@@ -50,9 +50,7 @@ namespace Inworld
 
 		ClientBase() = default;
 		virtual ~ClientBase() = default;
-
-		SessionInfo GetSessionInfo();
-		void SetOptions(ClientOptions options);
+		
 		void SendPacket(std::shared_ptr<Inworld::Packet> Packet);
 
 		virtual std::shared_ptr<TextEvent> SendTextMessage(const std::string& AgentId, const std::string& Text);
@@ -84,6 +82,9 @@ namespace Inworld
 		bool GetConnectionError(std::string& OutErrorMessage, int32_t& OutErrorCode) const;
 		
 		virtual void Update() {}
+
+		const SessionInfo& GetSessionInfo() const;
+		void SetOptions(ClientOptions options);		
 
 	protected:
 		virtual void AddTaskToMainThread(std::function<void()> Task) = 0;

@@ -50,7 +50,7 @@ extern "C" {
         DebugLog("INITIALIZED CLIENT FROM DLL");
     }
 
-    void HandleAgentInfos(const std::vector<Inworld::AgentInfo>& AgentInfos, LoadSceneCallbackType LoadSceneCallback) {
+    static void HandleAgentInfos(const std::vector<Inworld::AgentInfo>& AgentInfos, LoadSceneCallbackType LoadSceneCallback) {
         if (AgentInfos.empty())
         {
             Inworld::LogWarning("AGENT INFOS IS EMPTY IN LOADSCENE CALLBACK");
@@ -155,7 +155,7 @@ extern "C" {
             Inworld::Log("Session info is invalid in NDK, starting client");
             wrapper->client.GenerateToken([SessionTokenCallback, wrapper, opt, agentInfosHandler]()
             {
-                auto info = wrapper->client.GetSessionInfo();
+                const auto& info = wrapper->client.GetSessionInfo();
                 std::string jsonString = SerializeSessionInfo(info);
 
                 // Convert the std::string to a null-terminated C-string for interop.
