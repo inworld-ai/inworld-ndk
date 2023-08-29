@@ -1,10 +1,6 @@
 cmake_minimum_required (VERSION 3.22)
 option(UNITY FALSE)
 
-if(DISABLE_VS_TRACK_FILE_ACCESS)
-    set(CMAKE_VS_GLOBALS "TrackFileAccess=false")
-endif()
-
 function(GroupSourcesByFolder target)
     set(SOURCE_GROUP_DELIMITER "/")
     set(last_dir "")
@@ -237,11 +233,13 @@ target_link_libraries(InworldNDK PUBLIC grpc)
 target_link_libraries(InworldNDK PUBLIC grpc++)
 
 # logging
-if(INWORLD_LOG_CUSTOM)
+if(INWORLD_LOG_CALLBACK)
 	# custom
     target_compile_definitions(InworldNDK PUBLIC INWORLD_LOG=1)
-    target_compile_definitions(InworldNDK PUBLIC INWORLD_LOG_CUSTOM=1)
-elseif(INWORLD_LOG_SPD)
+    target_compile_definitions(InworldNDK PUBLIC INWORLD_LOG_CALLBACK=1)
+endif()
+
+if(INWORLD_LOG_SPD)
     # spdlog
     target_compile_definitions(InworldNDK PUBLIC INWORLD_LOG=1)
     target_compile_definitions(InworldNDK PUBLIC INWORLD_LOG_SPD=1)
@@ -258,7 +256,9 @@ elseif(INWORLD_LOG_SPD)
         ${ThirdPartyDir}/spdlog/include
     )
     target_link_libraries(InworldNDK PUBLIC spdlog::spdlog $<$<BOOL:${MINGW}>:ws2_32>)
-elseif(INWORLD_LOG)
+endif()
+
+if(INWORLD_LOG)
     target_compile_definitions(InworldNDK PUBLIC INWORLD_LOG=1)
 endif()
 
