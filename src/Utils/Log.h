@@ -17,7 +17,9 @@ namespace Inworld
 	void LogSetSessionId(const std::string Id);
 	void LogClearSessionId();
 
-#ifdef INWORLD_UNITY
+#ifdef INWORLD_LOG_CALLBACK
+	// TODO: Remove Unity specific, use generic
+	void LogSetUnityCallback(void(*callback)(const char* message, int severity));
 	void LogSetLogCallback(void(*callback)(const char* message, int severity));
 	inline std::function<void(const char * message, int severity)> LoggerCallback;
 #endif
