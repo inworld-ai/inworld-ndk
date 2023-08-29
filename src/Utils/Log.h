@@ -9,6 +9,7 @@
 
 #include <string>
 #include <memory>
+#include <functional>
 
 namespace Inworld
 {
@@ -19,9 +20,10 @@ namespace Inworld
 
 #ifdef INWORLD_LOG_CALLBACK
 	// TODO: Remove Unity specific, use generic
-	void LogSetUnityCallback(void(*callback)(const char* message, int severity));
-	void LogSetLogCallback(void(*callback)(const char* message, int severity));
-	inline std::function<void(const char * message, int severity)> LoggerCallback;
+	void LogSetUnityLogCallback(void(*callback)(const char* message, int severity));
+	void LogSetLoggerCallback(void(*callback)(const char* message, int severity));
+	void LogClearLoggerCallback();
+	extern std::function<void(const char * message, int severity)> g_LoggerCallback;
 #endif
 
 	template<typename... Args>

@@ -34,12 +34,16 @@ namespace Inworld
 	}
 
 #ifdef INWORLD_LOG_CALLBACK
+	std::function<void(const char * message, int severity)> g_LoggerCallback = nullptr;
+
 	// TODO: Remove Unity specific, use generic
-	void LogSetUnityLogCallback(void(*callback)(const char* message, int severity)) { LogSetLogCallback(callback); }
-	void LogSetLogCallback(void(*callback)(const char* message, int severity))
+	void LogSetUnityLogCallback(void(*callback)(const char* message, int severity)) { LogSetLoggerCallback(callback); }
+	void LogSetLoggerCallback(void(*callback)(const char* message, int severity))
 	{
-		LoggerCallback = callback;
+		g_LoggerCallback = callback;
 	}
+
+	void LogClearLoggerCallback() { g_LoggerCallback = nullptr; }
 #endif
 
 }
@@ -48,7 +52,7 @@ void Inworld::Log(const std::string& message)
 {
 #ifdef INWORLD_LOG
 	#if  defined(INWORLD_LOG_CALLBACK)
-		if (LoggerCallback) LoggerCallback(message, 0);
+		if (g_LoggerCallback) g_LoggerCallback(message.c_str(), 0);
 	#elif defined(INWORLD_LOG_SPD)
 		spdlog::info(message);
 	#elif defined(ANDROID)
@@ -63,7 +67,7 @@ void Inworld::LogWarning(const std::string& message)
 {
 #ifdef INWORLD_LOG
 	#if defined(INWORLD_LOG_CALLBACK)
-		if (LoggerCallback) LoggerCallback(message, 1);
+		if (g_LoggerCallback) g_LoggerCallback(message.c_str(), 1);
   #elif defined(INWORLD_LOG_SPD)
     spdlog::warn(message);
 	#elif defined(ANDROID)
@@ -79,7 +83,7 @@ void Inworld::LogError(const std::string& message)
 #ifdef INWORLD_LOG
 	const std::string error = VFormat("%s (SessionId: %s)", ARG_STR(message), ARG_STR(g_SessionId));
 	#if defined(INWORLD_LOG_CALLBACK)
-		if (LoggerCallback) LoggerCallback(message, 2);
+		if (g_LoggerCallback) g_LoggerCallback(message.c_str(), 2);
   #elif defined(INWORLD_LOG_SPD)
 		spdlog::error(error);
   #elif defined(ANDROID)
