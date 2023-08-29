@@ -54,6 +54,17 @@ static void GrpcLog(gpr_log_func_args* args)
 		args->line);
 }
 
+const Inworld::SessionInfo& Inworld::ClientBase::GetSessionInfo() const
+{
+	return _SessionInfo;
+}
+
+void Inworld::ClientBase::SetOptions(const ClientOptions& options)
+{
+	_ClientOptions = options;
+
+}
+
 void Inworld::ClientBase::SendPacket(std::shared_ptr<Inworld::Packet> Packet)
 {
 	_OutgoingPackets.PushBack(Packet);
