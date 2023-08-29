@@ -30,12 +30,14 @@ namespace Inworld {
 		virtual void Visit(const Inworld::AudioDataEvent& Event) override;
 		virtual void Visit(const Inworld::ControlEvent& Event) override;
 
-		void SetWarningLatency(int32_t Latency) { _WarningLatency = Latency; }
+		void TrackAudioReplies(bool bVal) { _TrackAudioReplies = bVal; }
 
 	private:
+		void VisitReply(const Inworld::Packet& Event);
+
 		std::unordered_map<std::string, TimeStamp> _InteractionTimeMap;
 		PerceivedLatencyCallback _Callback = nullptr;
-		int32_t _WarningLatency = 1000;
+		bool _TrackAudioReplies = false;
 	};
 
 }

@@ -173,7 +173,7 @@ void NDKApp::App::Run()
 
 	_Client.SetPerceivedLatencyTrackerCallback([](const std::string& InteractonId, int32_t Latency)
 		{
-			Inworld::Log("PerceivedLatencyTracker. Latency is '%d', Interaction: %s", Latency, ARG_STR(InteractonId));
+			//Inworld::Log("PerceivedLatencyTracker. Latency is '%d', Interaction: %s", Latency, ARG_STR(InteractonId));
 		});
 
 	Inworld::SessionInfo SessionInfo;

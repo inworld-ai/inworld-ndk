@@ -87,8 +87,6 @@ namespace Inworld
 		void SetPerceivedLatencyTrackerCallback(PerceivedLatencyCallback Cb) { _LatencyTracker.SetCallback(Cb); }
 		void ClearPerceivedLatencyTrackerCallback() { _LatencyTracker.ClearCallback(); }
 
-		void SetPerceivedLatencyTrackerWarningLatency(int32_t Ms) { _LatencyTracker.SetWarningLatency(Ms); }
-
 	protected:
 		virtual void AddTaskToMainThread(std::function<void()> Task) = 0;
 

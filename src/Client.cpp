@@ -205,6 +205,8 @@ void Inworld::ClientBase::StartClient(const ClientOptions& Options, const Sessio
 	_ClientOptions = Options;
 	_SessionInfo = Info;
 
+	_LatencyTracker.TrackAudioReplies(Options.Capabilities.Audio);
+
 	_OnLoadSceneCallback = LoadSceneCallback;
 
 	SetConnectionState(ConnectionState::Connecting);

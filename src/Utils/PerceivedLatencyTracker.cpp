@@ -18,8 +18,7 @@ void Inworld::PerceivedLatencyTracker::HandlePacket(std::shared_ptr<Inworld::Pac
 
 void Inworld::PerceivedLatencyTracker::Visit(const Inworld::TextEvent& Event)
 {
-	if (Event._Routing._Source._Type == InworldPakets::Actor_Type_PLAYER &&
-		Event.IsFinal())
+	if (Event._Routing._Source._Type == InworldPakets::Actor_Type_PLAYER && Event.IsFinal())
 	{
 		const auto& Interaction = Event._PacketId._InteractionId;
 		if (_InteractionTimeMap.find(Interaction) != _InteractionTimeMap.end())
@@ -28,29 +27,34 @@ void Inworld::PerceivedLatencyTracker::Visit(const Inworld::TextEvent& Event)
 		}
 		else
 		{
-			_InteractionTimeMap.emplace(Interaction, Event._Timestamp);
+			_InteractionTimeMap.emplace(Interaction, std::chrono::system_clock::now());
 		}
+	}
+	else if (Event._Routing._Source._Type == InworldPakets::Actor_Type_AGENT && !_TrackAudioReplies)
+	{
+		VisitReply(Event);
 	}
 }
 
 void Inworld::PerceivedLatencyTracker::Visit(const Inworld::AudioDataEvent& Event)
 {
+	if (_TrackAudioReplies)
+	{
+		VisitReply(Event);
+	}
+}
+
+void Inworld::PerceivedLatencyTracker::VisitReply(const Inworld::Packet& Event)
+{
 	const auto& Interaction = Event._PacketId._InteractionId;
 	const auto It = _InteractionTimeMap.find(Interaction);
-	if (It == _InteractionTimeMap.end())
+	if (It != _InteractionTimeMap.end())
 	{
-		Inworld::LogError("PerceivedLatencyTracker visit AudioDataEvent. No final player text exists, Interaction: %s", ARG_STR(Interaction));
-	}
-	else
-	{
-		const auto Duration = Event._Timestamp - It->second;
+		const auto Duration = std::chrono::system_clock::now() - It->second;
 		_InteractionTimeMap.erase(It);
 
 		const int32_t Ms = std::chrono::duration_cast<std::chrono::milliseconds>(Duration).count();
-		if (Ms > _WarningLatency)
-		{
-			Inworld::LogWarning("PerceivedLatencyTracker. Latency is '%d', Interaction: %s", Ms, ARG_STR(Interaction));
-		}
+		Inworld::Log("PerceivedLatencyTracker. Latency is %dms, Interaction: %s", Ms, ARG_STR(Interaction));
 
 		if (_Callback)
 		{
@@ -61,5 +65,16 @@ void Inworld::PerceivedLatencyTracker::Visit(const Inworld::AudioDataEvent& Even
 
 void Inworld::PerceivedLatencyTracker::Visit(const Inworld::ControlEvent& Event)
 {
+	if (Event.GetControlAction() != InworldPakets::ControlEvent_Action_INTERACTION_END)
+	{
+		return;
+	}
 
+	const auto& Interaction = Event._PacketId._InteractionId;
+	const auto It = _InteractionTimeMap.find(Interaction);
+	if (It != _InteractionTimeMap.end())
+	{
+		Inworld::LogError("PerceivedLatencyTracker visit ControlEvent INTERACTION_END. Text timestamp is still in the map, Interaction: %s", ARG_STR(Interaction));
+		_InteractionTimeMap.erase(It);
+	}
 }
