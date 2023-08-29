@@ -1,7 +1,3 @@
-
-[submodule "ThirdParty/grpc"]
-	path = ThirdParty/grpc
-	url = https://github.com/grpc/grpc.git
 [submodule "ThirdParty/depot-tools"]
 	path = ThirdParty/depot-tools
 	url = https://chromium.googlesource.com/chromium/tools/depot_tools.git
@@ -11,3 +7,7 @@
 [submodule "ThirdParty/spdlog"]
 	path = ThirdParty/spdlog
 	url = https://github.com/gabime/spdlog.git
+[submodule "ThirdParty/grpc"]
+	path = ThirdParty/grpc
+	url = https://github.com/inworld-ai/inworld-ndk-grpc
+	branch = inworld-master
