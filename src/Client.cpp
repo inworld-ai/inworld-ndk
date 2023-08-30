@@ -76,6 +76,7 @@ std::shared_ptr<Inworld::TextEvent> Inworld::ClientBase::SendTextMessage(const s
 {
 	auto Packet = std::make_shared<TextEvent>(Text, Routing::Player2Agent(AgentId));
 	SendPacket(Packet);
+	_LatencyTracker.HandlePacket(Packet);
 	return Packet;
 }
 
@@ -215,6 +216,8 @@ void Inworld::ClientBase::StartClient(const ClientOptions& Options, const Sessio
 	_ClientOptions = Options;
 	_SessionInfo = Info;
 
+	_LatencyTracker.TrackAudioReplies(Options.Capabilities.Audio);
+
 	_OnLoadSceneCallback = LoadSceneCallback;
 
 	SetConnectionState(ConnectionState::Connecting);
@@ -288,6 +291,11 @@ void Inworld::ClientBase::StopClient()
 void Inworld::ClientBase::DestroyClient()
 {
 	StopClient();
+	_OnPacketCallback = nullptr;
+	_OnLoadSceneCallback = nullptr;
+	_OnGenerateTokenCallback = nullptr;
+	_OnConnectionStateChangedCallback = nullptr;
+	_LatencyTracker.ClearCallback();
 #ifdef INWORLD_AUDIO_DUMP
 	_AsyncAudioDumper->Stop();
 #endif
@@ -403,6 +411,8 @@ void Inworld::ClientBase::OnSceneLoaded(const grpc::Status& Status, const Inworl
 		return;
 	}
 
+	Inworld::Log("Load scene SUCCESS. Session Id: %s", ARG_STR(_SessionInfo.SessionId));
+
 	std::vector<AgentInfo> AgentInfos;
 	AgentInfos.reserve(Response.agents_size());
 	for (int32_t i = 0; i < Response.agents_size(); i++)
@@ -427,8 +437,6 @@ void Inworld::ClientBase::OnSceneLoaded(const grpc::Status& Status, const Inworl
 
 	SetConnectionState(ConnectionState::Connected);
 	StartReaderWriter();
-
-	Inworld::Log("Create world SUCCESS!");
 }
 
 void Inworld::ClientBase::StartReaderWriter()
@@ -492,7 +500,11 @@ void Inworld::ClientBase::TryToStartReadTask()
 								{
 									if (Packet)
 									{
-										_OnPacketCallback(Packet);
+										_LatencyTracker.HandlePacket(Packet);
+										if (_OnPacketCallback)
+										{
+											_OnPacketCallback(Packet);
+										}
 									}
 								}
 								_bPendingIncomingPacketFlush = false;

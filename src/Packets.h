@@ -112,7 +112,7 @@ namespace Inworld {
         virtual void Visit(const CancelResponseEvent& Event) {  }
         virtual void Visit(const CustomGestureEvent& Event) {  }
         virtual void Visit(const CustomEvent& Event) {  }
-				virtual void Visit(const ChangeSceneEvent& Event) {  }
+		virtual void Visit(const ChangeSceneEvent& Event) {  }
     };
 
 	struct EmotionalState;
