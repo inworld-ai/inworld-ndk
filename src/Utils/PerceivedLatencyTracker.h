@@ -20,6 +20,8 @@ namespace Inworld {
 	class PerceivedLatencyTracker : Inworld::PacketVisitor
 	{
 	public:
+		virtual ~PerceivedLatencyTracker() = default;
+
 		void SetCallback(PerceivedLatencyCallback Cb) { _Callback = Cb; }
 		void ClearCallback() { _Callback = nullptr; }
 		bool HasCallback() const { return _Callback != nullptr; }
