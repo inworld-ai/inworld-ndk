@@ -11,6 +11,7 @@
 #include <functional>
 
 #include <future>
+#include "Define.h"
 #include "Types.h"
 #include "Packets.h"
 #include "Utils/SharedQueue.h"
@@ -23,7 +24,7 @@ using PacketQueue = Inworld::SharedQueue<std::shared_ptr<Inworld::Packet>>;
 
 namespace Inworld
 {	
-	struct ClientOptions
+	struct INWORLD_EXPORT ClientOptions
 	{
 		std::string ServerUrl;
 		std::string SceneName;
@@ -35,7 +36,7 @@ namespace Inworld
 		UserSettings UserSettings;
 	};
 
-	class ClientBase
+	class INWORLD_EXPORT ClientBase
 	{
 	public:
 		enum class ConnectionState : uint8_t 
@@ -157,7 +158,7 @@ namespace Inworld
 		PerceivedLatencyTracker _LatencyTracker;
 	};
 
-	class Client : public ClientBase
+	class INWORLD_EXPORT Client : public ClientBase
 	{
 	public:
 		Client()

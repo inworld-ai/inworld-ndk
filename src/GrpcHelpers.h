@@ -10,6 +10,7 @@
 #include "ai/inworld/studio/v1alpha/characters.pb.h"
 
 #include <string>
+#include "Define.h"
 
 namespace InworldV1alpha = ai::inworld::studio::v1alpha;
 
@@ -39,7 +40,7 @@ namespace Inworld
 			bool _bMale;
 		};
 
-		CharacterInfo CreateCharacterInfo(const InworldV1alpha::Character& GrpcCharacter);
+		INWORLD_EXPORT CharacterInfo CreateCharacterInfo(const InworldV1alpha::Character& GrpcCharacter);
 		
 	}
 }

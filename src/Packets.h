@@ -10,6 +10,7 @@
 #include "proto/ProtoDisableWarning.h"
 #include "proto/packets.pb.h"
 
+#include "Define.h"
 #include "Types.h"
 
 #include <google/protobuf/util/time_util.h>
@@ -24,7 +25,7 @@ namespace Inworld {
 	std::string RandomUUID();
 
 	// Represents agent or player.
-	struct Actor
+	struct INWORLD_EXPORT Actor
 	{
 		Actor() = default;
 		Actor(const InworldPakets::Actor& Actor) 
@@ -45,7 +46,7 @@ namespace Inworld {
 	};
 
 	// Source and target for packet.
-	struct Routing
+	struct INWORLD_EXPORT Routing
 	{
 		Routing() = default;
 		Routing(const InworldPakets::Routing& Routing) 
@@ -65,7 +66,7 @@ namespace Inworld {
         Actor _Target;
 	};
 
-	struct PacketId {
+	struct INWORLD_EXPORT PacketId {
 		// Constructs with all random parameters.
         PacketId() 
 			: PacketId(RandomUUID(), std::string(RandomUUID()), std::string(RandomUUID())) 
@@ -100,7 +101,7 @@ namespace Inworld {
     class CustomEvent;
     class ChangeSceneEvent;
 
-    class PacketVisitor
+    class INWORLD_EXPORT PacketVisitor
     {
     public:
         virtual void Visit(const TextEvent& Event) {  }
@@ -118,7 +119,7 @@ namespace Inworld {
 	struct EmotionalState;
 
 	// Base class for all Inworld protocol packets
-	class Packet
+	class INWORLD_EXPORT Packet
     {
 	public:
         Packet() = default;
@@ -147,7 +148,7 @@ namespace Inworld {
 		std::chrono::system_clock::time_point _Timestamp = std::chrono::system_clock::now();
 	};
 
-	class TextEvent : public Packet
+	class INWORLD_EXPORT TextEvent : public Packet
 	{
 	public:
 		TextEvent() = default;
@@ -179,7 +180,7 @@ namespace Inworld {
 		InworldPakets::TextEvent_SourceType _SourceType;
 	};
 
-	class DataEvent : public Packet
+	class INWORLD_EXPORT DataEvent : public Packet
     {
 	public:
 		DataEvent() = default;
@@ -232,7 +233,7 @@ namespace Inworld {
 		std::vector<PhonemeInfo> _PhonemeInfos;
 	};
 
-	class SilenceEvent : public Packet
+	class INWORLD_EXPORT SilenceEvent : public Packet
 	{
 	public:
 		SilenceEvent() = default;
@@ -256,7 +257,7 @@ namespace Inworld {
 		float _Duration;
 	};
     
-	class ControlEvent : public Packet
+	class INWORLD_EXPORT ControlEvent : public Packet
     {
     public:
 		ControlEvent() = default;
@@ -280,7 +281,7 @@ namespace Inworld {
 		InworldPakets::ControlEvent_Action _Action;
     };
 
-    class EmotionEvent : public Packet
+    class INWORLD_EXPORT EmotionEvent : public Packet
     {
     public:
 		EmotionEvent() = default;
@@ -299,7 +300,7 @@ namespace Inworld {
 		InworldPakets::EmotionEvent_Strength _Strength;
     };
 
-    class CustomGestureEvent : public Packet
+    class INWORLD_EXPORT CustomGestureEvent : public Packet
     {
     public:
 		CustomGestureEvent() = default;
@@ -325,7 +326,7 @@ namespace Inworld {
 		InworldPakets::Playback _Playback;
 	};
 
-	class CustomEvent : public Packet
+	class INWORLD_EXPORT CustomEvent : public Packet
 	{
 	public:
 		CustomEvent() = default;
@@ -349,7 +350,7 @@ namespace Inworld {
 		std::unordered_map<std::string, std::string> _Params;
 	};
 
-	class MutationEvent : public Packet
+	class INWORLD_EXPORT MutationEvent : public Packet
 	{
 	public:
 		MutationEvent() = default;
@@ -364,7 +365,7 @@ namespace Inworld {
 		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const = 0;
 	};
 
-	class CancelResponseEvent : public MutationEvent
+	class INWORLD_EXPORT CancelResponseEvent : public MutationEvent
 	{
 	public:
 		CancelResponseEvent() = default;
@@ -384,7 +385,7 @@ namespace Inworld {
 		std::vector<std::string> _UtteranceIds;
 	};
 
-	class ChangeSceneEvent : public MutationEvent
+	class INWORLD_EXPORT ChangeSceneEvent : public MutationEvent
 	{
 	public:
 		ChangeSceneEvent() = default;

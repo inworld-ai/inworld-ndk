@@ -11,19 +11,21 @@
 #include <memory>
 #include <functional>
 
+#include "Define.h"
+
 namespace Inworld
 {
-	extern std::string g_SessionId;
+	INWORLD_EXPORT extern std::string g_SessionId;
 
-	void LogSetSessionId(const std::string Id);
-	void LogClearSessionId();
+	INWORLD_EXPORT void LogSetSessionId(const std::string Id);
+	INWORLD_EXPORT void LogClearSessionId();
 
 #ifdef INWORLD_LOG_CALLBACK
 	// TODO: Remove Unity specific, use generic
-	void LogSetUnityLogCallback(void(*callback)(const char* message, int severity));
-	void LogSetLoggerCallback(void(*callback)(const char* message, int severity));
-	void LogClearLoggerCallback();
-	extern std::function<void(const char * message, int severity)> g_LoggerCallback;
+	INWORLD_EXPORT void LogSetUnityLogCallback(void(*callback)(const char* message, int severity));
+	INWORLD_EXPORT void LogSetLoggerCallback(void(*callback)(const char* message, int severity));
+	INWORLD_EXPORT void LogClearLoggerCallback();
+	INWORLD_EXPORT extern std::function<void(const char * message, int severity)> g_LoggerCallback;
 #endif
 
 	template<typename... Args>

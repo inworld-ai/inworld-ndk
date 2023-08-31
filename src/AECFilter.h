@@ -6,11 +6,12 @@
  */
 
 #pragma once
+#include "Define.h"
 #include <vector>
 
 namespace Inworld
 {
-	class AECFilter
+	class INWORLD_EXPORT AECFilter
 	{
 	public:
 		AECFilter();

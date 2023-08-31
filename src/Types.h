@@ -9,10 +9,11 @@
 
 #include <time.h>
 #include <string>
+#include "Define.h"
 
 namespace Inworld
 {
-	struct SessionInfo
+	struct INWORLD_EXPORT SessionInfo
 	{
 		std::string SessionId;
 		std::string Token;
@@ -25,7 +26,7 @@ namespace Inworld
 		}
 	};
 
-	struct AgentInfo
+	struct INWORLD_EXPORT AgentInfo
 	{
 		std::string BrainName;
 		std::string AgentId;
