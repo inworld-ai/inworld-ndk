@@ -9,9 +9,9 @@
 #include "Utils/Log.h"
 
 // !!! Fill out this options !!!
-constexpr std::string_view g_SceneName = "";
-constexpr std::string_view g_ApiKey = "";
-constexpr std::string_view g_ApiSecret = "";
+constexpr std::string_view g_SceneName = "workspaces/yj01/scenes/yj01";
+constexpr std::string_view g_ApiKey = "RzAZnJ3vqhd4GDXywEps9GQQsG06Hqwa";
+constexpr std::string_view g_ApiSecret = "x7aABJynjRPhqqC9M6P5bNprsohf8aQRfe1nRY0AygTCT48m208zvItLqe3S61Xx";
 
 void NDKApp::App::Run()
 {

@@ -40,8 +40,12 @@ namespace Inworld
 	INWORLDAINDK_API void LogClearSessionId();
 
 #ifdef INWORLD_UNITY
-	INWORLDAINDK_API void LogSetUnityLogCallback(void(*callback)(const char* message, int severity));
-	inline std::function<void(const char * message, int severity)> UnityLoggerCallback;
+	using UnityLogCallback = void (*)(const char* message, int severity);
+	inline UnityLogCallback g_UnityLoggerCallback = nullptr;
+	inline void LogSetUnityLogCallback(const UnityLogCallback& callback)
+	{
+		g_UnityLoggerCallback = callback;
+	}
 
 #endif
 
@@ -95,7 +99,7 @@ namespace Inworld
 	#endif
 
 	#ifdef INWORLD_UNITY
-		UnityLoggerCallback(message.c_str(), 0);
+		g_UnityLoggerCallback(message.c_str(), 0);
 	#endif
 	}
 
@@ -105,7 +109,7 @@ namespace Inworld
 		ConvertToSpdFmt(fmt);
 		const auto message = format::vformat(fmt, format::make_format_args(args...));
 	#ifdef INWORLD_UNITY
-		UnityLoggerCallback(message.c_str(), 1);
+		g_UnityLoggerCallback(message.c_str(), 1);
 	#endif
     
 	#if ANDROID
@@ -126,7 +130,7 @@ namespace Inworld
 		spdlog::error("{} (SessionId: {})", message.c_str(), g_SessionId.c_str());
 	#endif
 	#ifdef INWORLD_UNITY
-		UnityLoggerCallback(message.c_str(), 2);
+		g_UnityLoggerCallback(message.c_str(), 2);
 	#endif
 	}
 

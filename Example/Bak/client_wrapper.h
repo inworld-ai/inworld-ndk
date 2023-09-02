@@ -7,7 +7,7 @@
 #define CLIENT_WRAPPER_H
 
 #include <stdint.h>
-#include "proto/inworld_ndkData.pb.h"
+#include "NdkData.h"
 #include "Client.h"
 
 extern "C" {
@@ -65,4 +65,15 @@ inline std::string SerializeSessionInfo(const Inworld::SessionInfo& info) {
        << info.SessionSavedState << "|"
        << info.ExpirationTime;
     return ss.str();
+}
+
+// Serialize a string into a vector of bytes
+std::vector<uint8_t> SerializeString(const std::string& input)
+{
+    std::vector<uint8_t> serialized;
+    int size = static_cast<int>(input.size());
+    serialized.resize(4 + size);
+    memcpy(serialized.data(), &size, 4);
+    memcpy(serialized.data() + 4, input.data(), size);
+    return serialized;
 }

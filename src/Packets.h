@@ -103,7 +103,8 @@ namespace Inworld {
     class INWORLDAINDK_API PacketVisitor
     {
     public:
-        virtual void Visit(const TextEvent& Event) {  }
+		virtual ~PacketVisitor() = default;
+		virtual void Visit(const TextEvent& Event) {  }
         virtual void Visit(const DataEvent& Event) {  }
         virtual void Visit(const AudioDataEvent& Event) {  }
         virtual void Visit(const SilenceEvent& Event) {  }

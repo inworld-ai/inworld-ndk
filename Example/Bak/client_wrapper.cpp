@@ -8,7 +8,8 @@
 #include <memory>
 
 #include "Utils/Log.h"
-using namespace inworld::ndkData;
+#include "NdkData.h"
+//using namespace inworld::ndkData;
 
 extern "C" {
 
@@ -23,7 +24,14 @@ extern "C" {
     }
 
     // InitClient
-    void ClientWrapper_InitClient(ClientWrapper* wrapper, const char* ClientId, const char* ClientVer, ConnectionStateCallbackType ConnectionStateCallback, PacketCallbackType PacketCallback, LogCallbackType LogCallback) {
+    void ClientWrapper_InitClient(
+        ClientWrapper* wrapper,
+        const char* ClientId,
+        const char* ClientVer,
+        ConnectionStateCallbackType ConnectionStateCallback,
+        PacketCallbackType PacketCallback,
+        LogCallbackType LogCallback)
+    {
         wrapper->client.InitClient(ClientId, ClientVer,
             [ConnectionStateCallback](Inworld::Client::ConnectionState ConnectionState) {
                 ConnectionStateCallback(static_cast<int>(ConnectionState));
@@ -60,33 +68,70 @@ extern "C" {
             AgentInfoArray agent_info_array;
 
             // Fill agent_info_array with data from AgentInfos vector
+            int32_t agentIndex = 0; // Keep track of how many agents we've added to avoid out-of-bounds access
             for (const auto& agent_info : AgentInfos)
             {
-                AgentInfo* added_agent_info = agent_info_array.add_agent_info_list();
-                added_agent_info->set_agentid(agent_info.AgentId);
-                added_agent_info->set_brainname(agent_info.BrainName);
-                added_agent_info->set_givenname(agent_info.GivenName);
+                if (agentIndex >= MAX_AGENTINFO_COUNT)
+                {
+                    Inworld::LogError("MAX_AGENTINFO_COUNT exceeded. Some agent info may be discarded.");
+                    break; // We've reached the max allowed agents in the array
+                }
+                strncpy_s(agent_info_array.agentInfoList[agentIndex].agentId, agent_info.AgentId.c_str(),
+                        MAX_STRING_SIZE);
+                strncpy_s(agent_info_array.agentInfoList[agentIndex].brainName, agent_info.BrainName.c_str(),
+                        MAX_STRING_SIZE);
+                strncpy_s(agent_info_array.agentInfoList[agentIndex].givenName, agent_info.GivenName.c_str(),
+                        MAX_STRING_SIZE);
+                agent_info_array.agentInfoCount++;
+                agentIndex++;
             }
 
-            int serialized_data_size = agent_info_array.ByteSize();
-            unsigned char* serialized_data = static_cast<uint8_t*>(CoTaskMemAlloc(serialized_data_size));
-            agent_info_array.SerializeToArray(serialized_data, serialized_data_size);
+            // Serialize agent_info_array
+            std::vector<uint8_t> serialized_data_vector;
+            for (int32_t i = 0; i < agent_info_array.agentInfoCount; ++i)
+            {
+                const AgentInfo& agent_info = agent_info_array.agentInfoList[i];
+
+                auto serializedAgentId = SerializeString(agent_info.agentId);
+                auto serializedBrainName = SerializeString(agent_info.brainName);
+                auto serializedGivenName = SerializeString(agent_info.givenName);
+
+                serialized_data_vector.insert(serialized_data_vector.end(), serializedAgentId.begin(),
+                                              serializedAgentId.end());
+                serialized_data_vector.insert(serialized_data_vector.end(), serializedBrainName.begin(),
+                                              serializedBrainName.end());
+                serialized_data_vector.insert(serialized_data_vector.end(), serializedGivenName.begin(),
+                                              serializedGivenName.end());
+            }
+
+            int serialized_data_size = static_cast<int>(serialized_data_vector.size());
 
             std::ostringstream ss;
             ss << "Serialized_agent_info_array size: " << serialized_data_size;
             Inworld::Log(ss.str().c_str());
 
-            if (serialized_data_size < 0)
+            if (serialized_data_size <= 0) // Added = check because size shouldn't be 0 either
             {
-                Inworld::LogError("AGENT INFO SIZE LESS THAN 0 AND IS INVALID");
+                Inworld::LogError("AGENT INFO SIZE LESS THAN OR EQUAL TO 0 AND IS INVALID");
                 return;
             }
-            LoadSceneCallback(serialized_data, serialized_data_size);
+            LoadSceneCallback(serialized_data_vector.data(), serialized_data_size);
+
         }
     }
     
     // StartClient
-    void ClientWrapper_StartClientWithCallback(ClientWrapper* wrapper, const uint8_t* serialized_options, int serialized_options_size, const uint8_t* serialized_sessionInfo, int serialized_sessionInfo_size, LoadSceneCallbackType LoadSceneCallback, SessionTokenCallbackType SessionTokenCallback) {
+    void ClientWrapper_StartClientWithCallback
+    (
+        ClientWrapper* wrapper,
+        const uint8_t* serialized_options,
+        int serialized_options_size,
+        const uint8_t* serialized_sessionInfo,
+        int serialized_sessionInfo_size,
+        LoadSceneCallbackType LoadSceneCallback,
+        SessionTokenCallbackType SessionTokenCallback
+        )
+    {
         SessionInfo sessionInfo;
         if(!sessionInfo.ParseFromArray(serialized_sessionInfo, serialized_sessionInfo_size))
         {

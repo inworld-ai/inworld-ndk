@@ -115,6 +115,7 @@ CheckPathValid(${OpenSSLDir})
 
 if(UNITY)
     message("Building for Unity...")
+    target_compile_definitions(InworldNDK PUBLIC INWORLD_UNITY)
     file(GLOB_RECURSE UnityNDKFiles
         Example/Unity/*.h
         Example/Unity/*.cpp
@@ -122,9 +123,9 @@ if(UNITY)
         Example/Unity/*.c
     )        
     list(APPEND FilesALL ${UnityNDKFiles})
-    add_library(InworldNDKUnity SHARED ${UnityNDKFiles})
-    target_include_directories(InworldNDKUnity PUBLIC InworldNDK/src)
-    target_link_libraries(InworldNDKUnity PRIVATE InworldNDK)    
+    add_library(InworldUnityWrapper SHARED ${UnityNDKFiles})
+    target_include_directories(InworldUnityWrapper PUBLIC InworldNDK/src)    
+    target_link_libraries(InworldUnityWrapper PRIVATE InworldNDK)    
 endif()
 
 if (IOS OR ANDROID)

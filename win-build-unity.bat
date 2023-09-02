@@ -1,5 +1,5 @@
 mkdir build
 cd build
-cmake --build . --target InworldNDKUnity --config Release
+cmake --build . --target InworldUnityWrapper --config Release
 
 pause
