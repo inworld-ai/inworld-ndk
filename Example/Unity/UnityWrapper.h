@@ -9,11 +9,12 @@ using ConnectStateCallback = std::function<void(Inworld::Client::ConnectionState
 
 namespace NDKUnity
 {
-	class CUnityWrapper final
+	class CUnityWrapper : public Inworld::Client
 	{
 	public:
 		CUnityWrapper() = default;
-		~CUnityWrapper() = default;
+		virtual ~CUnityWrapper() = default;
+		
 		void SetLoggerCallBack(const Inworld::UnityLogCallback& callback);		
 		Inworld::UnityLogCallback GetLoggerCallBack() const
 		{
@@ -22,25 +23,20 @@ namespace NDKUnity
 		
 		void SetServerURL(const std::string& strServerURL)
 		{
-			m_Options.ServerUrl = strServerURL;
+			_ClientOptions.ServerUrl = strServerURL;
 		}
 		void SetAPIKey(std::string strAPIKey)
 		{
-			m_Options.ApiKey = strAPIKey;
+			_ClientOptions.ApiKey = strAPIKey;
 		}
 		void SetAPISecret(std::string strAPISecret)
 		{
-			m_Options.ApiSecret = strAPISecret;
+			_ClientOptions.ApiSecret = strAPISecret;
 		}
-		Inworld::SessionInfo GetAccessToken();
-		CUnityClientOptions GetOptions() const
-		{
-			return m_Options;
-		}
+	protected:
+		void AddTaskToMainThread(std::function<void()> Task) override;
 		
 	private:
-		Inworld::Client m_Client;
-		CUnityClientOptions m_Options;
 		int32_t m_CurrentAgentIdx = -1;
 		CUnityPacketHandler m_PacketHandler;
 		std::string m_SavedSessionState;

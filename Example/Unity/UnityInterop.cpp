@@ -31,8 +31,11 @@ void Unity_GetAccessToken(const char* strServerURL, const char* strAPIKey, const
 	g_pWrapper->SetServerURL(strServerURL);
 	g_pWrapper->SetAPIKey(strAPIKey);
 	g_pWrapper->SetAPISecret(strAPISecret);
-	Inworld::SessionInfo info = g_pWrapper->GetAccessToken();
-	Inworld::Log("Get Token completed: %s", info.Token);
+	g_pWrapper->GenerateToken([]()
+	{
+		Inworld::Log("Get Token completed: %s", g_pWrapper->GetSessionInfo().Token);
+	});
+	
 }
 
 void Unity_DestroyWrapper()

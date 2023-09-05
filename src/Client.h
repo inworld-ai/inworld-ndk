@@ -150,6 +150,7 @@ namespace Inworld
 		std::string _ClientId;
 		std::string _ClientVer;
 
+	protected:
 		ClientOptions _ClientOptions;
 		SessionInfo _SessionInfo;
 

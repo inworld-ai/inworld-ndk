@@ -10,15 +10,10 @@ void NDKUnity::CUnityWrapper::SetLoggerCallBack(const Inworld::UnityLogCallback&
 	Inworld::Log("Unity NDK Logger Initialized");
 }
 
-Inworld::SessionInfo NDKUnity::CUnityWrapper::GetAccessToken()
+void NDKUnity::CUnityWrapper::AddTaskToMainThread(std::function<void()> Task)
 {
-	m_Client.SetOptions(m_Options);
-	m_Client.GenerateToken(nullptr);	
-	return m_Client.GetSessionInfo();
+	Task();
 }
-
-
-
 #pragma endregion Logger
 
 
