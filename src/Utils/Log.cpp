@@ -19,34 +19,30 @@
 
 #endif
 
-namespace Inworld
+std::string Inworld::g_SessionId = "Unknown";
+
+void Inworld::LogSetSessionId(const std::string Id)
 {
-	std::string g_SessionId = "Unknown";
+    g_SessionId = Id;
+}
 
-	void LogSetSessionId(const std::string Id)
-	{
-		g_SessionId = Id;
-	}
-
-	void LogClearSessionId()
-	{
-		g_SessionId = "Unknown";
-	}
+void Inworld::LogClearSessionId()
+{
+    g_SessionId = "Unknown";
+}
 
 #ifdef INWORLD_LOG_CALLBACK
-	std::function<void(const char * message, int severity)> g_LoggerCallback = nullptr;
+std::function<void(const char * message, int severity)> Inworld::g_LoggerCallback = nullptr;
 
-	// TODO: Remove Unity specific, use generic
-	void LogSetUnityLogCallback(void(*callback)(const char* message, int severity)) { LogSetLoggerCallback(callback); }
-	void LogSetLoggerCallback(void(*callback)(const char* message, int severity))
-	{
-		g_LoggerCallback = callback;
-	}
-
-	void LogClearLoggerCallback() { g_LoggerCallback = nullptr; }
-#endif
-
+// TODO: Remove Unity specific, use generic
+void Inworld::LogSetUnityLogCallback(void(*callback)(const char* message, int severity)) { LogSetLoggerCallback(callback); }
+void Inworld::LogSetLoggerCallback(void(*callback)(const char* message, int severity))
+{
+    g_LoggerCallback = callback;
 }
+
+void Inworld::LogClearLoggerCallback() { g_LoggerCallback = nullptr; }
+#endif
 
 void Inworld::Log(const std::string& message)
 {
