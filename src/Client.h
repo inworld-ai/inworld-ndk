@@ -146,11 +146,10 @@ namespace Inworld
 		ConnectionState _ConnectionState = ConnectionState::Idle;
 		std::string _ErrorMessage = std::string();
 		int32_t _ErrorCode = grpc::StatusCode::OK;
-
+	protected:
 		std::string _ClientId;
 		std::string _ClientVer;
 
-	protected:
 		ClientOptions _ClientOptions;
 		SessionInfo _SessionInfo;
 

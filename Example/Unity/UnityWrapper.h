@@ -3,24 +3,25 @@
 #include <string>
 #include "Client.h"
 #include "UnityPacketHandler.h"
+#include "Data/UnityNetworkData.h"
 #include "Utils/Log.h"
 	 
 using ConnectStateCallback = std::function<void(Inworld::Client::ConnectionState)>;
+using GenerateTokenCallback = void(*)();
 
 namespace NDKUnity
 {
-	class CUnityWrapper : public Inworld::Client
+	class CUnityWrapper final : public Inworld::Client
 	{
 	public:
 		CUnityWrapper() = default;
-		virtual ~CUnityWrapper() = default;
+		~CUnityWrapper() override = default;
 		
 		void SetLoggerCallBack(const Inworld::UnityLogCallback& callback);		
 		Inworld::UnityLogCallback GetLoggerCallBack() const
 		{
 			return m_LogCallBack;
-		}
-		
+		}		
 		void SetServerURL(const std::string& strServerURL)
 		{
 			_ClientOptions.ServerUrl = strServerURL;
@@ -33,6 +34,24 @@ namespace NDKUnity
 		{
 			_ClientOptions.ApiSecret = strAPISecret;
 		}
+		void SetClientRequest(std::string strClientID, std::string strClientVersion);		
+
+		void SetUserRequest(const std::string& strPlayerName, const std::string& strUserID);
+
+		void AddUserProfile(const std::string& strProfileID, const std::string& strProfileVal);
+
+		Inworld::ClientOptions GetOptions()
+		{
+			return _ClientOptions;
+		}
+		Inworld::UserSettings GetUserRequest()
+		{
+			return _ClientOptions.UserSettings;
+		}
+
+		void SetCapabilities(Inworld::CapabilitySet capabilities);
+		
+
 	protected:
 		void AddTaskToMainThread(std::function<void()> Task) override;
 		

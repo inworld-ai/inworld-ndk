@@ -10,6 +10,23 @@ void NDKUnity::CUnityWrapper::SetLoggerCallBack(const Inworld::UnityLogCallback&
 	Inworld::Log("Unity NDK Logger Initialized");
 }
 
+void NDKUnity::CUnityWrapper::SetClientRequest(std::string strClientID, std::string strClientVersion)
+{
+	_ClientId = strClientID;
+	_ClientVer = strClientVersion;	
+}
+
+void NDKUnity::CUnityWrapper::SetUserRequest(const std::string& strPlayerName, const std::string& strUserID)
+{
+	_ClientOptions.PlayerName = strPlayerName;
+	_ClientOptions.UserId = strUserID;
+}
+
+void NDKUnity::CUnityWrapper::AddUserProfile(const std::string& strProfileID, const std::string& strProfileVal)
+{
+	_ClientOptions.UserSettings.Profile.Fields.push_back({strProfileID, strProfileVal});
+}
+
 void NDKUnity::CUnityWrapper::AddTaskToMainThread(std::function<void()> Task)
 {
 	Task();

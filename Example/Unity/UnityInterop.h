@@ -12,7 +12,15 @@ extern "C"
 
 	DLL_EXPORT NDKUnity::CUnityWrapper* Unity_InitWrapper();
 
-	DLL_EXPORT void Unity_GetAccessToken(const char* strServerURL, const char* strAPIKey, const char* strAPISecret);
+	DLL_EXPORT void Unity_SetClientRequest(const char* strClientID, const char* strClientVersion);
+	
+	DLL_EXPORT void Unity_SetUserRequest(const char* strPlayerName, const char* strPlayerID);
+	
+	DLL_EXPORT void Unity_AddUserProfile(const char* strProfileID, const char* strProfileValue);
+
+	DLL_EXPORT void Unity_GetUserSettings();
+
+	DLL_EXPORT void Unity_GetAccessToken(const char* strServerURL, const char* strAPIKey, const char* strAPISecret);	
 
 	DLL_EXPORT void Unity_SetLogger(Inworld::UnityLogCallback callback);
 

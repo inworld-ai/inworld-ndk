@@ -1,5 +1,7 @@
 ﻿#include "UnityInterop.h"
 
+#include <utility>
+
 
 NDKUnity::CUnityWrapper* Unity_InitWrapper()
 {
@@ -8,12 +10,41 @@ NDKUnity::CUnityWrapper* Unity_InitWrapper()
 	return g_pWrapper;	
 }
 
+void Unity_SetClientRequest(const char* strClientID, const char* strClientVersion, const char* strPlayerName)
+{
+	if (g_pWrapper == nullptr)
+		return;
+	g_pWrapper->SetClientRequest(strClientID, strClientVersion);
+}
+
+void Unity_SetUserRequest(const char* strPlayerName, const char* strPlayerID)
+{
+	if (g_pWrapper == nullptr)
+		return;
+	g_pWrapper->SetUserRequest(strPlayerName, strPlayerID);
+}
+
+void Unity_AddUserProfile(const char* strProfileID, const char* strProfileValue)
+{
+	if (g_pWrapper == nullptr)
+		return;
+	g_pWrapper->AddUserProfile(strProfileID, strProfileValue);
+}
+
+void Unity_GetUserSettings()
+{
+	if (g_pWrapper == nullptr)
+		return;
+	auto userRequest = g_pWrapper->GetUserRequest();
+	if (!userRequest.Profile.Fields.empty())
+		Inworld::Log("{0}=> {1}: {2}", g_pWrapper->GetOptions().PlayerName, userRequest.Profile.Fields[0].Id, userRequest.Profile.Fields[0].Value);
+}
+
 void Unity_SetLogger(Inworld::UnityLogCallback callback)
 {
 	if (g_pWrapper == nullptr)
 		return;
 	g_pWrapper->SetLoggerCallBack(callback);
-	Inworld::LogWarning("Callback Initialized");
 }
 
 void Unity_Hello()
@@ -24,13 +55,13 @@ void Unity_Hello()
 	Inworld::Log("Hello");
 }
 
-void Unity_GetAccessToken(const char* strServerURL, const char* strAPIKey, const char* strAPISecret)
+void Unity_GetAccessToken(const char* serverURl, const char* apiKey, const char* apiSecret)
 {
 	if (g_pWrapper == nullptr)
 		return;
-	g_pWrapper->SetServerURL(strServerURL);
-	g_pWrapper->SetAPIKey(strAPIKey);
-	g_pWrapper->SetAPISecret(strAPISecret);
+	g_pWrapper->SetServerURL(serverURl);
+	g_pWrapper->SetAPIKey(apiKey);
+	g_pWrapper->SetAPISecret(apiSecret);
 	g_pWrapper->GenerateToken([]()
 	{
 		Inworld::Log("Get Token completed: %s", g_pWrapper->GetSessionInfo().Token);
@@ -43,3 +74,6 @@ void Unity_DestroyWrapper()
 	delete g_pWrapper;
 	g_pWrapper = nullptr;
 }
+
+
+
