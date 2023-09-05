@@ -8,9 +8,11 @@ extern "C"
 	
 #define DLL_EXPORT _declspec(dllexport)
 
-	NDKUnity::Wrapper* g_pWrapper = nullptr;
+	inline NDKUnity::CUnityWrapper* g_pWrapper = nullptr;
 
-	DLL_EXPORT NDKUnity::Wrapper* Unity_InitWrapper();
+	DLL_EXPORT NDKUnity::CUnityWrapper* Unity_InitWrapper();
+
+	DLL_EXPORT void Unity_GetAccessToken(const char* strServerURL, const char* strAPIKey, const char* strAPISecret);
 
 	DLL_EXPORT void Unity_SetLogger(Inworld::UnityLogCallback callback);
 

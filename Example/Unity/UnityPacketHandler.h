@@ -3,7 +3,7 @@
 
 namespace NDKUnity
 {
-	class PacketHandler : public Inworld::PacketVisitor
+	class CUnityPacketHandler : public Inworld::PacketVisitor
 	{
 	public:
 		virtual void Visit(const Inworld::TextEvent& Event) override;
