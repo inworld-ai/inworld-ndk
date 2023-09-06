@@ -8,7 +8,7 @@ NDKUnity::CUnityWrapper* Unity_InitWrapper()
 	return g_pWrapper;	
 }
 
-void Unity_SetClientRequest(const char* strClientID, const char* strClientVersion, const char* strPlayerName)
+void Unity_SetClientRequest(const char* strClientID, const char* strClientVersion)
 {
 	if (g_pWrapper == nullptr)
 		return;
@@ -58,22 +58,20 @@ void Unity_Hello()
 	Inworld::Log("Hello");
 }
 
-void Unity_GetAccessToken(const char* serverURl, const char* apiKey, const char* apiSecret)
+void Unity_GetAccessToken(const char* serverURl, const char* apiKey, const char* apiSecret, NDKUnity::OnTokenGenerated callback)
 {
 	if (g_pWrapper == nullptr)
 		return;
 	g_pWrapper->SetServerURL(serverURl);
 	g_pWrapper->SetAPIKey(apiKey);
 	g_pWrapper->SetAPISecret(apiSecret);
-	g_pWrapper->GenerateToken([]()
-	{
-		Inworld::Log("Get Token completed: %s", g_pWrapper->GetSessionInfo().Token);
-	});
-	
+	g_pWrapper->GenerateToken(callback);	
 }
 
 void Unity_DestroyWrapper()
 {
+	if (g_pWrapper)
+		g_pWrapper->DestroyClient();
 	delete g_pWrapper;
 	g_pWrapper = nullptr;
 }
@@ -82,4 +80,19 @@ void Unity_DestroyWrapper()
 void Unity_GetCapabilities()
 {
 	auto cp = g_pWrapper->GetOptions().Capabilities;
+}
+
+char* Unity_GetSessionID()
+{	
+	std::string sessionId = g_pWrapper->GetSessionInfo().SessionId;
+	char* sessionID = new char[sessionId.size() + 1];
+	strcpy_s(sessionID, sessionId.size() + 1, sessionId.c_str());
+	return sessionID;
+}
+
+void Unity_LoadScene(const char* strSceneName, NDKUnity::OnTokenGenerated callback)
+{
+	if (g_pWrapper == nullptr)
+		return;
+	g_pWrapper->LoadScene(strSceneName, callback);
 }

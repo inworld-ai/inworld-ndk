@@ -1,5 +1,6 @@
 ﻿#include "UnityWrapper.h"
 
+#include "Data/UnityNDKInteropData.h"
 
 
 #pragma region Logger
@@ -29,11 +30,19 @@ void NDKUnity::CUnityWrapper::AddUserProfile(const std::string& strProfileID, co
 	_ClientOptions.UserSettings.Profile.Fields.push_back({strProfileID, strProfileVal});
 }
 
+void NDKUnity::CUnityWrapper::LoadScene(const std::string& strSceneName, OnTokenGenerated callback)
+{
+	ClientBase::LoadScene(strSceneName, [this, callback](const std::vector<Inworld::AgentInfo>& agentInfos)
+	{
+		m_AgentInfos = agentInfos;
+		if (callback)
+			callback();
+	});	
+}
+
 void NDKUnity::CUnityWrapper::SetCapabilities(Inworld::CapabilitySet capabilities)
 {
 	_ClientOptions.Capabilities = capabilities;
-	Inworld::Log("Set Audio = {0}", capabilities.Audio ? "true" : "false");
-	Inworld::Log("Set Emotions = {0}", capabilities.Emotions ? "true" : "false");
 }
 
 void NDKUnity::CUnityWrapper::AddTaskToMainThread(std::function<void()> Task)

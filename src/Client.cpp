@@ -397,7 +397,61 @@ void Inworld::ClientBase::LoadScene()
 		)
 	);
 }
+void Inworld::ClientBase::LoadScene(std::string strSceneName, const std::function<void(const std::vector<AgentInfo>&)>& callBack)
+{
+	_ClientOptions.SceneName = std::move(strSceneName);
+	_OnLoadSceneCallback = callBack;
+	if (!_SessionInfo.IsValid())
+	{
+		return;
+	}
+	LogSetSessionId(_SessionInfo.SessionId);
 
+	_AsyncLoadSceneTask->Start(
+		"InworldLoadScene",
+		std::make_unique<RunnableLoadScene>(
+			_SessionInfo.Token,
+			_SessionInfo.SessionId,
+			_ClientOptions.ServerUrl,
+			_ClientOptions.SceneName,
+			_ClientOptions.PlayerName,
+			_ClientOptions.UserId,
+			_ClientOptions.UserSettings,
+			_ClientId,
+			_ClientVer,
+			_SessionInfo.SessionSavedState,
+			_ClientOptions.Capabilities,
+			[this](const grpc::Status& Status, const InworldEngine::LoadSceneResponse& Response)
+			{
+				AddTaskToMainThread([this, Status, Response]()
+				{
+					if (!Status.ok())
+					{
+						_ErrorMessage = std::string(Status.error_message());
+						_ErrorCode = Status.error_code();
+						LogError("Load scene FALURE! %s, Code: %d", ARG_STR(_ErrorMessage), _ErrorCode);
+						SetConnectionState(ConnectionState::Failed);
+						return;
+					}
+					Log("Load scene SUCCESS. Session Id: %s", ARG_STR(_SessionInfo.SessionId));
+					std::vector<AgentInfo> AgentInfos;
+					AgentInfos.reserve(Response.agents_size());
+					for (int32_t i = 0; i < Response.agents_size(); i++)
+					{
+						AgentInfo Info;
+						Info.BrainName = Response.agents(i).brain_name();
+						Info.AgentId = Response.agents(i).agent_id();
+						Info.GivenName = Response.agents(i).given_name();
+						AgentInfos.push_back(Info);
+					}
+					if (_OnLoadSceneCallback)
+						_OnLoadSceneCallback(AgentInfos);
+					_OnLoadSceneCallback = nullptr;
+				});				
+			}
+		)
+	);
+}
 void Inworld::ClientBase::OnSceneLoaded(const grpc::Status& Status, const InworldEngine::LoadSceneResponse& Response)
 {
 	if (!_OnLoadSceneCallback)

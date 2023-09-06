@@ -3,6 +3,8 @@
 
 namespace NDKUnity
 {
+	using OnTokenGenerated = void (*)();
+	using OnSceneLoaded = void (*)(std::vector<Inworld::AgentInfo>);
 	struct Capabilities
 	{
 		// YAN: The minimum size of C# is int. Do not use Char or Bool.
@@ -15,6 +17,7 @@ namespace NDKUnity
 		int TurnBasedSTT;
 		int NarratedActions;
 		// YAN: No need to set others.
+		
 		Inworld::CapabilitySet ToNDK()
 		{
 			Inworld::CapabilitySet set;
@@ -29,5 +32,6 @@ namespace NDKUnity
 			return set;
 		}
 	};
+	
 }
 

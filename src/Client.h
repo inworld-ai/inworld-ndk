@@ -84,15 +84,14 @@ namespace Inworld
 		
 		virtual void Update() {}
 
-		void SetPerceivedLatencyTrackerCallback(PerceivedLatencyCallback Cb) { _LatencyTracker.SetCallback(Cb); }
-		void ClearPerceivedLatencyTrackerCallback() { _LatencyTracker.ClearCallback(); }
-		
+		void               SetPerceivedLatencyTrackerCallback(PerceivedLatencyCallback Cb) { _LatencyTracker.SetCallback(Cb); }
+		void               ClearPerceivedLatencyTrackerCallback() { _LatencyTracker.ClearCallback(); }
+		void               LoadScene(std::string strSceneName, const std::function<void(const std::vector<AgentInfo>&)>& callBack);		
 		const SessionInfo& GetSessionInfo() const;
-		void SetOptions(const ClientOptions& options);		
+		void               SetOptions(const ClientOptions& options);		
 
 	protected:
-		virtual void AddTaskToMainThread(std::function<void()> Task) = 0;
-
+		virtual void AddTaskToMainThread(std::function<void()> Task) = 0;		
 		template<typename TAsyncRoutine>
 		void CreateAsyncRoutines()
 		{
@@ -104,14 +103,11 @@ namespace Inworld
 #ifdef  INWORLD_AUDIO_DUMP
 			_AsyncAudioDumper = std::make_unique<TAsyncRoutine>();
 #endif			
-		}
-
-	private:
+		}		
+	private:		
 		void LoadScene();
 		void OnSceneLoaded(const grpc::Status& Status, const InworldEngine::LoadSceneResponse& Response);
-
-		void SetConnectionState(ConnectionState State);
-		
+		void SetConnectionState(ConnectionState State);		
 		void StartReaderWriter();
 		void StopReaderWriter();
 		void TryToStartReadTask();

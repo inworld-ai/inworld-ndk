@@ -2,10 +2,11 @@
 #include <string>
 #include "Client.h"
 #include "UnityPacketHandler.h"
+#include "Data/UnityNDKInteropData.h"
 #include "Utils/Log.h"
 	 
 using ConnectStateCallback = std::function<void(Inworld::Client::ConnectionState)>;
-using GenerateTokenCallback = void(*)();
+
 
 
 
@@ -41,6 +42,8 @@ namespace NDKUnity
 
 		void AddUserProfile(const std::string& strProfileID, const std::string& strProfileVal);
 
+		void LoadScene(const std::string& strSceneName, OnTokenGenerated callback);
+
 		Inworld::ClientOptions GetOptions()
 		{
 			return _ClientOptions;
@@ -49,7 +52,7 @@ namespace NDKUnity
 		{
 			return _ClientOptions.UserSettings;
 		}
-		void SetCapabilities(const Inworld::CapabilitySet capabilities);
+		void SetCapabilities(Inworld::CapabilitySet capabilities);
 		
 
 	protected:
