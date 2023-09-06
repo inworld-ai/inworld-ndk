@@ -8,8 +8,6 @@
 using ConnectStateCallback = std::function<void(Inworld::Client::ConnectionState)>;
 
 
-
-
 namespace NDKUnity
 {
 	
@@ -19,7 +17,8 @@ namespace NDKUnity
 		CUnityWrapper() = default;
 		~CUnityWrapper() override = default;
 		
-		void SetLoggerCallBack(const Inworld::UnityLogCallback& callback);		
+		void SetLoggerCallBack(const Inworld::UnityLogCallback& callback);
+		
 		Inworld::UnityLogCallback GetLoggerCallBack() const
 		{
 			return m_LogCallBack;
@@ -39,10 +38,12 @@ namespace NDKUnity
 		void SetClientRequest(std::string strClientID, std::string strClientVersion);		
 
 		void SetUserRequest(const std::string& strPlayerName, const std::string& strUserID);
+		
+		void SetCapabilities(Inworld::CapabilitySet capabilities);
 
 		void AddUserProfile(const std::string& strProfileID, const std::string& strProfileVal);
 
-		void LoadScene(const std::string& strSceneName, OnTokenGenerated callback);
+		void LoadScene(const std::string& strSceneName, OnTokenGenerated callback);		
 
 		Inworld::ClientOptions GetOptions()
 		{
@@ -52,8 +53,10 @@ namespace NDKUnity
 		{
 			return _ClientOptions.UserSettings;
 		}
-		void SetCapabilities(Inworld::CapabilitySet capabilities);
-		
+		std::vector<Inworld::AgentInfo> GetAgentInfo()
+		{
+			return m_AgentInfos;
+		}
 
 	protected:
 		void AddTaskToMainThread(std::function<void()> Task) override;

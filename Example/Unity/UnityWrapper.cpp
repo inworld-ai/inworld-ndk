@@ -45,6 +45,7 @@ void NDKUnity::CUnityWrapper::SetCapabilities(Inworld::CapabilitySet capabilitie
 	_ClientOptions.Capabilities = capabilities;
 }
 
+
 void NDKUnity::CUnityWrapper::AddTaskToMainThread(std::function<void()> Task)
 {
 	Task();

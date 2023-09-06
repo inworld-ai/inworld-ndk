@@ -1,6 +1,5 @@
 ﻿#pragma once
 #include "UnityWrapper.h"
-#include "Data/UnityNDKInteropData.h"
 
 #if __cplusplus
 extern "C"
@@ -38,6 +37,8 @@ extern "C"
 	
 #pragma region Getter
 	DLL_EXPORT char* Unity_GetSessionID();
+	DLL_EXPORT int Unity_GetAgentCount();
+	DLL_EXPORT NDKUnity::AgentInfo Unity_GetAgentInfo(int nIndex);
 #pragma endregion Getter	
 
 #if __cplusplus

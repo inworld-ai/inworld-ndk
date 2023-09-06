@@ -96,3 +96,18 @@ void Unity_LoadScene(const char* strSceneName, NDKUnity::OnTokenGenerated callba
 		return;
 	g_pWrapper->LoadScene(strSceneName, callback);
 }
+
+
+int Unity_GetAgentCount()
+{
+	if (g_pWrapper == nullptr)
+		return -1;
+	return static_cast<int>(g_pWrapper->GetAgentInfo().size());
+}
+
+NDKUnity::AgentInfo Unity_GetAgentInfo(int nIndex)
+{
+	if (g_pWrapper == nullptr || nIndex < 0 || nIndex > g_pWrapper->GetAgentInfo().size())
+		return {};
+	return NDKUnity::AgentInfo(g_pWrapper->GetAgentInfo()[nIndex]);
+}
