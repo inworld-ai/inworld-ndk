@@ -58,7 +58,7 @@ void Unity_Hello()
 	Inworld::Log("Hello");
 }
 
-void Unity_GetAccessToken(const char* serverURl, const char* apiKey, const char* apiSecret, NDKUnity::OnTokenGenerated callback)
+void Unity_GetAccessToken(const char* serverURl, const char* apiKey, const char* apiSecret, NDKUnity::UnityCallback callback)
 {
 	if (g_pWrapper == nullptr)
 		return;
@@ -82,15 +82,14 @@ void Unity_GetCapabilities()
 	auto cp = g_pWrapper->GetOptions().Capabilities;
 }
 
-char* Unity_GetSessionID()
+NDKUnity::SessionInfo Unity_GetSessionInfo()
 {	
-	std::string sessionId = g_pWrapper->GetSessionInfo().SessionId;
-	char* sessionID = new char[sessionId.size() + 1];
-	strcpy_s(sessionID, sessionId.size() + 1, sessionId.c_str());
-	return sessionID;
+	if (g_pWrapper == nullptr)
+		return {};
+	return NDKUnity::SessionInfo(g_pWrapper->GetSessionInfo());
 }
 
-void Unity_LoadScene(const char* strSceneName, NDKUnity::OnTokenGenerated callback)
+void Unity_LoadScene(const char* strSceneName, NDKUnity::UnityCallback callback)
 {
 	if (g_pWrapper == nullptr)
 		return;

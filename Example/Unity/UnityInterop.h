@@ -23,8 +23,8 @@ extern "C"
 #pragma endregion Setter
 	
 #pragma region AsyncFunc
-	DLL_EXPORT void Unity_GetAccessToken(const char* strServerURL, const char* strAPIKey, const char* strAPISecret, NDKUnity::OnTokenGenerated callback);
-	DLL_EXPORT void Unity_LoadScene(const char* strSceneName, NDKUnity::OnTokenGenerated callback);
+	DLL_EXPORT void Unity_GetAccessToken(const char* strServerURL, const char* strAPIKey, const char* strAPISecret, NDKUnity::UnityCallback callback);
+	DLL_EXPORT void Unity_LoadScene(const char* strSceneName, NDKUnity::UnityCallback callback);
 #pragma endregion AsyncFunc
 
 	
@@ -36,9 +36,9 @@ extern "C"
 
 	
 #pragma region Getter
-	DLL_EXPORT char* Unity_GetSessionID();
+	DLL_EXPORT NDKUnity::SessionInfo Unity_GetSessionInfo();
 	DLL_EXPORT int Unity_GetAgentCount();
-	DLL_EXPORT NDKUnity::AgentInfo Unity_GetAgentInfo(int nIndex);
+	DLL_EXPORT NDKUnity::AgentInfo Unity_GetAgentInfo(int nIndex);  // NOLINT(clang-diagnostic-return-type-c-linkage)
 #pragma endregion Getter	
 
 #if __cplusplus

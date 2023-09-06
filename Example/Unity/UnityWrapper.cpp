@@ -30,7 +30,7 @@ void NDKUnity::CUnityWrapper::AddUserProfile(const std::string& strProfileID, co
 	_ClientOptions.UserSettings.Profile.Fields.push_back({strProfileID, strProfileVal});
 }
 
-void NDKUnity::CUnityWrapper::LoadScene(const std::string& strSceneName, OnTokenGenerated callback)
+void NDKUnity::CUnityWrapper::LoadScene(const std::string& strSceneName, UnityCallback callback)
 {
 	ClientBase::LoadScene(strSceneName, [this, callback](const std::vector<Inworld::AgentInfo>& agentInfos)
 	{

@@ -43,7 +43,7 @@ namespace NDKUnity
 
 		void AddUserProfile(const std::string& strProfileID, const std::string& strProfileVal);
 
-		void LoadScene(const std::string& strSceneName, OnTokenGenerated callback);		
+		void LoadScene(const std::string& strSceneName, UnityCallback callback);		
 
 		Inworld::ClientOptions GetOptions()
 		{

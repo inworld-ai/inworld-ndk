@@ -10,19 +10,22 @@ extern "C"
 	
 namespace NDKUnity
 {
+	// YAN: BSTR is the string format used in COM as well as Unity Communication.
+	//		According to https://learn.microsoft.com/zh-cn/cpp/atl-mfc-shared/allocating-and-releasing-memory-for-a-bstr?view=msvc-170
+	//		Unity will handle GC for BSTR itself.		
 	inline BSTR StringToBSTR(std::string rhs)
 	{
+		return _com_util::ConvertStringToBSTR(rhs.c_str());
 		_bstr_t tmp = _bstr_t(rhs.c_str());
 		return tmp.copy();
-	}
-	
-	using OnTokenGenerated = void (*)();
-	using OnSceneLoaded = void (*)(std::vector<Inworld::AgentInfo>);
-
+	}	
+	using UnityCallback = void (*)();
 
 	struct Capabilities
 	{
-		// YAN: The minimum size of C# is int. Do not use Char or Bool.
+		// YAN:
+		// The minimum size (char/bool) of C# in C++ is int by default.
+		// Changing memory alignment (#pragma pack) on either side will lose efficiency.		
 		int Text ;
 		int Audio;
 		int Emotions ;
@@ -48,6 +51,34 @@ namespace NDKUnity
 		}
 	};
 
+	struct SessionInfo
+	{
+		BSTR SessionId;
+		BSTR Token;
+		BSTR SessionSavedState;
+		int64_t ExpirationTime;
+		int IsValid;
+
+		SessionInfo()
+		{
+			SessionId = SysAllocString(L"__DUMMY__");
+			Token = SysAllocString(L"__DUMMY__");
+			SessionSavedState = SysAllocString(L"__DUMMY__");
+			ExpirationTime = 0;
+			IsValid = false;
+		}
+
+		explicit SessionInfo(const Inworld::SessionInfo& rhs)
+		{
+			SessionId = StringToBSTR(rhs.SessionId);
+			Token = StringToBSTR(rhs.Token);
+			SessionSavedState = StringToBSTR(rhs.SessionSavedState);
+			ExpirationTime = rhs.ExpirationTime;
+			IsValid = rhs.IsValid();
+		}
+		
+	};
+
 	struct AgentInfo
 	{
 		BSTR BrainName;
@@ -66,7 +97,6 @@ namespace NDKUnity
 			BrainName = StringToBSTR(rhs.BrainName);
 			AgentId = StringToBSTR(rhs.AgentId);
 			GivenName = StringToBSTR(rhs.GivenName);
-			Inworld::Log("ID: {0} BrainName {1}", rhs.AgentId, rhs.BrainName);
 		}
 	};
 	

@@ -99,7 +99,8 @@ namespace Inworld
 	#endif
 
 	#ifdef INWORLD_UNITY
-		g_UnityLoggerCallback(message.c_str(), 0);
+		if (g_UnityLoggerCallback)
+			g_UnityLoggerCallback(message.c_str(), 0);
 	#endif
 	}
 
@@ -109,7 +110,8 @@ namespace Inworld
 		ConvertToSpdFmt(fmt);
 		const auto message = format::vformat(fmt, format::make_format_args(args...));
 	#ifdef INWORLD_UNITY
-		g_UnityLoggerCallback(message.c_str(), 1);
+		if (g_UnityLoggerCallback)
+			g_UnityLoggerCallback(message.c_str(), 1);
 	#endif
     
 	#if ANDROID
@@ -130,7 +132,8 @@ namespace Inworld
 		spdlog::error("{} (SessionId: {})", message.c_str(), g_SessionId.c_str());
 	#endif
 	#ifdef INWORLD_UNITY
-		g_UnityLoggerCallback(message.c_str(), 2);
+		if (g_UnityLoggerCallback)
+			g_UnityLoggerCallback(message.c_str(), 2);
 	#endif
 	}
 
