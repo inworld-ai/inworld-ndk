@@ -442,6 +442,13 @@ void Inworld::ClientBase::LoadScene(std::string strSceneName, const std::functio
 						Info.BrainName = Response.agents(i).brain_name();
 						Info.AgentId = Response.agents(i).agent_id();
 						Info.GivenName = Response.agents(i).given_name();
+						#ifdef INWORLD_UNITY						
+						Info.AvatarImg = Response.agents(i).character_assets().avatar_img();
+						Info.AvatarImgOriginal = Response.agents(i).character_assets().avatar_img_original();
+						Info.RpmModelUri = Response.agents(i).character_assets().rpm_model_uri();
+						Info.RpmImageUriPortrait = Response.agents(i).character_assets().rpm_image_uri_portrait();
+						Info.RpmImageUriPosture = Response.agents(i).character_assets().rpm_image_uri_posture();
+						#endif						
 						AgentInfos.push_back(Info);
 					}
 					if (_OnLoadSceneCallback)

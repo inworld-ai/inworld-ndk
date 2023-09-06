@@ -16,8 +16,6 @@ namespace NDKUnity
 	inline BSTR StringToBSTR(std::string rhs)
 	{
 		return _com_util::ConvertStringToBSTR(rhs.c_str());
-		_bstr_t tmp = _bstr_t(rhs.c_str());
-		return tmp.copy();
 	}	
 	using UnityCallback = void (*)();
 
@@ -61,9 +59,9 @@ namespace NDKUnity
 
 		SessionInfo()
 		{
-			SessionId = SysAllocString(L"__DUMMY__");
-			Token = SysAllocString(L"__DUMMY__");
-			SessionSavedState = SysAllocString(L"__DUMMY__");
+			SessionId = SysAllocString(L"");
+			Token = SysAllocString(L"");
+			SessionSavedState = SysAllocString(L"");
 			ExpirationTime = 0;
 			IsValid = false;
 		}
@@ -84,12 +82,22 @@ namespace NDKUnity
 		BSTR BrainName;
 		BSTR AgentId;
 		BSTR GivenName;
+		BSTR RpmModelUri;
+		BSTR RpmImageUriPortrait;
+		BSTR RpmImageUriPosture;
+		BSTR AvatarImg;
+		BSTR AvatarImgOriginal;
 
 		AgentInfo()
 		{
-			BrainName = SysAllocString(L"__DUMMY__");
-			AgentId = SysAllocString(L"__DUMMY__");
-			GivenName = SysAllocString(L"__DUMMY__");
+			BrainName = SysAllocString(L"");
+			AgentId = SysAllocString(L"");
+			GivenName = SysAllocString(L"");
+			RpmModelUri = SysAllocString(L"");
+			RpmImageUriPortrait = SysAllocString(L"");
+			RpmImageUriPosture = SysAllocString(L"");
+			AvatarImg = SysAllocString(L"");
+			AvatarImgOriginal = SysAllocString(L"");
 		}
 
 		explicit AgentInfo(const Inworld::AgentInfo& rhs)
@@ -97,9 +105,13 @@ namespace NDKUnity
 			BrainName = StringToBSTR(rhs.BrainName);
 			AgentId = StringToBSTR(rhs.AgentId);
 			GivenName = StringToBSTR(rhs.GivenName);
+			RpmModelUri = StringToBSTR(rhs.RpmModelUri);
+			RpmImageUriPortrait = StringToBSTR(rhs.RpmImageUriPortrait);
+			RpmImageUriPosture = StringToBSTR(rhs.RpmImageUriPortrait);
+			AvatarImg = StringToBSTR(rhs.RpmImageUriPortrait);
+			AvatarImgOriginal = StringToBSTR(rhs.RpmImageUriPortrait);
 		}
-	};
-	
+	};	
 }
 
 #if __cplusplus

@@ -30,6 +30,13 @@ namespace Inworld
 		std::string BrainName;
 		std::string AgentId;
 		std::string GivenName;
+#ifdef INWORLD_UNITY
+		std::string RpmModelUri;
+		std::string RpmImageUriPortrait;
+		std::string RpmImageUriPosture;
+		std::string AvatarImg;
+		std::string AvatarImgOriginal;
+#endif
 	};
 
 }
