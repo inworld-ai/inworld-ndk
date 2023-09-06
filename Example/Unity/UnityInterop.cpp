@@ -1,7 +1,5 @@
 ﻿#include "UnityInterop.h"
 
-#include <utility>
-
 
 NDKUnity::CUnityWrapper* Unity_InitWrapper()
 {
@@ -31,13 +29,18 @@ void Unity_AddUserProfile(const char* strProfileID, const char* strProfileValue)
 	g_pWrapper->AddUserProfile(strProfileID, strProfileValue);
 }
 
+void Unity_SetCapabilities(NDKUnity::Capabilities capabilities)
+{
+	if (g_pWrapper == nullptr)
+		return;
+	g_pWrapper->SetCapabilities(capabilities.ToNDK());
+}
+
 void Unity_GetUserSettings()
 {
 	if (g_pWrapper == nullptr)
 		return;
 	auto userRequest = g_pWrapper->GetUserRequest();
-	if (!userRequest.Profile.Fields.empty())
-		Inworld::Log("{0}=> {1}: {2}", g_pWrapper->GetOptions().PlayerName, userRequest.Profile.Fields[0].Id, userRequest.Profile.Fields[0].Value);
 }
 
 void Unity_SetLogger(Inworld::UnityLogCallback callback)
@@ -76,4 +79,7 @@ void Unity_DestroyWrapper()
 }
 
 
-
+void Unity_GetCapabilities()
+{
+	auto cp = g_pWrapper->GetOptions().Capabilities;
+}

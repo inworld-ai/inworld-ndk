@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "UnityWrapper.h"
+#include "Data/UnityNDKInteropData.h"
 
 #if __cplusplus
 extern "C"
@@ -8,6 +9,8 @@ extern "C"
 	
 #define DLL_EXPORT _declspec(dllexport)
 
+
+	
 	inline NDKUnity::CUnityWrapper* g_pWrapper = nullptr;
 
 	DLL_EXPORT NDKUnity::CUnityWrapper* Unity_InitWrapper();
@@ -18,7 +21,11 @@ extern "C"
 	
 	DLL_EXPORT void Unity_AddUserProfile(const char* strProfileID, const char* strProfileValue);
 
+	DLL_EXPORT void Unity_SetCapabilities(NDKUnity::Capabilities capabilities);
+
 	DLL_EXPORT void Unity_GetUserSettings();
+
+	DLL_EXPORT void Unity_GetCapabilities();
 
 	DLL_EXPORT void Unity_GetAccessToken(const char* strServerURL, const char* strAPIKey, const char* strAPISecret);	
 

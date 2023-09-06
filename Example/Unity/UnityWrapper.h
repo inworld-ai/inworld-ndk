@@ -1,16 +1,17 @@
 ﻿#pragma once
-#include "UnityClientOptions.h"
 #include <string>
 #include "Client.h"
 #include "UnityPacketHandler.h"
-#include "Data/UnityNetworkData.h"
 #include "Utils/Log.h"
 	 
 using ConnectStateCallback = std::function<void(Inworld::Client::ConnectionState)>;
 using GenerateTokenCallback = void(*)();
 
+
+
 namespace NDKUnity
 {
+	
 	class CUnityWrapper final : public Inworld::Client
 	{
 	public:
@@ -48,8 +49,7 @@ namespace NDKUnity
 		{
 			return _ClientOptions.UserSettings;
 		}
-
-		void SetCapabilities(Inworld::CapabilitySet capabilities);
+		void SetCapabilities(const Inworld::CapabilitySet capabilities);
 		
 
 	protected:
