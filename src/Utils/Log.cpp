@@ -49,10 +49,10 @@ void Inworld::Log(const std::string& message)
 #ifdef INWORLD_LOG
 	#if  defined(INWORLD_LOG_CALLBACK)
 		if (g_LoggerCallback) g_LoggerCallback(message.c_str(), 0);
-	#elif defined(INWORLD_LOG_SPD)
-		spdlog::info(message);
 	#elif defined(ANDROID)
 		__android_log_print(ANDROID_LOG_INFO, "InworldNDK", "%s", message.c_str());
+	#elif defined(INWORLD_LOG_SPD)
+		spdlog::info(message);
 	#else
 		std::cout << message << std::endl;
 	#endif
@@ -64,10 +64,10 @@ void Inworld::LogWarning(const std::string& message)
 #ifdef INWORLD_LOG
 	#if defined(INWORLD_LOG_CALLBACK)
 		if (g_LoggerCallback) g_LoggerCallback(message.c_str(), 1);
-  #elif defined(INWORLD_LOG_SPD)
-    spdlog::warn(message);
 	#elif defined(ANDROID)
 		__android_log_print(ANDROID_LOG_WARN, "InworldNDK", "%s", message.c_str());
+  #elif defined(INWORLD_LOG_SPD)
+    spdlog::warn(message);
   #else
     std::cout << message << std::endl;
 	#endif
@@ -80,10 +80,10 @@ void Inworld::LogError(const std::string& message)
 	const std::string error = VFormat("%s (SessionId: %s)", ARG_STR(message), ARG_STR(g_SessionId));
 	#if defined(INWORLD_LOG_CALLBACK)
 		if (g_LoggerCallback) g_LoggerCallback(message.c_str(), 2);
-  #elif defined(INWORLD_LOG_SPD)
-		spdlog::error(error);
   #elif defined(ANDROID)
     __android_log_print(ANDROID_LOG_ERROR, "InworldNDK", "%s", error.c_str());
+  #elif defined(INWORLD_LOG_SPD)
+		spdlog::error(error);
   #else
     std::cout << error << std::endl;
 	#endif
