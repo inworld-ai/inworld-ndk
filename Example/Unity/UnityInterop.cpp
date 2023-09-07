@@ -50,19 +50,28 @@ void Unity_SetLogger(Inworld::UnityLogCallback callback)
 	g_pWrapper->SetLoggerCallBack(callback);
 }
 
-void Unity_Hello()
-{
-	const auto callBack = g_pWrapper->GetLoggerCallBack();
-	if (callBack == nullptr || Inworld::g_UnityLoggerCallback == nullptr)
-		return;
-	Inworld::Log("Hello");
-}
-
-void Unity_GetAccessToken(const char* serverURl, const char* apiKey, const char* apiSecret, NDKUnity::UnityCallback callback)
+void Unity_SetTextCallback(NDKUnity::TextCallBack callBack)
 {
 	if (g_pWrapper == nullptr)
 		return;
-	g_pWrapper->SetServerURL(serverURl);
+	g_pWrapper->SetTextCallBack(callBack);
+}
+
+
+void Unity_Hello()
+{
+	if (g_pWrapper == nullptr)
+		return;
+	if (g_pWrapper->GetAgentInfo().size() == 0)
+		return;
+	g_pWrapper->SendTextMessage(g_pWrapper->GetAgentInfo()[0].AgentId, "Hello");
+}
+
+void Unity_GetAccessToken(const char* serverURL, const char* apiKey, const char* apiSecret, NDKUnity::UnityCallback callback)
+{
+	if (g_pWrapper == nullptr)
+		return;
+	g_pWrapper->SetServerURL(serverURL);
 	g_pWrapper->SetAPIKey(apiKey);
 	g_pWrapper->SetAPISecret(apiSecret);
 	g_pWrapper->GenerateToken(callback);	
@@ -110,3 +119,12 @@ NDKUnity::AgentInfo Unity_GetAgentInfo(int nIndex)
 		return {};
 	return NDKUnity::AgentInfo(g_pWrapper->GetAgentInfo()[nIndex]);
 }
+
+void Unity_StartSession()
+{
+	if (g_pWrapper == nullptr)
+		return;
+	g_pWrapper->StartSession();
+	Inworld::Log("Session Started");
+}
+

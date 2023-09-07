@@ -4,7 +4,14 @@
 // TODO(Yan): Send those packets back to C#.
 void NDKUnity::CUnityPacketHandler::Visit(const Inworld::TextEvent& Event)
 {
-	Inworld::Log("{}: Text: {}", Event._Routing._Source._Name, Event.GetText());
+	// Inworld::Log("{}: Text: {}", Event._Routing._Source._Name, Event.GetText());
+	if (m_TextCallBack)
+		m_TextCallBack(TextPacket(Event));
+}
+
+void NDKUnity::CUnityPacketHandler::Visit(const Inworld::AudioDataEvent& Event)
+{
+	PacketVisitor::Visit(Event);
 }
 
 void NDKUnity::CUnityPacketHandler::Visit(const Inworld::CustomEvent& Event)
@@ -12,9 +19,9 @@ void NDKUnity::CUnityPacketHandler::Visit(const Inworld::CustomEvent& Event)
 	Inworld::Log("{}: Custom: {}", Event._Routing._Source._Name, Event.GetName());
 }
 
-void NDKUnity::CUnityPacketHandler::Visit(const Inworld::CustomGestureEvent& Event)
+void NDKUnity::CUnityPacketHandler::SetTextCallback(const TextCallBack& callBack)
 {
-	Inworld::Log("{}: Custom gesture: {}", Event._Routing._Source._Name, Event.GetCustomGesture());
+	m_TextCallBack = callBack;
 }
 
 void NDKUnity::CUnityPacketHandler::Visit(const Inworld::CancelResponseEvent& Event)
@@ -30,14 +37,4 @@ void NDKUnity::CUnityPacketHandler::Visit(const Inworld::EmotionEvent& Event)
 void NDKUnity::CUnityPacketHandler::Visit(const Inworld::ControlEvent& Event)
 {
 	Inworld::Log("{}: Control: {}", Event._Routing._Source._Name, (int32_t)Event.GetControlAction());
-}
-
-void NDKUnity::CUnityPacketHandler::Visit(const Inworld::SilenceEvent& Event)
-{
-	Inworld::Log("{}: Silence: Duration {}", Event._Routing._Source._Name, Event.GetDuration());
-}
-
-void NDKUnity::CUnityPacketHandler::Visit(const Inworld::DataEvent& Event)
-{
-	Inworld::Log("{}: Data: Size {}", Event._Routing._Source._Name, Event.GetDataChunk().size());
 }

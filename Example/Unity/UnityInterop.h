@@ -16,6 +16,7 @@ extern "C"
 
 #pragma region Setter
 	DLL_EXPORT void Unity_SetLogger(Inworld::UnityLogCallback callback);
+	DLL_EXPORT void Unity_SetTextCallback(NDKUnity::TextCallBack callBack);
 	DLL_EXPORT void Unity_SetClientRequest(const char* strClientID, const char* strClientVersion);	
 	DLL_EXPORT void Unity_SetUserRequest(const char* strPlayerName, const char* strPlayerID);	
 	DLL_EXPORT void Unity_AddUserProfile(const char* strProfileID, const char* strProfileValue);
@@ -25,6 +26,7 @@ extern "C"
 #pragma region AsyncFunc
 	DLL_EXPORT void Unity_GetAccessToken(const char* strServerURL, const char* strAPIKey, const char* strAPISecret, NDKUnity::UnityCallback callback);
 	DLL_EXPORT void Unity_LoadScene(const char* strSceneName, NDKUnity::UnityCallback callback);
+	DLL_EXPORT void Unity_StartSession();
 #pragma endregion AsyncFunc
 
 	

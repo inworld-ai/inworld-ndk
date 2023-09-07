@@ -13,6 +13,11 @@ void NDKUnity::CUnityWrapper::SetLoggerCallBack(const Inworld::UnityLogCallback&
 	Inworld::Log("Unity NDK Logger Initialized");
 }
 
+void NDKUnity::CUnityWrapper::SetTextCallBack(const TextCallBack& callBack)
+{
+	m_PacketHandler.SetTextCallback(callBack);
+}
+
 void NDKUnity::CUnityWrapper::SetClientRequest(std::string strClientID, std::string strClientVersion)
 {
 	_ClientId = strClientID;
@@ -38,6 +43,11 @@ void NDKUnity::CUnityWrapper::LoadScene(const std::string& strSceneName, UnityCa
 		if (callback)
 			callback();
 	});	
+}
+
+void NDKUnity::CUnityWrapper::StartSession()
+{
+	StartReaderWriter();
 }
 
 void NDKUnity::CUnityWrapper::SetCapabilities(Inworld::CapabilitySet capabilities)

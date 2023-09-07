@@ -4,8 +4,6 @@
 #include "UnityPacketHandler.h"
 #include "Data/UnityNDKInteropData.h"
 #include "Utils/Log.h"
-	 
-using ConnectStateCallback = std::function<void(Inworld::Client::ConnectionState)>;
 
 
 namespace NDKUnity
@@ -14,10 +12,18 @@ namespace NDKUnity
 	class CUnityWrapper final : public Inworld::Client
 	{
 	public:
-		CUnityWrapper() = default;
+		CUnityWrapper()
+		{
+			_OnPacketCallback = [this](const std::shared_ptr<Inworld::Packet>& packet)
+			{
+				packet->Accept(m_PacketHandler);
+			};
+		}
 		~CUnityWrapper() override = default;
 		
 		void SetLoggerCallBack(const Inworld::UnityLogCallback& callback);
+
+		void SetTextCallBack(const TextCallBack& callBack);
 		
 		Inworld::UnityLogCallback GetLoggerCallBack() const
 		{
@@ -43,7 +49,9 @@ namespace NDKUnity
 
 		void AddUserProfile(const std::string& strProfileID, const std::string& strProfileVal);
 
-		void LoadScene(const std::string& strSceneName, UnityCallback callback);		
+		void LoadScene(const std::string& strSceneName, UnityCallback callback);
+
+		void StartSession();
 
 		Inworld::ClientOptions GetOptions()
 		{
@@ -66,9 +74,7 @@ namespace NDKUnity
 		CUnityPacketHandler m_PacketHandler;
 		std::string m_SavedSessionState;
 		std::vector<Inworld::AgentInfo> m_AgentInfos;
-		
 		Inworld::UnityLogCallback m_LogCallBack = nullptr;
-		ConnectStateCallback m_ConnectStateCallback;
 	};
 }
 

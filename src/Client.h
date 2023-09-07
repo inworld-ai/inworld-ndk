@@ -84,11 +84,10 @@ namespace Inworld
 		
 		virtual void Update() {}
 
-		void               SetPerceivedLatencyTrackerCallback(PerceivedLatencyCallback Cb) { _LatencyTracker.SetCallback(Cb); }
-		void               ClearPerceivedLatencyTrackerCallback() { _LatencyTracker.ClearCallback(); }
-		void               LoadScene(std::string strSceneName, const std::function<void(const std::vector<AgentInfo>&)>& callBack);		
+		void SetPerceivedLatencyTrackerCallback(PerceivedLatencyCallback Cb) { _LatencyTracker.SetCallback(Cb); }
+		void ClearPerceivedLatencyTrackerCallback() { _LatencyTracker.ClearCallback(); }			
 		const SessionInfo& GetSessionInfo() const;
-		void               SetOptions(const ClientOptions& options);		
+		void SetOptions(const ClientOptions& options);		
 
 	protected:
 		virtual void AddTaskToMainThread(std::function<void()> Task) = 0;		
@@ -103,9 +102,12 @@ namespace Inworld
 #ifdef  INWORLD_AUDIO_DUMP
 			_AsyncAudioDumper = std::make_unique<TAsyncRoutine>();
 #endif			
-		}		
-	private:		
+		}
+#ifndef INWORLD_UNITY	
+	private:
+#endif
 		void LoadScene();
+		void LoadScene(std::string strSceneName, const std::function<void(const std::vector<AgentInfo>&)>& callBack);	
 		void OnSceneLoaded(const grpc::Status& Status, const InworldEngine::LoadSceneResponse& Response);
 		void SetConnectionState(ConnectionState State);		
 		void StartReaderWriter();
@@ -142,7 +144,6 @@ namespace Inworld
 		ConnectionState _ConnectionState = ConnectionState::Idle;
 		std::string _ErrorMessage = std::string();
 		int32_t _ErrorCode = grpc::StatusCode::OK;
-	protected:
 		std::string _ClientId;
 		std::string _ClientVer;
 

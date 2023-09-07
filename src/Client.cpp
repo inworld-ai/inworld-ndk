@@ -397,6 +397,7 @@ void Inworld::ClientBase::LoadScene()
 		)
 	);
 }
+// YAN: Used in Unity only. 
 void Inworld::ClientBase::LoadScene(std::string strSceneName, const std::function<void(const std::vector<AgentInfo>&)>& callBack)
 {
 	_ClientOptions.SceneName = std::move(strSceneName);
