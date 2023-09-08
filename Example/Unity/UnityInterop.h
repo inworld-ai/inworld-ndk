@@ -15,7 +15,7 @@ extern "C"
 #pragma endregion  LifeCycle
 
 #pragma region Setter
-	DLL_EXPORT void Unity_SetLogger(Inworld::UnityLogCallback callback);
+	DLL_EXPORT void Unity_SetLogger(Inworld::LoggerCallBack callback);
 	DLL_EXPORT void Unity_SetPacketCallback(
 		NDKUnity::TextCallBack textCallBack,
 		NDKUnity::AudioCallBack audioCallBack,

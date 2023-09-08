@@ -22,7 +22,7 @@ namespace NDKUnity
 
 		~CUnityWrapper() override = default;
 		
-		void SetLoggerCallBack(const Inworld::UnityLogCallback& callback);
+		void SetLoggerCallBack(const Inworld::LoggerCallBack& callback);
 
 		void SetPacketCallBack(
 			const TextCallBack& textCallBack,
@@ -34,7 +34,7 @@ namespace NDKUnity
 			const PhonemeCallBack& phonemeCallBack,
 			const TriggerParamCallBack& triggerParamCallBack);
 		
-		Inworld::UnityLogCallback GetLoggerCallBack() const
+		Inworld::LoggerCallBack GetLoggerCallBack() const
 		{
 			return m_LogCallBack;
 		}		
@@ -88,7 +88,7 @@ namespace NDKUnity
 		CUnityPacketHandler m_PacketHandler;
 		std::string m_SavedSessionState;
 		std::vector<Inworld::AgentInfo> m_AgentInfos;
-		Inworld::UnityLogCallback m_LogCallBack = nullptr;		
+		Inworld::LoggerCallBack m_LogCallBack = nullptr;		
 	};
 }
 

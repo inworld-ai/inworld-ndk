@@ -36,7 +36,7 @@ void Unity_SetCapabilities(NDKUnity::Capabilities capabilities)
 	g_pWrapper->SetCapabilities(capabilities.ToNDK());
 }
 
-void Unity_SetLogger(Inworld::UnityLogCallback callback)
+void Unity_SetLogger(Inworld::LoggerCallBack callback)
 {
 	if (g_pWrapper == nullptr)
 		return;

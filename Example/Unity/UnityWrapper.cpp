@@ -5,11 +5,11 @@
 
 #pragma region Logger
 
-void NDKUnity::CUnityWrapper::SetLoggerCallBack(const Inworld::UnityLogCallback& callback)
+void NDKUnity::CUnityWrapper::SetLoggerCallBack(const Inworld::LoggerCallBack& callback)
 {
 	m_LogCallBack = callback;
 	if (callback != nullptr)
-		Inworld::LogSetUnityLogCallback(callback);
+		Inworld::LogSetLoggerCallback(callback);
 	Inworld::Log("Unity NDK Logger Initialized");
 }
 
