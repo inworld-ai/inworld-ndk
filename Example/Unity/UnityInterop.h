@@ -31,19 +31,24 @@ extern "C"
 	DLL_EXPORT void Unity_SetCapabilities(NDKUnity::Capabilities capabilities);
 #pragma endregion Setter
 	
-#pragma region AsyncFunc
+#pragma region Inworld Status
 	DLL_EXPORT void Unity_GetAccessToken(const char* strServerURL, const char* strAPIKey, const char* strAPISecret, NDKUnity::UnityCallback callback);
-	DLL_EXPORT void Unity_LoadScene(const char* strSceneName, NDKUnity::UnityCallback callback);
+	DLL_EXPORT void Unity_LoadScene(const char* strSceneName, NDKUnity::UnityCallback callback);	
 	DLL_EXPORT void Unity_StartSession();
-#pragma endregion AsyncFunc
+	DLL_EXPORT void Unity_EndSession();
+#pragma endregion Inworld Status
 
-	
-	DLL_EXPORT void Unity_GetUserSettings();
-
-	DLL_EXPORT void Unity_GetCapabilities();	
+#pragma region Send Data
+	DLL_EXPORT void Unity_SendText(const char* agentID, const char* message);
+	DLL_EXPORT void Unity_SendAudio(const char* agentID, const char* data);
+	DLL_EXPORT void Unity_SendTrigger(const char* agentID, const char* triggerName);
+	DLL_EXPORT void Unity_SendTrigger(const char* agentID, const char* triggerName, const char* param, const char* paramValue);
+	DLL_EXPORT void Unity_CancelResponse(const char* agentID, const char* interactionIDToCancel);
+	DLL_EXPORT void Unity_StartAudio(const char* agentID);
+	DLL_EXPORT void Unity_StopAudio(const char* agentID);
+#pragma endregion Send Data
 
 	DLL_EXPORT void Unity_Hello();
-
 	
 #pragma region Getter
 	DLL_EXPORT NDKUnity::SessionInfo Unity_GetSessionInfo();

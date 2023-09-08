@@ -36,13 +36,6 @@ void Unity_SetCapabilities(NDKUnity::Capabilities capabilities)
 	g_pWrapper->SetCapabilities(capabilities.ToNDK());
 }
 
-void Unity_GetUserSettings()
-{
-	if (g_pWrapper == nullptr)
-		return;
-	auto userRequest = g_pWrapper->GetUserRequest();
-}
-
 void Unity_SetLogger(Inworld::UnityLogCallback callback)
 {
 	if (g_pWrapper == nullptr)
@@ -75,12 +68,6 @@ void Unity_DestroyWrapper()
 		g_pWrapper->DestroyClient();
 	delete g_pWrapper;
 	g_pWrapper = nullptr;
-}
-
-
-void Unity_GetCapabilities()
-{
-	auto cp = g_pWrapper->GetOptions().Capabilities;
 }
 
 NDKUnity::SessionInfo Unity_GetSessionInfo()
@@ -127,4 +114,66 @@ void Unity_SetPacketCallback(NDKUnity::TextCallBack textCallBack, NDKUnity::Audi
 	if (g_pWrapper == nullptr)
 		return;
 	g_pWrapper->SetPacketCallBack(textCallBack, audioCallBack, controlCallBack, emotionCallBack, cancelResponseCallBack, customCallBack, phonemeCallBack, triggerParamCallBack);
+}
+
+void Unity_EndSession()
+{
+	if (g_pWrapper == nullptr)
+		return;
+	g_pWrapper->EndSession();
+}
+
+void Unity_ResumeClient()
+{
+	if (g_pWrapper == nullptr)
+		return;
+	g_pWrapper->ResumeClient();
+}
+
+void Unity_SendText(const char* agentID, const char* message)
+{
+	if (g_pWrapper == nullptr)
+		return;
+	g_pWrapper->SendTextMessage(agentID, message);
+}
+
+void Unity_SendAudio(const char* agentID, const char* data)
+{
+	if (g_pWrapper == nullptr)
+		return;
+	g_pWrapper->SendSoundMessage(agentID, data);
+}
+
+void Unity_SendTrigger(const char* agentID, const char* triggerName)
+{
+	if (g_pWrapper == nullptr)
+		return;
+	g_pWrapper->SendCustomEvent(agentID, triggerName, {});
+}
+void Unity_SendTrigger(const char* agentID, const char* triggerName, const char* param, const char* paramValue)
+{
+	if (g_pWrapper == nullptr)
+		return;
+	g_pWrapper->SendCustomEvent(agentID, triggerName, {{param, paramValue}});
+}
+
+void Unity_CancelResponse(const char* agentID, const char* interactionIDToCancel)
+{
+	if (g_pWrapper == nullptr)
+		return;
+	g_pWrapper->CancelResponse(agentID, interactionIDToCancel, {});
+}
+
+void Unity_StartAudio(const char* agentID)
+{
+	if (g_pWrapper == nullptr)
+		return;
+	g_pWrapper->StartAudioSession(agentID);
+}
+
+void Unity_StopAudio(const char* agentID)
+{
+	if (g_pWrapper == nullptr)
+		return;
+	g_pWrapper->StopAudioSession(agentID);
 }

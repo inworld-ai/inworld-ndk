@@ -19,6 +19,7 @@ namespace NDKUnity
 				packet->Accept(m_PacketHandler);
 			};
 		}
+
 		~CUnityWrapper() override = default;
 		
 		void SetLoggerCallBack(const Inworld::UnityLogCallback& callback);
@@ -61,6 +62,10 @@ namespace NDKUnity
 
 		void StartSession();
 
+		void EndSession();
+
+		
+
 		Inworld::ClientOptions GetOptions()
 		{
 			return _ClientOptions;
@@ -74,6 +79,7 @@ namespace NDKUnity
 			return m_AgentInfos;
 		}
 
+		void StopClient() override;
 	protected:
 		void AddTaskToMainThread(std::function<void()> Task) override;
 		
@@ -82,7 +88,7 @@ namespace NDKUnity
 		CUnityPacketHandler m_PacketHandler;
 		std::string m_SavedSessionState;
 		std::vector<Inworld::AgentInfo> m_AgentInfos;
-		Inworld::UnityLogCallback m_LogCallBack = nullptr;
+		Inworld::UnityLogCallback m_LogCallBack = nullptr;		
 	};
 }
 

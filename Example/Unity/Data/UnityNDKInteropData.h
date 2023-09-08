@@ -152,7 +152,6 @@ namespace NDKUnity
 		CustomPacket() = default;
 		CustomPacket(const Inworld::CustomEvent& rhs);
 	};
-
 	struct TriggerParam
 	{
 		BSTR packetID;

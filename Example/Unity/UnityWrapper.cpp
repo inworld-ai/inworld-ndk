@@ -67,11 +67,22 @@ void NDKUnity::CUnityWrapper::StartSession()
 	StartReaderWriter();
 }
 
+void NDKUnity::CUnityWrapper::EndSession()
+{
+	StopReaderWriter();
+}
+
 void NDKUnity::CUnityWrapper::SetCapabilities(Inworld::CapabilitySet capabilities)
 {
 	_ClientOptions.Capabilities = capabilities;
 }
 
+void NDKUnity::CUnityWrapper::StopClient()
+{
+	// YAN: Anything other than Idle to get the full clean process.
+	SetConnectionState(ConnectionState::Disconnected);
+	Client::StopClient();
+}
 
 void NDKUnity::CUnityWrapper::AddTaskToMainThread(std::function<void()> Task)
 {
