@@ -13,10 +13,27 @@ void NDKUnity::CUnityWrapper::SetLoggerCallBack(const Inworld::UnityLogCallback&
 	Inworld::Log("Unity NDK Logger Initialized");
 }
 
-void NDKUnity::CUnityWrapper::SetTextCallBack(const TextCallBack& callBack)
+void NDKUnity::CUnityWrapper::SetPacketCallBack(
+	const TextCallBack& textCallBack,
+	const AudioCallBack& audioCallBack,
+	const ControlCallBack& controlCallBack,
+	const EmotionCallBack& emotionCallBack,
+	const CancelResponseCallBack& cancelResponseCallBack,
+	const CustomCallBack& customCallBack,
+	const PhonemeCallBack& phonemeCallBack,
+	const TriggerParamCallBack& triggerParamCallBack)
 {
-	m_PacketHandler.SetTextCallback(callBack);
+	m_PacketHandler.SetPacketCallback(
+		textCallBack,
+		audioCallBack,
+		controlCallBack,
+		emotionCallBack,
+		cancelResponseCallBack,
+		customCallBack,
+		phonemeCallBack,
+		triggerParamCallBack);
 }
+
 
 void NDKUnity::CUnityWrapper::SetClientRequest(std::string strClientID, std::string strClientVersion)
 {

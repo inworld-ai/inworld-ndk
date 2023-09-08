@@ -10,17 +10,6 @@ extern "C"
 	
 namespace NDKUnity
 {
-	// YAN: BSTR is the string format used in COM as well as Unity Communication.
-	//		According to https://learn.microsoft.com/zh-cn/cpp/atl-mfc-shared/allocating-and-releasing-memory-for-a-bstr?view=msvc-170
-	//		Unity will handle GC for BSTR itself.		
-	inline BSTR StringToBSTR(std::string rhs)
-	{
-		return _com_util::ConvertStringToBSTR(rhs.c_str());
-	}	
-	using UnityCallback = void (*)();
-
-	
-
 	struct Capabilities
 	{
 		// YAN:
@@ -36,19 +25,7 @@ namespace NDKUnity
 		int narratedActions;
 		// YAN: No need to set others.
 		
-		Inworld::CapabilitySet ToNDK() const
-		{
-			Inworld::CapabilitySet set;
-			set.Text = text;
-			set.Audio = audio;
-			set.Emotions = emotions;
-			set.Interruptions = interruptions;
-			set.Triggers = triggers;
-			set.PhonemeInfo = phonemeInfo;
-			set.TurnBasedSTT = turnBasedStt;
-			set.NarratedActions = narratedActions;
-			return set;
-		}
+		Inworld::CapabilitySet ToNDK() const;
 	};
 
 	struct SessionInfo
@@ -58,25 +35,9 @@ namespace NDKUnity
 		BSTR sessionSavedState;
 		int64_t expirationTime;
 		int isValid;
-
-		SessionInfo()
-		{
-			sessionId = SysAllocString(L"");
-			token = SysAllocString(L"");
-			sessionSavedState = SysAllocString(L"");
-			expirationTime = 0;
-			isValid = false;
-		}
-
-		explicit SessionInfo(const Inworld::SessionInfo& rhs)
-		{
-			sessionId = StringToBSTR(rhs.SessionId);
-			token = StringToBSTR(rhs.Token);
-			sessionSavedState = StringToBSTR(rhs.SessionSavedState);
-			expirationTime = rhs.ExpirationTime;
-			isValid = rhs.IsValid();
-		}
 		
+		SessionInfo();
+		explicit SessionInfo(const Inworld::SessionInfo& rhs);		
 	};
 
 	struct AgentInfo
@@ -89,30 +50,9 @@ namespace NDKUnity
 		BSTR rpmImageUriPosture;
 		BSTR avatarImg;
 		BSTR avatarImgOriginal;
-
-		AgentInfo()
-		{
-			brainName = SysAllocString(L"");
-			agentId = SysAllocString(L"");
-			givenName = SysAllocString(L"");
-			rpmModelUri = SysAllocString(L"");
-			rpmImageUriPortrait = SysAllocString(L"");
-			rpmImageUriPosture = SysAllocString(L"");
-			avatarImg = SysAllocString(L"");
-			avatarImgOriginal = SysAllocString(L"");
-		}
-
-		explicit AgentInfo(const Inworld::AgentInfo& rhs)
-		{
-			brainName = StringToBSTR(rhs.BrainName);
-			agentId = StringToBSTR(rhs.AgentId);
-			givenName = StringToBSTR(rhs.GivenName);
-			rpmModelUri = StringToBSTR(rhs.RpmModelUri);
-			rpmImageUriPortrait = StringToBSTR(rhs.RpmImageUriPortrait);
-			rpmImageUriPosture = StringToBSTR(rhs.RpmImageUriPortrait);
-			avatarImg = StringToBSTR(rhs.RpmImageUriPortrait);
-			avatarImgOriginal = StringToBSTR(rhs.RpmImageUriPortrait);
-		}
+		
+		AgentInfo();
+		explicit AgentInfo(const Inworld::AgentInfo& rhs);
 	};
 
 	struct PacketId
@@ -125,13 +65,8 @@ namespace NDKUnity
 		BSTR interactionID;
 
 		PacketId() = default;
+		explicit PacketId(const Inworld::PacketId& rhs);
 
-		explicit PacketId(const Inworld::PacketId& rhs)
-		{
-			uid = StringToBSTR(rhs._UID);
-			utteranceID = StringToBSTR(rhs._UtteranceId);
-			interactionID = StringToBSTR(rhs._InteractionId);
-		}
 	};
 
 	struct Routing
@@ -140,12 +75,7 @@ namespace NDKUnity
 		BSTR target;
 
 		Routing() = default;
-
-		explicit Routing(const Inworld::Routing& rhs)
-		{
-			source = StringToBSTR(rhs._Source._Name);
-			target = StringToBSTR(rhs._Target._Name);
-		}
+		explicit Routing(const Inworld::Routing& rhs);
 	};
 
 	struct Packet
@@ -155,14 +85,9 @@ namespace NDKUnity
 		int64_t timeStamp;
 
 		Packet() = default;
-
-		explicit Packet(const Inworld::Packet& rhs)
-		{
-			packetId = PacketId(rhs._PacketId);
-			routing = Routing(rhs._Routing);
-			timeStamp = rhs._Timestamp.time_since_epoch().count();
-		}
+		explicit Packet(const Inworld::Packet& rhs);
 	};
+	
 	struct TextPacket
 	{
 		Packet packet;
@@ -170,16 +95,83 @@ namespace NDKUnity
 		int isFinal;
 
 		TextPacket() = default;
+		explicit TextPacket(const Inworld::TextEvent& rhs);
+	};
+	
+	struct PhonemeInfo
+	{
+		BSTR packetID;
+		BSTR code;
+		float timeStamp;
 
-		explicit TextPacket(const Inworld::TextEvent& rhs)
-		{
-			packet = Packet(rhs);
-			text = StringToBSTR(rhs.GetText());
-			isFinal = rhs.IsFinal();
-		}
+		PhonemeInfo() = default;
+		PhonemeInfo(const Inworld::AudioDataEvent& evt, const Inworld::AudioDataEvent::PhonemeInfo& phonemeInfo);
+	};
+	struct AudioPacket
+	{
+		Packet packet;
+		BSTR audioChunk;
+		int type;
+
+		AudioPacket() = default;
+		explicit AudioPacket(const Inworld::AudioDataEvent& rhs);
+	};
+	
+	struct ControlPacket
+	{
+		Packet packet;
+		int action;
+
+		ControlPacket() = default;
+		explicit ControlPacket(const Inworld::ControlEvent& rhs);
+	};
+	
+	struct EmotionPacket
+	{
+		Packet packet;
+		int behavior;
+		int strength;
+
+		EmotionPacket() = default;
+		explicit EmotionPacket(const Inworld::EmotionEvent& rhs);
 	};
 
-	using TextCallBack = void(*)(TextPacket );
+	struct CancelResponsePacket
+	{
+		Packet packet;
+		BSTR cancelInteractionID; // Yan: No need to receive utterance as they won't be sent.
+
+		CancelResponsePacket() = default;
+		CancelResponsePacket(const Inworld::CancelResponseEvent& rhs);
+	};
+	struct CustomPacket
+	{
+		Packet packet;
+		BSTR triggerName;
+
+		CustomPacket() = default;
+		CustomPacket(const Inworld::CustomEvent& rhs);
+	};
+
+	struct TriggerParam
+	{
+		BSTR packetID;
+		BSTR paramName;
+		BSTR paramValue;
+		
+		TriggerParam() = default;
+		TriggerParam(const Inworld::CustomEvent& evt, const std::string& name, const std::string& value);
+	};
+	
+	using UnityCallback = void (*)();	
+	using TextCallBack = void(*)(TextPacket);
+	using AudioCallBack = void(*)(AudioPacket);
+	using PhonemeCallBack = void(*)(PhonemeInfo);
+	using ControlCallBack = void(*)(ControlPacket);
+	using EmotionCallBack = void(*)(EmotionPacket);
+	using CancelResponseCallBack = void(*)(CancelResponsePacket);
+	using CustomCallBack = void(*)(CustomPacket);
+	using TriggerParamCallBack = void(*)(TriggerParam);
 }
 
 #if __cplusplus

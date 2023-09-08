@@ -376,7 +376,7 @@ namespace Inworld {
 		{}
 
 		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
-
+		const std::string& GetCancelledInteraction() const { return _InteractionId; }
 	protected:
 		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
 

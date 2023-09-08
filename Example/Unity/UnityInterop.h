@@ -16,7 +16,15 @@ extern "C"
 
 #pragma region Setter
 	DLL_EXPORT void Unity_SetLogger(Inworld::UnityLogCallback callback);
-	DLL_EXPORT void Unity_SetTextCallback(NDKUnity::TextCallBack callBack);
+	DLL_EXPORT void Unity_SetPacketCallback(
+		NDKUnity::TextCallBack textCallBack,
+		NDKUnity::AudioCallBack audioCallBack,
+		NDKUnity::ControlCallBack controlCallBack,
+		NDKUnity::EmotionCallBack emotionCallBack,
+		NDKUnity::CancelResponseCallBack cancelResponseCallBack,
+		NDKUnity::CustomCallBack customCallBack,
+		NDKUnity::PhonemeCallBack phonemeCallBack,
+		NDKUnity::TriggerParamCallBack triggerParamCallBack);
 	DLL_EXPORT void Unity_SetClientRequest(const char* strClientID, const char* strClientVersion);	
 	DLL_EXPORT void Unity_SetUserRequest(const char* strPlayerName, const char* strPlayerID);	
 	DLL_EXPORT void Unity_AddUserProfile(const char* strProfileID, const char* strProfileValue);

@@ -50,14 +50,6 @@ void Unity_SetLogger(Inworld::UnityLogCallback callback)
 	g_pWrapper->SetLoggerCallBack(callback);
 }
 
-void Unity_SetTextCallback(NDKUnity::TextCallBack callBack)
-{
-	if (g_pWrapper == nullptr)
-		return;
-	g_pWrapper->SetTextCallBack(callBack);
-}
-
-
 void Unity_Hello()
 {
 	if (g_pWrapper == nullptr)
@@ -128,3 +120,11 @@ void Unity_StartSession()
 	Inworld::Log("Session Started");
 }
 
+void Unity_SetPacketCallback(NDKUnity::TextCallBack textCallBack, NDKUnity::AudioCallBack audioCallBack, NDKUnity::ControlCallBack controlCallBack,
+	NDKUnity::EmotionCallBack emotionCallBack, NDKUnity::CancelResponseCallBack cancelResponseCallBack, NDKUnity::CustomCallBack customCallBack,
+	NDKUnity::PhonemeCallBack phonemeCallBack, NDKUnity::TriggerParamCallBack triggerParamCallBack)
+{
+	if (g_pWrapper == nullptr)
+		return;
+	g_pWrapper->SetPacketCallBack(textCallBack, audioCallBack, controlCallBack, emotionCallBack, cancelResponseCallBack, customCallBack, phonemeCallBack, triggerParamCallBack);
+}
