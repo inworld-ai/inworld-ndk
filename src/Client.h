@@ -52,6 +52,7 @@ namespace Inworld
 		virtual ~ClientBase() = default;
 		
 		void SendPacket(std::shared_ptr<Inworld::Packet> Packet);
+		SessionInfo GetToken();
 
 		virtual std::shared_ptr<TextEvent> SendTextMessage(const std::string& AgentId, const std::string& Text);
 		virtual std::shared_ptr<DataEvent> SendSoundMessage(const std::string& AgentId, const std::string& Data);
@@ -119,7 +120,7 @@ namespace Inworld
 		bool bDumpAudio = false;
 		std::string _AudioDumpFileName = "C:/Tmp/AudioDump.wav";
 #endif
-
+		
 		std::function<void()> _OnGenerateTokenCallback;
 		std::function<void(const std::vector<AgentInfo>&)> _OnLoadSceneCallback;
 		std::function<void(ConnectionState)> _OnConnectionStateChangedCallback;

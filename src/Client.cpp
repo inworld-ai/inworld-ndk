@@ -18,6 +18,8 @@
 #include <cstring>
 #include <algorithm>
 
+#include "proto/inworld_ndkData.pb.h"
+
 // prevent std::min/max errors on windows
 #undef min
 #undef max
@@ -70,6 +72,11 @@ void Inworld::ClientBase::SendPacket(std::shared_ptr<Inworld::Packet> Packet)
 	_OutgoingPackets.PushBack(Packet);
 
 	TryToStartWriteTask();
+}
+
+Inworld::SessionInfo Inworld::ClientBase::GetToken()
+{
+	return _SessionInfo;
 }
 
 std::shared_ptr<Inworld::TextEvent> Inworld::ClientBase::SendTextMessage(const std::string& AgentId, const std::string& Text)
@@ -221,6 +228,7 @@ void Inworld::ClientBase::StartClient(const ClientOptions& Options, const Sessio
 
 	if (!_SessionInfo.IsValid())
 	{
+		Inworld::Log("Token invalid in NDK REGENERATING ");
 		GenerateToken([this]()
 		{
 			LoadScene();
@@ -228,6 +236,7 @@ void Inworld::ClientBase::StartClient(const ClientOptions& Options, const Sessio
 	}
 	else
 	{
+		Inworld::Log("Token IS VALID");
 		LoadScene();
 	}
 }
