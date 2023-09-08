@@ -10,6 +10,7 @@
 #include "proto/ProtoDisableWarning.h"
 #include "proto/packets.pb.h"
 
+#include "Define.h"
 #include "Types.h"
 
 #include <google/protobuf/util/time_util.h>
@@ -24,7 +25,7 @@ namespace Inworld {
 	std::string RandomUUID();
 
 	// Represents agent or player.
-	struct INWORLDAINDK_API Actor
+	struct INWORLD_EXPORT Actor
 	{
 		Actor() = default;
 		Actor(const InworldPakets::Actor& Actor) 
@@ -45,7 +46,7 @@ namespace Inworld {
 	};
 
 	// Source and target for packet.
-	struct INWORLDAINDK_API Routing
+	struct INWORLD_EXPORT Routing
 	{
 		Routing() = default;
 		Routing(const InworldPakets::Routing& Routing) 
@@ -65,7 +66,7 @@ namespace Inworld {
         Actor _Target;
 	};
 
-	struct INWORLDAINDK_API PacketId {
+	struct INWORLD_EXPORT PacketId {
 		// Constructs with all random parameters.
         PacketId() 
 			: PacketId(RandomUUID(), std::string(RandomUUID()), std::string(RandomUUID())) 
@@ -98,9 +99,9 @@ namespace Inworld {
     class CancelResponseEvent;
     class CustomGestureEvent;
     class CustomEvent;
-		class ChangeSceneEvent;
+    class ChangeSceneEvent;
 
-    class INWORLDAINDK_API PacketVisitor
+    class INWORLD_EXPORT PacketVisitor
     {
     public:
 		virtual ~PacketVisitor() = default;
@@ -113,13 +114,13 @@ namespace Inworld {
         virtual void Visit(const CancelResponseEvent& Event) {  }
         virtual void Visit(const CustomGestureEvent& Event) {  }
         virtual void Visit(const CustomEvent& Event) {  }
-		virtual void Visit(const ChangeSceneEvent& Event) {  }
+        virtual void Visit(const ChangeSceneEvent& Event) {  }
     };
 
 	struct EmotionalState;
 
 	// Base class for all Inworld protocol packets
-	class INWORLDAINDK_API Packet
+	class INWORLD_EXPORT Packet
     {
 	public:
         Packet() = default;
@@ -148,7 +149,7 @@ namespace Inworld {
 		std::chrono::system_clock::time_point _Timestamp = std::chrono::system_clock::now();
 	};
 
-	class INWORLDAINDK_API TextEvent : public Packet
+	class INWORLD_EXPORT TextEvent : public Packet
 	{
 	public:
 		TextEvent() = default;
@@ -180,7 +181,7 @@ namespace Inworld {
 		InworldPakets::TextEvent_SourceType _SourceType;
 	};
 
-	class INWORLDAINDK_API DataEvent : public Packet
+	class INWORLD_EXPORT DataEvent : public Packet
     {
 	public:
 		DataEvent() = default;
@@ -206,7 +207,7 @@ namespace Inworld {
 		std::string _Chunk;
 	};
 
-	class INWORLDAINDK_API AudioDataEvent : public DataEvent
+	class AudioDataEvent : public DataEvent
 	{
 	public:
 		AudioDataEvent() = default;
@@ -233,7 +234,7 @@ namespace Inworld {
 		std::vector<PhonemeInfo> _PhonemeInfos;
 	};
 
-	class INWORLDAINDK_API SilenceEvent : public Packet
+	class INWORLD_EXPORT SilenceEvent : public Packet
 	{
 	public:
 		SilenceEvent() = default;
@@ -257,7 +258,7 @@ namespace Inworld {
 		float _Duration;
 	};
     
-	class INWORLDAINDK_API ControlEvent : public Packet
+	class INWORLD_EXPORT ControlEvent : public Packet
     {
     public:
 		ControlEvent() = default;
@@ -281,7 +282,7 @@ namespace Inworld {
 		InworldPakets::ControlEvent_Action _Action;
     };
 
-    class INWORLDAINDK_API EmotionEvent : public Packet
+    class INWORLD_EXPORT EmotionEvent : public Packet
     {
     public:
 		EmotionEvent() = default;
@@ -300,7 +301,7 @@ namespace Inworld {
 		InworldPakets::EmotionEvent_Strength _Strength;
     };
 
-    class INWORLDAINDK_API CustomGestureEvent : public Packet
+    class INWORLD_EXPORT CustomGestureEvent : public Packet
     {
     public:
 		CustomGestureEvent() = default;
@@ -326,7 +327,7 @@ namespace Inworld {
 		InworldPakets::Playback _Playback;
 	};
 
-	class INWORLDAINDK_API CustomEvent : public Packet
+	class INWORLD_EXPORT CustomEvent : public Packet
 	{
 	public:
 		CustomEvent() = default;
@@ -350,7 +351,7 @@ namespace Inworld {
 		std::unordered_map<std::string, std::string> _Params;
 	};
 
-	class INWORLDAINDK_API MutationEvent : public Packet
+	class INWORLD_EXPORT MutationEvent : public Packet
 	{
 	public:
 		MutationEvent() = default;
@@ -365,7 +366,7 @@ namespace Inworld {
 		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const = 0;
 	};
 
-	class INWORLDAINDK_API CancelResponseEvent : public MutationEvent
+	class INWORLD_EXPORT CancelResponseEvent : public MutationEvent
 	{
 	public:
 		CancelResponseEvent() = default;
@@ -385,7 +386,7 @@ namespace Inworld {
 		std::vector<std::string> _UtteranceIds;
 	};
 
-	class INWORLDAINDK_API ChangeSceneEvent : public MutationEvent
+	class INWORLD_EXPORT ChangeSceneEvent : public MutationEvent
 	{
 	public:
 		ChangeSceneEvent() = default;

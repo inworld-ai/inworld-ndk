@@ -34,6 +34,7 @@ void Inworld::LogClearSessionId()
 #ifdef INWORLD_LOG_CALLBACK
 std::function<void(const char * message, int severity)> Inworld::g_LoggerCallback = nullptr;
 
+
 void Inworld::LogSetLoggerCallback(LoggerCallBack callBack)
 {
     g_LoggerCallback = callBack;

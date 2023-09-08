@@ -27,6 +27,7 @@ namespace Inworld
 #ifdef INWORLD_LOG_CALLBACK
 	using LoggerCallBack = void(*)(const char* message, int severity);
 	INWORLD_EXPORT void LogSetLoggerCallback(LoggerCallBack callback);
+
 	INWORLD_EXPORT void LogClearLoggerCallback();
 	INWORLD_EXPORT extern std::function<void(const char * message, int severity)> g_LoggerCallback;
 #endif
