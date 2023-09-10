@@ -232,6 +232,13 @@ endif()
 target_link_libraries(InworldNDK PUBLIC grpc)
 target_link_libraries(InworldNDK PUBLIC grpc++)
 
+# ctranslate2
+if (STT_LOCAL)
+    add_subdirectory(ThirdParty/ctranslate2)
+    target_link_libraries(InworldNDK PUBLIC CTranslate2::ctranslate2)
+    target_compile_definitions(InworldNDK PUBLIC INWORLD_STT_LOCAL=1)
+endif()
+
 # logging
 if(INWORLD_LOG_CALLBACK)
 	# custom
