@@ -9,7 +9,7 @@
 #include "RunnableCommand.h"
 #include "comutil.h"
 #include "UnityAgentInfo.h"
-#include "Utils/Log.h"
+
 
 #if __cplusplus
 extern "C"
@@ -23,14 +23,14 @@ namespace NDKUnity
 		// YAN:
 		// The minimum size (char/bool) of C# in C++ is int by default.
 		// Changing memory alignment (#pragma pack) on either side will lose efficiency.		
-		int text;
-		int audio;
-		int emotions ;
-		int interruptions;
-		int triggers;
-		int phonemeInfo;
-		int turnBasedStt;
-		int narratedActions;
+		int32_t text;
+		int32_t audio;
+		int32_t emotions ;
+		int32_t interruptions;
+		int32_t triggers;
+		int32_t phonemeInfo;
+		int32_t turnBasedStt;
+		int32_t narratedActions;
 		// YAN: No need to set others.
 		
 		Inworld::CapabilitySet ToNDK() const;
@@ -42,7 +42,7 @@ namespace NDKUnity
 		BSTR token;
 		BSTR sessionSavedState;
 		int64_t expirationTime;
-		int isValid;
+		int32_t isValid;
 		
 		SessionInfo();
 		explicit SessionInfo(const Inworld::SessionInfo& rhs);		
@@ -119,7 +119,7 @@ namespace NDKUnity
 	{
 		Packet packet;
 		BSTR audioChunk;
-		int type;
+		int32_t type;
 
 		AudioPacket() = default;
 		explicit AudioPacket(const Inworld::AudioDataEvent& rhs);
@@ -128,7 +128,7 @@ namespace NDKUnity
 	struct ControlPacket
 	{
 		Packet packet;
-		int action;
+		int32_t action;
 
 		ControlPacket() = default;
 		explicit ControlPacket(const Inworld::ControlEvent& rhs);
@@ -137,8 +137,8 @@ namespace NDKUnity
 	struct EmotionPacket
 	{
 		Packet packet;
-		int behavior;
-		int strength;
+		int32_t behavior;
+		int32_t strength;
 
 		EmotionPacket() = default;
 		explicit EmotionPacket(const Inworld::EmotionEvent& rhs);
