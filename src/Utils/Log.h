@@ -25,9 +25,8 @@ namespace Inworld
 	INWORLD_EXPORT void LogClearSessionId();
 
 #ifdef INWORLD_LOG_CALLBACK
-	// TODO: Remove Unity specific, use generic
-	INWORLD_EXPORT void LogSetUnityLogCallback(void(*callback)(const char* message, int severity));
-	INWORLD_EXPORT void LogSetLoggerCallback(void(*callback)(const char* message, int severity));
+	using LoggerCallBack = void(*)(const char* message, int severity);
+	INWORLD_EXPORT void LogSetLoggerCallback(LoggerCallBack callback);
 	INWORLD_EXPORT void LogClearLoggerCallback();
 	INWORLD_EXPORT extern std::function<void(const char * message, int severity)> g_LoggerCallback;
 #endif
