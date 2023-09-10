@@ -237,6 +237,7 @@ if (STT_LOCAL)
     add_subdirectory(ThirdParty/ctranslate2)
     target_link_libraries(InworldNDK PUBLIC ctranslate2)
     target_compile_definitions(InworldNDK PUBLIC INWORLD_STT_LOCAL=1)
+    target_include_directories(ctranslate2 PUBLIC ${ThirdPartyDir}/oneDNN/build/include)
 endif()
 
 # logging
@@ -251,22 +252,20 @@ if(INWORLD_LOG_SPD)
     target_compile_definitions(InworldNDK PUBLIC INWORLD_LOG=1)
     target_compile_definitions(InworldNDK PUBLIC INWORLD_LOG_SPD=1)
 
-    if (WIN32)
-        set(SPDLOG_USE_STD_FORMAT ON CACHE BOOL "Use std::format instead of fmt library." FORCE)
-    else()
-        set(SPDLOG_USE_STD_FORMAT OFF CACHE BOOL "Use std::format instead of fmt library." FORCE)
-    endif()
-
     if (STT_LOCAL)
         set(SpdlogPath ${ThirdPartyDir}/ctranslate2/third_party/spdlog)
     else()
+        if (WIN32)
+            set(SPDLOG_USE_STD_FORMAT ON CACHE BOOL "Use std::format instead of fmt library." FORCE)
+        else()
+            set(SPDLOG_USE_STD_FORMAT OFF CACHE BOOL "Use std::format instead of fmt library." FORCE)
+        endif()
+
         add_subdirectory(ThirdParty/spdlog)
         set(SpdlogPath ${ThirdPartyDir}/spdlog)
     endif()
     
-    target_include_directories(InworldNDK PUBLIC
-        ${SpdlogPath}/include
-    )
+    target_include_directories(InworldNDK PUBLIC ${SpdlogPath}/include)
     target_link_libraries(InworldNDK PUBLIC spdlog::spdlog $<$<BOOL:${MINGW}>:ws2_32>)
 endif()
 
