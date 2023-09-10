@@ -36,7 +36,7 @@ void Unity_AddUserProfile(const char* strProfileID, const char* strProfileValue)
 	g_pWrapper->AddUserProfile(strProfileID, strProfileValue);
 }
 
-void Unity_SetCapabilities(NDKUnity::Capabilities capabilities)
+void Unity_SetCapabilities(const NDKUnity::Capabilities& capabilities)
 {
 	if (g_pWrapper == nullptr)
 		return;

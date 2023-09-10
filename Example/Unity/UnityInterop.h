@@ -35,7 +35,7 @@ extern "C"
 	DLL_EXPORT void Unity_SetClientRequest(const char* strClientID, const char* strClientVersion);	
 	DLL_EXPORT void Unity_SetUserRequest(const char* strPlayerName, const char* strPlayerID);	
 	DLL_EXPORT void Unity_AddUserProfile(const char* strProfileID, const char* strProfileValue);
-	DLL_EXPORT void Unity_SetCapabilities(NDKUnity::Capabilities capabilities);
+	DLL_EXPORT void Unity_SetCapabilities(const NDKUnity::Capabilities& capabilities);
 #pragma endregion Setter
 	
 #pragma region Inworld Status
