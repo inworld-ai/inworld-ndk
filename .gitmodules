@@ -14,3 +14,6 @@
 [submodule "ThirdParty/ctranslate2"]
 	path = ThirdParty/ctranslate2
 	url = https://github.com/OpenNMT/CTranslate2.git
+[submodule "thirdparty/oneDNN"]
+	path = thirdparty/oneDNN
+	url = https://github.com/oneapi-src/oneDNN.git
