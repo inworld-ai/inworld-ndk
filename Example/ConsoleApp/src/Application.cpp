@@ -132,6 +132,7 @@ void NDKApp::App::Run()
 	_Options.PlayerName = "Player";
 
 	_Options.SceneName = g_SceneName;
+	_Options.Base64 = g_Base64;
 	_Options.ApiKey = g_ApiKey;
 	_Options.ApiSecret = g_ApiSecret;
 

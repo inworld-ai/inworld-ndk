@@ -29,6 +29,7 @@ namespace Inworld
 		std::string SceneName;
 		std::string ApiKey;
 		std::string ApiSecret;
+		std::string Base64;
 		std::string PlayerName;
 		std::string UserId;
 		CapabilitySet Capabilities;
