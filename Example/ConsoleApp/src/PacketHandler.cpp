@@ -10,17 +10,17 @@
 
 void NDKApp::PacketHandler::Visit(const Inworld::TextEvent& Event)
 {
-	Inworld::Log("{}: Text: {}", Event._Routing._Source._Name, Event.GetText());
+	Inworld::Log("{}: Text: {}", ARG_STR(Event._Routing._Source._Name), ARG_STR(Event.GetText()));
 }
 
 void NDKApp::PacketHandler::Visit(const Inworld::CustomEvent& Event)
 {
-	Inworld::Log("{}: Custom: {}", Event._Routing._Source._Name, Event.GetName());
+	Inworld::Log("{}: Custom: {}", ARG_STR(Event._Routing._Source._Name), ARG_STR(Event.GetName()));
 }
 
 void NDKApp::PacketHandler::Visit(const Inworld::CustomGestureEvent& Event)
 {
-	Inworld::Log("{}: Custom gesture: {}", Event._Routing._Source._Name, Event.GetCustomGesture());
+	Inworld::Log("{}: Custom gesture: {}", ARG_STR(Event._Routing._Source._Name), ARG_STR(Event.GetCustomGesture()));
 }
 
 void NDKApp::PacketHandler::Visit(const Inworld::CancelResponseEvent& Event)
@@ -30,20 +30,20 @@ void NDKApp::PacketHandler::Visit(const Inworld::CancelResponseEvent& Event)
 
 void NDKApp::PacketHandler::Visit(const Inworld::EmotionEvent& Event)
 {
-	Inworld::Log("{}: Emotion: Behavior {}, Strengths {}", Event._Routing._Source._Name, (int32_t)Event.GetEmotionalBehavior(), (int32_t)Event.GetStrength());
+	Inworld::Log("{}: Emotion: Behavior {}, Strengths {}", ARG_STR(Event._Routing._Source._Name), (int32_t)Event.GetEmotionalBehavior(), (int32_t)Event.GetStrength());
 }
 
 void NDKApp::PacketHandler::Visit(const Inworld::ControlEvent& Event)
 {
-	Inworld::Log("{}: Control: {}", Event._Routing._Source._Name, (int32_t)Event.GetControlAction());
+	Inworld::Log("{}: Control: {}", ARG_STR(Event._Routing._Source._Name), (int32_t)Event.GetControlAction());
 }
 
 void NDKApp::PacketHandler::Visit(const Inworld::SilenceEvent& Event)
 {
-	Inworld::Log("{}: Silence: Duration {}", Event._Routing._Source._Name, Event.GetDuration());
+	Inworld::Log("{}: Silence: Duration {}", ARG_STR(Event._Routing._Source._Name), Event.GetDuration());
 }
 
 void NDKApp::PacketHandler::Visit(const Inworld::DataEvent& Event)
 {
-	Inworld::Log("{}: Data: Size {}", Event._Routing._Source._Name, Event.GetDataChunk().size());
+	Inworld::Log("{}: Data: Size {}", ARG_STR(Event._Routing._Source._Name), Event.GetDataChunk().size());
 }

@@ -1,4 +1,4 @@
-﻿cmake_minimum_required (VERSION 3.22)
+cmake_minimum_required (VERSION 3.22)
 option(UNITY FALSE)
 
 function(GroupSourcesByFolder target)
@@ -92,8 +92,6 @@ target_include_directories(InworldNDK PUBLIC
 
 target_compile_features(InworldNDK PUBLIC cxx_std_20)
 
-target_compile_definitions(InworldNDK PUBLIC INWORLDAINDK_API=)
-
 GroupSourcesByFolder(InworldNDK)
 
 # webrtc aec setup
@@ -107,7 +105,7 @@ if (AEC)
             ${ThirdPartyDir}/Prebuilt/Win64/webrtc_aec_plugin.dll
             ${CMAKE_CURRENT_SOURCE_DIR}/build)
     elseif (MAC)
-        target_link_libraries(InworldNDK PUBLIC ${ThirdPartyDir}/Prebuilt/Mac/arm64/libwebrtc_aec_plugin.dylib)
+        target_link_libraries(InworldNDK PUBLIC ${ThirdPartyDir}/Prebuilt/Mac/libwebrtc_aec_plugin.dylib)
     else()
         message(FATAL_ERROR "AEC: not supported")
     endif()
@@ -234,21 +232,35 @@ endif()
 target_link_libraries(InworldNDK PUBLIC grpc)
 target_link_libraries(InworldNDK PUBLIC grpc++)
 
-# spdlog
-target_compile_definitions(InworldNDK PUBLIC INWORLD_LOG=1)
-
-if (WIN32)
-    set(SPDLOG_USE_STD_FORMAT ON CACHE BOOL "Use std::format instead of fmt library." FORCE)
-else()
-    set(SPDLOG_USE_STD_FORMAT OFF CACHE BOOL "Use std::format instead of fmt library." FORCE)
+# logging
+if(INWORLD_LOG_CALLBACK)
+	# custom
+    target_compile_definitions(InworldNDK PUBLIC INWORLD_LOG=1)
+    target_compile_definitions(InworldNDK PUBLIC INWORLD_LOG_CALLBACK=1)
 endif()
 
-add_subdirectory(ThirdParty/spdlog)
+if(INWORLD_LOG_SPD)
+    # spdlog
+    target_compile_definitions(InworldNDK PUBLIC INWORLD_LOG=1)
+    target_compile_definitions(InworldNDK PUBLIC INWORLD_LOG_SPD=1)
 
-target_include_directories(InworldNDK PUBLIC
-    ${ThirdPartyDir}/spdlog/include
-)
-target_link_libraries(InworldNDK PUBLIC spdlog::spdlog $<$<BOOL:${MINGW}>:ws2_32>)
+    if (WIN32)
+        set(SPDLOG_USE_STD_FORMAT ON CACHE BOOL "Use std::format instead of fmt library." FORCE)
+    else()
+        set(SPDLOG_USE_STD_FORMAT OFF CACHE BOOL "Use std::format instead of fmt library." FORCE)
+    endif()
+
+    add_subdirectory(ThirdParty/spdlog)
+
+    target_include_directories(InworldNDK PUBLIC
+        ${ThirdPartyDir}/spdlog/include
+    )
+    target_link_libraries(InworldNDK PUBLIC spdlog::spdlog $<$<BOOL:${MINGW}>:ws2_32>)
+endif()
+
+if(INWORLD_LOG)
+    target_compile_definitions(InworldNDK PUBLIC INWORLD_LOG=1)
+endif()
 
 # gtest
 add_subdirectory(ThirdParty/googletest)
@@ -318,12 +330,16 @@ else()
     set(ConfigDirNameCares /$<CONFIGURATION>)
 endif()
 
-if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+if (${CMAKE_BUILD_TYPE} MATCHES "Debug")
     set(LibProtobufName libprotobufd)
-    set(LibSpglogName spdlogd)
+    if(INWORLD_LOG_SPD)
+        set(LibSpglogName spdlogd)
+    endif()
 else()
     set(LibProtobufName libprotobuf)
-    set(LibSpglogName spdlog)
+    if(INWORLD_LOG_SPD)
+        set(LibSpglogName spdlog)
+    endif()
 endif()
 
 set(LibFiles 
@@ -360,7 +376,7 @@ set(LibFiles
     ${ZLIB_LIBRARY_RELEASE}
 )
 
-if (ANDROID)
+if (ANDROID AND INWORLD_LOG_SPD)
     list(APPEND LibFiles
     ${CMAKE_CURRENT_SOURCE_DIR}/build/ThirdParty/spdlog/${LibPref}${LibSpglogName}.${LibExt})
 endif()
@@ -373,7 +389,7 @@ if (AEC)
     )
     elseif (MAC)
         list(APPEND LibFiles 
-            ${ThirdPartyDir}/Prebuilt/Mac/arm64/libwebrtc_aec_plugin.dylib
+            ${ThirdPartyDir}/Prebuilt/Mac/libwebrtc_aec_plugin.dylib
         )
     endif()
 endif()
@@ -393,7 +409,9 @@ endfunction()
 
 CopyIncludeDir(${ThirdPartyDir}/include)
 CopyIncludeDir(${ThirdPartyDir}/grpc/include)
-CopyIncludeDir(${ThirdPartyDir}/spdlog/include)
+if(INWORLD_LOG_SPD)
+    CopyIncludeDir(${ThirdPartyDir}/spdlog/include)
+endif()
 CopyIncludeDir(${OPENSSL_INCLUDE_DIR})
 CopyIncludeDir(${ZLIB_INCLUDE_DIR})
 
