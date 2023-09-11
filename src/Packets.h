@@ -375,6 +375,8 @@ namespace Inworld {
 			, _UtteranceIds(UtteranceIds)
 		{}
 
+		const std::string& GetInteraction() const { return _InteractionId; }
+
 		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
 
 	protected:

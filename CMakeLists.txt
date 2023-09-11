@@ -54,28 +54,7 @@ file(GLOB_RECURSE FilesALL
     src/*.c
 )
 
-if(UNITY)
-    message("Building for Unity...")
-
-    file(GLOB_RECURSE UnityNDKFiles
-        Example/Unity/*.h
-        Example/Unity/*.cpp
-        Example/Unity/*.cc
-        Example/Unity/*.c
-    )
-        
-    list(APPEND FilesALL ${UnityNDKFiles})
-
-    add_library(InworldNDK SHARED ${FilesALL})
-
-    target_include_directories(InworldNDK PUBLIC        
-        ${CMAKE_CURRENT_SOURCE_DIR}/Example/Unity
-    )
-
-    target_compile_definitions(InworldNDK PUBLIC INWORLD_UNITY)
-else()
-    add_library(InworldNDK ${FilesALL})
-endif()
+add_library(InworldNDK ${FilesALL})
 
 if(ANDROID)
     set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -fPIC")
@@ -129,6 +108,23 @@ endfunction()
 
 CheckPathValid(${ZlibDir})
 CheckPathValid(${OpenSSLDir})
+
+# Unity Setup
+if(UNITY)
+    message("Building for Unity...")
+    target_compile_definitions(InworldNDK PUBLIC INWORLD_UNITY)
+    target_compile_options(InworldNDK PRIVATE /D_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING)
+    file(GLOB_RECURSE UnityNDKFiles
+        Example/Unity/*.h
+        Example/Unity/*.cpp
+        Example/Unity/*.cc
+        Example/Unity/*.c
+    )        
+    list(APPEND FilesALL ${UnityNDKFiles})
+    add_library(InworldUnityWrapper SHARED ${UnityNDKFiles})
+    target_include_directories(InworldUnityWrapper PUBLIC InworldNDK/src)    
+    target_link_libraries(InworldUnityWrapper PRIVATE InworldNDK ole32.lib comsuppw.lib)  
+endif()
 
 if (IOS OR ANDROID)
     set(CMAKE_MAKE_PROGRAM /usr/bin/make)
