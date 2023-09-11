@@ -17,3 +17,6 @@
 [submodule "thirdparty/oneDNN"]
 	path = thirdparty/oneDNN
 	url = https://github.com/oneapi-src/oneDNN.git
+[submodule "thirdparty/whisper-cpp"]
+	path = thirdparty/whisper-cpp
+	url = https://github.com/ggerganov/whisper.cpp.git
