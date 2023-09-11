@@ -232,12 +232,22 @@ endif()
 target_link_libraries(InworldNDK PUBLIC grpc)
 target_link_libraries(InworldNDK PUBLIC grpc++)
 
-# ctranslate2
-if (STT_LOCAL)
-    add_subdirectory(ThirdParty/ctranslate2)
-    target_link_libraries(InworldNDK PUBLIC ctranslate2)
+# local STT
+if (NOT STT_LOCAL MATCHES "NONE")
     target_compile_definitions(InworldNDK PUBLIC INWORLD_STT_LOCAL=1)
-    target_include_directories(ctranslate2 PUBLIC ${ThirdPartyDir}/oneDNN/build/include)
+
+    if (STT_LOCAL MATCHES "CTRANSLATE")
+        target_compile_definitions(InworldNDK PUBLIC INWORLD_CTRANSLATE=1)
+        add_subdirectory(ThirdParty/ctranslate2)
+        target_link_libraries(InworldNDK PUBLIC ctranslate2)
+        target_include_directories(ctranslate2 PUBLIC ${ThirdPartyDir}/oneDNN/build/include)
+        target_include_directories(InworldNDK PUBLIC ${ThirdPartyDir}/ctranslate2/include)
+    elseif (STT_LOCAL MATCHES "WHISPERCPP")
+        target_compile_definitions(InworldNDK PUBLIC INWORLD_WHISPERCPP=1)
+        add_subdirectory(ThirdParty/whisper-cpp)
+        target_link_libraries(InworldNDK PUBLIC whisper)
+        target_include_directories(InworldNDK PUBLIC ${ThirdPartyDir}/whisper-cpp)
+    endif ()
 endif()
 
 # logging
@@ -252,7 +262,8 @@ if(INWORLD_LOG_SPD)
     target_compile_definitions(InworldNDK PUBLIC INWORLD_LOG=1)
     target_compile_definitions(InworldNDK PUBLIC INWORLD_LOG_SPD=1)
 
-    if (STT_LOCAL)
+    if (STT_LOCAL MATCHES "CTRANSLATE")
+        # use spdlog from ctranslate2
         set(SpdlogPath ${ThirdPartyDir}/ctranslate2/third_party/spdlog)
     else()
         if (WIN32)
