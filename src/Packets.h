@@ -69,7 +69,7 @@ namespace Inworld {
 	struct INWORLD_EXPORT PacketId {
 		// Constructs with all random parameters.
         PacketId() 
-			: PacketId(RandomUUID(), std::string(RandomUUID()), std::string(RandomUUID())) 
+			: PacketId(RandomUUID(), RandomUUID(), RandomUUID()) 
 		{}
         PacketId(const InworldPakets::PacketId& Other)
 			: PacketId(Other.packet_id().c_str(), Other.utterance_id().c_str(), Other.interaction_id().c_str()) 

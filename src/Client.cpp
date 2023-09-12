@@ -17,6 +17,7 @@
 #include <functional>
 #include <cstring>
 #include <algorithm>
+#include "STT.h"
 
 // prevent std::min/max errors on windows
 #undef min
@@ -83,7 +84,12 @@ std::shared_ptr<Inworld::TextEvent> Inworld::ClientBase::SendTextMessage(const s
 std::shared_ptr<Inworld::DataEvent> Inworld::ClientBase::SendSoundMessage(const std::string& AgentId, const std::string& Data)
 {
 	auto Packet = std::make_shared<AudioDataEvent>(Data, Routing::Player2Agent(AgentId));
+#ifdef INWORLD_STT_LOCAL
+	_STTInEvents.PushBack(Packet);
+#else
 	SendPacket(Packet);
+#endif
+
 #ifdef INWORLD_AUDIO_DUMP
 	if(bDumpAudio)
 		_AudioChunksToDump.PushBack(Data);
@@ -144,10 +150,30 @@ void Inworld::ClientBase::StartAudioSession(const std::string& AgentId)
 {
 	auto Packet = std::make_shared<Inworld::ControlEvent>(ai::inworld::packets::ControlEvent_Action_AUDIO_SESSION_START, Inworld::Routing::Player2Agent(AgentId));
 	SendPacket(Packet);
+#ifdef INWORLD_STT_LOCAL
+	_AsyncSTT->Start(
+		"InworldSTT",
+		std::make_unique<RunnableSTT>(_STTInEvents,
+			[this](std::shared_ptr<TextEvent> Event)
+			{
+				AddTaskToMainThread(
+					[this, Event]()
+					{
+						SendPacket(Event);
+						Inworld::Log("STT: %s", Event->GetText().c_str());
+					}
+				);
+			})
+	);
+#endif // INWORLD_STT_LOCAL
+
 }
 
 void Inworld::ClientBase::StopAudioSession(const std::string& AgentId)
 {
+#ifdef INWORLD_STT_LOCAL
+	_AsyncSTT->Stop();
+#endif // INWORLD_STT_LOCAL
 	auto Packet = std::make_shared<Inworld::ControlEvent>(ai::inworld::packets::ControlEvent_Action_AUDIO_SESSION_END, Inworld::Routing::Player2Agent(AgentId));
 	SendPacket(Packet);
 }
@@ -282,6 +308,9 @@ void Inworld::ClientBase::StopClient()
 	_AsyncLoadSceneTask->Stop();
 	_AsyncGenerateTokenTask->Stop();
 	_AsyncGetSessionState->Stop();
+#ifdef INWORLD_STT_LOCAL
+	_AsyncSTT->Stop();
+#endif
 	_ClientOptions = ClientOptions();
 	_SessionInfo = SessionInfo();
 	SetConnectionState(ConnectionState::Idle);

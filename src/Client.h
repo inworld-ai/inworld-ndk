@@ -105,6 +105,9 @@ namespace Inworld
 #ifdef  INWORLD_AUDIO_DUMP
 			_AsyncAudioDumper = std::make_unique<TAsyncRoutine>();
 #endif			
+#ifdef INWORLD_STT_LOCAL
+			_AsyncSTT = std::make_unique<TAsyncRoutine>();
+#endif // INWORLD_STT_LOCAL
 		}
 
 	private:
@@ -124,6 +127,12 @@ namespace Inworld
 		bool bDumpAudio = false;
 		std::string _AudioDumpFileName = "C:/Tmp/AudioDump.wav";
 #endif
+
+#ifdef INWORLD_STT_LOCAL
+		std::unique_ptr<IAsyncRoutine> _AsyncSTT;
+		SharedQueue<std::shared_ptr<AudioDataEvent>> _STTInEvents;
+		SharedQueue<std::shared_ptr<TextEvent>> _STTOutEvents;
+#endif // INWORLD_STT_LOCAL
 
 		std::function<void()> _OnGenerateTokenCallback;
 		std::function<void(const std::vector<AgentInfo>&)> _OnLoadSceneCallback;
