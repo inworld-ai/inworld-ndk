@@ -55,6 +55,9 @@ namespace Inworld
 		
 		void SendPacket(std::shared_ptr<Inworld::Packet> Packet);
 
+		// SDl STT test
+		virtual std::shared_ptr<DataEvent> SendSoundMessage(const std::string& AgentId, const std::vector<float>& Data);
+
 		virtual std::shared_ptr<TextEvent> SendTextMessage(const std::string& AgentId, const std::string& Text);
 		virtual std::shared_ptr<DataEvent> SendSoundMessage(const std::string& AgentId, const std::string& Data);
 		virtual std::shared_ptr<DataEvent> SendSoundMessageWithAEC(const std::string& AgentId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);

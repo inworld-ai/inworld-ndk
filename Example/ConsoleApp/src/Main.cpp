@@ -7,6 +7,7 @@
 
 #include "Application.h"
 
+#undef main
 int main(int argc, char* argv[])
 {
 	NDKApp::App App;

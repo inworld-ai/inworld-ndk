@@ -455,8 +455,12 @@ if (NOT IOS AND NOT ANDROID)
     add_executable(InworldNDKApp ${FilesALL})
 
     target_compile_features(InworldNDKApp PRIVATE cxx_std_20)
-    target_include_directories(InworldNDKApp PUBLIC InworldNDK/src)
-    target_link_libraries(InworldNDKApp PRIVATE InworldNDK)
+    target_include_directories(InworldNDKApp PUBLIC 
+        src 
+        ThirdParty/whisper-cpp
+        ThirdParty/include/SDL2
+    )
+    target_link_libraries(InworldNDKApp PRIVATE InworldNDK common-sdl)
 
     if (AEC AND WIN32)
         add_custom_command(TARGET InworldNDKApp POST_BUILD

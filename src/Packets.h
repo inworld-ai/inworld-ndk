@@ -225,6 +225,9 @@ namespace Inworld {
 			float Timestamp;
 		};
 
+		// test
+		std::vector<float> _SdlData;
+
 		const std::vector<PhonemeInfo>& GetPhonemeInfos() const { return _PhonemeInfos; }
 	protected:
 		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;

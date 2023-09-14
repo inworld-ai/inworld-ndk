@@ -81,6 +81,16 @@ std::shared_ptr<Inworld::TextEvent> Inworld::ClientBase::SendTextMessage(const s
 	return Packet;
 }
 
+std::shared_ptr<Inworld::DataEvent> Inworld::ClientBase::SendSoundMessage(const std::string& AgentId, const std::vector<float>& Data)
+{
+#ifdef INWORLD_STT_LOCAL
+	auto Packet = std::make_shared<AudioDataEvent>(std::string(), Routing::Player2Agent(AgentId));
+	Packet->_SdlData = Data;
+	_STTInEvents.PushBack(Packet);
+	return Packet;
+#endif
+}
+
 std::shared_ptr<Inworld::DataEvent> Inworld::ClientBase::SendSoundMessage(const std::string& AgentId, const std::string& Data)
 {
 	auto Packet = std::make_shared<AudioDataEvent>(Data, Routing::Player2Agent(AgentId));
@@ -148,8 +158,6 @@ void Inworld::ClientBase::SetAudioDumpEnabled(bool bEnabled, const std::string& 
 
 void Inworld::ClientBase::StartAudioSession(const std::string& AgentId)
 {
-	auto Packet = std::make_shared<Inworld::ControlEvent>(ai::inworld::packets::ControlEvent_Action_AUDIO_SESSION_START, Inworld::Routing::Player2Agent(AgentId));
-	SendPacket(Packet);
 #ifdef INWORLD_STT_LOCAL
 	_AsyncSTT->Start(
 		"InworldSTT",
@@ -160,22 +168,25 @@ void Inworld::ClientBase::StartAudioSession(const std::string& AgentId)
 					[this, Event]()
 					{
 						SendPacket(Event);
-						Inworld::Log("STT: %s", Event->GetText().c_str());
+						Inworld::Log("Local STT: %s", Event->GetText().c_str());
 					}
 				);
 			})
 	);
+#else
+	auto Packet = std::make_shared<Inworld::ControlEvent>(ai::inworld::packets::ControlEvent_Action_AUDIO_SESSION_START, Inworld::Routing::Player2Agent(AgentId));
+	SendPacket(Packet);
 #endif // INWORLD_STT_LOCAL
-
 }
 
 void Inworld::ClientBase::StopAudioSession(const std::string& AgentId)
 {
 #ifdef INWORLD_STT_LOCAL
 	_AsyncSTT->Stop();
-#endif // INWORLD_STT_LOCAL
+#else
 	auto Packet = std::make_shared<Inworld::ControlEvent>(ai::inworld::packets::ControlEvent_Action_AUDIO_SESSION_END, Inworld::Routing::Player2Agent(AgentId));
 	SendPacket(Packet);
+#endif // INWORLD_STT_LOCAL
 }
 
 void Inworld::ClientBase::InitClient(std::string ClientId, std::string ClientVer, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback)
@@ -248,6 +259,8 @@ void Inworld::ClientBase::StartClient(const ClientOptions& Options, const Sessio
 
 	SetConnectionState(ConnectionState::Connecting);
 
+	STT_Initialize("C:/Projects/inworld/robot-demo/Plugins/inworld-unreal-sdk/InworldAI/inworld-ndk/ThirdParty/whisper-cpp/models/ggml-base.en.bin");
+
 	if (!_SessionInfo.IsValid())
 	{
 		GenerateToken([this]()
@@ -304,6 +317,7 @@ void Inworld::ClientBase::StopClient()
 		return;
 	}
 
+	STT_Terminate();
 	StopReaderWriter();
 	_AsyncLoadSceneTask->Stop();
 	_AsyncGenerateTokenTask->Stop();

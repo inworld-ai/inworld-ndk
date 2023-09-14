@@ -13,16 +13,20 @@
 	
 namespace Inworld
 {
+	void STT_Initialize(const std::string& ModelPath);
+	void STT_Terminate();
+
 	class RunnableSTT : public Runnable
 	{
 	public:
-		RunnableSTT(SharedQueue<std::shared_ptr<AudioDataEvent>>& InEvents, std::function<void(std::shared_ptr<TextEvent>)> OutCallback)
+		RunnableSTT(
+			SharedQueue<std::shared_ptr<AudioDataEvent>>& InEvents,
+			std::function<void(std::shared_ptr<TextEvent>)> OutCallback)
 			: _InEvents(InEvents)
 			, _OutCallback(OutCallback)
 		{}
 
 		virtual void Run() override;
-		virtual void Deinitialize() override;
 
 	private:
 		SharedQueue<std::shared_ptr<AudioDataEvent>>& _InEvents;
