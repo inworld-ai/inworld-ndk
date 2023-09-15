@@ -7,13 +7,107 @@
 
 #include "UnityNDKInteropData.h"
 #include "UnityAgentInfo.h"
+#include "Utils/Log.h"
+
+static constexpr char base64Chars[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+
+int NDKUnity::CharToInt(char c)
+{
+	for(int i = 0; i < 64; ++i)
+	{
+		if(base64Chars[i] == c)
+		{
+			return i;
+		}
+	}
+	return -1;
+}
+
+std::string NDKUnity::StringToBase64(const std::string& input)
+{
+	std::string result;
+	size_t      remaining = input.size();
+	const auto* src = reinterpret_cast<const unsigned char*>(input.c_str());
+	while(remaining > 2)
+	{
+		result += base64Chars[src[0] >> 2];
+		result += base64Chars[((src[0] & 0x3) << 4) | (src[1] >> 4)];
+		result += base64Chars[((src[1] & 0xf) << 2) | (src[2] >> 6)];
+		result += base64Chars[src[2] & 0x3f];
+		remaining -= 3;
+		src += 3;
+	}
+	switch(remaining)
+	{
+	case 2:
+		result += base64Chars[src[0] >> 2];
+		result += base64Chars[((src[0] & 0x3) << 4) | (src[1] >> 4)];
+		result += base64Chars[(src[1] & 0xf) << 2];
+		result += '=';
+		src += 2;
+		break;
+	case 1:
+		result += base64Chars[src[0] >> 2];
+		result += base64Chars[((src[0] & 0x3) << 4)];
+		result += '=';
+		result += '=';
+		src += 1;
+		break;
+	default:
+		break;
+	}
+	return result;
+}
+
+int NDKUnity::Base64CharToValue(char c)
+{
+	if (const char* pos = strchr(base64Chars, c))	
+		return static_cast<int>(pos - base64Chars);	
+	if (c == '=') 
+		return -1;
+	Inworld::LogError("Invalid Base64 character");
+	return 0;
+}
+
+std::string NDKUnity::Base64ToString(const std::string& input)
+{
+	std::vector<unsigned char> result;
+	size_t remaining = input.size();
+	const char* src = input.c_str();
+	while (remaining > 3)
+	{
+		const int val1 = Base64CharToValue(src[0]);
+		const int val2 = Base64CharToValue(src[1]);
+		const int val3 = Base64CharToValue(src[2]);
+		const int val4 = Base64CharToValue(src[3]);
+
+		result.push_back(val1 << 2 | val2 >> 4);
+		if (val3 != -1)
+		{
+			result.push_back((val2 & 0xf) << 4 | val3 >> 2);
+		}
+		if (val4 != -1)
+		{
+			result.push_back((val3 & 0x3) << 6 | val4);
+		}
+		remaining -= 4;
+		src += 4;
+	}
+	return std::string(result.begin(), result.end());
+}
 
 // YAN: BSTR is the string format used in COM as well as Unity Communication.
 //		According to https://learn.microsoft.com/zh-cn/cpp/atl-mfc-shared/allocating-and-releasing-memory-for-a-bstr?view=msvc-170
 //		Unity will handle GC for BSTR itself.		
-inline BSTR StringToBSTR(std::string rhs)
+inline BSTR NDKUnity::StringToBSTR(const std::string& rhs)
 {
 	return _com_util::ConvertStringToBSTR(rhs.c_str());
+}
+// YAN: Cannot send Byte[] as const_cast<string> to Unity.
+inline BSTR NDKUnity::DataChunkToBSTR(const std::string& rhs)
+{
+	const std::string base64 = StringToBase64(rhs);
+	return _com_util::ConvertStringToBSTR(base64.c_str());
 }
 
 Inworld::CapabilitySet NDKUnity::Capabilities::ToNDK() const
@@ -47,6 +141,7 @@ NDKUnity::SessionInfo::SessionInfo(const Inworld::SessionInfo& rhs)
 	expirationTime = rhs.ExpirationTime;
 	isValid = rhs.IsValid();
 }
+
 NDKUnity::AgentInfo::AgentInfo()
 {
 	brainName = SysAllocString(L"");
@@ -108,8 +203,9 @@ NDKUnity::PhonemeInfo::PhonemeInfo(const Inworld::AudioDataEvent& evt, const Inw
 NDKUnity::AudioPacket::AudioPacket(const Inworld::AudioDataEvent& rhs)
 {
 	packet = Packet(rhs);
-	audioChunk = StringToBSTR(rhs.GetDataChunk());
+	audioChunk = DataChunkToBSTR(rhs.GetDataChunk());
 	type = 1; // AUDIO
+	phonemeCount = static_cast<int32_t>(rhs.GetPhonemeInfos().size());
 }
 
 NDKUnity::ControlPacket::ControlPacket(const Inworld::ControlEvent& rhs)

@@ -6,7 +6,7 @@
  */
 
 #include "UnityInterop.h"
-
+#include "Data/UnityNDKInteropData.h"
 
 NDKUnity::CUnityWrapper* Unity_InitWrapper()
 {
@@ -148,7 +148,8 @@ void Unity_SendAudio(const char* agentID, const char* data)
 {
 	if (g_pWrapper == nullptr)
 		return;
-	g_pWrapper->SendSoundMessage(agentID, data);
+	const std::string rawData = NDKUnity::Base64ToString(data);
+	g_pWrapper->SendSoundMessage(agentID, rawData);
 }
 
 void Unity_SendTrigger(const char* agentID, const char* triggerName)

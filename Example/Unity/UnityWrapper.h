@@ -19,7 +19,7 @@ namespace NDKUnity
 	{
 	public:
 		CUnityWrapper()
-		{
+		{			
 			_OnPacketCallback = [this](const std::shared_ptr<Inworld::Packet>& packet)
 			{
 				packet->Accept(m_PacketHandler);

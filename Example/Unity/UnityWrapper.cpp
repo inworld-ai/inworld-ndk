@@ -94,6 +94,7 @@ void NDKUnity::CUnityWrapper::LoadScene(const std::string& strSceneName, UnityCa
 					}
 					Inworld::Log("Load scene SUCCESS. Session Id: %s", ARG_STR(_SessionInfo.SessionId));
 					m_AgentInfos.clear();
+					
 					for (int32_t i = 0; i < Response.agents_size(); i++)
 					{
 						UnityAgentInfo Info;

@@ -149,11 +149,6 @@ namespace Inworld
 		std::string _ErrorMessage = std::string();
 		int32_t _ErrorCode = grpc::StatusCode::OK;
 
-
-
-		
-		
-
 		AECFilter _EchoFilter;
 		PerceivedLatencyTracker _LatencyTracker;
 	};

@@ -154,7 +154,7 @@ void Inworld::ClientBase::StopAudioSession(const std::string& AgentId)
 
 void Inworld::ClientBase::InitClient(std::string ClientId, std::string ClientVer, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback)
 {
-	gpr_set_log_function(GrpcLog);
+	gpr_set_log_function(GrpcLog);	
 
 	_ClientId = ClientId;
 	_ClientVer = ClientVer;

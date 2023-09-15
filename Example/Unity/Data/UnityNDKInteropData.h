@@ -18,6 +18,13 @@ extern "C"
 	
 namespace NDKUnity
 {
+	int CharToInt(char c);
+	std::string StringToBase64(const std::string& input);
+	std::string Base64ToString(const std::string& input);
+	int Base64CharToValue(char c);
+	inline BSTR StringToBSTR(const std::string& rhs);
+	inline BSTR DataChunkToBSTR(const std::string& rhs);
+	
 	struct Capabilities
 	{
 		// YAN:
@@ -117,9 +124,10 @@ namespace NDKUnity
 	};
 	struct AudioPacket
 	{
-		Packet packet;
-		BSTR audioChunk;
+		Packet  packet;
+		BSTR    audioChunk;
 		int32_t type;
+		int32_t phonemeCount;
 
 		AudioPacket() = default;
 		explicit AudioPacket(const Inworld::AudioDataEvent& rhs);
