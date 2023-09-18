@@ -20,7 +20,7 @@ void NDKApp::CommandLineInterface::SetCommands(std::vector<ConsoleCommand> Comma
 			{
 				for (auto& Command : _Commands)
 				{
-					Inworld::Log("{0} - {1}", Command._Id, Command._Desc);
+					Inworld::Log("{0} - {1}", ARG_STR(Command._Id), ARG_STR(Command._Desc));
 				}
 			}
 		});
@@ -48,7 +48,7 @@ void NDKApp::CommandLineInterface::ExecuteCommands()
 
 		if (CmdName.empty() || CmdName[0] != '/')
 		{
-			Inworld::Log("Invalid command: {0}", CmdName);
+			Inworld::Log("Invalid command: {0}", ARG_STR(CmdName));
 			continue;
 		}
 
@@ -63,7 +63,7 @@ void NDKApp::CommandLineInterface::ExecuteCommands()
 
 		if (It == _Commands.end())
 		{
-			Inworld::Log("Invalid command: {0}", CmdName);
+			Inworld::Log("Invalid command: {0}", ARG_STR(CmdName));
 			continue;
 		}
 

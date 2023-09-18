@@ -11,6 +11,7 @@
 #include <functional>
 
 #include <future>
+#include "Define.h"
 #include "Types.h"
 #include "Packets.h"
 #include "Utils/SharedQueue.h"
@@ -23,7 +24,7 @@ using PacketQueue = Inworld::SharedQueue<std::shared_ptr<Inworld::Packet>>;
 
 namespace Inworld
 {	
-	struct INWORLDAINDK_API ClientOptions
+	struct INWORLD_EXPORT ClientOptions
 	{
 		std::string ServerUrl;
 		std::string SceneName;
@@ -36,7 +37,7 @@ namespace Inworld
 		UserSettings UserSettings;
 	};
 
-	class INWORLDAINDK_API ClientBase
+	class INWORLD_EXPORT ClientBase
 	{
 	public:
 		enum class ConnectionState : uint8_t 
@@ -106,15 +107,18 @@ namespace Inworld
 			_AsyncAudioDumper = std::make_unique<TAsyncRoutine>();
 #endif			
 		}
-
-	private:
-		void LoadScene();
-		void OnSceneLoaded(const grpc::Status& Status, const InworldEngine::LoadSceneResponse& Response);
-
-		void SetConnectionState(ConnectionState State);
-		
+		std::function<void(std::shared_ptr<Inworld::Packet>)> _OnPacketCallback;
+		std::unique_ptr<IAsyncRoutine> _AsyncLoadSceneTask;
 		void StartReaderWriter();
 		void StopReaderWriter();
+		void SetConnectionState(ConnectionState State);
+		ClientOptions _ClientOptions;
+		SessionInfo _SessionInfo;
+		std::string _ClientId;
+		std::string _ClientVer;
+	private:
+		void LoadScene();
+		void OnSceneLoaded(const grpc::Status& Status, const InworldEngine::LoadSceneResponse& Response);		
 		void TryToStartReadTask();
 		void TryToStartWriteTask();
 
@@ -128,15 +132,13 @@ namespace Inworld
 		std::function<void()> _OnGenerateTokenCallback;
 		std::function<void(const std::vector<AgentInfo>&)> _OnLoadSceneCallback;
 		std::function<void(ConnectionState)> _OnConnectionStateChangedCallback;
-		std::function<void(std::shared_ptr<Inworld::Packet>)> _OnPacketCallback;
 
 		std::unique_ptr<ReaderWriter> _ReaderWriter;
 		std::atomic<bool> _bHasReaderWriterFinished = false;
 
 		std::unique_ptr<IAsyncRoutine> _AsyncReadTask;
 		std::unique_ptr<IAsyncRoutine> _AsyncWriteTask;
-		std::unique_ptr<IAsyncRoutine> _AsyncGenerateTokenTask;
-		std::unique_ptr<IAsyncRoutine> _AsyncLoadSceneTask;
+		std::unique_ptr<IAsyncRoutine> _AsyncGenerateTokenTask;		
 		std::unique_ptr<IAsyncRoutine> _AsyncGetSessionState;
 
 		PacketQueue _IncomingPackets;
@@ -148,17 +150,16 @@ namespace Inworld
 		std::string _ErrorMessage = std::string();
 		int32_t _ErrorCode = grpc::StatusCode::OK;
 
-		std::string _ClientId;
-		std::string _ClientVer;
 
-		ClientOptions _ClientOptions;
-		SessionInfo _SessionInfo;
+
+		
+		
 
 		AECFilter _EchoFilter;
 		PerceivedLatencyTracker _LatencyTracker;
 	};
 
-	class INWORLDAINDK_API Client : public ClientBase
+	class INWORLD_EXPORT Client : public ClientBase
 	{
 	public:
 		Client()

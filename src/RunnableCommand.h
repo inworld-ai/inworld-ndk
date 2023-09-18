@@ -28,6 +28,7 @@
 
 #include "Utils/Utils.h"
 #include "Utils/SharedQueue.h"
+#include "Define.h"
 #include "Packets.h"
 
 #ifdef INWORLD_AUDIO_DUMP
@@ -47,7 +48,7 @@ namespace Inworld
 {
 	using ReaderWriter = ::grpc::ClientReaderWriter< InworldPackets::InworldPacket, InworldPackets::InworldPacket>;
 
-	class INWORLDAINDK_API Runnable
+	class INWORLD_EXPORT Runnable
 	{
 	public:
 		virtual ~Runnable() = default;
@@ -62,7 +63,7 @@ namespace Inworld
 		std::atomic<bool> _IsDone = false;
 	};
 
-	class INWORLDAINDK_API RunnableMessaging : public Runnable
+	class INWORLD_EXPORT RunnableMessaging : public Runnable
 	{
 	public:
 		RunnableMessaging(ReaderWriter& ReaderWriter, std::atomic<bool>& bInHasReaderWriterFinished, SharedQueue<std::shared_ptr<Inworld::Packet>>& Packets, std::function<void(const std::shared_ptr<Inworld::Packet>)> ProcessedCallback = nullptr, std::function<void(const grpc::Status&)> InErrorCallback = nullptr)
@@ -83,7 +84,7 @@ namespace Inworld
 		std::function<void(const grpc::Status&)> _ErrorCallback;
 	};
 
-	class INWORLDAINDK_API RunnableRead : public RunnableMessaging
+	class INWORLD_EXPORT RunnableRead : public RunnableMessaging
 	{
 	public:
 		RunnableRead(ReaderWriter& ReaderWriter, std::atomic<bool>& bHasReaderWriterFinished, SharedQueue<std::shared_ptr<Inworld::Packet>>& Packets, std::function<void(const std::shared_ptr<Inworld::Packet>)> ProcessedCallback = nullptr, std::function<void(const grpc::Status&)> ErrorCallback = nullptr)
@@ -94,7 +95,7 @@ namespace Inworld
 		virtual void Run() override;
 	};
 
-	class INWORLDAINDK_API RunnableWrite : public RunnableMessaging
+	class INWORLD_EXPORT RunnableWrite : public RunnableMessaging
 	{
 	public:
 		RunnableWrite(ReaderWriter& ReaderWriter, std::atomic<bool>& bHasReaderWriterFinished, SharedQueue<std::shared_ptr<Inworld::Packet>>& Packets, std::function<void(const std::shared_ptr<Inworld::Packet>)> ProcessedCallback = nullptr, std::function<void(const grpc::Status&)> ErrorCallback = nullptr)
@@ -106,7 +107,7 @@ namespace Inworld
 	};
 
 	template<typename TService, class TResponse>
-	class INWORLDAINDK_API RunnableRequest : public Runnable
+	class INWORLD_EXPORT RunnableRequest : public Runnable
 	{
 	public:
 		RunnableRequest(const std::string& ServerUrl, std::function<void(const grpc::Status& Status, const TResponse& Response)> Callback = nullptr)
@@ -176,7 +177,7 @@ namespace Inworld
 		std::function<void(const grpc::Status& Status, const TResponse& Response)> _Callback;
 	};
 
-	class INWORLDAINDK_API RunnableGenerateSessionToken : public RunnableRequest<InworldEngine::WorldEngine, InworldEngine::AccessToken>
+	class INWORLD_EXPORT RunnableGenerateSessionToken : public RunnableRequest<InworldEngine::WorldEngine, InworldEngine::AccessToken>
 	{
 	public:
 		RunnableGenerateSessionToken(const std::string& ServerUrl, const std::string& ApiKey, const std::string& ApiSecret, std::function<void(const grpc::Status&, const InworldEngine::AccessToken&)> Callback = nullptr)
@@ -196,7 +197,7 @@ namespace Inworld
 		std::string _ApiSecret;
 	};
 
-	class INWORLDAINDK_API RunnableGetSessionState : public RunnableRequest<InworldEngineV1::StateSerialization, InworldEngineV1::SessionState>
+	class INWORLD_EXPORT RunnableGetSessionState : public RunnableRequest<InworldEngineV1::StateSerialization, InworldEngineV1::SessionState>
 	{
 	public:
 		RunnableGetSessionState(const std::string& ServerUrl, const std::string& Token, const std::string& SessionName, std::function<void(const grpc::Status&, const InworldEngineV1::SessionState&)> Callback = nullptr)
@@ -248,7 +249,7 @@ namespace Inworld
 		PlayerProfile Profile;
 	};
 
-	class INWORLDAINDK_API RunnableLoadScene : public RunnableRequest<InworldEngine::WorldEngine, InworldEngine::LoadSceneResponse>
+	class INWORLD_EXPORT RunnableLoadScene : public RunnableRequest<InworldEngine::WorldEngine, InworldEngine::LoadSceneResponse>
 	{
 	public:
 		RunnableLoadScene(const std::string& Token, const std::string& SessionId, const std::string& ServerUrl, const std::string& SceneName, const std::string& PlayerName, const std::string& UserId, const UserSettings& UserSettings, const std::string& ClientId, const std::string& ClientVersion, const std::string& SessionState, const CapabilitySet& Capabilities, std::function<void(const grpc::Status&, const InworldEngine::LoadSceneResponse&)> Callback = nullptr)
@@ -290,7 +291,7 @@ namespace Inworld
 		CapabilitySet _Capabilities;
 	};
 
-	class INWORLDAINDK_API RunnableGenerateUserTokenRequest : public RunnableRequest<InworldV1alpha::Users, InworldV1alpha::GenerateTokenUserResponse>
+	class INWORLD_EXPORT RunnableGenerateUserTokenRequest : public RunnableRequest<InworldV1alpha::Users, InworldV1alpha::GenerateTokenUserResponse>
 	{
 	public:
 		RunnableGenerateUserTokenRequest(const std::string& InFirebaseToken, const std::string& InServerUrl, std::function<void(const grpc::Status& Status, const InworldV1alpha::GenerateTokenUserResponse& Response)> InCallback)
@@ -305,9 +306,9 @@ namespace Inworld
 		std::string _FirebaseToken;
 	};
 
-	INWORLDAINDK_API std::unique_ptr<Runnable> MakeRunnableGenerateUserTokenRequest(const std::string& InFirebaseToken, const std::string& InServerUrl, std::function<void(const grpc::Status& Status, const InworldV1alpha::GenerateTokenUserResponse& Response)> InCallback);
+	std::unique_ptr<Runnable> MakeRunnableGenerateUserTokenRequest(const std::string& InFirebaseToken, const std::string& InServerUrl, std::function<void(const grpc::Status& Status, const InworldV1alpha::GenerateTokenUserResponse& Response)> InCallback);
 
-	class INWORLDAINDK_API RunnableListWorkspacesRequest : public RunnableRequest<InworldV1alpha::Workspaces, InworldV1alpha::ListWorkspacesResponse>
+	class INWORLD_EXPORT RunnableListWorkspacesRequest : public RunnableRequest<InworldV1alpha::Workspaces, InworldV1alpha::ListWorkspacesResponse>
 	{
 	public:
 		RunnableListWorkspacesRequest(const std::string& InInworldToken, const std::string& InServerUrl, std::function<void(const grpc::Status& Status, const InworldV1alpha::ListWorkspacesResponse& Response)> InCallback)
@@ -322,9 +323,9 @@ namespace Inworld
 		std::string _InworldToken;
 	};
 
-	INWORLDAINDK_API std::unique_ptr<Runnable> MakeRunnableListWorkspacesRequest(const std::string& InInworldToken, const std::string& InServerUrl, std::function<void(const grpc::Status& Status, const InworldV1alpha::ListWorkspacesResponse& Response)> InCallback);
+	std::unique_ptr<Runnable> MakeRunnableListWorkspacesRequest(const std::string& InInworldToken, const std::string& InServerUrl, std::function<void(const grpc::Status& Status, const InworldV1alpha::ListWorkspacesResponse& Response)> InCallback);
 
-	class INWORLDAINDK_API RunnableListScenesRequest : public RunnableRequest<InworldV1alpha::Scenes, InworldV1alpha::ListScenesResponse>
+	class INWORLD_EXPORT RunnableListScenesRequest : public RunnableRequest<InworldV1alpha::Scenes, InworldV1alpha::ListScenesResponse>
 	{
 	public:
 		RunnableListScenesRequest(const std::string& InInworldToken, const std::string& InServerUrl, const std::string& InWorkspace, std::function<void(const grpc::Status& Status, const InworldV1alpha::ListScenesResponse& Response)> InCallback)
@@ -341,9 +342,9 @@ namespace Inworld
 		std::string _Workspace;
 	};
 
-	INWORLDAINDK_API std::unique_ptr<Runnable> MakeRunnableListScenesRequest(const std::string& InInworldToken, const std::string& InServerUrl, const std::string& InWorkspace, std::function<void(const grpc::Status& Status, const InworldV1alpha::ListScenesResponse& Response)> InCallback);
+	std::unique_ptr<Runnable> MakeRunnableListScenesRequest(const std::string& InInworldToken, const std::string& InServerUrl, const std::string& InWorkspace, std::function<void(const grpc::Status& Status, const InworldV1alpha::ListScenesResponse& Response)> InCallback);
 
-	class INWORLDAINDK_API RunnableListCharactersRequest : public RunnableRequest<InworldV1alpha::Characters, InworldV1alpha::ListCharactersResponse>
+	class INWORLD_EXPORT RunnableListCharactersRequest : public RunnableRequest<InworldV1alpha::Characters, InworldV1alpha::ListCharactersResponse>
 	{
 	public:
 		RunnableListCharactersRequest(const std::string& InInworldToken, const std::string& InServerUrl, const std::string& InWorkspace, std::function<void(const grpc::Status& Status, const InworldV1alpha::ListCharactersResponse& Response)> InCallback)
@@ -360,9 +361,9 @@ namespace Inworld
 		std::string _Workspace;
 	};
 
-	INWORLDAINDK_API std::unique_ptr<Runnable> MakeRunnableListCharactersRequest(const std::string& InInworldToken, const std::string& InServerUrl, const std::string& InWorkspace, std::function<void(const grpc::Status& Status, const InworldV1alpha::ListCharactersResponse& Response)> InCallback);
+	std::unique_ptr<Runnable> MakeRunnableListCharactersRequest(const std::string& InInworldToken, const std::string& InServerUrl, const std::string& InWorkspace, std::function<void(const grpc::Status& Status, const InworldV1alpha::ListCharactersResponse& Response)> InCallback);
 
-	class INWORLDAINDK_API RunnableListApiKeysRequest : public RunnableRequest<InworldV1alpha::ApiKeys, InworldV1alpha::ListApiKeysResponse>
+	class INWORLD_EXPORT RunnableListApiKeysRequest : public RunnableRequest<InworldV1alpha::ApiKeys, InworldV1alpha::ListApiKeysResponse>
 	{
 	public:
 		RunnableListApiKeysRequest(const std::string& InInworldToken, const std::string& InServerUrl, const std::string& InWorkspace, std::function<void(const grpc::Status& Status, const InworldV1alpha::ListApiKeysResponse& Response)> InCallback)
@@ -379,7 +380,7 @@ namespace Inworld
 		std::string _Workspace;
 	};
 
-	INWORLDAINDK_API std::unique_ptr<Runnable> MakeRunnableListApiKeysRequest(const std::string& InInworldToken, const std::string& InServerUrl, const std::string& InWorkspace, std::function<void(const grpc::Status& Status, const InworldV1alpha::ListApiKeysResponse& Response)> InCallback);
+	std::unique_ptr<Runnable> MakeRunnableListApiKeysRequest(const std::string& InInworldToken, const std::string& InServerUrl, const std::string& InWorkspace, std::function<void(const grpc::Status& Status, const InworldV1alpha::ListApiKeysResponse& Response)> InCallback);
 
 #ifdef INWORLD_AUDIO_DUMP
 	class RunnableAudioDumper : public Inworld::Runnable
