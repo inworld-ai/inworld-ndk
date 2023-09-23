@@ -7,8 +7,6 @@
 
 #pragma once
 #include "RunnableCommand.h"
-#include "comutil.h"
-#include "UnityAgentInfo.h"
 
 
 #if __cplusplus
@@ -18,13 +16,7 @@ extern "C"
 	
 namespace NDKUnity
 {
-	int CharToInt(char c);
-	std::string StringToBase64(const std::string& input);
-	std::string Base64ToString(const std::string& input);
-	int Base64CharToValue(char c);
-	inline BSTR StringToBSTR(const std::string& rhs);
-	inline BSTR DataChunkToBSTR(const std::string& rhs);
-	
+#pragma region Structs
 	struct Capabilities
 	{
 		// YAN:
@@ -45,9 +37,9 @@ namespace NDKUnity
 
 	struct SessionInfo
 	{
-		BSTR sessionId;
-		BSTR token;
-		BSTR sessionSavedState;
+		const char* sessionId;
+		const char* token;
+		const char* sessionSavedState;
 		int64_t expirationTime;
 		int32_t isValid;
 		
@@ -57,27 +49,26 @@ namespace NDKUnity
 
 	struct AgentInfo
 	{
-		BSTR brainName;
-		BSTR agentId;
-		BSTR givenName;
-		BSTR rpmModelUri;
-		BSTR rpmImageUriPortrait;
-		BSTR rpmImageUriPosture;
-		BSTR avatarImg;
-		BSTR avatarImgOriginal;
+		const char* brainName;
+		const char* agentId;
+		const char* givenName;
+		const char* rpmModelUri;
+		const char* rpmImageUriPortrait;
+		const char* rpmImageUriPosture;
+		const char* avatarImg;
+		const char* avatarImgOriginal;
 		
 		AgentInfo();
-		explicit AgentInfo(const UnityAgentInfo& rhs);
 	};
 
 	struct PacketId
 	{
 		// Always unique for given packet.
-		BSTR uid;
+		const char* uid;
 		// Text and audio can have same utterance ids, which means they represent same utterance.
-		BSTR utteranceID;
+		const char* utteranceID;
 		// Interaction start when player triggers it and finished when agent answers to player.
-		BSTR interactionID;
+		const char* interactionID;
 
 		PacketId() = default;
 		explicit PacketId(const Inworld::PacketId& rhs);
@@ -86,8 +77,8 @@ namespace NDKUnity
 
 	struct Routing
 	{
-		BSTR source;
-		BSTR target;
+		const char* source;
+		const char* target;
 
 		Routing() = default;
 		explicit Routing(const Inworld::Routing& rhs);
@@ -106,7 +97,7 @@ namespace NDKUnity
 	struct TextPacket
 	{
 		Packet packet;
-		BSTR text;
+		const char* text;
 		int isFinal;
 
 		TextPacket() = default;
@@ -115,8 +106,8 @@ namespace NDKUnity
 	
 	struct PhonemeInfo
 	{
-		BSTR packetID;
-		BSTR code;
+		const char* packetID;
+		const char* code;
 		float timeStamp;
 
 		PhonemeInfo() = default;
@@ -125,7 +116,7 @@ namespace NDKUnity
 	struct AudioPacket
 	{
 		Packet  packet;
-		BSTR    audioChunk;
+		const wchar_t* audioChunk;
 		int32_t type;
 		int32_t phonemeCount;
 
@@ -155,7 +146,7 @@ namespace NDKUnity
 	struct CancelResponsePacket
 	{
 		Packet packet;
-		BSTR cancelInteractionID; // Yan: No need to receive utterance as they won't be sent.
+		const char* cancelInteractionID; // Yan: No need to receive utterance as they won't be sent.
 
 		CancelResponsePacket() = default;
 		CancelResponsePacket(const Inworld::CancelResponseEvent& rhs);
@@ -163,21 +154,30 @@ namespace NDKUnity
 	struct CustomPacket
 	{
 		Packet packet;
-		BSTR triggerName;
+		const char* triggerName;
 
 		CustomPacket() = default;
 		CustomPacket(const Inworld::CustomEvent& rhs);
 	};
 	struct TriggerParam
 	{
-		BSTR packetID;
-		BSTR paramName;
-		BSTR paramValue;
+		const char* packetID;
+		const char* paramName;
+		const char* paramValue;
 		
 		TriggerParam() = default;
 		TriggerParam(const Inworld::CustomEvent& evt, const std::string& name, const std::string& value);
 	};
-	
+#pragma endregion 
+
+#pragma region Converters
+	int CharToInt(char c);
+	const wchar_t* StringToBase64WString(const std::string& input);
+	std::string Base64ToString(const std::string& input);  // NOLINT(clang-diagnostic-return-type-c-linkage)
+	int Base64CharToValue(char c);
+#pragma endregion
+
+#pragma region Callbacks
 	using UnityCallback = void (*)();	
 	using TextCallBack = void(*)(TextPacket);
 	using AudioCallBack = void(*)(AudioPacket);
@@ -187,6 +187,8 @@ namespace NDKUnity
 	using CancelResponseCallBack = void(*)(CancelResponsePacket);
 	using CustomCallBack = void(*)(CustomPacket);
 	using TriggerParamCallBack = void(*)(TriggerParam);
+#pragma endregion
+	
 }
 
 #if __cplusplus
