@@ -10,6 +10,7 @@
 
 // !!! Fill out this options !!!
 constexpr std::string_view g_SceneName = "";
+constexpr std::string_view g_Base64 = "";
 constexpr std::string_view g_ApiKey = "";
 constexpr std::string_view g_ApiSecret = "";
 
@@ -132,6 +133,7 @@ void NDKApp::App::Run()
 	_Options.PlayerName = "Player";
 
 	_Options.SceneName = g_SceneName;
+	_Options.Base64 = g_Base64;
 	_Options.ApiKey = g_ApiKey;
 	_Options.ApiSecret = g_ApiSecret;
 

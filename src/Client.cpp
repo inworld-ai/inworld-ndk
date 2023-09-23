@@ -9,6 +9,7 @@
 #include "RunnableCommand.h"
 #include "Utils/Utils.h"
 #include "Utils/Log.h"
+#include "base64/Base64.h"
 
 #include "grpc/impl/codegen/log.h"
 
@@ -214,6 +215,22 @@ void Inworld::ClientBase::StartClient(const ClientOptions& Options, const Sessio
 		return;
 	}
 	_ClientOptions = Options;
+	if (!_ClientOptions.Base64.empty())
+	{
+		std::string Decoded;
+		macaron::Base64::Decode(_ClientOptions.Base64, Decoded);
+		const size_t Idx = Decoded.find(':');
+		if (Idx != std::string::npos)
+		{
+			_ClientOptions.ApiKey = Decoded.substr(0, Idx);
+			_ClientOptions.ApiSecret = Decoded.substr(Idx + 1, Decoded.size() - Idx + 1);
+		}
+		else
+		{
+			Inworld::LogError("Invalid base64 signature, ignored.");
+		}
+	}
+
 	_SessionInfo = Info;
 
 	_LatencyTracker.TrackAudioReplies(Options.Capabilities.Audio);

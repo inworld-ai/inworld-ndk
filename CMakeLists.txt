@@ -1,6 +1,9 @@
 cmake_minimum_required (VERSION 3.22)
 option(UNITY FALSE)
 
+add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
+add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
+
 function(GroupSourcesByFolder target)
     set(SOURCE_GROUP_DELIMITER "/")
     set(last_dir "")
