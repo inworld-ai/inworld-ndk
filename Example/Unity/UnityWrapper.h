@@ -19,7 +19,7 @@ namespace NDKUnity
 	{
 	public:
 		CUnityWrapper()
-		{
+		{			
 			_OnPacketCallback = [this](const std::shared_ptr<Inworld::Packet>& packet)
 			{
 				packet->Accept(m_PacketHandler);
@@ -78,7 +78,7 @@ namespace NDKUnity
 		{
 			return _ClientOptions.UserSettings;
 		}
-		std::vector<UnityAgentInfo> GetAgentInfo()
+		std::vector<AgentInfo> GetAgentInfo()
 		{
 			return m_AgentInfos;
 		}
@@ -91,7 +91,7 @@ namespace NDKUnity
 		int32_t m_CurrentAgentIdx = -1;
 		CUnityPacketHandler m_PacketHandler;
 		std::string m_SavedSessionState;
-		std::vector<UnityAgentInfo> m_AgentInfos;
+		std::vector<AgentInfo> m_AgentInfos;
 		Inworld::LoggerCallBack m_LogCallBack = nullptr;		
 	};
 }
