@@ -133,6 +133,10 @@ grpc::Status Inworld::RunnableGenerateSessionToken::RunProcess()
 {
 	InworldEngine::GenerateTokenRequest AuthRequest;
 	AuthRequest.set_key(_ApiKey);
+	if(!_Resource.empty())
+	{
+			AuthRequest.add_resources(_Resource);
+	}
 
 	auto& AuthCtx = UpdateContext({ {"authorization", GenerateHeader() } });
 

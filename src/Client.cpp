@@ -174,6 +174,7 @@ void Inworld::ClientBase::GenerateToken(std::function<void()> GenerateTokenCallb
 		"InworldGenerateTokenTask",
 		std::make_unique<RunnableGenerateSessionToken>(
 			_ClientOptions.ServerUrl,
+			_ClientOptions.Resource,
 			_ClientOptions.ApiKey,
 			_ClientOptions.ApiSecret,
 			[this](const grpc::Status& Status, const InworldEngine::AccessToken& Token) mutable

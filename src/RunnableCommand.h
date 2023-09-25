@@ -180,8 +180,9 @@ namespace Inworld
 	class INWORLD_EXPORT RunnableGenerateSessionToken : public RunnableRequest<InworldEngine::WorldEngine, InworldEngine::AccessToken>
 	{
 	public:
-		RunnableGenerateSessionToken(const std::string& ServerUrl, const std::string& ApiKey, const std::string& ApiSecret, std::function<void(const grpc::Status&, const InworldEngine::AccessToken&)> Callback = nullptr)
+		RunnableGenerateSessionToken(const std::string& ServerUrl, const std::string& Resource, const std::string& ApiKey, const std::string& ApiSecret, std::function<void(const grpc::Status&, const InworldEngine::AccessToken&)> Callback = nullptr)
 			: RunnableRequest(ServerUrl, Callback)
+			, _Resource(Resource)
 			, _ApiKey(ApiKey)
 			, _ApiSecret(ApiSecret)
 		{}
@@ -193,6 +194,7 @@ namespace Inworld
 	private:
 		std::string GenerateHeader() const;
 
+		std::string _Resource;
 		std::string _ApiKey;
 		std::string _ApiSecret;
 	};
