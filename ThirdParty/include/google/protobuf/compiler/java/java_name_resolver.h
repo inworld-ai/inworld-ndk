@@ -37,7 +37,7 @@
 #include <google/protobuf/stubs/common.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 class Descriptor;
 class EnumDescriptor;
 class FieldDescriptor;
@@ -139,7 +139,7 @@ class ClassNameResolver {
 
 }  // namespace java
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_JAVA_NAME_RESOLVER_H__

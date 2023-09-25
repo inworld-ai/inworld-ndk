@@ -47,7 +47,7 @@
 
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace util {
 
 // Allow these symbols to be referenced as util::Status, util::error::* in
@@ -946,5 +946,5 @@ JsonStreamParser::TokenType JsonStreamParser::GetNextTokenType() {
 
 }  // namespace converter
 }  // namespace util
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

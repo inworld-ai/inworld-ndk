@@ -92,7 +92,7 @@
 #include <google/protobuf/port_def.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace util {
 
 template<typename T>
@@ -264,7 +264,7 @@ inline const T& StatusOr<T>::value() const {
   return value_;
 }
 }  // namespace util
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #include <google/protobuf/port_undef.inc>

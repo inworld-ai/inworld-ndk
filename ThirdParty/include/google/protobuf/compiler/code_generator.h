@@ -46,7 +46,7 @@
 #include <google/protobuf/port_def.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 
 namespace io {
 class ZeroCopyOutputStream;
@@ -164,7 +164,7 @@ class PROTOC_EXPORT GeneratorContext {
   // WARNING:  This feature will be REMOVED in the near future.
   virtual io::ZeroCopyOutputStream* OpenForInsertWithGeneratedCodeInfo(
       const std::string& filename, const std::string& insertion_point,
-      const google::protobuf::GeneratedCodeInfo& info);
+      const google::protobuf_inworld::GeneratedCodeInfo& info);
 
   // Returns a vector of FileDescriptors for all the files being compiled
   // in this run.  Useful for languages, such as Go, that treat files
@@ -194,7 +194,7 @@ PROTOC_EXPORT void ParseGeneratorParameter(
     const std::string&, std::vector<std::pair<std::string, std::string> >*);
 
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #include <google/protobuf/port_undef.inc>

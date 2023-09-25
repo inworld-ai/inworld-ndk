@@ -40,7 +40,7 @@
 #include <google/protobuf/stubs/strutil.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace cpp {
 
@@ -183,5 +183,5 @@ void ExtensionGenerator::GenerateDefinition(io::Printer* printer) {
 
 }  // namespace cpp
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

@@ -33,7 +33,7 @@
 #include <gtest/gtest.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace internal {
 namespace {
 static const int64 kSecondsPerDay = 3600 * 24;
@@ -257,5 +257,5 @@ TEST(DateTimeTest, ParseString) {
 
 }  // namespace
 }  // namespace internal
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

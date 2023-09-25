@@ -41,7 +41,7 @@
 #include <google/protobuf/stubs/strutil.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace objectivec {
 
@@ -471,5 +471,5 @@ bool FieldGeneratorMap::DoesAnyFieldHaveNonZeroDefault(void) const {
 
 }  // namespace objectivec
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

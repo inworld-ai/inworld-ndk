@@ -46,7 +46,7 @@
 #include <google/protobuf/port_def.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace util {
 namespace converter {
 
@@ -101,7 +101,7 @@ class PROTOBUF_EXPORT NoopErrorListener : public ErrorListener {
 
 }  // namespace converter
 }  // namespace util
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #include <google/protobuf/port_undef.inc>

@@ -57,14 +57,14 @@
 #endif
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 
 #ifdef _WIN32
 // DO NOT include <io.h>, instead create functions in io_win32.{h,cc} and import
 // them like we do below.
-using google::protobuf::io::win32::access;
-using google::protobuf::io::win32::open;
+using google::protobuf_inworld::io::win32::access;
+using google::protobuf_inworld::io::win32::open;
 #endif
 
 // Returns true if the text looks like a Windows-style absolute path, starting
@@ -513,5 +513,5 @@ io::ZeroCopyInputStream* DiskSourceTree::OpenDiskFile(
 }
 
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

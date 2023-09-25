@@ -36,7 +36,7 @@
 #include <google/protobuf/stubs/common.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 class FieldDescriptor;    // descriptor.h
 class Descriptor;         // descriptor.h
 class ServiceDescriptor;  // descriptor.h
@@ -48,11 +48,11 @@ class ServiceGenerator;    // service.h
 class Context;             // context.h
 }  // namespace java
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace java {
 
@@ -97,7 +97,7 @@ class ImmutableGeneratorFactory : public GeneratorFactory {
 
 }  // namespace java
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_JAVA_GENERATOR_FACTORY_H__

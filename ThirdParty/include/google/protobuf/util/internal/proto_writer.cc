@@ -48,7 +48,7 @@
 #include <google/protobuf/port_def.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace util {
 namespace converter {
 
@@ -59,7 +59,7 @@ using util::error::INVALID_ARGUMENT;
 
 
 ProtoWriter::ProtoWriter(TypeResolver* type_resolver,
-                         const google::protobuf::Type& type,
+                         const google::protobuf_inworld::Type& type,
                          strings::ByteSink* output, ErrorListener* listener)
     : master_type_(type),
       typeinfo_(TypeInfo::NewTypeInfo(type_resolver)),
@@ -81,7 +81,7 @@ ProtoWriter::ProtoWriter(TypeResolver* type_resolver,
       tracker_(new ObjectLocationTracker()) {}
 
 ProtoWriter::ProtoWriter(const TypeInfo* typeinfo,
-                         const google::protobuf::Type& type,
+                         const google::protobuf_inworld::Type& type,
                          strings::ByteSink* output, ErrorListener* listener)
     : master_type_(type),
       typeinfo_(typeinfo),
@@ -270,13 +270,13 @@ inline util::Status WriteString(int field_number, const DataPiece& data,
   return s.status();
 }
 
-// Given a google::protobuf::Type, returns the set of all required fields.
-std::set<const google::protobuf::Field*> GetRequiredFields(
-    const google::protobuf::Type& type) {
-  std::set<const google::protobuf::Field*> required;
+// Given a google::protobuf_inworld::Type, returns the set of all required fields.
+std::set<const google::protobuf_inworld::Field*> GetRequiredFields(
+    const google::protobuf_inworld::Type& type) {
+  std::set<const google::protobuf_inworld::Field*> required;
   for (int i = 0; i < type.fields_size(); i++) {
-    const google::protobuf::Field& field = type.fields(i);
-    if (field.cardinality() == google::protobuf::Field::CARDINALITY_REQUIRED) {
+    const google::protobuf_inworld::Field& field = type.fields(i);
+    if (field.cardinality() == google::protobuf_inworld::Field::CARDINALITY_REQUIRED) {
       required.insert(&field);
     }
   }
@@ -286,13 +286,13 @@ std::set<const google::protobuf::Field*> GetRequiredFields(
 }  // namespace
 
 ProtoWriter::ProtoElement::ProtoElement(const TypeInfo* typeinfo,
-                                        const google::protobuf::Type& type,
+                                        const google::protobuf_inworld::Type& type,
                                         ProtoWriter* enclosing)
     : BaseElement(nullptr),
       ow_(enclosing),
       parent_field_(nullptr),
       typeinfo_(typeinfo),
-      proto3_(type.syntax() == google::protobuf::SYNTAX_PROTO3),
+      proto3_(type.syntax() == google::protobuf_inworld::SYNTAX_PROTO3),
       type_(type),
       size_index_(-1),
       array_index_(-1),
@@ -304,17 +304,17 @@ ProtoWriter::ProtoElement::ProtoElement(const TypeInfo* typeinfo,
 }
 
 ProtoWriter::ProtoElement::ProtoElement(ProtoWriter::ProtoElement* parent,
-                                        const google::protobuf::Field* field,
-                                        const google::protobuf::Type& type,
+                                        const google::protobuf_inworld::Field* field,
+                                        const google::protobuf_inworld::Type& type,
                                         bool is_list)
     : BaseElement(parent),
       ow_(this->parent()->ow_),
       parent_field_(field),
       typeinfo_(this->parent()->typeinfo_),
-      proto3_(type.syntax() == google::protobuf::SYNTAX_PROTO3),
+      proto3_(type.syntax() == google::protobuf_inworld::SYNTAX_PROTO3),
       type_(type),
       size_index_(!is_list &&
-                          field->kind() == google::protobuf::Field::TYPE_MESSAGE
+                          field->kind() == google::protobuf_inworld::Field::TYPE_MESSAGE
                       ? ow_->size_insert_.size()
                       : -1),
       array_index_(is_list ? 0 : -1),
@@ -329,7 +329,7 @@ ProtoWriter::ProtoElement::ProtoElement(ProtoWriter::ProtoElement* parent,
       this->parent()->RegisterField(field);
     }
 
-    if (field->kind() == google::protobuf::Field::TYPE_MESSAGE) {
+    if (field->kind() == google::protobuf_inworld::Field::TYPE_MESSAGE) {
       if (!proto3_) {
         required_fields_ = GetRequiredFields(type_);
       }
@@ -348,7 +348,7 @@ ProtoWriter::ProtoElement* ProtoWriter::ProtoElement::pop() {
   if (!proto3_) {
     // Calls the registered error listener for any required field(s) not yet
     // seen.
-    for (std::set<const google::protobuf::Field*>::iterator it =
+    for (std::set<const google::protobuf_inworld::Field*>::iterator it =
              required_fields_.begin();
          it != required_fields_.end(); ++it) {
       ow_->MissingField(ow_->use_json_name_in_missing_fields_
@@ -381,9 +381,9 @@ ProtoWriter::ProtoElement* ProtoWriter::ProtoElement::pop() {
 }
 
 void ProtoWriter::ProtoElement::RegisterField(
-    const google::protobuf::Field* field) {
+    const google::protobuf_inworld::Field* field) {
   if (!required_fields_.empty() &&
-      field->cardinality() == google::protobuf::Field::CARDINALITY_REQUIRED) {
+      field->cardinality() == google::protobuf_inworld::Field::CARDINALITY_REQUIRED) {
     required_fields_.erase(field);
   }
 }
@@ -465,7 +465,7 @@ ProtoWriter* ProtoWriter::StartObject(
     return this;
   }
 
-  const google::protobuf::Field* field = BeginNamed(name, false);
+  const google::protobuf_inworld::Field* field = BeginNamed(name, false);
 
   if (field == nullptr) return this;
 
@@ -476,7 +476,7 @@ ProtoWriter* ProtoWriter::StartObject(
     return this;
   }
 
-  const google::protobuf::Type* type = LookupType(field);
+  const google::protobuf_inworld::Type* type = LookupType(field);
   if (type == nullptr) {
     ++invalid_depth_;
     InvalidName(name, StrCat("Missing descriptor for field: ",
@@ -510,7 +510,7 @@ ProtoWriter* ProtoWriter::EndObject() {
 ProtoWriter* ProtoWriter::StartList(
     StringPiece name) {
 
-  const google::protobuf::Field* field = BeginNamed(name, true);
+  const google::protobuf_inworld::Field* field = BeginNamed(name, true);
 
   if (field == nullptr) return this;
 
@@ -519,7 +519,7 @@ ProtoWriter* ProtoWriter::StartList(
     return this;
   }
 
-  const google::protobuf::Type* type = LookupType(field);
+  const google::protobuf_inworld::Type* type = LookupType(field);
   if (type == nullptr) {
     ++invalid_depth_;
     InvalidName(name, StrCat("Missing descriptor for field: ",
@@ -545,13 +545,13 @@ ProtoWriter* ProtoWriter::RenderDataPiece(
   util::Status status;
   if (invalid_depth_ > 0) return this;
 
-  const google::protobuf::Field* field = Lookup(name);
+  const google::protobuf_inworld::Field* field = Lookup(name);
 
   if (field == nullptr) return this;
 
   if (!ValidOneof(*field, name)) return this;
 
-  const google::protobuf::Type* type = LookupType(field);
+  const google::protobuf_inworld::Type* type = LookupType(field);
   if (type == nullptr) {
     InvalidName(name, StrCat("Missing descriptor for field: ",
                                    field->type_url()));
@@ -561,7 +561,7 @@ ProtoWriter* ProtoWriter::RenderDataPiece(
   return RenderPrimitiveField(*field, *type, data);
 }
 
-bool ProtoWriter::ValidOneof(const google::protobuf::Field& field,
+bool ProtoWriter::ValidOneof(const google::protobuf_inworld::Field& field,
                              StringPiece unnormalized_name) {
   if (element_ == nullptr) return true;
 
@@ -579,25 +579,25 @@ bool ProtoWriter::ValidOneof(const google::protobuf::Field& field,
   return true;
 }
 
-bool ProtoWriter::IsRepeated(const google::protobuf::Field& field) {
-  return field.cardinality() == google::protobuf::Field::CARDINALITY_REPEATED;
+bool ProtoWriter::IsRepeated(const google::protobuf_inworld::Field& field) {
+  return field.cardinality() == google::protobuf_inworld::Field::CARDINALITY_REPEATED;
 }
 
-ProtoWriter* ProtoWriter::StartObjectField(const google::protobuf::Field& field,
-                                           const google::protobuf::Type& type) {
+ProtoWriter* ProtoWriter::StartObjectField(const google::protobuf_inworld::Field& field,
+                                           const google::protobuf_inworld::Type& type) {
     WriteTag(field);
   element_.reset(new ProtoElement(element_.release(), &field, type, false));
   return this;
 }
 
-ProtoWriter* ProtoWriter::StartListField(const google::protobuf::Field& field,
-                                         const google::protobuf::Type& type) {
+ProtoWriter* ProtoWriter::StartListField(const google::protobuf_inworld::Field& field,
+                                         const google::protobuf_inworld::Type& type) {
   element_.reset(new ProtoElement(element_.release(), &field, type, true));
   return this;
 }
 
 util::Status ProtoWriter::WriteEnum(int field_number, const DataPiece& data,
-                                    const google::protobuf::Enum* enum_type,
+                                    const google::protobuf_inworld::Enum* enum_type,
                                     CodedOutputStream* stream,
                                     bool use_lower_camel_for_enums,
                                     bool case_insensitive_enum_parsing,
@@ -613,7 +613,7 @@ util::Status ProtoWriter::WriteEnum(int field_number, const DataPiece& data,
 }
 
 ProtoWriter* ProtoWriter::RenderPrimitiveField(
-    const google::protobuf::Field& field, const google::protobuf::Type& type,
+    const google::protobuf_inworld::Field& field, const google::protobuf_inworld::Type& type,
     const DataPiece& data) {
   util::Status status;
 
@@ -627,67 +627,67 @@ ProtoWriter* ProtoWriter::RenderPrimitiveField(
   }
 
   switch (field.kind()) {
-    case google::protobuf::Field::TYPE_INT32: {
+    case google::protobuf_inworld::Field::TYPE_INT32: {
       status = WriteInt32(field.number(), data, stream_.get());
       break;
     }
-    case google::protobuf::Field::TYPE_SFIXED32: {
+    case google::protobuf_inworld::Field::TYPE_SFIXED32: {
       status = WriteSFixed32(field.number(), data, stream_.get());
       break;
     }
-    case google::protobuf::Field::TYPE_SINT32: {
+    case google::protobuf_inworld::Field::TYPE_SINT32: {
       status = WriteSInt32(field.number(), data, stream_.get());
       break;
     }
-    case google::protobuf::Field::TYPE_FIXED32: {
+    case google::protobuf_inworld::Field::TYPE_FIXED32: {
       status = WriteFixed32(field.number(), data, stream_.get());
       break;
     }
-    case google::protobuf::Field::TYPE_UINT32: {
+    case google::protobuf_inworld::Field::TYPE_UINT32: {
       status = WriteUInt32(field.number(), data, stream_.get());
       break;
     }
-    case google::protobuf::Field::TYPE_INT64: {
+    case google::protobuf_inworld::Field::TYPE_INT64: {
       status = WriteInt64(field.number(), data, stream_.get());
       break;
     }
-    case google::protobuf::Field::TYPE_SFIXED64: {
+    case google::protobuf_inworld::Field::TYPE_SFIXED64: {
       status = WriteSFixed64(field.number(), data, stream_.get());
       break;
     }
-    case google::protobuf::Field::TYPE_SINT64: {
+    case google::protobuf_inworld::Field::TYPE_SINT64: {
       status = WriteSInt64(field.number(), data, stream_.get());
       break;
     }
-    case google::protobuf::Field::TYPE_FIXED64: {
+    case google::protobuf_inworld::Field::TYPE_FIXED64: {
       status = WriteFixed64(field.number(), data, stream_.get());
       break;
     }
-    case google::protobuf::Field::TYPE_UINT64: {
+    case google::protobuf_inworld::Field::TYPE_UINT64: {
       status = WriteUInt64(field.number(), data, stream_.get());
       break;
     }
-    case google::protobuf::Field::TYPE_DOUBLE: {
+    case google::protobuf_inworld::Field::TYPE_DOUBLE: {
       status = WriteDouble(field.number(), data, stream_.get());
       break;
     }
-    case google::protobuf::Field::TYPE_FLOAT: {
+    case google::protobuf_inworld::Field::TYPE_FLOAT: {
       status = WriteFloat(field.number(), data, stream_.get());
       break;
     }
-    case google::protobuf::Field::TYPE_BOOL: {
+    case google::protobuf_inworld::Field::TYPE_BOOL: {
       status = WriteBool(field.number(), data, stream_.get());
       break;
     }
-    case google::protobuf::Field::TYPE_BYTES: {
+    case google::protobuf_inworld::Field::TYPE_BYTES: {
       status = WriteBytes(field.number(), data, stream_.get());
       break;
     }
-    case google::protobuf::Field::TYPE_STRING: {
+    case google::protobuf_inworld::Field::TYPE_STRING: {
       status = WriteString(field.number(), data, stream_.get());
       break;
     }
-    case google::protobuf::Field::TYPE_ENUM: {
+    case google::protobuf_inworld::Field::TYPE_ENUM: {
       status = WriteEnum(
           field.number(), data, typeinfo_->GetEnumByTypeUrl(field.type_url()),
           stream_.get(), use_lower_camel_for_enums_,
@@ -705,7 +705,7 @@ ProtoWriter* ProtoWriter::RenderPrimitiveField(
       element_.reset(new ProtoElement(element_.release(), &field, type, false));
     }
     InvalidValue(field.type_url().empty()
-                     ? google::protobuf::Field_Kind_Name(field.kind())
+                     ? google::protobuf_inworld::Field_Kind_Name(field.kind())
                      : field.type_url(),
                  status.message());
     element_.reset(element()->pop());
@@ -717,13 +717,13 @@ ProtoWriter* ProtoWriter::RenderPrimitiveField(
   return this;
 }
 
-const google::protobuf::Field* ProtoWriter::BeginNamed(StringPiece name,
+const google::protobuf_inworld::Field* ProtoWriter::BeginNamed(StringPiece name,
                                                        bool is_list) {
   if (invalid_depth_ > 0) {
     ++invalid_depth_;
     return nullptr;
   }
-  const google::protobuf::Field* field = Lookup(name);
+  const google::protobuf_inworld::Field* field = Lookup(name);
   if (field == nullptr) {
     ++invalid_depth_;
     // InvalidName() already called in Lookup().
@@ -737,7 +737,7 @@ const google::protobuf::Field* ProtoWriter::BeginNamed(StringPiece name,
   return field;
 }
 
-const google::protobuf::Field* ProtoWriter::Lookup(
+const google::protobuf_inworld::Field* ProtoWriter::Lookup(
     StringPiece unnormalized_name) {
   ProtoElement* e = element();
   if (e == nullptr) {
@@ -754,7 +754,7 @@ const google::protobuf::Field* ProtoWriter::Lookup(
     }
     return e->parent_field();
   }
-  const google::protobuf::Field* field =
+  const google::protobuf_inworld::Field* field =
       typeinfo_->FindField(&e->type(), unnormalized_name);
   if (field == nullptr && !ignore_unknown_fields_) {
     InvalidName(unnormalized_name, "Cannot find field.");
@@ -762,10 +762,10 @@ const google::protobuf::Field* ProtoWriter::Lookup(
   return field;
 }
 
-const google::protobuf::Type* ProtoWriter::LookupType(
-    const google::protobuf::Field* field) {
-  return ((field->kind() == google::protobuf::Field::TYPE_MESSAGE ||
-           field->kind() == google::protobuf::Field::TYPE_GROUP)
+const google::protobuf_inworld::Type* ProtoWriter::LookupType(
+    const google::protobuf_inworld::Field* field) {
+  return ((field->kind() == google::protobuf_inworld::Field::TYPE_MESSAGE ||
+           field->kind() == google::protobuf_inworld::Field::TYPE_GROUP)
               ? typeinfo_->GetTypeByTypeUrl(field->type_url())
               : &element_->type());
 }
@@ -815,7 +815,7 @@ void ProtoWriter::WriteRootMessage() {
   done_ = true;
 }
 
-void ProtoWriter::WriteTag(const google::protobuf::Field& field) {
+void ProtoWriter::WriteTag(const google::protobuf_inworld::Field& field) {
   WireFormatLite::WireType wire_type = WireFormatLite::WireTypeForFieldType(
       static_cast<WireFormatLite::FieldType>(field.kind()));
   stream_->WriteTag(WireFormatLite::MakeTag(field.number(), wire_type));
@@ -824,5 +824,5 @@ void ProtoWriter::WriteTag(const google::protobuf::Field& field) {
 
 }  // namespace converter
 }  // namespace util
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

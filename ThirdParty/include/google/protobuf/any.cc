@@ -38,7 +38,7 @@
 #include <google/protobuf/port_def.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace internal {
 
 void AnyMetadata::PackFrom(const Message& message) {
@@ -78,5 +78,5 @@ bool GetAnyFieldDescriptors(const Message& message,
 }
 
 }  // namespace internal
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

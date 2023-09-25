@@ -48,7 +48,7 @@
 #include <google/protobuf/port_def.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace internal {
 
 // Basic operations that can be performed using reflection.
@@ -83,7 +83,7 @@ class PROTOBUF_EXPORT ReflectionOps {
 };
 
 }  // namespace internal
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #include <google/protobuf/port_undef.inc>

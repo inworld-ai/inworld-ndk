@@ -74,7 +74,7 @@ const int kFieldGetter = 2;
 const int kFieldProperty = 3;
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace php {
 
@@ -2278,5 +2278,5 @@ bool Generator::GenerateAll(const std::vector<const FileDescriptor*>& files,
 
 }  // namespace php
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

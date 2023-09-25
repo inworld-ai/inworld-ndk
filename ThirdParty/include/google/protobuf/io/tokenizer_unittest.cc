@@ -48,7 +48,7 @@
 #include <gtest/gtest.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace io {
 namespace {
 
@@ -958,5 +958,5 @@ TEST_1D(TokenizerTest, BackUpOnDestruction, kBlockSizes) {
 
 }  // namespace
 }  // namespace io
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

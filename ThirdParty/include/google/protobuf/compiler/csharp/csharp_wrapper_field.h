@@ -37,7 +37,7 @@
 #include <google/protobuf/compiler/csharp/csharp_field_base.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace csharp {
 
@@ -93,7 +93,7 @@ class WrapperOneofFieldGenerator : public WrapperFieldGenerator {
 
 }  // namespace csharp
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_CSHARP_WRAPPER_FIELD_H__

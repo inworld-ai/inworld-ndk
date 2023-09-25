@@ -1442,7 +1442,7 @@ class OperationInfo PROTOBUF_FINAL :
 // ===================================================================
 
 static const int kOperationInfoFieldNumber = 1049;
-extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::MethodOptions,
+extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf_inworld::MethodOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::MessageTypeTraits< ::google::longrunning::OperationInfo >, 11, false >
   operation_info;
 

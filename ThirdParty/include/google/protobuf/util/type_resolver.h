@@ -42,7 +42,7 @@
 #include <google/protobuf/port_def.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 class DescriptorPool;
 namespace util {
 
@@ -56,18 +56,18 @@ class PROTOBUF_EXPORT TypeResolver {
 
   // Resolves a type url for a message type.
   virtual util::Status ResolveMessageType(
-      const std::string& type_url, google::protobuf::Type* message_type) = 0;
+      const std::string& type_url, google::protobuf_inworld::Type* message_type) = 0;
 
   // Resolves a type url for an enum type.
   virtual util::Status ResolveEnumType(const std::string& type_url,
-                                         google::protobuf::Enum* enum_type) = 0;
+                                         google::protobuf_inworld::Enum* enum_type) = 0;
 
  private:
   GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(TypeResolver);
 };
 
 }  // namespace util
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #include <google/protobuf/port_undef.inc>

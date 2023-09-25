@@ -850,13 +850,13 @@ void ResourceReference::InternalSwap(ResourceReference* other) {
   return GetMetadataStatic();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::FieldOptions,
+::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf_inworld::FieldOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::MessageTypeTraits< ::google::api::ResourceReference >, 11, false >
   resource_reference(kResourceReferenceFieldNumber, ::google::api::ResourceReference::default_instance());
-::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::FileOptions,
+::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf_inworld::FileOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::RepeatedMessageTypeTraits< ::google::api::ResourceDescriptor >, 11, false >
   resource_definition(kResourceDefinitionFieldNumber, ::google::api::ResourceDescriptor::default_instance());
-::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::MessageOptions,
+::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf_inworld::MessageOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::MessageTypeTraits< ::google::api::ResourceDescriptor >, 11, false >
   resource(kResourceFieldNumber, ::google::api::ResourceDescriptor::default_instance());
 

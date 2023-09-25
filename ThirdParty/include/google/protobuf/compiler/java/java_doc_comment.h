@@ -40,15 +40,15 @@
 #include <google/protobuf/port_def.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace io {
 class Printer;  // printer.h
 }
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace java {
 
@@ -93,7 +93,7 @@ PROTOC_EXPORT std::string EscapeJavadoc(const std::string& input);
 
 }  // namespace java
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #include <google/protobuf/port_undef.inc>

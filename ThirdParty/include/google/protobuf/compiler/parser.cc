@@ -54,7 +54,7 @@
 #include <google/protobuf/stubs/hash.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 
 using internal::WireFormat;
@@ -2430,5 +2430,5 @@ void SourceLocationTable::AddImport(const Message* descriptor,
 void SourceLocationTable::Clear() { location_map_.clear(); }
 
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

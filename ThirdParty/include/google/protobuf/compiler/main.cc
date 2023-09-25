@@ -41,7 +41,7 @@
 #include <google/protobuf/port_def.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 
 int ProtobufMain(int argc, char* argv[]) {
@@ -100,7 +100,7 @@ int ProtobufMain(int argc, char* argv[]) {
 }
 
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 int main(int argc, char* argv[]) {

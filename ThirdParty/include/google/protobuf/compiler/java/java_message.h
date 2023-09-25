@@ -40,7 +40,7 @@
 #include <google/protobuf/compiler/java/java_field.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace java {
 class Context;            // context.h
@@ -50,11 +50,11 @@ class ClassNameResolver;  // name_resolver.h
 namespace io {
 class Printer;  // printer.h
 }
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace java {
 
@@ -139,7 +139,7 @@ class ImmutableMessageGenerator : public MessageGenerator {
 
 }  // namespace java
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_JAVA_MESSAGE_H__

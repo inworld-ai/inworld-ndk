@@ -43,7 +43,7 @@
 #include <google/protobuf/compiler/csharp/csharp_options.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace csharp {
 
@@ -95,5 +95,5 @@ void EnumGenerator::Generate(io::Printer* printer) {
 
 }  // namespace csharp
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

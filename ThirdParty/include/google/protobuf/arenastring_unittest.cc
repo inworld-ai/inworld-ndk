@@ -49,7 +49,7 @@
 #include <google/protobuf/port_def.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 
 using internal::ArenaStringPtr;
 
@@ -171,5 +171,5 @@ TEST(ArenaStringPtrTest, ArenaStringPtrOnArenaNoSSO) {
 }
 
 
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

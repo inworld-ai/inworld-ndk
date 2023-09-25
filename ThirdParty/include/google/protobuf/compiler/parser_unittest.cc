@@ -54,7 +54,7 @@
 #include <google/protobuf/stubs/map_util.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 
 namespace {
@@ -2279,7 +2279,7 @@ TEST_F(ParseDescriptorDebugTest, TestCustomOptions) {
   ASSERT_TRUE(pool_.BuildFile(import_proto) != NULL);
 
   FileDescriptorProto any_import;
-  google::protobuf::Any::descriptor()->file()->CopyTo(&any_import);
+  google::protobuf_inworld::Any::descriptor()->file()->CopyTo(&any_import);
   ASSERT_TRUE(pool_.BuildFile(any_import) != nullptr);
 
   const FileDescriptor* actual = pool_.BuildFile(parsed);
@@ -3640,5 +3640,5 @@ TEST_F(SourceInfoTest, DocCommentsOneof) {
 }  // anonymous namespace
 
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

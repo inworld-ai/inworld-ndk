@@ -35,7 +35,7 @@
 #include <gtest/gtest.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace {
 TEST(Status, Empty) {
   util::Status status;
@@ -134,5 +134,5 @@ TEST(Status, EqualsDifferentMessage) {
   ASSERT_NE(a, b);
 }
 }  // namespace
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

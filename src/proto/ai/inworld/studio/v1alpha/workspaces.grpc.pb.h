@@ -74,12 +74,12 @@ class Workspaces final {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Workspace>>(PrepareAsyncCreateWorkspaceRaw(context, request, cq));
     }
     // Deletes a workspace.
-    virtual ::grpc::Status DeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest& request, ::google::protobuf::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncDeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncDeleteWorkspaceRaw(context, request, cq));
+    virtual ::grpc::Status DeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest& request, ::google::protobuf_inworld::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> AsyncDeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(AsyncDeleteWorkspaceRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncDeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncDeleteWorkspaceRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> PrepareAsyncDeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(PrepareAsyncDeleteWorkspaceRaw(context, request, cq));
     }
     // Clone workspace in same account
     virtual ::grpc::Status CloneWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest& request, ::ai::inworld::studio::v1alpha::Workspace* response) = 0;
@@ -90,12 +90,12 @@ class Workspaces final {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Workspace>>(PrepareAsyncCloneWorkspaceRaw(context, request, cq));
     }
     // RPC to share the workspace
-    virtual ::grpc::Status ShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest& request, ::google::protobuf::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncShareWorkspaceRaw(context, request, cq));
+    virtual ::grpc::Status ShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest& request, ::google::protobuf_inworld::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> AsyncShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(AsyncShareWorkspaceRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncShareWorkspaceRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> PrepareAsyncShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(PrepareAsyncShareWorkspaceRaw(context, request, cq));
     }
     // RPC to generate unique resource name from display name for the given
     // workspace resource.
@@ -123,12 +123,12 @@ class Workspaces final {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo>>(PrepareAsyncGetWorkspaceLimitInfoRaw(context, request, cq));
     }
     // RPC to publish impression event for workspace
-    virtual ::grpc::Status SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::google::protobuf::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncSendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncSendImpressionEventRaw(context, request, cq));
+    virtual ::grpc::Status SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::google::protobuf_inworld::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> AsyncSendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(AsyncSendImpressionEventRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncSendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncSendImpressionEventRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> PrepareAsyncSendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(PrepareAsyncSendImpressionEventRaw(context, request, cq));
     }
     class experimental_async_interface {
      public:
@@ -162,11 +162,11 @@ class Workspaces final {
       virtual void CreateWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
       // Deletes a workspace.
-      virtual void DeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void DeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void DeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void DeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void DeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void DeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
       // Clone workspace in same account
       virtual void CloneWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, std::function<void(::grpc::Status)>) = 0;
@@ -176,11 +176,11 @@ class Workspaces final {
       virtual void CloneWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
       // RPC to share the workspace
-      virtual void ShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void ShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void ShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void ShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void ShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void ShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
       // RPC to generate unique resource name from display name for the given
       // workspace resource.
@@ -205,11 +205,11 @@ class Workspaces final {
       virtual void GetWorkspaceLimitInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
       // RPC to publish impression event for workspace
-      virtual void SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
     };
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -228,20 +228,20 @@ class Workspaces final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Workspace>* PrepareAsyncUpdateWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Workspace>* AsyncCreateWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Workspace>* PrepareAsyncCreateWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncDeleteWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncDeleteWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* AsyncDeleteWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* PrepareAsyncDeleteWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Workspace>* AsyncCloneWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Workspace>* PrepareAsyncCloneWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncShareWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncShareWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* AsyncShareWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* PrepareAsyncShareWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse>* AsyncgenerateResourceNameRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse>* PrepareAsyncgenerateResourceNameRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::WorkspaceShareInfo>* AsyncGetWorkspaceShareInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::WorkspaceShareInfo>* PrepareAsyncGetWorkspaceShareInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo>* AsyncGetWorkspaceLimitInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo>* PrepareAsyncGetWorkspaceLimitInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncSendImpressionEventRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncSendImpressionEventRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* AsyncSendImpressionEventRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* PrepareAsyncSendImpressionEventRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -274,12 +274,12 @@ class Workspaces final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Workspace>> PrepareAsyncCreateWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Workspace>>(PrepareAsyncCreateWorkspaceRaw(context, request, cq));
     }
-    ::grpc::Status DeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest& request, ::google::protobuf::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncDeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncDeleteWorkspaceRaw(context, request, cq));
+    ::grpc::Status DeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest& request, ::google::protobuf_inworld::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> AsyncDeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(AsyncDeleteWorkspaceRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncDeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncDeleteWorkspaceRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> PrepareAsyncDeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(PrepareAsyncDeleteWorkspaceRaw(context, request, cq));
     }
     ::grpc::Status CloneWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest& request, ::ai::inworld::studio::v1alpha::Workspace* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Workspace>> AsyncCloneWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
@@ -288,12 +288,12 @@ class Workspaces final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Workspace>> PrepareAsyncCloneWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Workspace>>(PrepareAsyncCloneWorkspaceRaw(context, request, cq));
     }
-    ::grpc::Status ShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest& request, ::google::protobuf::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncShareWorkspaceRaw(context, request, cq));
+    ::grpc::Status ShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest& request, ::google::protobuf_inworld::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> AsyncShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(AsyncShareWorkspaceRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncShareWorkspaceRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> PrepareAsyncShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(PrepareAsyncShareWorkspaceRaw(context, request, cq));
     }
     ::grpc::Status generateResourceName(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest& request, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse>> AsyncgenerateResourceName(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest& request, ::grpc::CompletionQueue* cq) {
@@ -316,12 +316,12 @@ class Workspaces final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo>> PrepareAsyncGetWorkspaceLimitInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo>>(PrepareAsyncGetWorkspaceLimitInfoRaw(context, request, cq));
     }
-    ::grpc::Status SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::google::protobuf::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncSendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncSendImpressionEventRaw(context, request, cq));
+    ::grpc::Status SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::google::protobuf_inworld::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> AsyncSendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(AsyncSendImpressionEventRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncSendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncSendImpressionEventRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> PrepareAsyncSendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(PrepareAsyncSendImpressionEventRaw(context, request, cq));
     }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
@@ -350,11 +350,11 @@ class Workspaces final {
       #else
       void CreateWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
-      void DeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
+      void DeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void DeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void DeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void DeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void DeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
       void CloneWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -362,11 +362,11 @@ class Workspaces final {
       #else
       void CloneWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
-      void ShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
+      void ShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void ShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void ShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void ShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void ShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
       void generateResourceName(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest* request, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -386,11 +386,11 @@ class Workspaces final {
       #else
       void GetWorkspaceLimitInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
-      void SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
+      void SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
      private:
       friend class Stub;
@@ -411,20 +411,20 @@ class Workspaces final {
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Workspace>* PrepareAsyncUpdateWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Workspace>* AsyncCreateWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Workspace>* PrepareAsyncCreateWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncDeleteWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncDeleteWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* AsyncDeleteWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* PrepareAsyncDeleteWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Workspace>* AsyncCloneWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Workspace>* PrepareAsyncCloneWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncShareWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncShareWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* AsyncShareWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* PrepareAsyncShareWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse>* AsyncgenerateResourceNameRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse>* PrepareAsyncgenerateResourceNameRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::WorkspaceShareInfo>* AsyncGetWorkspaceShareInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::WorkspaceShareInfo>* PrepareAsyncGetWorkspaceShareInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo>* AsyncGetWorkspaceLimitInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo>* PrepareAsyncGetWorkspaceLimitInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncSendImpressionEventRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncSendImpressionEventRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* AsyncSendImpressionEventRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* PrepareAsyncSendImpressionEventRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_GetWorkspace_;
     const ::grpc::internal::RpcMethod rpcmethod_ListWorkspaces_;
     const ::grpc::internal::RpcMethod rpcmethod_UpdateWorkspace_;
@@ -452,11 +452,11 @@ class Workspaces final {
     // Creates a workspace.
     virtual ::grpc::Status CreateWorkspace(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response);
     // Deletes a workspace.
-    virtual ::grpc::Status DeleteWorkspace(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf::Empty* response);
+    virtual ::grpc::Status DeleteWorkspace(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response);
     // Clone workspace in same account
     virtual ::grpc::Status CloneWorkspace(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response);
     // RPC to share the workspace
-    virtual ::grpc::Status ShareWorkspace(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::google::protobuf::Empty* response);
+    virtual ::grpc::Status ShareWorkspace(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response);
     // RPC to generate unique resource name from display name for the given
     // workspace resource.
     virtual ::grpc::Status generateResourceName(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest* request, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse* response);
@@ -465,7 +465,7 @@ class Workspaces final {
     // RPC to get actual limit info on the workspace.
     virtual ::grpc::Status GetWorkspaceLimitInfo(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* response);
     // RPC to publish impression event for workspace
-    virtual ::grpc::Status SendImpressionEvent(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf::Empty* response);
+    virtual ::grpc::Status SendImpressionEvent(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf_inworld::Empty* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_GetWorkspace : public BaseClass {
@@ -559,11 +559,11 @@ class Workspaces final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteWorkspace(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeleteWorkspace(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestDeleteWorkspace(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestDeleteWorkspace(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf_inworld::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -599,11 +599,11 @@ class Workspaces final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ShareWorkspace(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status ShareWorkspace(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestShareWorkspace(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestShareWorkspace(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf_inworld::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -679,11 +679,11 @@ class Workspaces final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendImpressionEvent(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status SendImpressionEvent(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestSendImpressionEvent(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestSendImpressionEvent(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf_inworld::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -888,38 +888,38 @@ class Workspaces final {
       ::grpc::Service::experimental().
     #endif
         MarkMethodCallback(4,
-          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest, ::google::protobuf::Empty>(
+          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest, ::google::protobuf_inworld::Empty>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
                    ::grpc::CallbackServerContext*
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf::Empty* response) { return this->DeleteWorkspace(context, request, response); }));}
+                     context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response) { return this->DeleteWorkspace(context, request, response); }));}
     void SetMessageAllocatorFor_DeleteWorkspace(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest, ::google::protobuf::Empty>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest, ::google::protobuf_inworld::Empty>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
     #else
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(4);
     #endif
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest, ::google::protobuf::Empty>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest, ::google::protobuf_inworld::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_DeleteWorkspace() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteWorkspace(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeleteWorkspace(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* DeleteWorkspace(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* /*request*/, ::google::protobuf::Empty* /*response*/)
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
     #else
     virtual ::grpc::experimental::ServerUnaryReactor* DeleteWorkspace(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* /*request*/, ::google::protobuf::Empty* /*response*/)
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
     #endif
       { return nullptr; }
   };
@@ -982,38 +982,38 @@ class Workspaces final {
       ::grpc::Service::experimental().
     #endif
         MarkMethodCallback(6,
-          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest, ::google::protobuf::Empty>(
+          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest, ::google::protobuf_inworld::Empty>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
                    ::grpc::CallbackServerContext*
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::google::protobuf::Empty* response) { return this->ShareWorkspace(context, request, response); }));}
+                     context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response) { return this->ShareWorkspace(context, request, response); }));}
     void SetMessageAllocatorFor_ShareWorkspace(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest, ::google::protobuf::Empty>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest, ::google::protobuf_inworld::Empty>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
     #else
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(6);
     #endif
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest, ::google::protobuf::Empty>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest, ::google::protobuf_inworld::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_ShareWorkspace() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ShareWorkspace(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status ShareWorkspace(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* ShareWorkspace(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* /*request*/, ::google::protobuf::Empty* /*response*/)
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
     #else
     virtual ::grpc::experimental::ServerUnaryReactor* ShareWorkspace(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* /*request*/, ::google::protobuf::Empty* /*response*/)
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
     #endif
       { return nullptr; }
   };
@@ -1170,38 +1170,38 @@ class Workspaces final {
       ::grpc::Service::experimental().
     #endif
         MarkMethodCallback(10,
-          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf::Empty>(
+          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf_inworld::Empty>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
                    ::grpc::CallbackServerContext*
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf::Empty* response) { return this->SendImpressionEvent(context, request, response); }));}
+                     context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf_inworld::Empty* response) { return this->SendImpressionEvent(context, request, response); }));}
     void SetMessageAllocatorFor_SendImpressionEvent(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf::Empty>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf_inworld::Empty>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(10);
     #else
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(10);
     #endif
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf::Empty>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf_inworld::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_SendImpressionEvent() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendImpressionEvent(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status SendImpressionEvent(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* SendImpressionEvent(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* /*request*/, ::google::protobuf::Empty* /*response*/)
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
     #else
     virtual ::grpc::experimental::ServerUnaryReactor* SendImpressionEvent(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* /*request*/, ::google::protobuf::Empty* /*response*/)
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
     #endif
       { return nullptr; }
   };
@@ -1290,7 +1290,7 @@ class Workspaces final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteWorkspace(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeleteWorkspace(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1324,7 +1324,7 @@ class Workspaces final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ShareWorkspace(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status ShareWorkspace(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1392,7 +1392,7 @@ class Workspaces final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendImpressionEvent(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status SendImpressionEvent(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1489,7 +1489,7 @@ class Workspaces final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteWorkspace(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeleteWorkspace(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1529,7 +1529,7 @@ class Workspaces final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ShareWorkspace(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status ShareWorkspace(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1609,7 +1609,7 @@ class Workspaces final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendImpressionEvent(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status SendImpressionEvent(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1794,7 +1794,7 @@ class Workspaces final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteWorkspace(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeleteWorkspace(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1870,7 +1870,7 @@ class Workspaces final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ShareWorkspace(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status ShareWorkspace(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2022,7 +2022,7 @@ class Workspaces final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendImpressionEvent(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status SendImpressionEvent(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2151,10 +2151,10 @@ class Workspaces final {
     WithStreamedUnaryMethod_DeleteWorkspace() {
       ::grpc::Service::MarkMethodStreamed(4,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest, ::google::protobuf::Empty>(
+          ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest, ::google::protobuf_inworld::Empty>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest, ::google::protobuf::Empty>* streamer) {
+                     ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest, ::google::protobuf_inworld::Empty>* streamer) {
                        return this->StreamedDeleteWorkspace(context,
                          streamer);
                   }));
@@ -2163,12 +2163,12 @@ class Workspaces final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status DeleteWorkspace(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeleteWorkspace(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedDeleteWorkspace(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest,::google::protobuf::Empty>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedDeleteWorkspace(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest,::google::protobuf_inworld::Empty>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_CloneWorkspace : public BaseClass {
@@ -2205,10 +2205,10 @@ class Workspaces final {
     WithStreamedUnaryMethod_ShareWorkspace() {
       ::grpc::Service::MarkMethodStreamed(6,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest, ::google::protobuf::Empty>(
+          ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest, ::google::protobuf_inworld::Empty>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest, ::google::protobuf::Empty>* streamer) {
+                     ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest, ::google::protobuf_inworld::Empty>* streamer) {
                        return this->StreamedShareWorkspace(context,
                          streamer);
                   }));
@@ -2217,12 +2217,12 @@ class Workspaces final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status ShareWorkspace(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status ShareWorkspace(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedShareWorkspace(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest,::google::protobuf::Empty>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedShareWorkspace(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest,::google::protobuf_inworld::Empty>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_generateResourceName : public BaseClass {
@@ -2313,10 +2313,10 @@ class Workspaces final {
     WithStreamedUnaryMethod_SendImpressionEvent() {
       ::grpc::Service::MarkMethodStreamed(10,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf::Empty>(
+          ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf_inworld::Empty>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf::Empty>* streamer) {
+                     ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf_inworld::Empty>* streamer) {
                        return this->StreamedSendImpressionEvent(context,
                          streamer);
                   }));
@@ -2325,12 +2325,12 @@ class Workspaces final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status SendImpressionEvent(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status SendImpressionEvent(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedSendImpressionEvent(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::ImpressionEventRequest,::google::protobuf::Empty>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedSendImpressionEvent(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::ImpressionEventRequest,::google::protobuf_inworld::Empty>* server_unary_streamer) = 0;
   };
   typedef WithStreamedUnaryMethod_GetWorkspace<WithStreamedUnaryMethod_ListWorkspaces<WithStreamedUnaryMethod_UpdateWorkspace<WithStreamedUnaryMethod_CreateWorkspace<WithStreamedUnaryMethod_DeleteWorkspace<WithStreamedUnaryMethod_CloneWorkspace<WithStreamedUnaryMethod_ShareWorkspace<WithStreamedUnaryMethod_generateResourceName<WithStreamedUnaryMethod_GetWorkspaceShareInfo<WithStreamedUnaryMethod_GetWorkspaceLimitInfo<WithStreamedUnaryMethod_SendImpressionEvent<Service > > > > > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;

@@ -51,7 +51,7 @@
 #define GOOGLE_PROTOBUF_TEMPLATE_UTIL_H_
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace internal {
 
 // Types small_ and big_ are guaranteed such that sizeof(small_) <
@@ -132,7 +132,7 @@ struct or_ : public integral_constant<bool, (A::value || B::value)> {
 
 
 }  // namespace internal
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_TEMPLATE_UTIL_H_

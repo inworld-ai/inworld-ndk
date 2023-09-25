@@ -56,7 +56,7 @@
 
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace java {
 
@@ -289,5 +289,5 @@ void PrintExtraFieldInfo(const std::map<std::string, std::string>& variables,
 
 }  // namespace java
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

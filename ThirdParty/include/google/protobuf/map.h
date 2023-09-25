@@ -63,7 +63,7 @@
 #include <google/protobuf/port_def.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 
 template <typename Key, typename T>
 class Map;
@@ -1354,7 +1354,7 @@ class Map {
   friend class internal::MapFieldLite;
 };
 
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #include <google/protobuf/port_undef.inc>
