@@ -40,7 +40,7 @@
 #include <google/protobuf/testing/file.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace csharp {
 namespace {
@@ -66,5 +66,5 @@ TEST(CSharpEnumValue, PascalCasedPrefixStripping) {
 }  // namespace
 }  // namespace csharp
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

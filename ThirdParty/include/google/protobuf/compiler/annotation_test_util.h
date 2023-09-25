@@ -38,7 +38,7 @@
 // Utilities that assist in writing tests for generator annotations.
 // See java/internal/annotation_unittest.cc for an example.
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace annotation_test_util {
 
@@ -109,7 +109,7 @@ bool AnnotationMatchesSubstring(const std::string& file_content,
 
 }  // namespace annotation_test_util
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_ANNOTATION_TEST_UTIL_H__

@@ -52,7 +52,7 @@
 #include <google/protobuf/port_def.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace io {
 
 // A ZeroCopyInputStream that reads compressed data through zlib
@@ -194,7 +194,7 @@ class PROTOBUF_EXPORT GzipOutputStream : public ZeroCopyOutputStream {
 };
 
 }  // namespace io
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #include <google/protobuf/port_undef.inc>

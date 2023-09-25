@@ -55,15 +55,15 @@ static bool dynamic_init_dummy_google_2fapi_2fclient_2eproto = (static_cast<void
 namespace google {
 namespace api {
 const std::string method_signature_default("");
-::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::MethodOptions,
+::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf_inworld::MethodOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::RepeatedStringTypeTraits, 9, false >
   method_signature(kMethodSignatureFieldNumber, method_signature_default);
 const std::string default_host_default("");
-::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::ServiceOptions,
+::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf_inworld::ServiceOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::StringTypeTraits, 9, false >
   default_host(kDefaultHostFieldNumber, default_host_default);
 const std::string oauth_scopes_default("");
-::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::ServiceOptions,
+::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf_inworld::ServiceOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::StringTypeTraits, 9, false >
   oauth_scopes(kOauthScopesFieldNumber, oauth_scopes_default);
 

@@ -62,15 +62,15 @@ using type_info = ::type_info;
 #endif
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 
 struct ArenaOptions;  // defined below
 
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 
 class Arena;    // defined below
 class Message;  // defined in message.h
@@ -686,7 +686,7 @@ class PROTOBUF_EXPORT PROTOBUF_ALIGNAS(8) Arena final {
 // Defined above for supporting environments without RTTI.
 #undef RTTI_TYPE_ID
 
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #include <google/protobuf/port_undef.inc>

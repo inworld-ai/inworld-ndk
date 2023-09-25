@@ -51,7 +51,7 @@
 #include <google/protobuf/descriptor.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace js {
 
@@ -3964,5 +3964,5 @@ bool Generator::GenerateAll(const std::vector<const FileDescriptor*>& files,
 
 }  // namespace js
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

@@ -31,11 +31,11 @@
 #include <google/protobuf/map.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace internal {
 
 void* const kGlobalEmptyTable[kGlobalEmptyTableSize] = {nullptr};
 
 }  // namespace internal
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

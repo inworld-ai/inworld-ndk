@@ -41,7 +41,7 @@
 #include <google/protobuf/testing/file.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace ruby {
 namespace {
@@ -60,7 +60,7 @@ std::string FindRubyTestDir() {
 void RubyTest(string proto_file) {
   std::string ruby_tests = FindRubyTestDir();
 
-  google::protobuf::compiler::CommandLineInterface cli;
+  google::protobuf_inworld::compiler::CommandLineInterface cli;
   cli.SetInputsAreProtoPathRelative(true);
 
   ruby::Generator ruby_generator;
@@ -127,5 +127,5 @@ TEST(RubyGeneratorTest, Proto3ExplictLegacyPackageTest) {
 }  // namespace
 }  // namespace ruby
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

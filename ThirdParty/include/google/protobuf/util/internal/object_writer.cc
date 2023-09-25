@@ -33,7 +33,7 @@
 #include <google/protobuf/util/internal/datapiece.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace util {
 namespace converter {
 
@@ -89,5 +89,5 @@ void ObjectWriter::RenderDataPieceTo(const DataPiece& data,
 
 }  // namespace converter
 }  // namespace util
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

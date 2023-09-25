@@ -40,7 +40,7 @@
 #include <gtest/gtest.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace {
 TEST(StringPiece, Ctor) {
   {
@@ -792,5 +792,5 @@ TEST(NonNegativeLenTest, NonNegativeLen) {
 #endif  // PROTOBUF_HAS_DEATH_TEST
 
 }  // namespace
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

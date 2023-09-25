@@ -99,7 +99,7 @@
 #include <google/protobuf/stubs/stl_util.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace io {
 namespace {
 
@@ -1129,5 +1129,5 @@ bool Tokenizer::IsIdentifier(const std::string& text) {
 }
 
 }  // namespace io
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

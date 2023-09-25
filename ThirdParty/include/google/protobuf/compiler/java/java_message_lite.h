@@ -41,7 +41,7 @@
 #include <google/protobuf/compiler/java/java_message.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace java {
 
@@ -76,7 +76,7 @@ class ImmutableMessageLiteGenerator : public MessageGenerator {
 
 }  // namespace java
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_JAVA_MESSAGE_LITE_H__

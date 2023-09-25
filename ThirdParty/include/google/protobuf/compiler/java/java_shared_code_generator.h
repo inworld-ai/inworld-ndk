@@ -43,7 +43,7 @@
 #include <google/protobuf/compiler/java/java_options.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 class FileDescriptor;  // descriptor.h
 namespace compiler {
 class GeneratorContext;  // code_generator.h
@@ -54,11 +54,11 @@ class ClassNameResolver;  // name_resolver.h
 namespace io {
 class Printer;  // printer.h
 }
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace java {
 
@@ -84,7 +84,7 @@ class SharedCodeGenerator {
 
 }  // namespace java
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_JAVA_SHARED_CODE_GENERATOR_H__

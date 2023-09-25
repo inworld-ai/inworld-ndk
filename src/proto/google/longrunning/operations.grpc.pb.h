@@ -92,12 +92,12 @@ class Operations final {
     // no longer interested in the operation result. It does not cancel the
     // operation. If the server doesn't support this method, it returns
     // `google.rpc.Code.UNIMPLEMENTED`.
-    virtual ::grpc::Status DeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest& request, ::google::protobuf::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncDeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncDeleteOperationRaw(context, request, cq));
+    virtual ::grpc::Status DeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest& request, ::google::protobuf_inworld::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> AsyncDeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(AsyncDeleteOperationRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncDeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncDeleteOperationRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> PrepareAsyncDeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(PrepareAsyncDeleteOperationRaw(context, request, cq));
     }
     // Starts asynchronous cancellation on a long-running operation.  The server
     // makes a best effort to cancel the operation, but success is not
@@ -109,12 +109,12 @@ class Operations final {
     // the operation is not deleted; instead, it becomes an operation with
     // an [Operation.error][google.longrunning.Operation.error] value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
     // corresponding to `Code.CANCELLED`.
-    virtual ::grpc::Status CancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest& request, ::google::protobuf::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncCancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncCancelOperationRaw(context, request, cq));
+    virtual ::grpc::Status CancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest& request, ::google::protobuf_inworld::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> AsyncCancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(AsyncCancelOperationRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncCancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncCancelOperationRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> PrepareAsyncCancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(PrepareAsyncCancelOperationRaw(context, request, cq));
     }
     // Waits for the specified long-running operation until it is done or reaches
     // at most a specified timeout, returning the latest state.  If the operation
@@ -164,11 +164,11 @@ class Operations final {
       // no longer interested in the operation result. It does not cancel the
       // operation. If the server doesn't support this method, it returns
       // `google.rpc.Code.UNIMPLEMENTED`.
-      virtual void DeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void DeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void DeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void DeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void DeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void DeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
       // Starts asynchronous cancellation on a long-running operation.  The server
       // makes a best effort to cancel the operation, but success is not
@@ -180,11 +180,11 @@ class Operations final {
       // the operation is not deleted; instead, it becomes an operation with
       // an [Operation.error][google.longrunning.Operation.error] value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
       // corresponding to `Code.CANCELLED`.
-      virtual void CancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void CancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void CancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void CancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void CancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void CancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
       // Waits for the specified long-running operation until it is done or reaches
       // at most a specified timeout, returning the latest state.  If the operation
@@ -214,10 +214,10 @@ class Operations final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::ListOperationsResponse>* PrepareAsyncListOperationsRaw(::grpc::ClientContext* context, const ::google::longrunning::ListOperationsRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>* AsyncGetOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::GetOperationRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>* PrepareAsyncGetOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::GetOperationRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncDeleteOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncDeleteOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncCancelOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncCancelOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* AsyncDeleteOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* PrepareAsyncDeleteOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* AsyncCancelOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* PrepareAsyncCancelOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>* AsyncWaitOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::WaitOperationRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>* PrepareAsyncWaitOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::WaitOperationRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
@@ -238,19 +238,19 @@ class Operations final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>> PrepareAsyncGetOperation(::grpc::ClientContext* context, const ::google::longrunning::GetOperationRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>>(PrepareAsyncGetOperationRaw(context, request, cq));
     }
-    ::grpc::Status DeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest& request, ::google::protobuf::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncDeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncDeleteOperationRaw(context, request, cq));
+    ::grpc::Status DeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest& request, ::google::protobuf_inworld::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> AsyncDeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(AsyncDeleteOperationRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncDeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncDeleteOperationRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> PrepareAsyncDeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(PrepareAsyncDeleteOperationRaw(context, request, cq));
     }
-    ::grpc::Status CancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest& request, ::google::protobuf::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncCancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncCancelOperationRaw(context, request, cq));
+    ::grpc::Status CancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest& request, ::google::protobuf_inworld::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> AsyncCancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(AsyncCancelOperationRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncCancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncCancelOperationRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> PrepareAsyncCancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(PrepareAsyncCancelOperationRaw(context, request, cq));
     }
     ::grpc::Status WaitOperation(::grpc::ClientContext* context, const ::google::longrunning::WaitOperationRequest& request, ::google::longrunning::Operation* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>> AsyncWaitOperation(::grpc::ClientContext* context, const ::google::longrunning::WaitOperationRequest& request, ::grpc::CompletionQueue* cq) {
@@ -274,17 +274,17 @@ class Operations final {
       #else
       void GetOperation(::grpc::ClientContext* context, const ::google::longrunning::GetOperationRequest* request, ::google::longrunning::Operation* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
-      void DeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
+      void DeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void DeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void DeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void DeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void DeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
-      void CancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
+      void CancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void CancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void CancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void CancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void CancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
       void WaitOperation(::grpc::ClientContext* context, const ::google::longrunning::WaitOperationRequest* request, ::google::longrunning::Operation* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -307,10 +307,10 @@ class Operations final {
     ::grpc::ClientAsyncResponseReader< ::google::longrunning::ListOperationsResponse>* PrepareAsyncListOperationsRaw(::grpc::ClientContext* context, const ::google::longrunning::ListOperationsRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>* AsyncGetOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::GetOperationRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>* PrepareAsyncGetOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::GetOperationRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncDeleteOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncDeleteOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncCancelOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncCancelOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* AsyncDeleteOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* PrepareAsyncDeleteOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* AsyncCancelOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* PrepareAsyncCancelOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>* AsyncWaitOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::WaitOperationRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>* PrepareAsyncWaitOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::WaitOperationRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_ListOperations_;
@@ -344,7 +344,7 @@ class Operations final {
     // no longer interested in the operation result. It does not cancel the
     // operation. If the server doesn't support this method, it returns
     // `google.rpc.Code.UNIMPLEMENTED`.
-    virtual ::grpc::Status DeleteOperation(::grpc::ServerContext* context, const ::google::longrunning::DeleteOperationRequest* request, ::google::protobuf::Empty* response);
+    virtual ::grpc::Status DeleteOperation(::grpc::ServerContext* context, const ::google::longrunning::DeleteOperationRequest* request, ::google::protobuf_inworld::Empty* response);
     // Starts asynchronous cancellation on a long-running operation.  The server
     // makes a best effort to cancel the operation, but success is not
     // guaranteed.  If the server doesn't support this method, it returns
@@ -355,7 +355,7 @@ class Operations final {
     // the operation is not deleted; instead, it becomes an operation with
     // an [Operation.error][google.longrunning.Operation.error] value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
     // corresponding to `Code.CANCELLED`.
-    virtual ::grpc::Status CancelOperation(::grpc::ServerContext* context, const ::google::longrunning::CancelOperationRequest* request, ::google::protobuf::Empty* response);
+    virtual ::grpc::Status CancelOperation(::grpc::ServerContext* context, const ::google::longrunning::CancelOperationRequest* request, ::google::protobuf_inworld::Empty* response);
     // Waits for the specified long-running operation until it is done or reaches
     // at most a specified timeout, returning the latest state.  If the operation
     // is already done, the latest state is immediately returned.  If the timeout
@@ -419,11 +419,11 @@ class Operations final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteOperation(::grpc::ServerContext* /*context*/, const ::google::longrunning::DeleteOperationRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeleteOperation(::grpc::ServerContext* /*context*/, const ::google::longrunning::DeleteOperationRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestDeleteOperation(::grpc::ServerContext* context, ::google::longrunning::DeleteOperationRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestDeleteOperation(::grpc::ServerContext* context, ::google::longrunning::DeleteOperationRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf_inworld::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -439,11 +439,11 @@ class Operations final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CancelOperation(::grpc::ServerContext* /*context*/, const ::google::longrunning::CancelOperationRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status CancelOperation(::grpc::ServerContext* /*context*/, const ::google::longrunning::CancelOperationRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestCancelOperation(::grpc::ServerContext* context, ::google::longrunning::CancelOperationRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestCancelOperation(::grpc::ServerContext* context, ::google::longrunning::CancelOperationRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf_inworld::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -574,38 +574,38 @@ class Operations final {
       ::grpc::Service::experimental().
     #endif
         MarkMethodCallback(2,
-          new ::grpc::internal::CallbackUnaryHandler< ::google::longrunning::DeleteOperationRequest, ::google::protobuf::Empty>(
+          new ::grpc::internal::CallbackUnaryHandler< ::google::longrunning::DeleteOperationRequest, ::google::protobuf_inworld::Empty>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
                    ::grpc::CallbackServerContext*
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::google::longrunning::DeleteOperationRequest* request, ::google::protobuf::Empty* response) { return this->DeleteOperation(context, request, response); }));}
+                     context, const ::google::longrunning::DeleteOperationRequest* request, ::google::protobuf_inworld::Empty* response) { return this->DeleteOperation(context, request, response); }));}
     void SetMessageAllocatorFor_DeleteOperation(
-        ::grpc::experimental::MessageAllocator< ::google::longrunning::DeleteOperationRequest, ::google::protobuf::Empty>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::google::longrunning::DeleteOperationRequest, ::google::protobuf_inworld::Empty>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
     #else
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(2);
     #endif
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::google::longrunning::DeleteOperationRequest, ::google::protobuf::Empty>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::google::longrunning::DeleteOperationRequest, ::google::protobuf_inworld::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_DeleteOperation() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteOperation(::grpc::ServerContext* /*context*/, const ::google::longrunning::DeleteOperationRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeleteOperation(::grpc::ServerContext* /*context*/, const ::google::longrunning::DeleteOperationRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* DeleteOperation(
-      ::grpc::CallbackServerContext* /*context*/, const ::google::longrunning::DeleteOperationRequest* /*request*/, ::google::protobuf::Empty* /*response*/)
+      ::grpc::CallbackServerContext* /*context*/, const ::google::longrunning::DeleteOperationRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
     #else
     virtual ::grpc::experimental::ServerUnaryReactor* DeleteOperation(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::google::longrunning::DeleteOperationRequest* /*request*/, ::google::protobuf::Empty* /*response*/)
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::google::longrunning::DeleteOperationRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
     #endif
       { return nullptr; }
   };
@@ -621,38 +621,38 @@ class Operations final {
       ::grpc::Service::experimental().
     #endif
         MarkMethodCallback(3,
-          new ::grpc::internal::CallbackUnaryHandler< ::google::longrunning::CancelOperationRequest, ::google::protobuf::Empty>(
+          new ::grpc::internal::CallbackUnaryHandler< ::google::longrunning::CancelOperationRequest, ::google::protobuf_inworld::Empty>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
                    ::grpc::CallbackServerContext*
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::google::longrunning::CancelOperationRequest* request, ::google::protobuf::Empty* response) { return this->CancelOperation(context, request, response); }));}
+                     context, const ::google::longrunning::CancelOperationRequest* request, ::google::protobuf_inworld::Empty* response) { return this->CancelOperation(context, request, response); }));}
     void SetMessageAllocatorFor_CancelOperation(
-        ::grpc::experimental::MessageAllocator< ::google::longrunning::CancelOperationRequest, ::google::protobuf::Empty>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::google::longrunning::CancelOperationRequest, ::google::protobuf_inworld::Empty>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
     #else
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(3);
     #endif
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::google::longrunning::CancelOperationRequest, ::google::protobuf::Empty>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::google::longrunning::CancelOperationRequest, ::google::protobuf_inworld::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_CancelOperation() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CancelOperation(::grpc::ServerContext* /*context*/, const ::google::longrunning::CancelOperationRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status CancelOperation(::grpc::ServerContext* /*context*/, const ::google::longrunning::CancelOperationRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* CancelOperation(
-      ::grpc::CallbackServerContext* /*context*/, const ::google::longrunning::CancelOperationRequest* /*request*/, ::google::protobuf::Empty* /*response*/)
+      ::grpc::CallbackServerContext* /*context*/, const ::google::longrunning::CancelOperationRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
     #else
     virtual ::grpc::experimental::ServerUnaryReactor* CancelOperation(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::google::longrunning::CancelOperationRequest* /*request*/, ::google::protobuf::Empty* /*response*/)
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::google::longrunning::CancelOperationRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
     #endif
       { return nullptr; }
   };
@@ -754,7 +754,7 @@ class Operations final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteOperation(::grpc::ServerContext* /*context*/, const ::google::longrunning::DeleteOperationRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeleteOperation(::grpc::ServerContext* /*context*/, const ::google::longrunning::DeleteOperationRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -771,7 +771,7 @@ class Operations final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CancelOperation(::grpc::ServerContext* /*context*/, const ::google::longrunning::CancelOperationRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status CancelOperation(::grpc::ServerContext* /*context*/, const ::google::longrunning::CancelOperationRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -845,7 +845,7 @@ class Operations final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteOperation(::grpc::ServerContext* /*context*/, const ::google::longrunning::DeleteOperationRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeleteOperation(::grpc::ServerContext* /*context*/, const ::google::longrunning::DeleteOperationRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -865,7 +865,7 @@ class Operations final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CancelOperation(::grpc::ServerContext* /*context*/, const ::google::longrunning::CancelOperationRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status CancelOperation(::grpc::ServerContext* /*context*/, const ::google::longrunning::CancelOperationRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -994,7 +994,7 @@ class Operations final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteOperation(::grpc::ServerContext* /*context*/, const ::google::longrunning::DeleteOperationRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeleteOperation(::grpc::ServerContext* /*context*/, const ::google::longrunning::DeleteOperationRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1032,7 +1032,7 @@ class Operations final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CancelOperation(::grpc::ServerContext* /*context*/, const ::google::longrunning::CancelOperationRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status CancelOperation(::grpc::ServerContext* /*context*/, const ::google::longrunning::CancelOperationRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1145,10 +1145,10 @@ class Operations final {
     WithStreamedUnaryMethod_DeleteOperation() {
       ::grpc::Service::MarkMethodStreamed(2,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::google::longrunning::DeleteOperationRequest, ::google::protobuf::Empty>(
+          ::google::longrunning::DeleteOperationRequest, ::google::protobuf_inworld::Empty>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::google::longrunning::DeleteOperationRequest, ::google::protobuf::Empty>* streamer) {
+                     ::google::longrunning::DeleteOperationRequest, ::google::protobuf_inworld::Empty>* streamer) {
                        return this->StreamedDeleteOperation(context,
                          streamer);
                   }));
@@ -1157,12 +1157,12 @@ class Operations final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status DeleteOperation(::grpc::ServerContext* /*context*/, const ::google::longrunning::DeleteOperationRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeleteOperation(::grpc::ServerContext* /*context*/, const ::google::longrunning::DeleteOperationRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedDeleteOperation(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::google::longrunning::DeleteOperationRequest,::google::protobuf::Empty>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedDeleteOperation(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::google::longrunning::DeleteOperationRequest,::google::protobuf_inworld::Empty>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_CancelOperation : public BaseClass {
@@ -1172,10 +1172,10 @@ class Operations final {
     WithStreamedUnaryMethod_CancelOperation() {
       ::grpc::Service::MarkMethodStreamed(3,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::google::longrunning::CancelOperationRequest, ::google::protobuf::Empty>(
+          ::google::longrunning::CancelOperationRequest, ::google::protobuf_inworld::Empty>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::google::longrunning::CancelOperationRequest, ::google::protobuf::Empty>* streamer) {
+                     ::google::longrunning::CancelOperationRequest, ::google::protobuf_inworld::Empty>* streamer) {
                        return this->StreamedCancelOperation(context,
                          streamer);
                   }));
@@ -1184,12 +1184,12 @@ class Operations final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status CancelOperation(::grpc::ServerContext* /*context*/, const ::google::longrunning::CancelOperationRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status CancelOperation(::grpc::ServerContext* /*context*/, const ::google::longrunning::CancelOperationRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedCancelOperation(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::google::longrunning::CancelOperationRequest,::google::protobuf::Empty>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedCancelOperation(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::google::longrunning::CancelOperationRequest,::google::protobuf_inworld::Empty>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_WaitOperation : public BaseClass {

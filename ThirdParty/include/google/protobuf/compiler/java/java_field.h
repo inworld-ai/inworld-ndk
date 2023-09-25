@@ -44,7 +44,7 @@
 #include <google/protobuf/descriptor.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace java {
 class Context;            // context.h
@@ -54,11 +54,11 @@ class ClassNameResolver;  // name_resolver.h
 namespace io {
 class Printer;  // printer.h
 }
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace java {
 
@@ -182,7 +182,7 @@ void PrintExtraFieldInfo(const std::map<std::string, std::string>& variables,
 
 }  // namespace java
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_JAVA_FIELD_H__

@@ -43,7 +43,7 @@
 #include <google/protobuf/compiler/java/java_service.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace java {
 
@@ -82,5 +82,5 @@ ServiceGenerator* ImmutableGeneratorFactory::NewServiceGenerator(
 
 }  // namespace java
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

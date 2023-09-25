@@ -75,7 +75,7 @@ bool FieldBehavior_IsValid(int value) {
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::FieldOptions,
+::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf_inworld::FieldOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::RepeatedEnumTypeTraits< ::google::api::FieldBehavior, ::google::api::FieldBehavior_IsValid>, 14, true >
   field_behavior(kFieldBehaviorFieldNumber, static_cast< ::google::api::FieldBehavior >(0));
 

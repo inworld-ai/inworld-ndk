@@ -28,13 +28,13 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// This file exists solely to document the google::protobuf::util namespace.
+// This file exists solely to document the google::protobuf_inworld::util namespace.
 // It is not compiled into anything, but it may be read by an automated
 // documentation generator.
 
 namespace google {
 
-namespace protobuf {
+namespace protobuf_inworld {
 
 // Utility classes.
 //
@@ -42,5 +42,5 @@ namespace protobuf {
 // conversion, well known types, etc.
 namespace util {}
 
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

@@ -68,7 +68,7 @@
 #include <google/protobuf/compiler/cpp/cpp_unittest.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace cpp {
 
@@ -130,5 +130,5 @@ TEST(GENERATED_MESSAGE_TEST_NAME, TestConflictingExtension) {
 }  // namespace cpp_unittest
 }  // namespace cpp
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

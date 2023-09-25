@@ -40,11 +40,11 @@
 
 # define GOOGLE_PROTOBUF_HASH_NAMESPACE_DECLARATION_START \
   namespace google {                                      \
-  namespace protobuf {
+  namespace protobuf_inworld {
 # define GOOGLE_PROTOBUF_HASH_NAMESPACE_DECLARATION_END }}
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 
 template <typename Key>
 struct hash : public std::hash<Key> {};
@@ -108,7 +108,7 @@ struct hash<std::pair<First, Second> > {
   }
 };
 
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_STUBS_HASH_H__

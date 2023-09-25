@@ -42,7 +42,7 @@
 #include <google/protobuf/stubs/mathutil.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace util {
 
 FieldComparator::FieldComparator() {}
@@ -207,5 +207,5 @@ FieldComparator::ComparisonResult DefaultFieldComparator::ResultFromBoolean(
 }
 
 }  // namespace util
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

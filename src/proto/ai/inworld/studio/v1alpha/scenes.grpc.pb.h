@@ -43,12 +43,12 @@ class Scenes final {
     // RPC to deploy the scene: store scene character composition with
     // character overloads and related information (triggers etc) in an
     // storage(GSC).
-    virtual ::grpc::Status DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::google::protobuf::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncDeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncDeploySceneRaw(context, request, cq));
+    virtual ::grpc::Status DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::google::protobuf_inworld::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> AsyncDeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(AsyncDeploySceneRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncDeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncDeploySceneRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> PrepareAsyncDeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(PrepareAsyncDeploySceneRaw(context, request, cq));
     }
     // Async version of DeployScene. Returns a long running operation object
     virtual ::grpc::Status DeploySceneAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::google::longrunning::Operation* response) = 0;
@@ -91,12 +91,12 @@ class Scenes final {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Scene>>(PrepareAsyncCreateSceneRaw(context, request, cq));
     }
     // RPC to delete a scene
-    virtual ::grpc::Status DeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest& request, ::google::protobuf::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncDeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncDeleteSceneRaw(context, request, cq));
+    virtual ::grpc::Status DeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest& request, ::google::protobuf_inworld::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> AsyncDeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(AsyncDeleteSceneRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncDeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncDeleteSceneRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> PrepareAsyncDeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(PrepareAsyncDeleteSceneRaw(context, request, cq));
     }
     class experimental_async_interface {
      public:
@@ -104,11 +104,11 @@ class Scenes final {
       // RPC to deploy the scene: store scene character composition with
       // character overloads and related information (triggers etc) in an
       // storage(GSC).
-      virtual void DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
       // Async version of DeployScene. Returns a long running operation object
       virtual void DeploySceneAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::longrunning::Operation* response, std::function<void(::grpc::Status)>) = 0;
@@ -146,11 +146,11 @@ class Scenes final {
       virtual void CreateScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
       // RPC to delete a scene
-      virtual void DeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void DeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void DeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void DeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void DeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void DeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
     };
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -161,8 +161,8 @@ class Scenes final {
     #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncDeploySceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncDeploySceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* AsyncDeploySceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* PrepareAsyncDeploySceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>* AsyncDeploySceneAsynchronouslyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>* PrepareAsyncDeploySceneAsynchronouslyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Scene>* AsyncGetSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetSceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -173,18 +173,18 @@ class Scenes final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Scene>* PrepareAsyncUpdateSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateSceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Scene>* AsyncCreateSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateSceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Scene>* PrepareAsyncCreateSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateSceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncDeleteSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncDeleteSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* AsyncDeleteSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* PrepareAsyncDeleteSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
-    ::grpc::Status DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::google::protobuf::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncDeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncDeploySceneRaw(context, request, cq));
+    ::grpc::Status DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::google::protobuf_inworld::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> AsyncDeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(AsyncDeploySceneRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncDeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncDeploySceneRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> PrepareAsyncDeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(PrepareAsyncDeploySceneRaw(context, request, cq));
     }
     ::grpc::Status DeploySceneAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::google::longrunning::Operation* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>> AsyncDeploySceneAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) {
@@ -221,21 +221,21 @@ class Scenes final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Scene>> PrepareAsyncCreateScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateSceneRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Scene>>(PrepareAsyncCreateSceneRaw(context, request, cq));
     }
-    ::grpc::Status DeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest& request, ::google::protobuf::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncDeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncDeleteSceneRaw(context, request, cq));
+    ::grpc::Status DeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest& request, ::google::protobuf_inworld::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> AsyncDeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(AsyncDeleteSceneRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncDeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncDeleteSceneRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> PrepareAsyncDeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(PrepareAsyncDeleteSceneRaw(context, request, cq));
     }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
-      void DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
+      void DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
       void DeploySceneAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::longrunning::Operation* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -267,11 +267,11 @@ class Scenes final {
       #else
       void CreateScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
-      void DeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
+      void DeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void DeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void DeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void DeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void DeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
      private:
       friend class Stub;
@@ -284,8 +284,8 @@ class Scenes final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class experimental_async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncDeploySceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncDeploySceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* AsyncDeploySceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* PrepareAsyncDeploySceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>* AsyncDeploySceneAsynchronouslyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>* PrepareAsyncDeploySceneAsynchronouslyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Scene>* AsyncGetSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetSceneRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -296,8 +296,8 @@ class Scenes final {
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Scene>* PrepareAsyncUpdateSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateSceneRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Scene>* AsyncCreateSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateSceneRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Scene>* PrepareAsyncCreateSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateSceneRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncDeleteSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncDeleteSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* AsyncDeleteSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* PrepareAsyncDeleteSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_DeployScene_;
     const ::grpc::internal::RpcMethod rpcmethod_DeploySceneAsynchronously_;
     const ::grpc::internal::RpcMethod rpcmethod_GetScene_;
@@ -315,7 +315,7 @@ class Scenes final {
     // RPC to deploy the scene: store scene character composition with
     // character overloads and related information (triggers etc) in an
     // storage(GSC).
-    virtual ::grpc::Status DeployScene(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf::Empty* response);
+    virtual ::grpc::Status DeployScene(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf_inworld::Empty* response);
     // Async version of DeployScene. Returns a long running operation object
     virtual ::grpc::Status DeploySceneAsynchronously(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::longrunning::Operation* response);
     // RPC to get one scene
@@ -327,7 +327,7 @@ class Scenes final {
     // RPC to create a scene
     virtual ::grpc::Status CreateScene(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::CreateSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response);
     // RPC to delete a scene
-    virtual ::grpc::Status DeleteScene(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::google::protobuf::Empty* response);
+    virtual ::grpc::Status DeleteScene(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::google::protobuf_inworld::Empty* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_DeployScene : public BaseClass {
@@ -341,11 +341,11 @@ class Scenes final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeployScene(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeployScene(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestDeployScene(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestDeployScene(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf_inworld::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -461,11 +461,11 @@ class Scenes final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteScene(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeleteScene(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestDeleteScene(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestDeleteScene(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf_inworld::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -482,38 +482,38 @@ class Scenes final {
       ::grpc::Service::experimental().
     #endif
         MarkMethodCallback(0,
-          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeploySceneRequest, ::google::protobuf::Empty>(
+          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeploySceneRequest, ::google::protobuf_inworld::Empty>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
                    ::grpc::CallbackServerContext*
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf::Empty* response) { return this->DeployScene(context, request, response); }));}
+                     context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf_inworld::Empty* response) { return this->DeployScene(context, request, response); }));}
     void SetMessageAllocatorFor_DeployScene(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::DeploySceneRequest, ::google::protobuf::Empty>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::DeploySceneRequest, ::google::protobuf_inworld::Empty>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
     #else
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
     #endif
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeploySceneRequest, ::google::protobuf::Empty>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeploySceneRequest, ::google::protobuf_inworld::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_DeployScene() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeployScene(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeployScene(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* DeployScene(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::protobuf::Empty* /*response*/)
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
     #else
     virtual ::grpc::experimental::ServerUnaryReactor* DeployScene(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::protobuf::Empty* /*response*/)
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
     #endif
       { return nullptr; }
   };
@@ -764,38 +764,38 @@ class Scenes final {
       ::grpc::Service::experimental().
     #endif
         MarkMethodCallback(6,
-          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteSceneRequest, ::google::protobuf::Empty>(
+          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteSceneRequest, ::google::protobuf_inworld::Empty>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
                    ::grpc::CallbackServerContext*
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::google::protobuf::Empty* response) { return this->DeleteScene(context, request, response); }));}
+                     context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::google::protobuf_inworld::Empty* response) { return this->DeleteScene(context, request, response); }));}
     void SetMessageAllocatorFor_DeleteScene(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::DeleteSceneRequest, ::google::protobuf::Empty>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::DeleteSceneRequest, ::google::protobuf_inworld::Empty>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
     #else
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(6);
     #endif
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteSceneRequest, ::google::protobuf::Empty>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteSceneRequest, ::google::protobuf_inworld::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_DeleteScene() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteScene(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeleteScene(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* DeleteScene(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* /*request*/, ::google::protobuf::Empty* /*response*/)
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
     #else
     virtual ::grpc::experimental::ServerUnaryReactor* DeleteScene(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* /*request*/, ::google::protobuf::Empty* /*response*/)
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
     #endif
       { return nullptr; }
   };
@@ -816,7 +816,7 @@ class Scenes final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeployScene(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeployScene(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -918,7 +918,7 @@ class Scenes final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteScene(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeleteScene(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -935,7 +935,7 @@ class Scenes final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeployScene(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeployScene(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1055,7 +1055,7 @@ class Scenes final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteScene(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeleteScene(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1088,7 +1088,7 @@ class Scenes final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeployScene(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeployScene(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1316,7 +1316,7 @@ class Scenes final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteScene(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeleteScene(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1337,10 +1337,10 @@ class Scenes final {
     WithStreamedUnaryMethod_DeployScene() {
       ::grpc::Service::MarkMethodStreamed(0,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::ai::inworld::studio::v1alpha::DeploySceneRequest, ::google::protobuf::Empty>(
+          ::ai::inworld::studio::v1alpha::DeploySceneRequest, ::google::protobuf_inworld::Empty>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::ai::inworld::studio::v1alpha::DeploySceneRequest, ::google::protobuf::Empty>* streamer) {
+                     ::ai::inworld::studio::v1alpha::DeploySceneRequest, ::google::protobuf_inworld::Empty>* streamer) {
                        return this->StreamedDeployScene(context,
                          streamer);
                   }));
@@ -1349,12 +1349,12 @@ class Scenes final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status DeployScene(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeployScene(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedDeployScene(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::DeploySceneRequest,::google::protobuf::Empty>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedDeployScene(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::DeploySceneRequest,::google::protobuf_inworld::Empty>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_DeploySceneAsynchronously : public BaseClass {
@@ -1499,10 +1499,10 @@ class Scenes final {
     WithStreamedUnaryMethod_DeleteScene() {
       ::grpc::Service::MarkMethodStreamed(6,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::ai::inworld::studio::v1alpha::DeleteSceneRequest, ::google::protobuf::Empty>(
+          ::ai::inworld::studio::v1alpha::DeleteSceneRequest, ::google::protobuf_inworld::Empty>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::ai::inworld::studio::v1alpha::DeleteSceneRequest, ::google::protobuf::Empty>* streamer) {
+                     ::ai::inworld::studio::v1alpha::DeleteSceneRequest, ::google::protobuf_inworld::Empty>* streamer) {
                        return this->StreamedDeleteScene(context,
                          streamer);
                   }));
@@ -1511,12 +1511,12 @@ class Scenes final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status DeleteScene(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeleteScene(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedDeleteScene(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::DeleteSceneRequest,::google::protobuf::Empty>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedDeleteScene(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::DeleteSceneRequest,::google::protobuf_inworld::Empty>* server_unary_streamer) = 0;
   };
   typedef WithStreamedUnaryMethod_DeployScene<WithStreamedUnaryMethod_DeploySceneAsynchronously<WithStreamedUnaryMethod_GetScene<WithStreamedUnaryMethod_ListScenes<WithStreamedUnaryMethod_UpdateScene<WithStreamedUnaryMethod_CreateScene<WithStreamedUnaryMethod_DeleteScene<Service > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;

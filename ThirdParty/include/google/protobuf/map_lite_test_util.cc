@@ -33,7 +33,7 @@
 #include <google/protobuf/map_test_util_impl.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 
 void MapLiteTestUtil::SetMapFields(unittest::TestMapLite* message) {
   MapTestUtilImpl::SetMapFields<unittest::MapEnumLite,
@@ -89,5 +89,5 @@ void MapLiteTestUtil::ExpectMapFieldsModified(
       message);
 }
 
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

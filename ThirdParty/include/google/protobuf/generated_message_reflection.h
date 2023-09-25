@@ -56,17 +56,17 @@
 #endif
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 class MapKey;
 class MapValueRef;
 class MessageLayoutInspector;
 class Message;
 struct Metadata;
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace internal {
 class DefaultEmptyOneof;
 // Defined in other files.
@@ -118,7 +118,7 @@ class WeakFieldMap;  // weak_field_map.h
 //                  -1.
 struct ReflectionSchema {
  public:
-  // Size of a google::protobuf::Message object of this type.
+  // Size of a google::protobuf_inworld::Message object of this type.
   uint32 GetObjectSize() const { return static_cast<uint32>(object_size_); }
 
   bool InRealOneof(const FieldDescriptor* field) const {
@@ -304,7 +304,7 @@ PROTOBUF_EXPORT void UnknownFieldSetSerializer(const uint8* base, uint32 offset,
                                                io::CodedOutputStream* output);
 
 }  // namespace internal
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #include <google/protobuf/port_undef.inc>
