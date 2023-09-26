@@ -155,7 +155,7 @@ void Inworld::ClientBase::StopAudioSession(const std::string& AgentId)
 
 void Inworld::ClientBase::InitClient(std::string ClientId, std::string ClientVer, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback)
 {
-	gpr_set_log_function(GrpcLog);
+	gpr_set_log_function(GrpcLog);	
 
 	_ClientId = ClientId;
 	_ClientVer = ClientVer;
@@ -174,6 +174,7 @@ void Inworld::ClientBase::GenerateToken(std::function<void()> GenerateTokenCallb
 		"InworldGenerateTokenTask",
 		std::make_unique<RunnableGenerateSessionToken>(
 			_ClientOptions.ServerUrl,
+			_ClientOptions.Resource,
 			_ClientOptions.ApiKey,
 			_ClientOptions.ApiSecret,
 			[this](const grpc::Status& Status, const InworldEngine::AccessToken& Token) mutable

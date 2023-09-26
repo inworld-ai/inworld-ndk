@@ -6,7 +6,7 @@
  */
 
 #include "UnityInterop.h"
-
+#include "Data/UnityNDKInteropData.h"
 
 NDKUnity::CUnityWrapper* Unity_InitWrapper()
 {
@@ -56,7 +56,7 @@ void Unity_Hello()
 		return;
 	if (g_pWrapper->GetAgentInfo().size() == 0)
 		return;
-	g_pWrapper->SendTextMessage(g_pWrapper->GetAgentInfo()[0].AgentId, "Hello");
+	g_pWrapper->SendTextMessage(g_pWrapper->GetAgentInfo()[0].agentId, "Hello");
 }
 
 void Unity_GetAccessToken(const char* serverURL, const char* apiKey, const char* apiSecret, NDKUnity::UnityCallback callback)
@@ -148,7 +148,7 @@ void Unity_SendAudio(const char* agentID, const char* data)
 {
 	if (g_pWrapper == nullptr)
 		return;
-	g_pWrapper->SendSoundMessage(agentID, data);
+	g_pWrapper->SendSoundMessage(agentID, NDKUnity::Base64ToString(data));
 }
 
 void Unity_SendTrigger(const char* agentID, const char* triggerName)

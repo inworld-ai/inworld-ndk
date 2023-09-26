@@ -28,6 +28,7 @@ namespace Inworld
 	{
 		std::string ServerUrl;
 		std::string SceneName;
+		std::string Resource;
 		std::string ApiKey;
 		std::string ApiSecret;
 		std::string Base64;
@@ -149,11 +150,6 @@ namespace Inworld
 		ConnectionState _ConnectionState = ConnectionState::Idle;
 		std::string _ErrorMessage = std::string();
 		int32_t _ErrorCode = grpc::StatusCode::OK;
-
-
-
-		
-		
 
 		AECFilter _EchoFilter;
 		PerceivedLatencyTracker _LatencyTracker;

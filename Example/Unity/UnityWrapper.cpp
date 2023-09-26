@@ -6,8 +6,6 @@
  */
 
 #include "UnityWrapper.h"
-
-#include "Data/UnityAgentInfo.h"
 #include "Data/UnityNDKInteropData.h"
 
 
@@ -94,18 +92,19 @@ void NDKUnity::CUnityWrapper::LoadScene(const std::string& strSceneName, UnityCa
 					}
 					Inworld::Log("Load scene SUCCESS. Session Id: %s", ARG_STR(_SessionInfo.SessionId));
 					m_AgentInfos.clear();
+					
 					for (int32_t i = 0; i < Response.agents_size(); i++)
 					{
-						UnityAgentInfo Info;
-						Info.BrainName = Response.agents(i).brain_name();
-						Info.AgentId = Response.agents(i).agent_id();
-						Info.GivenName = Response.agents(i).given_name();
-						Info.AvatarImg = Response.agents(i).character_assets().avatar_img();
-						Info.AvatarImgOriginal = Response.agents(i).character_assets().avatar_img_original();
-						Info.RpmModelUri = Response.agents(i).character_assets().rpm_model_uri();
-						Info.RpmImageUriPortrait = Response.agents(i).character_assets().rpm_image_uri_portrait();
-						Info.RpmImageUriPosture = Response.agents(i).character_assets().rpm_image_uri_posture();
-						m_AgentInfos.push_back(Info);
+						AgentInfo info;
+						info.brainName = Response.agents(i).brain_name().c_str();
+						info.agentId = Response.agents(i).agent_id().c_str();
+						info.givenName = Response.agents(i).given_name().c_str();
+						info.avatarImg = Response.agents(i).character_assets().avatar_img().c_str();
+						info.avatarImgOriginal = Response.agents(i).character_assets().avatar_img_original().c_str();
+						info.rpmModelUri = Response.agents(i).character_assets().rpm_model_uri().c_str();
+						info.rpmImageUriPortrait = Response.agents(i).character_assets().rpm_image_uri_portrait().c_str();
+						info.rpmImageUriPosture = Response.agents(i).character_assets().rpm_image_uri_posture().c_str();
+						m_AgentInfos.push_back(info);
 					}
 					if (callback)
 						callback();

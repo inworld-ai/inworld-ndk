@@ -7,6 +7,7 @@
 
 #include "UnityPacketHandler.h"
 
+
 void NDKUnity::CUnityPacketHandler::SetPacketCallback(
 	TextCallBack textCallBack,
 	AudioCallBack audioCallBack,
@@ -36,7 +37,9 @@ void NDKUnity::CUnityPacketHandler::Visit(const Inworld::TextEvent& Event)
 void NDKUnity::CUnityPacketHandler::Visit(const Inworld::AudioDataEvent& Event)
 {
 	if (m_AudioCallBack)
+	{
 		m_AudioCallBack(AudioPacket(Event));
+	}
 	for (const auto& phonemes = Event.GetPhonemeInfos(); const auto& phone : phonemes)
 	{
 		if (m_PhonemeCallBack)
