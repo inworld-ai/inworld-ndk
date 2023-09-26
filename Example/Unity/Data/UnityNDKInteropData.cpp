@@ -5,7 +5,6 @@
  * that can be found in the LICENSE.md file or at https://www.inworld.ai/sdk-license
  */
 
-#include <codecvt>
 #include "UnityNDKInteropData.h"
 #include "Utils/Log.h"
 
@@ -23,7 +22,7 @@ int NDKUnity::CharToInt(char c)
 	return -1;
 }
 
-const wchar_t* NDKUnity::StringToBase64WString(const std::string& input)
+const char* NDKUnity::StringToBase64WString(const std::string& input)
 {
 	std::string result;
 	size_t      remaining = input.size();
@@ -54,11 +53,14 @@ const wchar_t* NDKUnity::StringToBase64WString(const std::string& input)
 	default:
 		break;
 	}
-	std::wstring_convert<std::codecvt_utf8<wchar_t>> converter;
-	std::wstring wideStr = converter.from_bytes(result);
-	size_t bufferSize = wideStr.length() + 1;
-	wchar_t* buffer = new wchar_t[bufferSize];
-	wcscpy_s(buffer, bufferSize, wideStr.c_str());
+
+	size_t bufferSize = result.length() + 1;
+	char* buffer = new char[bufferSize];
+	#if _WIN32
+	strcpy_s(buffer, bufferSize, result.c_str());
+	#else
+	strlcpy(buffer, result.c_str(), bufferSize);
+	#endif	
 	return buffer;
 }
 
