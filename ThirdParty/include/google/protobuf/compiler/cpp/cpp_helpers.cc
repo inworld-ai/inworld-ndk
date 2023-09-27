@@ -59,7 +59,7 @@
 #include <google/protobuf/port_def.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace cpp {
 
@@ -381,7 +381,7 @@ std::string Namespace(const FileDescriptor* d, const Options& options) {
   std::string ret = Namespace(d->package());
   if (IsWellKnownMessage(d) && options.opensource_runtime) {
     // Written with string concatenation to prevent rewriting of
-    // ::google::protobuf.
+    // ::google::protobuf_inworld.
     ret = StringReplace(ret,
                         "::google::"
                         "protobuf",
@@ -526,13 +526,13 @@ std::string StripProto(const std::string& filename) {
 const char* PrimitiveTypeName(FieldDescriptor::CppType type) {
   switch (type) {
     case FieldDescriptor::CPPTYPE_INT32:
-      return "::google::protobuf::int32";
+      return "::google::protobuf_inworld::int32";
     case FieldDescriptor::CPPTYPE_INT64:
-      return "::google::protobuf::int64";
+      return "::google::protobuf_inworld::int64";
     case FieldDescriptor::CPPTYPE_UINT32:
-      return "::google::protobuf::uint32";
+      return "::google::protobuf_inworld::uint32";
     case FieldDescriptor::CPPTYPE_UINT64:
-      return "::google::protobuf::uint64";
+      return "::google::protobuf_inworld::uint64";
     case FieldDescriptor::CPPTYPE_DOUBLE:
       return "double";
     case FieldDescriptor::CPPTYPE_FLOAT:
@@ -1990,5 +1990,5 @@ FileOptions_OptimizeMode GetOptimizeFor(const FileDescriptor* file,
 
 }  // namespace cpp
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

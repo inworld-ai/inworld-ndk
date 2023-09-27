@@ -153,13 +153,13 @@
 #endif
 
 
-#define PROTOBUF_NAMESPACE "google::protobuf"
-#define PROTOBUF_NAMESPACE_ID google::protobuf
+#define PROTOBUF_NAMESPACE "google::protobuf_inworld"
+#define PROTOBUF_NAMESPACE_ID google::protobuf_inworld
 #define PROTOBUF_NAMESPACE_OPEN \
   namespace google {            \
-  namespace protobuf {
+  namespace protobuf_inworld {
 #define PROTOBUF_NAMESPACE_CLOSE \
-  } /* namespace protobuf */     \
+  } /* namespace protobuf_inworld */     \
   } /* namespace google */
 
 #if defined(__GNUC__) || defined(__clang__)
@@ -365,7 +365,7 @@
 // choose 16 rather than some other number just in case the compiler would
 // be confused by an unaligned pointer.
 #define PROTOBUF_FIELD_OFFSET(TYPE, FIELD)                                \
-  static_cast< ::google::protobuf::uint32>(reinterpret_cast<const char*>(                   \
+  static_cast< ::google::protobuf_inworld::uint32>(reinterpret_cast<const char*>(                   \
                              &reinterpret_cast<const TYPE*>(16)->FIELD) - \
                          reinterpret_cast<const char*>(16))
 #endif

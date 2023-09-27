@@ -55,7 +55,7 @@
 #endif
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 class DynamicMessage;
 class MapIterator;
 
@@ -264,7 +264,7 @@ class PROTOBUF_EXPORT MapKey {
   int type_;
 };
 
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 namespace std {
 template <>
@@ -310,7 +310,7 @@ struct hash<::PROTOBUF_NAMESPACE_ID::MapKey> {
 }  // namespace std
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace internal {
 
 class ContendedMapCleanTest;
@@ -908,7 +908,7 @@ class PROTOBUF_EXPORT MapIterator {
   MapValueRef value_;
 };
 
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #include <google/protobuf/port_undef.inc>

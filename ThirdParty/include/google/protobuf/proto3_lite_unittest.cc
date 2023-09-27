@@ -38,6 +38,6 @@
 
 // Make extract script happy.
 namespace google {
-namespace protobuf {
-}  // namespace protobuf
+namespace protobuf_inworld {
+}  // namespace protobuf_inworld
 }  // namespace google

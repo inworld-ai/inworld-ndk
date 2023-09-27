@@ -38,7 +38,7 @@
 #include <google/protobuf/stubs/statusor.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace util {
 
 // Run a command that returns a util::Status.  If the called code returns an
@@ -83,7 +83,7 @@ Status DoAssignOrReturn(T& lhs, StatusOr<T> result) {
       STATUS_MACROS_CONCAT_NAME(_status_or_value, __COUNTER__), lhs, rexpr);
 
 }  // namespace util
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_STUBS_STATUS_H_

@@ -46,7 +46,7 @@
 #include <google/protobuf/stubs/map_util.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace java {
 
@@ -231,5 +231,5 @@ void EnumLiteGenerator::Generate(io::Printer* printer) {
 
 }  // namespace java
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

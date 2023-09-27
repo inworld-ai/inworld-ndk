@@ -40,7 +40,7 @@
 #include <google/protobuf/port_def.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace ruby {
 
@@ -59,7 +59,7 @@ class PROTOC_EXPORT Generator : public CodeGenerator {
 
 }  // namespace ruby
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #include <google/protobuf/port_undef.inc>

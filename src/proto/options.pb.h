@@ -245,11 +245,11 @@ class ExampleValue PROTOBUF_FINAL :
 // ===================================================================
 
 static const int kExamplesFieldNumber = 70900;
-extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::FieldOptions,
+extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf_inworld::FieldOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::MessageTypeTraits< ::ai::inworld::options::ExampleValue >, 11, false >
   examples;
 static const int kFieldModeFieldNumber = 80001;
-extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::FieldOptions,
+extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf_inworld::FieldOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::RepeatedEnumTypeTraits< ::ai::inworld::options::FieldMode, ::ai::inworld::options::FieldMode_IsValid>, 14, true >
   field_mode;
 

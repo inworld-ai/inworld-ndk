@@ -46,19 +46,19 @@ Operations::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel
   {}
 
 ::grpc::Status Operations::Stub::ListOperations(::grpc::ClientContext* context, const ::google::longrunning::ListOperationsRequest& request, ::google::longrunning::ListOperationsResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::google::longrunning::ListOperationsRequest, ::google::longrunning::ListOperationsResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_ListOperations_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::google::longrunning::ListOperationsRequest, ::google::longrunning::ListOperationsResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_ListOperations_, context, request, response);
 }
 
 void Operations::Stub::experimental_async::ListOperations(::grpc::ClientContext* context, const ::google::longrunning::ListOperationsRequest* request, ::google::longrunning::ListOperationsResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::google::longrunning::ListOperationsRequest, ::google::longrunning::ListOperationsResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ListOperations_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::google::longrunning::ListOperationsRequest, ::google::longrunning::ListOperationsResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ListOperations_, context, request, response, std::move(f));
 }
 
 void Operations::Stub::experimental_async::ListOperations(::grpc::ClientContext* context, const ::google::longrunning::ListOperationsRequest* request, ::google::longrunning::ListOperationsResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ListOperations_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ListOperations_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::google::longrunning::ListOperationsResponse>* Operations::Stub::PrepareAsyncListOperationsRaw(::grpc::ClientContext* context, const ::google::longrunning::ListOperationsRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::longrunning::ListOperationsResponse, ::google::longrunning::ListOperationsRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_ListOperations_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::longrunning::ListOperationsResponse, ::google::longrunning::ListOperationsRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_ListOperations_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::google::longrunning::ListOperationsResponse>* Operations::Stub::AsyncListOperationsRaw(::grpc::ClientContext* context, const ::google::longrunning::ListOperationsRequest& request, ::grpc::CompletionQueue* cq) {
@@ -69,19 +69,19 @@ void Operations::Stub::experimental_async::ListOperations(::grpc::ClientContext*
 }
 
 ::grpc::Status Operations::Stub::GetOperation(::grpc::ClientContext* context, const ::google::longrunning::GetOperationRequest& request, ::google::longrunning::Operation* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::google::longrunning::GetOperationRequest, ::google::longrunning::Operation, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetOperation_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::google::longrunning::GetOperationRequest, ::google::longrunning::Operation, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_GetOperation_, context, request, response);
 }
 
 void Operations::Stub::experimental_async::GetOperation(::grpc::ClientContext* context, const ::google::longrunning::GetOperationRequest* request, ::google::longrunning::Operation* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::google::longrunning::GetOperationRequest, ::google::longrunning::Operation, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetOperation_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::google::longrunning::GetOperationRequest, ::google::longrunning::Operation, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetOperation_, context, request, response, std::move(f));
 }
 
 void Operations::Stub::experimental_async::GetOperation(::grpc::ClientContext* context, const ::google::longrunning::GetOperationRequest* request, ::google::longrunning::Operation* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetOperation_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetOperation_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>* Operations::Stub::PrepareAsyncGetOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::GetOperationRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::longrunning::Operation, ::google::longrunning::GetOperationRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetOperation_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::longrunning::Operation, ::google::longrunning::GetOperationRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_GetOperation_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>* Operations::Stub::AsyncGetOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::GetOperationRequest& request, ::grpc::CompletionQueue* cq) {
@@ -91,46 +91,46 @@ void Operations::Stub::experimental_async::GetOperation(::grpc::ClientContext* c
   return result;
 }
 
-::grpc::Status Operations::Stub::DeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest& request, ::google::protobuf::Empty* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::google::longrunning::DeleteOperationRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_DeleteOperation_, context, request, response);
+::grpc::Status Operations::Stub::DeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest& request, ::google::protobuf_inworld::Empty* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::google::longrunning::DeleteOperationRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_DeleteOperation_, context, request, response);
 }
 
-void Operations::Stub::experimental_async::DeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::google::longrunning::DeleteOperationRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeleteOperation_, context, request, response, std::move(f));
+void Operations::Stub::experimental_async::DeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::google::longrunning::DeleteOperationRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeleteOperation_, context, request, response, std::move(f));
 }
 
-void Operations::Stub::experimental_async::DeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeleteOperation_, context, request, response, reactor);
+void Operations::Stub::experimental_async::DeleteOperation(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeleteOperation_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Operations::Stub::PrepareAsyncDeleteOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf::Empty, ::google::longrunning::DeleteOperationRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_DeleteOperation_, context, request);
+::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* Operations::Stub::PrepareAsyncDeleteOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf_inworld::Empty, ::google::longrunning::DeleteOperationRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_DeleteOperation_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Operations::Stub::AsyncDeleteOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* Operations::Stub::AsyncDeleteOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::DeleteOperationRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncDeleteOperationRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status Operations::Stub::CancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest& request, ::google::protobuf::Empty* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::google::longrunning::CancelOperationRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_CancelOperation_, context, request, response);
+::grpc::Status Operations::Stub::CancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest& request, ::google::protobuf_inworld::Empty* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::google::longrunning::CancelOperationRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_CancelOperation_, context, request, response);
 }
 
-void Operations::Stub::experimental_async::CancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::google::longrunning::CancelOperationRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CancelOperation_, context, request, response, std::move(f));
+void Operations::Stub::experimental_async::CancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::google::longrunning::CancelOperationRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CancelOperation_, context, request, response, std::move(f));
 }
 
-void Operations::Stub::experimental_async::CancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CancelOperation_, context, request, response, reactor);
+void Operations::Stub::experimental_async::CancelOperation(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CancelOperation_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Operations::Stub::PrepareAsyncCancelOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf::Empty, ::google::longrunning::CancelOperationRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_CancelOperation_, context, request);
+::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* Operations::Stub::PrepareAsyncCancelOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf_inworld::Empty, ::google::longrunning::CancelOperationRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_CancelOperation_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Operations::Stub::AsyncCancelOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* Operations::Stub::AsyncCancelOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::CancelOperationRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncCancelOperationRaw(context, request, cq);
   result->StartCall();
@@ -138,19 +138,19 @@ void Operations::Stub::experimental_async::CancelOperation(::grpc::ClientContext
 }
 
 ::grpc::Status Operations::Stub::WaitOperation(::grpc::ClientContext* context, const ::google::longrunning::WaitOperationRequest& request, ::google::longrunning::Operation* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::google::longrunning::WaitOperationRequest, ::google::longrunning::Operation, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_WaitOperation_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::google::longrunning::WaitOperationRequest, ::google::longrunning::Operation, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_WaitOperation_, context, request, response);
 }
 
 void Operations::Stub::experimental_async::WaitOperation(::grpc::ClientContext* context, const ::google::longrunning::WaitOperationRequest* request, ::google::longrunning::Operation* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::google::longrunning::WaitOperationRequest, ::google::longrunning::Operation, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_WaitOperation_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::google::longrunning::WaitOperationRequest, ::google::longrunning::Operation, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_WaitOperation_, context, request, response, std::move(f));
 }
 
 void Operations::Stub::experimental_async::WaitOperation(::grpc::ClientContext* context, const ::google::longrunning::WaitOperationRequest* request, ::google::longrunning::Operation* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_WaitOperation_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_WaitOperation_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>* Operations::Stub::PrepareAsyncWaitOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::WaitOperationRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::longrunning::Operation, ::google::longrunning::WaitOperationRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_WaitOperation_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::longrunning::Operation, ::google::longrunning::WaitOperationRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_WaitOperation_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>* Operations::Stub::AsyncWaitOperationRaw(::grpc::ClientContext* context, const ::google::longrunning::WaitOperationRequest& request, ::grpc::CompletionQueue* cq) {
@@ -164,7 +164,7 @@ Operations::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Operations_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Operations::Service, ::google::longrunning::ListOperationsRequest, ::google::longrunning::ListOperationsResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Operations::Service, ::google::longrunning::ListOperationsRequest, ::google::longrunning::ListOperationsResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Operations::Service* service,
              ::grpc::ServerContext* ctx,
              const ::google::longrunning::ListOperationsRequest* req,
@@ -174,7 +174,7 @@ Operations::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Operations_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Operations::Service, ::google::longrunning::GetOperationRequest, ::google::longrunning::Operation, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Operations::Service, ::google::longrunning::GetOperationRequest, ::google::longrunning::Operation, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Operations::Service* service,
              ::grpc::ServerContext* ctx,
              const ::google::longrunning::GetOperationRequest* req,
@@ -184,27 +184,27 @@ Operations::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Operations_method_names[2],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Operations::Service, ::google::longrunning::DeleteOperationRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Operations::Service, ::google::longrunning::DeleteOperationRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Operations::Service* service,
              ::grpc::ServerContext* ctx,
              const ::google::longrunning::DeleteOperationRequest* req,
-             ::google::protobuf::Empty* resp) {
+             ::google::protobuf_inworld::Empty* resp) {
                return service->DeleteOperation(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Operations_method_names[3],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Operations::Service, ::google::longrunning::CancelOperationRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Operations::Service, ::google::longrunning::CancelOperationRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Operations::Service* service,
              ::grpc::ServerContext* ctx,
              const ::google::longrunning::CancelOperationRequest* req,
-             ::google::protobuf::Empty* resp) {
+             ::google::protobuf_inworld::Empty* resp) {
                return service->CancelOperation(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Operations_method_names[4],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Operations::Service, ::google::longrunning::WaitOperationRequest, ::google::longrunning::Operation, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Operations::Service, ::google::longrunning::WaitOperationRequest, ::google::longrunning::Operation, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Operations::Service* service,
              ::grpc::ServerContext* ctx,
              const ::google::longrunning::WaitOperationRequest* req,
@@ -230,14 +230,14 @@ Operations::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Operations::Service::DeleteOperation(::grpc::ServerContext* context, const ::google::longrunning::DeleteOperationRequest* request, ::google::protobuf::Empty* response) {
+::grpc::Status Operations::Service::DeleteOperation(::grpc::ServerContext* context, const ::google::longrunning::DeleteOperationRequest* request, ::google::protobuf_inworld::Empty* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Operations::Service::CancelOperation(::grpc::ServerContext* context, const ::google::longrunning::CancelOperationRequest* request, ::google::protobuf::Empty* response) {
+::grpc::Status Operations::Service::CancelOperation(::grpc::ServerContext* context, const ::google::longrunning::CancelOperationRequest* request, ::google::protobuf_inworld::Empty* response) {
   (void) context;
   (void) request;
   (void) response;

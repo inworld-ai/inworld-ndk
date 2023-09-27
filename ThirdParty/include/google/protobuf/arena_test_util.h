@@ -38,7 +38,7 @@
 #include <google/protobuf/arena.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 
 template <typename T, bool use_arena>
 void TestParseCorruptedString(const T& message) {
@@ -93,7 +93,7 @@ class NoHeapChecker {
 };
 
 }  // namespace internal
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_ARENA_TEST_UTIL_H__

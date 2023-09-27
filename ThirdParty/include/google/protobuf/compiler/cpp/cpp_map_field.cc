@@ -37,7 +37,7 @@
 
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace cpp {
 
@@ -292,5 +292,5 @@ void MapFieldGenerator::GenerateByteSize(io::Printer* printer) const {
 
 }  // namespace cpp
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

@@ -44,7 +44,7 @@
 #include <google/protobuf/io/zero_copy_stream_impl.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace io {
 
 // Each test repeats over several block sizes in order to test both cases
@@ -731,5 +731,5 @@ TEST(Printer, FormatInternal) {
 }
 
 }  // namespace io
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

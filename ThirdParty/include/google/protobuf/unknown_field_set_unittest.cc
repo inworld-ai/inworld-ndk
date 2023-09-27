@@ -56,7 +56,7 @@
 #include <google/protobuf/stubs/stl_util.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 
 using internal::WireFormat;
 
@@ -200,13 +200,13 @@ TEST_F(UnknownFieldSetTest, SerializeFastAndSlowAreEquivalent) {
   slow_buffer.resize(size);
   fast_buffer.resize(size);
 
-  uint8* target = reinterpret_cast<uint8*>(::google::protobuf::string_as_array(&fast_buffer));
+  uint8* target = reinterpret_cast<uint8*>(::google::protobuf_inworld::string_as_array(&fast_buffer));
   uint8* result = WireFormat::SerializeUnknownFieldsToArray(
       empty_message_.unknown_fields(), target);
   EXPECT_EQ(size, result - target);
 
   {
-    io::ArrayOutputStream raw_stream(::google::protobuf::string_as_array(&slow_buffer), size,
+    io::ArrayOutputStream raw_stream(::google::protobuf_inworld::string_as_array(&slow_buffer), size,
                                      1);
     io::CodedOutputStream output_stream(&raw_stream);
     WireFormat::SerializeUnknownFields(empty_message_.unknown_fields(),
@@ -648,5 +648,5 @@ TEST_F(UnknownFieldSetTest, DeleteByNumber) {
 #undef MAKE_VECTOR
 }  // namespace
 
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

@@ -43,7 +43,7 @@
 #include <google/protobuf/util/type_resolver.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace util {
 namespace converter {
 namespace testing {
@@ -89,7 +89,7 @@ class TypeInfoTestHelper {
 }  // namespace testing
 }  // namespace converter
 }  // namespace util
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_UTIL_CONVERTER_TYPE_INFO_TEST_HELPER_H__

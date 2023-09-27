@@ -39,7 +39,7 @@ using unittest_drop_unknown_fields::Foo;
 using unittest_drop_unknown_fields::FooWithExtraFields;
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 
 TEST(DropUnknownFieldsTest, GeneratedMessage) {
   FooWithExtraFields foo_with_extra_fields;
@@ -79,5 +79,5 @@ TEST(DropUnknownFieldsTest, DynamicMessage) {
   EXPECT_EQ(2, foo_with_extra_fields.extra_int32_value());
 }
 
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

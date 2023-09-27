@@ -41,7 +41,7 @@
 #include <google/protobuf/stubs/strutil.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace io {
 
 // This approximately 0x1.ffffffp127, but we don't use 0x1.ffffffp127 because
@@ -74,9 +74,9 @@ float SafeDoubleToFloat(double value) {
 }
 
 double NoLocaleStrtod(const char* str, char** endptr) {
-  return google::protobuf::internal::NoLocaleStrtod(str, endptr);
+  return google::protobuf_inworld::internal::NoLocaleStrtod(str, endptr);
 }
 
 }  // namespace io
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

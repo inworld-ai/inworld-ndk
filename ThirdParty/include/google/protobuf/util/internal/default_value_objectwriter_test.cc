@@ -37,7 +37,7 @@
 #include <gtest/gtest.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace util {
 namespace converter {
 namespace testing {
@@ -187,5 +187,5 @@ TEST_P(DefaultValueObjectWriterSuppressListTest, Empty) {
 }  // namespace testing
 }  // namespace converter
 }  // namespace util
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

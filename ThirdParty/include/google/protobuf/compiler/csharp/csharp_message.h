@@ -39,7 +39,7 @@
 #include <google/protobuf/compiler/csharp/csharp_helpers.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace csharp {
 
@@ -88,7 +88,7 @@ class MessageGenerator : public SourceGeneratorBase {
 
 }  // namespace csharp
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_CSHARP_MESSAGE_H__

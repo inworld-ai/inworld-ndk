@@ -63,13 +63,13 @@
 
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 
 #if defined(_WIN32)
 // DO NOT include <io.h>, instead create functions in io_win32.{h,cc} and import
 // them like we do below.
-using google::protobuf::io::win32::close;
-using google::protobuf::io::win32::open;
+using google::protobuf_inworld::io::win32::close;
+using google::protobuf_inworld::io::win32::open;
 #endif
 
 #ifndef O_BINARY
@@ -629,5 +629,5 @@ TEST(MESSAGE_TEST_NAME, MOMIParserEdgeCases) {
 }
 
 
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

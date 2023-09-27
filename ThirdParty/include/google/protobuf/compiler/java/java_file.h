@@ -42,7 +42,7 @@
 #include <google/protobuf/compiler/java/java_options.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 class FileDescriptor;  // descriptor.h
 namespace io {
 class Printer;  // printer.h
@@ -57,11 +57,11 @@ class ExtensionGenerator;  // extension.h
 class ClassNameResolver;   // name_resolver.h
 }  // namespace java
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace java {
 
@@ -114,7 +114,7 @@ class FileGenerator {
 
 }  // namespace java
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_JAVA_FILE_H__

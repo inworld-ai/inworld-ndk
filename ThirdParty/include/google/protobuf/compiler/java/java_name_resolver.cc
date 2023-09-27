@@ -37,7 +37,7 @@
 #include <google/protobuf/stubs/substitute.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace java {
 
@@ -328,5 +328,5 @@ std::string ClassNameResolver::GetJavaImmutableClassName(
 
 }  // namespace java
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

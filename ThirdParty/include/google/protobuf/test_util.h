@@ -47,7 +47,7 @@
 #include <google/protobuf/port_def.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 // This file doesn't use these declarations, but some .cc files do.
 namespace unittest = ::protobuf_unittest;
 namespace unittest_import = ::protobuf_unittest_import;
@@ -1255,7 +1255,7 @@ inline void ExpectAllFieldsAndExtensionsInOrder(const std::string& serialized) {
 }
 
 }  // namespace TestUtil
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #include <google/protobuf/port_undef.inc>

@@ -49,7 +49,7 @@
 #include <google/protobuf/port_def.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace util {
 
 namespace internal {
@@ -87,7 +87,7 @@ util::Status BinaryToJsonStream(TypeResolver* resolver,
                                   io::ZeroCopyOutputStream* json_output,
                                   const JsonPrintOptions& options) {
   io::CodedInputStream in_stream(binary_input);
-  google::protobuf::Type type;
+  google::protobuf_inworld::Type type;
   RETURN_IF_ERROR(resolver->ResolveMessageType(type_url, &type));
   converter::ProtoStreamObjectSource proto_source(&in_stream, resolver, type);
   proto_source.set_use_ints_for_enums(options.always_print_enums_as_ints);
@@ -177,7 +177,7 @@ util::Status JsonToBinaryStream(TypeResolver* resolver,
                                   io::ZeroCopyInputStream* json_input,
                                   io::ZeroCopyOutputStream* binary_output,
                                   const JsonParseOptions& options) {
-  google::protobuf::Type type;
+  google::protobuf_inworld::Type type;
   RETURN_IF_ERROR(resolver->ResolveMessageType(type_url, &type));
   internal::ZeroCopyStreamByteSink sink(binary_output);
   StatusErrorListener listener;
@@ -229,7 +229,7 @@ void DeleteGeneratedTypeResolver() { delete generated_type_resolver_; }
 void InitGeneratedTypeResolver() {
   generated_type_resolver_ = NewTypeResolverForDescriptorPool(
       kTypeUrlPrefix, DescriptorPool::generated_pool());
-  ::google::protobuf::internal::OnShutdown(&DeleteGeneratedTypeResolver);
+  ::google::protobuf_inworld::internal::OnShutdown(&DeleteGeneratedTypeResolver);
 }
 
 TypeResolver* GetGeneratedTypeResolver() {
@@ -277,5 +277,5 @@ util::Status JsonStringToMessage(StringPiece input, Message* message,
 }
 
 }  // namespace util
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

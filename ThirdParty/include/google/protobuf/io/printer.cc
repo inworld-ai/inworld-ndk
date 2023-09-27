@@ -41,7 +41,7 @@
 #include <google/protobuf/io/zero_copy_stream.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace io {
 
 Printer::Printer(ZeroCopyOutputStream* output, char variable_delimiter)
@@ -396,5 +396,5 @@ const char* Printer::WriteVariable(
 }
 
 }  // namespace io
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

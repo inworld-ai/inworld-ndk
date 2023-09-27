@@ -41,7 +41,7 @@
 #include <string>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 
 class Descriptor;
 class EnumDescriptor;
@@ -107,6 +107,6 @@ const char* BoxedPrimitiveTypeName(const FieldDescriptor* descriptor);
 
 }  // namespace java
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 #endif  // GOOGLE_PROTOBUF_COMPILER_JAVA_NAMES_H__

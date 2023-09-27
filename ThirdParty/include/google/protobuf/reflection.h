@@ -45,7 +45,7 @@
 #include <google/protobuf/port_def.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace internal {
 template <typename T, typename Enable = void>
 struct RefTypeTraits;
@@ -291,8 +291,8 @@ namespace internal {
 //   CPPTYPE_BOOL         bool                    bool
 //   CPPTYPE_ENUM         generated enum type     int32
 //   CPPTYPE_STRING       string                  std::string
-//   CPPTYPE_MESSAGE      generated message type  google::protobuf::Message
-//                        or google::protobuf::Message
+//   CPPTYPE_MESSAGE      generated message type  google::protobuf_inworld::Message
+//                        or google::protobuf_inworld::Message
 //
 // Note that for enums we use int32 in the interface.
 //
@@ -555,7 +555,7 @@ struct RefTypeTraits<
   }
 };
 }  // namespace internal
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #include <google/protobuf/port_undef.inc>

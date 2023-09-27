@@ -37,7 +37,7 @@
 #include <google/protobuf/stubs/stl_util.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace strings {
 
 using internal::SubstituteArg;
@@ -132,5 +132,5 @@ void SubstituteAndAppend(std::string* output, const char* format,
 }
 
 }  // namespace strings
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

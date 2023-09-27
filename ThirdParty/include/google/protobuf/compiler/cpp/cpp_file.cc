@@ -55,7 +55,7 @@
 #include <google/protobuf/port_def.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace cpp {
 
@@ -233,7 +233,7 @@ void FileGenerator::GenerateHeader(io::Printer* printer) {
         "\n");
   }
 
-  // We need to specialize some templates in the ::google::protobuf namespace:
+  // We need to specialize some templates in the ::google::protobuf_inworld namespace:
   GenerateProto2NamespaceEnumSpecializations(printer);
 
   format(
@@ -1487,7 +1487,7 @@ void FileGenerator::GenerateInlineFunctionDefinitions(io::Printer* printer) {
 void FileGenerator::GenerateProto2NamespaceEnumSpecializations(
     io::Printer* printer) {
   Formatter format(printer, variables_);
-  // Emit GetEnumDescriptor specializations into google::protobuf namespace:
+  // Emit GetEnumDescriptor specializations into google::protobuf_inworld namespace:
   if (HasEnumDefinitions(file_)) {
     format("\n");
     {
@@ -1503,5 +1503,5 @@ void FileGenerator::GenerateProto2NamespaceEnumSpecializations(
 
 }  // namespace cpp
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

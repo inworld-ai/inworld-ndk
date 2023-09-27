@@ -2440,7 +2440,7 @@ void OperationInfo::InternalSwap(OperationInfo* other) {
   return GetMetadataStatic();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::MethodOptions,
+::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf_inworld::MethodOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::MessageTypeTraits< ::google::longrunning::OperationInfo >, 11, false >
   operation_info(kOperationInfoFieldNumber, ::google::longrunning::OperationInfo::default_instance());
 

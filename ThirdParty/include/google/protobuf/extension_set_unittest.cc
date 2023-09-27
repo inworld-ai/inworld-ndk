@@ -57,7 +57,7 @@
 
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace internal {
 namespace {
 
@@ -519,7 +519,7 @@ TEST(ExtensionSetTest, SerializationToArray) {
   size_t size = source.ByteSizeLong();
   std::string data;
   data.resize(size);
-  uint8* target = reinterpret_cast<uint8*>(::google::protobuf::string_as_array(&data));
+  uint8* target = reinterpret_cast<uint8*>(::google::protobuf_inworld::string_as_array(&data));
   uint8* end = source.SerializeWithCachedSizesToArray(target);
   EXPECT_EQ(size, end - target);
   EXPECT_TRUE(destination.ParseFromString(data));
@@ -541,7 +541,7 @@ TEST(ExtensionSetTest, SerializationToStream) {
   std::string data;
   data.resize(size);
   {
-    io::ArrayOutputStream array_stream(::google::protobuf::string_as_array(&data), size, 1);
+    io::ArrayOutputStream array_stream(::google::protobuf_inworld::string_as_array(&data), size, 1);
     io::CodedOutputStream output_stream(&array_stream);
     source.SerializeWithCachedSizes(&output_stream);
     ASSERT_FALSE(output_stream.HadError());
@@ -563,7 +563,7 @@ TEST(ExtensionSetTest, PackedSerializationToArray) {
   size_t size = source.ByteSizeLong();
   std::string data;
   data.resize(size);
-  uint8* target = reinterpret_cast<uint8*>(::google::protobuf::string_as_array(&data));
+  uint8* target = reinterpret_cast<uint8*>(::google::protobuf_inworld::string_as_array(&data));
   uint8* end = source.SerializeWithCachedSizesToArray(target);
   EXPECT_EQ(size, end - target);
   EXPECT_TRUE(destination.ParseFromString(data));
@@ -585,7 +585,7 @@ TEST(ExtensionSetTest, PackedSerializationToStream) {
   std::string data;
   data.resize(size);
   {
-    io::ArrayOutputStream array_stream(::google::protobuf::string_as_array(&data), size, 1);
+    io::ArrayOutputStream array_stream(::google::protobuf_inworld::string_as_array(&data), size, 1);
     io::CodedOutputStream output_stream(&array_stream);
     source.SerializeWithCachedSizes(&output_stream);
     ASSERT_FALSE(output_stream.HadError());
@@ -1333,5 +1333,5 @@ TEST(ExtensionSetTest, ConstInit) {
 
 }  // namespace
 }  // namespace internal
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
