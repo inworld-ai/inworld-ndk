@@ -42,7 +42,7 @@
 #include <gtest/gtest.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 
 using unittest::ForeignMessage;
 using unittest::TestAllExtensions;
@@ -704,5 +704,5 @@ TEST(RepeatedFieldReflectionTest, RepeatedFieldRefDynamicMessage) {
 }
 
 }  // namespace
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

@@ -40,7 +40,7 @@
 
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace util {
 using util::Status;
 namespace error {
@@ -913,5 +913,5 @@ TEST_F(JsonStreamParserTest, DeepNestJsonExceedLimit) {
 
 }  // namespace converter
 }  // namespace util
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

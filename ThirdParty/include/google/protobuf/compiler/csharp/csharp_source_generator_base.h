@@ -37,7 +37,7 @@
 #include <google/protobuf/io/printer.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace csharp {
 
@@ -65,7 +65,7 @@ class SourceGeneratorBase {
 
 }  // namespace csharp
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_CSHARP_SOURCE_GENERATOR_BASE_H__

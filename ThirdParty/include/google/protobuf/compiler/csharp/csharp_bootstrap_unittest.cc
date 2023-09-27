@@ -54,7 +54,7 @@
 #include <gtest/gtest.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace csharp {
 
@@ -190,5 +190,5 @@ TEST(CsharpBootstrapTest, GeneratedCsharpDescriptorMatches) {
 
 }  // namespace csharp
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

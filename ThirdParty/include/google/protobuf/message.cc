@@ -63,7 +63,7 @@
 #include <google/protobuf/port_def.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 
 namespace internal {
 
@@ -175,14 +175,14 @@ namespace {
 
 
 #define HASH_MAP std::unordered_map
-#define STR_HASH_FXN hash<::google::protobuf::StringPiece>
+#define STR_HASH_FXN hash<::google::protobuf_inworld::StringPiece>
 
 
 class GeneratedMessageFactory : public MessageFactory {
  public:
   static GeneratedMessageFactory* singleton();
 
-  void RegisterFile(const google::protobuf::internal::DescriptorTable* table);
+  void RegisterFile(const google::protobuf_inworld::internal::DescriptorTable* table);
   void RegisterType(const Descriptor* descriptor, const Message* prototype);
 
   // implements MessageFactory ---------------------------------------
@@ -190,7 +190,7 @@ class GeneratedMessageFactory : public MessageFactory {
 
  private:
   // Only written at static init time, so does not require locking.
-  HASH_MAP<StringPiece, const google::protobuf::internal::DescriptorTable*,
+  HASH_MAP<StringPiece, const google::protobuf_inworld::internal::DescriptorTable*,
            STR_HASH_FXN>
       file_map_;
 
@@ -206,7 +206,7 @@ GeneratedMessageFactory* GeneratedMessageFactory::singleton() {
 }
 
 void GeneratedMessageFactory::RegisterFile(
-    const google::protobuf::internal::DescriptorTable* table) {
+    const google::protobuf_inworld::internal::DescriptorTable* table) {
   if (!InsertIfNotPresent(&file_map_, table->filename, table)) {
     GOOGLE_LOG(FATAL) << "File is already registered: " << table->filename;
   }
@@ -275,7 +275,7 @@ MessageFactory* MessageFactory::generated_factory() {
 }
 
 void MessageFactory::InternalRegisterGeneratedFile(
-    const google::protobuf::internal::DescriptorTable* table) {
+    const google::protobuf_inworld::internal::DescriptorTable* table) {
   GeneratedMessageFactory::singleton()->RegisterFile(table);
 }
 
@@ -361,5 +361,5 @@ PROTOBUF_NOINLINE
 }
 }  // namespace internal
 
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

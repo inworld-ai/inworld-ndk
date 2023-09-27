@@ -56,7 +56,7 @@
 #include <google/protobuf/stubs/substitute.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace java {
 
@@ -725,5 +725,5 @@ void ImmutableMessageLiteGenerator::GenerateInitializers(io::Printer* printer) {
 
 }  // namespace java
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

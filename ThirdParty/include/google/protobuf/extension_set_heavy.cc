@@ -54,7 +54,7 @@
 #include <google/protobuf/port_def.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace internal {
 
 // A FieldSkipper used to store unknown MessageSet fields into UnknownFieldSet.
@@ -532,5 +532,5 @@ bool ExtensionSet::ParseMessageSetItem(io::CodedInputStream* input,
 }
 
 }  // namespace internal
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

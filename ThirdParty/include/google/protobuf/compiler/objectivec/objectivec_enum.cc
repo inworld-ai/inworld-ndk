@@ -38,7 +38,7 @@
 #include <algorithm> // std::find()
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace objectivec {
 
@@ -257,5 +257,5 @@ void EnumGenerator::GenerateSource(io::Printer* printer) {
 }
 }  // namespace objectivec
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

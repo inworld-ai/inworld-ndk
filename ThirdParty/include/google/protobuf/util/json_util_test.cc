@@ -45,7 +45,7 @@
 #include <gtest/gtest.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace util {
 namespace {
 
@@ -645,5 +645,5 @@ TEST_F(JsonUtilTest, HtmlEscape) {
 
 }  // namespace
 }  // namespace util
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

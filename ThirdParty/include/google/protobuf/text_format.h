@@ -56,7 +56,7 @@
 #endif
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 
 namespace io {
 class ErrorCollector;  // tokenizer.h
@@ -445,13 +445,13 @@ class PROTOBUF_EXPORT TextFormat {
   // Example input: "user {\n id: 123 extra { gender: MALE language: 'en' }\n}"
   //
   // One use for this function is parsing handwritten strings in test code.
-  // Another use is to parse the output from google::protobuf::Message::DebugString()
+  // Another use is to parse the output from google::protobuf_inworld::Message::DebugString()
   // (or ShortDebugString()), because these functions output using
-  // google::protobuf::TextFormat::Print().
+  // google::protobuf_inworld::TextFormat::Print().
   //
   // If you would like to read a protocol buffer serialized in the
   // (non-human-readable) binary wire format, see
-  // google::protobuf::MessageLite::ParseFromString().
+  // google::protobuf_inworld::MessageLite::ParseFromString().
   static bool Parse(io::ZeroCopyInputStream* input, Message* output);
   // Like Parse(), but reads directly from a string.
   static bool ParseFromString(ConstStringParam input, Message* output);
@@ -644,7 +644,7 @@ inline TextFormat::ParseInfoTree* TextFormat::CreateNested(
   return info_tree->CreateNested(field);
 }
 
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #include <google/protobuf/port_undef.inc>

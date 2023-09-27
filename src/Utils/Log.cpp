@@ -34,11 +34,9 @@ void Inworld::LogClearSessionId()
 #ifdef INWORLD_LOG_CALLBACK
 std::function<void(const char * message, int severity)> Inworld::g_LoggerCallback = nullptr;
 
-// TODO: Remove Unity specific, use generic
-void Inworld::LogSetUnityLogCallback(void(*callback)(const char* message, int severity)) { LogSetLoggerCallback(callback); }
-void Inworld::LogSetLoggerCallback(void(*callback)(const char* message, int severity))
+void Inworld::LogSetLoggerCallback(LoggerCallBack callBack)
 {
-    g_LoggerCallback = callback;
+    g_LoggerCallback = callBack;
 }
 
 void Inworld::LogClearLoggerCallback() { g_LoggerCallback = nullptr; }

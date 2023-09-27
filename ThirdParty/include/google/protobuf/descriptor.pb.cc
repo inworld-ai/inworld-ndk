@@ -539,7 +539,7 @@ static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_google_2fprotobuf_2
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_google_2fprotobuf_2fdescriptor_2eproto[6];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_google_2fprotobuf_2fdescriptor_2eproto = nullptr;
 
-const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_google_2fprotobuf_2fdescriptor_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(PROTOBUF_NAMESPACE_ID::FileDescriptorSet, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1169,7 +1169,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_google_2fpr
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_google_2fprotobuf_2fdescriptor_2eproto = {
   false, false, descriptor_table_protodef_google_2fprotobuf_2fdescriptor_2eproto, "google/protobuf/descriptor.proto", 6028,
   &descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_once, descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_sccs, descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_deps, 27, 0,
-  schemas, file_default_instances, TableStruct_google_2fprotobuf_2fdescriptor_2eproto::offsets,
+  schemas, file_default_instances, TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld::offsets,
   file_level_metadata_google_2fprotobuf_2fdescriptor_2eproto, 27, file_level_enum_descriptors_google_2fprotobuf_2fdescriptor_2eproto, file_level_service_descriptors_google_2fprotobuf_2fdescriptor_2eproto,
 };
 

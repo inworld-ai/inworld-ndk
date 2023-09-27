@@ -41,7 +41,7 @@
 #include <google/protobuf/stubs/strutil.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 
 CodeGenerator::~CodeGenerator() {}
@@ -87,7 +87,7 @@ io::ZeroCopyOutputStream* GeneratorContext::OpenForInsert(
 
 io::ZeroCopyOutputStream* GeneratorContext::OpenForInsertWithGeneratedCodeInfo(
     const std::string& filename, const std::string& insertion_point,
-    const google::protobuf::GeneratedCodeInfo& /*info*/) {
+    const google::protobuf_inworld::GeneratedCodeInfo& /*info*/) {
   return OpenForInsert(filename, insertion_point);
 }
 
@@ -124,5 +124,5 @@ void ParseGeneratorParameter(
 }
 
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

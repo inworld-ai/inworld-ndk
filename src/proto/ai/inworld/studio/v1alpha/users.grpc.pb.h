@@ -52,12 +52,12 @@ class Users final {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse>>(PrepareAsyncGenerateTokenUserRaw(context, request, cq));
     }
     // RPC to link oculus account to current one
-    virtual ::grpc::Status LinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest& request, ::google::protobuf::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncLinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncLinkAccountUserRaw(context, request, cq));
+    virtual ::grpc::Status LinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest& request, ::google::protobuf_inworld::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> AsyncLinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(AsyncLinkAccountUserRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncLinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncLinkAccountUserRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> PrepareAsyncLinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(PrepareAsyncLinkAccountUserRaw(context, request, cq));
     }
     // User's CRUD.
     // RPC to get one user by name.
@@ -87,12 +87,12 @@ class Users final {
     }
     // RPC to permanently delete a user. All delete requests push log info and delete success to slack room
     // #delete-account-logs
-    virtual ::grpc::Status DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::google::protobuf::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncDeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncDeleteUserRaw(context, request, cq));
+    virtual ::grpc::Status DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::google::protobuf_inworld::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> AsyncDeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(AsyncDeleteUserRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncDeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncDeleteUserRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> PrepareAsyncDeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(PrepareAsyncDeleteUserRaw(context, request, cq));
     }
     class experimental_async_interface {
      public:
@@ -107,11 +107,11 @@ class Users final {
       virtual void GenerateTokenUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest* request, ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
       // RPC to link oculus account to current one
-      virtual void LinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void LinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void LinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void LinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void LinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void LinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
       // User's CRUD.
       // RPC to get one user by name.
@@ -138,11 +138,11 @@ class Users final {
       #endif
       // RPC to permanently delete a user. All delete requests push log info and delete success to slack room
       // #delete-account-logs
-      virtual void DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
     };
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -155,16 +155,16 @@ class Users final {
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse>* AsyncGenerateTokenUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse>* PrepareAsyncGenerateTokenUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncLinkAccountUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncLinkAccountUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* AsyncLinkAccountUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* PrepareAsyncLinkAccountUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::User>* AsyncGetUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetUserRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::User>* PrepareAsyncGetUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetUserRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::User>* AsyncUpdateUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateUserRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::User>* PrepareAsyncUpdateUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateUserRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::User>* AsyncAcceptTosRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::User>* PrepareAsyncAcceptTosRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncDeleteUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncDeleteUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* AsyncDeleteUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* PrepareAsyncDeleteUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -176,12 +176,12 @@ class Users final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse>> PrepareAsyncGenerateTokenUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse>>(PrepareAsyncGenerateTokenUserRaw(context, request, cq));
     }
-    ::grpc::Status LinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest& request, ::google::protobuf::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncLinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncLinkAccountUserRaw(context, request, cq));
+    ::grpc::Status LinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest& request, ::google::protobuf_inworld::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> AsyncLinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(AsyncLinkAccountUserRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncLinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncLinkAccountUserRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> PrepareAsyncLinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(PrepareAsyncLinkAccountUserRaw(context, request, cq));
     }
     ::grpc::Status GetUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetUserRequest& request, ::ai::inworld::studio::v1alpha::User* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::User>> AsyncGetUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetUserRequest& request, ::grpc::CompletionQueue* cq) {
@@ -204,12 +204,12 @@ class Users final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::User>> PrepareAsyncAcceptTos(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::User>>(PrepareAsyncAcceptTosRaw(context, request, cq));
     }
-    ::grpc::Status DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::google::protobuf::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncDeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncDeleteUserRaw(context, request, cq));
+    ::grpc::Status DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::google::protobuf_inworld::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> AsyncDeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(AsyncDeleteUserRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncDeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncDeleteUserRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> PrepareAsyncDeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(PrepareAsyncDeleteUserRaw(context, request, cq));
     }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
@@ -220,11 +220,11 @@ class Users final {
       #else
       void GenerateTokenUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest* request, ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
-      void LinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
+      void LinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void LinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void LinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void LinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void LinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
       void GetUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetUserRequest* request, ::ai::inworld::studio::v1alpha::User* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -244,11 +244,11 @@ class Users final {
       #else
       void AcceptTos(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest* request, ::ai::inworld::studio::v1alpha::User* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
-      void DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
+      void DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
      private:
       friend class Stub;
@@ -263,16 +263,16 @@ class Users final {
     class experimental_async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse>* AsyncGenerateTokenUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse>* PrepareAsyncGenerateTokenUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncLinkAccountUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncLinkAccountUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* AsyncLinkAccountUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* PrepareAsyncLinkAccountUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::User>* AsyncGetUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetUserRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::User>* PrepareAsyncGetUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetUserRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::User>* AsyncUpdateUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateUserRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::User>* PrepareAsyncUpdateUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateUserRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::User>* AsyncAcceptTosRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::User>* PrepareAsyncAcceptTosRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncDeleteUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncDeleteUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* AsyncDeleteUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* PrepareAsyncDeleteUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_GenerateTokenUser_;
     const ::grpc::internal::RpcMethod rpcmethod_LinkAccountUser_;
     const ::grpc::internal::RpcMethod rpcmethod_GetUser_;
@@ -291,7 +291,7 @@ class Users final {
     // provided
     virtual ::grpc::Status GenerateTokenUser(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest* request, ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse* response);
     // RPC to link oculus account to current one
-    virtual ::grpc::Status LinkAccountUser(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* request, ::google::protobuf::Empty* response);
+    virtual ::grpc::Status LinkAccountUser(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* request, ::google::protobuf_inworld::Empty* response);
     // User's CRUD.
     // RPC to get one user by name.
     virtual ::grpc::Status GetUser(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::GetUserRequest* request, ::ai::inworld::studio::v1alpha::User* response);
@@ -302,7 +302,7 @@ class Users final {
     virtual ::grpc::Status AcceptTos(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest* request, ::ai::inworld::studio::v1alpha::User* response);
     // RPC to permanently delete a user. All delete requests push log info and delete success to slack room
     // #delete-account-logs
-    virtual ::grpc::Status DeleteUser(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf::Empty* response);
+    virtual ::grpc::Status DeleteUser(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf_inworld::Empty* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_GenerateTokenUser : public BaseClass {
@@ -336,11 +336,11 @@ class Users final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status LinkAccountUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status LinkAccountUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestLinkAccountUser(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::LinkAccountRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestLinkAccountUser(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::LinkAccountRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf_inworld::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -416,11 +416,11 @@ class Users final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeleteUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestDeleteUser(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestDeleteUser(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf_inworld::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -484,38 +484,38 @@ class Users final {
       ::grpc::Service::experimental().
     #endif
         MarkMethodCallback(1,
-          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::LinkAccountRequest, ::google::protobuf::Empty>(
+          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::LinkAccountRequest, ::google::protobuf_inworld::Empty>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
                    ::grpc::CallbackServerContext*
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* request, ::google::protobuf::Empty* response) { return this->LinkAccountUser(context, request, response); }));}
+                     context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* request, ::google::protobuf_inworld::Empty* response) { return this->LinkAccountUser(context, request, response); }));}
     void SetMessageAllocatorFor_LinkAccountUser(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::LinkAccountRequest, ::google::protobuf::Empty>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::LinkAccountRequest, ::google::protobuf_inworld::Empty>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
     #else
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
     #endif
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::LinkAccountRequest, ::google::protobuf::Empty>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::LinkAccountRequest, ::google::protobuf_inworld::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_LinkAccountUser() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status LinkAccountUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status LinkAccountUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* LinkAccountUser(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* /*request*/, ::google::protobuf::Empty* /*response*/)
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
     #else
     virtual ::grpc::experimental::ServerUnaryReactor* LinkAccountUser(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* /*request*/, ::google::protobuf::Empty* /*response*/)
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
     #endif
       { return nullptr; }
   };
@@ -672,38 +672,38 @@ class Users final {
       ::grpc::Service::experimental().
     #endif
         MarkMethodCallback(5,
-          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteUserRequest, ::google::protobuf::Empty>(
+          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteUserRequest, ::google::protobuf_inworld::Empty>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
                    ::grpc::CallbackServerContext*
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf::Empty* response) { return this->DeleteUser(context, request, response); }));}
+                     context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf_inworld::Empty* response) { return this->DeleteUser(context, request, response); }));}
     void SetMessageAllocatorFor_DeleteUser(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::DeleteUserRequest, ::google::protobuf::Empty>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::DeleteUserRequest, ::google::protobuf_inworld::Empty>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
     #else
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(5);
     #endif
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteUserRequest, ::google::protobuf::Empty>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteUserRequest, ::google::protobuf_inworld::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_DeleteUser() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeleteUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* DeleteUser(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* /*request*/, ::google::protobuf::Empty* /*response*/)
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
     #else
     virtual ::grpc::experimental::ServerUnaryReactor* DeleteUser(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* /*request*/, ::google::protobuf::Empty* /*response*/)
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
     #endif
       { return nullptr; }
   };
@@ -741,7 +741,7 @@ class Users final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status LinkAccountUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status LinkAccountUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -809,7 +809,7 @@ class Users final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeleteUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -846,7 +846,7 @@ class Users final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status LinkAccountUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status LinkAccountUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -926,7 +926,7 @@ class Users final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeleteUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -997,7 +997,7 @@ class Users final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status LinkAccountUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status LinkAccountUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1149,7 +1149,7 @@ class Users final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeleteUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1197,10 +1197,10 @@ class Users final {
     WithStreamedUnaryMethod_LinkAccountUser() {
       ::grpc::Service::MarkMethodStreamed(1,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::ai::inworld::studio::v1alpha::LinkAccountRequest, ::google::protobuf::Empty>(
+          ::ai::inworld::studio::v1alpha::LinkAccountRequest, ::google::protobuf_inworld::Empty>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::ai::inworld::studio::v1alpha::LinkAccountRequest, ::google::protobuf::Empty>* streamer) {
+                     ::ai::inworld::studio::v1alpha::LinkAccountRequest, ::google::protobuf_inworld::Empty>* streamer) {
                        return this->StreamedLinkAccountUser(context,
                          streamer);
                   }));
@@ -1209,12 +1209,12 @@ class Users final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status LinkAccountUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status LinkAccountUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedLinkAccountUser(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::LinkAccountRequest,::google::protobuf::Empty>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedLinkAccountUser(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::LinkAccountRequest,::google::protobuf_inworld::Empty>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_GetUser : public BaseClass {
@@ -1305,10 +1305,10 @@ class Users final {
     WithStreamedUnaryMethod_DeleteUser() {
       ::grpc::Service::MarkMethodStreamed(5,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::ai::inworld::studio::v1alpha::DeleteUserRequest, ::google::protobuf::Empty>(
+          ::ai::inworld::studio::v1alpha::DeleteUserRequest, ::google::protobuf_inworld::Empty>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::ai::inworld::studio::v1alpha::DeleteUserRequest, ::google::protobuf::Empty>* streamer) {
+                     ::ai::inworld::studio::v1alpha::DeleteUserRequest, ::google::protobuf_inworld::Empty>* streamer) {
                        return this->StreamedDeleteUser(context,
                          streamer);
                   }));
@@ -1317,12 +1317,12 @@ class Users final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status DeleteUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status DeleteUser(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedDeleteUser(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::DeleteUserRequest,::google::protobuf::Empty>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedDeleteUser(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::DeleteUserRequest,::google::protobuf_inworld::Empty>* server_unary_streamer) = 0;
   };
   typedef WithStreamedUnaryMethod_GenerateTokenUser<WithStreamedUnaryMethod_LinkAccountUser<WithStreamedUnaryMethod_GetUser<WithStreamedUnaryMethod_UpdateUser<WithStreamedUnaryMethod_AcceptTos<WithStreamedUnaryMethod_DeleteUser<Service > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;

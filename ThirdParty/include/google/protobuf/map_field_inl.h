@@ -43,7 +43,7 @@
 #endif
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace internal {
 // UnwrapMapKey template
 template <typename T>
@@ -361,7 +361,7 @@ size_t MapField<Derived, Key, T, kKeyFieldType,
   return size;
 }
 }  // namespace internal
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_MAP_FIELD_INL_H__

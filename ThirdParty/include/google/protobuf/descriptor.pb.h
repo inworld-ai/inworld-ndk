@@ -42,7 +42,7 @@ class AnyMetadata;
 PROTOBUF_NAMESPACE_CLOSE
 
 // Internal implementation detail -- do not use these members.
-struct PROTOBUF_EXPORT TableStruct_google_2fprotobuf_2fdescriptor_2eproto {
+struct PROTOBUF_EXPORT TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld {
   static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTableField entries[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
@@ -477,7 +477,7 @@ class PROTOBUF_EXPORT FileDescriptorSet PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< PROTOBUF_NAMESPACE_ID::FileDescriptorProto > file_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -870,7 +870,7 @@ class PROTOBUF_EXPORT FileDescriptorProto PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr syntax_;
   PROTOBUF_NAMESPACE_ID::FileOptions* options_;
   PROTOBUF_NAMESPACE_ID::SourceCodeInfo* source_code_info_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -1053,7 +1053,7 @@ class PROTOBUF_EXPORT DescriptorProto_ExtensionRange PROTOBUF_FINAL :
   PROTOBUF_NAMESPACE_ID::ExtensionRangeOptions* options_;
   ::PROTOBUF_NAMESPACE_ID::int32 start_;
   ::PROTOBUF_NAMESPACE_ID::int32 end_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -1216,7 +1216,7 @@ class PROTOBUF_EXPORT DescriptorProto_ReservedRange PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::int32 start_;
   ::PROTOBUF_NAMESPACE_ID::int32 end_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -1560,7 +1560,7 @@ class PROTOBUF_EXPORT DescriptorProto PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> reserved_name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   PROTOBUF_NAMESPACE_ID::MessageOptions* options_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -1715,7 +1715,7 @@ class PROTOBUF_EXPORT ExtensionRangeOptions PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< PROTOBUF_NAMESPACE_ID::UninterpretedOption > uninterpreted_option_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -2147,7 +2147,7 @@ class PROTOBUF_EXPORT FieldDescriptorProto PROTOBUF_FINAL :
   bool proto3_optional_;
   int label_;
   int type_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -2322,7 +2322,7 @@ class PROTOBUF_EXPORT OneofDescriptorProto PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   PROTOBUF_NAMESPACE_ID::OneofOptions* options_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -2485,7 +2485,7 @@ class PROTOBUF_EXPORT EnumDescriptorProto_EnumReservedRange PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::int32 start_;
   ::PROTOBUF_NAMESPACE_ID::int32 end_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -2728,7 +2728,7 @@ class PROTOBUF_EXPORT EnumDescriptorProto PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> reserved_name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   PROTOBUF_NAMESPACE_ID::EnumOptions* options_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -2918,7 +2918,7 @@ class PROTOBUF_EXPORT EnumValueDescriptorProto PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   PROTOBUF_NAMESPACE_ID::EnumValueOptions* options_;
   ::PROTOBUF_NAMESPACE_ID::int32 number_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -3113,7 +3113,7 @@ class PROTOBUF_EXPORT ServiceDescriptorProto PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< PROTOBUF_NAMESPACE_ID::MethodDescriptorProto > method_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   PROTOBUF_NAMESPACE_ID::ServiceOptions* options_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -3362,7 +3362,7 @@ class PROTOBUF_EXPORT MethodDescriptorProto PROTOBUF_FINAL :
   PROTOBUF_NAMESPACE_ID::MethodOptions* options_;
   bool client_streaming_;
   bool server_streaming_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -3920,7 +3920,7 @@ class PROTOBUF_EXPORT FileOptions PROTOBUF_FINAL :
   bool deprecated_;
   int optimize_for_;
   bool cc_enable_arenas_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -4136,7 +4136,7 @@ class PROTOBUF_EXPORT MessageOptions PROTOBUF_FINAL :
   bool no_standard_descriptor_accessor_;
   bool deprecated_;
   bool map_entry_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -4446,7 +4446,7 @@ class PROTOBUF_EXPORT FieldOptions PROTOBUF_FINAL :
   bool deprecated_;
   bool weak_;
   int jstype_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -4601,7 +4601,7 @@ class PROTOBUF_EXPORT OneofOptions PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< PROTOBUF_NAMESPACE_ID::UninterpretedOption > uninterpreted_option_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -4787,7 +4787,7 @@ class PROTOBUF_EXPORT EnumOptions PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< PROTOBUF_NAMESPACE_ID::UninterpretedOption > uninterpreted_option_;
   bool allow_alias_;
   bool deprecated_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -4958,7 +4958,7 @@ class PROTOBUF_EXPORT EnumValueOptions PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< PROTOBUF_NAMESPACE_ID::UninterpretedOption > uninterpreted_option_;
   bool deprecated_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -5129,7 +5129,7 @@ class PROTOBUF_EXPORT ServiceOptions PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< PROTOBUF_NAMESPACE_ID::UninterpretedOption > uninterpreted_option_;
   bool deprecated_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -5347,7 +5347,7 @@ class PROTOBUF_EXPORT MethodOptions PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< PROTOBUF_NAMESPACE_ID::UninterpretedOption > uninterpreted_option_;
   bool deprecated_;
   int idempotency_level_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -5520,7 +5520,7 @@ class PROTOBUF_EXPORT UninterpretedOption_NamePart PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_part_;
   bool is_extension_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -5786,7 +5786,7 @@ class PROTOBUF_EXPORT UninterpretedOption PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint64 positive_int_value_;
   ::PROTOBUF_NAMESPACE_ID::int64 negative_int_value_;
   double double_value_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -6039,7 +6039,7 @@ class PROTOBUF_EXPORT SourceCodeInfo_Location PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> leading_detached_comments_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr leading_comments_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr trailing_comments_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -6193,7 +6193,7 @@ class PROTOBUF_EXPORT SourceCodeInfo PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< PROTOBUF_NAMESPACE_ID::SourceCodeInfo_Location > location_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -6403,7 +6403,7 @@ class PROTOBUF_EXPORT GeneratedCodeInfo_Annotation PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr source_file_;
   ::PROTOBUF_NAMESPACE_ID::int32 begin_;
   ::PROTOBUF_NAMESPACE_ID::int32 end_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -6557,7 +6557,7 @@ class PROTOBUF_EXPORT GeneratedCodeInfo PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< PROTOBUF_NAMESPACE_ID::GeneratedCodeInfo_Annotation > annotation_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 };
 // ===================================================================
 

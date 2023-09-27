@@ -42,7 +42,7 @@
 #include <google/protobuf/compiler/csharp/csharp_wrapper_field.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace csharp {
 
@@ -304,5 +304,5 @@ void WrapperOneofFieldGenerator::GenerateSerializedSizeCode(io::Printer* printer
 
 }  // namespace csharp
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

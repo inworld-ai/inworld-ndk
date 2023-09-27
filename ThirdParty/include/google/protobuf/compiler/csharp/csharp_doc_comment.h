@@ -36,7 +36,7 @@
 #include <google/protobuf/descriptor.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace csharp {
     void WriteMessageDocComment(io::Printer* printer, const Descriptor* message);
@@ -46,6 +46,6 @@ namespace csharp {
     void WriteMethodDocComment(io::Printer* printer, const MethodDescriptor* method);
 }  // namespace csharp
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 #endif  // GOOGLE_PROTOBUF_COMPILER_CSHARP_DOC_COMMENT_H__

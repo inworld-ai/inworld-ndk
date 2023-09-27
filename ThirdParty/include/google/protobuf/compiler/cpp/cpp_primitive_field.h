@@ -40,7 +40,7 @@
 #include <google/protobuf/compiler/cpp/cpp_field.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace cpp {
 
@@ -106,7 +106,7 @@ class RepeatedPrimitiveFieldGenerator : public FieldGenerator {
 
 }  // namespace cpp
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_CPP_PRIMITIVE_FIELD_H__

@@ -41,7 +41,7 @@
 #include <google/protobuf/port_def.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 
 namespace unittest = ::protobuf_unittest;
 
@@ -1630,7 +1630,7 @@ inline void MapReflectionTester::ExpectClearViaReflectionIterator(
               reflection->MapEnd(message, F("map_int32_foreign_message")));
 }
 
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #include <google/protobuf/port_undef.inc>

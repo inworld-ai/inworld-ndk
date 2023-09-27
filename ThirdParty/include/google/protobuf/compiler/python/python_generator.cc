@@ -63,7 +63,7 @@
 #include <google/protobuf/stubs/substitute.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace python {
 
@@ -1470,5 +1470,5 @@ void Generator::CopyPublicDependenciesAliases(
 
 }  // namespace python
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

@@ -75,23 +75,23 @@ Characters::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel
   , rpcmethod_GetCharacterShareInfo_(Characters_method_names[18], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status Characters::Stub::DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::google::protobuf::Empty* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_DeployCharacter_, context, request, response);
+::grpc::Status Characters::Stub::DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::google::protobuf_inworld::Empty* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_DeployCharacter_, context, request, response);
 }
 
-void Characters::Stub::experimental_async::DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeployCharacter_, context, request, response, std::move(f));
+void Characters::Stub::experimental_async::DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeployCharacter_, context, request, response, std::move(f));
 }
 
-void Characters::Stub::experimental_async::DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeployCharacter_, context, request, response, reactor);
+void Characters::Stub::experimental_async::DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeployCharacter_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Characters::Stub::PrepareAsyncDeployCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf::Empty, ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_DeployCharacter_, context, request);
+::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* Characters::Stub::PrepareAsyncDeployCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf_inworld::Empty, ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_DeployCharacter_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Characters::Stub::AsyncDeployCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* Characters::Stub::AsyncDeployCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncDeployCharacterRaw(context, request, cq);
   result->StartCall();
@@ -99,19 +99,19 @@ void Characters::Stub::experimental_async::DeployCharacter(::grpc::ClientContext
 }
 
 ::grpc::Status Characters::Stub::CloneCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest& request, ::ai::inworld::studio::v1alpha::Character* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::CloneCharacterRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_CloneCharacter_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::CloneCharacterRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_CloneCharacter_, context, request, response);
 }
 
 void Characters::Stub::experimental_async::CloneCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::CloneCharacterRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CloneCharacter_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::CloneCharacterRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CloneCharacter_, context, request, response, std::move(f));
 }
 
 void Characters::Stub::experimental_async::CloneCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CloneCharacter_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CloneCharacter_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* Characters::Stub::PrepareAsyncCloneCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::Character, ::ai::inworld::studio::v1alpha::CloneCharacterRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_CloneCharacter_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::Character, ::ai::inworld::studio::v1alpha::CloneCharacterRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_CloneCharacter_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* Characters::Stub::AsyncCloneCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest& request, ::grpc::CompletionQueue* cq) {
@@ -122,19 +122,19 @@ void Characters::Stub::experimental_async::CloneCharacter(::grpc::ClientContext*
 }
 
 ::grpc::Status Characters::Stub::DeployCharacterAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::google::longrunning::Operation* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::longrunning::Operation, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_DeployCharacterAsynchronously_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::longrunning::Operation, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_DeployCharacterAsynchronously_, context, request, response);
 }
 
 void Characters::Stub::experimental_async::DeployCharacterAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::longrunning::Operation* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::longrunning::Operation, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeployCharacterAsynchronously_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::longrunning::Operation, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeployCharacterAsynchronously_, context, request, response, std::move(f));
 }
 
 void Characters::Stub::experimental_async::DeployCharacterAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::longrunning::Operation* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeployCharacterAsynchronously_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeployCharacterAsynchronously_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>* Characters::Stub::PrepareAsyncDeployCharacterAsynchronouslyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::longrunning::Operation, ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_DeployCharacterAsynchronously_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::longrunning::Operation, ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_DeployCharacterAsynchronously_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>* Characters::Stub::AsyncDeployCharacterAsynchronouslyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) {
@@ -145,19 +145,19 @@ void Characters::Stub::experimental_async::DeployCharacterAsynchronously(::grpc:
 }
 
 ::grpc::Status Characters::Stub::GetCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterRequest& request, ::ai::inworld::studio::v1alpha::Character* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::GetCharacterRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetCharacter_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::GetCharacterRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_GetCharacter_, context, request, response);
 }
 
 void Characters::Stub::experimental_async::GetCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::GetCharacterRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCharacter_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::GetCharacterRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCharacter_, context, request, response, std::move(f));
 }
 
 void Characters::Stub::experimental_async::GetCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCharacter_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCharacter_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* Characters::Stub::PrepareAsyncGetCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::Character, ::ai::inworld::studio::v1alpha::GetCharacterRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetCharacter_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::Character, ::ai::inworld::studio::v1alpha::GetCharacterRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_GetCharacter_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* Characters::Stub::AsyncGetCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterRequest& request, ::grpc::CompletionQueue* cq) {
@@ -168,19 +168,19 @@ void Characters::Stub::experimental_async::GetCharacter(::grpc::ClientContext* c
 }
 
 ::grpc::Status Characters::Stub::ListCharacters(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListCharactersRequest& request, ::ai::inworld::studio::v1alpha::ListCharactersResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::ListCharactersRequest, ::ai::inworld::studio::v1alpha::ListCharactersResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_ListCharacters_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::ListCharactersRequest, ::ai::inworld::studio::v1alpha::ListCharactersResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_ListCharacters_, context, request, response);
 }
 
 void Characters::Stub::experimental_async::ListCharacters(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListCharactersResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::ListCharactersRequest, ::ai::inworld::studio::v1alpha::ListCharactersResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ListCharacters_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::ListCharactersRequest, ::ai::inworld::studio::v1alpha::ListCharactersResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ListCharacters_, context, request, response, std::move(f));
 }
 
 void Characters::Stub::experimental_async::ListCharacters(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListCharactersResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ListCharacters_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ListCharacters_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ListCharactersResponse>* Characters::Stub::PrepareAsyncListCharactersRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListCharactersRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::ListCharactersResponse, ::ai::inworld::studio::v1alpha::ListCharactersRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_ListCharacters_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::ListCharactersResponse, ::ai::inworld::studio::v1alpha::ListCharactersRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_ListCharacters_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ListCharactersResponse>* Characters::Stub::AsyncListCharactersRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListCharactersRequest& request, ::grpc::CompletionQueue* cq) {
@@ -191,19 +191,19 @@ void Characters::Stub::experimental_async::ListCharacters(::grpc::ClientContext*
 }
 
 ::grpc::Status Characters::Stub::UpdateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest& request, ::ai::inworld::studio::v1alpha::Character* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::UpdateCharacterRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_UpdateCharacter_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::UpdateCharacterRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_UpdateCharacter_, context, request, response);
 }
 
 void Characters::Stub::experimental_async::UpdateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::UpdateCharacterRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_UpdateCharacter_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::UpdateCharacterRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_UpdateCharacter_, context, request, response, std::move(f));
 }
 
 void Characters::Stub::experimental_async::UpdateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_UpdateCharacter_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_UpdateCharacter_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* Characters::Stub::PrepareAsyncUpdateCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::Character, ::ai::inworld::studio::v1alpha::UpdateCharacterRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_UpdateCharacter_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::Character, ::ai::inworld::studio::v1alpha::UpdateCharacterRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_UpdateCharacter_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* Characters::Stub::AsyncUpdateCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest& request, ::grpc::CompletionQueue* cq) {
@@ -214,19 +214,19 @@ void Characters::Stub::experimental_async::UpdateCharacter(::grpc::ClientContext
 }
 
 ::grpc::Status Characters::Stub::CreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::google::longrunning::Operation* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::CreateCharacterRequest, ::google::longrunning::Operation, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_CreateCharacter_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::CreateCharacterRequest, ::google::longrunning::Operation, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_CreateCharacter_, context, request, response);
 }
 
 void Characters::Stub::experimental_async::CreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::google::longrunning::Operation* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::CreateCharacterRequest, ::google::longrunning::Operation, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CreateCharacter_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::CreateCharacterRequest, ::google::longrunning::Operation, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CreateCharacter_, context, request, response, std::move(f));
 }
 
 void Characters::Stub::experimental_async::CreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::google::longrunning::Operation* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CreateCharacter_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CreateCharacter_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>* Characters::Stub::PrepareAsyncCreateCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::longrunning::Operation, ::ai::inworld::studio::v1alpha::CreateCharacterRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_CreateCharacter_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::longrunning::Operation, ::ai::inworld::studio::v1alpha::CreateCharacterRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_CreateCharacter_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>* Characters::Stub::AsyncCreateCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::grpc::CompletionQueue* cq) {
@@ -236,23 +236,23 @@ void Characters::Stub::experimental_async::CreateCharacter(::grpc::ClientContext
   return result;
 }
 
-::grpc::Status Characters::Stub::DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::google::protobuf::Empty* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::DeleteCharacterRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_DeleteCharacter_, context, request, response);
+::grpc::Status Characters::Stub::DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::google::protobuf_inworld::Empty* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::DeleteCharacterRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_DeleteCharacter_, context, request, response);
 }
 
-void Characters::Stub::experimental_async::DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::DeleteCharacterRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeleteCharacter_, context, request, response, std::move(f));
+void Characters::Stub::experimental_async::DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::DeleteCharacterRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeleteCharacter_, context, request, response, std::move(f));
 }
 
-void Characters::Stub::experimental_async::DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeleteCharacter_, context, request, response, reactor);
+void Characters::Stub::experimental_async::DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeleteCharacter_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Characters::Stub::PrepareAsyncDeleteCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf::Empty, ::ai::inworld::studio::v1alpha::DeleteCharacterRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_DeleteCharacter_, context, request);
+::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* Characters::Stub::PrepareAsyncDeleteCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf_inworld::Empty, ::ai::inworld::studio::v1alpha::DeleteCharacterRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_DeleteCharacter_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Characters::Stub::AsyncDeleteCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* Characters::Stub::AsyncDeleteCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncDeleteCharacterRaw(context, request, cq);
   result->StartCall();
@@ -260,19 +260,19 @@ void Characters::Stub::experimental_async::DeleteCharacter(::grpc::ClientContext
 }
 
 ::grpc::Status Characters::Stub::ReplaceCharacterRpmModel(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest& request, ::ai::inworld::studio::v1alpha::Character* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_ReplaceCharacterRpmModel_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_ReplaceCharacterRpmModel_, context, request, response);
 }
 
 void Characters::Stub::experimental_async::ReplaceCharacterRpmModel(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ReplaceCharacterRpmModel_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ReplaceCharacterRpmModel_, context, request, response, std::move(f));
 }
 
 void Characters::Stub::experimental_async::ReplaceCharacterRpmModel(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ReplaceCharacterRpmModel_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ReplaceCharacterRpmModel_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* Characters::Stub::PrepareAsyncReplaceCharacterRpmModelRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::Character, ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_ReplaceCharacterRpmModel_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::Character, ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_ReplaceCharacterRpmModel_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* Characters::Stub::AsyncReplaceCharacterRpmModelRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest& request, ::grpc::CompletionQueue* cq) {
@@ -283,19 +283,19 @@ void Characters::Stub::experimental_async::ReplaceCharacterRpmModel(::grpc::Clie
 }
 
 ::grpc::Status Characters::Stub::ReplaceCharacterImage(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest& request, ::ai::inworld::studio::v1alpha::Character* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_ReplaceCharacterImage_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_ReplaceCharacterImage_, context, request, response);
 }
 
 void Characters::Stub::experimental_async::ReplaceCharacterImage(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ReplaceCharacterImage_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ReplaceCharacterImage_, context, request, response, std::move(f));
 }
 
 void Characters::Stub::experimental_async::ReplaceCharacterImage(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ReplaceCharacterImage_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ReplaceCharacterImage_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* Characters::Stub::PrepareAsyncReplaceCharacterImageRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::Character, ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_ReplaceCharacterImage_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::Character, ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_ReplaceCharacterImage_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* Characters::Stub::AsyncReplaceCharacterImageRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest& request, ::grpc::CompletionQueue* cq) {
@@ -306,19 +306,19 @@ void Characters::Stub::experimental_async::ReplaceCharacterImage(::grpc::ClientC
 }
 
 ::grpc::Status Characters::Stub::PreviewPromptTemplate(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest& request, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_PreviewPromptTemplate_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_PreviewPromptTemplate_, context, request, response);
 }
 
 void Characters::Stub::experimental_async::PreviewPromptTemplate(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest* request, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_PreviewPromptTemplate_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_PreviewPromptTemplate_, context, request, response, std::move(f));
 }
 
 void Characters::Stub::experimental_async::PreviewPromptTemplate(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest* request, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_PreviewPromptTemplate_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_PreviewPromptTemplate_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse>* Characters::Stub::PrepareAsyncPreviewPromptTemplateRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse, ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_PreviewPromptTemplate_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse, ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_PreviewPromptTemplate_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse>* Characters::Stub::AsyncPreviewPromptTemplateRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest& request, ::grpc::CompletionQueue* cq) {
@@ -329,19 +329,19 @@ void Characters::Stub::experimental_async::PreviewPromptTemplate(::grpc::ClientC
 }
 
 ::grpc::Status Characters::Stub::CheckDeployInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest& request, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_CheckDeployInfo_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_CheckDeployInfo_, context, request, response);
 }
 
 void Characters::Stub::experimental_async::CheckDeployInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest* request, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CheckDeployInfo_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CheckDeployInfo_, context, request, response, std::move(f));
 }
 
 void Characters::Stub::experimental_async::CheckDeployInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest* request, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CheckDeployInfo_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CheckDeployInfo_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse>* Characters::Stub::PrepareAsyncCheckDeployInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse, ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_CheckDeployInfo_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse, ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_CheckDeployInfo_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse>* Characters::Stub::AsyncCheckDeployInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest& request, ::grpc::CompletionQueue* cq) {
@@ -352,19 +352,19 @@ void Characters::Stub::experimental_async::CheckDeployInfo(::grpc::ClientContext
 }
 
 ::grpc::Status Characters::Stub::GetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest& request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetCharacterAdvancedSettings_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_GetCharacterAdvancedSettings_, context, request, response);
 }
 
 void Characters::Stub::experimental_async::GetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCharacterAdvancedSettings_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCharacterAdvancedSettings_, context, request, response, std::move(f));
 }
 
 void Characters::Stub::experimental_async::GetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCharacterAdvancedSettings_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCharacterAdvancedSettings_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* Characters::Stub::PrepareAsyncGetCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings, ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetCharacterAdvancedSettings_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings, ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_GetCharacterAdvancedSettings_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* Characters::Stub::AsyncGetCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) {
@@ -375,19 +375,19 @@ void Characters::Stub::experimental_async::GetCharacterAdvancedSettings(::grpc::
 }
 
 ::grpc::Status Characters::Stub::UpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest& request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_UpdateCharacterAdvancedSettings_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_UpdateCharacterAdvancedSettings_, context, request, response);
 }
 
 void Characters::Stub::experimental_async::UpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_UpdateCharacterAdvancedSettings_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_UpdateCharacterAdvancedSettings_, context, request, response, std::move(f));
 }
 
 void Characters::Stub::experimental_async::UpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_UpdateCharacterAdvancedSettings_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_UpdateCharacterAdvancedSettings_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* Characters::Stub::PrepareAsyncUpdateCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings, ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_UpdateCharacterAdvancedSettings_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings, ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_UpdateCharacterAdvancedSettings_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* Characters::Stub::AsyncUpdateCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) {
@@ -397,69 +397,69 @@ void Characters::Stub::experimental_async::UpdateCharacterAdvancedSettings(::grp
   return result;
 }
 
-::grpc::Status Characters::Stub::ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::google::protobuf::Empty* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_ShareCharacter_, context, request, response);
+::grpc::Status Characters::Stub::ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::google::protobuf_inworld::Empty* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_ShareCharacter_, context, request, response);
 }
 
-void Characters::Stub::experimental_async::ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ShareCharacter_, context, request, response, std::move(f));
+void Characters::Stub::experimental_async::ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ShareCharacter_, context, request, response, std::move(f));
 }
 
-void Characters::Stub::experimental_async::ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ShareCharacter_, context, request, response, reactor);
+void Characters::Stub::experimental_async::ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ShareCharacter_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Characters::Stub::PrepareAsyncShareCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf::Empty, ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_ShareCharacter_, context, request);
+::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* Characters::Stub::PrepareAsyncShareCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf_inworld::Empty, ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_ShareCharacter_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Characters::Stub::AsyncShareCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* Characters::Stub::AsyncShareCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncShareCharacterRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status Characters::Stub::ShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::google::protobuf::Empty* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_ShareCharacterPortal_, context, request, response);
+::grpc::Status Characters::Stub::ShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::google::protobuf_inworld::Empty* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_ShareCharacterPortal_, context, request, response);
 }
 
-void Characters::Stub::experimental_async::ShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ShareCharacterPortal_, context, request, response, std::move(f));
+void Characters::Stub::experimental_async::ShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ShareCharacterPortal_, context, request, response, std::move(f));
 }
 
-void Characters::Stub::experimental_async::ShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ShareCharacterPortal_, context, request, response, reactor);
+void Characters::Stub::experimental_async::ShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ShareCharacterPortal_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Characters::Stub::PrepareAsyncShareCharacterPortalRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf::Empty, ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_ShareCharacterPortal_, context, request);
+::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* Characters::Stub::PrepareAsyncShareCharacterPortalRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf_inworld::Empty, ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_ShareCharacterPortal_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Characters::Stub::AsyncShareCharacterPortalRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* Characters::Stub::AsyncShareCharacterPortalRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncShareCharacterPortalRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status Characters::Stub::UnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest& request, ::google::protobuf::Empty* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_UnshareCharacterPortal_, context, request, response);
+::grpc::Status Characters::Stub::UnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest& request, ::google::protobuf_inworld::Empty* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_UnshareCharacterPortal_, context, request, response);
 }
 
-void Characters::Stub::experimental_async::UnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_UnshareCharacterPortal_, context, request, response, std::move(f));
+void Characters::Stub::experimental_async::UnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_UnshareCharacterPortal_, context, request, response, std::move(f));
 }
 
-void Characters::Stub::experimental_async::UnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_UnshareCharacterPortal_, context, request, response, reactor);
+void Characters::Stub::experimental_async::UnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_UnshareCharacterPortal_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Characters::Stub::PrepareAsyncUnshareCharacterPortalRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf::Empty, ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_UnshareCharacterPortal_, context, request);
+::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* Characters::Stub::PrepareAsyncUnshareCharacterPortalRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf_inworld::Empty, ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_UnshareCharacterPortal_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* Characters::Stub::AsyncUnshareCharacterPortalRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* Characters::Stub::AsyncUnshareCharacterPortalRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncUnshareCharacterPortalRaw(context, request, cq);
   result->StartCall();
@@ -467,19 +467,19 @@ void Characters::Stub::experimental_async::UnshareCharacterPortal(::grpc::Client
 }
 
 ::grpc::Status Characters::Stub::ListSharedCharacters(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest& request, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_ListSharedCharacters_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_ListSharedCharacters_, context, request, response);
 }
 
 void Characters::Stub::experimental_async::ListSharedCharacters(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ListSharedCharacters_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ListSharedCharacters_, context, request, response, std::move(f));
 }
 
 void Characters::Stub::experimental_async::ListSharedCharacters(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ListSharedCharacters_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ListSharedCharacters_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse>* Characters::Stub::PrepareAsyncListSharedCharactersRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse, ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_ListSharedCharacters_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse, ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_ListSharedCharacters_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse>* Characters::Stub::AsyncListSharedCharactersRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest& request, ::grpc::CompletionQueue* cq) {
@@ -490,19 +490,19 @@ void Characters::Stub::experimental_async::ListSharedCharacters(::grpc::ClientCo
 }
 
 ::grpc::Status Characters::Stub::GetCharacterShareInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest& request, ::ai::inworld::studio::v1alpha::CharacterShareInfo* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest, ::ai::inworld::studio::v1alpha::CharacterShareInfo, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetCharacterShareInfo_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest, ::ai::inworld::studio::v1alpha::CharacterShareInfo, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_GetCharacterShareInfo_, context, request, response);
 }
 
 void Characters::Stub::experimental_async::GetCharacterShareInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest* request, ::ai::inworld::studio::v1alpha::CharacterShareInfo* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest, ::ai::inworld::studio::v1alpha::CharacterShareInfo, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCharacterShareInfo_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest, ::ai::inworld::studio::v1alpha::CharacterShareInfo, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCharacterShareInfo_, context, request, response, std::move(f));
 }
 
 void Characters::Stub::experimental_async::GetCharacterShareInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest* request, ::ai::inworld::studio::v1alpha::CharacterShareInfo* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCharacterShareInfo_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCharacterShareInfo_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterShareInfo>* Characters::Stub::PrepareAsyncGetCharacterShareInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::CharacterShareInfo, ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetCharacterShareInfo_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::CharacterShareInfo, ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_GetCharacterShareInfo_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterShareInfo>* Characters::Stub::AsyncGetCharacterShareInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest& request, ::grpc::CompletionQueue* cq) {
@@ -516,17 +516,17 @@ Characters::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Characters_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Characters::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* req,
-             ::google::protobuf::Empty* resp) {
+             ::google::protobuf_inworld::Empty* resp) {
                return service->DeployCharacter(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Characters_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::CloneCharacterRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::CloneCharacterRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Characters::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* req,
@@ -536,7 +536,7 @@ Characters::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Characters_method_names[2],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::longrunning::Operation, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::longrunning::Operation, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Characters::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* req,
@@ -546,7 +546,7 @@ Characters::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Characters_method_names[3],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::GetCharacterRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::GetCharacterRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Characters::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::GetCharacterRequest* req,
@@ -556,7 +556,7 @@ Characters::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Characters_method_names[4],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::ListCharactersRequest, ::ai::inworld::studio::v1alpha::ListCharactersResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::ListCharactersRequest, ::ai::inworld::studio::v1alpha::ListCharactersResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Characters::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::ListCharactersRequest* req,
@@ -566,7 +566,7 @@ Characters::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Characters_method_names[5],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::UpdateCharacterRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::UpdateCharacterRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Characters::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest* req,
@@ -576,7 +576,7 @@ Characters::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Characters_method_names[6],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::CreateCharacterRequest, ::google::longrunning::Operation, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::CreateCharacterRequest, ::google::longrunning::Operation, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Characters::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* req,
@@ -586,17 +586,17 @@ Characters::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Characters_method_names[7],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::DeleteCharacterRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::DeleteCharacterRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Characters::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* req,
-             ::google::protobuf::Empty* resp) {
+             ::google::protobuf_inworld::Empty* resp) {
                return service->DeleteCharacter(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Characters_method_names[8],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Characters::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* req,
@@ -606,7 +606,7 @@ Characters::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Characters_method_names[9],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest, ::ai::inworld::studio::v1alpha::Character, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Characters::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* req,
@@ -616,7 +616,7 @@ Characters::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Characters_method_names[10],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Characters::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest* req,
@@ -626,7 +626,7 @@ Characters::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Characters_method_names[11],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Characters::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest* req,
@@ -636,7 +636,7 @@ Characters::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Characters_method_names[12],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Characters::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest* req,
@@ -646,7 +646,7 @@ Characters::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Characters_method_names[13],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Characters::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* req,
@@ -656,37 +656,37 @@ Characters::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Characters_method_names[14],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Characters::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* req,
-             ::google::protobuf::Empty* resp) {
+             ::google::protobuf_inworld::Empty* resp) {
                return service->ShareCharacter(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Characters_method_names[15],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Characters::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* req,
-             ::google::protobuf::Empty* resp) {
+             ::google::protobuf_inworld::Empty* resp) {
                return service->ShareCharacterPortal(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Characters_method_names[16],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Characters::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* req,
-             ::google::protobuf::Empty* resp) {
+             ::google::protobuf_inworld::Empty* resp) {
                return service->UnshareCharacterPortal(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Characters_method_names[17],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Characters::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest* req,
@@ -696,7 +696,7 @@ Characters::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Characters_method_names[18],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest, ::ai::inworld::studio::v1alpha::CharacterShareInfo, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest, ::ai::inworld::studio::v1alpha::CharacterShareInfo, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Characters::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest* req,
@@ -708,7 +708,7 @@ Characters::Service::Service() {
 Characters::Service::~Service() {
 }
 
-::grpc::Status Characters::Service::DeployCharacter(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf::Empty* response) {
+::grpc::Status Characters::Service::DeployCharacter(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf_inworld::Empty* response) {
   (void) context;
   (void) request;
   (void) response;
@@ -757,7 +757,7 @@ Characters::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Characters::Service::DeleteCharacter(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf::Empty* response) {
+::grpc::Status Characters::Service::DeleteCharacter(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf_inworld::Empty* response) {
   (void) context;
   (void) request;
   (void) response;
@@ -806,21 +806,21 @@ Characters::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Characters::Service::ShareCharacter(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf::Empty* response) {
+::grpc::Status Characters::Service::ShareCharacter(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf_inworld::Empty* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Characters::Service::ShareCharacterPortal(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf::Empty* response) {
+::grpc::Status Characters::Service::ShareCharacterPortal(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Characters::Service::UnshareCharacterPortal(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf::Empty* response) {
+::grpc::Status Characters::Service::UnshareCharacterPortal(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response) {
   (void) context;
   (void) request;
   (void) response;

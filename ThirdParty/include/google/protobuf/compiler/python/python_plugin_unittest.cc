@@ -48,7 +48,7 @@
 #include <gtest/gtest.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace python {
 namespace {
@@ -158,5 +158,5 @@ TEST(PythonPluginTest, ImportTest) {
 }  // namespace
 }  // namespace python
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

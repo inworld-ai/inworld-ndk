@@ -41,7 +41,7 @@
 #include <google/protobuf/compiler/cpp/cpp_helpers.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace cpp {
 
@@ -126,7 +126,7 @@ class RepeatedMessageFieldGenerator : public FieldGenerator {
 
 }  // namespace cpp
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_CPP_MESSAGE_FIELD_H__

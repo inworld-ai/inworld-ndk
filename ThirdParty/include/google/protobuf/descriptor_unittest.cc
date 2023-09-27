@@ -65,7 +65,7 @@
 #include <google/protobuf/port_def.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 
 // Can't use an anonymous namespace here due to brokenness of Tru64 compiler.
 namespace descriptor_unittest {
@@ -3150,7 +3150,7 @@ TEST(CustomOptions, OptionsFromOtherFile) {
 
   // We have to import the Any dependency.
   FileDescriptorProto any_proto;
-  google::protobuf::Any::descriptor()->file()->CopyTo(&any_proto);
+  google::protobuf_inworld::Any::descriptor()->file()->CopyTo(&any_proto);
   ASSERT_TRUE(pool.BuildFile(any_proto) != nullptr);
 
   protobuf_unittest::TestMessageWithCustomOptions::descriptor()->file()->CopyTo(
@@ -3212,7 +3212,7 @@ TEST(CustomOptions, MessageOptionThreeFieldsSet) {
   ASSERT_TRUE(pool.BuildFile(file_proto) != nullptr);
 
   FileDescriptorProto any_proto;
-  google::protobuf::Any::descriptor()->file()->CopyTo(&any_proto);
+  google::protobuf_inworld::Any::descriptor()->file()->CopyTo(&any_proto);
   ASSERT_TRUE(pool.BuildFile(any_proto) != nullptr);
 
   protobuf_unittest::TestMessageWithCustomOptions::descriptor()->file()->CopyTo(
@@ -3293,7 +3293,7 @@ TEST(CustomOptions, MessageOptionRepeatedLeafFieldSet) {
   ASSERT_TRUE(pool.BuildFile(file_proto) != nullptr);
 
   FileDescriptorProto any_proto;
-  google::protobuf::Any::descriptor()->file()->CopyTo(&any_proto);
+  google::protobuf_inworld::Any::descriptor()->file()->CopyTo(&any_proto);
   ASSERT_TRUE(pool.BuildFile(any_proto) != nullptr);
 
   protobuf_unittest::TestMessageWithCustomOptions::descriptor()->file()->CopyTo(
@@ -3377,7 +3377,7 @@ TEST(CustomOptions, MessageOptionRepeatedMsgFieldSet) {
   ASSERT_TRUE(pool.BuildFile(file_proto) != nullptr);
 
   FileDescriptorProto any_proto;
-  google::protobuf::Any::descriptor()->file()->CopyTo(&any_proto);
+  google::protobuf_inworld::Any::descriptor()->file()->CopyTo(&any_proto);
   ASSERT_TRUE(pool.BuildFile(any_proto) != nullptr);
 
   protobuf_unittest::TestMessageWithCustomOptions::descriptor()->file()->CopyTo(
@@ -3507,7 +3507,7 @@ TEST(CustomOptions, UnusedImportError) {
   ASSERT_TRUE(pool.BuildFile(file_proto) != nullptr);
 
   FileDescriptorProto any_proto;
-  google::protobuf::Any::descriptor()->file()->CopyTo(&any_proto);
+  google::protobuf_inworld::Any::descriptor()->file()->CopyTo(&any_proto);
   ASSERT_TRUE(pool.BuildFile(any_proto) != nullptr);
 
   protobuf_unittest::TestMessageWithCustomOptions::descriptor()->file()->CopyTo(
@@ -8108,5 +8108,5 @@ TEST_F(LazilyBuildDependenciesTest, Dependency) {
 
 
 }  // namespace descriptor_unittest
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

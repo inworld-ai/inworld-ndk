@@ -37,7 +37,7 @@
 #include <google/protobuf/wire_format.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace objectivec {
 
@@ -145,5 +145,5 @@ void RepeatedEnumFieldGenerator::FinishInitialization(void) {
 
 }  // namespace objectivec
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

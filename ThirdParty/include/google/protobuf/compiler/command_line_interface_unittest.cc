@@ -67,18 +67,18 @@
 
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 
 #if defined(_WIN32)
 // DO NOT include <io.h>, instead create functions in io_win32.{h,cc} and import
 // them like we do below.
-using google::protobuf::io::win32::access;
-using google::protobuf::io::win32::close;
-using google::protobuf::io::win32::dup;
-using google::protobuf::io::win32::dup2;
-using google::protobuf::io::win32::open;
-using google::protobuf::io::win32::write;
+using google::protobuf_inworld::io::win32::access;
+using google::protobuf_inworld::io::win32::close;
+using google::protobuf_inworld::io::win32::dup;
+using google::protobuf_inworld::io::win32::dup2;
+using google::protobuf_inworld::io::win32::open;
+using google::protobuf_inworld::io::win32::write;
 #endif
 
 // Disable the whole test when we use tcmalloc for "draconian" heap checks, in
@@ -683,7 +683,7 @@ TEST_F(CommandLineInterfaceTest, MultipleInputs_UnusedImport_DescriptorSetIn) {
   descriptor_file->CopyTo(file_descriptor_set.add_file());
 
   FileDescriptorProto& any_proto = *file_descriptor_set.add_file();
-  google::protobuf::Any::descriptor()->file()->CopyTo(&any_proto);
+  google::protobuf_inworld::Any::descriptor()->file()->CopyTo(&any_proto);
 
   const FileDescriptor* custom_file =
       protobuf_unittest::AggregateMessage::descriptor()->file();
@@ -2768,5 +2768,5 @@ INSTANTIATE_TEST_SUITE_P(FileDescriptorSetSource, EncodeDecodeTest,
 #endif  // !GOOGLE_PROTOBUF_HEAP_CHECK_DRACONIAN
 
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

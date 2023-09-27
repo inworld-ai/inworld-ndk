@@ -56,7 +56,7 @@
 #include <google/protobuf/compiler/csharp/csharp_wrapper_field.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace csharp {
 
@@ -588,5 +588,5 @@ bool IsNullable(const FieldDescriptor* descriptor) {
 
 }  // namespace csharp
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

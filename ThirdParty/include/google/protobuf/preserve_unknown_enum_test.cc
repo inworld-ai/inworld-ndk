@@ -36,7 +36,7 @@
 #include <gtest/gtest.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace {
 
 void FillMessage(
@@ -286,5 +286,5 @@ TEST(PreserveUnknownEnumTest, SupportsUnknownEnumValuesAPI) {
   EXPECT_FALSE(proto2_reflection->SupportsUnknownEnumValues());
   EXPECT_TRUE(new_reflection->SupportsUnknownEnumValues());
 }
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

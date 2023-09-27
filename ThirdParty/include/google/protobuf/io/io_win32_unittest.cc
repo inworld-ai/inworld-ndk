@@ -59,7 +59,7 @@
 #include <gtest/gtest.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace io {
 namespace win32 {
 namespace {
@@ -624,7 +624,7 @@ TEST_F(IoWin32Test, Utf8Utf16ConversionTest) {
 }  // namespace
 }  // namespace win32
 }  // namespace io
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #endif  // defined(_WIN32)
