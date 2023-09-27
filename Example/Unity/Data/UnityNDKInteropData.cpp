@@ -5,6 +5,7 @@
  * that can be found in the LICENSE.md file or at https://www.inworld.ai/sdk-license
  */
 
+#include <codecvt>
 #include "UnityNDKInteropData.h"
 #include "Utils/Log.h"
 
@@ -53,7 +54,6 @@ const char* NDKUnity::StringToBase64WString(const std::string& input)
 	default:
 		break;
 	}
-
 	size_t bufferSize = result.length() + 1;
 	char* buffer = new char[bufferSize];
 	#if _WIN32
