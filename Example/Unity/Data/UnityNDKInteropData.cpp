@@ -23,7 +23,7 @@ int NDKUnity::CharToInt(char c)
 	return -1;
 }
 
-const char* NDKUnity::StringToBase64WString(const std::string& input)
+const char* NDKUnity::StringToBase64(const std::string& input)
 {
 	std::string result;
 	size_t      remaining = input.size();
@@ -56,11 +56,11 @@ const char* NDKUnity::StringToBase64WString(const std::string& input)
 	}
 	size_t bufferSize = result.length() + 1;
 	char* buffer = new char[bufferSize];
-	#if _WIN32
+#if _WIN32
 	strcpy_s(buffer, bufferSize, result.c_str());
-	#else
+#else
 	strlcpy(buffer, result.c_str(), bufferSize);
-	#endif	
+#endif	
 	return buffer;
 }
 
@@ -184,7 +184,7 @@ NDKUnity::PhonemeInfo::PhonemeInfo(const Inworld::AudioDataEvent& evt, const Inw
 NDKUnity::AudioPacket::AudioPacket(const Inworld::AudioDataEvent& rhs)
 {
 	packet = Packet(rhs);
-	audioChunk = StringToBase64WString(rhs.GetDataChunk());
+	audioChunk = StringToBase64(rhs.GetDataChunk());
 	type = 1; // AUDIO
 	phonemeCount = static_cast<int32_t>(rhs.GetPhonemeInfos().size());
 }
