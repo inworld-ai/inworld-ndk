@@ -116,7 +116,7 @@ namespace NDKUnity
 	struct AudioPacket
 	{
 		Packet  packet;
-		const wchar_t* audioChunk;
+		const char* audioChunk;
 		int32_t type;
 		int32_t phonemeCount;
 
@@ -172,7 +172,7 @@ namespace NDKUnity
 
 #pragma region Converters
 	int CharToInt(char c);
-	const wchar_t* StringToBase64WString(const std::string& input);
+	const char* StringToBase64(const std::string& input);
 	std::string Base64ToString(const std::string& input);  // NOLINT(clang-diagnostic-return-type-c-linkage)
 	int Base64CharToValue(char c);
 #pragma endregion

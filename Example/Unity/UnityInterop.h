@@ -12,9 +12,13 @@
 extern "C"
 {
 #endif
-	
-#define DLL_EXPORT _declspec(dllexport)
 
+#if _WIN32	
+#define DLL_EXPORT _declspec(dllexport)
+#else
+#define DLL_EXPORT
+#endif
+	
 #pragma region LifeCycle	
 	inline NDKUnity::CUnityWrapper* g_pWrapper = nullptr;
 	DLL_EXPORT NDKUnity::CUnityWrapper* Unity_InitWrapper();

@@ -23,7 +23,7 @@ int NDKUnity::CharToInt(char c)
 	return -1;
 }
 
-const wchar_t* NDKUnity::StringToBase64WString(const std::string& input)
+const char* NDKUnity::StringToBase64(const std::string& input)
 {
 	std::string result;
 	size_t      remaining = input.size();
@@ -54,11 +54,13 @@ const wchar_t* NDKUnity::StringToBase64WString(const std::string& input)
 	default:
 		break;
 	}
-	std::wstring_convert<std::codecvt_utf8<wchar_t>> converter;
-	std::wstring wideStr = converter.from_bytes(result);
-	size_t bufferSize = wideStr.length() + 1;
-	wchar_t* buffer = new wchar_t[bufferSize];
-	wcscpy_s(buffer, bufferSize, wideStr.c_str());
+	size_t bufferSize = result.length() + 1;
+	char* buffer = new char[bufferSize];
+#if _WIN32
+	strcpy_s(buffer, bufferSize, result.c_str());
+#else
+	strlcpy(buffer, result.c_str(), bufferSize);
+#endif	
 	return buffer;
 }
 
@@ -182,7 +184,7 @@ NDKUnity::PhonemeInfo::PhonemeInfo(const Inworld::AudioDataEvent& evt, const Inw
 NDKUnity::AudioPacket::AudioPacket(const Inworld::AudioDataEvent& rhs)
 {
 	packet = Packet(rhs);
-	audioChunk = StringToBase64WString(rhs.GetDataChunk());
+	audioChunk = StringToBase64(rhs.GetDataChunk());
 	type = 1; // AUDIO
 	phonemeCount = static_cast<int32_t>(rhs.GetPhonemeInfos().size());
 }
