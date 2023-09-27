@@ -49,7 +49,7 @@
 #include <google/protobuf/stubs/substitute.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 
 namespace {
@@ -471,5 +471,5 @@ bool Subprocess::Communicate(const Message& input, Message* output,
 #endif  // !_WIN32
 
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

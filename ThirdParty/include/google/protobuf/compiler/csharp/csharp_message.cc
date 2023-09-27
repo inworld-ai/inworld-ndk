@@ -50,7 +50,7 @@
 #include <google/protobuf/compiler/csharp/csharp_names.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace csharp {
 
@@ -775,5 +775,5 @@ FieldGeneratorBase* MessageGenerator::CreateFieldGeneratorInternal(
 
 }  // namespace csharp
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

@@ -41,7 +41,7 @@
 #include <google/protobuf/stubs/common.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace util {
 
 class SnakeCaseCamelCaseTest : public ::testing::Test {
@@ -114,7 +114,7 @@ TEST_F(SnakeCaseCamelCaseTest, RoundTripTest) {
   } while (std::next_permutation(name.begin(), name.end()));
 }
 
-using google::protobuf::FieldMask;
+using google::protobuf_inworld::FieldMask;
 using protobuf_unittest::NestedTestAllTypes;
 using protobuf_unittest::TestAllTypes;
 using protobuf_unittest::TestRequired;
@@ -831,5 +831,5 @@ TEST(FieldMaskUtilTest, TrimMessageReturnValue) {
 
 }  // namespace
 }  // namespace util
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

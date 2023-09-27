@@ -35,7 +35,7 @@
 #include <google/protobuf/stubs/stl_util.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace {
 
 // This test only checks whether well-known types are included in protobuf
@@ -56,5 +56,5 @@ TEST(WellKnownTypesTest, AllKnownTypesAreIncluded) {
 
 }  // namespace
 
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

@@ -36,7 +36,7 @@
 #include <string>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 class DescriptorPool;
 namespace util {
 class TypeResolver;
@@ -49,7 +49,7 @@ PROTOBUF_EXPORT TypeResolver* NewTypeResolverForDescriptorPool(
     const std::string& url_prefix, const DescriptorPool* pool);
 
 }  // namespace util
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #include <google/protobuf/port_undef.inc>

@@ -36,7 +36,7 @@
 #define EXPECT_EQ GOOGLE_CHECK_EQ
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace internal {
 
 NoHeapChecker::~NoHeapChecker() {
@@ -46,5 +46,5 @@ NoHeapChecker::~NoHeapChecker() {
 }
 
 }  // namespace internal
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

@@ -39,7 +39,7 @@
 #include <google/protobuf/compiler/plugin.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 
 int ProtobufMain(int argc, char* argv[]) {
@@ -48,7 +48,7 @@ int ProtobufMain(int argc, char* argv[]) {
 }
 
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 int main(int argc, char* argv[]) {
@@ -57,5 +57,5 @@ int main(int argc, char* argv[]) {
   // please.
   _set_abort_behavior(0, ~0);
 #endif  // !_MSC_VER
-  return google::protobuf::compiler::ProtobufMain(argc, argv);
+  return google::protobuf_inworld::compiler::ProtobufMain(argc, argv);
 }

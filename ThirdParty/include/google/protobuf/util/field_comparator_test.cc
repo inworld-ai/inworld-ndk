@@ -40,7 +40,7 @@
 #include <google/protobuf/stubs/mathutil.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace util {
 namespace {
 
@@ -491,5 +491,5 @@ TEST_F(DefaultFieldComparatorTest, RepeatedFieldComparison) {
 
 }  // namespace
 }  // namespace util
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

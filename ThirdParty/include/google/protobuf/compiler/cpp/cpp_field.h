@@ -44,15 +44,15 @@
 #include <google/protobuf/descriptor.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace io {
 class Printer;  // printer.h
 }
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace cpp {
 
@@ -216,7 +216,7 @@ class FieldGeneratorMap {
 
 }  // namespace cpp
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_CPP_FIELD_H__

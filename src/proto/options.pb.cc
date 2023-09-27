@@ -313,10 +313,10 @@ void ExampleValue::InternalSwap(ExampleValue* other) {
   return GetMetadataStatic();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::FieldOptions,
+::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf_inworld::FieldOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::MessageTypeTraits< ::ai::inworld::options::ExampleValue >, 11, false >
   examples(kExamplesFieldNumber, ::ai::inworld::options::ExampleValue::default_instance());
-::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::FieldOptions,
+::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf_inworld::FieldOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::RepeatedEnumTypeTraits< ::ai::inworld::options::FieldMode, ::ai::inworld::options::FieldMode_IsValid>, 14, true >
   field_mode(kFieldModeFieldNumber, static_cast< ::ai::inworld::options::FieldMode >(0));
 

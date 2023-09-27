@@ -53,7 +53,7 @@
 #include <google/protobuf/port_def.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace cpp {
 
@@ -167,7 +167,7 @@ std::string DescriptorTableName(const FileDescriptor* file,
 // dllexport needed for the target file, if any.
 std::string FileDllExport(const FileDescriptor* file, const Options& options);
 
-// Name of the base class: google::protobuf::Message or google::protobuf::MessageLite.
+// Name of the base class: google::protobuf_inworld::Message or google::protobuf_inworld::MessageLite.
 std::string SuperClassName(const Descriptor* descriptor,
                            const Options& options);
 
@@ -208,7 +208,7 @@ std::string FieldMessageTypeName(const FieldDescriptor* field,
 // Strips ".proto" or ".protodevel" from the end of a filename.
 PROTOC_EXPORT std::string StripProto(const std::string& filename);
 
-// Get the C++ type name for a primitive type (e.g. "double", "::google::protobuf::int32", etc.).
+// Get the C++ type name for a primitive type (e.g. "double", "::google::protobuf_inworld::int32", etc.).
 const char* PrimitiveTypeName(FieldDescriptor::CppType type);
 std::string PrimitiveTypeName(const Options& options,
                               FieldDescriptor::CppType type);
@@ -882,7 +882,7 @@ void GenerateParserLoop(const Descriptor* descriptor, int num_hasbits,
 
 }  // namespace cpp
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #include <google/protobuf/port_undef.inc>

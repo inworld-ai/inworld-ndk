@@ -37,7 +37,7 @@
 #include <gtest/gtest.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace {
 
 // Helper: checks that all fields have default (zero/empty) values.
@@ -571,5 +571,5 @@ TEST(NoFieldPresenceTest, OneofPresence) {
 }
 
 }  // namespace
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

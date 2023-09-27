@@ -68,7 +68,7 @@
 
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace internal {
 
 #include <google/protobuf/port_def.inc>
@@ -1858,7 +1858,7 @@ bool ParseMessageSetItemImpl(io::CodedInputStream* input, MS ms) {
 }
 
 }  // namespace internal
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #include <google/protobuf/port_undef.inc>

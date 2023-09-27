@@ -33,7 +33,7 @@
 #include <gtest/gtest.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace {
 
 class LiteArenaTest : public testing::Test {
@@ -86,5 +86,5 @@ TEST_F(LiteArenaTest, UnknownFieldMemLeak) {
 }
 
 }  // namespace
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

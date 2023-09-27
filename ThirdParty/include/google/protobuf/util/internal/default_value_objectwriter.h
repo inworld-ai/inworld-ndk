@@ -48,7 +48,7 @@
 #include <google/protobuf/port_def.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace util {
 namespace converter {
 
@@ -70,14 +70,14 @@ class PROTOBUF_EXPORT DefaultValueObjectWriter : public ObjectWriter {
   // a is the parent message field of b), then the vector should contain { "a",
   // "b", "c" }.
   //
-  // The Field* should point to the google::protobuf::Field of "c".
+  // The Field* should point to the google::protobuf_inworld::Field of "c".
   typedef std::function<bool(
       const std::vector<std::string>& /*path of the field*/,
-      const google::protobuf::Field* /*field*/)>
+      const google::protobuf_inworld::Field* /*field*/)>
       FieldScrubCallBack;
 
   DefaultValueObjectWriter(TypeResolver* type_resolver,
-                           const google::protobuf::Type& type,
+                           const google::protobuf_inworld::Type& type,
                            ObjectWriter* ow);
 
   virtual ~DefaultValueObjectWriter();
@@ -147,7 +147,7 @@ class PROTOBUF_EXPORT DefaultValueObjectWriter : public ObjectWriter {
   // DefaultValueObjectWriter.
   class PROTOBUF_EXPORT Node {
    public:
-    Node(const std::string& name, const google::protobuf::Type* type,
+    Node(const std::string& name, const google::protobuf_inworld::Type* type,
          NodeKind kind, const DataPiece& data, bool is_placeholder,
          const std::vector<std::string>& path, bool suppress_empty_list,
          bool preserve_proto_field_names, bool use_ints_for_enums,
@@ -179,9 +179,9 @@ class PROTOBUF_EXPORT DefaultValueObjectWriter : public ObjectWriter {
 
     const std::vector<std::string>& path() const { return path_; }
 
-    const google::protobuf::Type* type() const { return type_; }
+    const google::protobuf_inworld::Type* type() const { return type_; }
 
-    void set_type(const google::protobuf::Type* type) { type_ = type; }
+    void set_type(const google::protobuf_inworld::Type* type) { type_ = type; }
 
     NodeKind kind() const { return kind_; }
 
@@ -200,16 +200,16 @@ class PROTOBUF_EXPORT DefaultValueObjectWriter : public ObjectWriter {
    protected:
     // Returns the Value Type of a map given the Type of the map entry and a
     // TypeInfo instance.
-    const google::protobuf::Type* GetMapValueType(
-        const google::protobuf::Type& found_type, const TypeInfo* typeinfo);
+    const google::protobuf_inworld::Type* GetMapValueType(
+        const google::protobuf_inworld::Type& found_type, const TypeInfo* typeinfo);
 
     // Calls WriteTo() on every child in children_.
     void WriteChildren(ObjectWriter* ow);
 
     // The name of this node.
     std::string name_;
-    // google::protobuf::Type of this node. Owned by TypeInfo.
-    const google::protobuf::Type* type_;
+    // google::protobuf_inworld::Type of this node. Owned by TypeInfo.
+    const google::protobuf_inworld::Type* type_;
     // The kind of this node.
     NodeKind kind_;
     // Whether this is a node for "Any".
@@ -245,7 +245,7 @@ class PROTOBUF_EXPORT DefaultValueObjectWriter : public ObjectWriter {
 
   // Creates a new Node and returns it. Caller owns memory of returned object.
   virtual Node* CreateNewNode(const std::string& name,
-                              const google::protobuf::Type* type, NodeKind kind,
+                              const google::protobuf_inworld::Type* type, NodeKind kind,
                               const DataPiece& data, bool is_placeholder,
                               const std::vector<std::string>& path,
                               bool suppress_empty_list,
@@ -255,13 +255,13 @@ class PROTOBUF_EXPORT DefaultValueObjectWriter : public ObjectWriter {
 
   // Creates a DataPiece containing the default value of the type of the field.
   static DataPiece CreateDefaultDataPieceForField(
-      const google::protobuf::Field& field, const TypeInfo* typeinfo) {
+      const google::protobuf_inworld::Field& field, const TypeInfo* typeinfo) {
     return CreateDefaultDataPieceForField(field, typeinfo, false);
   }
 
   // Same as the above but with a flag to use ints instead of enum names.
   static DataPiece CreateDefaultDataPieceForField(
-      const google::protobuf::Field& field, const TypeInfo* typeinfo,
+      const google::protobuf_inworld::Field& field, const TypeInfo* typeinfo,
       bool use_ints_for_enums);
 
  protected:
@@ -283,17 +283,17 @@ class PROTOBUF_EXPORT DefaultValueObjectWriter : public ObjectWriter {
   // Returns the default enum value as a DataPiece, or the first enum value if
   // there is no default. For proto3, where we cannot specify an explicit
   // default, a zero value will always be returned.
-  static DataPiece FindEnumDefault(const google::protobuf::Field& field,
+  static DataPiece FindEnumDefault(const google::protobuf_inworld::Field& field,
                                    const TypeInfo* typeinfo,
                                    bool use_ints_for_enums);
 
   // Type information for all the types used in the descriptor. Used to find
-  // google::protobuf::Type of nested messages/enums.
+  // google::protobuf_inworld::Type of nested messages/enums.
   const TypeInfo* typeinfo_;
   // Whether the TypeInfo object is owned by this class.
   bool own_typeinfo_;
-  // google::protobuf::Type of the root message type.
-  const google::protobuf::Type& type_;
+  // google::protobuf_inworld::Type of the root message type.
+  const google::protobuf_inworld::Type& type_;
   // Holds copies of strings passed to RenderString.
   std::vector<std::unique_ptr<std::string>> string_values_;
 
@@ -323,7 +323,7 @@ class PROTOBUF_EXPORT DefaultValueObjectWriter : public ObjectWriter {
 
 }  // namespace converter
 }  // namespace util
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #include <google/protobuf/port_undef.inc>

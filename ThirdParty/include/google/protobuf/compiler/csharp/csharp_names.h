@@ -45,7 +45,7 @@
 #include <google/protobuf/port_def.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 
 class Descriptor;
 class EnumDescriptor;
@@ -101,7 +101,7 @@ std::string PROTOC_EXPORT GetOutputFile(const FileDescriptor* descriptor,
 
 }  // namespace csharp
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #include <google/protobuf/port_undef.inc>

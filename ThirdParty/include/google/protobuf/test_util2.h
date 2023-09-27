@@ -37,7 +37,7 @@
 #include <google/protobuf/testing/googletest.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace TestUtil {
 
 // Translate net/proto2/* -> google/protobuf/*
@@ -59,7 +59,7 @@ inline std::string MaybeTranslatePath(const std::string& google3_path) {
 }
 
 inline std::string TestSourceDir() {
-  return google::protobuf::TestSourceDir();
+  return google::protobuf_inworld::TestSourceDir();
 }
 
 inline std::string GetTestDataPath(const std::string& google3_path) {
@@ -76,7 +76,7 @@ bool EqualsToSerialized(const ProtoType& message, const std::string& data) {
 }
 
 }  // namespace TestUtil
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_TEST_UTIL2_H__

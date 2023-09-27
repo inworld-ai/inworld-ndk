@@ -41,7 +41,7 @@
 #include <gtest/gtest.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace util {
 
 TEST(DelimitedMessageUtilTest, DelimitedMessages) {
@@ -83,5 +83,5 @@ TEST(DelimitedMessageUtilTest, DelimitedMessages) {
 }
 
 }  // namespace util
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

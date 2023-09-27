@@ -39,7 +39,7 @@
 #include <gtest/gtest.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace {
 
 TEST(StringPrintfTest, Empty) {
@@ -148,5 +148,5 @@ TEST(StringPrintfTest, LargeBuf) {
 }
 
 }  // anonymous namespace
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

@@ -41,7 +41,7 @@
 #include <google/protobuf/test_util.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

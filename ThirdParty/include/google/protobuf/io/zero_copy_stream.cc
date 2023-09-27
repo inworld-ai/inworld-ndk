@@ -38,7 +38,7 @@
 #include <google/protobuf/stubs/common.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace io {
 
 
@@ -51,5 +51,5 @@ bool ZeroCopyOutputStream::WriteAliasedRaw(const void* /* data */,
 }
 
 }  // namespace io
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

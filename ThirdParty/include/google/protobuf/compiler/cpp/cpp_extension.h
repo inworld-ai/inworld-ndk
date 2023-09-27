@@ -42,16 +42,16 @@
 #include <google/protobuf/compiler/cpp/cpp_options.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 class FieldDescriptor;  // descriptor.h
 namespace io {
 class Printer;  // printer.h
 }
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace cpp {
 
@@ -85,7 +85,7 @@ class ExtensionGenerator {
 
 }  // namespace cpp
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_CPP_MESSAGE_H__

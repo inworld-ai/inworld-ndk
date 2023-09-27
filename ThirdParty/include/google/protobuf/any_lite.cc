@@ -36,7 +36,7 @@
 #include <google/protobuf/stubs/strutil.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace internal {
 
 std::string GetTypeUrl(StringPiece message_name,
@@ -56,7 +56,7 @@ const char kTypeGoogleProdComPrefix[] = "type.googleprod.com/";
 void AnyMetadata::InternalPackFrom(const MessageLite& message,
                                    StringPiece type_url_prefix,
                                    StringPiece type_name) {
-  type_url_->Set(&::google::protobuf::internal::GetEmptyString(),
+  type_url_->Set(&::google::protobuf_inworld::internal::GetEmptyString(),
                  GetTypeUrl(type_name, type_url_prefix), nullptr);
   message.SerializeToString(
       value_->Mutable(ArenaStringPtr::EmptyDefault{}, nullptr));
@@ -95,5 +95,5 @@ bool ParseAnyTypeUrl(StringPiece type_url, std::string* full_type_name) {
 }
 
 }  // namespace internal
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

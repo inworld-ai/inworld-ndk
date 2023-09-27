@@ -55,7 +55,7 @@
 #include <gtest/gtest.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 
 class DynamicMessageTest : public ::testing::TestWithParam<bool> {
  protected:
@@ -322,5 +322,5 @@ TEST_F(DynamicMessageTest, Proto3) {
 
 INSTANTIATE_TEST_SUITE_P(UseArena, DynamicMessageTest, ::testing::Bool());
 
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

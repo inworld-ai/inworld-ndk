@@ -53,11 +53,11 @@
 
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace util {
 namespace converter {
 
-using ::google::protobuf::Any;
+using ::google::protobuf_inworld::Any;
 using io::ArrayInputStream;
 using io::CodedInputStream;
 using proto_util_converter::testing::AnyM;
@@ -745,7 +745,7 @@ class ProtostreamObjectSourceAnysTest : public ProtostreamObjectSourceTest {
  protected:
   ProtostreamObjectSourceAnysTest() {
     helper_.ResetTypeInfo({AnyOut::descriptor(), Book::descriptor(),
-                           google::protobuf::Any::descriptor()});
+                           google::protobuf_inworld::Any::descriptor()});
   }
 };
 
@@ -765,7 +765,7 @@ INSTANTIATE_TEST_SUITE_P(DifferentTypeInfoSourceTest,
 // }
 TEST_P(ProtostreamObjectSourceAnysTest, BasicAny) {
   AnyOut out;
-  ::google::protobuf::Any* any = out.mutable_any();
+  ::google::protobuf_inworld::Any* any = out.mutable_any();
 
   AnyM m;
   m.set_foo("foovalue");
@@ -784,7 +784,7 @@ TEST_P(ProtostreamObjectSourceAnysTest, BasicAny) {
 
 TEST_P(ProtostreamObjectSourceAnysTest, LowerCamelEnumOutputSnakeCase) {
   AnyOut out;
-  ::google::protobuf::Any* any = out.mutable_any();
+  ::google::protobuf_inworld::Any* any = out.mutable_any();
 
   Book book;
   book.set_type(Book::arts_and_photography);
@@ -805,7 +805,7 @@ TEST_P(ProtostreamObjectSourceAnysTest, LowerCamelEnumOutputSnakeCase) {
 
 TEST_P(ProtostreamObjectSourceAnysTest, UseIntsForEnumsTest) {
   AnyOut out;
-  ::google::protobuf::Any* any = out.mutable_any();
+  ::google::protobuf_inworld::Any* any = out.mutable_any();
 
   Book book;
   book.set_type(Book::ACTION_AND_ADVENTURE);
@@ -826,7 +826,7 @@ TEST_P(ProtostreamObjectSourceAnysTest, UseIntsForEnumsTest) {
 
 TEST_P(ProtostreamObjectSourceAnysTest, UsePreserveProtoFieldNames) {
   AnyOut out;
-  ::google::protobuf::Any* any = out.mutable_any();
+  ::google::protobuf_inworld::Any* any = out.mutable_any();
 
   Book book;
   book.set_snake_field("foo");
@@ -847,10 +847,10 @@ TEST_P(ProtostreamObjectSourceAnysTest, UsePreserveProtoFieldNames) {
 
 TEST_P(ProtostreamObjectSourceAnysTest, RecursiveAny) {
   AnyOut out;
-  ::google::protobuf::Any* any = out.mutable_any();
+  ::google::protobuf_inworld::Any* any = out.mutable_any();
   any->set_type_url("type.googleapis.com/google.protobuf.Any");
 
-  ::google::protobuf::Any nested_any;
+  ::google::protobuf_inworld::Any nested_any;
   nested_any.set_type_url(
       "type.googleapis.com/proto_util_converter.testing.AnyM");
 
@@ -876,13 +876,13 @@ TEST_P(ProtostreamObjectSourceAnysTest, RecursiveAny) {
 
 TEST_P(ProtostreamObjectSourceAnysTest, DoubleRecursiveAny) {
   AnyOut out;
-  ::google::protobuf::Any* any = out.mutable_any();
+  ::google::protobuf_inworld::Any* any = out.mutable_any();
   any->set_type_url("type.googleapis.com/google.protobuf.Any");
 
-  ::google::protobuf::Any nested_any;
+  ::google::protobuf_inworld::Any nested_any;
   nested_any.set_type_url("type.googleapis.com/google.protobuf.Any");
 
-  ::google::protobuf::Any second_nested_any;
+  ::google::protobuf_inworld::Any second_nested_any;
   second_nested_any.set_type_url(
       "type.googleapis.com/proto_util_converter.testing.AnyM");
 
@@ -933,7 +933,7 @@ TEST_P(ProtostreamObjectSourceAnysTest, EmptyWithTypeAndNoValueOutputsType) {
 
 TEST_P(ProtostreamObjectSourceAnysTest, MissingTypeUrlError) {
   AnyOut out;
-  ::google::protobuf::Any* any = out.mutable_any();
+  ::google::protobuf_inworld::Any* any = out.mutable_any();
 
   AnyM m;
   m.set_foo("foovalue");
@@ -948,7 +948,7 @@ TEST_P(ProtostreamObjectSourceAnysTest, MissingTypeUrlError) {
 
 TEST_P(ProtostreamObjectSourceAnysTest, UnknownTypeServiceError) {
   AnyOut out;
-  ::google::protobuf::Any* any = out.mutable_any();
+  ::google::protobuf_inworld::Any* any = out.mutable_any();
   any->set_type_url("foo.googleapis.com/my.own.Type");
 
   AnyM m;
@@ -964,7 +964,7 @@ TEST_P(ProtostreamObjectSourceAnysTest, UnknownTypeServiceError) {
 
 TEST_P(ProtostreamObjectSourceAnysTest, UnknownTypeError) {
   AnyOut out;
-  ::google::protobuf::Any* any = out.mutable_any();
+  ::google::protobuf_inworld::Any* any = out.mutable_any();
   any->set_type_url("type.googleapis.com/unknown.Type");
 
   AnyM m;
@@ -982,7 +982,7 @@ class ProtostreamObjectSourceStructTest : public ProtostreamObjectSourceTest {
  protected:
   ProtostreamObjectSourceStructTest() {
     helper_.ResetTypeInfo(StructType::descriptor(),
-                          google::protobuf::Struct::descriptor());
+                          google::protobuf_inworld::Struct::descriptor());
   }
 };
 
@@ -999,7 +999,7 @@ INSTANTIATE_TEST_SUITE_P(DifferentTypeInfoSourceTest,
 //  }
 TEST_P(ProtostreamObjectSourceStructTest, StructRenderSuccess) {
   StructType out;
-  google::protobuf::Struct* s = out.mutable_object();
+  google::protobuf_inworld::Struct* s = out.mutable_object();
   s->mutable_fields()->operator[]("k1").set_number_value(123);
   s->mutable_fields()->operator[]("k2").set_bool_value(true);
 
@@ -1015,7 +1015,7 @@ TEST_P(ProtostreamObjectSourceStructTest, StructRenderSuccess) {
 
 TEST_P(ProtostreamObjectSourceStructTest, MissingValueSkipsField) {
   StructType out;
-  google::protobuf::Struct* s = out.mutable_object();
+  google::protobuf_inworld::Struct* s = out.mutable_object();
   s->mutable_fields()->operator[]("k1");
 
   ow_.StartObject("")->StartObject("object")->EndObject()->EndObject();
@@ -1028,7 +1028,7 @@ class ProtostreamObjectSourceFieldMaskTest
  protected:
   ProtostreamObjectSourceFieldMaskTest() {
     helper_.ResetTypeInfo(FieldMaskTest::descriptor(),
-                          google::protobuf::FieldMask::descriptor());
+                          google::protobuf_inworld::FieldMask::descriptor());
   }
 };
 
@@ -1042,7 +1042,7 @@ TEST_P(ProtostreamObjectSourceFieldMaskTest, FieldMaskRenderSuccess) {
   out.set_id("1");
   out.mutable_single_mask()->add_paths("path1");
   out.mutable_single_mask()->add_paths("snake_case_path2");
-  ::google::protobuf::FieldMask* mask = out.add_repeated_mask();
+  ::google::protobuf_inworld::FieldMask* mask = out.add_repeated_mask();
   mask->add_paths("path3");
   mask = out.add_repeated_mask();
   mask->add_paths("snake_case_path4");
@@ -1102,7 +1102,7 @@ INSTANTIATE_TEST_SUITE_P(DifferentTypeInfoSourceTest,
 
 TEST_P(ProtostreamObjectSourceTimestampTest, InvalidTimestampBelowMinTest) {
   TimestampDuration out;
-  google::protobuf::Timestamp* ts = out.mutable_ts();
+  google::protobuf_inworld::Timestamp* ts = out.mutable_ts();
   // Min allowed seconds - 1
   ts->set_seconds(kTimestampMinSeconds - 1);
   ow_.StartObject("");
@@ -1113,7 +1113,7 @@ TEST_P(ProtostreamObjectSourceTimestampTest, InvalidTimestampBelowMinTest) {
 
 TEST_P(ProtostreamObjectSourceTimestampTest, InvalidTimestampAboveMaxTest) {
   TimestampDuration out;
-  google::protobuf::Timestamp* ts = out.mutable_ts();
+  google::protobuf_inworld::Timestamp* ts = out.mutable_ts();
   // Max allowed seconds + 1
   ts->set_seconds(kTimestampMaxSeconds + 1);
   ow_.StartObject("");
@@ -1124,7 +1124,7 @@ TEST_P(ProtostreamObjectSourceTimestampTest, InvalidTimestampAboveMaxTest) {
 
 TEST_P(ProtostreamObjectSourceTimestampTest, InvalidDurationBelowMinTest) {
   TimestampDuration out;
-  google::protobuf::Duration* dur = out.mutable_dur();
+  google::protobuf_inworld::Duration* dur = out.mutable_dur();
   // Min allowed seconds - 1
   dur->set_seconds(kDurationMinSeconds - 1);
   ow_.StartObject("");
@@ -1135,7 +1135,7 @@ TEST_P(ProtostreamObjectSourceTimestampTest, InvalidDurationBelowMinTest) {
 
 TEST_P(ProtostreamObjectSourceTimestampTest, InvalidDurationAboveMaxTest) {
   TimestampDuration out;
-  google::protobuf::Duration* dur = out.mutable_dur();
+  google::protobuf_inworld::Duration* dur = out.mutable_dur();
   // Min allowed seconds + 1
   dur->set_seconds(kDurationMaxSeconds + 1);
   ow_.StartObject("");
@@ -1161,5 +1161,5 @@ TEST_P(ProtostreamObjectSourceTimestampTest, TimestampDurationDefaultValue) {
 
 }  // namespace converter
 }  // namespace util
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

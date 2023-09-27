@@ -60,7 +60,7 @@
 #include <gtest/gtest.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 
 namespace {
 
@@ -3730,5 +3730,5 @@ TEST(Anytest, TreatAsSet_DifferentType) {
 
 
 }  // namespace
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

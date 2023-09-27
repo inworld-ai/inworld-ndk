@@ -65,7 +65,7 @@
 
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 
 namespace {
 
@@ -2574,5 +2574,5 @@ void TextFormat::Printer::PrintUnknownFields(
   }
 }
 
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

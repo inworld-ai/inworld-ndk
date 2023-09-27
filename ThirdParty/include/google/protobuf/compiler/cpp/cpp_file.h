@@ -47,16 +47,16 @@
 #include <google/protobuf/compiler/scc.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 class FileDescriptor;  // descriptor.h
 namespace io {
 class Printer;  // printer.h
 }
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace cpp {
 
@@ -200,7 +200,7 @@ class FileGenerator {
 
 }  // namespace cpp
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_CPP_FILE_H__

@@ -41,7 +41,7 @@
 #include <google/protobuf/compiler/ruby/ruby_generator.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace ruby {
 
@@ -599,5 +599,5 @@ bool Generator::Generate(
 
 }  // namespace ruby
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

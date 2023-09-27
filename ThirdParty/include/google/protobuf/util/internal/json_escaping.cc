@@ -34,7 +34,7 @@
 #include <google/protobuf/stubs/common.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace util {
 namespace converter {
 
@@ -365,5 +365,5 @@ void JsonEscaping::Escape(StringPiece input, strings::ByteSink* output) {
 
 }  // namespace converter
 }  // namespace util
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

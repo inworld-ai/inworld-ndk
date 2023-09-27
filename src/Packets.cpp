@@ -66,7 +66,7 @@ namespace Inworld {
         *Proto.mutable_packet_id() = _PacketId.ToProto();
         *Proto.mutable_routing() = _Routing.ToProto();
         *Proto.mutable_timestamp() = 
-            ::google::protobuf::util::TimeUtil::TimeTToTimestamp(std::chrono::duration_cast<std::chrono::seconds>(_Timestamp.time_since_epoch()).count());
+            ::google::protobuf_inworld::util::TimeUtil::TimeTToTimestamp(std::chrono::duration_cast<std::chrono::seconds>(_Timestamp.time_since_epoch()).count());
         ToProtoInternal(Proto);
         return Proto;
     }

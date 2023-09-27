@@ -47,7 +47,7 @@
 #include <google/protobuf/port_def.inc>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 
 const UnknownFieldSet& UnknownFieldSet::default_instance() {
   static auto instance = internal::OnShutdownDelete(new UnknownFieldSet());
@@ -322,5 +322,5 @@ const char* UnknownFieldParse(uint64 tag, UnknownFieldSet* unknown,
 }
 
 }  // namespace internal
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google

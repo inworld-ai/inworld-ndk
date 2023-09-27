@@ -603,15 +603,15 @@ class ResourceReference PROTOBUF_FINAL :
 // ===================================================================
 
 static const int kResourceReferenceFieldNumber = 1055;
-extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::FieldOptions,
+extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf_inworld::FieldOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::MessageTypeTraits< ::google::api::ResourceReference >, 11, false >
   resource_reference;
 static const int kResourceDefinitionFieldNumber = 1053;
-extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::FileOptions,
+extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf_inworld::FileOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::RepeatedMessageTypeTraits< ::google::api::ResourceDescriptor >, 11, false >
   resource_definition;
 static const int kResourceFieldNumber = 1053;
-extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::MessageOptions,
+extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf_inworld::MessageOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::MessageTypeTraits< ::google::api::ResourceDescriptor >, 11, false >
   resource;
 

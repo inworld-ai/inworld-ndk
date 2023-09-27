@@ -37,7 +37,7 @@
 #include <google/protobuf/compiler/cpp/cpp_message_field.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 namespace cpp {
 
@@ -64,7 +64,7 @@ class MapFieldGenerator : public FieldGenerator {
 
 }  // namespace cpp
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_CPP_MAP_FIELD_H__

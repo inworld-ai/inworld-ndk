@@ -38,13 +38,13 @@
 #include <google/protobuf/compiler/code_generator.h>
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 class FileDescriptor;
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 namespace compiler {
 
 // A mock CodeGenerator, used by command_line_interface_unittest.  This is in
@@ -129,7 +129,7 @@ class MockCodeGenerator : public CodeGenerator {
 };
 
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_MOCK_CODE_GENERATOR_H__

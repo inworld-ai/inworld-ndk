@@ -87,7 +87,7 @@
 #include <google/protobuf/port_def.inc>  // NOLINT
 
 namespace google {
-namespace protobuf {
+namespace protobuf_inworld {
 
 using internal::DynamicMapField;
 using internal::ExtensionSet;
@@ -913,7 +913,7 @@ void DynamicMessageFactory::DeleteDefaultOneofInstance(
   }
 }
 
-}  // namespace protobuf
+}  // namespace protobuf_inworld
 }  // namespace google
 
 #include <google/protobuf/port_undef.inc>  // NOLINT
