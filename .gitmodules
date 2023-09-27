@@ -14,9 +14,9 @@
 [submodule "ThirdParty/ctranslate2"]
 	path = ThirdParty/ctranslate2
 	url = https://github.com/OpenNMT/CTranslate2.git
-[submodule "thirdparty/oneDNN"]
-	path = thirdparty/oneDNN
+[submodule "ThirdParty/oneDNN"]
+	path = ThirdParty/oneDNN
 	url = https://github.com/oneapi-src/oneDNN.git
-[submodule "thirdparty/whisper-cpp"]
-	path = thirdparty/whisper-cpp
+[submodule "ThirdParty/whisper-cpp"]
+	path = ThirdParty/whisper-cpp
 	url = https://github.com/ggerganov/whisper.cpp.git

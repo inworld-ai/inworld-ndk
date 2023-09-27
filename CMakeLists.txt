@@ -88,6 +88,7 @@ target_include_directories(InworldNDK PUBLIC
     src
     src/proto
     src/ThirdParty
+    ThirdParty/whisper-cpp
 )
 
 target_compile_features(InworldNDK PUBLIC cxx_std_20)
