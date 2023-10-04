@@ -15,6 +15,7 @@
 
 #include <cassert>
 #include <cstdio>
+#include <cstring>
 #include <string>
 #include <thread>
 #include <vector>
@@ -123,10 +124,21 @@ void Inworld::RunnableSTT::Run()
 		if (_InEvents.PopFront(Event))
 		{
 			const std::string& Data = Event->GetDataChunk();
-			std::vector<float> pcmf32_new;
+			Inworld::Log("Inworld::RunnableSTT::Run. Data size: %d", Data.size());
+
+			std::vector<float> pcmf32_new(Data.size() / 2, 0.f);
+			Inworld::Log("Inworld::RunnableSTT::Run. pcmf32_new size: %d", pcmf32_new.size());
+			for (int i = 0, j = 0; i < pcmf32_new.size(); i++, j += 2)
+			{
+				const float fVal = (float)(int16_t)*(uint16_t*)(Data.data() + j);
+				pcmf32_new[i] = fVal / 32767.f;
+				//Inworld::Log("Text chunk: %f", pcmf32_new[i]);
+			}
 
 			std::vector<std::string> TextChunks;
-			Processor->ProcessAudio(Event->_SdlData, TextChunks);
+			Processor->ProcessAudio(pcmf32_new, TextChunks);
+			Inworld::Log("Inworld::RunnableSTT::Run. audio processed. Text chunks: %d", TextChunks.size());
+			//Processor->ProcessAudio(Event->_SdlData, TextChunks);
 			for (auto& Chunk : TextChunks)
 			{
 				// checking for a blank audio or noise
@@ -135,6 +147,7 @@ void Inworld::RunnableSTT::Run()
 					continue;
 				}
 
+				Inworld::Log("Inworld::RunnableSTT::Run. Chunk: %s", Chunk.c_str());
 				std::shared_ptr<TextEvent> E = std::make_shared<TextEvent>(Chunk, Event->GetRouting());
 				_OutCallback(E);
 			}

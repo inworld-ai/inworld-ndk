@@ -97,6 +97,7 @@ std::shared_ptr<Inworld::DataEvent> Inworld::ClientBase::SendSoundMessage(const 
 	auto Packet = std::make_shared<AudioDataEvent>(Data, Routing::Player2Agent(AgentId));
 #ifdef INWORLD_STT_LOCAL
 	_STTInEvents.PushBack(Packet);
+	Inworld::Log("Inworld::ClientBase::SendSoundMessage. Added event to _STTInEvents");
 #else
 	SendPacket(Packet);
 #endif
@@ -170,6 +171,10 @@ void Inworld::ClientBase::StartAudioSession(const std::string& AgentId)
 					{
 						SendPacket(Event);
 						Inworld::Log("Local STT: %s", Event->GetText().c_str());
+
+#ifdef INWORLD_STT_LOCAL
+						_AsyncSTT->Stop();
+#endif
 					}
 				);
 			})
@@ -277,7 +282,7 @@ void Inworld::ClientBase::StartClient(const ClientOptions& Options, const Sessio
 
 	SetConnectionState(ConnectionState::Connecting);
 
-	STT_Initialize("C:/Projects/inworld/robot-demo/Plugins/inworld-unreal-sdk/InworldAI/inworld-ndk/ThirdParty/whisper-cpp/models/ggml-base.en.bin");
+	STT_Initialize("C:/Projects/inworld/robot-demo/Plugins/InworldAI/InworldAI/inworld-ndk/ThirdParty/whisper-cpp/models/ggml-base.en.bin");
 
 	if (!_SessionInfo.IsValid())
 	{

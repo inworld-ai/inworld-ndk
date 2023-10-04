@@ -246,6 +246,7 @@ if (NOT STT_LOCAL MATCHES "NONE")
         target_include_directories(ctranslate2 PUBLIC ${ThirdPartyDir}/oneDNN/build/include)
         target_include_directories(InworldNDK PUBLIC ${ThirdPartyDir}/ctranslate2/include)
     elseif (STT_LOCAL MATCHES "WHISPERCPP")
+        set(WHISPERCPP True)
         target_compile_definitions(InworldNDK PUBLIC INWORLD_WHISPERCPP=1)
         add_subdirectory(ThirdParty/whisper-cpp)
         target_link_libraries(InworldNDK PUBLIC whisper)
@@ -400,6 +401,11 @@ set(LibFiles
     ${OPENSSL_CRYPTO_LIBRARY}
     ${ZLIB_LIBRARY_RELEASE}
 )
+
+if (WHISPERCPP)
+    list(APPEND LibFiles
+    ${CMAKE_CURRENT_SOURCE_DIR}/build/ThirdParty/whisper-cpp${ConfigDirName}/whisper.${LibExt})
+endif()
 
 if (ANDROID AND INWORLD_LOG_SPD)
     list(APPEND LibFiles
