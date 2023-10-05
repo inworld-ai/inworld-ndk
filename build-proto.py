@@ -18,6 +18,17 @@ def AddLineToFileStart(Filename, Line):
             File.seek(0, 0)
             File.write(Line.rstrip('\r\n') + '\n' + Content)
 
+def ReplaceProtobufNamespace(Filename):
+    print("Replacing protobuf namespace in file " + Filename)
+    File = open(Filename, "r+")
+    data = File.read()
+    data = data.replace('protobuf::', 'protobuf_inworld::')
+    File.close()
+
+    File = open(Filename, "w+")
+    File.write(data)
+    File.close()
+
 def Generate(Path, Filepath):
     print("------------------------------------------")
 
@@ -46,6 +57,11 @@ def Generate(Path, Filepath):
     OutFilename = OutFilename[0:OutFilename.rfind('.')]
     AddLineToFileStart(OutFilename + ".pb.cc", "#include \"ProtoDisableWarning.h\"")
     AddLineToFileStart(OutFilename + ".grpc.pb.cc", "#include \"ProtoDisableWarning.h\"")
+    
+    ReplaceProtobufNamespace(OutFilename + ".pb.h")
+    ReplaceProtobufNamespace(OutFilename + ".pb.cc")
+    ReplaceProtobufNamespace(OutFilename + ".grpc.pb.h")
+    ReplaceProtobufNamespace(OutFilename + ".grpc.pb.cc")
     
     print("------------------------------------------")
 
