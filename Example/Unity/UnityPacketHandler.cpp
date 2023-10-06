@@ -9,37 +9,25 @@
 
 
 void NDKUnity::CUnityPacketHandler::SetPacketCallback(
-	TextCallBack textCallBack,
-	AudioCallBack audioCallBack,
-	ControlCallBack controlCallBack,
-	EmotionCallBack emotionCallBack,
-	CancelResponseCallBack cancelResponseCallBack,
-	CustomCallBack customCallBack,
+	UnityPacketCallback pktCallBack,
 	PhonemeCallBack phonemeCallBack,
 	TriggerParamCallBack triggerParamCallBack)
 {
-	m_TextCallBack = textCallBack;
-	m_AudioCallBack = audioCallBack;
-	m_ControlCallBack = controlCallBack;
-	m_EmotionCallBack = emotionCallBack;
-	m_CancelResponseCallBack = cancelResponseCallBack;
-	m_CustomCallBack = customCallBack;
+	m_PacketCallback = pktCallBack,
 	m_PhonemeCallBack = phonemeCallBack;
 	m_TriggerParamCallBack = triggerParamCallBack;
 }
 
 void NDKUnity::CUnityPacketHandler::Visit(const Inworld::TextEvent& Event)
 {	
-	if (m_TextCallBack)
-		m_TextCallBack(TextPacket(Event));
+	if (m_PacketCallback)
+		m_PacketCallback(UnityNDKPacket(Event));
 }
 
 void NDKUnity::CUnityPacketHandler::Visit(const Inworld::AudioDataEvent& Event)
 {
-	if (m_AudioCallBack)
-	{
-		m_AudioCallBack(AudioPacket(Event));
-	}
+	if (m_PacketCallback)
+		m_PacketCallback(UnityNDKPacket(Event));
 	for (const auto& phonemes = Event.GetPhonemeInfos(); const auto& phone : phonemes)
 	{
 		if (m_PhonemeCallBack)
@@ -49,8 +37,8 @@ void NDKUnity::CUnityPacketHandler::Visit(const Inworld::AudioDataEvent& Event)
 
 void NDKUnity::CUnityPacketHandler::Visit(const Inworld::CustomEvent& Event)
 {
-	if (m_CustomCallBack)
-		m_CustomCallBack(CustomPacket(Event));
+	if (m_PacketCallback)
+		m_PacketCallback(UnityNDKPacket(Event));
 	for (const auto& params = Event.GetParams(); const auto& pair : params)
 	{
 		if (m_TriggerParamCallBack)
@@ -58,20 +46,32 @@ void NDKUnity::CUnityPacketHandler::Visit(const Inworld::CustomEvent& Event)
 	}
 }
 
+void NDKUnity::CUnityPacketHandler::Visit(const Inworld::ActionEvent& Event)
+{
+	if (m_PacketCallback)
+		m_PacketCallback(UnityNDKPacket(Event));
+}
+
+void NDKUnity::CUnityPacketHandler::Visit(const Inworld::RelationEvent& Event)
+{
+	if (m_PacketCallback)
+		m_PacketCallback(UnityNDKPacket(Event));
+}
+
 void NDKUnity::CUnityPacketHandler::Visit(const Inworld::CancelResponseEvent& Event)
 {
-	if (m_CancelResponseCallBack)
-		m_CancelResponseCallBack(CancelResponsePacket(Event));
+	if (m_PacketCallback)
+		m_PacketCallback(UnityNDKPacket(Event));
 }
 
 void NDKUnity::CUnityPacketHandler::Visit(const Inworld::EmotionEvent& Event)
 {
-	if (m_EmotionCallBack)
-		m_EmotionCallBack(EmotionPacket(Event));
+	if (m_PacketCallback)
+		m_PacketCallback(UnityNDKPacket(Event));
 }
 
 void NDKUnity::CUnityPacketHandler::Visit(const Inworld::ControlEvent& Event)
 {
-	if (m_ControlCallBack)
-		m_ControlCallBack(ControlPacket(Event));
+	if (m_PacketCallback)
+		m_PacketCallback(UnityNDKPacket(Event));
 }

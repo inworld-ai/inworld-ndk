@@ -114,6 +114,7 @@ Inworld::CapabilitySet NDKUnity::Capabilities::ToNDK() const
 	set.PhonemeInfo = phonemeInfo;
 	set.TurnBasedSTT = turnBasedStt;
 	set.NarratedActions = narratedActions;
+	set.Relations = relations;
 	return set;
 }
 
@@ -169,7 +170,6 @@ NDKUnity::Packet::Packet(const Inworld::Packet& rhs)
 
 NDKUnity::TextPacket::TextPacket(const Inworld::TextEvent& rhs)
 {
-	packet = Packet(rhs);
 	text = rhs.GetText().c_str();
 	isFinal = rhs.IsFinal();
 }
@@ -183,7 +183,6 @@ NDKUnity::PhonemeInfo::PhonemeInfo(const Inworld::AudioDataEvent& evt, const Inw
 
 NDKUnity::AudioPacket::AudioPacket(const Inworld::AudioDataEvent& rhs)
 {
-	packet = Packet(rhs);
 	audioChunk = StringToBase64(rhs.GetDataChunk());
 	type = 1; // AUDIO
 	phonemeCount = static_cast<int32_t>(rhs.GetPhonemeInfos().size());
@@ -191,27 +190,37 @@ NDKUnity::AudioPacket::AudioPacket(const Inworld::AudioDataEvent& rhs)
 
 NDKUnity::ControlPacket::ControlPacket(const Inworld::ControlEvent& rhs)
 {
-	packet = Packet(rhs);
 	action = rhs.GetControlAction();
 }
 
 NDKUnity::EmotionPacket::EmotionPacket(const Inworld::EmotionEvent& rhs)
 {
-	packet = Packet(rhs);
 	behavior = rhs.GetEmotionalBehavior();
 	strength = rhs.GetStrength();
 }
 
 NDKUnity::CancelResponsePacket::CancelResponsePacket(const Inworld::CancelResponseEvent& rhs)
 {
-	packet = Packet(rhs);
 	cancelInteractionID = rhs.GetInteraction().c_str();
 }
 
 NDKUnity::CustomPacket::CustomPacket(const Inworld::CustomEvent& rhs)
 {
-	packet = Packet(rhs);
 	triggerName = rhs.GetName().c_str();
+}
+
+NDKUnity::RelationPacket::RelationPacket(const Inworld::RelationEvent& rhs)
+{
+	attraction = rhs.GetAttraction();
+	familiar = rhs.GetFamiliar();
+	flirtatious = rhs.GetFlirtatious();
+	respect = rhs.GetRespect();
+	trust = rhs.GetTrust();
+}
+
+NDKUnity::ActionPacket::ActionPacket(const Inworld::ActionEvent& rhs)
+{
+	content = rhs.GetContent().c_str();
 }
 
 NDKUnity::TriggerParam::TriggerParam(const Inworld::CustomEvent& evt, const std::string& name, const std::string& value)
@@ -220,3 +229,61 @@ NDKUnity::TriggerParam::TriggerParam(const Inworld::CustomEvent& evt, const std:
 	paramName = name.c_str();
 	paramValue = value.c_str();
 }
+
+
+NDKUnity::UnityNDKPacket::UnityNDKPacket(const Inworld::TextEvent& rhs) : UnityNDKPacket()
+{
+	packetInfo = Packet(rhs);
+	packetType = "TEXT";
+	textPacket = TextPacket(rhs);
+}
+
+NDKUnity::UnityNDKPacket::UnityNDKPacket(const Inworld::AudioDataEvent& rhs) : UnityNDKPacket()
+{
+	packetInfo = Packet(rhs);
+	packetType = "AUDIO";
+	audioPacket = AudioPacket(rhs);
+}
+
+NDKUnity::UnityNDKPacket::UnityNDKPacket(const Inworld::ControlEvent& rhs) : UnityNDKPacket()
+{
+	packetInfo = Packet(rhs);
+	packetType = "CONTROL";
+	ctrlPacket = ControlPacket(rhs);
+}
+
+NDKUnity::UnityNDKPacket::UnityNDKPacket(const Inworld::EmotionEvent& rhs) : UnityNDKPacket()
+{
+	packetInfo = Packet(rhs);
+	packetType = "EMOTION";
+	emoPacket = EmotionPacket(rhs);
+}
+
+NDKUnity::UnityNDKPacket::UnityNDKPacket(const Inworld::CancelResponseEvent& rhs) : UnityNDKPacket()
+{
+	packetInfo = Packet(rhs);
+	packetType = "CANCEL";
+	cancelResponsePacket = CancelResponsePacket(rhs);
+}
+
+NDKUnity::UnityNDKPacket::UnityNDKPacket(const Inworld::CustomEvent& rhs) : UnityNDKPacket()
+{
+	packetInfo = Packet(rhs);
+	packetType = "CUSTOM";
+	customPacket = CustomPacket(rhs);
+}
+
+NDKUnity::UnityNDKPacket::UnityNDKPacket(const Inworld::RelationEvent& rhs) : UnityNDKPacket()
+{
+	packetInfo = Packet(rhs);
+	packetType = "RELATION";
+	relationPacket = RelationPacket(rhs);
+}
+
+NDKUnity::UnityNDKPacket::UnityNDKPacket(const Inworld::ActionEvent& rhs) : UnityNDKPacket()
+{
+	packetInfo = Packet(rhs);
+	packetType = "ACTION";
+	actPacket = ActionPacket(rhs);
+}
+

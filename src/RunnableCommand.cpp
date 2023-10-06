@@ -68,6 +68,14 @@ void Inworld::RunnableRead::Run()
 		{
 			Packet = std::make_shared<Inworld::ChangeSceneEvent>(IncomingPacket);
 		}
+		else if (IncomingPacket.has_action())
+		{
+			Packet = std::make_shared<Inworld::ActionEvent>(IncomingPacket);
+		}
+		else if (IncomingPacket.has_debug_info())
+		{
+			Packet = std::make_shared<Inworld::RelationEvent>(IncomingPacket);
+		}
 		else
 		{
 			// Unknown packet type
@@ -168,7 +176,8 @@ grpc::Status Inworld::RunnableLoadScene::RunProcess()
 	Capabilities->set_narrated_actions(_Capabilities.NarratedActions);
 	Capabilities->set_continuation(_Capabilities.Continuation);
 	Capabilities->set_turn_based_stt(_Capabilities.TurnBasedSTT);
-	
+	Capabilities->set_relations(_Capabilities.Relations);
+	Capabilities->set_debug_info(_Capabilities.Relations); // YAN: Relations also requires debug info for now.
 
 	auto* User = LoadSceneRequest.mutable_user();
 	User->set_id(_UserId);

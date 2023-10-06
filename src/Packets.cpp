@@ -152,7 +152,7 @@ namespace Inworld {
         }
 	}
 
-	void SilenceEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+    void SilenceEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
 	{
     
 	}
@@ -186,4 +186,28 @@ namespace Inworld {
         mutable_load_scene->set_name(_SceneName);
     }
 
+    
+    RelationEvent::RelationEvent(const InworldPakets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
+    {
+        const auto currState = GrpcPacket.debug_info().relation().relation_state();
+        _Attraction = currState.attraction();
+        _Familiar = currState.familiar();
+        _Flirtatious = currState.flirtatious();
+        _Respect = currState.respect();
+        _Trust = currState.trust();
+    }
+    void RelationEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+    {
+        
+    }
+
+    ActionEvent::ActionEvent(const InworldPakets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
+    {
+        _Content = GrpcPacket.action().narrated_action().content();
+    }
+
+    void ActionEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+    {
+        
+    }
 }

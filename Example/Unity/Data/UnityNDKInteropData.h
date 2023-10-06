@@ -7,6 +7,7 @@
 
 #pragma once
 #include "RunnableCommand.h"
+#include "UnityNDKInteropData.h"
 
 
 #if __cplusplus
@@ -30,8 +31,8 @@ namespace NDKUnity
 		int32_t phonemeInfo;
 		int32_t turnBasedStt;
 		int32_t narratedActions;
-		// YAN: No need to set others.
-		
+		int32_t relations;
+		// YAN: No need to set others.		
 		Inworld::CapabilitySet ToNDK() const;
 	};
 
@@ -93,10 +94,11 @@ namespace NDKUnity
 		Packet() = default;
 		explicit Packet(const Inworld::Packet& rhs);
 	};
+
+
 	
 	struct TextPacket
 	{
-		Packet packet;
 		const char* text;
 		int isFinal;
 
@@ -115,7 +117,6 @@ namespace NDKUnity
 	};
 	struct AudioPacket
 	{
-		Packet  packet;
 		const char* audioChunk;
 		int32_t type;
 		int32_t phonemeCount;
@@ -126,7 +127,6 @@ namespace NDKUnity
 	
 	struct ControlPacket
 	{
-		Packet packet;
 		int32_t action;
 
 		ControlPacket() = default;
@@ -135,7 +135,6 @@ namespace NDKUnity
 	
 	struct EmotionPacket
 	{
-		Packet packet;
 		int32_t behavior;
 		int32_t strength;
 
@@ -145,7 +144,6 @@ namespace NDKUnity
 
 	struct CancelResponsePacket
 	{
-		Packet packet;
 		const char* cancelInteractionID; // Yan: No need to receive utterance as they won't be sent.
 
 		CancelResponsePacket() = default;
@@ -153,11 +151,28 @@ namespace NDKUnity
 	};
 	struct CustomPacket
 	{
-		Packet packet;
 		const char* triggerName;
 
 		CustomPacket() = default;
 		CustomPacket(const Inworld::CustomEvent& rhs);
+	};
+	struct RelationPacket
+	{
+		int32_t attraction;
+		int32_t familiar;
+		int32_t flirtatious;
+		int32_t respect;
+		int32_t trust;
+		
+		RelationPacket() = default;
+		RelationPacket(const Inworld::RelationEvent& rhs);
+	};
+	struct ActionPacket
+	{
+		const char* content;
+		
+		ActionPacket() = default;
+		ActionPacket(const Inworld::ActionEvent& rhs);
 	};
 	struct TriggerParam
 	{
@@ -167,6 +182,31 @@ namespace NDKUnity
 		
 		TriggerParam() = default;
 		TriggerParam(const Inworld::CustomEvent& evt, const std::string& name, const std::string& value);
+	};
+
+	struct UnityNDKPacket
+	{
+		Packet packetInfo;
+		const char* packetType;
+		
+		TextPacket textPacket;
+		AudioPacket audioPacket;
+		ControlPacket ctrlPacket;
+		EmotionPacket emoPacket;
+		CancelResponsePacket cancelResponsePacket;
+		CustomPacket customPacket;
+		RelationPacket relationPacket;
+		ActionPacket actPacket;
+
+		UnityNDKPacket() = default;
+		explicit UnityNDKPacket(const Inworld::TextEvent& rhs);
+		explicit UnityNDKPacket(const Inworld::AudioDataEvent& rhs);
+		explicit UnityNDKPacket(const Inworld::ControlEvent& rhs);
+		explicit UnityNDKPacket(const Inworld::EmotionEvent& rhs);
+		explicit UnityNDKPacket(const Inworld::CancelResponseEvent& rhs);
+		explicit UnityNDKPacket(const Inworld::CustomEvent& rhs);
+		explicit UnityNDKPacket(const Inworld::RelationEvent& rhs);
+		explicit UnityNDKPacket(const Inworld::ActionEvent& rhs);		
 	};
 #pragma endregion 
 
@@ -178,15 +218,10 @@ namespace NDKUnity
 #pragma endregion
 
 #pragma region Callbacks
-	using UnityCallback = void (*)();	
-	using TextCallBack = void(*)(TextPacket);
-	using AudioCallBack = void(*)(AudioPacket);
-	using PhonemeCallBack = void(*)(PhonemeInfo);
-	using ControlCallBack = void(*)(ControlPacket);
-	using EmotionCallBack = void(*)(EmotionPacket);
-	using CancelResponseCallBack = void(*)(CancelResponsePacket);
-	using CustomCallBack = void(*)(CustomPacket);
+	using UnityCallback = void (*)();
+	using UnityPacketCallback = void(*)(UnityNDKPacket);
 	using TriggerParamCallBack = void(*)(TriggerParam);
+	using PhonemeCallBack = void(*)(PhonemeInfo);
 #pragma endregion
 	
 }
