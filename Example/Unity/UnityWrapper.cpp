@@ -20,24 +20,11 @@ void NDKUnity::CUnityWrapper::SetLoggerCallBack(const Inworld::LoggerCallBack& c
 }
 
 void NDKUnity::CUnityWrapper::SetPacketCallBack(
-	const TextCallBack& textCallBack,
-	const AudioCallBack& audioCallBack,
-	const ControlCallBack& controlCallBack,
-	const EmotionCallBack& emotionCallBack,
-	const CancelResponseCallBack& cancelResponseCallBack,
-	const CustomCallBack& customCallBack,
+	const UnityPacketCallback& pktCallBack,
 	const PhonemeCallBack& phonemeCallBack,
 	const TriggerParamCallBack& triggerParamCallBack)
 {
-	m_PacketHandler.SetPacketCallback(
-		textCallBack,
-		audioCallBack,
-		controlCallBack,
-		emotionCallBack,
-		cancelResponseCallBack,
-		customCallBack,
-		phonemeCallBack,
-		triggerParamCallBack);
+	m_PacketHandler.SetPacketCallback(pktCallBack,phonemeCallBack,	triggerParamCallBack);
 }
 
 

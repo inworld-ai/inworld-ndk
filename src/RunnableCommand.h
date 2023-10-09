@@ -233,6 +233,7 @@ namespace Inworld
 		bool Continuation = true;
 		bool TurnBasedSTT = true;
 		bool NarratedActions = true;
+		bool Relations = true;
 	};
 
 	struct UserSettings
