@@ -10,6 +10,8 @@
 
 #include <random>
 
+#include "Utils/Log.h"
+
 namespace Inworld {
 
     std::string RandomUUID()
@@ -169,6 +171,7 @@ namespace Inworld {
 
     ChangeSceneEvent::ChangeSceneEvent(const InworldPakets::InworldPacket& GrpcPacket) : MutationEvent(GrpcPacket)
     {
+        Inworld::Log("YAN Set change scene evt!!!!");
         _AgentInfos.reserve(GrpcPacket.load_scene_output().agents_size());
         for (const auto& agent : GrpcPacket.load_scene_output().agents())
         {
