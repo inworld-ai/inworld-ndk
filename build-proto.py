@@ -2,76 +2,89 @@ import os
 import sys
 import subprocess
 
-ProtoRepo = "C:/Projects/inworld/inworld-proto/"
+PROTO_REPO = "C:/Projects/inworld/inworld-proto/"
+CURRENT_DIR = os.getcwd()
+PROTOC_PATH = os.path.join(CURRENT_DIR, "build/ThirdParty/grpc/third_party/protobuf/Release/protoc.exe")
+CPP_PLUGIN_PATH = os.path.join(CURRENT_DIR, "build/ThirdParty/grpc/Release/grpc_cpp_plugin.exe")
+COMMON_PROTO_PATH = os.path.join(CURRENT_DIR, "ThirdParty/api-common-protos/")
 
-CurDir = os.getcwd() + "/"
-ProtocPath = CurDir + "build/ThirdParty/grpc/third_party/protobuf/Release/protoc.exe"
-CppPluginPath = CurDir + "build/ThirdParty/grpc/Release/grpc_cpp_plugin.exe"
-CommonProtoPath = CurDir + "ThirdParty/api-common-protos/"
+def add_line_to_file_start(filename, line):
+    print(f"Adding {line} to {filename}")
+    with open(filename, 'r+') as file:
+        content = file.read()
+        content_start = content[:len(line)]
+        if line != content_start:
+            file.seek(0, 0)
+            file.write(line.rstrip('\r\n') + '\n' + content)
 
-def AddLineToFileStart(Filename, Line):
-    print("Adding " + Line + " to " + Filename)
-    with open(Filename, 'r+') as File:
-        Content = File.read()
-        ContentStart = Content[0:len(Line)]
-        if Line != ContentStart:
-            File.seek(0, 0)
-            File.write(Line.rstrip('\r\n') + '\n' + Content)
+def replace_protobuf_namespace(filename):
+    print(f"Replacing protobuf namespace in file {filename}")
+    with open(filename, "r+") as file:
+        data = file.read()
+        data = data.replace('protobuf::', 'protobuf_inworld::')
+        file.seek(0)
+        file.write(data)
 
-def Generate(Path, Filepath):
+def generate(path, filepath):
     print("------------------------------------------")
 
-    CmdLine = ProtocPath
-    
-    CmdLine += " --proto_path=" + CommonProtoPath
-    CmdLine += " --proto_path=" + CurDir + "ThirdParty/grpc/third_party/protobuf/src"
-    CmdLine += " --proto_path=" + Path
+    cmd_line = PROTOC_PATH
+    cmd_line += f" --proto_path={COMMON_PROTO_PATH}"
+    cmd_line += f" --proto_path={os.path.join(CURRENT_DIR, 'ThirdParty/grpc/third_party/protobuf/src')}"
+    cmd_line += f" --proto_path={path}"
 
-    OutPath = CurDir + "src/proto"
+    out_path = os.path.join(CURRENT_DIR, "src/proto")
 
-    CmdLine += " --grpc_out=" + OutPath
-    CmdLine += " --cpp_out=" + OutPath
-    CmdLine += " --plugin=protoc-gen-grpc=" + CppPluginPath
+    cmd_line += f" --grpc_out={out_path}"
+    cmd_line += f" --cpp_out={out_path}"
+    cmd_line += f" --plugin=protoc-gen-grpc={CPP_PLUGIN_PATH}"
+    cmd_line += f" {os.path.join(path, filepath)}"
 
-    CmdLine += " " + Path + "/" + Filepath
-     
-    print(CmdLine)
-    tokens = CmdLine.split()
+    print(cmd_line)
+    tokens = cmd_line.split()
     process = subprocess.Popen(tokens, stdout=sys.stdout, stderr=subprocess.STDOUT)
     res = process.communicate()
     if process.returncode != 0:
         raise subprocess.CalledProcessError(process.returncode, process.args)
 
-    OutFilename = OutPath + "/" + Filepath
-    OutFilename = OutFilename[0:OutFilename.rfind('.')]
-    AddLineToFileStart(OutFilename + ".pb.cc", "#include \"ProtoDisableWarning.h\"")
-    AddLineToFileStart(OutFilename + ".grpc.pb.cc", "#include \"ProtoDisableWarning.h\"")
-    
+    out_filename = os.path.join(out_path, os.path.splitext(filepath)[0])
+    add_line_to_file_start(out_filename + ".pb.cc", "#include \"ProtoDisableWarning.h\"")
+    add_line_to_file_start(out_filename + ".grpc.pb.cc", "#include \"ProtoDisableWarning.h\"")
+
+    for file_extension in [".pb.h", ".pb.cc", ".grpc.pb.h", ".grpc.pb.cc"]:
+        replace_protobuf_namespace(out_filename + file_extension)
+
     print("------------------------------------------")
 
-ProtoPath = ProtoRepo + "grpc-stub/world-engine/src/main/proto/"
-Generate(ProtoPath, "world-engine.proto")
-Generate(ProtoPath, "packets.proto")
-Generate(ProtoPath, "voices.proto")
-Generate(ProtoPath, "options.proto")
+proto_path = os.path.join(PROTO_REPO, "grpc-stub/world-engine/src/main/proto/")
+generate(proto_path, "world-engine.proto")
+generate(proto_path, "packets.proto")
+generate(proto_path, "voices.proto")
+generate(proto_path, "options.proto")
 
-Generate(ProtoPath, "ai/inworld/studio/v1alpha/apikeys.proto")
-Generate(ProtoPath, "ai/inworld/studio/v1alpha/behavioral_contexts.proto")
-Generate(ProtoPath, "ai/inworld/studio/v1alpha/characters.proto")
-Generate(ProtoPath, "ai/inworld/studio/v1alpha/errors.proto")
-Generate(ProtoPath, "ai/inworld/studio/v1alpha/scenes.proto")
-Generate(ProtoPath, "ai/inworld/studio/v1alpha/tokens.proto")
-Generate(ProtoPath, "ai/inworld/studio/v1alpha/users.proto")
-Generate(ProtoPath, "ai/inworld/studio/v1alpha/workspaces.proto")
+for file_name in [
+    "ai/inworld/studio/v1alpha/apikeys.proto",
+    "ai/inworld/studio/v1alpha/behavioral_contexts.proto",
+    "ai/inworld/studio/v1alpha/characters.proto",
+    "ai/inworld/studio/v1alpha/errors.proto",
+    "ai/inworld/studio/v1alpha/scenes.proto",
+    "ai/inworld/studio/v1alpha/tokens.proto",
+    "ai/inworld/studio/v1alpha/users.proto",
+    "ai/inworld/studio/v1alpha/workspaces.proto"
+]:
+    generate(proto_path, file_name)
 
-Generate(ProtoRepo, "grpc-stub/platform-public/src/main/proto/ai/inworld/engine/v1/state_serialization.proto")
+generate(PROTO_REPO, "grpc-stub/platform-public/src/main/proto/ai/inworld/engine/v1/state_serialization.proto")
 
-Generate(CommonProtoPath, "google/api/annotations.proto")
-Generate(CommonProtoPath, "google/api/client.proto")
-Generate(CommonProtoPath, "google/api/field_behavior.proto")
-Generate(CommonProtoPath, "google/api/http.proto")
-Generate(CommonProtoPath, "google/api/resource.proto")
-Generate(CommonProtoPath, "google/longrunning/operations.proto")
-Generate(CommonProtoPath, "google/rpc/status.proto")
+for file_name in [
+    "google/api/annotations.proto",
+    "google/api/client.proto",
+    "google/api/field_behavior.proto",
+    "google/api/http.proto",
+    "google/api/resource.proto",
+    "google/longrunning/operations.proto",
+    "google/rpc/status.proto"
+]:
+    generate(COMMON_PROTO_PATH, file_name)
 
 print("Great success!")
