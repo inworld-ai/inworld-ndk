@@ -100,6 +100,8 @@ namespace Inworld {
     class CustomGestureEvent;
     class CustomEvent;
     class ChangeSceneEvent;
+	class ActionEvent;
+	class RelationEvent;
 
     class INWORLD_EXPORT PacketVisitor
     {
@@ -114,6 +116,8 @@ namespace Inworld {
         virtual void Visit(const CustomGestureEvent& Event) {  }
         virtual void Visit(const CustomEvent& Event) {  }
         virtual void Visit(const ChangeSceneEvent& Event) {  }
+    	virtual void Visit(const ActionEvent& Event) { }
+    	virtual void Visit(const RelationEvent& Event) { }
     };
 
 	struct EmotionalState;
@@ -350,6 +354,47 @@ namespace Inworld {
 		std::unordered_map<std::string, std::string> _Params;
 	};
 
+	class INWORLD_EXPORT RelationEvent : public Packet
+	{
+	public:
+		RelationEvent() = default;
+		RelationEvent(const InworldPakets::InworldPacket& GrpcPacket);
+
+		int32_t GetAttraction() const { return _Attraction; }
+		int32_t GetFamiliar() const { return _Familiar; }
+		int32_t GetFlirtatious() const { return _Flirtatious; }
+		int32_t GetRespect() const { return _Respect; }
+		int32_t GetTrust() const { return _Trust; }
+	
+		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
+	
+	
+	protected:
+		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+	
+	private:
+		int32_t _Attraction;
+		int32_t _Familiar;
+		int32_t _Flirtatious;
+		int32_t _Respect;
+		int32_t _Trust;
+	};
+
+	class INWORLD_EXPORT ActionEvent : public Packet
+	{
+	public:
+		ActionEvent() = default;
+		ActionEvent(const InworldPakets::InworldPacket& GrpcPacket);
+		const std::string& GetContent() const { return _Content; }
+		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }	
+	
+	protected:
+		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+	
+	private:
+		std::string _Content;
+	};
+	
 	class INWORLD_EXPORT MutationEvent : public Packet
 	{
 	public:
@@ -408,6 +453,8 @@ namespace Inworld {
 		std::string _SceneName;
 		std::vector<AgentInfo> _AgentInfos;
 	};
+
+
 
 }
 #pragma warning(pop)

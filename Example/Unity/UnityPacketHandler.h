@@ -23,23 +23,12 @@ namespace NDKUnity
 		void Visit(const Inworld::EmotionEvent& Event) override;
 		void Visit(const Inworld::CancelResponseEvent& Event) override;
 		void Visit(const Inworld::CustomEvent& Event) override;
-		
-		void SetPacketCallback(TextCallBack textCallBack,
-			AudioCallBack audioCallBack,
-			ControlCallBack controlCallBack,
-			EmotionCallBack emotionCallBack,
-			CancelResponseCallBack cancelResponseCallBack,
-			CustomCallBack customCallBack,
-			PhonemeCallBack phonemeCallBack,
-			TriggerParamCallBack triggerParamCallBack);
+		void Visit(const Inworld::ActionEvent& Event) override;
+		void Visit(const Inworld::RelationEvent& Event) override;
+		void SetPacketCallback(UnityPacketCallback pktCallBack, PhonemeCallBack phonemeCallBack, TriggerParamCallBack triggerParamCallBack);
 
 	private:
-		TextCallBack m_TextCallBack;
-		AudioCallBack m_AudioCallBack;
-		ControlCallBack m_ControlCallBack;
-		EmotionCallBack m_EmotionCallBack;
-		CancelResponseCallBack m_CancelResponseCallBack;
-		CustomCallBack m_CustomCallBack;
+		UnityPacketCallback m_PacketCallback;
 		PhonemeCallBack m_PhonemeCallBack;
 		TriggerParamCallBack m_TriggerParamCallBack;
 	};

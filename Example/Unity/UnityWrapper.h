@@ -30,15 +30,7 @@ namespace NDKUnity
 		
 		void SetLoggerCallBack(const Inworld::LoggerCallBack& callback);
 
-		void SetPacketCallBack(
-			const TextCallBack& textCallBack,
-			const AudioCallBack& audioCallBack,
-			const ControlCallBack& controlCallBack,
-			const EmotionCallBack& emotionCallBack,
-			const CancelResponseCallBack& cancelResponseCallBack,
-			const CustomCallBack& customCallBack,
-			const PhonemeCallBack& phonemeCallBack,
-			const TriggerParamCallBack& triggerParamCallBack);
+		void SetPacketCallBack(const UnityPacketCallback& pktCallBack, const PhonemeCallBack& phonemeCallBack, const TriggerParamCallBack& triggerParamCallBack);
 		
 		Inworld::LoggerCallBack GetLoggerCallBack() const
 		{
