@@ -7,7 +7,7 @@
 
 #include "Application.h"
 #include "Utils/Log.h"
-#include "whisper.h"
+//#include "whisper.h"
 #include <inttypes.h>
 
 // !!! Fill out this options !!!
@@ -128,7 +128,7 @@ void NDKApp::App::Run()
 					});
 			}
 		},
-		{
+		/*{
 			"AudioStart",
 			"Start audio capture",
 			[this](std::vector<std::string> Args)
@@ -163,7 +163,7 @@ void NDKApp::App::Run()
 				_Client.StopAudioSession(_AgentInfos[_CurrentAgentIdx].AgentId);
 				_CapturingAudio = false;
 			}
-		}
+		}*/
 });
 
 	if (!_SdlAudio.init(-1, WHISPER_SAMPLE_RATE)) 

@@ -5,7 +5,7 @@
  * that can be found in the LICENSE.md file or at https://www.inworld.ai/sdk-license
  */
 
-#ifdef INWORLD_STT_LOCAL && INWORLD_WHISPERCPP
+#if defined(INWORLD_STT_LOCAL) && defined(INWORLD_WHISPERCPP)
 
 #include "STT.h"
 

@@ -11,7 +11,7 @@
 #include "Client.h"
 #include "CommandLineInterface.h"
 #include "PacketHandler.h"
-#include "examples/common-sdl.h"
+//#include "examples/common-sdl.h"
 
 namespace NDKApp
 {
@@ -33,7 +33,7 @@ namespace NDKApp
 		CommandLineInterface _Cli;
 		PacketHandler _PacketHandler;
 
-		audio_async _SdlAudio{ 30000 };
+		//audio_async _SdlAudio{ 30000 };
 		std::chrono::system_clock::time_point AutioStartTime;
 		bool _CapturingAudio = false;
 

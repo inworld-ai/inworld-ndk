@@ -236,7 +236,7 @@ target_link_libraries(InworldNDK PUBLIC grpc)
 target_link_libraries(InworldNDK PUBLIC grpc++)
 
 # local STT
-if (NOT STT_LOCAL MATCHES "NONE")
+if (STT_LOCAL)
     target_compile_definitions(InworldNDK PUBLIC INWORLD_STT_LOCAL=1)
 
     if (STT_LOCAL MATCHES "CTRANSLATE")
@@ -251,6 +251,11 @@ if (NOT STT_LOCAL MATCHES "NONE")
         add_subdirectory(ThirdParty/whisper-cpp)
         target_link_libraries(InworldNDK PUBLIC whisper)
         target_include_directories(InworldNDK PUBLIC ${ThirdPartyDir}/whisper-cpp)
+    elseif (STT_LOCAL MATCHES "QC")
+        set(WHISPER_QC True)
+        target_compile_definitions(InworldNDK PUBLIC INWORLD_WHISPER_QC=1)
+        target_link_libraries(InworldNDK PUBLIC ${ThirdPartyDir}/whisper/lib/WhisperCliWrapper.lib)
+        target_include_directories(InworldNDK PUBLIC ${ThirdPartyDir}/whisper/include)
     endif ()
 endif()
 
@@ -475,5 +480,10 @@ if (NOT IOS AND NOT ANDROID)
         add_custom_command(TARGET InworldNDKApp POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy
             ${PROJECT_SOURCE_DIR}/ThirdParty/Prebuilt/Win64/webrtc_aec_plugin.dll  ${PackageDir}${ConfigDirName})
+        if (WHISPER_QC)
+            add_custom_command(TARGET InworldNDKApp POST_BUILD
+                COMMAND ${CMAKE_COMMAND} -E copy_directory
+                ${PROJECT_SOURCE_DIR}/ThirdParty/whisper/lib  ${CMAKE_CURRENT_SOURCE_DIR}/build)
+        endif()
     endif()
 endif()
