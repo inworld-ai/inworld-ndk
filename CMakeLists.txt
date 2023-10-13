@@ -235,6 +235,10 @@ target_link_libraries(InworldNDK PUBLIC grpc)
 target_link_libraries(InworldNDK PUBLIC grpc++)
 
 # logging
+if (AUDIO_DUMP)
+    target_compile_definitions(InworldNDK PUBLIC INWORLD_AUDIO_DUMP=1)
+endif()
+
 if(INWORLD_LOG_CALLBACK)
 	# custom
     target_compile_definitions(InworldNDK PUBLIC INWORLD_LOG=1)

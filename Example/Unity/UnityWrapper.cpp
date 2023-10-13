@@ -16,6 +16,7 @@ void NDKUnity::CUnityWrapper::SetLoggerCallBack(const Inworld::LoggerCallBack& c
 	m_LogCallBack = callback;
 	if (callback != nullptr)
 		Inworld::LogSetLoggerCallback(callback);
+	SetAudioDumpEnabled(true, "C:/Tmp/aaa.wav");
 	Inworld::Log("Unity NDK Logger Initialized");
 }
 
