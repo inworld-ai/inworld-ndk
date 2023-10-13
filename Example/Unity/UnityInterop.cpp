@@ -77,11 +77,11 @@ void Unity_DestroyWrapper()
 	g_pWrapper = nullptr;
 }
 
-NDKUnity::SessionInfo Unity_GetSessionInfo()
+const NDKUnity::SessionInfo* Unity_GetSessionInfo()
 {	
 	if (g_pWrapper == nullptr)
-		return {};
-	return NDKUnity::SessionInfo(g_pWrapper->GetSessionInfo());
+		return nullptr;
+	return new NDKUnity::SessionInfo(g_pWrapper->GetSessionInfo());
 }
 
 void Unity_LoadScene(const char* strSceneName, NDKUnity::UnityCallback callback)
@@ -99,11 +99,11 @@ int Unity_GetAgentCount()
 	return static_cast<int>(g_pWrapper->GetAgentInfo().size());
 }
 
-NDKUnity::AgentInfo Unity_GetAgentInfo(int nIndex)
+const NDKUnity::AgentInfo* Unity_GetAgentInfo(int nIndex)
 {
 	if (g_pWrapper == nullptr || nIndex < 0 || nIndex > g_pWrapper->GetAgentInfo().size())
-		return {};
-	return NDKUnity::AgentInfo(g_pWrapper->GetAgentInfo()[nIndex]);
+		return nullptr;
+	return new NDKUnity::AgentInfo(g_pWrapper->GetAgentInfo()[nIndex]);
 }
 
 void Unity_StartSession()
