@@ -17,6 +17,7 @@
 #include <vector>
 #include <unordered_map>
 #include <chrono>
+#include "Utils/Log.h"
 
 namespace InworldPakets = ai::inworld::packets;
 
@@ -130,8 +131,11 @@ namespace Inworld {
 		Packet(const InworldPakets::InworldPacket& GrpcPacket) 
 			: _PacketId(GrpcPacket.packet_id())
 			, _Routing(GrpcPacket.routing())
-			, _Timestamp(std::chrono::system_clock::time_point(std::chrono::seconds(google::protobuf_inworld::util::TimeUtil::TimestampToTimeT(GrpcPacket.timestamp()))))
-		{}
+			, _Timestamp(std::chrono::system_clock::from_time_t(google::protobuf_inworld::util::TimeUtil::TimestampToTimeT(GrpcPacket.timestamp())))
+		{
+			//std::string str = GrpcPacket.timestamp().DebugString();
+			//Inworld::Log("Timestamp: %s", str.c_str());
+		}
         Packet(const Routing& Routing) 
 			: _Routing(Routing)
 		{}
@@ -150,6 +154,7 @@ namespace Inworld {
         PacketId _PacketId;
         Routing _Routing;
 		std::chrono::system_clock::time_point _Timestamp = std::chrono::system_clock::now();
+		std::chrono::system_clock::time_point _DebugTimestamp = std::chrono::system_clock::now();
 	};
 
 	class INWORLD_EXPORT TextEvent : public Packet

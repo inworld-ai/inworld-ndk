@@ -50,6 +50,12 @@ void Inworld::PerceivedLatencyTracker::VisitReply(const Inworld::Packet& Event)
 	const auto It = _InteractionTimeMap.find(Interaction);
 	if (It != _InteractionTimeMap.end())
 	{
+		{
+			const auto Duration = std::chrono::system_clock::now() - Event._DebugTimestamp;
+			const int32_t Ms = std::chrono::duration_cast<std::chrono::milliseconds>(Duration).count();
+			Inworld::Log("Receive latency is %dms, Interaction: %s", Ms, ARG_STR(Event._PacketId._InteractionId));
+		}
+
 		const auto Duration = std::chrono::system_clock::now() - It->second;
 		_InteractionTimeMap.erase(It);
 
