@@ -11,12 +11,6 @@
 	path = ThirdParty/grpc
 	url = https://github.com/inworld-ai/inworld-ndk-grpc
 	branch = inworld-master
-[submodule "ThirdParty/ctranslate2"]
-	path = ThirdParty/ctranslate2
-	url = https://github.com/OpenNMT/CTranslate2.git
-[submodule "ThirdParty/oneDNN"]
-	path = ThirdParty/oneDNN
-	url = https://github.com/oneapi-src/oneDNN.git
 [submodule "ThirdParty/whisper-cpp"]
 	path = ThirdParty/whisper-cpp
 	url = https://github.com/ggerganov/whisper.cpp.git
