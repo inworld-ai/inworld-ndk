@@ -29,10 +29,9 @@ function(GroupSourcesByFolder target)
     endif()
 endfunction()
 
-find_package(Git REQUIRED)
-
 # update dependecies
 if(UPDATE_DEPENDENCIES)
+    find_package(Git REQUIRED)
     message("Updating dependencies...")
     execute_process(
         COMMAND ${GIT_EXECUTABLE} submodule update --init --recursive
