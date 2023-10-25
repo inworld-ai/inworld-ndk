@@ -136,9 +136,9 @@ void Inworld::RunnableSTT::Run()
 			}
 
 			std::vector<std::string> TextChunks;
-			Processor->ProcessAudio(pcmf32_new, TextChunks);
+			//Processor->ProcessAudio(pcmf32_new, TextChunks);
+			Processor->ProcessAudio(Event->_SdlData, TextChunks);
 			Inworld::Log("Inworld::RunnableSTT::Run. audio processed. Text chunks: %d", TextChunks.size());
-			//Processor->ProcessAudio(Event->_SdlData, TextChunks);
 			for (auto& Chunk : TextChunks)
 			{
 				// checking for a blank audio or noise
