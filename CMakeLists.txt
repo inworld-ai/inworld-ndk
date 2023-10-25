@@ -235,22 +235,17 @@ target_link_libraries(InworldNDK PUBLIC grpc)
 target_link_libraries(InworldNDK PUBLIC grpc++)
 
 # local STT
-if (NOT STT_LOCAL MATCHES "NONE")
+if (STT_LOCAL)
     target_compile_definitions(InworldNDK PUBLIC INWORLD_STT_LOCAL=1)
 
-    if (STT_LOCAL MATCHES "CTRANSLATE")
-        target_compile_definitions(InworldNDK PUBLIC INWORLD_CTRANSLATE=1)
-        add_subdirectory(ThirdParty/ctranslate2)
-        target_link_libraries(InworldNDK PUBLIC ctranslate2)
-        target_include_directories(ctranslate2 PUBLIC ${ThirdPartyDir}/oneDNN/build/include)
-        target_include_directories(InworldNDK PUBLIC ${ThirdPartyDir}/ctranslate2/include)
-    elseif (STT_LOCAL MATCHES "WHISPERCPP")
-        set(WHISPERCPP True)
-        target_compile_definitions(InworldNDK PUBLIC INWORLD_WHISPERCPP=1)
-        add_subdirectory(ThirdParty/whisper-cpp)
-        target_link_libraries(InworldNDK PUBLIC whisper)
-        target_include_directories(InworldNDK PUBLIC ${ThirdPartyDir}/whisper-cpp)
-    endif ()
+    set(WHISPERCPP True)
+    set(WHISPER_SDL2 True)
+    set(WHISPER_BUILD_EXAMPLES True)
+
+    target_compile_definitions(InworldNDK PUBLIC INWORLD_WHISPERCPP=1)
+    add_subdirectory(ThirdParty/whisper-cpp)
+    target_link_libraries(InworldNDK PUBLIC whisper)
+    target_include_directories(InworldNDK PUBLIC ${ThirdPartyDir}/whisper-cpp)
 endif()
 
 # logging
@@ -403,7 +398,7 @@ set(LibFiles
 
 if (WHISPERCPP)
     list(APPEND LibFiles
-    ${CMAKE_CURRENT_SOURCE_DIR}/build/ThirdParty/whisper-cpp${ConfigDirName}/whisper.${LibExt})
+    ${CMAKE_CURRENT_SOURCE_DIR}/build/ThirdParty/whisper-cpp${ConfigDirName}/${LibPref}whisper.${LibExt})
 endif()
 
 if (ANDROID AND INWORLD_LOG_SPD)
