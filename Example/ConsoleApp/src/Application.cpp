@@ -129,39 +129,32 @@ void NDKApp::App::Run()
 			}
 		},
 		{
-			"AudioStart",
-			"Start audio capture",
-			[this](std::vector<std::string> Args)
-			{
-				if (_CapturingAudio)
-				{
-					return;
-				}
-				_CapturingAudio = true;
-				_Client.StartAudioSession(_AgentInfos[_CurrentAgentIdx].AgentId);
-				_SdlAudio.resume();
-				AutioStartTime = std::chrono::system_clock::now();
-			}
-		},
-		{
-			"AudioStop",
-			"Stop audio capture",
+			"a",
+			"Start/Stop audio capture",
 			[this](std::vector<std::string> Args)
 			{
 				if (!_CapturingAudio)
 				{
-					return;
+					_CapturingAudio = true;
+					_Client.StartAudioSession(_AgentInfos[_CurrentAgentIdx].AgentId);
+					_SdlAudio.resume();
+					AutioStartTime = std::chrono::system_clock::now();
+					Inworld::Log("Audio capture started");
 				}
-				std::vector<float> Data;
-				const auto Time = std::chrono::system_clock::now() - AutioStartTime;
-				const int32_t Ms = std::chrono::duration_cast<std::chrono::milliseconds>(Time).count();
-				_SdlAudio.get(Ms, Data);
-				_SdlAudio.clear();
-				_SdlAudio.pause();
-				Inworld::Log("Audio capture ended %d ms, Data size %d", Ms, Data.size());
-				_Client.SendSoundMessage(_AgentInfos[_CurrentAgentIdx].AgentId, Data);
-				_Client.StopAudioSession(_AgentInfos[_CurrentAgentIdx].AgentId);
-				_CapturingAudio = false;
+				else
+				{
+					std::vector<float> Data;
+					const auto Time = std::chrono::system_clock::now() - AutioStartTime;
+					const int32_t Ms = std::chrono::duration_cast<std::chrono::milliseconds>(Time).count();
+					_SdlAudio.get(Ms, Data);
+					_SdlAudio.clear();
+					_SdlAudio.pause();
+					Inworld::Log("Audio capture ended %d ms, Data size %d", Ms, Data.size());
+					_Client.SendSoundMessage(_AgentInfos[_CurrentAgentIdx].AgentId, Data);
+					_Client.StopAudioSession(_AgentInfos[_CurrentAgentIdx].AgentId);
+					_CapturingAudio = false;
+				}
+				
 			}
 		}
 });
