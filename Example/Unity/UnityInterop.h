@@ -54,9 +54,9 @@ extern "C"
 	DLL_EXPORT void Unity_Hello();
 	
 #pragma region Getter
-	DLL_EXPORT NDKUnity::SessionInfo Unity_GetSessionInfo();
+	DLL_EXPORT const NDKUnity::SessionInfo* Unity_GetSessionInfo();
 	DLL_EXPORT int Unity_GetAgentCount();
-	DLL_EXPORT NDKUnity::AgentInfo Unity_GetAgentInfo(int nIndex);  // NOLINT(clang-diagnostic-return-type-c-linkage)
+	DLL_EXPORT const NDKUnity::AgentInfo* Unity_GetAgentInfo(int nIndex);  
 #pragma endregion Getter	
 
 #if __cplusplus

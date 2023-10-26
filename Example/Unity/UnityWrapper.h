@@ -12,7 +12,6 @@
 #include "Data/UnityNDKInteropData.h"
 #include "Utils/Log.h"
 
-
 namespace NDKUnity
 {	
 	class CUnityWrapper final : public Inworld::Client
@@ -80,7 +79,6 @@ namespace NDKUnity
 		void AddTaskToMainThread(std::function<void()> Task) override;
 		
 	private:
-		int32_t m_CurrentAgentIdx = -1;
 		CUnityPacketHandler m_PacketHandler;
 		std::string m_SavedSessionState;
 		std::vector<AgentInfo> m_AgentInfos;
