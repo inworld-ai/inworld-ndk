@@ -321,7 +321,9 @@ void Inworld::ClientBase::DestroyClient()
 
 void Inworld::ClientBase::SaveSessionState(std::function<void(std::string, bool)> Callback)
 {
-	const size_t Pos = _ClientOptions.SceneName.find("scenes");
+	const size_t CharactersPos = _ClientOptions.SceneName.find("characters");
+	const size_t ScenesPos = _ClientOptions.SceneName.find("scenes");
+	const size_t Pos = CharactersPos != std::string::npos ? CharactersPos : ScenesPos;
 	if (Pos == std::string::npos)
 	{
 		Inworld::LogError("Inworld::ClientBase::SaveSessionState: Couldn't form SessionName");
