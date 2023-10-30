@@ -237,10 +237,15 @@ target_link_libraries(InworldNDK PUBLIC grpc++)
 # local STT
 if (STT_LOCAL)
     target_compile_definitions(InworldNDK PUBLIC INWORLD_STT_LOCAL=1)
-
+     
     set(WHISPERCPP True)
     set(WHISPER_SDL2 True)
     set(WHISPER_BUILD_EXAMPLES True)
+    
+    if (WIN32)
+        set(WHISPER_CLBLAST True)
+        set(CLBlast_DIR ${ThirdPartyDir}/CLBlast/lib/cmake/CLBlast)
+    endif()
 
     target_compile_definitions(InworldNDK PUBLIC INWORLD_WHISPERCPP=1)
     add_subdirectory(ThirdParty/whisper-cpp)
