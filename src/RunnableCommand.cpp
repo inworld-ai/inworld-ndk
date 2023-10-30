@@ -97,7 +97,7 @@ void Inworld::RunnableWrite::Run()
 		auto Packet = _Packets.Front();
 		InworldPackets::InworldPacket Event = Packet->ToProto();
 
-		const auto Duration = std::chrono::system_clock::now() - Packet->_DebugTimestamp;
+		const auto Duration = std::chrono::system_clock::now() - Packet->_LocalTimestamp;
 		const int32_t Ms = std::chrono::duration_cast<std::chrono::milliseconds>(Duration).count();
 		Inworld::Log("Send latency is %dms, Interaction: %s", Ms, ARG_STR(Packet->_PacketId._InteractionId));
 
