@@ -145,8 +145,6 @@ namespace Inworld
 		PacketQueue _IncomingPackets;
 		PacketQueue _OutgoingPackets;
 
-		std::atomic<bool> _bPendingIncomingPacketFlush = false;
-
 		ConnectionState _ConnectionState = ConnectionState::Idle;
 		std::string _ErrorMessage = std::string();
 		int32_t _ErrorCode = grpc::StatusCode::OK;

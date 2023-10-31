@@ -507,27 +507,22 @@ void Inworld::ClientBase::TryToStartReadTask()
 				_IncomingPackets,
 				[this](const std::shared_ptr<Inworld::Packet> InPacket)
 				{
-					if (!_bPendingIncomingPacketFlush)
-					{
-						_bPendingIncomingPacketFlush = true;
-						AddTaskToMainThread(
-							[this]()
+					AddTaskToMainThread(
+						[this]()
+						{
+							std::shared_ptr<Inworld::Packet> Packet;
+							while (_IncomingPackets.PopFront(Packet))
 							{
-								std::shared_ptr<Inworld::Packet> Packet;
-								while (_IncomingPackets.PopFront(Packet))
+								if (Packet)
 								{
-									if (Packet)
+									_LatencyTracker.HandlePacket(Packet);
+									if (_OnPacketCallback)
 									{
-										_LatencyTracker.HandlePacket(Packet);
-										if (_OnPacketCallback)
-										{
-											_OnPacketCallback(Packet);
-										}
+										_OnPacketCallback(Packet);
 									}
 								}
-								_bPendingIncomingPacketFlush = false;
-							});
-					}
+							}
+						});
 					if (_ConnectionState != ConnectionState::Connected)
 					{
 						AddTaskToMainThread(
