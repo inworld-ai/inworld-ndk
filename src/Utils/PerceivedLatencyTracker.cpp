@@ -51,7 +51,7 @@ void Inworld::PerceivedLatencyTracker::VisitReply(const Inworld::Packet& Event)
 	if (It != _InteractionTimeMap.end())
 	{
 		{
-			const auto Duration = Event._Timestamp - Event._LocalTimestamp;
+			const auto Duration = Event._LocalTimestamp - Event._Timestamp;
 			const int32_t Ms = std::chrono::duration_cast<std::chrono::milliseconds>(Duration).count();
 			Inworld::Log("Network receive latency is %dms, Interaction: %s", Ms, ARG_STR(Event._PacketId._InteractionId));
 		}
@@ -63,7 +63,7 @@ void Inworld::PerceivedLatencyTracker::VisitReply(const Inworld::Packet& Event)
 		{
 			const auto Duration = std::chrono::system_clock::now() - Event._LocalTimestamp;
 			const int32_t Ms = std::chrono::duration_cast<std::chrono::milliseconds>(Duration).count();
-			Inworld::Log("Receive latency is %dms, Interaction: %s", Ms, ARG_STR(Event._PacketId._InteractionId));
+			Inworld::Log("Receive local latency is %dms, Interaction: %s", Ms, ARG_STR(Event._PacketId._InteractionId));
 		}
 
 		const auto Duration = std::chrono::system_clock::now() - It->second;

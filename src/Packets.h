@@ -131,7 +131,9 @@ namespace Inworld {
 		Packet(const InworldPakets::InworldPacket& GrpcPacket) 
 			: _PacketId(GrpcPacket.packet_id())
 			, _Routing(GrpcPacket.routing())
-			, _Timestamp(std::chrono::system_clock::time_point(std::chrono::milliseconds(google::protobuf_inworld::util::TimeUtil::TimestampToMilliseconds(GrpcPacket.timestamp()))))
+			, _Timestamp(std::chrono::system_clock::time_point(
+				std::chrono::milliseconds(
+					google::protobuf_inworld::util::TimeUtil::TimestampToMilliseconds(GrpcPacket.timestamp()))))
 		{
 			
 		}
