@@ -187,7 +187,7 @@ const char descriptor_table_protodef_google_2fprotobuf_2fcompiler_2fplugin_2epro
   "ypes/pluginpb"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_google_2fprotobuf_2fcompiler_2fplugin_2eproto_deps[1] = {
-  &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
+  &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_google_2fprotobuf_2fcompiler_2fplugin_2eproto_sccs[4] = {
   &scc_info_CodeGeneratorRequest_google_2fprotobuf_2fcompiler_2fplugin_2eproto.base,

@@ -37,7 +37,7 @@ static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_google_2fprotobuf_2
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_google_2fprotobuf_2ffield_5fmask_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_google_2fprotobuf_2ffield_5fmask_2eproto = nullptr;
 
-const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_google_2fprotobuf_2ffield_5fmask_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_google_2fprotobuf_2ffield_5fmask_2eproto_inworld::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(PROTOBUF_NAMESPACE_ID::FieldMask, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -67,15 +67,15 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_goo
   &scc_info_FieldMask_google_2fprotobuf_2ffield_5fmask_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_google_2fprotobuf_2ffield_5fmask_2eproto_once;
-const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_google_2fprotobuf_2ffield_5fmask_2eproto = {
+const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_google_2fprotobuf_2ffield_5fmask_2eproto_inworld = {
   false, false, descriptor_table_protodef_google_2fprotobuf_2ffield_5fmask_2eproto, "google/protobuf/field_mask.proto", 223,
   &descriptor_table_google_2fprotobuf_2ffield_5fmask_2eproto_once, descriptor_table_google_2fprotobuf_2ffield_5fmask_2eproto_sccs, descriptor_table_google_2fprotobuf_2ffield_5fmask_2eproto_deps, 1, 0,
-  schemas, file_default_instances, TableStruct_google_2fprotobuf_2ffield_5fmask_2eproto::offsets,
+  schemas, file_default_instances, TableStruct_google_2fprotobuf_2ffield_5fmask_2eproto_inworld::offsets,
   file_level_metadata_google_2fprotobuf_2ffield_5fmask_2eproto, 1, file_level_enum_descriptors_google_2fprotobuf_2ffield_5fmask_2eproto, file_level_service_descriptors_google_2fprotobuf_2ffield_5fmask_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
-static bool dynamic_init_dummy_google_2fprotobuf_2ffield_5fmask_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_google_2fprotobuf_2ffield_5fmask_2eproto)), true);
+static bool dynamic_init_dummy_google_2fprotobuf_2ffield_5fmask_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_google_2fprotobuf_2ffield_5fmask_2eproto_inworld)), true);
 PROTOBUF_NAMESPACE_OPEN
 
 // ===================================================================

@@ -1166,7 +1166,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_goo
   &scc_info_UninterpretedOption_NamePart_google_2fprotobuf_2fdescriptor_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_once;
-const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_google_2fprotobuf_2fdescriptor_2eproto = {
+const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld = {
   false, false, descriptor_table_protodef_google_2fprotobuf_2fdescriptor_2eproto, "google/protobuf/descriptor.proto", 6028,
   &descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_once, descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_sccs, descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_deps, 27, 0,
   schemas, file_default_instances, TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworld::offsets,
@@ -1174,10 +1174,10 @@ const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_google
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
-static bool dynamic_init_dummy_google_2fprotobuf_2fdescriptor_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_google_2fprotobuf_2fdescriptor_2eproto)), true);
+static bool dynamic_init_dummy_google_2fprotobuf_2fdescriptor_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld)), true);
 PROTOBUF_NAMESPACE_OPEN
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* FieldDescriptorProto_Type_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
   return file_level_enum_descriptors_google_2fprotobuf_2fdescriptor_2eproto[0];
 }
 bool FieldDescriptorProto_Type_IsValid(int value) {
@@ -1230,7 +1230,7 @@ constexpr FieldDescriptorProto_Type FieldDescriptorProto::Type_MAX;
 constexpr int FieldDescriptorProto::Type_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* FieldDescriptorProto_Label_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
   return file_level_enum_descriptors_google_2fprotobuf_2fdescriptor_2eproto[1];
 }
 bool FieldDescriptorProto_Label_IsValid(int value) {
@@ -1253,7 +1253,7 @@ constexpr FieldDescriptorProto_Label FieldDescriptorProto::Label_MAX;
 constexpr int FieldDescriptorProto::Label_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* FileOptions_OptimizeMode_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
   return file_level_enum_descriptors_google_2fprotobuf_2fdescriptor_2eproto[2];
 }
 bool FileOptions_OptimizeMode_IsValid(int value) {
@@ -1276,7 +1276,7 @@ constexpr FileOptions_OptimizeMode FileOptions::OptimizeMode_MAX;
 constexpr int FileOptions::OptimizeMode_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* FieldOptions_CType_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
   return file_level_enum_descriptors_google_2fprotobuf_2fdescriptor_2eproto[3];
 }
 bool FieldOptions_CType_IsValid(int value) {
@@ -1299,7 +1299,7 @@ constexpr FieldOptions_CType FieldOptions::CType_MAX;
 constexpr int FieldOptions::CType_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* FieldOptions_JSType_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
   return file_level_enum_descriptors_google_2fprotobuf_2fdescriptor_2eproto[4];
 }
 bool FieldOptions_JSType_IsValid(int value) {
@@ -1322,7 +1322,7 @@ constexpr FieldOptions_JSType FieldOptions::JSType_MAX;
 constexpr int FieldOptions::JSType_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* MethodOptions_IdempotencyLevel_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
   return file_level_enum_descriptors_google_2fprotobuf_2fdescriptor_2eproto[5];
 }
 bool MethodOptions_IdempotencyLevel_IsValid(int value) {

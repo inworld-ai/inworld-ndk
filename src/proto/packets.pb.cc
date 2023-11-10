@@ -949,9 +949,9 @@ const char descriptor_table_protodef_packets_2eproto[] PROTOBUF_SECTION_VARIABLE
   "o3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_packets_2eproto_deps[4] = {
-  &::descriptor_table_google_2fprotobuf_2fduration_2eproto,
-  &::descriptor_table_google_2fprotobuf_2fstruct_2eproto,
-  &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto,
+  &::descriptor_table_google_2fprotobuf_2fduration_2eproto_inworld,
+  &::descriptor_table_google_2fprotobuf_2fstruct_2eproto_inworld,
+  &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto_inworld,
   &::descriptor_table_options_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_packets_2eproto_sccs[27] = {

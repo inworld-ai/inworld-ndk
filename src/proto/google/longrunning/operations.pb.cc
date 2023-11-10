@@ -302,10 +302,10 @@ const char descriptor_table_protodef_google_2flongrunning_2foperations_2eproto[]
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_google_2flongrunning_2foperations_2eproto_deps[7] = {
   &::descriptor_table_google_2fapi_2fannotations_2eproto,
   &::descriptor_table_google_2fapi_2fclient_2eproto,
-  &::descriptor_table_google_2fprotobuf_2fany_2eproto,
-  &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
-  &::descriptor_table_google_2fprotobuf_2fduration_2eproto,
-  &::descriptor_table_google_2fprotobuf_2fempty_2eproto,
+  &::descriptor_table_google_2fprotobuf_2fany_2eproto_inworld,
+  &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld,
+  &::descriptor_table_google_2fprotobuf_2fduration_2eproto_inworld,
+  &::descriptor_table_google_2fprotobuf_2fempty_2eproto_inworld,
   &::descriptor_table_google_2frpc_2fstatus_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_google_2flongrunning_2foperations_2eproto_sccs[8] = {

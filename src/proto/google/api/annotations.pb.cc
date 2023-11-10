@@ -39,7 +39,7 @@ const char descriptor_table_protodef_google_2fapi_2fannotations_2eproto[] PROTOB
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_google_2fapi_2fannotations_2eproto_deps[2] = {
   &::descriptor_table_google_2fapi_2fhttp_2eproto,
-  &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
+  &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_google_2fapi_2fannotations_2eproto_sccs[1] = {
 };

@@ -1674,8 +1674,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
   &::descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto,
   &::descriptor_table_google_2fapi_2fresource_2eproto,
   &::descriptor_table_google_2flongrunning_2foperations_2eproto,
-  &::descriptor_table_google_2fprotobuf_2fempty_2eproto,
-  &::descriptor_table_google_2fprotobuf_2ffield_5fmask_2eproto,
+  &::descriptor_table_google_2fprotobuf_2fempty_2eproto_inworld,
+  &::descriptor_table_google_2fprotobuf_2ffield_5fmask_2eproto_inworld,
   &::descriptor_table_options_2eproto,
   &::descriptor_table_voices_2eproto,
 };

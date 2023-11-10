@@ -116,7 +116,7 @@ const char descriptor_table_protodef_google_2fapi_2fresource_2eproto[] PROTOBUF_
   "oto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_google_2fapi_2fresource_2eproto_deps[1] = {
-  &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
+  &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_google_2fapi_2fresource_2eproto_sccs[2] = {
   &scc_info_ResourceDescriptor_google_2fapi_2fresource_2eproto.base,

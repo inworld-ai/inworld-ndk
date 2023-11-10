@@ -231,7 +231,7 @@ const char descriptor_table_protodef_google_2fprotobuf_2ftype_2eproto[] PROTOBUF
   ".Protobuf.WellKnownTypesb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_google_2fprotobuf_2ftype_2eproto_deps[2] = {
-  &::descriptor_table_google_2fprotobuf_2fany_2eproto,
+  &::descriptor_table_google_2fprotobuf_2fany_2eproto_inworld,
   &::descriptor_table_google_2fprotobuf_2fsource_5fcontext_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_google_2fprotobuf_2ftype_2eproto_sccs[5] = {

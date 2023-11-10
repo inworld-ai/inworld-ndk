@@ -70,7 +70,7 @@ const char descriptor_table_protodef_google_2frpc_2fstatus_2eproto[] PROTOBUF_SE
   "RPCb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_google_2frpc_2fstatus_2eproto_deps[1] = {
-  &::descriptor_table_google_2fprotobuf_2fany_2eproto,
+  &::descriptor_table_google_2fprotobuf_2fany_2eproto_inworld,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_google_2frpc_2fstatus_2eproto_sccs[1] = {
   &scc_info_Status_google_2frpc_2fstatus_2eproto.base,

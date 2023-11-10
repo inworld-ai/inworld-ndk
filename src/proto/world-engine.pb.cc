@@ -1132,8 +1132,8 @@ const char descriptor_table_protodef_world_2dengine_2eproto[] PROTOBUF_SECTION_V
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_world_2dengine_2eproto_deps[5] = {
   &::descriptor_table_google_2fapi_2fannotations_2eproto,
-  &::descriptor_table_google_2fprotobuf_2fempty_2eproto,
-  &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto,
+  &::descriptor_table_google_2fprotobuf_2fempty_2eproto_inworld,
+  &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto_inworld,
   &::descriptor_table_packets_2eproto,
   &::descriptor_table_voices_2eproto,
 };

@@ -53,7 +53,7 @@ struct PROTOBUF_EXPORT TableStruct_google_2fprotobuf_2fdescriptor_2eproto_inworl
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
   static const ::PROTOBUF_NAMESPACE_ID::uint32 offsets[];
 };
-extern PROTOBUF_EXPORT const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_google_2fprotobuf_2fdescriptor_2eproto;
+extern PROTOBUF_EXPORT const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld;
 PROTOBUF_NAMESPACE_OPEN
 class DescriptorProto;
 class DescriptorProtoDefaultTypeInternal;
@@ -437,8 +437,8 @@ class PROTOBUF_EXPORT FileDescriptorSet PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -589,8 +589,8 @@ class PROTOBUF_EXPORT FileDescriptorProto PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -982,8 +982,8 @@ class PROTOBUF_EXPORT DescriptorProto_ExtensionRange PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -1165,8 +1165,8 @@ class PROTOBUF_EXPORT DescriptorProto_ReservedRange PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -1328,8 +1328,8 @@ class PROTOBUF_EXPORT DescriptorProto PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -1672,8 +1672,8 @@ class PROTOBUF_EXPORT ExtensionRangeOptions PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -1827,8 +1827,8 @@ class PROTOBUF_EXPORT FieldDescriptorProto PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -2259,8 +2259,8 @@ class PROTOBUF_EXPORT OneofDescriptorProto PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -2434,8 +2434,8 @@ class PROTOBUF_EXPORT EnumDescriptorProto_EnumReservedRange PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -2597,8 +2597,8 @@ class PROTOBUF_EXPORT EnumDescriptorProto PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -2840,8 +2840,8 @@ class PROTOBUF_EXPORT EnumValueDescriptorProto PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -3030,8 +3030,8 @@ class PROTOBUF_EXPORT ServiceDescriptorProto PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -3225,8 +3225,8 @@ class PROTOBUF_EXPORT MethodDescriptorProto PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -3474,8 +3474,8 @@ class PROTOBUF_EXPORT FileOptions PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -4032,8 +4032,8 @@ class PROTOBUF_EXPORT MessageOptions PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -4248,8 +4248,8 @@ class PROTOBUF_EXPORT FieldOptions PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -4558,8 +4558,8 @@ class PROTOBUF_EXPORT OneofOptions PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -4713,8 +4713,8 @@ class PROTOBUF_EXPORT EnumOptions PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -4899,8 +4899,8 @@ class PROTOBUF_EXPORT EnumValueOptions PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -5070,8 +5070,8 @@ class PROTOBUF_EXPORT ServiceOptions PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -5241,8 +5241,8 @@ class PROTOBUF_EXPORT MethodOptions PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -5459,8 +5459,8 @@ class PROTOBUF_EXPORT UninterpretedOption_NamePart PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -5632,8 +5632,8 @@ class PROTOBUF_EXPORT UninterpretedOption PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -5898,8 +5898,8 @@ class PROTOBUF_EXPORT SourceCodeInfo_Location PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -6151,8 +6151,8 @@ class PROTOBUF_EXPORT SourceCodeInfo PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -6305,8 +6305,8 @@ class PROTOBUF_EXPORT GeneratedCodeInfo_Annotation PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -6515,8 +6515,8 @@ class PROTOBUF_EXPORT GeneratedCodeInfo PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:

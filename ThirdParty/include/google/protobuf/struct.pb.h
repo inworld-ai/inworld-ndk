@@ -45,7 +45,7 @@ class AnyMetadata;
 PROTOBUF_NAMESPACE_CLOSE
 
 // Internal implementation detail -- do not use these members.
-struct PROTOBUF_EXPORT TableStruct_google_2fprotobuf_2fstruct_2eproto {
+struct PROTOBUF_EXPORT TableStruct_google_2fprotobuf_2fstruct_2eproto_inworld {
   static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTableField entries[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
@@ -56,7 +56,7 @@ struct PROTOBUF_EXPORT TableStruct_google_2fprotobuf_2fstruct_2eproto {
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
   static const ::PROTOBUF_NAMESPACE_ID::uint32 offsets[];
 };
-extern PROTOBUF_EXPORT const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_google_2fprotobuf_2fstruct_2eproto;
+extern PROTOBUF_EXPORT const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_google_2fprotobuf_2fstruct_2eproto_inworld;
 PROTOBUF_NAMESPACE_OPEN
 class ListValue;
 class ListValueDefaultTypeInternal;
@@ -126,8 +126,8 @@ public:
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fstruct_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fstruct_2eproto.file_level_metadata[0];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fstruct_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fstruct_2eproto_inworld.file_level_metadata[0];
   }
 
   public:
@@ -236,8 +236,8 @@ class PROTOBUF_EXPORT Struct PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fstruct_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fstruct_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fstruct_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fstruct_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -280,7 +280,7 @@ class PROTOBUF_EXPORT Struct PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> fields_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_google_2fprotobuf_2fstruct_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fstruct_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -395,8 +395,8 @@ class PROTOBUF_EXPORT Value PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fstruct_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fstruct_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fstruct_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fstruct_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -534,7 +534,7 @@ class PROTOBUF_EXPORT Value PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
 
-  friend struct ::TableStruct_google_2fprotobuf_2fstruct_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fstruct_2eproto_inworld;
 };
 // -------------------------------------------------------------------
 
@@ -639,8 +639,8 @@ class PROTOBUF_EXPORT ListValue PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fstruct_2eproto);
-    return ::descriptor_table_google_2fprotobuf_2fstruct_2eproto.file_level_metadata[kIndexInFileMessages];
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_google_2fprotobuf_2fstruct_2eproto_inworld);
+    return ::descriptor_table_google_2fprotobuf_2fstruct_2eproto_inworld.file_level_metadata[kIndexInFileMessages];
   }
 
   public:
@@ -679,7 +679,7 @@ class PROTOBUF_EXPORT ListValue PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< PROTOBUF_NAMESPACE_ID::Value > values_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_google_2fprotobuf_2fstruct_2eproto;
+  friend struct ::TableStruct_google_2fprotobuf_2fstruct_2eproto_inworld;
 };
 // ===================================================================
 

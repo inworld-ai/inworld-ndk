@@ -115,7 +115,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
   &::descriptor_table_google_2fapi_2fclient_2eproto,
   &::descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto,
   &::descriptor_table_google_2fapi_2fresource_2eproto,
-  &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto,
+  &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto_inworld,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_grpc_2dstub_2fplatform_2dpublic_2fsrc_2fmain_2fproto_2fai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto_sccs[2] = {
   &scc_info_GetSessionStateRequest_grpc_2dstub_2fplatform_2dpublic_2fsrc_2fmain_2fproto_2fai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto.base,

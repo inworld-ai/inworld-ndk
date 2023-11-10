@@ -77,8 +77,8 @@ const char descriptor_table_protodef_options_2eproto[] PROTOBUF_SECTION_VARIABLE
   "roto/engine/v1alphab\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_options_2eproto_deps[2] = {
-  &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
-  &::descriptor_table_google_2fprotobuf_2fstruct_2eproto,
+  &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto_inworld,
+  &::descriptor_table_google_2fprotobuf_2fstruct_2eproto_inworld,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_options_2eproto_sccs[1] = {
   &scc_info_ExampleValue_options_2eproto.base,
