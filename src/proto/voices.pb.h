@@ -35,6 +35,7 @@
 #include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
+#include "language_codes.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_voices_2eproto
@@ -139,12 +140,13 @@ enum TTSType : int {
   TTS_TYPE_STANDARD PROTOBUF_DEPRECATED_ENUM = 0,
   TTS_TYPE_ADVANCED = 1,
   TTS_TYPE_ELEVEN_LABS = 2,
+  TTS_TYPE_ADVANCED_V2 = 3,
   TTSType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   TTSType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
 bool TTSType_IsValid(int value);
 constexpr TTSType TTSType_MIN = TTS_TYPE_STANDARD;
-constexpr TTSType TTSType_MAX = TTS_TYPE_ELEVEN_LABS;
+constexpr TTSType TTSType_MAX = TTS_TYPE_ADVANCED_V2;
 constexpr int TTSType_ARRAYSIZE = TTSType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* TTSType_descriptor();
@@ -459,12 +461,14 @@ class Voice PROTOBUF_FINAL :
   enum : int {
     kPhonemesOverridesFieldNumber = 7,
     kBaseNameFieldNumber = 1,
+    kLanguageCodeFieldNumber = 9,
     kTtsTypeFieldNumber = 2,
     kGenderFieldNumber = 3,
     kPitchFieldNumber = 4,
     kSpeakingRateFieldNumber = 5,
     kRoboticVoiceFilterLevelFieldNumber = 6,
     kAgeFieldNumber = 8,
+    kLanguageFieldNumber = 10,
     kElevenlabsMetadataFieldNumber = 100,
   };
   // map<string, string> phonemes_overrides = 7;
@@ -498,6 +502,22 @@ class Voice PROTOBUF_FINAL :
   const std::string& _internal_basename() const;
   void _internal_set_basename(const std::string& value);
   std::string* _internal_mutable_basename();
+  public:
+
+  // string language_code = 9 [deprecated = true];
+  PROTOBUF_DEPRECATED void clear_language_code();
+  PROTOBUF_DEPRECATED const std::string& language_code() const;
+  PROTOBUF_DEPRECATED void set_language_code(const std::string& value);
+  PROTOBUF_DEPRECATED void set_language_code(std::string&& value);
+  PROTOBUF_DEPRECATED void set_language_code(const char* value);
+  PROTOBUF_DEPRECATED void set_language_code(const char* value, size_t size);
+  PROTOBUF_DEPRECATED std::string* mutable_language_code();
+  PROTOBUF_DEPRECATED std::string* release_language_code();
+  PROTOBUF_DEPRECATED void set_allocated_language_code(std::string* language_code);
+  private:
+  const std::string& _internal_language_code() const;
+  void _internal_set_language_code(const std::string& value);
+  std::string* _internal_mutable_language_code();
   public:
 
   // .ai.inworld.voices.TTSType tts_type = 2;
@@ -554,6 +574,15 @@ class Voice PROTOBUF_FINAL :
   void _internal_set_age(::ai::inworld::voices::Age value);
   public:
 
+  // .ai.inworld.language_codes.LanguageCode language = 10;
+  void clear_language();
+  ::ai::inworld::language_codes::LanguageCode language() const;
+  void set_language(::ai::inworld::language_codes::LanguageCode value);
+  private:
+  ::ai::inworld::language_codes::LanguageCode _internal_language() const;
+  void _internal_set_language(::ai::inworld::language_codes::LanguageCode value);
+  public:
+
   // .ai.inworld.voices.Voice.ElevenLabsMetadata elevenlabs_metadata = 100;
   bool has_elevenlabs_metadata() const;
   private:
@@ -591,12 +620,14 @@ class Voice PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> phonemes_overrides_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr basename_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr language_code_;
   int tts_type_;
   int gender_;
   double pitch_;
   double speaking_rate_;
   double robotic_voice_filter_level_;
   int age_;
+  int language_;
   union TtsMetadataUnion {
     TtsMetadataUnion() {}
     ::ai::inworld::voices::Voice_ElevenLabsMetadata* elevenlabs_metadata_;
@@ -892,6 +923,87 @@ inline void Voice::_internal_set_age(::ai::inworld::voices::Age value) {
 inline void Voice::set_age(::ai::inworld::voices::Age value) {
   _internal_set_age(value);
   // @@protoc_insertion_point(field_set:ai.inworld.voices.Voice.age)
+}
+
+// string language_code = 9 [deprecated = true];
+inline void Voice::clear_language_code() {
+  language_code_.ClearToEmpty();
+}
+inline const std::string& Voice::language_code() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.voices.Voice.language_code)
+  return _internal_language_code();
+}
+inline void Voice::set_language_code(const std::string& value) {
+  _internal_set_language_code(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.voices.Voice.language_code)
+}
+inline std::string* Voice::mutable_language_code() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.voices.Voice.language_code)
+  return _internal_mutable_language_code();
+}
+inline const std::string& Voice::_internal_language_code() const {
+  return language_code_.Get();
+}
+inline void Voice::_internal_set_language_code(const std::string& value) {
+  
+  language_code_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Voice::set_language_code(std::string&& value) {
+  
+  language_code_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.voices.Voice.language_code)
+}
+inline void Voice::set_language_code(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  language_code_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.voices.Voice.language_code)
+}
+inline void Voice::set_language_code(const char* value,
+    size_t size) {
+  
+  language_code_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.voices.Voice.language_code)
+}
+inline std::string* Voice::_internal_mutable_language_code() {
+  
+  return language_code_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Voice::release_language_code() {
+  // @@protoc_insertion_point(field_release:ai.inworld.voices.Voice.language_code)
+  return language_code_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Voice::set_allocated_language_code(std::string* language_code) {
+  if (language_code != nullptr) {
+    
+  } else {
+    
+  }
+  language_code_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), language_code,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.voices.Voice.language_code)
+}
+
+// .ai.inworld.language_codes.LanguageCode language = 10;
+inline void Voice::clear_language() {
+  language_ = 0;
+}
+inline ::ai::inworld::language_codes::LanguageCode Voice::_internal_language() const {
+  return static_cast< ::ai::inworld::language_codes::LanguageCode >(language_);
+}
+inline ::ai::inworld::language_codes::LanguageCode Voice::language() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.voices.Voice.language)
+  return _internal_language();
+}
+inline void Voice::_internal_set_language(::ai::inworld::language_codes::LanguageCode value) {
+  
+  language_ = value;
+}
+inline void Voice::set_language(::ai::inworld::language_codes::LanguageCode value) {
+  _internal_set_language(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.voices.Voice.language)
 }
 
 // .ai.inworld.voices.Voice.ElevenLabsMetadata elevenlabs_metadata = 100;

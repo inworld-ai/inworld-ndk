@@ -17,17 +17,15 @@
 #include <google/protobuf/port_def.inc>
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fbehavioral_5fcontexts_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_BehavioralContext_ai_2finworld_2fstudio_2fv1alpha_2fbehavioral_5fcontexts_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<12> scc_info_Character_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Character_BrainSettings_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Character_BrainSettings_ConversationConfig_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Character_BrainSettings_ConversationConfig_FillerSpec_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Character_BrainTrigger_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Character_CharacterAssets_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Character_CharacterDescription_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Character_CharacterDescription_CustomDialogStyle_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Character_CharacterInitialMood_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Character_CharacterPersonality_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Character_Fact_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Character_LongTermCoherence_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Character_Meta_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Character_Relationship_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Character_SafetyConfigEntry_DoNotUse_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Character_SharedPortalInfo_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Character_SharedPortalInfo_InteractionCountStat_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
@@ -50,22 +48,6 @@ class Character_CharacterDescriptionDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Character_CharacterDescription> _instance;
 } _Character_CharacterDescription_default_instance_;
-class Character_BrainSettings_ConversationConfig_FillerSpecDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Character_BrainSettings_ConversationConfig_FillerSpec> _instance;
-} _Character_BrainSettings_ConversationConfig_FillerSpec_default_instance_;
-class Character_BrainSettings_ConversationConfigDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Character_BrainSettings_ConversationConfig> _instance;
-} _Character_BrainSettings_ConversationConfig_default_instance_;
-class Character_BrainSettingsDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Character_BrainSettings> _instance;
-} _Character_BrainSettings_default_instance_;
-class Character_BrainTriggerDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Character_BrainTrigger> _instance;
-} _Character_BrainTrigger_default_instance_;
 class Character_CharacterAssetsDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Character_CharacterAssets> _instance;
@@ -98,6 +80,14 @@ class Character_SafetyConfigEntry_DoNotUseDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Character_SafetyConfigEntry_DoNotUse> _instance;
 } _Character_SafetyConfigEntry_DoNotUse_default_instance_;
+class Character_LongTermCoherenceDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Character_LongTermCoherence> _instance;
+} _Character_LongTermCoherence_default_instance_;
+class Character_RelationshipDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Character_Relationship> _instance;
+} _Character_Relationship_default_instance_;
 class CharacterDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Character> _instance;
@@ -239,8 +229,6 @@ static void InitDefaultsscc_info_Character_ai_2finworld_2fstudio_2fv1alpha_2fcha
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<12> scc_info_Character_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 12, 0, InitDefaultsscc_info_Character_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto}, {
       &scc_info_Character_CharacterDescription_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
-      &scc_info_Character_BrainSettings_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
-      &scc_info_Character_BrainTrigger_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
       &scc_info_Character_CharacterAssets_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
       &scc_info_Character_CharacterInitialMood_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
       &scc_info_Character_CharacterPersonality_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
@@ -249,61 +237,9 @@ static void InitDefaultsscc_info_Character_ai_2finworld_2fstudio_2fv1alpha_2fcha
       &scc_info_BehavioralContext_ai_2finworld_2fstudio_2fv1alpha_2fbehavioral_5fcontexts_2eproto.base,
       &scc_info_Character_Meta_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
       &scc_info_Character_SharedPortalInfo_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
-      &scc_info_Character_SafetyConfigEntry_DoNotUse_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,}};
-
-static void InitDefaultsscc_info_Character_BrainSettings_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::ai::inworld::studio::v1alpha::_Character_BrainSettings_default_instance_;
-    new (ptr) ::ai::inworld::studio::v1alpha::Character_BrainSettings();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Character_BrainSettings_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_Character_BrainSettings_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto}, {
-      &scc_info_Character_BrainSettings_ConversationConfig_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,}};
-
-static void InitDefaultsscc_info_Character_BrainSettings_ConversationConfig_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::ai::inworld::studio::v1alpha::_Character_BrainSettings_ConversationConfig_default_instance_;
-    new (ptr) ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Character_BrainSettings_ConversationConfig_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_Character_BrainSettings_ConversationConfig_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto}, {
-      &scc_info_Character_BrainSettings_ConversationConfig_FillerSpec_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,}};
-
-static void InitDefaultsscc_info_Character_BrainSettings_ConversationConfig_FillerSpec_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::ai::inworld::studio::v1alpha::_Character_BrainSettings_ConversationConfig_FillerSpec_default_instance_;
-    new (ptr) ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Character_BrainSettings_ConversationConfig_FillerSpec_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Character_BrainSettings_ConversationConfig_FillerSpec_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto}, {}};
-
-static void InitDefaultsscc_info_Character_BrainTrigger_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::ai::inworld::studio::v1alpha::_Character_BrainTrigger_default_instance_;
-    new (ptr) ::ai::inworld::studio::v1alpha::Character_BrainTrigger();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Character_BrainTrigger_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Character_BrainTrigger_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto}, {}};
+      &scc_info_Character_SafetyConfigEntry_DoNotUse_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
+      &scc_info_Character_LongTermCoherence_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
+      &scc_info_Character_Relationship_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,}};
 
 static void InitDefaultsscc_info_Character_CharacterAssets_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -385,6 +321,19 @@ static void InitDefaultsscc_info_Character_Fact_ai_2finworld_2fstudio_2fv1alpha_
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Character_Fact_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Character_Fact_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto}, {}};
 
+static void InitDefaultsscc_info_Character_LongTermCoherence_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ai::inworld::studio::v1alpha::_Character_LongTermCoherence_default_instance_;
+    new (ptr) ::ai::inworld::studio::v1alpha::Character_LongTermCoherence();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Character_LongTermCoherence_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Character_LongTermCoherence_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto}, {}};
+
 static void InitDefaultsscc_info_Character_Meta_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -397,6 +346,19 @@ static void InitDefaultsscc_info_Character_Meta_ai_2finworld_2fstudio_2fv1alpha_
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Character_Meta_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Character_Meta_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto}, {}};
+
+static void InitDefaultsscc_info_Character_Relationship_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ai::inworld::studio::v1alpha::_Character_Relationship_default_instance_;
+    new (ptr) ::ai::inworld::studio::v1alpha::Character_Relationship();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Character_Relationship_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Character_Relationship_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto}, {}};
 
 static void InitDefaultsscc_info_Character_SafetyConfigEntry_DoNotUse_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -837,8 +799,8 @@ static void InitDefaultsscc_info_UpdateCharacterRequest_ai_2finworld_2fstudio_2f
       &scc_info_Character_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
       &scc_info_FieldMask_google_2fprotobuf_2ffield_5fmask_2eproto.base,}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[45];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[10];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[43];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[15];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -851,7 +813,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fstudio_2fv1alph
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterDescription_CustomDialogStyle, display_name_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterDescription_CustomDialogStyle, is_active_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterDescription_CustomDialogStyle, adjectives_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterDescription_CustomDialogStyle, adverbs_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterDescription_CustomDialogStyle, colloquialism_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterDescription, _internal_metadata_),
@@ -864,8 +825,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fstudio_2fv1alph
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterDescription, nicknames_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterDescription, motivation_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterDescription, wikipedia_uri_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterDescription, player_role_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterDescription, default_context_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterDescription, example_dialog_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterDescription, example_dialog_style_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterDescription, personality_adjectives_),
@@ -875,34 +834,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fstudio_2fv1alph
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterDescription, narrative_actions_enabled_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterDescription, custom_dialog_styles_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterDescription, flaws_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec, fillers_disabled_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig, filler_spec_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig, emotions_disabled_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig, behavioral_contexts_disabled_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_BrainSettings, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_BrainSettings, conversation_config_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_BrainTrigger, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_BrainTrigger, trigger_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_BrainTrigger, situation_description_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_BrainTrigger, start_conversation_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterDescription, dialog_response_length_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterAssets, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -917,6 +849,10 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fstudio_2fv1alph
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterAssets, avatar_img_original_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterAssets, avatar_background_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterAssets, avatar_material_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterAssets, avatar_type_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterAssets, innequin_img_uri_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterAssets, avatar_display_image_source_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterAssets, innequin_img_original_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_CharacterInitialMood, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -980,15 +916,27 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fstudio_2fv1alph
   0,
   1,
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_LongTermCoherence, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_LongTermCoherence, enabled_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_Relationship, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_Relationship, enabled_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character_Relationship, fluidity_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character, name_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character, language_code_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character, language_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character, default_character_description_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character, brain_settings_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character, brain_triggers_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character, default_character_assets_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character, initial_mood_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character, personality_),
@@ -1004,6 +952,9 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fstudio_2fv1alph
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character, safety_config_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character, relationship_fluidity_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character, fourth_wall_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character, long_term_coherence_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character, relationship_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::Character, cognitive_control_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::GetCharacterRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1090,6 +1041,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fstudio_2fv1alph
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest, character_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest, content_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest, character_asset_type_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1218,59 +1170,53 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fstudio_2fv1alph
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::ai::inworld::studio::v1alpha::Character_CharacterDescription_CustomDialogStyle)},
-  { 11, -1, sizeof(::ai::inworld::studio::v1alpha::Character_CharacterDescription)},
-  { 33, -1, sizeof(::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec)},
-  { 39, -1, sizeof(::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig)},
-  { 47, -1, sizeof(::ai::inworld::studio::v1alpha::Character_BrainSettings)},
-  { 53, -1, sizeof(::ai::inworld::studio::v1alpha::Character_BrainTrigger)},
-  { 61, -1, sizeof(::ai::inworld::studio::v1alpha::Character_CharacterAssets)},
-  { 75, -1, sizeof(::ai::inworld::studio::v1alpha::Character_CharacterInitialMood)},
-  { 84, -1, sizeof(::ai::inworld::studio::v1alpha::Character_CharacterPersonality)},
-  { 93, -1, sizeof(::ai::inworld::studio::v1alpha::Character_Fact)},
-  { 101, -1, sizeof(::ai::inworld::studio::v1alpha::Character_Meta)},
-  { 109, -1, sizeof(::ai::inworld::studio::v1alpha::Character_SharedPortalInfo_InteractionCountStat)},
-  { 117, -1, sizeof(::ai::inworld::studio::v1alpha::Character_SharedPortalInfo)},
-  { 128, 135, sizeof(::ai::inworld::studio::v1alpha::Character_SafetyConfigEntry_DoNotUse)},
-  { 137, -1, sizeof(::ai::inworld::studio::v1alpha::Character)},
-  { 162, -1, sizeof(::ai::inworld::studio::v1alpha::GetCharacterRequest)},
-  { 169, -1, sizeof(::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest)},
-  { 175, -1, sizeof(::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest)},
-  { 182, -1, sizeof(::ai::inworld::studio::v1alpha::ListCharactersRequest)},
-  { 192, -1, sizeof(::ai::inworld::studio::v1alpha::CreateCharacterRequest)},
-  { 200, -1, sizeof(::ai::inworld::studio::v1alpha::UpdateCharacterRequest)},
-  { 207, -1, sizeof(::ai::inworld::studio::v1alpha::DeleteCharacterRequest)},
-  { 213, -1, sizeof(::ai::inworld::studio::v1alpha::DeployCharacterRequest)},
-  { 219, -1, sizeof(::ai::inworld::studio::v1alpha::CloneCharacterRequest)},
-  { 227, -1, sizeof(::ai::inworld::studio::v1alpha::ListCharactersResponse)},
-  { 234, -1, sizeof(::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest)},
-  { 241, -1, sizeof(::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest)},
-  { 248, -1, sizeof(::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest)},
-  { 255, -1, sizeof(::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse)},
-  { 262, -1, sizeof(::ai::inworld::studio::v1alpha::ShareCharacterRequest)},
-  { 269, -1, sizeof(::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest)},
-  { 278, -1, sizeof(::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest)},
-  { 284, -1, sizeof(::ai::inworld::studio::v1alpha::ListSharedCharactersRequest)},
-  { 292, -1, sizeof(::ai::inworld::studio::v1alpha::ListSharedCharactersResponse)},
-  { 299, -1, sizeof(::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_ConversationConfig_EngineSpec)},
-  { 311, -1, sizeof(::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_ConversationConfig)},
-  { 317, -1, sizeof(::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_SafetySpec)},
-  { 323, -1, sizeof(::ai::inworld::studio::v1alpha::CharacterAdvancedSettings)},
-  { 333, -1, sizeof(::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest)},
-  { 340, -1, sizeof(::ai::inworld::studio::v1alpha::CharacterShareInfo)},
-  { 346, -1, sizeof(::ai::inworld::studio::v1alpha::CheckDeployInfoRequest)},
-  { 352, -1, sizeof(::ai::inworld::studio::v1alpha::DeployCharacterAsyncMetadata)},
-  { 357, -1, sizeof(::ai::inworld::studio::v1alpha::DeployCharacterAsyncResponse)},
-  { 362, -1, sizeof(::ai::inworld::studio::v1alpha::CreateCharacterMetadata)},
-  { 367, -1, sizeof(::ai::inworld::studio::v1alpha::CheckDeployInfoResponse)},
+  { 10, -1, sizeof(::ai::inworld::studio::v1alpha::Character_CharacterDescription)},
+  { 31, -1, sizeof(::ai::inworld::studio::v1alpha::Character_CharacterAssets)},
+  { 49, -1, sizeof(::ai::inworld::studio::v1alpha::Character_CharacterInitialMood)},
+  { 58, -1, sizeof(::ai::inworld::studio::v1alpha::Character_CharacterPersonality)},
+  { 67, -1, sizeof(::ai::inworld::studio::v1alpha::Character_Fact)},
+  { 75, -1, sizeof(::ai::inworld::studio::v1alpha::Character_Meta)},
+  { 83, -1, sizeof(::ai::inworld::studio::v1alpha::Character_SharedPortalInfo_InteractionCountStat)},
+  { 91, -1, sizeof(::ai::inworld::studio::v1alpha::Character_SharedPortalInfo)},
+  { 102, 109, sizeof(::ai::inworld::studio::v1alpha::Character_SafetyConfigEntry_DoNotUse)},
+  { 111, -1, sizeof(::ai::inworld::studio::v1alpha::Character_LongTermCoherence)},
+  { 117, -1, sizeof(::ai::inworld::studio::v1alpha::Character_Relationship)},
+  { 124, -1, sizeof(::ai::inworld::studio::v1alpha::Character)},
+  { 151, -1, sizeof(::ai::inworld::studio::v1alpha::GetCharacterRequest)},
+  { 158, -1, sizeof(::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest)},
+  { 164, -1, sizeof(::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest)},
+  { 171, -1, sizeof(::ai::inworld::studio::v1alpha::ListCharactersRequest)},
+  { 181, -1, sizeof(::ai::inworld::studio::v1alpha::CreateCharacterRequest)},
+  { 189, -1, sizeof(::ai::inworld::studio::v1alpha::UpdateCharacterRequest)},
+  { 196, -1, sizeof(::ai::inworld::studio::v1alpha::DeleteCharacterRequest)},
+  { 202, -1, sizeof(::ai::inworld::studio::v1alpha::DeployCharacterRequest)},
+  { 208, -1, sizeof(::ai::inworld::studio::v1alpha::CloneCharacterRequest)},
+  { 216, -1, sizeof(::ai::inworld::studio::v1alpha::ListCharactersResponse)},
+  { 223, -1, sizeof(::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest)},
+  { 230, -1, sizeof(::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest)},
+  { 238, -1, sizeof(::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest)},
+  { 245, -1, sizeof(::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse)},
+  { 252, -1, sizeof(::ai::inworld::studio::v1alpha::ShareCharacterRequest)},
+  { 259, -1, sizeof(::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest)},
+  { 268, -1, sizeof(::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest)},
+  { 274, -1, sizeof(::ai::inworld::studio::v1alpha::ListSharedCharactersRequest)},
+  { 282, -1, sizeof(::ai::inworld::studio::v1alpha::ListSharedCharactersResponse)},
+  { 289, -1, sizeof(::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_ConversationConfig_EngineSpec)},
+  { 301, -1, sizeof(::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_ConversationConfig)},
+  { 307, -1, sizeof(::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_SafetySpec)},
+  { 313, -1, sizeof(::ai::inworld::studio::v1alpha::CharacterAdvancedSettings)},
+  { 323, -1, sizeof(::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest)},
+  { 330, -1, sizeof(::ai::inworld::studio::v1alpha::CharacterShareInfo)},
+  { 336, -1, sizeof(::ai::inworld::studio::v1alpha::CheckDeployInfoRequest)},
+  { 342, -1, sizeof(::ai::inworld::studio::v1alpha::DeployCharacterAsyncMetadata)},
+  { 347, -1, sizeof(::ai::inworld::studio::v1alpha::DeployCharacterAsyncResponse)},
+  { 352, -1, sizeof(::ai::inworld::studio::v1alpha::CreateCharacterMetadata)},
+  { 357, -1, sizeof(::ai::inworld::studio::v1alpha::CheckDeployInfoResponse)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::studio::v1alpha::_Character_CharacterDescription_CustomDialogStyle_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::studio::v1alpha::_Character_CharacterDescription_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::studio::v1alpha::_Character_BrainSettings_ConversationConfig_FillerSpec_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::studio::v1alpha::_Character_BrainSettings_ConversationConfig_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::studio::v1alpha::_Character_BrainSettings_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::studio::v1alpha::_Character_BrainTrigger_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::studio::v1alpha::_Character_CharacterAssets_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::studio::v1alpha::_Character_CharacterInitialMood_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::studio::v1alpha::_Character_CharacterPersonality_default_instance_),
@@ -1279,6 +1225,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::studio::v1alpha::_Character_SharedPortalInfo_InteractionCountStat_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::studio::v1alpha::_Character_SharedPortalInfo_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::studio::v1alpha::_Character_SafetyConfigEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::studio::v1alpha::_Character_LongTermCoherence_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::studio::v1alpha::_Character_Relationship_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::studio::v1alpha::_Character_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::studio::v1alpha::_GetCharacterRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::studio::v1alpha::_GetCharacterAdvancedSettingsRequest_default_instance_),
@@ -1322,351 +1270,374 @@ const char descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fcharacter
   "/empty.proto\032 google/protobuf/field_mask"
   ".proto\032\roptions.proto\0323ai/inworld/studio"
   "/v1alpha/behavioral_contexts.proto\032&ai/i"
-  "nworld/studio/v1alpha/scenes.proto\032\014voic"
-  "es.proto\"\327\'\n\tCharacter\022C\n\004name\030\001 \001(\tB5\242\317"
-  "\"1\n/\032-workspaces/workspace-1/characters/"
-  "character-1\022\025\n\rlanguage_code\030\002 \001(\t\022`\n\035de"
-  "fault_character_description\030\003 \001(\01329.ai.i"
-  "nworld.studio.v1alpha.Character.Characte"
-  "rDescription\022J\n\016brain_settings\030\004 \001(\01322.a"
-  "i.inworld.studio.v1alpha.Character.Brain"
-  "Settings\022I\n\016brain_triggers\030\005 \003(\01321.ai.in"
-  "world.studio.v1alpha.Character.BrainTrig"
-  "ger\022V\n\030default_character_assets\030\007 \001(\01324."
-  "ai.inworld.studio.v1alpha.Character.Char"
-  "acterAssets\022O\n\014initial_mood\030\t \001(\01329.ai.i"
-  "nworld.studio.v1alpha.Character.Characte"
-  "rInitialMood\022N\n\013personality\030\n \001(\01329.ai.i"
-  "nworld.studio.v1alpha.Character.Characte"
-  "rPersonality\022\031\n\021common_knowledges\030\013 \003(\t\022"
-  "\023\n\013social_rank\030\014 \001(\002\0220\n\006scenes\030\r \003(\0132 .a"
-  "i.inworld.studio.v1alpha.Scene\0228\n\005facts\030"
-  "\016 \003(\0132).ai.inworld.studio.v1alpha.Charac"
-  "ter.Fact\022I\n\023behavioral_contexts\030\017 \003(\0132,."
-  "ai.inworld.studio.v1alpha.BehavioralCont"
-  "ext\022<\n\004meta\030\020 \001(\0132).ai.inworld.studio.v1"
-  "alpha.Character.MetaB\003\340A\003\022\032\n\022emotional_f"
-  "luidity\030\021 \001(\002\022U\n\021share_portal_info\030\022 \001(\013"
-  "25.ai.inworld.studio.v1alpha.Character.S"
-  "haredPortalInfoB\003\340A\003\022\023\n\013yaml_config\030\023 \001("
-  "\t\022M\n\rsafety_config\030\025 \003(\01326.ai.inworld.st"
-  "udio.v1alpha.Character.SafetyConfigEntry"
-  "\022\035\n\025relationship_fluidity\030\026 \001(\002\022O\n\013fourt"
-  "h_wall\030\027 \001(\0162:.ai.inworld.studio.v1alpha"
-  ".Character.FourthWallContainment\032\305\017\n\024Cha"
-  "racterDescription\022)\n\ngiven_name\030\001 \001(\tB\025\242"
-  "\317\"\021\n\017\032\rgiven name #1\022\023\n\013description\030\002 \001("
-  "\t\022R\n\007pronoun\030\003 \001(\0162A.ai.inworld.studio.v"
-  "1alpha.Character.CharacterDescription.Pr"
-  "onoun\022\021\n\tnicknames\030\004 \003(\t\022\022\n\nmotivation\030\005"
-  " \001(\t\022\025\n\rwikipedia_uri\030\006 \001(\t\022\023\n\013player_ro"
-  "le\030\007 \001(\t\022\027\n\017default_context\030\010 \001(\t\022\026\n\016exa"
-  "mple_dialog\030\t \001(\t\022j\n\024example_dialog_styl"
-  "e\030\n \001(\0162L.ai.inworld.studio.v1alpha.Char"
-  "acter.CharacterDescription.ExampleDialog"
-  "Style\022\036\n\026personality_adjectives\030\013 \003(\t\022W\n"
-  "\nlife_stage\030\014 \001(\0162C.ai.inworld.studio.v1"
-  "alpha.Character.CharacterDescription.Lif"
-  "eStage\022\032\n\022hobby_or_interests\030\r \003(\t\022\026\n\016ch"
-  "aracter_role\030\016 \001(\t\022!\n\031narrative_actions_"
-  "enabled\030\017 \001(\010\022i\n\024custom_dialog_styles\030\020 "
-  "\003(\0132K.ai.inworld.studio.v1alpha.Characte"
-  "r.CharacterDescription.CustomDialogStyle"
-  "\022\r\n\005flaws\030\021 \001(\t\032\206\001\n\021CustomDialogStyle\022\014\n"
-  "\004uuid\030\001 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\021\n\tis_"
-  "active\030\003 \001(\010\022\022\n\nadjectives\030\004 \003(\t\022\017\n\007adve"
-  "rbs\030\005 \003(\t\022\025\n\rcolloquialism\030\006 \001(\t\"[\n\007Pron"
-  "oun\022\027\n\023PRONOUN_UNSPECIFIED\020\000\022\022\n\016PRONOUN_"
-  "FEMALE\020\001\022\020\n\014PRONOUN_MALE\020\002\022\021\n\rPRONOUN_OT"
-  "HER\020\003\"\275\005\n\022ExampleDialogStyle\022$\n EXAMPLE_"
-  "DIALOG_STYLE_UNSPECIFIED\020\000\022 \n\034EXAMPLE_DI"
-  "ALOG_STYLE_DEFAULT\020\001\022\037\n\033EXAMPLE_DIALOG_S"
-  "TYLE_BUBBLY\020\002\022\037\n\033EXAMPLE_DIALOG_STYLE_FO"
-  "RMAL\020\003\022\036\n\032EXAMPLE_DIALOG_STYLE_BLUNT\020\004\022$"
-  "\n EXAMPLE_DIALOG_STYLE_INQUISITIVE\020\005\022#\n\037"
-  "EXAMPLE_DIALOG_STYLE_COMMANDING\020\006\022#\n\037EXA"
-  "MPLE_DIALOG_STYLE_EMPATHETIC\020\007\022%\n!EXAMPL"
-  "E_DIALOG_STYLE_ENTERTAINING\020\010\022&\n\"EXAMPLE"
-  "_DIALOG_STYLE_HYPOCHONDRIAC\020\t\022!\n\035EXAMPLE"
-  "_DIALOG_STYLE_LAIDBACK\020\n\022$\n EXAMPLE_DIAL"
-  "OG_STYLE_LONG_WINDED\020\013\022\036\n\032EXAMPLE_DIALOG"
-  "_STYLE_MORAL\020\014\022#\n\037EXAMPLE_DIALOG_STYLE_M"
-  "YSTERIOUS\020\r\022\"\n\036EXAMPLE_DIALOG_STYLE_RACO"
-  "NTEUR\020\016\022\"\n\036EXAMPLE_DIALOG_STYLE_SARCASTI"
-  "C\020\017\022\"\n\036EXAMPLE_DIALOG_STYLE_TENACIOUS\020\020\022"
-  "#\n\037EXAMPLE_DIALOG_STYLE_VILLAINOUS\020\021\022\037\n\033"
-  "EXAMPLE_DIALOG_STYLE_CUSTOM\020\022\"\270\002\n\tLifeSt"
-  "age\022\032\n\026LIFE_STAGE_UNSPECIFIED\020\000\022\032\n\022LIFE_"
-  "STAGE_INFANCY\020\001\032\002\010\001\022\036\n\026LIFE_STAGE_TODDLE"
-  "RHOOD\020\002\032\002\010\001\022\034\n\024LIFE_STAGE_PRESCHOOL\020\003\032\002\010"
-  "\001\022\037\n\027LIFE_STAGE_EARLY_SCHOOL\020\004\032\002\010\001\022\032\n\026LI"
-  "FE_STAGE_ADOLESCENCE\020\005\022\036\n\032LIFE_STAGE_YOU"
-  "NG_ADULTHOOD\020\006\022\037\n\033LIFE_STAGE_MIDDLE_ADUL"
-  "THOOD\020\007\022\035\n\031LIFE_STAGE_LATE_ADULTHOOD\020\010\022\030"
-  "\n\024LIFE_STAGE_CHILDHOOD\020\t\032\362\002\n\rBrainSettin"
-  "gs\022b\n\023conversation_config\030\001 \001(\0132E.ai.inw"
-  "orld.studio.v1alpha.Character.BrainSetti"
-  "ngs.ConversationConfig\032\360\001\n\022ConversationC"
-  "onfig\022e\n\013filler_spec\030\002 \001(\0132P.ai.inworld."
-  "studio.v1alpha.Character.BrainSettings.C"
-  "onversationConfig.FillerSpec\022\031\n\021emotions"
-  "_disabled\030\004 \001(\010\022$\n\034behavioral_contexts_d"
-  "isabled\030\005 \001(\010\032&\n\nFillerSpec\022\030\n\020fillers_d"
-  "isabled\030\001 \001(\010J\004\010\001\020\002J\004\010\003\020\004J\004\010\002\020\003J\004\010\003\020\004\032w\n"
-  "\014BrainTrigger\022,\n\007trigger\030\001 \001(\tB\033\372A\030\n\026api"
-  ".inworld.ai/Trigger\022\035\n\025situation_descrip"
-  "tion\030\002 \001(\t\022\032\n\022start_conversation\030\003 \001(\010\032\242"
-  "\002\n\017CharacterAssets\022\032\n\rrpm_model_uri\030\002 \001("
-  "\tB\003\340A\003\022\034\n\rrpm_image_uri\030\003 \001(\tB\005\030\001\340A\003\022#\n\026"
-  "rpm_image_uri_portrait\030\004 \001(\tB\003\340A\003\022\"\n\025rpm"
-  "_image_uri_posture\030\005 \001(\tB\003\340A\003\022\'\n\005voice\030\006"
-  " \001(\0132\030.ai.inworld.voices.Voice\022\022\n\navatar"
-  "_img\030\007 \001(\t\022\033\n\023avatar_img_original\030\010 \001(\t\022"
-  "\031\n\021avatar_background\030\t \001(\t\022\027\n\017avatar_mat"
-  "erial\030\n \001(\t\032R\n\024CharacterInitialMood\022\013\n\003j"
-  "oy\030\001 \001(\005\022\014\n\004fear\030\002 \001(\005\022\r\n\005trust\030\003 \001(\005\022\020\n"
-  "\010surprise\030\004 \001(\005\032[\n\024CharacterPersonality\022"
-  "\020\n\010positive\030\001 \001(\005\022\020\n\010peaceful\030\002 \001(\005\022\014\n\004o"
-  "pen\030\003 \001(\005\022\021\n\textravert\030\004 \001(\005\032Z\n\004Fact\022\014\n\004"
-  "uuid\030\001 \001(\t\022\014\n\004text\030\002 \003(\t\0226\n\004tags\030\003 \003(\0162("
-  ".ai.inworld.studio.v1alpha.Character.Tag"
-  "\032U\n\004Meta\022\026\n\016total_triggers\030\001 \001(\005\022\036\n\026tota"
-  "l_common_knowledge\030\002 \001(\005\022\025\n\rgoals_versio"
-  "n\030\003 \001(\005\032\306\002\n\020SharedPortalInfo\022\021\n\tis_share"
-  "d\030\001 \001(\010\022\016\n\006byline\030\002 \001(\t\022\016\n\006prompt\030\003 \001(\t\022"
-  "\023\n\013short_alias\030\004 \001(\t\022\033\n\023allowed_on_showc"
-  "ase\030\005 \001(\010\022j\n\026interaction_count_stat\030\006 \001("
-  "\0132J.ai.inworld.studio.v1alpha.Character."
-  "SharedPortalInfo.InteractionCountStat\032a\n"
-  "\024InteractionCountStat\022\023\n\013total_count\030\001 \001"
-  "(\005\022\032\n\022total_unread_count\030\002 \001(\005\022\030\n\020total_"
-  "read_count\030\003 \001(\005\032[\n\021SafetyConfigEntry\022\013\n"
-  "\003key\030\001 \001(\t\0225\n\005value\030\002 \001(\0162&.ai.inworld.s"
-  "tudio.v1alpha.SafetyLevel:\0028\001\">\n\003Tag\022\023\n\017"
-  "TAG_UNSPECIFIED\020\000\022\016\n\nTAG_MEMORY\020\001\022\022\n\016TAG"
-  "_APPEARANCE\020\002\"\220\001\n\025FourthWallContainment\022"
-  "\'\n#FOURTH_WALL_CONTAINMENT_UNSPECIFIED\020\000"
-  "\022$\n FOURTH_WALL_CONTAINMENT_DISABLED\020\001\022("
-  "\n$FOURTH_WALL_CONTAINMENT_EXPERIMENTAL\020\002"
-  ":L\352AI\n\030api.inworld.ai/Character\022-workspa"
-  "ces/{workspace}/characters/{character}J\004"
-  "\010\006\020\007J\004\010\024\020\025\"\201\001\n\023GetCharacterRequest\022.\n\004na"
+  "nworld/studio/v1alpha/scenes.proto\032\024lang"
+  "uage_codes.proto\032\014voices.proto\"\376+\n\tChara"
+  "cter\022C\n\004name\030\001 \001(\tB5\242\317\"1\n/\032-workspaces/w"
+  "orkspace-1/characters/character-1\022\031\n\rlan"
+  "guage_code\030\002 \001(\tB\002\030\001\0229\n\010language\030\033 \001(\0162\'"
+  ".ai.inworld.language_codes.LanguageCode\022"
+  "`\n\035default_character_description\030\003 \001(\01329"
+  ".ai.inworld.studio.v1alpha.Character.Cha"
+  "racterDescription\022V\n\030default_character_a"
+  "ssets\030\007 \001(\01324.ai.inworld.studio.v1alpha."
+  "Character.CharacterAssets\022O\n\014initial_moo"
+  "d\030\t \001(\01329.ai.inworld.studio.v1alpha.Char"
+  "acter.CharacterInitialMood\022N\n\013personalit"
+  "y\030\n \001(\01329.ai.inworld.studio.v1alpha.Char"
+  "acter.CharacterPersonality\022\031\n\021common_kno"
+  "wledges\030\013 \003(\t\022\023\n\013social_rank\030\014 \001(\002\0220\n\006sc"
+  "enes\030\r \003(\0132 .ai.inworld.studio.v1alpha.S"
+  "cene\0228\n\005facts\030\016 \003(\0132).ai.inworld.studio."
+  "v1alpha.Character.Fact\022I\n\023behavioral_con"
+  "texts\030\017 \003(\0132,.ai.inworld.studio.v1alpha."
+  "BehavioralContext\022<\n\004meta\030\020 \001(\0132).ai.inw"
+  "orld.studio.v1alpha.Character.MetaB\003\340A\003\022"
+  "\032\n\022emotional_fluidity\030\021 \001(\002\022U\n\021share_por"
+  "tal_info\030\022 \001(\01325.ai.inworld.studio.v1alp"
+  "ha.Character.SharedPortalInfoB\003\340A\003\022\023\n\013ya"
+  "ml_config\030\023 \001(\t\022M\n\rsafety_config\030\025 \003(\01326"
+  ".ai.inworld.studio.v1alpha.Character.Saf"
+  "etyConfigEntry\022!\n\025relationship_fluidity\030"
+  "\026 \001(\002B\002\030\001\022O\n\013fourth_wall\030\027 \001(\0162:.ai.inwo"
+  "rld.studio.v1alpha.Character.FourthWallC"
+  "ontainment\022S\n\023long_term_coherence\030\030 \001(\0132"
+  "6.ai.inworld.studio.v1alpha.Character.Lo"
+  "ngTermCoherence\022G\n\014relationship\030\031 \001(\01321."
+  "ai.inworld.studio.v1alpha.Character.Rela"
+  "tionship\022F\n\021cognitive_control\030\032 \001(\0162+.ai"
+  ".inworld.studio.v1alpha.CognitiveControl"
+  "\032\201\022\n\024CharacterDescription\022)\n\ngiven_name\030"
+  "\001 \001(\tB\025\242\317\"\021\n\017\032\rgiven name #1\022\023\n\013descript"
+  "ion\030\002 \001(\t\022R\n\007pronoun\030\003 \001(\0162A.ai.inworld."
+  "studio.v1alpha.Character.CharacterDescri"
+  "ption.Pronoun\022\021\n\tnicknames\030\004 \003(\t\022\022\n\nmoti"
+  "vation\030\005 \001(\t\022\025\n\rwikipedia_uri\030\006 \001(\t\022\026\n\016e"
+  "xample_dialog\030\t \001(\t\022j\n\024example_dialog_st"
+  "yle\030\n \001(\0162L.ai.inworld.studio.v1alpha.Ch"
+  "aracter.CharacterDescription.ExampleDial"
+  "ogStyle\022\036\n\026personality_adjectives\030\013 \003(\t\022"
+  "W\n\nlife_stage\030\014 \001(\0162C.ai.inworld.studio."
+  "v1alpha.Character.CharacterDescription.L"
+  "ifeStage\022\032\n\022hobby_or_interests\030\r \003(\t\022\026\n\016"
+  "character_role\030\016 \001(\t\022!\n\031narrative_action"
+  "s_enabled\030\017 \001(\010\022i\n\024custom_dialog_styles\030"
+  "\020 \003(\0132K.ai.inworld.studio.v1alpha.Charac"
+  "ter.CharacterDescription.CustomDialogSty"
+  "le\022\r\n\005flaws\030\021 \001(\t\022n\n\026dialog_response_len"
+  "gth\030\023 \001(\0162N.ai.inworld.studio.v1alpha.Ch"
+  "aracter.CharacterDescription.DialogRespo"
+  "nseLength\032{\n\021CustomDialogStyle\022\014\n\004uuid\030\001"
+  " \001(\t\022\024\n\014display_name\030\002 \001(\t\022\021\n\tis_active\030"
+  "\003 \001(\010\022\022\n\nadjectives\030\004 \003(\t\022\025\n\rcolloquiali"
+  "sm\030\006 \001(\tJ\004\010\005\020\006\"[\n\007Pronoun\022\027\n\023PRONOUN_UNS"
+  "PECIFIED\020\000\022\022\n\016PRONOUN_FEMALE\020\001\022\020\n\014PRONOU"
+  "N_MALE\020\002\022\021\n\rPRONOUN_OTHER\020\003\"\275\005\n\022ExampleD"
+  "ialogStyle\022$\n EXAMPLE_DIALOG_STYLE_UNSPE"
+  "CIFIED\020\000\022 \n\034EXAMPLE_DIALOG_STYLE_DEFAULT"
+  "\020\001\022\037\n\033EXAMPLE_DIALOG_STYLE_BUBBLY\020\002\022\037\n\033E"
+  "XAMPLE_DIALOG_STYLE_FORMAL\020\003\022\036\n\032EXAMPLE_"
+  "DIALOG_STYLE_BLUNT\020\004\022$\n EXAMPLE_DIALOG_S"
+  "TYLE_INQUISITIVE\020\005\022#\n\037EXAMPLE_DIALOG_STY"
+  "LE_COMMANDING\020\006\022#\n\037EXAMPLE_DIALOG_STYLE_"
+  "EMPATHETIC\020\007\022%\n!EXAMPLE_DIALOG_STYLE_ENT"
+  "ERTAINING\020\010\022&\n\"EXAMPLE_DIALOG_STYLE_HYPO"
+  "CHONDRIAC\020\t\022!\n\035EXAMPLE_DIALOG_STYLE_LAID"
+  "BACK\020\n\022$\n EXAMPLE_DIALOG_STYLE_LONG_WIND"
+  "ED\020\013\022\036\n\032EXAMPLE_DIALOG_STYLE_MORAL\020\014\022#\n\037"
+  "EXAMPLE_DIALOG_STYLE_MYSTERIOUS\020\r\022\"\n\036EXA"
+  "MPLE_DIALOG_STYLE_RACONTEUR\020\016\022\"\n\036EXAMPLE"
+  "_DIALOG_STYLE_SARCASTIC\020\017\022\"\n\036EXAMPLE_DIA"
+  "LOG_STYLE_TENACIOUS\020\020\022#\n\037EXAMPLE_DIALOG_"
+  "STYLE_VILLAINOUS\020\021\022\037\n\033EXAMPLE_DIALOG_STY"
+  "LE_CUSTOM\020\022\"\270\002\n\tLifeStage\022\032\n\026LIFE_STAGE_"
+  "UNSPECIFIED\020\000\022\032\n\022LIFE_STAGE_INFANCY\020\001\032\002\010"
+  "\001\022\036\n\026LIFE_STAGE_TODDLERHOOD\020\002\032\002\010\001\022\034\n\024LIF"
+  "E_STAGE_PRESCHOOL\020\003\032\002\010\001\022\037\n\027LIFE_STAGE_EA"
+  "RLY_SCHOOL\020\004\032\002\010\001\022\032\n\026LIFE_STAGE_ADOLESCEN"
+  "CE\020\005\022\036\n\032LIFE_STAGE_YOUNG_ADULTHOOD\020\006\022\037\n\033"
+  "LIFE_STAGE_MIDDLE_ADULTHOOD\020\007\022\035\n\031LIFE_ST"
+  "AGE_LATE_ADULTHOOD\020\010\022\030\n\024LIFE_STAGE_CHILD"
+  "HOOD\020\t\"\361\001\n\024DialogResponseLength\022&\n\"DIALO"
+  "G_RESPONSE_LENGTH_UNSPECIFIED\020\000\022%\n!DIALO"
+  "G_RESPONSE_LENGTH_VERY_SHORT\020\001\022 \n\034DIALOG"
+  "_RESPONSE_LENGTH_SHORT\020\002\022!\n\035DIALOG_RESPO"
+  "NSE_LENGTH_MEDIUM\020\003\022\037\n\033DIALOG_RESPONSE_L"
+  "ENGTH_LONG\020\004\022$\n DIALOG_RESPONSE_LENGTH_V"
+  "ERY_LONG\020\005J\004\010\007\020\010J\004\010\010\020\tJ\004\010\022\020\023\032\204\006\n\017Charact"
+  "erAssets\022\032\n\rrpm_model_uri\030\002 \001(\tB\003\340A\003\022\034\n\r"
+  "rpm_image_uri\030\003 \001(\tB\005\030\001\340A\003\022#\n\026rpm_image_"
+  "uri_portrait\030\004 \001(\tB\003\340A\003\022\"\n\025rpm_image_uri"
+  "_posture\030\005 \001(\tB\003\340A\003\022\'\n\005voice\030\006 \001(\0132\030.ai."
+  "inworld.voices.Voice\022\022\n\navatar_img\030\007 \001(\t"
+  "\022\033\n\023avatar_img_original\030\010 \001(\t\022\031\n\021avatar_"
+  "background\030\t \001(\t\022\027\n\017avatar_material\030\n \001("
+  "\t\022T\n\013avatar_type\030\013 \001(\0162\?.ai.inworld.stud"
+  "io.v1alpha.Character.CharacterAssets.Ava"
+  "tarType\022\030\n\020innequin_img_uri\030\014 \001(\t\022r\n\033ava"
+  "tar_display_image_source\030\r \001(\0162M.ai.inwo"
+  "rld.studio.v1alpha.Character.CharacterAs"
+  "sets.AvatarDisplayImageSource\022\035\n\025innequi"
+  "n_img_original\030\016 \001(\t\"W\n\nAvatarType\022\033\n\027AV"
+  "ATAR_TYPE_UNSPECIFIED\020\000\022\023\n\017AVATAR_TYPE_R"
+  "PM\020\001\022\027\n\023AVATAR_TYPE_INWORLD\020\002\"\203\001\n\030Avatar"
+  "DisplayImageSource\022+\n\'AVATAR_DISPLAY_IMA"
+  "GE_SOURCE_UNSPECIFIED\020\000\022\r\n\tRPM_IMAGE\020\001\022\022"
+  "\n\016INNEQUIN_IMAGE\020\002\022\027\n\023USER_PROVIDED_IMAG"
+  "E\020\003\032R\n\024CharacterInitialMood\022\013\n\003joy\030\001 \001(\005"
+  "\022\014\n\004fear\030\002 \001(\005\022\r\n\005trust\030\003 \001(\005\022\020\n\010surpris"
+  "e\030\004 \001(\005\032[\n\024CharacterPersonality\022\020\n\010posit"
+  "ive\030\001 \001(\005\022\020\n\010peaceful\030\002 \001(\005\022\014\n\004open\030\003 \001("
+  "\005\022\021\n\textravert\030\004 \001(\005\032Z\n\004Fact\022\014\n\004uuid\030\001 \001"
+  "(\t\022\014\n\004text\030\002 \003(\t\0226\n\004tags\030\003 \003(\0162(.ai.inwo"
+  "rld.studio.v1alpha.Character.Tag\032U\n\004Meta"
+  "\022\026\n\016total_triggers\030\001 \001(\005\022\036\n\026total_common"
+  "_knowledge\030\002 \001(\005\022\025\n\rgoals_version\030\003 \001(\005\032"
+  "\306\002\n\020SharedPortalInfo\022\021\n\tis_shared\030\001 \001(\010\022"
+  "\016\n\006byline\030\002 \001(\t\022\016\n\006prompt\030\003 \001(\t\022\023\n\013short"
+  "_alias\030\004 \001(\t\022\033\n\023allowed_on_showcase\030\005 \001("
+  "\010\022j\n\026interaction_count_stat\030\006 \001(\0132J.ai.i"
+  "nworld.studio.v1alpha.Character.SharedPo"
+  "rtalInfo.InteractionCountStat\032a\n\024Interac"
+  "tionCountStat\022\023\n\013total_count\030\001 \001(\005\022\032\n\022to"
+  "tal_unread_count\030\002 \001(\005\022\030\n\020total_read_cou"
+  "nt\030\003 \001(\005\032[\n\021SafetyConfigEntry\022\013\n\003key\030\001 \001"
+  "(\t\0225\n\005value\030\002 \001(\0162&.ai.inworld.studio.v1"
+  "alpha.SafetyLevel:\0028\001\032$\n\021LongTermCoheren"
+  "ce\022\017\n\007enabled\030\001 \001(\010\0321\n\014Relationship\022\017\n\007e"
+  "nabled\030\001 \001(\010\022\020\n\010fluidity\030\002 \001(\002\">\n\003Tag\022\023\n"
+  "\017TAG_UNSPECIFIED\020\000\022\016\n\nTAG_MEMORY\020\001\022\022\n\016TA"
+  "G_APPEARANCE\020\002\"\220\001\n\025FourthWallContainment"
+  "\022\'\n#FOURTH_WALL_CONTAINMENT_UNSPECIFIED\020"
+  "\000\022$\n FOURTH_WALL_CONTAINMENT_DISABLED\020\001\022"
+  "(\n$FOURTH_WALL_CONTAINMENT_EXPERIMENTAL\020"
+  "\002:L\352AI\n\030api.inworld.ai/Character\022-worksp"
+  "aces/{workspace}/characters/{character}J"
+  "\004\010\004\020\005J\004\010\005\020\006J\004\010\006\020\007J\004\010\024\020\025\"\201\001\n\023GetCharacter"
+  "Request\022.\n\004name\030\001 \001(\tB \340A\002\372A\032\n\030api.inwor"
+  "ld.ai/Character\022:\n\004view\030\002 \001(\0162,.ai.inwor"
+  "ld.studio.v1alpha.CharacterItemView\"U\n#G"
+  "etCharacterAdvancedSettingsRequest\022.\n\004na"
   "me\030\001 \001(\tB \340A\002\372A\032\n\030api.inworld.ai/Charact"
-  "er\022:\n\004view\030\002 \001(\0162,.ai.inworld.studio.v1a"
-  "lpha.CharacterItemView\"U\n#GetCharacterAd"
-  "vancedSettingsRequest\022.\n\004name\030\001 \001(\tB \340A\002"
-  "\372A\032\n\030api.inworld.ai/Character\"\276\001\n&Update"
-  "CharacterAdvancedSettingsRequest\022^\n\033char"
-  "acter_advanced_settings\030\001 \001(\01324.ai.inwor"
-  "ld.studio.v1alpha.CharacterAdvancedSetti"
-  "ngsB\003\340A\002\0224\n\013update_mask\030\002 \001(\0132\032.google.p"
-  "rotobuf.FieldMaskB\003\340A\002\"\322\001\n\025ListCharacter"
-  "sRequest\022J\n\006parent\030\001 \001(\tB:\340A\002\372A4\n\030api.in"
-  "world.ai/Workspace\022\030api.inworld.ai/Chara"
-  "cter\022\021\n\tpage_size\030\002 \001(\005\022\022\n\npage_token\030\003 "
-  "\001(\t\0226\n\004view\030\004 \001(\0162(.ai.inworld.studio.v1"
-  "alpha.CharacterView\022\016\n\006filter\030\005 \001(\t\"\274\001\n\026"
-  "CreateCharacterRequest\022J\n\006parent\030\001 \001(\tB:"
-  "\340A\002\372A4\n\030api.inworld.ai/Workspace\022\030api.in"
-  "world.ai/Character\022<\n\tcharacter\030\002 \001(\0132$."
-  "ai.inworld.studio.v1alpha.CharacterB\003\340A\002"
-  "\022\030\n\020skip_auto_create\030\003 \001(\010\"\214\001\n\026UpdateCha"
-  "racterRequest\022<\n\tcharacter\030\001 \001(\0132$.ai.in"
-  "world.studio.v1alpha.CharacterB\003\340A\002\0224\n\013u"
-  "pdate_mask\030\002 \001(\0132\032.google.protobuf.Field"
-  "MaskB\003\340A\002\"H\n\026DeleteCharacterRequest\022.\n\004n"
-  "ame\030\001 \001(\tB \340A\002\372A\032\n\030api.inworld.ai/Charac"
-  "ter\"H\n\026DeployCharacterRequest\022.\n\004name\030\001 "
-  "\001(\tB \340A\002\372A\032\n\030api.inworld.ai/Character\"\223\001"
-  "\n\025CloneCharacterRequest\022.\n\004name\030\001 \001(\tB \340"
-  "A\002\372A\032\n\030api.inworld.ai/Character\0223\n\tworks"
-  "pace\030\002 \001(\tB \340A\002\372A\032\n\030api.inworld.ai/Works"
-  "pace\022\025\n\010new_name\030\003 \001(\tB\003\340A\002\"k\n\026ListChara"
-  "ctersResponse\0228\n\ncharacters\030\001 \003(\0132$.ai.i"
-  "nworld.studio.v1alpha.Character\022\027\n\017next_"
-  "page_token\030\002 \001(\t\"\202\001\n\037ReplaceCharacterRpm"
-  "ModelRequest\022H\n\tcharacter\030\001 \001(\tB5\242\317\"1\n/\032"
-  "-workspaces/workspace-1/characters/chara"
-  "cter-1\022\025\n\rrpm_model_uri\030\002 \001(\t\"y\n\034Replace"
-  "CharacterImageRequest\022H\n\tcharacter\030\001 \001(\t"
-  "B5\242\317\"1\n/\032-workspaces/workspace-1/charact"
-  "ers/character-1\022\017\n\007content\030\002 \001(\014\"e\n\034Prev"
-  "iewPromptTemplateRequest\0223\n\tcharacter\030\001 "
-  "\001(\tB \340A\002\372A\032\n\030api.inworld.ai/Character\022\020\n"
-  "\010template\030\002 \001(\t\"D\n\035PreviewPromptTempalte"
-  "Response\022\016\n\006prompt\030\001 \001(\t\022\023\n\006errors\030\002 \003(\t"
-  "B\003\340A\003\"]\n\025ShareCharacterRequest\022.\n\004name\030\001"
-  " \001(\tB \340A\002\372A\032\n\030api.inworld.ai/Character\022\024"
-  "\n\014external_ids\030\002 \003(\t\"\212\001\n\033ShareCharacterP"
-  "ortalRequest\022.\n\004name\030\001 \001(\tB \340A\002\372A\032\n\030api."
-  "inworld.ai/Character\022\016\n\006byline\030\002 \001(\t\022\016\n\006"
-  "prompt\030\003 \001(\t\022\033\n\023allowed_on_showcase\030\004 \001("
-  "\010\"O\n\035UnshareCharacterPortalRequest\022.\n\004na"
-  "me\030\001 \001(\tB \340A\002\372A\032\n\030api.inworld.ai/Charact"
-  "er\"v\n\033ListSharedCharactersRequest\0220\n\006par"
-  "ent\030\001 \001(\tB \340A\002\372A\032\n\030api.inworld.ai/Worksp"
-  "ace\022\021\n\tpage_size\030\002 \001(\005\022\022\n\npage_token\030\003 \001"
-  "(\t\"x\n\034ListSharedCharactersResponse\022\?\n\021sh"
-  "ared_characters\030\001 \003(\0132$.ai.inworld.studi"
-  "o.v1alpha.Character\022\027\n\017next_page_token\030\002"
-  " \001(\t\"\361\t\n\031CharacterAdvancedSettings\022U\n\004na"
-  "me\030\001 \001(\tBG\242\317\"C\nA\032\?workspaces/workspace-1"
-  "/characters/character-1/advanced-setting"
-  "s\022d\n\023conversation_config\030\002 \001(\0132G.ai.inwo"
-  "rld.studio.v1alpha.CharacterAdvancedSett"
-  "ings.ConversationConfig\022\036\n\026custom_prompt"
-  "_template\030\004 \001(\t\022[\n\022speech_safety_spec\030\005 "
-  "\001(\0132\?.ai.inworld.studio.v1alpha.Characte"
-  "rAdvancedSettings.SafetySpec\022\035\n\025addition"
-  "al_agent_info\030\006 \001(\t\032\245\002\n\022ConversationConf"
-  "ig\022g\n\013engine_spec\030\001 \001(\0132R.ai.inworld.stu"
-  "dio.v1alpha.CharacterAdvancedSettings.Co"
-  "nversationConfig.EngineSpec\032\245\001\n\nEngineSp"
-  "ec\022\016\n\006engine\030\001 \001(\t\022\023\n\013temperature\030\002 \001(\002\022"
-  "\022\n\nmax_tokens\030\003 \001(\005\022\031\n\021frequency_penalty"
-  "\030\004 \001(\002\022\030\n\020presence_penalty\030\005 \001(\002\022\r\n\005top_"
-  "p\030\006 \001(\002\022\032\n\022repetition_penalty\030\007 \001(\002\032j\n\nS"
-  "afetySpec\022\\\n\016allowed_topics\030\001 \003(\0162D.ai.i"
-  "nworld.studio.v1alpha.CharacterAdvancedS"
-  "ettings.SafetyTopicName\"\360\002\n\017SafetyTopicN"
-  "ame\022!\n\035SAFETY_TOPIC_NAME_UNSPECIFIED\020\000\022 "
-  "\n\034SAFETY_TOPIC_NAME_SAFE_TOPIC\020\001\022\036\n\032SAFE"
-  "TY_TOPIC_NAME_POLITICS\020\002\022\036\n\032SAFETY_TOPIC"
-  "_NAME_FINANCES\020\003\022&\n\"SAFETY_TOPIC_NAME_DI"
-  "SGUSTING_STUFF\020\004\022!\n\035SAFETY_TOPIC_NAME_GE"
-  "NDER_BIAS\020\005\022#\n\037SAFETY_TOPIC_NAME_SUBSTAN"
-  "CE_USE\020\006\022#\n\037SAFETY_TOPIC_NAME_HEALTH_ADV"
-  "ICE\020\007\022\036\n\032SAFETY_TOPIC_NAME_RELIGION\020\010\022#\n"
-  "\037SAFETY_TOPIC_NAME_RELATIONSHIPS\020\t:n\352Ak\n"
-  "(api.inworld.ai/CharacterAdvancedSetting"
-  "s\022\?workspaces/{workspace}/characters/{ch"
-  "aracter}/advanced-settingsJ\004\010\003\020\004\"\216\001\n\034Get"
-  "CharacterShareInfoRequest\022.\n\004name\030\001 \001(\tB"
-  " \340A\002\372A\032\n\030api.inworld.ai/Character\022>\n\004vie"
-  "w\030\002 \001(\01620.ai.inworld.studio.v1alpha.Char"
-  "acterSharePurpose\"*\n\022CharacterShareInfo\022"
-  "\024\n\014external_ids\030\001 \003(\t\"M\n\026CheckDeployInfo"
-  "Request\0223\n\tcharacter\030\001 \001(\tB \340A\002\372A\032\n\030api."
-  "inworld.ai/Character\"\036\n\034DeployCharacterA"
-  "syncMetadata\"\036\n\034DeployCharacterAsyncResp"
-  "onse\"\031\n\027CreateCharacterMetadata\"+\n\027Check"
-  "DeployInfoResponse\022\020\n\010is_fresh\030\001 \001(\010*k\n\r"
-  "CharacterView\022\036\n\032CHARACTER_VIEW_UNSPECIF"
-  "IED\020\000\022\032\n\026CHARACTER_VIEW_DEFAULT\020\001\022\036\n\032CHA"
-  "RACTER_VIEW_WITH_SCENES\020\002*|\n\021CharacterIt"
-  "emView\022#\n\037CHARACTER_ITEM_VIEW_UNSPECIFIE"
-  "D\020\000\022\037\n\033CHARACTER_ITEM_VIEW_DEFAULT\020\001\022!\n\035"
-  "CHARACTER_ITEM_VIEW_WITH_META\020\002*\210\001\n\025Char"
-  "acterSharePurpose\022\'\n#CHARACTER_SHARE_PUR"
-  "POSE_UNSPECIFIED\020\000\022\"\n\036CHARACTER_SHARE_PU"
-  "RPOSE_OCULUS\020\001\022\"\n\036CHARACTER_SHARE_PURPOS"
-  "E_PORTAL\020\002*\210\001\n\013SafetyLevel\022\034\n\030SAFETY_LEV"
-  "EL_UNSPECIFIED\020\000\022\033\n\027SAFETY_LEVEL_NO_CONT"
-  "ROL\020\001\022\035\n\031SAFETY_LEVEL_MILD_CONTROL\020\002\022\037\n\033"
-  "SAFETY_LEVEL_STRICT_CONTROL\020\0032\216\036\n\nCharac"
-  "ters\022\231\001\n\017DeployCharacter\0221.ai.inworld.st"
-  "udio.v1alpha.DeployCharacterRequest\032\026.go"
-  "ogle.protobuf.Empty\";\202\323\344\223\0025\"0/v1alpha/{n"
-  "ame=workspaces/*/characters/*}:deploy:\001*"
-  "\022\244\001\n\016CloneCharacter\0220.ai.inworld.studio."
-  "v1alpha.CloneCharacterRequest\032$.ai.inwor"
-  "ld.studio.v1alpha.Character\":\202\323\344\223\0024\"//v1"
-  "alpha/{name=workspaces/*/characters/*}:c"
-  "lone:\001*\022\374\001\n\035DeployCharacterAsynchronousl"
-  "y\0221.ai.inworld.studio.v1alpha.DeployChar"
-  "acterRequest\032\035.google.longrunning.Operat"
-  "ion\"\210\001\202\323\344\223\002C\">/v1alpha/{name=workspaces/"
-  "*/characters/*}:deployAsynchronously:\001*\312"
-  "A<\n\034DeployCharacterAsyncResponse\022\034Deploy"
-  "CharacterAsyncMetadata\022\236\001\n\014GetCharacter\022"
-  "..ai.inworld.studio.v1alpha.GetCharacter"
-  "Request\032$.ai.inworld.studio.v1alpha.Char"
-  "acter\"8\202\323\344\223\002+\022)/v1alpha/{name=workspaces"
-  "/*/characters/*}\332A\004name\022\261\001\n\016ListCharacte"
-  "rs\0220.ai.inworld.studio.v1alpha.ListChara"
-  "ctersRequest\0321.ai.inworld.studio.v1alpha"
-  ".ListCharactersResponse\":\202\323\344\223\002+\022)/v1alph"
-  "a/{parent=workspaces/*}/characters\332A\006par"
-  "ent\022\312\001\n\017UpdateCharacter\0221.ai.inworld.stu"
-  "dio.v1alpha.UpdateCharacterRequest\032$.ai."
-  "inworld.studio.v1alpha.Character\"^\202\323\344\223\002@"
-  "23/v1alpha/{character.name=workspaces/*/"
-  "characters/*}:\tcharacter\332A\025character,upd"
-  "ate_mask\022\333\001\n\017CreateCharacter\0221.ai.inworl"
-  "d.studio.v1alpha.CreateCharacterRequest\032"
-  "\035.google.longrunning.Operation\"v\202\323\344\223\0026\")"
-  "/v1alpha/{parent=workspaces/*}/character"
-  "s:\tcharacter\332A\020parent,character\312A$\n\tChar"
-  "acter\022\027CreateCharacterMetadata\022\226\001\n\017Delet"
-  "eCharacter\0221.ai.inworld.studio.v1alpha.D"
-  "eleteCharacterRequest\032\026.google.protobuf."
-  "Empty\"8\202\323\344\223\002+*)/v1alpha/{name=workspaces"
-  "/*/characters/*}\332A\004name\022\334\001\n\030ReplaceChara"
-  "cterRpmModel\022:.ai.inworld.studio.v1alpha"
-  ".ReplaceCharacterRpmModelRequest\032$.ai.in"
-  "world.studio.v1alpha.Character\"^\202\323\344\223\002L\"G"
-  "/v1alpha/{character=workspaces/*/charact"
-  "ers/*}:replaceCharacterRpmModel:\001*\332A\tcha"
-  "racter\022\323\001\n\025ReplaceCharacterImage\0227.ai.in"
-  "world.studio.v1alpha.ReplaceCharacterIma"
-  "geRequest\032$.ai.inworld.studio.v1alpha.Ch"
-  "aracter\"[\202\323\344\223\002I\"D/v1alpha/{character=wor"
-  "kspaces/*/characters/*}:replaceCharacter"
-  "Image:\001*\332A\tcharacter\022\333\001\n\025PreviewPromptTe"
-  "mplate\0227.ai.inworld.studio.v1alpha.Previ"
-  "ewPromptTemplateRequest\0328.ai.inworld.stu"
-  "dio.v1alpha.PreviewPromptTempalteRespons"
-  "e\"O\202\323\344\223\002I\"D/v1alpha/{character=workspace"
-  "s/*/characters/*}:previewPromptTemplate:"
-  "\001*\022\300\001\n\017CheckDeployInfo\0221.ai.inworld.stud"
-  "io.v1alpha.CheckDeployInfoRequest\0322.ai.i"
-  "nworld.studio.v1alpha.CheckDeployInfoRes"
-  "ponse\"F\202\323\344\223\002@\022>/v1alpha/{character=works"
-  "paces/*/characters/*}:checkDeployInfo\022\340\001"
-  "\n\034GetCharacterAdvancedSettings\022>.ai.inwo"
-  "rld.studio.v1alpha.GetCharacterAdvancedS"
-  "ettingsRequest\0324.ai.inworld.studio.v1alp"
-  "ha.CharacterAdvancedSettings\"J\202\323\344\223\002=\022;/v"
-  "1alpha/{name=workspaces/*/characters/*/a"
-  "dvanced-settings}\332A\004name\022\303\002\n\037UpdateChara"
-  "cterAdvancedSettings\022A.ai.inworld.studio"
-  ".v1alpha.UpdateCharacterAdvancedSettings"
-  "Request\0324.ai.inworld.studio.v1alpha.Char"
-  "acterAdvancedSettings\"\246\001\202\323\344\223\002v2W/v1alpha"
-  "/{character_advanced_settings.name=works"
-  "paces/*/characters/*/advanced-settings}:"
-  "\033character_advanced_settings\332A\'character"
-  "_advanced_settings,update_mask\022\235\001\n\016Share"
-  "Character\0220.ai.inworld.studio.v1alpha.Sh"
-  "areCharacterRequest\032\026.google.protobuf.Em"
-  "pty\"A\202\323\344\223\0024\"//v1alpha/{name=workspaces/*"
-  "/characters/*}:share:\001*\332A\004name\022\260\001\n\024Share"
-  "CharacterPortal\0226.ai.inworld.studio.v1al"
-  "pha.ShareCharacterPortalRequest\032\026.google"
-  ".protobuf.Empty\"H\202\323\344\223\002;\"6/v1alpha/{name="
-  "workspaces/*/characters/*/portal}:share:"
-  "\001*\332A\004name\022\266\001\n\026UnshareCharacterPortal\0228.a"
-  "i.inworld.studio.v1alpha.UnshareCharacte"
-  "rPortalRequest\032\026.google.protobuf.Empty\"J"
-  "\202\323\344\223\002=\"8/v1alpha/{name=workspaces/*/char"
-  "acters/*/portal}:unshare:\001*\332A\004name\022\312\001\n\024L"
-  "istSharedCharacters\0226.ai.inworld.studio."
-  "v1alpha.ListSharedCharactersRequest\0327.ai"
-  ".inworld.studio.v1alpha.ListSharedCharac"
-  "tersResponse\"A\202\323\344\223\0022\0220/v1alpha/{parent=w"
-  "orkspaces/*}/characters:shared\332A\006parent\022"
-  "\314\001\n\025GetCharacterShareInfo\0227.ai.inworld.s"
-  "tudio.v1alpha.GetCharacterShareInfoReque"
-  "st\032-.ai.inworld.studio.v1alpha.Character"
-  "ShareInfo\"K\202\323\344\223\002>\022</v1alpha/{name=worksp"
-  "aces/*/characters/*/characterShareInfo}\332"
-  "A\004nameB\231\001\n\031ai.inworld.studio.v1alphaB\017Ch"
-  "aractersProtoP\001ZMgithub.com/inworld-ai/i"
-  "nworld/serving/grpc-gateway/build/proto/"
-  "studio/v1alpha\252\002\031Ai.Inworld.Studio.V1Alp"
-  "hab\006proto3"
+  "er\"\276\001\n&UpdateCharacterAdvancedSettingsRe"
+  "quest\022^\n\033character_advanced_settings\030\001 \001"
+  "(\01324.ai.inworld.studio.v1alpha.Character"
+  "AdvancedSettingsB\003\340A\002\0224\n\013update_mask\030\002 \001"
+  "(\0132\032.google.protobuf.FieldMaskB\003\340A\002\"\322\001\n\025"
+  "ListCharactersRequest\022J\n\006parent\030\001 \001(\tB:\340"
+  "A\002\372A4\n\030api.inworld.ai/Workspace\022\030api.inw"
+  "orld.ai/Character\022\021\n\tpage_size\030\002 \001(\005\022\022\n\n"
+  "page_token\030\003 \001(\t\0226\n\004view\030\004 \001(\0162(.ai.inwo"
+  "rld.studio.v1alpha.CharacterView\022\016\n\006filt"
+  "er\030\005 \001(\t\"\274\001\n\026CreateCharacterRequest\022J\n\006p"
+  "arent\030\001 \001(\tB:\340A\002\372A4\n\030api.inworld.ai/Work"
+  "space\022\030api.inworld.ai/Character\022<\n\tchara"
+  "cter\030\002 \001(\0132$.ai.inworld.studio.v1alpha.C"
+  "haracterB\003\340A\002\022\030\n\020skip_auto_create\030\003 \001(\010\""
+  "\214\001\n\026UpdateCharacterRequest\022<\n\tcharacter\030"
+  "\001 \001(\0132$.ai.inworld.studio.v1alpha.Charac"
+  "terB\003\340A\002\0224\n\013update_mask\030\002 \001(\0132\032.google.p"
+  "rotobuf.FieldMaskB\003\340A\002\"H\n\026DeleteCharacte"
+  "rRequest\022.\n\004name\030\001 \001(\tB \340A\002\372A\032\n\030api.inwo"
+  "rld.ai/Character\"H\n\026DeployCharacterReque"
+  "st\022.\n\004name\030\001 \001(\tB \340A\002\372A\032\n\030api.inworld.ai"
+  "/Character\"\223\001\n\025CloneCharacterRequest\022.\n\004"
+  "name\030\001 \001(\tB \340A\002\372A\032\n\030api.inworld.ai/Chara"
+  "cter\0223\n\tworkspace\030\002 \001(\tB \340A\002\372A\032\n\030api.inw"
+  "orld.ai/Workspace\022\025\n\010new_name\030\003 \001(\tB\003\340A\002"
+  "\"k\n\026ListCharactersResponse\0228\n\ncharacters"
+  "\030\001 \003(\0132$.ai.inworld.studio.v1alpha.Chara"
+  "cter\022\027\n\017next_page_token\030\002 \001(\t\"\202\001\n\037Replac"
+  "eCharacterRpmModelRequest\022H\n\tcharacter\030\001"
+  " \001(\tB5\242\317\"1\n/\032-workspaces/workspace-1/cha"
+  "racters/character-1\022\025\n\rrpm_model_uri\030\002 \001"
+  "(\t\"\306\001\n\034ReplaceCharacterImageRequest\022H\n\tc"
+  "haracter\030\001 \001(\tB5\242\317\"1\n/\032-workspaces/works"
+  "pace-1/characters/character-1\022\017\n\007content"
+  "\030\002 \001(\014\022K\n\024character_asset_type\030\003 \001(\0162-.a"
+  "i.inworld.studio.v1alpha.CharacterAssetT"
+  "ype\"e\n\034PreviewPromptTemplateRequest\0223\n\tc"
+  "haracter\030\001 \001(\tB \340A\002\372A\032\n\030api.inworld.ai/C"
+  "haracter\022\020\n\010template\030\002 \001(\t\"D\n\035PreviewPro"
+  "mptTempalteResponse\022\016\n\006prompt\030\001 \001(\t\022\023\n\006e"
+  "rrors\030\002 \003(\tB\003\340A\003\"]\n\025ShareCharacterReques"
+  "t\022.\n\004name\030\001 \001(\tB \340A\002\372A\032\n\030api.inworld.ai/"
+  "Character\022\024\n\014external_ids\030\002 \003(\t\"\212\001\n\033Shar"
+  "eCharacterPortalRequest\022.\n\004name\030\001 \001(\tB \340"
+  "A\002\372A\032\n\030api.inworld.ai/Character\022\016\n\006bylin"
+  "e\030\002 \001(\t\022\016\n\006prompt\030\003 \001(\t\022\033\n\023allowed_on_sh"
+  "owcase\030\004 \001(\010\"O\n\035UnshareCharacterPortalRe"
+  "quest\022.\n\004name\030\001 \001(\tB \340A\002\372A\032\n\030api.inworld"
+  ".ai/Character\"v\n\033ListSharedCharactersReq"
+  "uest\0220\n\006parent\030\001 \001(\tB \340A\002\372A\032\n\030api.inworl"
+  "d.ai/Workspace\022\021\n\tpage_size\030\002 \001(\005\022\022\n\npag"
+  "e_token\030\003 \001(\t\"x\n\034ListSharedCharactersRes"
+  "ponse\022\?\n\021shared_characters\030\001 \003(\0132$.ai.in"
+  "world.studio.v1alpha.Character\022\027\n\017next_p"
+  "age_token\030\002 \001(\t\"\361\t\n\031CharacterAdvancedSet"
+  "tings\022U\n\004name\030\001 \001(\tBG\242\317\"C\nA\032\?workspaces/"
+  "workspace-1/characters/character-1/advan"
+  "ced-settings\022d\n\023conversation_config\030\002 \001("
+  "\0132G.ai.inworld.studio.v1alpha.CharacterA"
+  "dvancedSettings.ConversationConfig\022\036\n\026cu"
+  "stom_prompt_template\030\004 \001(\t\022[\n\022speech_saf"
+  "ety_spec\030\005 \001(\0132\?.ai.inworld.studio.v1alp"
+  "ha.CharacterAdvancedSettings.SafetySpec\022"
+  "\035\n\025additional_agent_info\030\006 \001(\t\032\245\002\n\022Conve"
+  "rsationConfig\022g\n\013engine_spec\030\001 \001(\0132R.ai."
+  "inworld.studio.v1alpha.CharacterAdvanced"
+  "Settings.ConversationConfig.EngineSpec\032\245"
+  "\001\n\nEngineSpec\022\016\n\006engine\030\001 \001(\t\022\023\n\013tempera"
+  "ture\030\002 \001(\002\022\022\n\nmax_tokens\030\003 \001(\005\022\031\n\021freque"
+  "ncy_penalty\030\004 \001(\002\022\030\n\020presence_penalty\030\005 "
+  "\001(\002\022\r\n\005top_p\030\006 \001(\002\022\032\n\022repetition_penalty"
+  "\030\007 \001(\002\032j\n\nSafetySpec\022\\\n\016allowed_topics\030\001"
+  " \003(\0162D.ai.inworld.studio.v1alpha.Charact"
+  "erAdvancedSettings.SafetyTopicName\"\360\002\n\017S"
+  "afetyTopicName\022!\n\035SAFETY_TOPIC_NAME_UNSP"
+  "ECIFIED\020\000\022 \n\034SAFETY_TOPIC_NAME_SAFE_TOPI"
+  "C\020\001\022\036\n\032SAFETY_TOPIC_NAME_POLITICS\020\002\022\036\n\032S"
+  "AFETY_TOPIC_NAME_FINANCES\020\003\022&\n\"SAFETY_TO"
+  "PIC_NAME_DISGUSTING_STUFF\020\004\022!\n\035SAFETY_TO"
+  "PIC_NAME_GENDER_BIAS\020\005\022#\n\037SAFETY_TOPIC_N"
+  "AME_SUBSTANCE_USE\020\006\022#\n\037SAFETY_TOPIC_NAME"
+  "_HEALTH_ADVICE\020\007\022\036\n\032SAFETY_TOPIC_NAME_RE"
+  "LIGION\020\010\022#\n\037SAFETY_TOPIC_NAME_RELATIONSH"
+  "IPS\020\t:n\352Ak\n(api.inworld.ai/CharacterAdva"
+  "ncedSettings\022\?workspaces/{workspace}/cha"
+  "racters/{character}/advanced-settingsJ\004\010"
+  "\003\020\004\"\216\001\n\034GetCharacterShareInfoRequest\022.\n\004"
+  "name\030\001 \001(\tB \340A\002\372A\032\n\030api.inworld.ai/Chara"
+  "cter\022>\n\004view\030\002 \001(\01620.ai.inworld.studio.v"
+  "1alpha.CharacterSharePurpose\"*\n\022Characte"
+  "rShareInfo\022\024\n\014external_ids\030\001 \003(\t\"M\n\026Chec"
+  "kDeployInfoRequest\0223\n\tcharacter\030\001 \001(\tB \340"
+  "A\002\372A\032\n\030api.inworld.ai/Character\"\036\n\034Deplo"
+  "yCharacterAsyncMetadata\"\036\n\034DeployCharact"
+  "erAsyncResponse\"\031\n\027CreateCharacterMetada"
+  "ta\"+\n\027CheckDeployInfoResponse\022\020\n\010is_fres"
+  "h\030\001 \001(\010*k\n\rCharacterView\022\036\n\032CHARACTER_VI"
+  "EW_UNSPECIFIED\020\000\022\032\n\026CHARACTER_VIEW_DEFAU"
+  "LT\020\001\022\036\n\032CHARACTER_VIEW_WITH_SCENES\020\002*|\n\021"
+  "CharacterItemView\022#\n\037CHARACTER_ITEM_VIEW"
+  "_UNSPECIFIED\020\000\022\037\n\033CHARACTER_ITEM_VIEW_DE"
+  "FAULT\020\001\022!\n\035CHARACTER_ITEM_VIEW_WITH_META"
+  "\020\002*\210\001\n\025CharacterSharePurpose\022\'\n#CHARACTE"
+  "R_SHARE_PURPOSE_UNSPECIFIED\020\000\022\"\n\036CHARACT"
+  "ER_SHARE_PURPOSE_OCULUS\020\001\022\"\n\036CHARACTER_S"
+  "HARE_PURPOSE_PORTAL\020\002*\210\001\n\013SafetyLevel\022\034\n"
+  "\030SAFETY_LEVEL_UNSPECIFIED\020\000\022\033\n\027SAFETY_LE"
+  "VEL_NO_CONTROL\020\001\022\035\n\031SAFETY_LEVEL_MILD_CO"
+  "NTROL\020\002\022\037\n\033SAFETY_LEVEL_STRICT_CONTROL\020\003"
+  "*\213\001\n\020CognitiveControl\022!\n\035COGNITIVE_CONTR"
+  "OL_UNSPECIFIED\020\000\022\032\n\026COGNITIVE_CONTROL_NO"
+  "NE\020\001\022\032\n\026COGNITIVE_CONTROL_MILD\020\002\022\034\n\030COGN"
+  "ITIVE_CONTROL_STRICT\020\003*\221\001\n\022CharacterAsse"
+  "tType\022$\n CHARACTER_ASSET_TYPE_UNSPECIFIE"
+  "D\020\000\022\'\n#CHARACTER_ASSET_TYPE_INNEQUIN_IMA"
+  "GE\020\001\022,\n(CHARACTER_ASSET_TYPE_USER_PROVID"
+  "ED_IMAGE\020\0022\216\036\n\nCharacters\022\231\001\n\017DeployChar"
+  "acter\0221.ai.inworld.studio.v1alpha.Deploy"
+  "CharacterRequest\032\026.google.protobuf.Empty"
+  "\";\202\323\344\223\0025\"0/v1alpha/{name=workspaces/*/ch"
+  "aracters/*}:deploy:\001*\022\244\001\n\016CloneCharacter"
+  "\0220.ai.inworld.studio.v1alpha.CloneCharac"
+  "terRequest\032$.ai.inworld.studio.v1alpha.C"
+  "haracter\":\202\323\344\223\0024\"//v1alpha/{name=workspa"
+  "ces/*/characters/*}:clone:\001*\022\374\001\n\035DeployC"
+  "haracterAsynchronously\0221.ai.inworld.stud"
+  "io.v1alpha.DeployCharacterRequest\032\035.goog"
+  "le.longrunning.Operation\"\210\001\202\323\344\223\002C\">/v1al"
+  "pha/{name=workspaces/*/characters/*}:dep"
+  "loyAsynchronously:\001*\312A<\n\034DeployCharacter"
+  "AsyncResponse\022\034DeployCharacterAsyncMetad"
+  "ata\022\236\001\n\014GetCharacter\022..ai.inworld.studio"
+  ".v1alpha.GetCharacterRequest\032$.ai.inworl"
+  "d.studio.v1alpha.Character\"8\202\323\344\223\002+\022)/v1a"
+  "lpha/{name=workspaces/*/characters/*}\332A\004"
+  "name\022\261\001\n\016ListCharacters\0220.ai.inworld.stu"
+  "dio.v1alpha.ListCharactersRequest\0321.ai.i"
+  "nworld.studio.v1alpha.ListCharactersResp"
+  "onse\":\202\323\344\223\002+\022)/v1alpha/{parent=workspace"
+  "s/*}/characters\332A\006parent\022\312\001\n\017UpdateChara"
+  "cter\0221.ai.inworld.studio.v1alpha.UpdateC"
+  "haracterRequest\032$.ai.inworld.studio.v1al"
+  "pha.Character\"^\202\323\344\223\002@23/v1alpha/{charact"
+  "er.name=workspaces/*/characters/*}:\tchar"
+  "acter\332A\025character,update_mask\022\333\001\n\017Create"
+  "Character\0221.ai.inworld.studio.v1alpha.Cr"
+  "eateCharacterRequest\032\035.google.longrunnin"
+  "g.Operation\"v\202\323\344\223\0026\")/v1alpha/{parent=wo"
+  "rkspaces/*}/characters:\tcharacter\332A\020pare"
+  "nt,character\312A$\n\tCharacter\022\027CreateCharac"
+  "terMetadata\022\226\001\n\017DeleteCharacter\0221.ai.inw"
+  "orld.studio.v1alpha.DeleteCharacterReque"
+  "st\032\026.google.protobuf.Empty\"8\202\323\344\223\002+*)/v1a"
+  "lpha/{name=workspaces/*/characters/*}\332A\004"
+  "name\022\334\001\n\030ReplaceCharacterRpmModel\022:.ai.i"
+  "nworld.studio.v1alpha.ReplaceCharacterRp"
+  "mModelRequest\032$.ai.inworld.studio.v1alph"
+  "a.Character\"^\202\323\344\223\002L\"G/v1alpha/{character"
+  "=workspaces/*/characters/*}:replaceChara"
+  "cterRpmModel:\001*\332A\tcharacter\022\323\001\n\025ReplaceC"
+  "haracterImage\0227.ai.inworld.studio.v1alph"
+  "a.ReplaceCharacterImageRequest\032$.ai.inwo"
+  "rld.studio.v1alpha.Character\"[\202\323\344\223\002I\"D/v"
+  "1alpha/{character=workspaces/*/character"
+  "s/*}:replaceCharacterImage:\001*\332A\tcharacte"
+  "r\022\333\001\n\025PreviewPromptTemplate\0227.ai.inworld"
+  ".studio.v1alpha.PreviewPromptTemplateReq"
+  "uest\0328.ai.inworld.studio.v1alpha.Preview"
+  "PromptTempalteResponse\"O\202\323\344\223\002I\"D/v1alpha"
+  "/{character=workspaces/*/characters/*}:p"
+  "reviewPromptTemplate:\001*\022\300\001\n\017CheckDeployI"
+  "nfo\0221.ai.inworld.studio.v1alpha.CheckDep"
+  "loyInfoRequest\0322.ai.inworld.studio.v1alp"
+  "ha.CheckDeployInfoResponse\"F\202\323\344\223\002@\022>/v1a"
+  "lpha/{character=workspaces/*/characters/"
+  "*}:checkDeployInfo\022\340\001\n\034GetCharacterAdvan"
+  "cedSettings\022>.ai.inworld.studio.v1alpha."
+  "GetCharacterAdvancedSettingsRequest\0324.ai"
+  ".inworld.studio.v1alpha.CharacterAdvance"
+  "dSettings\"J\202\323\344\223\002=\022;/v1alpha/{name=worksp"
+  "aces/*/characters/*/advanced-settings}\332A"
+  "\004name\022\303\002\n\037UpdateCharacterAdvancedSetting"
+  "s\022A.ai.inworld.studio.v1alpha.UpdateChar"
+  "acterAdvancedSettingsRequest\0324.ai.inworl"
+  "d.studio.v1alpha.CharacterAdvancedSettin"
+  "gs\"\246\001\202\323\344\223\002v2W/v1alpha/{character_advance"
+  "d_settings.name=workspaces/*/characters/"
+  "*/advanced-settings}:\033character_advanced"
+  "_settings\332A\'character_advanced_settings,"
+  "update_mask\022\235\001\n\016ShareCharacter\0220.ai.inwo"
+  "rld.studio.v1alpha.ShareCharacterRequest"
+  "\032\026.google.protobuf.Empty\"A\202\323\344\223\0024\"//v1alp"
+  "ha/{name=workspaces/*/characters/*}:shar"
+  "e:\001*\332A\004name\022\260\001\n\024ShareCharacterPortal\0226.a"
+  "i.inworld.studio.v1alpha.ShareCharacterP"
+  "ortalRequest\032\026.google.protobuf.Empty\"H\202\323"
+  "\344\223\002;\"6/v1alpha/{name=workspaces/*/charac"
+  "ters/*/portal}:share:\001*\332A\004name\022\266\001\n\026Unsha"
+  "reCharacterPortal\0228.ai.inworld.studio.v1"
+  "alpha.UnshareCharacterPortalRequest\032\026.go"
+  "ogle.protobuf.Empty\"J\202\323\344\223\002=\"8/v1alpha/{n"
+  "ame=workspaces/*/characters/*/portal}:un"
+  "share:\001*\332A\004name\022\312\001\n\024ListSharedCharacters"
+  "\0226.ai.inworld.studio.v1alpha.ListSharedC"
+  "haractersRequest\0327.ai.inworld.studio.v1a"
+  "lpha.ListSharedCharactersResponse\"A\202\323\344\223\002"
+  "2\0220/v1alpha/{parent=workspaces/*}/charac"
+  "ters:shared\332A\006parent\022\314\001\n\025GetCharacterSha"
+  "reInfo\0227.ai.inworld.studio.v1alpha.GetCh"
+  "aracterShareInfoRequest\032-.ai.inworld.stu"
+  "dio.v1alpha.CharacterShareInfo\"K\202\323\344\223\002>\022<"
+  "/v1alpha/{name=workspaces/*/characters/*"
+  "/characterShareInfo}\332A\004nameB\231\001\n\031ai.inwor"
+  "ld.studio.v1alphaB\017CharactersProtoP\001ZMgi"
+  "thub.com/inworld-ai/inworld/serving/grpc"
+  "-gateway/build/proto/studio/v1alpha\252\002\031Ai"
+  ".Inworld.Studio.V1Alphab\006proto3"
   ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_deps[11] = {
+static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_deps[12] = {
   &::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fbehavioral_5fcontexts_2eproto,
   &::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto,
   &::descriptor_table_google_2fapi_2fannotations_2eproto,
@@ -1676,22 +1647,21 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
   &::descriptor_table_google_2flongrunning_2foperations_2eproto,
   &::descriptor_table_google_2fprotobuf_2fempty_2eproto,
   &::descriptor_table_google_2fprotobuf_2ffield_5fmask_2eproto,
+  &::descriptor_table_language_5fcodes_2eproto,
   &::descriptor_table_options_2eproto,
   &::descriptor_table_voices_2eproto,
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_sccs[45] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_sccs[43] = {
   &scc_info_Character_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
-  &scc_info_Character_BrainSettings_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
-  &scc_info_Character_BrainSettings_ConversationConfig_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
-  &scc_info_Character_BrainSettings_ConversationConfig_FillerSpec_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
-  &scc_info_Character_BrainTrigger_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
   &scc_info_Character_CharacterAssets_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
   &scc_info_Character_CharacterDescription_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
   &scc_info_Character_CharacterDescription_CustomDialogStyle_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
   &scc_info_Character_CharacterInitialMood_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
   &scc_info_Character_CharacterPersonality_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
   &scc_info_Character_Fact_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
+  &scc_info_Character_LongTermCoherence_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
   &scc_info_Character_Meta_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
+  &scc_info_Character_Relationship_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
   &scc_info_Character_SafetyConfigEntry_DoNotUse_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
   &scc_info_Character_SharedPortalInfo_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
   &scc_info_Character_SharedPortalInfo_InteractionCountStat_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base,
@@ -1728,10 +1698,10 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto, "ai/inworld/studio/v1alpha/characters.proto", 14050,
-  &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_sccs, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_deps, 45, 11,
+  false, false, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto, "ai/inworld/studio/v1alpha/characters.proto", 14991,
+  &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_sccs, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_deps, 43, 12,
   schemas, file_default_instances, TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto::offsets,
-  file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto, 45, file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto, file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto,
+  file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto, 43, file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto, file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -1857,9 +1827,86 @@ constexpr Character_CharacterDescription_LifeStage Character_CharacterDescriptio
 constexpr Character_CharacterDescription_LifeStage Character_CharacterDescription::LifeStage_MAX;
 constexpr int Character_CharacterDescription::LifeStage_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Character_Tag_descriptor() {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Character_CharacterDescription_DialogResponseLength_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
   return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[3];
+}
+bool Character_CharacterDescription_DialogResponseLength_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+constexpr Character_CharacterDescription_DialogResponseLength Character_CharacterDescription::DIALOG_RESPONSE_LENGTH_UNSPECIFIED;
+constexpr Character_CharacterDescription_DialogResponseLength Character_CharacterDescription::DIALOG_RESPONSE_LENGTH_VERY_SHORT;
+constexpr Character_CharacterDescription_DialogResponseLength Character_CharacterDescription::DIALOG_RESPONSE_LENGTH_SHORT;
+constexpr Character_CharacterDescription_DialogResponseLength Character_CharacterDescription::DIALOG_RESPONSE_LENGTH_MEDIUM;
+constexpr Character_CharacterDescription_DialogResponseLength Character_CharacterDescription::DIALOG_RESPONSE_LENGTH_LONG;
+constexpr Character_CharacterDescription_DialogResponseLength Character_CharacterDescription::DIALOG_RESPONSE_LENGTH_VERY_LONG;
+constexpr Character_CharacterDescription_DialogResponseLength Character_CharacterDescription::DialogResponseLength_MIN;
+constexpr Character_CharacterDescription_DialogResponseLength Character_CharacterDescription::DialogResponseLength_MAX;
+constexpr int Character_CharacterDescription::DialogResponseLength_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Character_CharacterAssets_AvatarType_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+  return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[4];
+}
+bool Character_CharacterAssets_AvatarType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+constexpr Character_CharacterAssets_AvatarType Character_CharacterAssets::AVATAR_TYPE_UNSPECIFIED;
+constexpr Character_CharacterAssets_AvatarType Character_CharacterAssets::AVATAR_TYPE_RPM;
+constexpr Character_CharacterAssets_AvatarType Character_CharacterAssets::AVATAR_TYPE_INWORLD;
+constexpr Character_CharacterAssets_AvatarType Character_CharacterAssets::AvatarType_MIN;
+constexpr Character_CharacterAssets_AvatarType Character_CharacterAssets::AvatarType_MAX;
+constexpr int Character_CharacterAssets::AvatarType_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Character_CharacterAssets_AvatarDisplayImageSource_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+  return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[5];
+}
+bool Character_CharacterAssets_AvatarDisplayImageSource_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+constexpr Character_CharacterAssets_AvatarDisplayImageSource Character_CharacterAssets::AVATAR_DISPLAY_IMAGE_SOURCE_UNSPECIFIED;
+constexpr Character_CharacterAssets_AvatarDisplayImageSource Character_CharacterAssets::RPM_IMAGE;
+constexpr Character_CharacterAssets_AvatarDisplayImageSource Character_CharacterAssets::INNEQUIN_IMAGE;
+constexpr Character_CharacterAssets_AvatarDisplayImageSource Character_CharacterAssets::USER_PROVIDED_IMAGE;
+constexpr Character_CharacterAssets_AvatarDisplayImageSource Character_CharacterAssets::AvatarDisplayImageSource_MIN;
+constexpr Character_CharacterAssets_AvatarDisplayImageSource Character_CharacterAssets::AvatarDisplayImageSource_MAX;
+constexpr int Character_CharacterAssets::AvatarDisplayImageSource_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Character_Tag_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+  return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[6];
 }
 bool Character_Tag_IsValid(int value) {
   switch (value) {
@@ -1882,7 +1929,7 @@ constexpr int Character::Tag_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Character_FourthWallContainment_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
-  return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[4];
+  return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[7];
 }
 bool Character_FourthWallContainment_IsValid(int value) {
   switch (value) {
@@ -1905,7 +1952,7 @@ constexpr int Character::FourthWallContainment_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CharacterAdvancedSettings_SafetyTopicName_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
-  return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[5];
+  return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[8];
 }
 bool CharacterAdvancedSettings_SafetyTopicName_IsValid(int value) {
   switch (value) {
@@ -1942,7 +1989,7 @@ constexpr int CharacterAdvancedSettings::SafetyTopicName_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CharacterView_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
-  return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[6];
+  return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[9];
 }
 bool CharacterView_IsValid(int value) {
   switch (value) {
@@ -1957,7 +2004,7 @@ bool CharacterView_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CharacterItemView_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
-  return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[7];
+  return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[10];
 }
 bool CharacterItemView_IsValid(int value) {
   switch (value) {
@@ -1972,7 +2019,7 @@ bool CharacterItemView_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CharacterSharePurpose_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
-  return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[8];
+  return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[11];
 }
 bool CharacterSharePurpose_IsValid(int value) {
   switch (value) {
@@ -1987,7 +2034,7 @@ bool CharacterSharePurpose_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SafetyLevel_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
-  return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[9];
+  return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[12];
 }
 bool SafetyLevel_IsValid(int value) {
   switch (value) {
@@ -1995,6 +2042,37 @@ bool SafetyLevel_IsValid(int value) {
     case 1:
     case 2:
     case 3:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CognitiveControl_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+  return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[13];
+}
+bool CognitiveControl_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CharacterAssetType_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+  return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[14];
+}
+bool CharacterAssetType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
       return true;
     default:
       return false;
@@ -2010,16 +2088,14 @@ class Character_CharacterDescription_CustomDialogStyle::_Internal {
 
 Character_CharacterDescription_CustomDialogStyle::Character_CharacterDescription_CustomDialogStyle(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  adjectives_(arena),
-  adverbs_(arena) {
+  adjectives_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle)
 }
 Character_CharacterDescription_CustomDialogStyle::Character_CharacterDescription_CustomDialogStyle(const Character_CharacterDescription_CustomDialogStyle& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      adjectives_(from.adjectives_),
-      adverbs_(from.adverbs_) {
+      adjectives_(from.adjectives_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   uuid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_uuid().empty()) {
@@ -2083,7 +2159,6 @@ void Character_CharacterDescription_CustomDialogStyle::Clear() {
   (void) cached_has_bits;
 
   adjectives_.Clear();
-  adverbs_.Clear();
   uuid_.ClearToEmpty();
   display_name_.ClearToEmpty();
   colloquialism_.ClearToEmpty();
@@ -2135,20 +2210,6 @@ const char* Character_CharacterDescription_CustomDialogStyle::_InternalParse(con
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
-        } else goto handle_unusual;
-        continue;
-      // repeated string adverbs = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            auto str = _internal_add_adverbs();
-            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle.adverbs"));
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
         } else goto handle_unusual;
         continue;
       // string colloquialism = 6;
@@ -2224,16 +2285,6 @@ failure:
     target = stream->WriteString(4, s, target);
   }
 
-  // repeated string adverbs = 5;
-  for (int i = 0, n = this->_internal_adverbs_size(); i < n; i++) {
-    const auto& s = this->_internal_adverbs(i);
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      s.data(), static_cast<int>(s.length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle.adverbs");
-    target = stream->WriteString(5, s, target);
-  }
-
   // string colloquialism = 6;
   if (this->colloquialism().size() > 0) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
@@ -2266,14 +2317,6 @@ size_t Character_CharacterDescription_CustomDialogStyle::ByteSizeLong() const {
   for (int i = 0, n = adjectives_.size(); i < n; i++) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
       adjectives_.Get(i));
-  }
-
-  // repeated string adverbs = 5;
-  total_size += 1 *
-      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(adverbs_.size());
-  for (int i = 0, n = adverbs_.size(); i < n; i++) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-      adverbs_.Get(i));
   }
 
   // string uuid = 1;
@@ -2334,7 +2377,6 @@ void Character_CharacterDescription_CustomDialogStyle::MergeFrom(const Character
   (void) cached_has_bits;
 
   adjectives_.MergeFrom(from.adjectives_);
-  adverbs_.MergeFrom(from.adverbs_);
   if (from.uuid().size() > 0) {
     _internal_set_uuid(from._internal_uuid());
   }
@@ -2371,7 +2413,6 @@ void Character_CharacterDescription_CustomDialogStyle::InternalSwap(Character_Ch
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   adjectives_.InternalSwap(&other->adjectives_);
-  adverbs_.InternalSwap(&other->adverbs_);
   uuid_.Swap(&other->uuid_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   display_name_.Swap(&other->display_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   colloquialism_.Swap(&other->colloquialism_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
@@ -2426,16 +2467,6 @@ Character_CharacterDescription::Character_CharacterDescription(const Character_C
     wikipedia_uri_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_wikipedia_uri(), 
       GetArena());
   }
-  player_role_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_player_role().empty()) {
-    player_role_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_player_role(), 
-      GetArena());
-  }
-  default_context_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_default_context().empty()) {
-    default_context_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_default_context(), 
-      GetArena());
-  }
   example_dialog_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_example_dialog().empty()) {
     example_dialog_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_example_dialog(), 
@@ -2452,8 +2483,8 @@ Character_CharacterDescription::Character_CharacterDescription(const Character_C
       GetArena());
   }
   ::memcpy(&pronoun_, &from.pronoun_,
-    static_cast<size_t>(reinterpret_cast<char*>(&narrative_actions_enabled_) -
-    reinterpret_cast<char*>(&pronoun_)) + sizeof(narrative_actions_enabled_));
+    static_cast<size_t>(reinterpret_cast<char*>(&dialog_response_length_) -
+    reinterpret_cast<char*>(&pronoun_)) + sizeof(dialog_response_length_));
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.Character.CharacterDescription)
 }
 
@@ -2463,15 +2494,13 @@ void Character_CharacterDescription::SharedCtor() {
   description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   motivation_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   wikipedia_uri_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  player_role_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  default_context_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   example_dialog_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   character_role_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   flaws_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
       reinterpret_cast<char*>(&pronoun_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&narrative_actions_enabled_) -
-      reinterpret_cast<char*>(&pronoun_)) + sizeof(narrative_actions_enabled_));
+      0, static_cast<size_t>(reinterpret_cast<char*>(&dialog_response_length_) -
+      reinterpret_cast<char*>(&pronoun_)) + sizeof(dialog_response_length_));
 }
 
 Character_CharacterDescription::~Character_CharacterDescription() {
@@ -2486,8 +2515,6 @@ void Character_CharacterDescription::SharedDtor() {
   description_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   motivation_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   wikipedia_uri_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  player_role_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  default_context_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   example_dialog_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   character_role_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   flaws_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
@@ -2522,14 +2549,12 @@ void Character_CharacterDescription::Clear() {
   description_.ClearToEmpty();
   motivation_.ClearToEmpty();
   wikipedia_uri_.ClearToEmpty();
-  player_role_.ClearToEmpty();
-  default_context_.ClearToEmpty();
   example_dialog_.ClearToEmpty();
   character_role_.ClearToEmpty();
   flaws_.ClearToEmpty();
   ::memset(&pronoun_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&narrative_actions_enabled_) -
-      reinterpret_cast<char*>(&pronoun_)) + sizeof(narrative_actions_enabled_));
+      reinterpret_cast<char*>(&dialog_response_length_) -
+      reinterpret_cast<char*>(&pronoun_)) + sizeof(dialog_response_length_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2595,24 +2620,6 @@ const char* Character_CharacterDescription::_InternalParse(const char* ptr, ::PR
           auto str = _internal_mutable_wikipedia_uri();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.Character.CharacterDescription.wikipedia_uri"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // string player_role = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
-          auto str = _internal_mutable_player_role();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.Character.CharacterDescription.player_role"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // string default_context = 8;
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
-          auto str = _internal_mutable_default_context();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.Character.CharacterDescription.default_context"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -2706,6 +2713,14 @@ const char* Character_CharacterDescription::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // .ai.inworld.studio.v1alpha.Character.CharacterDescription.DialogResponseLength dialog_response_length = 19;
+      case 19:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 152)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_dialog_response_length(static_cast<::ai::inworld::studio::v1alpha::Character_CharacterDescription_DialogResponseLength>(val));
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -2791,26 +2806,6 @@ failure:
         6, this->_internal_wikipedia_uri(), target);
   }
 
-  // string player_role = 7;
-  if (this->player_role().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_player_role().data(), static_cast<int>(this->_internal_player_role().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.studio.v1alpha.Character.CharacterDescription.player_role");
-    target = stream->WriteStringMaybeAliased(
-        7, this->_internal_player_role(), target);
-  }
-
-  // string default_context = 8;
-  if (this->default_context().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_default_context().data(), static_cast<int>(this->_internal_default_context().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.studio.v1alpha.Character.CharacterDescription.default_context");
-    target = stream->WriteStringMaybeAliased(
-        8, this->_internal_default_context(), target);
-  }
-
   // string example_dialog = 9;
   if (this->example_dialog().size() > 0) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
@@ -2889,6 +2884,13 @@ failure:
         17, this->_internal_flaws(), target);
   }
 
+  // .ai.inworld.studio.v1alpha.Character.CharacterDescription.DialogResponseLength dialog_response_length = 19;
+  if (this->dialog_response_length() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      19, this->_internal_dialog_response_length(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2964,20 +2966,6 @@ size_t Character_CharacterDescription::ByteSizeLong() const {
         this->_internal_wikipedia_uri());
   }
 
-  // string player_role = 7;
-  if (this->player_role().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_player_role());
-  }
-
-  // string default_context = 8;
-  if (this->default_context().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_default_context());
-  }
-
   // string example_dialog = 9;
   if (this->example_dialog().size() > 0) {
     total_size += 1 +
@@ -3020,6 +3008,12 @@ size_t Character_CharacterDescription::ByteSizeLong() const {
   // bool narrative_actions_enabled = 15;
   if (this->narrative_actions_enabled() != 0) {
     total_size += 1 + 1;
+  }
+
+  // .ai.inworld.studio.v1alpha.Character.CharacterDescription.DialogResponseLength dialog_response_length = 19;
+  if (this->dialog_response_length() != 0) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_dialog_response_length());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3069,12 +3063,6 @@ void Character_CharacterDescription::MergeFrom(const Character_CharacterDescript
   if (from.wikipedia_uri().size() > 0) {
     _internal_set_wikipedia_uri(from._internal_wikipedia_uri());
   }
-  if (from.player_role().size() > 0) {
-    _internal_set_player_role(from._internal_player_role());
-  }
-  if (from.default_context().size() > 0) {
-    _internal_set_default_context(from._internal_default_context());
-  }
   if (from.example_dialog().size() > 0) {
     _internal_set_example_dialog(from._internal_example_dialog());
   }
@@ -3095,6 +3083,9 @@ void Character_CharacterDescription::MergeFrom(const Character_CharacterDescript
   }
   if (from.narrative_actions_enabled() != 0) {
     _internal_set_narrative_actions_enabled(from._internal_narrative_actions_enabled());
+  }
+  if (from.dialog_response_length() != 0) {
+    _internal_set_dialog_response_length(from._internal_dialog_response_length());
   }
 }
 
@@ -3127,957 +3118,18 @@ void Character_CharacterDescription::InternalSwap(Character_CharacterDescription
   description_.Swap(&other->description_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   motivation_.Swap(&other->motivation_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   wikipedia_uri_.Swap(&other->wikipedia_uri_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  player_role_.Swap(&other->player_role_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  default_context_.Swap(&other->default_context_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   example_dialog_.Swap(&other->example_dialog_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   character_role_.Swap(&other->character_role_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   flaws_.Swap(&other->flaws_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Character_CharacterDescription, narrative_actions_enabled_)
-      + sizeof(Character_CharacterDescription::narrative_actions_enabled_)
+      PROTOBUF_FIELD_OFFSET(Character_CharacterDescription, dialog_response_length_)
+      + sizeof(Character_CharacterDescription::dialog_response_length_)
       - PROTOBUF_FIELD_OFFSET(Character_CharacterDescription, pronoun_)>(
           reinterpret_cast<char*>(&pronoun_),
           reinterpret_cast<char*>(&other->pronoun_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Character_CharacterDescription::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class Character_BrainSettings_ConversationConfig_FillerSpec::_Internal {
- public:
-};
-
-Character_BrainSettings_ConversationConfig_FillerSpec::Character_BrainSettings_ConversationConfig_FillerSpec(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.FillerSpec)
-}
-Character_BrainSettings_ConversationConfig_FillerSpec::Character_BrainSettings_ConversationConfig_FillerSpec(const Character_BrainSettings_ConversationConfig_FillerSpec& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  fillers_disabled_ = from.fillers_disabled_;
-  // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.FillerSpec)
-}
-
-void Character_BrainSettings_ConversationConfig_FillerSpec::SharedCtor() {
-  fillers_disabled_ = false;
-}
-
-Character_BrainSettings_ConversationConfig_FillerSpec::~Character_BrainSettings_ConversationConfig_FillerSpec() {
-  // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.FillerSpec)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void Character_BrainSettings_ConversationConfig_FillerSpec::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void Character_BrainSettings_ConversationConfig_FillerSpec::ArenaDtor(void* object) {
-  Character_BrainSettings_ConversationConfig_FillerSpec* _this = reinterpret_cast< Character_BrainSettings_ConversationConfig_FillerSpec* >(object);
-  (void)_this;
-}
-void Character_BrainSettings_ConversationConfig_FillerSpec::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void Character_BrainSettings_ConversationConfig_FillerSpec::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const Character_BrainSettings_ConversationConfig_FillerSpec& Character_BrainSettings_ConversationConfig_FillerSpec::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Character_BrainSettings_ConversationConfig_FillerSpec_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void Character_BrainSettings_ConversationConfig_FillerSpec::Clear() {
-// @@protoc_insertion_point(message_clear_start:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.FillerSpec)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  fillers_disabled_ = false;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* Character_BrainSettings_ConversationConfig_FillerSpec::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // bool fillers_disabled = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          fillers_disabled_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* Character_BrainSettings_ConversationConfig_FillerSpec::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.FillerSpec)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // bool fillers_disabled = 1;
-  if (this->fillers_disabled() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_fillers_disabled(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.FillerSpec)
-  return target;
-}
-
-size_t Character_BrainSettings_ConversationConfig_FillerSpec::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.FillerSpec)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // bool fillers_disabled = 1;
-  if (this->fillers_disabled() != 0) {
-    total_size += 1 + 1;
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void Character_BrainSettings_ConversationConfig_FillerSpec::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.FillerSpec)
-  GOOGLE_DCHECK_NE(&from, this);
-  const Character_BrainSettings_ConversationConfig_FillerSpec* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Character_BrainSettings_ConversationConfig_FillerSpec>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.FillerSpec)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.FillerSpec)
-    MergeFrom(*source);
-  }
-}
-
-void Character_BrainSettings_ConversationConfig_FillerSpec::MergeFrom(const Character_BrainSettings_ConversationConfig_FillerSpec& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.FillerSpec)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.fillers_disabled() != 0) {
-    _internal_set_fillers_disabled(from._internal_fillers_disabled());
-  }
-}
-
-void Character_BrainSettings_ConversationConfig_FillerSpec::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.FillerSpec)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Character_BrainSettings_ConversationConfig_FillerSpec::CopyFrom(const Character_BrainSettings_ConversationConfig_FillerSpec& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.FillerSpec)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Character_BrainSettings_ConversationConfig_FillerSpec::IsInitialized() const {
-  return true;
-}
-
-void Character_BrainSettings_ConversationConfig_FillerSpec::InternalSwap(Character_BrainSettings_ConversationConfig_FillerSpec* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(fillers_disabled_, other->fillers_disabled_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata Character_BrainSettings_ConversationConfig_FillerSpec::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class Character_BrainSettings_ConversationConfig::_Internal {
- public:
-  static const ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec& filler_spec(const Character_BrainSettings_ConversationConfig* msg);
-};
-
-const ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec&
-Character_BrainSettings_ConversationConfig::_Internal::filler_spec(const Character_BrainSettings_ConversationConfig* msg) {
-  return *msg->filler_spec_;
-}
-Character_BrainSettings_ConversationConfig::Character_BrainSettings_ConversationConfig(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig)
-}
-Character_BrainSettings_ConversationConfig::Character_BrainSettings_ConversationConfig(const Character_BrainSettings_ConversationConfig& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_filler_spec()) {
-    filler_spec_ = new ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec(*from.filler_spec_);
-  } else {
-    filler_spec_ = nullptr;
-  }
-  ::memcpy(&emotions_disabled_, &from.emotions_disabled_,
-    static_cast<size_t>(reinterpret_cast<char*>(&behavioral_contexts_disabled_) -
-    reinterpret_cast<char*>(&emotions_disabled_)) + sizeof(behavioral_contexts_disabled_));
-  // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig)
-}
-
-void Character_BrainSettings_ConversationConfig::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Character_BrainSettings_ConversationConfig_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base);
-  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&filler_spec_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&behavioral_contexts_disabled_) -
-      reinterpret_cast<char*>(&filler_spec_)) + sizeof(behavioral_contexts_disabled_));
-}
-
-Character_BrainSettings_ConversationConfig::~Character_BrainSettings_ConversationConfig() {
-  // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void Character_BrainSettings_ConversationConfig::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  if (this != internal_default_instance()) delete filler_spec_;
-}
-
-void Character_BrainSettings_ConversationConfig::ArenaDtor(void* object) {
-  Character_BrainSettings_ConversationConfig* _this = reinterpret_cast< Character_BrainSettings_ConversationConfig* >(object);
-  (void)_this;
-}
-void Character_BrainSettings_ConversationConfig::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void Character_BrainSettings_ConversationConfig::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const Character_BrainSettings_ConversationConfig& Character_BrainSettings_ConversationConfig::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Character_BrainSettings_ConversationConfig_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void Character_BrainSettings_ConversationConfig::Clear() {
-// @@protoc_insertion_point(message_clear_start:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  if (GetArena() == nullptr && filler_spec_ != nullptr) {
-    delete filler_spec_;
-  }
-  filler_spec_ = nullptr;
-  ::memset(&emotions_disabled_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&behavioral_contexts_disabled_) -
-      reinterpret_cast<char*>(&emotions_disabled_)) + sizeof(behavioral_contexts_disabled_));
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* Character_BrainSettings_ConversationConfig::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // .ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.FillerSpec filler_spec = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_filler_spec(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool emotions_disabled = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
-          emotions_disabled_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool behavioral_contexts_disabled = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
-          behavioral_contexts_disabled_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* Character_BrainSettings_ConversationConfig::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // .ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.FillerSpec filler_spec = 2;
-  if (this->has_filler_spec()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::filler_spec(this), target, stream);
-  }
-
-  // bool emotions_disabled = 4;
-  if (this->emotions_disabled() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_emotions_disabled(), target);
-  }
-
-  // bool behavioral_contexts_disabled = 5;
-  if (this->behavioral_contexts_disabled() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_behavioral_contexts_disabled(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig)
-  return target;
-}
-
-size_t Character_BrainSettings_ConversationConfig::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // .ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.FillerSpec filler_spec = 2;
-  if (this->has_filler_spec()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *filler_spec_);
-  }
-
-  // bool emotions_disabled = 4;
-  if (this->emotions_disabled() != 0) {
-    total_size += 1 + 1;
-  }
-
-  // bool behavioral_contexts_disabled = 5;
-  if (this->behavioral_contexts_disabled() != 0) {
-    total_size += 1 + 1;
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void Character_BrainSettings_ConversationConfig::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig)
-  GOOGLE_DCHECK_NE(&from, this);
-  const Character_BrainSettings_ConversationConfig* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Character_BrainSettings_ConversationConfig>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig)
-    MergeFrom(*source);
-  }
-}
-
-void Character_BrainSettings_ConversationConfig::MergeFrom(const Character_BrainSettings_ConversationConfig& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.has_filler_spec()) {
-    _internal_mutable_filler_spec()->::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec::MergeFrom(from._internal_filler_spec());
-  }
-  if (from.emotions_disabled() != 0) {
-    _internal_set_emotions_disabled(from._internal_emotions_disabled());
-  }
-  if (from.behavioral_contexts_disabled() != 0) {
-    _internal_set_behavioral_contexts_disabled(from._internal_behavioral_contexts_disabled());
-  }
-}
-
-void Character_BrainSettings_ConversationConfig::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Character_BrainSettings_ConversationConfig::CopyFrom(const Character_BrainSettings_ConversationConfig& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Character_BrainSettings_ConversationConfig::IsInitialized() const {
-  return true;
-}
-
-void Character_BrainSettings_ConversationConfig::InternalSwap(Character_BrainSettings_ConversationConfig* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Character_BrainSettings_ConversationConfig, behavioral_contexts_disabled_)
-      + sizeof(Character_BrainSettings_ConversationConfig::behavioral_contexts_disabled_)
-      - PROTOBUF_FIELD_OFFSET(Character_BrainSettings_ConversationConfig, filler_spec_)>(
-          reinterpret_cast<char*>(&filler_spec_),
-          reinterpret_cast<char*>(&other->filler_spec_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata Character_BrainSettings_ConversationConfig::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class Character_BrainSettings::_Internal {
- public:
-  static const ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig& conversation_config(const Character_BrainSettings* msg);
-};
-
-const ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig&
-Character_BrainSettings::_Internal::conversation_config(const Character_BrainSettings* msg) {
-  return *msg->conversation_config_;
-}
-Character_BrainSettings::Character_BrainSettings(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.Character.BrainSettings)
-}
-Character_BrainSettings::Character_BrainSettings(const Character_BrainSettings& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_conversation_config()) {
-    conversation_config_ = new ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig(*from.conversation_config_);
-  } else {
-    conversation_config_ = nullptr;
-  }
-  // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.Character.BrainSettings)
-}
-
-void Character_BrainSettings::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Character_BrainSettings_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base);
-  conversation_config_ = nullptr;
-}
-
-Character_BrainSettings::~Character_BrainSettings() {
-  // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.Character.BrainSettings)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void Character_BrainSettings::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  if (this != internal_default_instance()) delete conversation_config_;
-}
-
-void Character_BrainSettings::ArenaDtor(void* object) {
-  Character_BrainSettings* _this = reinterpret_cast< Character_BrainSettings* >(object);
-  (void)_this;
-}
-void Character_BrainSettings::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void Character_BrainSettings::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const Character_BrainSettings& Character_BrainSettings::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Character_BrainSettings_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void Character_BrainSettings::Clear() {
-// @@protoc_insertion_point(message_clear_start:ai.inworld.studio.v1alpha.Character.BrainSettings)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  if (GetArena() == nullptr && conversation_config_ != nullptr) {
-    delete conversation_config_;
-  }
-  conversation_config_ = nullptr;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* Character_BrainSettings::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // .ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig conversation_config = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_conversation_config(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* Character_BrainSettings::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.Character.BrainSettings)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // .ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig conversation_config = 1;
-  if (this->has_conversation_config()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::conversation_config(this), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.Character.BrainSettings)
-  return target;
-}
-
-size_t Character_BrainSettings::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ai.inworld.studio.v1alpha.Character.BrainSettings)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // .ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig conversation_config = 1;
-  if (this->has_conversation_config()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *conversation_config_);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void Character_BrainSettings::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.studio.v1alpha.Character.BrainSettings)
-  GOOGLE_DCHECK_NE(&from, this);
-  const Character_BrainSettings* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Character_BrainSettings>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.studio.v1alpha.Character.BrainSettings)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.studio.v1alpha.Character.BrainSettings)
-    MergeFrom(*source);
-  }
-}
-
-void Character_BrainSettings::MergeFrom(const Character_BrainSettings& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.Character.BrainSettings)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.has_conversation_config()) {
-    _internal_mutable_conversation_config()->::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig::MergeFrom(from._internal_conversation_config());
-  }
-}
-
-void Character_BrainSettings::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.studio.v1alpha.Character.BrainSettings)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Character_BrainSettings::CopyFrom(const Character_BrainSettings& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ai.inworld.studio.v1alpha.Character.BrainSettings)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Character_BrainSettings::IsInitialized() const {
-  return true;
-}
-
-void Character_BrainSettings::InternalSwap(Character_BrainSettings* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(conversation_config_, other->conversation_config_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata Character_BrainSettings::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class Character_BrainTrigger::_Internal {
- public:
-};
-
-Character_BrainTrigger::Character_BrainTrigger(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.Character.BrainTrigger)
-}
-Character_BrainTrigger::Character_BrainTrigger(const Character_BrainTrigger& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  trigger_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_trigger().empty()) {
-    trigger_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_trigger(), 
-      GetArena());
-  }
-  situation_description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_situation_description().empty()) {
-    situation_description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_situation_description(), 
-      GetArena());
-  }
-  start_conversation_ = from.start_conversation_;
-  // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.Character.BrainTrigger)
-}
-
-void Character_BrainTrigger::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Character_BrainTrigger_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base);
-  trigger_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  situation_description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  start_conversation_ = false;
-}
-
-Character_BrainTrigger::~Character_BrainTrigger() {
-  // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.Character.BrainTrigger)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void Character_BrainTrigger::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  trigger_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  situation_description_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void Character_BrainTrigger::ArenaDtor(void* object) {
-  Character_BrainTrigger* _this = reinterpret_cast< Character_BrainTrigger* >(object);
-  (void)_this;
-}
-void Character_BrainTrigger::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void Character_BrainTrigger::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const Character_BrainTrigger& Character_BrainTrigger::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Character_BrainTrigger_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void Character_BrainTrigger::Clear() {
-// @@protoc_insertion_point(message_clear_start:ai.inworld.studio.v1alpha.Character.BrainTrigger)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  trigger_.ClearToEmpty();
-  situation_description_.ClearToEmpty();
-  start_conversation_ = false;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* Character_BrainTrigger::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string trigger = 1 [(.google.api.resource_reference) = {
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_trigger();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.Character.BrainTrigger.trigger"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // string situation_description = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          auto str = _internal_mutable_situation_description();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.Character.BrainTrigger.situation_description"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool start_conversation = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          start_conversation_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* Character_BrainTrigger::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.Character.BrainTrigger)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // string trigger = 1 [(.google.api.resource_reference) = {
-  if (this->trigger().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_trigger().data(), static_cast<int>(this->_internal_trigger().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.studio.v1alpha.Character.BrainTrigger.trigger");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_trigger(), target);
-  }
-
-  // string situation_description = 2;
-  if (this->situation_description().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_situation_description().data(), static_cast<int>(this->_internal_situation_description().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.studio.v1alpha.Character.BrainTrigger.situation_description");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_situation_description(), target);
-  }
-
-  // bool start_conversation = 3;
-  if (this->start_conversation() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_start_conversation(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.Character.BrainTrigger)
-  return target;
-}
-
-size_t Character_BrainTrigger::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ai.inworld.studio.v1alpha.Character.BrainTrigger)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // string trigger = 1 [(.google.api.resource_reference) = {
-  if (this->trigger().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_trigger());
-  }
-
-  // string situation_description = 2;
-  if (this->situation_description().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_situation_description());
-  }
-
-  // bool start_conversation = 3;
-  if (this->start_conversation() != 0) {
-    total_size += 1 + 1;
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void Character_BrainTrigger::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.studio.v1alpha.Character.BrainTrigger)
-  GOOGLE_DCHECK_NE(&from, this);
-  const Character_BrainTrigger* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Character_BrainTrigger>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.studio.v1alpha.Character.BrainTrigger)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.studio.v1alpha.Character.BrainTrigger)
-    MergeFrom(*source);
-  }
-}
-
-void Character_BrainTrigger::MergeFrom(const Character_BrainTrigger& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.Character.BrainTrigger)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.trigger().size() > 0) {
-    _internal_set_trigger(from._internal_trigger());
-  }
-  if (from.situation_description().size() > 0) {
-    _internal_set_situation_description(from._internal_situation_description());
-  }
-  if (from.start_conversation() != 0) {
-    _internal_set_start_conversation(from._internal_start_conversation());
-  }
-}
-
-void Character_BrainTrigger::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.studio.v1alpha.Character.BrainTrigger)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Character_BrainTrigger::CopyFrom(const Character_BrainTrigger& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ai.inworld.studio.v1alpha.Character.BrainTrigger)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Character_BrainTrigger::IsInitialized() const {
-  return true;
-}
-
-void Character_BrainTrigger::InternalSwap(Character_BrainTrigger* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  trigger_.Swap(&other->trigger_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  situation_description_.Swap(&other->situation_description_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  swap(start_conversation_, other->start_conversation_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata Character_BrainTrigger::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -4148,11 +3200,24 @@ Character_CharacterAssets::Character_CharacterAssets(const Character_CharacterAs
     avatar_material_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_avatar_material(), 
       GetArena());
   }
+  innequin_img_uri_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_innequin_img_uri().empty()) {
+    innequin_img_uri_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_innequin_img_uri(), 
+      GetArena());
+  }
+  innequin_img_original_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_innequin_img_original().empty()) {
+    innequin_img_original_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_innequin_img_original(), 
+      GetArena());
+  }
   if (from._internal_has_voice()) {
     voice_ = new ::ai::inworld::voices::Voice(*from.voice_);
   } else {
     voice_ = nullptr;
   }
+  ::memcpy(&avatar_type_, &from.avatar_type_,
+    static_cast<size_t>(reinterpret_cast<char*>(&avatar_display_image_source_) -
+    reinterpret_cast<char*>(&avatar_type_)) + sizeof(avatar_display_image_source_));
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.Character.CharacterAssets)
 }
 
@@ -4166,7 +3231,12 @@ void Character_CharacterAssets::SharedCtor() {
   avatar_img_original_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   avatar_background_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   avatar_material_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  voice_ = nullptr;
+  innequin_img_uri_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  innequin_img_original_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&voice_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&avatar_display_image_source_) -
+      reinterpret_cast<char*>(&voice_)) + sizeof(avatar_display_image_source_));
 }
 
 Character_CharacterAssets::~Character_CharacterAssets() {
@@ -4185,6 +3255,8 @@ void Character_CharacterAssets::SharedDtor() {
   avatar_img_original_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   avatar_background_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   avatar_material_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  innequin_img_uri_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  innequin_img_original_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete voice_;
 }
 
@@ -4217,10 +3289,15 @@ void Character_CharacterAssets::Clear() {
   avatar_img_original_.ClearToEmpty();
   avatar_background_.ClearToEmpty();
   avatar_material_.ClearToEmpty();
+  innequin_img_uri_.ClearToEmpty();
+  innequin_img_original_.ClearToEmpty();
   if (GetArena() == nullptr && voice_ != nullptr) {
     delete voice_;
   }
   voice_ = nullptr;
+  ::memset(&avatar_type_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&avatar_display_image_source_) -
+      reinterpret_cast<char*>(&avatar_type_)) + sizeof(avatar_display_image_source_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -4307,6 +3384,40 @@ const char* Character_CharacterAssets::_InternalParse(const char* ptr, ::PROTOBU
           auto str = _internal_mutable_avatar_material();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_material"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .ai.inworld.studio.v1alpha.Character.CharacterAssets.AvatarType avatar_type = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_avatar_type(static_cast<::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarType>(val));
+        } else goto handle_unusual;
+        continue;
+      // string innequin_img_uri = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 98)) {
+          auto str = _internal_mutable_innequin_img_uri();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.Character.CharacterAssets.innequin_img_uri"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .ai.inworld.studio.v1alpha.Character.CharacterAssets.AvatarDisplayImageSource avatar_display_image_source = 13;
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 104)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_avatar_display_image_source(static_cast<::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarDisplayImageSource>(val));
+        } else goto handle_unusual;
+        continue;
+      // string innequin_img_original = 14;
+      case 14:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 114)) {
+          auto str = _internal_mutable_innequin_img_original();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.Character.CharacterAssets.innequin_img_original"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -4426,6 +3537,40 @@ failure:
         10, this->_internal_avatar_material(), target);
   }
 
+  // .ai.inworld.studio.v1alpha.Character.CharacterAssets.AvatarType avatar_type = 11;
+  if (this->avatar_type() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      11, this->_internal_avatar_type(), target);
+  }
+
+  // string innequin_img_uri = 12;
+  if (this->innequin_img_uri().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_innequin_img_uri().data(), static_cast<int>(this->_internal_innequin_img_uri().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.studio.v1alpha.Character.CharacterAssets.innequin_img_uri");
+    target = stream->WriteStringMaybeAliased(
+        12, this->_internal_innequin_img_uri(), target);
+  }
+
+  // .ai.inworld.studio.v1alpha.Character.CharacterAssets.AvatarDisplayImageSource avatar_display_image_source = 13;
+  if (this->avatar_display_image_source() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      13, this->_internal_avatar_display_image_source(), target);
+  }
+
+  // string innequin_img_original = 14;
+  if (this->innequin_img_original().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_innequin_img_original().data(), static_cast<int>(this->_internal_innequin_img_original().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.studio.v1alpha.Character.CharacterAssets.innequin_img_original");
+    target = stream->WriteStringMaybeAliased(
+        14, this->_internal_innequin_img_original(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -4498,11 +3643,37 @@ size_t Character_CharacterAssets::ByteSizeLong() const {
         this->_internal_avatar_material());
   }
 
+  // string innequin_img_uri = 12;
+  if (this->innequin_img_uri().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_innequin_img_uri());
+  }
+
+  // string innequin_img_original = 14;
+  if (this->innequin_img_original().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_innequin_img_original());
+  }
+
   // .ai.inworld.voices.Voice voice = 6;
   if (this->has_voice()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *voice_);
+  }
+
+  // .ai.inworld.studio.v1alpha.Character.CharacterAssets.AvatarType avatar_type = 11;
+  if (this->avatar_type() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_avatar_type());
+  }
+
+  // .ai.inworld.studio.v1alpha.Character.CharacterAssets.AvatarDisplayImageSource avatar_display_image_source = 13;
+  if (this->avatar_display_image_source() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_avatar_display_image_source());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -4560,8 +3731,20 @@ void Character_CharacterAssets::MergeFrom(const Character_CharacterAssets& from)
   if (from.avatar_material().size() > 0) {
     _internal_set_avatar_material(from._internal_avatar_material());
   }
+  if (from.innequin_img_uri().size() > 0) {
+    _internal_set_innequin_img_uri(from._internal_innequin_img_uri());
+  }
+  if (from.innequin_img_original().size() > 0) {
+    _internal_set_innequin_img_original(from._internal_innequin_img_original());
+  }
   if (from.has_voice()) {
     _internal_mutable_voice()->::ai::inworld::voices::Voice::MergeFrom(from._internal_voice());
+  }
+  if (from.avatar_type() != 0) {
+    _internal_set_avatar_type(from._internal_avatar_type());
+  }
+  if (from.avatar_display_image_source() != 0) {
+    _internal_set_avatar_display_image_source(from._internal_avatar_display_image_source());
   }
 }
 
@@ -4594,7 +3777,14 @@ void Character_CharacterAssets::InternalSwap(Character_CharacterAssets* other) {
   avatar_img_original_.Swap(&other->avatar_img_original_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   avatar_background_.Swap(&other->avatar_background_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   avatar_material_.Swap(&other->avatar_material_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  swap(voice_, other->voice_);
+  innequin_img_uri_.Swap(&other->innequin_img_uri_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  innequin_img_original_.Swap(&other->innequin_img_original_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Character_CharacterAssets, avatar_display_image_source_)
+      + sizeof(Character_CharacterAssets::avatar_display_image_source_)
+      - PROTOBUF_FIELD_OFFSET(Character_CharacterAssets, voice_)>(
+          reinterpret_cast<char*>(&voice_),
+          reinterpret_cast<char*>(&other->voice_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Character_CharacterAssets::GetMetadata() const {
@@ -6341,24 +5531,438 @@ void Character_SafetyConfigEntry_DoNotUse::MergeFrom(
 
 // ===================================================================
 
+class Character_LongTermCoherence::_Internal {
+ public:
+};
+
+Character_LongTermCoherence::Character_LongTermCoherence(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.Character.LongTermCoherence)
+}
+Character_LongTermCoherence::Character_LongTermCoherence(const Character_LongTermCoherence& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  enabled_ = from.enabled_;
+  // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.Character.LongTermCoherence)
+}
+
+void Character_LongTermCoherence::SharedCtor() {
+  enabled_ = false;
+}
+
+Character_LongTermCoherence::~Character_LongTermCoherence() {
+  // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.Character.LongTermCoherence)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void Character_LongTermCoherence::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void Character_LongTermCoherence::ArenaDtor(void* object) {
+  Character_LongTermCoherence* _this = reinterpret_cast< Character_LongTermCoherence* >(object);
+  (void)_this;
+}
+void Character_LongTermCoherence::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void Character_LongTermCoherence::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const Character_LongTermCoherence& Character_LongTermCoherence::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Character_LongTermCoherence_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void Character_LongTermCoherence::Clear() {
+// @@protoc_insertion_point(message_clear_start:ai.inworld.studio.v1alpha.Character.LongTermCoherence)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  enabled_ = false;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Character_LongTermCoherence::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // bool enabled = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          enabled_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* Character_LongTermCoherence::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.Character.LongTermCoherence)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bool enabled = 1;
+  if (this->enabled() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_enabled(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.Character.LongTermCoherence)
+  return target;
+}
+
+size_t Character_LongTermCoherence::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ai.inworld.studio.v1alpha.Character.LongTermCoherence)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // bool enabled = 1;
+  if (this->enabled() != 0) {
+    total_size += 1 + 1;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void Character_LongTermCoherence::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.studio.v1alpha.Character.LongTermCoherence)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Character_LongTermCoherence* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Character_LongTermCoherence>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.studio.v1alpha.Character.LongTermCoherence)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.studio.v1alpha.Character.LongTermCoherence)
+    MergeFrom(*source);
+  }
+}
+
+void Character_LongTermCoherence::MergeFrom(const Character_LongTermCoherence& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.Character.LongTermCoherence)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.enabled() != 0) {
+    _internal_set_enabled(from._internal_enabled());
+  }
+}
+
+void Character_LongTermCoherence::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.studio.v1alpha.Character.LongTermCoherence)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Character_LongTermCoherence::CopyFrom(const Character_LongTermCoherence& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ai.inworld.studio.v1alpha.Character.LongTermCoherence)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Character_LongTermCoherence::IsInitialized() const {
+  return true;
+}
+
+void Character_LongTermCoherence::InternalSwap(Character_LongTermCoherence* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(enabled_, other->enabled_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Character_LongTermCoherence::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class Character_Relationship::_Internal {
+ public:
+};
+
+Character_Relationship::Character_Relationship(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.Character.Relationship)
+}
+Character_Relationship::Character_Relationship(const Character_Relationship& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&enabled_, &from.enabled_,
+    static_cast<size_t>(reinterpret_cast<char*>(&fluidity_) -
+    reinterpret_cast<char*>(&enabled_)) + sizeof(fluidity_));
+  // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.Character.Relationship)
+}
+
+void Character_Relationship::SharedCtor() {
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&enabled_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&fluidity_) -
+      reinterpret_cast<char*>(&enabled_)) + sizeof(fluidity_));
+}
+
+Character_Relationship::~Character_Relationship() {
+  // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.Character.Relationship)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void Character_Relationship::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void Character_Relationship::ArenaDtor(void* object) {
+  Character_Relationship* _this = reinterpret_cast< Character_Relationship* >(object);
+  (void)_this;
+}
+void Character_Relationship::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void Character_Relationship::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const Character_Relationship& Character_Relationship::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Character_Relationship_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void Character_Relationship::Clear() {
+// @@protoc_insertion_point(message_clear_start:ai.inworld.studio.v1alpha.Character.Relationship)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&enabled_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&fluidity_) -
+      reinterpret_cast<char*>(&enabled_)) + sizeof(fluidity_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Character_Relationship::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // bool enabled = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          enabled_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // float fluidity = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 21)) {
+          fluidity_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* Character_Relationship::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.Character.Relationship)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bool enabled = 1;
+  if (this->enabled() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_enabled(), target);
+  }
+
+  // float fluidity = 2;
+  if (!(this->fluidity() <= 0 && this->fluidity() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(2, this->_internal_fluidity(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.Character.Relationship)
+  return target;
+}
+
+size_t Character_Relationship::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ai.inworld.studio.v1alpha.Character.Relationship)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // bool enabled = 1;
+  if (this->enabled() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // float fluidity = 2;
+  if (!(this->fluidity() <= 0 && this->fluidity() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void Character_Relationship::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.studio.v1alpha.Character.Relationship)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Character_Relationship* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Character_Relationship>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.studio.v1alpha.Character.Relationship)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.studio.v1alpha.Character.Relationship)
+    MergeFrom(*source);
+  }
+}
+
+void Character_Relationship::MergeFrom(const Character_Relationship& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.Character.Relationship)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.enabled() != 0) {
+    _internal_set_enabled(from._internal_enabled());
+  }
+  if (!(from.fluidity() <= 0 && from.fluidity() >= 0)) {
+    _internal_set_fluidity(from._internal_fluidity());
+  }
+}
+
+void Character_Relationship::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.studio.v1alpha.Character.Relationship)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Character_Relationship::CopyFrom(const Character_Relationship& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ai.inworld.studio.v1alpha.Character.Relationship)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Character_Relationship::IsInitialized() const {
+  return true;
+}
+
+void Character_Relationship::InternalSwap(Character_Relationship* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Character_Relationship, fluidity_)
+      + sizeof(Character_Relationship::fluidity_)
+      - PROTOBUF_FIELD_OFFSET(Character_Relationship, enabled_)>(
+          reinterpret_cast<char*>(&enabled_),
+          reinterpret_cast<char*>(&other->enabled_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Character_Relationship::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class Character::_Internal {
  public:
   static const ::ai::inworld::studio::v1alpha::Character_CharacterDescription& default_character_description(const Character* msg);
-  static const ::ai::inworld::studio::v1alpha::Character_BrainSettings& brain_settings(const Character* msg);
   static const ::ai::inworld::studio::v1alpha::Character_CharacterAssets& default_character_assets(const Character* msg);
   static const ::ai::inworld::studio::v1alpha::Character_CharacterInitialMood& initial_mood(const Character* msg);
   static const ::ai::inworld::studio::v1alpha::Character_CharacterPersonality& personality(const Character* msg);
   static const ::ai::inworld::studio::v1alpha::Character_Meta& meta(const Character* msg);
   static const ::ai::inworld::studio::v1alpha::Character_SharedPortalInfo& share_portal_info(const Character* msg);
+  static const ::ai::inworld::studio::v1alpha::Character_LongTermCoherence& long_term_coherence(const Character* msg);
+  static const ::ai::inworld::studio::v1alpha::Character_Relationship& relationship(const Character* msg);
 };
 
 const ::ai::inworld::studio::v1alpha::Character_CharacterDescription&
 Character::_Internal::default_character_description(const Character* msg) {
   return *msg->default_character_description_;
-}
-const ::ai::inworld::studio::v1alpha::Character_BrainSettings&
-Character::_Internal::brain_settings(const Character* msg) {
-  return *msg->brain_settings_;
 }
 const ::ai::inworld::studio::v1alpha::Character_CharacterAssets&
 Character::_Internal::default_character_assets(const Character* msg) {
@@ -6380,6 +5984,14 @@ const ::ai::inworld::studio::v1alpha::Character_SharedPortalInfo&
 Character::_Internal::share_portal_info(const Character* msg) {
   return *msg->share_portal_info_;
 }
+const ::ai::inworld::studio::v1alpha::Character_LongTermCoherence&
+Character::_Internal::long_term_coherence(const Character* msg) {
+  return *msg->long_term_coherence_;
+}
+const ::ai::inworld::studio::v1alpha::Character_Relationship&
+Character::_Internal::relationship(const Character* msg) {
+  return *msg->relationship_;
+}
 void Character::clear_scenes() {
   scenes_.Clear();
 }
@@ -6388,7 +6000,6 @@ void Character::clear_behavioral_contexts() {
 }
 Character::Character(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  brain_triggers_(arena),
   common_knowledges_(arena),
   scenes_(arena),
   facts_(arena),
@@ -6400,7 +6011,6 @@ Character::Character(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 }
 Character::Character(const Character& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      brain_triggers_(from.brain_triggers_),
       common_knowledges_(from.common_knowledges_),
       scenes_(from.scenes_),
       facts_(from.facts_),
@@ -6427,11 +6037,6 @@ Character::Character(const Character& from)
   } else {
     default_character_description_ = nullptr;
   }
-  if (from._internal_has_brain_settings()) {
-    brain_settings_ = new ::ai::inworld::studio::v1alpha::Character_BrainSettings(*from.brain_settings_);
-  } else {
-    brain_settings_ = nullptr;
-  }
   if (from._internal_has_default_character_assets()) {
     default_character_assets_ = new ::ai::inworld::studio::v1alpha::Character_CharacterAssets(*from.default_character_assets_);
   } else {
@@ -6457,9 +6062,19 @@ Character::Character(const Character& from)
   } else {
     share_portal_info_ = nullptr;
   }
+  if (from._internal_has_long_term_coherence()) {
+    long_term_coherence_ = new ::ai::inworld::studio::v1alpha::Character_LongTermCoherence(*from.long_term_coherence_);
+  } else {
+    long_term_coherence_ = nullptr;
+  }
+  if (from._internal_has_relationship()) {
+    relationship_ = new ::ai::inworld::studio::v1alpha::Character_Relationship(*from.relationship_);
+  } else {
+    relationship_ = nullptr;
+  }
   ::memcpy(&social_rank_, &from.social_rank_,
-    static_cast<size_t>(reinterpret_cast<char*>(&fourth_wall_) -
-    reinterpret_cast<char*>(&social_rank_)) + sizeof(fourth_wall_));
+    static_cast<size_t>(reinterpret_cast<char*>(&language_) -
+    reinterpret_cast<char*>(&social_rank_)) + sizeof(language_));
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.Character)
 }
 
@@ -6470,8 +6085,8 @@ void Character::SharedCtor() {
   yaml_config_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
       reinterpret_cast<char*>(&default_character_description_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&fourth_wall_) -
-      reinterpret_cast<char*>(&default_character_description_)) + sizeof(fourth_wall_));
+      0, static_cast<size_t>(reinterpret_cast<char*>(&language_) -
+      reinterpret_cast<char*>(&default_character_description_)) + sizeof(language_));
 }
 
 Character::~Character() {
@@ -6486,12 +6101,13 @@ void Character::SharedDtor() {
   language_code_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   yaml_config_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete default_character_description_;
-  if (this != internal_default_instance()) delete brain_settings_;
   if (this != internal_default_instance()) delete default_character_assets_;
   if (this != internal_default_instance()) delete initial_mood_;
   if (this != internal_default_instance()) delete personality_;
   if (this != internal_default_instance()) delete meta_;
   if (this != internal_default_instance()) delete share_portal_info_;
+  if (this != internal_default_instance()) delete long_term_coherence_;
+  if (this != internal_default_instance()) delete relationship_;
 }
 
 void Character::ArenaDtor(void* object) {
@@ -6515,7 +6131,6 @@ void Character::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  brain_triggers_.Clear();
   common_knowledges_.Clear();
   scenes_.Clear();
   facts_.Clear();
@@ -6528,10 +6143,6 @@ void Character::Clear() {
     delete default_character_description_;
   }
   default_character_description_ = nullptr;
-  if (GetArena() == nullptr && brain_settings_ != nullptr) {
-    delete brain_settings_;
-  }
-  brain_settings_ = nullptr;
   if (GetArena() == nullptr && default_character_assets_ != nullptr) {
     delete default_character_assets_;
   }
@@ -6552,9 +6163,17 @@ void Character::Clear() {
     delete share_portal_info_;
   }
   share_portal_info_ = nullptr;
+  if (GetArena() == nullptr && long_term_coherence_ != nullptr) {
+    delete long_term_coherence_;
+  }
+  long_term_coherence_ = nullptr;
+  if (GetArena() == nullptr && relationship_ != nullptr) {
+    delete relationship_;
+  }
+  relationship_ = nullptr;
   ::memset(&social_rank_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&fourth_wall_) -
-      reinterpret_cast<char*>(&social_rank_)) + sizeof(fourth_wall_));
+      reinterpret_cast<char*>(&language_) -
+      reinterpret_cast<char*>(&social_rank_)) + sizeof(language_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -6574,7 +6193,7 @@ const char* Character::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // string language_code = 2;
+      // string language_code = 2 [deprecated = true];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_language_code();
@@ -6588,25 +6207,6 @@ const char* Character::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_default_character_description(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .ai.inworld.studio.v1alpha.Character.BrainSettings brain_settings = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
-          ptr = ctx->ParseMessage(_internal_mutable_brain_settings(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // repeated .ai.inworld.studio.v1alpha.Character.BrainTrigger brain_triggers = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_brain_triggers(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
         } else goto handle_unusual;
         continue;
       // .ai.inworld.studio.v1alpha.Character.CharacterAssets default_character_assets = 7;
@@ -6729,7 +6329,7 @@ const char* Character::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<170>(ptr));
         } else goto handle_unusual;
         continue;
-      // float relationship_fluidity = 22;
+      // float relationship_fluidity = 22 [deprecated = true];
       case 22:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 181)) {
           relationship_fluidity_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
@@ -6742,6 +6342,36 @@ const char* Character::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_fourth_wall(static_cast<::ai::inworld::studio::v1alpha::Character_FourthWallContainment>(val));
+        } else goto handle_unusual;
+        continue;
+      // .ai.inworld.studio.v1alpha.Character.LongTermCoherence long_term_coherence = 24;
+      case 24:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 194)) {
+          ptr = ctx->ParseMessage(_internal_mutable_long_term_coherence(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .ai.inworld.studio.v1alpha.Character.Relationship relationship = 25;
+      case 25:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 202)) {
+          ptr = ctx->ParseMessage(_internal_mutable_relationship(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .ai.inworld.studio.v1alpha.CognitiveControl cognitive_control = 26;
+      case 26:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 208)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_cognitive_control(static_cast<::ai::inworld::studio::v1alpha::CognitiveControl>(val));
+        } else goto handle_unusual;
+        continue;
+      // .ai.inworld.language_codes.LanguageCode language = 27;
+      case 27:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 216)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_language(static_cast<::ai::inworld::language_codes::LanguageCode>(val));
         } else goto handle_unusual;
         continue;
       default: {
@@ -6782,7 +6412,7 @@ failure:
         1, this->_internal_name(), target);
   }
 
-  // string language_code = 2;
+  // string language_code = 2 [deprecated = true];
   if (this->language_code().size() > 0) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_language_code().data(), static_cast<int>(this->_internal_language_code().length()),
@@ -6798,22 +6428,6 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
         3, _Internal::default_character_description(this), target, stream);
-  }
-
-  // .ai.inworld.studio.v1alpha.Character.BrainSettings brain_settings = 4;
-  if (this->has_brain_settings()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        4, _Internal::brain_settings(this), target, stream);
-  }
-
-  // repeated .ai.inworld.studio.v1alpha.Character.BrainTrigger brain_triggers = 5;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_brain_triggers_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(5, this->_internal_brain_triggers(i), target, stream);
   }
 
   // .ai.inworld.studio.v1alpha.Character.CharacterAssets default_character_assets = 7;
@@ -6953,7 +6567,7 @@ failure:
     }
   }
 
-  // float relationship_fluidity = 22;
+  // float relationship_fluidity = 22 [deprecated = true];
   if (!(this->relationship_fluidity() <= 0 && this->relationship_fluidity() >= 0)) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(22, this->_internal_relationship_fluidity(), target);
@@ -6964,6 +6578,36 @@ failure:
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       23, this->_internal_fourth_wall(), target);
+  }
+
+  // .ai.inworld.studio.v1alpha.Character.LongTermCoherence long_term_coherence = 24;
+  if (this->has_long_term_coherence()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        24, _Internal::long_term_coherence(this), target, stream);
+  }
+
+  // .ai.inworld.studio.v1alpha.Character.Relationship relationship = 25;
+  if (this->has_relationship()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        25, _Internal::relationship(this), target, stream);
+  }
+
+  // .ai.inworld.studio.v1alpha.CognitiveControl cognitive_control = 26;
+  if (this->cognitive_control() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      26, this->_internal_cognitive_control(), target);
+  }
+
+  // .ai.inworld.language_codes.LanguageCode language = 27;
+  if (this->language() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      27, this->_internal_language(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -6981,13 +6625,6 @@ size_t Character::ByteSizeLong() const {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
-
-  // repeated .ai.inworld.studio.v1alpha.Character.BrainTrigger brain_triggers = 5;
-  total_size += 1UL * this->_internal_brain_triggers_size();
-  for (const auto& msg : this->brain_triggers_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
 
   // repeated string common_knowledges = 11;
   total_size += 1 *
@@ -7034,7 +6671,7 @@ size_t Character::ByteSizeLong() const {
         this->_internal_name());
   }
 
-  // string language_code = 2;
+  // string language_code = 2 [deprecated = true];
   if (this->language_code().size() > 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -7053,13 +6690,6 @@ size_t Character::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *default_character_description_);
-  }
-
-  // .ai.inworld.studio.v1alpha.Character.BrainSettings brain_settings = 4;
-  if (this->has_brain_settings()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *brain_settings_);
   }
 
   // .ai.inworld.studio.v1alpha.Character.CharacterAssets default_character_assets = 7;
@@ -7097,6 +6727,20 @@ size_t Character::ByteSizeLong() const {
         *share_portal_info_);
   }
 
+  // .ai.inworld.studio.v1alpha.Character.LongTermCoherence long_term_coherence = 24;
+  if (this->has_long_term_coherence()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *long_term_coherence_);
+  }
+
+  // .ai.inworld.studio.v1alpha.Character.Relationship relationship = 25;
+  if (this->has_relationship()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *relationship_);
+  }
+
   // float social_rank = 12;
   if (!(this->social_rank() <= 0 && this->social_rank() >= 0)) {
     total_size += 1 + 4;
@@ -7107,7 +6751,7 @@ size_t Character::ByteSizeLong() const {
     total_size += 2 + 4;
   }
 
-  // float relationship_fluidity = 22;
+  // float relationship_fluidity = 22 [deprecated = true];
   if (!(this->relationship_fluidity() <= 0 && this->relationship_fluidity() >= 0)) {
     total_size += 2 + 4;
   }
@@ -7116,6 +6760,18 @@ size_t Character::ByteSizeLong() const {
   if (this->fourth_wall() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_fourth_wall());
+  }
+
+  // .ai.inworld.studio.v1alpha.CognitiveControl cognitive_control = 26;
+  if (this->cognitive_control() != 0) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_cognitive_control());
+  }
+
+  // .ai.inworld.language_codes.LanguageCode language = 27;
+  if (this->language() != 0) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_language());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -7149,7 +6805,6 @@ void Character::MergeFrom(const Character& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  brain_triggers_.MergeFrom(from.brain_triggers_);
   common_knowledges_.MergeFrom(from.common_knowledges_);
   scenes_.MergeFrom(from.scenes_);
   facts_.MergeFrom(from.facts_);
@@ -7167,9 +6822,6 @@ void Character::MergeFrom(const Character& from) {
   if (from.has_default_character_description()) {
     _internal_mutable_default_character_description()->::ai::inworld::studio::v1alpha::Character_CharacterDescription::MergeFrom(from._internal_default_character_description());
   }
-  if (from.has_brain_settings()) {
-    _internal_mutable_brain_settings()->::ai::inworld::studio::v1alpha::Character_BrainSettings::MergeFrom(from._internal_brain_settings());
-  }
   if (from.has_default_character_assets()) {
     _internal_mutable_default_character_assets()->::ai::inworld::studio::v1alpha::Character_CharacterAssets::MergeFrom(from._internal_default_character_assets());
   }
@@ -7185,6 +6837,12 @@ void Character::MergeFrom(const Character& from) {
   if (from.has_share_portal_info()) {
     _internal_mutable_share_portal_info()->::ai::inworld::studio::v1alpha::Character_SharedPortalInfo::MergeFrom(from._internal_share_portal_info());
   }
+  if (from.has_long_term_coherence()) {
+    _internal_mutable_long_term_coherence()->::ai::inworld::studio::v1alpha::Character_LongTermCoherence::MergeFrom(from._internal_long_term_coherence());
+  }
+  if (from.has_relationship()) {
+    _internal_mutable_relationship()->::ai::inworld::studio::v1alpha::Character_Relationship::MergeFrom(from._internal_relationship());
+  }
   if (!(from.social_rank() <= 0 && from.social_rank() >= 0)) {
     _internal_set_social_rank(from._internal_social_rank());
   }
@@ -7196,6 +6854,12 @@ void Character::MergeFrom(const Character& from) {
   }
   if (from.fourth_wall() != 0) {
     _internal_set_fourth_wall(from._internal_fourth_wall());
+  }
+  if (from.cognitive_control() != 0) {
+    _internal_set_cognitive_control(from._internal_cognitive_control());
+  }
+  if (from.language() != 0) {
+    _internal_set_language(from._internal_language());
   }
 }
 
@@ -7220,7 +6884,6 @@ bool Character::IsInitialized() const {
 void Character::InternalSwap(Character* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  brain_triggers_.InternalSwap(&other->brain_triggers_);
   common_knowledges_.InternalSwap(&other->common_knowledges_);
   scenes_.InternalSwap(&other->scenes_);
   facts_.InternalSwap(&other->facts_);
@@ -7230,8 +6893,8 @@ void Character::InternalSwap(Character* other) {
   language_code_.Swap(&other->language_code_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   yaml_config_.Swap(&other->yaml_config_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Character, fourth_wall_)
-      + sizeof(Character::fourth_wall_)
+      PROTOBUF_FIELD_OFFSET(Character, language_)
+      + sizeof(Character::language_)
       - PROTOBUF_FIELD_OFFSET(Character, default_character_description_)>(
           reinterpret_cast<char*>(&default_character_description_),
           reinterpret_cast<char*>(&other->default_character_description_));
@@ -10035,6 +9698,7 @@ ReplaceCharacterImageRequest::ReplaceCharacterImageRequest(const ReplaceCharacte
     content_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_content(), 
       GetArena());
   }
+  character_asset_type_ = from.character_asset_type_;
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.ReplaceCharacterImageRequest)
 }
 
@@ -10042,6 +9706,7 @@ void ReplaceCharacterImageRequest::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ReplaceCharacterImageRequest_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.base);
   character_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   content_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  character_asset_type_ = 0;
 }
 
 ReplaceCharacterImageRequest::~ReplaceCharacterImageRequest() {
@@ -10079,6 +9744,7 @@ void ReplaceCharacterImageRequest::Clear() {
 
   character_.ClearToEmpty();
   content_.ClearToEmpty();
+  character_asset_type_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -10104,6 +9770,14 @@ const char* ReplaceCharacterImageRequest::_InternalParse(const char* ptr, ::PROT
           auto str = _internal_mutable_content();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .ai.inworld.studio.v1alpha.CharacterAssetType character_asset_type = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_character_asset_type(static_cast<::ai::inworld::studio::v1alpha::CharacterAssetType>(val));
         } else goto handle_unusual;
         continue;
       default: {
@@ -10150,6 +9824,13 @@ failure:
         2, this->_internal_content(), target);
   }
 
+  // .ai.inworld.studio.v1alpha.CharacterAssetType character_asset_type = 3;
+  if (this->character_asset_type() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      3, this->_internal_character_asset_type(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -10178,6 +9859,12 @@ size_t ReplaceCharacterImageRequest::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_content());
+  }
+
+  // .ai.inworld.studio.v1alpha.CharacterAssetType character_asset_type = 3;
+  if (this->character_asset_type() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_character_asset_type());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -10217,6 +9904,9 @@ void ReplaceCharacterImageRequest::MergeFrom(const ReplaceCharacterImageRequest&
   if (from.content().size() > 0) {
     _internal_set_content(from._internal_content());
   }
+  if (from.character_asset_type() != 0) {
+    _internal_set_character_asset_type(from._internal_character_asset_type());
+  }
 }
 
 void ReplaceCharacterImageRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -10242,6 +9932,7 @@ void ReplaceCharacterImageRequest::InternalSwap(ReplaceCharacterImageRequest* ot
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   character_.Swap(&other->character_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   content_.Swap(&other->content_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  swap(character_asset_type_, other->character_asset_type_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ReplaceCharacterImageRequest::GetMetadata() const {
@@ -14478,18 +14169,6 @@ template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::Character_Character
 template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::Character_CharacterDescription* Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::Character_CharacterDescription >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::Character_CharacterDescription >(arena);
 }
-template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec* Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig* Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::Character_BrainSettings* Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::Character_BrainSettings >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::Character_BrainSettings >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::Character_BrainTrigger* Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::Character_BrainTrigger >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::Character_BrainTrigger >(arena);
-}
 template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::Character_CharacterAssets* Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::Character_CharacterAssets >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::Character_CharacterAssets >(arena);
 }
@@ -14513,6 +14192,12 @@ template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::Character_SharedPor
 }
 template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::Character_SafetyConfigEntry_DoNotUse* Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::Character_SafetyConfigEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::Character_SafetyConfigEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::Character_LongTermCoherence* Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::Character_LongTermCoherence >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::Character_LongTermCoherence >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::Character_Relationship* Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::Character_Relationship >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::Character_Relationship >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::Character* Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::Character >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::Character >(arena);

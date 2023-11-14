@@ -108,6 +108,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_voices_2eproto::offsets[] PROT
   PROTOBUF_FIELD_OFFSET(::ai::inworld::voices::Voice, robotic_voice_filter_level_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::voices::Voice, phonemes_overrides_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::voices::Voice, age_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::voices::Voice, language_code_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::voices::Voice, language_),
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::ai::inworld::voices::Voice, tts_metadata_),
 };
@@ -124,32 +126,37 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_voices_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\014voices.proto\022\021ai.inworld.voices\"\354\003\n\005Vo"
-  "ice\022\020\n\010baseName\030\001 \001(\t\022,\n\010tts_type\030\002 \001(\0162"
-  "\032.ai.inworld.voices.TTSType\022)\n\006gender\030\003 "
-  "\001(\0162\031.ai.inworld.voices.Gender\022\r\n\005pitch\030"
-  "\004 \001(\001\022\025\n\rspeaking_rate\030\005 \001(\001\022\"\n\032robotic_"
-  "voice_filter_level\030\006 \001(\001\022K\n\022phonemes_ove"
-  "rrides\030\007 \003(\0132/.ai.inworld.voices.Voice.P"
-  "honemesOverridesEntry\022#\n\003age\030\010 \001(\0162\026.ai."
-  "inworld.voices.Age\022J\n\023elevenlabs_metadat"
-  "a\030d \001(\0132+.ai.inworld.voices.Voice.Eleven"
-  "LabsMetadataH\000\0328\n\026PhonemesOverridesEntry"
-  "\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032&\n\022Elev"
-  "enLabsMetadata\022\020\n\010voice_id\030\001 \001(\tB\016\n\014tts_"
-  "metadata*p\n\006Gender\022\034\n\030VOICE_GENDER_UNSPE"
-  "CIFIED\020\000\022\025\n\021VOICE_GENDER_MALE\020\001\022\027\n\023VOICE"
-  "_GENDER_FEMALE\020\002\022\030\n\024VOICE_GENDER_NEUTRAL"
-  "\020\003*c\n\003Age\022\031\n\025VOICE_AGE_UNSPECIFIED\020\000\022\023\n\017"
-  "VOICE_AGE_YOUNG\020\001\022\031\n\025VOICE_AGE_MIDDLE_AG"
-  "ED\020\002\022\021\n\rVOICE_AGE_OLD\020\003*U\n\007TTSType\022\031\n\021TT"
-  "S_TYPE_STANDARD\020\000\032\002\010\001\022\025\n\021TTS_TYPE_ADVANC"
-  "ED\020\001\022\030\n\024TTS_TYPE_ELEVEN_LABS\020\002Br\n\021ai.inw"
-  "orld.voicesB\016VoicesProtocolZMgithub.com/"
-  "inworld-ai/inworld/serving/grpc-gateway/"
-  "build/proto/engine/v1alphab\006proto3"
+  "\n\014voices.proto\022\021ai.inworld.voices\032\024langu"
+  "age_codes.proto\"\302\004\n\005Voice\022\020\n\010baseName\030\001 "
+  "\001(\t\022,\n\010tts_type\030\002 \001(\0162\032.ai.inworld.voice"
+  "s.TTSType\022)\n\006gender\030\003 \001(\0162\031.ai.inworld.v"
+  "oices.Gender\022\r\n\005pitch\030\004 \001(\001\022\025\n\rspeaking_"
+  "rate\030\005 \001(\001\022\"\n\032robotic_voice_filter_level"
+  "\030\006 \001(\001\022K\n\022phonemes_overrides\030\007 \003(\0132/.ai."
+  "inworld.voices.Voice.PhonemesOverridesEn"
+  "try\022#\n\003age\030\010 \001(\0162\026.ai.inworld.voices.Age"
+  "\022\031\n\rlanguage_code\030\t \001(\tB\002\030\001\0229\n\010language\030"
+  "\n \001(\0162\'.ai.inworld.language_codes.Langua"
+  "geCode\022J\n\023elevenlabs_metadata\030d \001(\0132+.ai"
+  ".inworld.voices.Voice.ElevenLabsMetadata"
+  "H\000\0328\n\026PhonemesOverridesEntry\022\013\n\003key\030\001 \001("
+  "\t\022\r\n\005value\030\002 \001(\t:\0028\001\032&\n\022ElevenLabsMetada"
+  "ta\022\020\n\010voice_id\030\001 \001(\tB\016\n\014tts_metadata*p\n\006"
+  "Gender\022\034\n\030VOICE_GENDER_UNSPECIFIED\020\000\022\025\n\021"
+  "VOICE_GENDER_MALE\020\001\022\027\n\023VOICE_GENDER_FEMA"
+  "LE\020\002\022\030\n\024VOICE_GENDER_NEUTRAL\020\003*c\n\003Age\022\031\n"
+  "\025VOICE_AGE_UNSPECIFIED\020\000\022\023\n\017VOICE_AGE_YO"
+  "UNG\020\001\022\031\n\025VOICE_AGE_MIDDLE_AGED\020\002\022\021\n\rVOIC"
+  "E_AGE_OLD\020\003*o\n\007TTSType\022\031\n\021TTS_TYPE_STAND"
+  "ARD\020\000\032\002\010\001\022\025\n\021TTS_TYPE_ADVANCED\020\001\022\030\n\024TTS_"
+  "TYPE_ELEVEN_LABS\020\002\022\030\n\024TTS_TYPE_ADVANCED_"
+  "V2\020\003Br\n\021ai.inworld.voicesB\016VoicesProtoco"
+  "lZMgithub.com/inworld-ai/inworld/serving"
+  "/grpc-gateway/build/proto/engine/v1alpha"
+  "b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_voices_2eproto_deps[1] = {
+  &::descriptor_table_language_5fcodes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_voices_2eproto_sccs[3] = {
   &scc_info_Voice_voices_2eproto.base,
@@ -158,8 +165,8 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_voi
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_voices_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_voices_2eproto = {
-  false, false, descriptor_table_protodef_voices_2eproto, "voices.proto", 954,
-  &descriptor_table_voices_2eproto_once, descriptor_table_voices_2eproto_sccs, descriptor_table_voices_2eproto_deps, 3, 0,
+  false, false, descriptor_table_protodef_voices_2eproto, "voices.proto", 1088,
+  &descriptor_table_voices_2eproto_once, descriptor_table_voices_2eproto_sccs, descriptor_table_voices_2eproto_deps, 3, 1,
   schemas, file_default_instances, TableStruct_voices_2eproto::offsets,
   file_level_metadata_voices_2eproto, 3, file_level_enum_descriptors_voices_2eproto, file_level_service_descriptors_voices_2eproto,
 };
@@ -210,6 +217,7 @@ bool TTSType_IsValid(int value) {
     case 0:
     case 1:
     case 2:
+    case 3:
       return true;
     default:
       return false;
@@ -482,9 +490,14 @@ Voice::Voice(const Voice& from)
     basename_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_basename(), 
       GetArena());
   }
+  language_code_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_language_code().empty()) {
+    language_code_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_language_code(), 
+      GetArena());
+  }
   ::memcpy(&tts_type_, &from.tts_type_,
-    static_cast<size_t>(reinterpret_cast<char*>(&age_) -
-    reinterpret_cast<char*>(&tts_type_)) + sizeof(age_));
+    static_cast<size_t>(reinterpret_cast<char*>(&language_) -
+    reinterpret_cast<char*>(&tts_type_)) + sizeof(language_));
   clear_has_tts_metadata();
   switch (from.tts_metadata_case()) {
     case kElevenlabsMetadata: {
@@ -501,10 +514,11 @@ Voice::Voice(const Voice& from)
 void Voice::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Voice_voices_2eproto.base);
   basename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  language_code_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
       reinterpret_cast<char*>(&tts_type_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&age_) -
-      reinterpret_cast<char*>(&tts_type_)) + sizeof(age_));
+      0, static_cast<size_t>(reinterpret_cast<char*>(&language_) -
+      reinterpret_cast<char*>(&tts_type_)) + sizeof(language_));
   clear_has_tts_metadata();
 }
 
@@ -517,6 +531,7 @@ Voice::~Voice() {
 void Voice::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   basename_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  language_code_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (has_tts_metadata()) {
     clear_tts_metadata();
   }
@@ -562,9 +577,10 @@ void Voice::Clear() {
 
   phonemes_overrides_.Clear();
   basename_.ClearToEmpty();
+  language_code_.ClearToEmpty();
   ::memset(&tts_type_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&age_) -
-      reinterpret_cast<char*>(&tts_type_)) + sizeof(age_));
+      reinterpret_cast<char*>(&language_) -
+      reinterpret_cast<char*>(&tts_type_)) + sizeof(language_));
   clear_tts_metadata();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -640,6 +656,23 @@ const char* Voice::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inte
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_age(static_cast<::ai::inworld::voices::Age>(val));
+        } else goto handle_unusual;
+        continue;
+      // string language_code = 9 [deprecated = true];
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
+          auto str = _internal_mutable_language_code();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.voices.Voice.language_code"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .ai.inworld.language_codes.LanguageCode language = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_language(static_cast<::ai::inworld::language_codes::LanguageCode>(val));
         } else goto handle_unusual;
         continue;
       // .ai.inworld.voices.Voice.ElevenLabsMetadata elevenlabs_metadata = 100;
@@ -771,6 +804,23 @@ failure:
       8, this->_internal_age(), target);
   }
 
+  // string language_code = 9 [deprecated = true];
+  if (this->language_code().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_language_code().data(), static_cast<int>(this->_internal_language_code().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.voices.Voice.language_code");
+    target = stream->WriteStringMaybeAliased(
+        9, this->_internal_language_code(), target);
+  }
+
+  // .ai.inworld.language_codes.LanguageCode language = 10;
+  if (this->language() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      10, this->_internal_language(), target);
+  }
+
   // .ai.inworld.voices.Voice.ElevenLabsMetadata elevenlabs_metadata = 100;
   if (_internal_has_elevenlabs_metadata()) {
     target = stream->EnsureSpace(target);
@@ -811,6 +861,13 @@ size_t Voice::ByteSizeLong() const {
         this->_internal_basename());
   }
 
+  // string language_code = 9 [deprecated = true];
+  if (this->language_code().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_language_code());
+  }
+
   // .ai.inworld.voices.TTSType tts_type = 2;
   if (this->tts_type() != 0) {
     total_size += 1 +
@@ -842,6 +899,12 @@ size_t Voice::ByteSizeLong() const {
   if (this->age() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_age());
+  }
+
+  // .ai.inworld.language_codes.LanguageCode language = 10;
+  if (this->language() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_language());
   }
 
   switch (tts_metadata_case()) {
@@ -891,6 +954,9 @@ void Voice::MergeFrom(const Voice& from) {
   if (from.basename().size() > 0) {
     _internal_set_basename(from._internal_basename());
   }
+  if (from.language_code().size() > 0) {
+    _internal_set_language_code(from._internal_language_code());
+  }
   if (from.tts_type() != 0) {
     _internal_set_tts_type(from._internal_tts_type());
   }
@@ -908,6 +974,9 @@ void Voice::MergeFrom(const Voice& from) {
   }
   if (from.age() != 0) {
     _internal_set_age(from._internal_age());
+  }
+  if (from.language() != 0) {
+    _internal_set_language(from._internal_language());
   }
   switch (from.tts_metadata_case()) {
     case kElevenlabsMetadata: {
@@ -943,9 +1012,10 @@ void Voice::InternalSwap(Voice* other) {
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   phonemes_overrides_.Swap(&other->phonemes_overrides_);
   basename_.Swap(&other->basename_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  language_code_.Swap(&other->language_code_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Voice, age_)
-      + sizeof(Voice::age_)
+      PROTOBUF_FIELD_OFFSET(Voice, language_)
+      + sizeof(Voice::language_)
       - PROTOBUF_FIELD_OFFSET(Voice, tts_type_)>(
           reinterpret_cast<char*>(&tts_type_),
           reinterpret_cast<char*>(&other->tts_type_));

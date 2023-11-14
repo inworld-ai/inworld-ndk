@@ -45,6 +45,7 @@
 #include "options.pb.h"
 #include "ai/inworld/studio/v1alpha/behavioral_contexts.pb.h"
 #include "ai/inworld/studio/v1alpha/scenes.pb.h"
+#include "language_codes.pb.h"
 #include "voices.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
@@ -61,7 +62,7 @@ struct TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[45]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[43]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -90,18 +91,6 @@ extern CharacterAdvancedSettings_SafetySpecDefaultTypeInternal _CharacterAdvance
 class CharacterShareInfo;
 class CharacterShareInfoDefaultTypeInternal;
 extern CharacterShareInfoDefaultTypeInternal _CharacterShareInfo_default_instance_;
-class Character_BrainSettings;
-class Character_BrainSettingsDefaultTypeInternal;
-extern Character_BrainSettingsDefaultTypeInternal _Character_BrainSettings_default_instance_;
-class Character_BrainSettings_ConversationConfig;
-class Character_BrainSettings_ConversationConfigDefaultTypeInternal;
-extern Character_BrainSettings_ConversationConfigDefaultTypeInternal _Character_BrainSettings_ConversationConfig_default_instance_;
-class Character_BrainSettings_ConversationConfig_FillerSpec;
-class Character_BrainSettings_ConversationConfig_FillerSpecDefaultTypeInternal;
-extern Character_BrainSettings_ConversationConfig_FillerSpecDefaultTypeInternal _Character_BrainSettings_ConversationConfig_FillerSpec_default_instance_;
-class Character_BrainTrigger;
-class Character_BrainTriggerDefaultTypeInternal;
-extern Character_BrainTriggerDefaultTypeInternal _Character_BrainTrigger_default_instance_;
 class Character_CharacterAssets;
 class Character_CharacterAssetsDefaultTypeInternal;
 extern Character_CharacterAssetsDefaultTypeInternal _Character_CharacterAssets_default_instance_;
@@ -120,9 +109,15 @@ extern Character_CharacterPersonalityDefaultTypeInternal _Character_CharacterPer
 class Character_Fact;
 class Character_FactDefaultTypeInternal;
 extern Character_FactDefaultTypeInternal _Character_Fact_default_instance_;
+class Character_LongTermCoherence;
+class Character_LongTermCoherenceDefaultTypeInternal;
+extern Character_LongTermCoherenceDefaultTypeInternal _Character_LongTermCoherence_default_instance_;
 class Character_Meta;
 class Character_MetaDefaultTypeInternal;
 extern Character_MetaDefaultTypeInternal _Character_Meta_default_instance_;
+class Character_Relationship;
+class Character_RelationshipDefaultTypeInternal;
+extern Character_RelationshipDefaultTypeInternal _Character_Relationship_default_instance_;
 class Character_SafetyConfigEntry_DoNotUse;
 class Character_SafetyConfigEntry_DoNotUseDefaultTypeInternal;
 extern Character_SafetyConfigEntry_DoNotUseDefaultTypeInternal _Character_SafetyConfigEntry_DoNotUse_default_instance_;
@@ -218,17 +213,15 @@ template<> ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_Conversatio
 template<> ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_ConversationConfig_EngineSpec* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_ConversationConfig_EngineSpec>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_SafetySpec* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_SafetySpec>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::CharacterShareInfo* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::CharacterShareInfo>(Arena*);
-template<> ::ai::inworld::studio::v1alpha::Character_BrainSettings* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::Character_BrainSettings>(Arena*);
-template<> ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig>(Arena*);
-template<> ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec>(Arena*);
-template<> ::ai::inworld::studio::v1alpha::Character_BrainTrigger* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::Character_BrainTrigger>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::Character_CharacterAssets* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::Character_CharacterAssets>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::Character_CharacterDescription* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::Character_CharacterDescription>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::Character_CharacterDescription_CustomDialogStyle* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::Character_CharacterDescription_CustomDialogStyle>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::Character_CharacterInitialMood* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::Character_CharacterInitialMood>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::Character_CharacterPersonality* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::Character_CharacterPersonality>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::Character_Fact* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::Character_Fact>(Arena*);
+template<> ::ai::inworld::studio::v1alpha::Character_LongTermCoherence* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::Character_LongTermCoherence>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::Character_Meta* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::Character_Meta>(Arena*);
+template<> ::ai::inworld::studio::v1alpha::Character_Relationship* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::Character_Relationship>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::Character_SafetyConfigEntry_DoNotUse* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::Character_SafetyConfigEntry_DoNotUse>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::Character_SharedPortalInfo* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::Character_SharedPortalInfo>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::Character_SharedPortalInfo_InteractionCountStat* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::Character_SharedPortalInfo_InteractionCountStat>(Arena*);
@@ -364,6 +357,88 @@ inline bool Character_CharacterDescription_LifeStage_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Character_CharacterDescription_LifeStage* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Character_CharacterDescription_LifeStage>(
     Character_CharacterDescription_LifeStage_descriptor(), name, value);
+}
+enum Character_CharacterDescription_DialogResponseLength : int {
+  Character_CharacterDescription_DialogResponseLength_DIALOG_RESPONSE_LENGTH_UNSPECIFIED = 0,
+  Character_CharacterDescription_DialogResponseLength_DIALOG_RESPONSE_LENGTH_VERY_SHORT = 1,
+  Character_CharacterDescription_DialogResponseLength_DIALOG_RESPONSE_LENGTH_SHORT = 2,
+  Character_CharacterDescription_DialogResponseLength_DIALOG_RESPONSE_LENGTH_MEDIUM = 3,
+  Character_CharacterDescription_DialogResponseLength_DIALOG_RESPONSE_LENGTH_LONG = 4,
+  Character_CharacterDescription_DialogResponseLength_DIALOG_RESPONSE_LENGTH_VERY_LONG = 5,
+  Character_CharacterDescription_DialogResponseLength_Character_CharacterDescription_DialogResponseLength_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  Character_CharacterDescription_DialogResponseLength_Character_CharacterDescription_DialogResponseLength_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool Character_CharacterDescription_DialogResponseLength_IsValid(int value);
+constexpr Character_CharacterDescription_DialogResponseLength Character_CharacterDescription_DialogResponseLength_DialogResponseLength_MIN = Character_CharacterDescription_DialogResponseLength_DIALOG_RESPONSE_LENGTH_UNSPECIFIED;
+constexpr Character_CharacterDescription_DialogResponseLength Character_CharacterDescription_DialogResponseLength_DialogResponseLength_MAX = Character_CharacterDescription_DialogResponseLength_DIALOG_RESPONSE_LENGTH_VERY_LONG;
+constexpr int Character_CharacterDescription_DialogResponseLength_DialogResponseLength_ARRAYSIZE = Character_CharacterDescription_DialogResponseLength_DialogResponseLength_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Character_CharacterDescription_DialogResponseLength_descriptor();
+template<typename T>
+inline const std::string& Character_CharacterDescription_DialogResponseLength_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, Character_CharacterDescription_DialogResponseLength>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function Character_CharacterDescription_DialogResponseLength_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    Character_CharacterDescription_DialogResponseLength_descriptor(), enum_t_value);
+}
+inline bool Character_CharacterDescription_DialogResponseLength_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Character_CharacterDescription_DialogResponseLength* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Character_CharacterDescription_DialogResponseLength>(
+    Character_CharacterDescription_DialogResponseLength_descriptor(), name, value);
+}
+enum Character_CharacterAssets_AvatarType : int {
+  Character_CharacterAssets_AvatarType_AVATAR_TYPE_UNSPECIFIED = 0,
+  Character_CharacterAssets_AvatarType_AVATAR_TYPE_RPM = 1,
+  Character_CharacterAssets_AvatarType_AVATAR_TYPE_INWORLD = 2,
+  Character_CharacterAssets_AvatarType_Character_CharacterAssets_AvatarType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  Character_CharacterAssets_AvatarType_Character_CharacterAssets_AvatarType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool Character_CharacterAssets_AvatarType_IsValid(int value);
+constexpr Character_CharacterAssets_AvatarType Character_CharacterAssets_AvatarType_AvatarType_MIN = Character_CharacterAssets_AvatarType_AVATAR_TYPE_UNSPECIFIED;
+constexpr Character_CharacterAssets_AvatarType Character_CharacterAssets_AvatarType_AvatarType_MAX = Character_CharacterAssets_AvatarType_AVATAR_TYPE_INWORLD;
+constexpr int Character_CharacterAssets_AvatarType_AvatarType_ARRAYSIZE = Character_CharacterAssets_AvatarType_AvatarType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Character_CharacterAssets_AvatarType_descriptor();
+template<typename T>
+inline const std::string& Character_CharacterAssets_AvatarType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, Character_CharacterAssets_AvatarType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function Character_CharacterAssets_AvatarType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    Character_CharacterAssets_AvatarType_descriptor(), enum_t_value);
+}
+inline bool Character_CharacterAssets_AvatarType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Character_CharacterAssets_AvatarType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Character_CharacterAssets_AvatarType>(
+    Character_CharacterAssets_AvatarType_descriptor(), name, value);
+}
+enum Character_CharacterAssets_AvatarDisplayImageSource : int {
+  Character_CharacterAssets_AvatarDisplayImageSource_AVATAR_DISPLAY_IMAGE_SOURCE_UNSPECIFIED = 0,
+  Character_CharacterAssets_AvatarDisplayImageSource_RPM_IMAGE = 1,
+  Character_CharacterAssets_AvatarDisplayImageSource_INNEQUIN_IMAGE = 2,
+  Character_CharacterAssets_AvatarDisplayImageSource_USER_PROVIDED_IMAGE = 3,
+  Character_CharacterAssets_AvatarDisplayImageSource_Character_CharacterAssets_AvatarDisplayImageSource_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  Character_CharacterAssets_AvatarDisplayImageSource_Character_CharacterAssets_AvatarDisplayImageSource_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool Character_CharacterAssets_AvatarDisplayImageSource_IsValid(int value);
+constexpr Character_CharacterAssets_AvatarDisplayImageSource Character_CharacterAssets_AvatarDisplayImageSource_AvatarDisplayImageSource_MIN = Character_CharacterAssets_AvatarDisplayImageSource_AVATAR_DISPLAY_IMAGE_SOURCE_UNSPECIFIED;
+constexpr Character_CharacterAssets_AvatarDisplayImageSource Character_CharacterAssets_AvatarDisplayImageSource_AvatarDisplayImageSource_MAX = Character_CharacterAssets_AvatarDisplayImageSource_USER_PROVIDED_IMAGE;
+constexpr int Character_CharacterAssets_AvatarDisplayImageSource_AvatarDisplayImageSource_ARRAYSIZE = Character_CharacterAssets_AvatarDisplayImageSource_AvatarDisplayImageSource_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Character_CharacterAssets_AvatarDisplayImageSource_descriptor();
+template<typename T>
+inline const std::string& Character_CharacterAssets_AvatarDisplayImageSource_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, Character_CharacterAssets_AvatarDisplayImageSource>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function Character_CharacterAssets_AvatarDisplayImageSource_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    Character_CharacterAssets_AvatarDisplayImageSource_descriptor(), enum_t_value);
+}
+inline bool Character_CharacterAssets_AvatarDisplayImageSource_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Character_CharacterAssets_AvatarDisplayImageSource* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Character_CharacterAssets_AvatarDisplayImageSource>(
+    Character_CharacterAssets_AvatarDisplayImageSource_descriptor(), name, value);
 }
 enum Character_Tag : int {
   Character_Tag_TAG_UNSPECIFIED = 0,
@@ -555,6 +630,59 @@ inline bool SafetyLevel_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SafetyLevel>(
     SafetyLevel_descriptor(), name, value);
 }
+enum CognitiveControl : int {
+  COGNITIVE_CONTROL_UNSPECIFIED = 0,
+  COGNITIVE_CONTROL_NONE = 1,
+  COGNITIVE_CONTROL_MILD = 2,
+  COGNITIVE_CONTROL_STRICT = 3,
+  CognitiveControl_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  CognitiveControl_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool CognitiveControl_IsValid(int value);
+constexpr CognitiveControl CognitiveControl_MIN = COGNITIVE_CONTROL_UNSPECIFIED;
+constexpr CognitiveControl CognitiveControl_MAX = COGNITIVE_CONTROL_STRICT;
+constexpr int CognitiveControl_ARRAYSIZE = CognitiveControl_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CognitiveControl_descriptor();
+template<typename T>
+inline const std::string& CognitiveControl_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, CognitiveControl>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function CognitiveControl_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    CognitiveControl_descriptor(), enum_t_value);
+}
+inline bool CognitiveControl_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CognitiveControl* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CognitiveControl>(
+    CognitiveControl_descriptor(), name, value);
+}
+enum CharacterAssetType : int {
+  CHARACTER_ASSET_TYPE_UNSPECIFIED = 0,
+  CHARACTER_ASSET_TYPE_INNEQUIN_IMAGE = 1,
+  CHARACTER_ASSET_TYPE_USER_PROVIDED_IMAGE = 2,
+  CharacterAssetType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  CharacterAssetType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool CharacterAssetType_IsValid(int value);
+constexpr CharacterAssetType CharacterAssetType_MIN = CHARACTER_ASSET_TYPE_UNSPECIFIED;
+constexpr CharacterAssetType CharacterAssetType_MAX = CHARACTER_ASSET_TYPE_USER_PROVIDED_IMAGE;
+constexpr int CharacterAssetType_ARRAYSIZE = CharacterAssetType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CharacterAssetType_descriptor();
+template<typename T>
+inline const std::string& CharacterAssetType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, CharacterAssetType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function CharacterAssetType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    CharacterAssetType_descriptor(), enum_t_value);
+}
+inline bool CharacterAssetType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CharacterAssetType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CharacterAssetType>(
+    CharacterAssetType_descriptor(), name, value);
+}
 // ===================================================================
 
 class Character_CharacterDescription_CustomDialogStyle PROTOBUF_FINAL :
@@ -670,7 +798,6 @@ class Character_CharacterDescription_CustomDialogStyle PROTOBUF_FINAL :
 
   enum : int {
     kAdjectivesFieldNumber = 4,
-    kAdverbsFieldNumber = 5,
     kUuidFieldNumber = 1,
     kDisplayNameFieldNumber = 2,
     kColloquialismFieldNumber = 6,
@@ -698,30 +825,6 @@ class Character_CharacterDescription_CustomDialogStyle PROTOBUF_FINAL :
   private:
   const std::string& _internal_adjectives(int index) const;
   std::string* _internal_add_adjectives();
-  public:
-
-  // repeated string adverbs = 5;
-  int adverbs_size() const;
-  private:
-  int _internal_adverbs_size() const;
-  public:
-  void clear_adverbs();
-  const std::string& adverbs(int index) const;
-  std::string* mutable_adverbs(int index);
-  void set_adverbs(int index, const std::string& value);
-  void set_adverbs(int index, std::string&& value);
-  void set_adverbs(int index, const char* value);
-  void set_adverbs(int index, const char* value, size_t size);
-  std::string* add_adverbs();
-  void add_adverbs(const std::string& value);
-  void add_adverbs(std::string&& value);
-  void add_adverbs(const char* value);
-  void add_adverbs(const char* value, size_t size);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& adverbs() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_adverbs();
-  private:
-  const std::string& _internal_adverbs(int index) const;
-  std::string* _internal_add_adverbs();
   public:
 
   // string uuid = 1;
@@ -789,7 +892,6 @@ class Character_CharacterDescription_CustomDialogStyle PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> adjectives_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> adverbs_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr uuid_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr display_name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr colloquialism_;
@@ -1054,6 +1156,44 @@ class Character_CharacterDescription PROTOBUF_FINAL :
     return Character_CharacterDescription_LifeStage_Parse(name, value);
   }
 
+  typedef Character_CharacterDescription_DialogResponseLength DialogResponseLength;
+  static constexpr DialogResponseLength DIALOG_RESPONSE_LENGTH_UNSPECIFIED =
+    Character_CharacterDescription_DialogResponseLength_DIALOG_RESPONSE_LENGTH_UNSPECIFIED;
+  static constexpr DialogResponseLength DIALOG_RESPONSE_LENGTH_VERY_SHORT =
+    Character_CharacterDescription_DialogResponseLength_DIALOG_RESPONSE_LENGTH_VERY_SHORT;
+  static constexpr DialogResponseLength DIALOG_RESPONSE_LENGTH_SHORT =
+    Character_CharacterDescription_DialogResponseLength_DIALOG_RESPONSE_LENGTH_SHORT;
+  static constexpr DialogResponseLength DIALOG_RESPONSE_LENGTH_MEDIUM =
+    Character_CharacterDescription_DialogResponseLength_DIALOG_RESPONSE_LENGTH_MEDIUM;
+  static constexpr DialogResponseLength DIALOG_RESPONSE_LENGTH_LONG =
+    Character_CharacterDescription_DialogResponseLength_DIALOG_RESPONSE_LENGTH_LONG;
+  static constexpr DialogResponseLength DIALOG_RESPONSE_LENGTH_VERY_LONG =
+    Character_CharacterDescription_DialogResponseLength_DIALOG_RESPONSE_LENGTH_VERY_LONG;
+  static inline bool DialogResponseLength_IsValid(int value) {
+    return Character_CharacterDescription_DialogResponseLength_IsValid(value);
+  }
+  static constexpr DialogResponseLength DialogResponseLength_MIN =
+    Character_CharacterDescription_DialogResponseLength_DialogResponseLength_MIN;
+  static constexpr DialogResponseLength DialogResponseLength_MAX =
+    Character_CharacterDescription_DialogResponseLength_DialogResponseLength_MAX;
+  static constexpr int DialogResponseLength_ARRAYSIZE =
+    Character_CharacterDescription_DialogResponseLength_DialogResponseLength_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  DialogResponseLength_descriptor() {
+    return Character_CharacterDescription_DialogResponseLength_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& DialogResponseLength_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, DialogResponseLength>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function DialogResponseLength_Name.");
+    return Character_CharacterDescription_DialogResponseLength_Name(enum_t_value);
+  }
+  static inline bool DialogResponseLength_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      DialogResponseLength* value) {
+    return Character_CharacterDescription_DialogResponseLength_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
 
   enum : int {
@@ -1065,8 +1205,6 @@ class Character_CharacterDescription PROTOBUF_FINAL :
     kDescriptionFieldNumber = 2,
     kMotivationFieldNumber = 5,
     kWikipediaUriFieldNumber = 6,
-    kPlayerRoleFieldNumber = 7,
-    kDefaultContextFieldNumber = 8,
     kExampleDialogFieldNumber = 9,
     kCharacterRoleFieldNumber = 14,
     kFlawsFieldNumber = 17,
@@ -1074,6 +1212,7 @@ class Character_CharacterDescription PROTOBUF_FINAL :
     kExampleDialogStyleFieldNumber = 10,
     kLifeStageFieldNumber = 12,
     kNarrativeActionsEnabledFieldNumber = 15,
+    kDialogResponseLengthFieldNumber = 19,
   };
   // repeated string nicknames = 4;
   int nicknames_size() const;
@@ -1229,38 +1368,6 @@ class Character_CharacterDescription PROTOBUF_FINAL :
   std::string* _internal_mutable_wikipedia_uri();
   public:
 
-  // string player_role = 7;
-  void clear_player_role();
-  const std::string& player_role() const;
-  void set_player_role(const std::string& value);
-  void set_player_role(std::string&& value);
-  void set_player_role(const char* value);
-  void set_player_role(const char* value, size_t size);
-  std::string* mutable_player_role();
-  std::string* release_player_role();
-  void set_allocated_player_role(std::string* player_role);
-  private:
-  const std::string& _internal_player_role() const;
-  void _internal_set_player_role(const std::string& value);
-  std::string* _internal_mutable_player_role();
-  public:
-
-  // string default_context = 8;
-  void clear_default_context();
-  const std::string& default_context() const;
-  void set_default_context(const std::string& value);
-  void set_default_context(std::string&& value);
-  void set_default_context(const char* value);
-  void set_default_context(const char* value, size_t size);
-  std::string* mutable_default_context();
-  std::string* release_default_context();
-  void set_allocated_default_context(std::string* default_context);
-  private:
-  const std::string& _internal_default_context() const;
-  void _internal_set_default_context(const std::string& value);
-  std::string* _internal_mutable_default_context();
-  public:
-
   // string example_dialog = 9;
   void clear_example_dialog();
   const std::string& example_dialog() const;
@@ -1345,6 +1452,15 @@ class Character_CharacterDescription PROTOBUF_FINAL :
   void _internal_set_narrative_actions_enabled(bool value);
   public:
 
+  // .ai.inworld.studio.v1alpha.Character.CharacterDescription.DialogResponseLength dialog_response_length = 19;
+  void clear_dialog_response_length();
+  ::ai::inworld::studio::v1alpha::Character_CharacterDescription_DialogResponseLength dialog_response_length() const;
+  void set_dialog_response_length(::ai::inworld::studio::v1alpha::Character_CharacterDescription_DialogResponseLength value);
+  private:
+  ::ai::inworld::studio::v1alpha::Character_CharacterDescription_DialogResponseLength _internal_dialog_response_length() const;
+  void _internal_set_dialog_response_length(::ai::inworld::studio::v1alpha::Character_CharacterDescription_DialogResponseLength value);
+  public:
+
   // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.Character.CharacterDescription)
  private:
   class _Internal;
@@ -1360,8 +1476,6 @@ class Character_CharacterDescription PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr description_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr motivation_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr wikipedia_uri_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr player_role_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr default_context_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr example_dialog_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr character_role_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr flaws_;
@@ -1369,630 +1483,7 @@ class Character_CharacterDescription PROTOBUF_FINAL :
   int example_dialog_style_;
   int life_stage_;
   bool narrative_actions_enabled_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
-};
-// -------------------------------------------------------------------
-
-class Character_BrainSettings_ConversationConfig_FillerSpec PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.FillerSpec) */ {
- public:
-  inline Character_BrainSettings_ConversationConfig_FillerSpec() : Character_BrainSettings_ConversationConfig_FillerSpec(nullptr) {}
-  virtual ~Character_BrainSettings_ConversationConfig_FillerSpec();
-
-  Character_BrainSettings_ConversationConfig_FillerSpec(const Character_BrainSettings_ConversationConfig_FillerSpec& from);
-  Character_BrainSettings_ConversationConfig_FillerSpec(Character_BrainSettings_ConversationConfig_FillerSpec&& from) noexcept
-    : Character_BrainSettings_ConversationConfig_FillerSpec() {
-    *this = ::std::move(from);
-  }
-
-  inline Character_BrainSettings_ConversationConfig_FillerSpec& operator=(const Character_BrainSettings_ConversationConfig_FillerSpec& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline Character_BrainSettings_ConversationConfig_FillerSpec& operator=(Character_BrainSettings_ConversationConfig_FillerSpec&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const Character_BrainSettings_ConversationConfig_FillerSpec& default_instance();
-
-  static inline const Character_BrainSettings_ConversationConfig_FillerSpec* internal_default_instance() {
-    return reinterpret_cast<const Character_BrainSettings_ConversationConfig_FillerSpec*>(
-               &_Character_BrainSettings_ConversationConfig_FillerSpec_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    2;
-
-  friend void swap(Character_BrainSettings_ConversationConfig_FillerSpec& a, Character_BrainSettings_ConversationConfig_FillerSpec& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(Character_BrainSettings_ConversationConfig_FillerSpec* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(Character_BrainSettings_ConversationConfig_FillerSpec* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline Character_BrainSettings_ConversationConfig_FillerSpec* New() const final {
-    return CreateMaybeMessage<Character_BrainSettings_ConversationConfig_FillerSpec>(nullptr);
-  }
-
-  Character_BrainSettings_ConversationConfig_FillerSpec* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Character_BrainSettings_ConversationConfig_FillerSpec>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Character_BrainSettings_ConversationConfig_FillerSpec& from);
-  void MergeFrom(const Character_BrainSettings_ConversationConfig_FillerSpec& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(Character_BrainSettings_ConversationConfig_FillerSpec* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.FillerSpec";
-  }
-  protected:
-  explicit Character_BrainSettings_ConversationConfig_FillerSpec(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
-    return ::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kFillersDisabledFieldNumber = 1,
-  };
-  // bool fillers_disabled = 1;
-  void clear_fillers_disabled();
-  bool fillers_disabled() const;
-  void set_fillers_disabled(bool value);
-  private:
-  bool _internal_fillers_disabled() const;
-  void _internal_set_fillers_disabled(bool value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.FillerSpec)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  bool fillers_disabled_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
-};
-// -------------------------------------------------------------------
-
-class Character_BrainSettings_ConversationConfig PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig) */ {
- public:
-  inline Character_BrainSettings_ConversationConfig() : Character_BrainSettings_ConversationConfig(nullptr) {}
-  virtual ~Character_BrainSettings_ConversationConfig();
-
-  Character_BrainSettings_ConversationConfig(const Character_BrainSettings_ConversationConfig& from);
-  Character_BrainSettings_ConversationConfig(Character_BrainSettings_ConversationConfig&& from) noexcept
-    : Character_BrainSettings_ConversationConfig() {
-    *this = ::std::move(from);
-  }
-
-  inline Character_BrainSettings_ConversationConfig& operator=(const Character_BrainSettings_ConversationConfig& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline Character_BrainSettings_ConversationConfig& operator=(Character_BrainSettings_ConversationConfig&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const Character_BrainSettings_ConversationConfig& default_instance();
-
-  static inline const Character_BrainSettings_ConversationConfig* internal_default_instance() {
-    return reinterpret_cast<const Character_BrainSettings_ConversationConfig*>(
-               &_Character_BrainSettings_ConversationConfig_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    3;
-
-  friend void swap(Character_BrainSettings_ConversationConfig& a, Character_BrainSettings_ConversationConfig& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(Character_BrainSettings_ConversationConfig* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(Character_BrainSettings_ConversationConfig* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline Character_BrainSettings_ConversationConfig* New() const final {
-    return CreateMaybeMessage<Character_BrainSettings_ConversationConfig>(nullptr);
-  }
-
-  Character_BrainSettings_ConversationConfig* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Character_BrainSettings_ConversationConfig>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Character_BrainSettings_ConversationConfig& from);
-  void MergeFrom(const Character_BrainSettings_ConversationConfig& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(Character_BrainSettings_ConversationConfig* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig";
-  }
-  protected:
-  explicit Character_BrainSettings_ConversationConfig(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
-    return ::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  typedef Character_BrainSettings_ConversationConfig_FillerSpec FillerSpec;
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kFillerSpecFieldNumber = 2,
-    kEmotionsDisabledFieldNumber = 4,
-    kBehavioralContextsDisabledFieldNumber = 5,
-  };
-  // .ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.FillerSpec filler_spec = 2;
-  bool has_filler_spec() const;
-  private:
-  bool _internal_has_filler_spec() const;
-  public:
-  void clear_filler_spec();
-  const ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec& filler_spec() const;
-  ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec* release_filler_spec();
-  ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec* mutable_filler_spec();
-  void set_allocated_filler_spec(::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec* filler_spec);
-  private:
-  const ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec& _internal_filler_spec() const;
-  ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec* _internal_mutable_filler_spec();
-  public:
-  void unsafe_arena_set_allocated_filler_spec(
-      ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec* filler_spec);
-  ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec* unsafe_arena_release_filler_spec();
-
-  // bool emotions_disabled = 4;
-  void clear_emotions_disabled();
-  bool emotions_disabled() const;
-  void set_emotions_disabled(bool value);
-  private:
-  bool _internal_emotions_disabled() const;
-  void _internal_set_emotions_disabled(bool value);
-  public:
-
-  // bool behavioral_contexts_disabled = 5;
-  void clear_behavioral_contexts_disabled();
-  bool behavioral_contexts_disabled() const;
-  void set_behavioral_contexts_disabled(bool value);
-  private:
-  bool _internal_behavioral_contexts_disabled() const;
-  void _internal_set_behavioral_contexts_disabled(bool value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec* filler_spec_;
-  bool emotions_disabled_;
-  bool behavioral_contexts_disabled_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
-};
-// -------------------------------------------------------------------
-
-class Character_BrainSettings PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.Character.BrainSettings) */ {
- public:
-  inline Character_BrainSettings() : Character_BrainSettings(nullptr) {}
-  virtual ~Character_BrainSettings();
-
-  Character_BrainSettings(const Character_BrainSettings& from);
-  Character_BrainSettings(Character_BrainSettings&& from) noexcept
-    : Character_BrainSettings() {
-    *this = ::std::move(from);
-  }
-
-  inline Character_BrainSettings& operator=(const Character_BrainSettings& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline Character_BrainSettings& operator=(Character_BrainSettings&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const Character_BrainSettings& default_instance();
-
-  static inline const Character_BrainSettings* internal_default_instance() {
-    return reinterpret_cast<const Character_BrainSettings*>(
-               &_Character_BrainSettings_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    4;
-
-  friend void swap(Character_BrainSettings& a, Character_BrainSettings& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(Character_BrainSettings* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(Character_BrainSettings* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline Character_BrainSettings* New() const final {
-    return CreateMaybeMessage<Character_BrainSettings>(nullptr);
-  }
-
-  Character_BrainSettings* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Character_BrainSettings>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Character_BrainSettings& from);
-  void MergeFrom(const Character_BrainSettings& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(Character_BrainSettings* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "ai.inworld.studio.v1alpha.Character.BrainSettings";
-  }
-  protected:
-  explicit Character_BrainSettings(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
-    return ::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  typedef Character_BrainSettings_ConversationConfig ConversationConfig;
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kConversationConfigFieldNumber = 1,
-  };
-  // .ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig conversation_config = 1;
-  bool has_conversation_config() const;
-  private:
-  bool _internal_has_conversation_config() const;
-  public:
-  void clear_conversation_config();
-  const ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig& conversation_config() const;
-  ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig* release_conversation_config();
-  ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig* mutable_conversation_config();
-  void set_allocated_conversation_config(::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig* conversation_config);
-  private:
-  const ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig& _internal_conversation_config() const;
-  ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig* _internal_mutable_conversation_config();
-  public:
-  void unsafe_arena_set_allocated_conversation_config(
-      ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig* conversation_config);
-  ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig* unsafe_arena_release_conversation_config();
-
-  // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.Character.BrainSettings)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig* conversation_config_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
-};
-// -------------------------------------------------------------------
-
-class Character_BrainTrigger PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.Character.BrainTrigger) */ {
- public:
-  inline Character_BrainTrigger() : Character_BrainTrigger(nullptr) {}
-  virtual ~Character_BrainTrigger();
-
-  Character_BrainTrigger(const Character_BrainTrigger& from);
-  Character_BrainTrigger(Character_BrainTrigger&& from) noexcept
-    : Character_BrainTrigger() {
-    *this = ::std::move(from);
-  }
-
-  inline Character_BrainTrigger& operator=(const Character_BrainTrigger& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline Character_BrainTrigger& operator=(Character_BrainTrigger&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const Character_BrainTrigger& default_instance();
-
-  static inline const Character_BrainTrigger* internal_default_instance() {
-    return reinterpret_cast<const Character_BrainTrigger*>(
-               &_Character_BrainTrigger_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    5;
-
-  friend void swap(Character_BrainTrigger& a, Character_BrainTrigger& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(Character_BrainTrigger* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(Character_BrainTrigger* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline Character_BrainTrigger* New() const final {
-    return CreateMaybeMessage<Character_BrainTrigger>(nullptr);
-  }
-
-  Character_BrainTrigger* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Character_BrainTrigger>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Character_BrainTrigger& from);
-  void MergeFrom(const Character_BrainTrigger& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(Character_BrainTrigger* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "ai.inworld.studio.v1alpha.Character.BrainTrigger";
-  }
-  protected:
-  explicit Character_BrainTrigger(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
-    return ::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kTriggerFieldNumber = 1,
-    kSituationDescriptionFieldNumber = 2,
-    kStartConversationFieldNumber = 3,
-  };
-  // string trigger = 1 [(.google.api.resource_reference) = {
-  void clear_trigger();
-  const std::string& trigger() const;
-  void set_trigger(const std::string& value);
-  void set_trigger(std::string&& value);
-  void set_trigger(const char* value);
-  void set_trigger(const char* value, size_t size);
-  std::string* mutable_trigger();
-  std::string* release_trigger();
-  void set_allocated_trigger(std::string* trigger);
-  private:
-  const std::string& _internal_trigger() const;
-  void _internal_set_trigger(const std::string& value);
-  std::string* _internal_mutable_trigger();
-  public:
-
-  // string situation_description = 2;
-  void clear_situation_description();
-  const std::string& situation_description() const;
-  void set_situation_description(const std::string& value);
-  void set_situation_description(std::string&& value);
-  void set_situation_description(const char* value);
-  void set_situation_description(const char* value, size_t size);
-  std::string* mutable_situation_description();
-  std::string* release_situation_description();
-  void set_allocated_situation_description(std::string* situation_description);
-  private:
-  const std::string& _internal_situation_description() const;
-  void _internal_set_situation_description(const std::string& value);
-  std::string* _internal_mutable_situation_description();
-  public:
-
-  // bool start_conversation = 3;
-  void clear_start_conversation();
-  bool start_conversation() const;
-  void set_start_conversation(bool value);
-  private:
-  bool _internal_start_conversation() const;
-  void _internal_set_start_conversation(bool value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.Character.BrainTrigger)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr trigger_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr situation_description_;
-  bool start_conversation_;
+  int dialog_response_length_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
 };
@@ -2039,7 +1530,7 @@ class Character_CharacterAssets PROTOBUF_FINAL :
                &_Character_CharacterAssets_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    2;
 
   friend void swap(Character_CharacterAssets& a, Character_CharacterAssets& b) {
     a.Swap(&b);
@@ -2107,6 +1598,72 @@ class Character_CharacterAssets PROTOBUF_FINAL :
 
   // nested types ----------------------------------------------------
 
+  typedef Character_CharacterAssets_AvatarType AvatarType;
+  static constexpr AvatarType AVATAR_TYPE_UNSPECIFIED =
+    Character_CharacterAssets_AvatarType_AVATAR_TYPE_UNSPECIFIED;
+  static constexpr AvatarType AVATAR_TYPE_RPM =
+    Character_CharacterAssets_AvatarType_AVATAR_TYPE_RPM;
+  static constexpr AvatarType AVATAR_TYPE_INWORLD =
+    Character_CharacterAssets_AvatarType_AVATAR_TYPE_INWORLD;
+  static inline bool AvatarType_IsValid(int value) {
+    return Character_CharacterAssets_AvatarType_IsValid(value);
+  }
+  static constexpr AvatarType AvatarType_MIN =
+    Character_CharacterAssets_AvatarType_AvatarType_MIN;
+  static constexpr AvatarType AvatarType_MAX =
+    Character_CharacterAssets_AvatarType_AvatarType_MAX;
+  static constexpr int AvatarType_ARRAYSIZE =
+    Character_CharacterAssets_AvatarType_AvatarType_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  AvatarType_descriptor() {
+    return Character_CharacterAssets_AvatarType_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& AvatarType_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, AvatarType>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function AvatarType_Name.");
+    return Character_CharacterAssets_AvatarType_Name(enum_t_value);
+  }
+  static inline bool AvatarType_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      AvatarType* value) {
+    return Character_CharacterAssets_AvatarType_Parse(name, value);
+  }
+
+  typedef Character_CharacterAssets_AvatarDisplayImageSource AvatarDisplayImageSource;
+  static constexpr AvatarDisplayImageSource AVATAR_DISPLAY_IMAGE_SOURCE_UNSPECIFIED =
+    Character_CharacterAssets_AvatarDisplayImageSource_AVATAR_DISPLAY_IMAGE_SOURCE_UNSPECIFIED;
+  static constexpr AvatarDisplayImageSource RPM_IMAGE =
+    Character_CharacterAssets_AvatarDisplayImageSource_RPM_IMAGE;
+  static constexpr AvatarDisplayImageSource INNEQUIN_IMAGE =
+    Character_CharacterAssets_AvatarDisplayImageSource_INNEQUIN_IMAGE;
+  static constexpr AvatarDisplayImageSource USER_PROVIDED_IMAGE =
+    Character_CharacterAssets_AvatarDisplayImageSource_USER_PROVIDED_IMAGE;
+  static inline bool AvatarDisplayImageSource_IsValid(int value) {
+    return Character_CharacterAssets_AvatarDisplayImageSource_IsValid(value);
+  }
+  static constexpr AvatarDisplayImageSource AvatarDisplayImageSource_MIN =
+    Character_CharacterAssets_AvatarDisplayImageSource_AvatarDisplayImageSource_MIN;
+  static constexpr AvatarDisplayImageSource AvatarDisplayImageSource_MAX =
+    Character_CharacterAssets_AvatarDisplayImageSource_AvatarDisplayImageSource_MAX;
+  static constexpr int AvatarDisplayImageSource_ARRAYSIZE =
+    Character_CharacterAssets_AvatarDisplayImageSource_AvatarDisplayImageSource_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  AvatarDisplayImageSource_descriptor() {
+    return Character_CharacterAssets_AvatarDisplayImageSource_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& AvatarDisplayImageSource_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, AvatarDisplayImageSource>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function AvatarDisplayImageSource_Name.");
+    return Character_CharacterAssets_AvatarDisplayImageSource_Name(enum_t_value);
+  }
+  static inline bool AvatarDisplayImageSource_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      AvatarDisplayImageSource* value) {
+    return Character_CharacterAssets_AvatarDisplayImageSource_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
 
   enum : int {
@@ -2118,7 +1675,11 @@ class Character_CharacterAssets PROTOBUF_FINAL :
     kAvatarImgOriginalFieldNumber = 8,
     kAvatarBackgroundFieldNumber = 9,
     kAvatarMaterialFieldNumber = 10,
+    kInnequinImgUriFieldNumber = 12,
+    kInnequinImgOriginalFieldNumber = 14,
     kVoiceFieldNumber = 6,
+    kAvatarTypeFieldNumber = 11,
+    kAvatarDisplayImageSourceFieldNumber = 13,
   };
   // string rpm_model_uri = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];
   void clear_rpm_model_uri();
@@ -2248,6 +1809,38 @@ class Character_CharacterAssets PROTOBUF_FINAL :
   std::string* _internal_mutable_avatar_material();
   public:
 
+  // string innequin_img_uri = 12;
+  void clear_innequin_img_uri();
+  const std::string& innequin_img_uri() const;
+  void set_innequin_img_uri(const std::string& value);
+  void set_innequin_img_uri(std::string&& value);
+  void set_innequin_img_uri(const char* value);
+  void set_innequin_img_uri(const char* value, size_t size);
+  std::string* mutable_innequin_img_uri();
+  std::string* release_innequin_img_uri();
+  void set_allocated_innequin_img_uri(std::string* innequin_img_uri);
+  private:
+  const std::string& _internal_innequin_img_uri() const;
+  void _internal_set_innequin_img_uri(const std::string& value);
+  std::string* _internal_mutable_innequin_img_uri();
+  public:
+
+  // string innequin_img_original = 14;
+  void clear_innequin_img_original();
+  const std::string& innequin_img_original() const;
+  void set_innequin_img_original(const std::string& value);
+  void set_innequin_img_original(std::string&& value);
+  void set_innequin_img_original(const char* value);
+  void set_innequin_img_original(const char* value, size_t size);
+  std::string* mutable_innequin_img_original();
+  std::string* release_innequin_img_original();
+  void set_allocated_innequin_img_original(std::string* innequin_img_original);
+  private:
+  const std::string& _internal_innequin_img_original() const;
+  void _internal_set_innequin_img_original(const std::string& value);
+  std::string* _internal_mutable_innequin_img_original();
+  public:
+
   // .ai.inworld.voices.Voice voice = 6;
   bool has_voice() const;
   private:
@@ -2266,6 +1859,24 @@ class Character_CharacterAssets PROTOBUF_FINAL :
       ::ai::inworld::voices::Voice* voice);
   ::ai::inworld::voices::Voice* unsafe_arena_release_voice();
 
+  // .ai.inworld.studio.v1alpha.Character.CharacterAssets.AvatarType avatar_type = 11;
+  void clear_avatar_type();
+  ::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarType avatar_type() const;
+  void set_avatar_type(::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarType value);
+  private:
+  ::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarType _internal_avatar_type() const;
+  void _internal_set_avatar_type(::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarType value);
+  public:
+
+  // .ai.inworld.studio.v1alpha.Character.CharacterAssets.AvatarDisplayImageSource avatar_display_image_source = 13;
+  void clear_avatar_display_image_source();
+  ::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarDisplayImageSource avatar_display_image_source() const;
+  void set_avatar_display_image_source(::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarDisplayImageSource value);
+  private:
+  ::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarDisplayImageSource _internal_avatar_display_image_source() const;
+  void _internal_set_avatar_display_image_source(::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarDisplayImageSource value);
+  public:
+
   // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.Character.CharacterAssets)
  private:
   class _Internal;
@@ -2281,7 +1892,11 @@ class Character_CharacterAssets PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr avatar_img_original_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr avatar_background_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr avatar_material_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr innequin_img_uri_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr innequin_img_original_;
   ::ai::inworld::voices::Voice* voice_;
+  int avatar_type_;
+  int avatar_display_image_source_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
 };
@@ -2328,7 +1943,7 @@ class Character_CharacterInitialMood PROTOBUF_FINAL :
                &_Character_CharacterInitialMood_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    3;
 
   friend void swap(Character_CharacterInitialMood& a, Character_CharacterInitialMood& b) {
     a.Swap(&b);
@@ -2497,7 +2112,7 @@ class Character_CharacterPersonality PROTOBUF_FINAL :
                &_Character_CharacterPersonality_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    4;
 
   friend void swap(Character_CharacterPersonality& a, Character_CharacterPersonality& b) {
     a.Swap(&b);
@@ -2666,7 +2281,7 @@ class Character_Fact PROTOBUF_FINAL :
                &_Character_Fact_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    5;
 
   friend void swap(Character_Fact& a, Character_Fact& b) {
     a.Swap(&b);
@@ -2855,7 +2470,7 @@ class Character_Meta PROTOBUF_FINAL :
                &_Character_Meta_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    6;
 
   friend void swap(Character_Meta& a, Character_Meta& b) {
     a.Swap(&b);
@@ -3013,7 +2628,7 @@ class Character_SharedPortalInfo_InteractionCountStat PROTOBUF_FINAL :
                &_Character_SharedPortalInfo_InteractionCountStat_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    7;
 
   friend void swap(Character_SharedPortalInfo_InteractionCountStat& a, Character_SharedPortalInfo_InteractionCountStat& b) {
     a.Swap(&b);
@@ -3171,7 +2786,7 @@ class Character_SharedPortalInfo PROTOBUF_FINAL :
                &_Character_SharedPortalInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    8;
 
   friend void swap(Character_SharedPortalInfo& a, Character_SharedPortalInfo& b) {
     a.Swap(&b);
@@ -3375,12 +2990,295 @@ public:
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
     ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
-    return ::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.file_level_metadata[13];
+    return ::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.file_level_metadata[9];
   }
 
   public:
 };
 
+// -------------------------------------------------------------------
+
+class Character_LongTermCoherence PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.Character.LongTermCoherence) */ {
+ public:
+  inline Character_LongTermCoherence() : Character_LongTermCoherence(nullptr) {}
+  virtual ~Character_LongTermCoherence();
+
+  Character_LongTermCoherence(const Character_LongTermCoherence& from);
+  Character_LongTermCoherence(Character_LongTermCoherence&& from) noexcept
+    : Character_LongTermCoherence() {
+    *this = ::std::move(from);
+  }
+
+  inline Character_LongTermCoherence& operator=(const Character_LongTermCoherence& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Character_LongTermCoherence& operator=(Character_LongTermCoherence&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Character_LongTermCoherence& default_instance();
+
+  static inline const Character_LongTermCoherence* internal_default_instance() {
+    return reinterpret_cast<const Character_LongTermCoherence*>(
+               &_Character_LongTermCoherence_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    10;
+
+  friend void swap(Character_LongTermCoherence& a, Character_LongTermCoherence& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Character_LongTermCoherence* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Character_LongTermCoherence* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Character_LongTermCoherence* New() const final {
+    return CreateMaybeMessage<Character_LongTermCoherence>(nullptr);
+  }
+
+  Character_LongTermCoherence* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Character_LongTermCoherence>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Character_LongTermCoherence& from);
+  void MergeFrom(const Character_LongTermCoherence& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Character_LongTermCoherence* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.studio.v1alpha.Character.LongTermCoherence";
+  }
+  protected:
+  explicit Character_LongTermCoherence(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+    return ::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kEnabledFieldNumber = 1,
+  };
+  // bool enabled = 1;
+  void clear_enabled();
+  bool enabled() const;
+  void set_enabled(bool value);
+  private:
+  bool _internal_enabled() const;
+  void _internal_set_enabled(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.Character.LongTermCoherence)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  bool enabled_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Character_Relationship PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.Character.Relationship) */ {
+ public:
+  inline Character_Relationship() : Character_Relationship(nullptr) {}
+  virtual ~Character_Relationship();
+
+  Character_Relationship(const Character_Relationship& from);
+  Character_Relationship(Character_Relationship&& from) noexcept
+    : Character_Relationship() {
+    *this = ::std::move(from);
+  }
+
+  inline Character_Relationship& operator=(const Character_Relationship& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Character_Relationship& operator=(Character_Relationship&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Character_Relationship& default_instance();
+
+  static inline const Character_Relationship* internal_default_instance() {
+    return reinterpret_cast<const Character_Relationship*>(
+               &_Character_Relationship_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    11;
+
+  friend void swap(Character_Relationship& a, Character_Relationship& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Character_Relationship* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Character_Relationship* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Character_Relationship* New() const final {
+    return CreateMaybeMessage<Character_Relationship>(nullptr);
+  }
+
+  Character_Relationship* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Character_Relationship>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Character_Relationship& from);
+  void MergeFrom(const Character_Relationship& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Character_Relationship* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.studio.v1alpha.Character.Relationship";
+  }
+  protected:
+  explicit Character_Relationship(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+    return ::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kEnabledFieldNumber = 1,
+    kFluidityFieldNumber = 2,
+  };
+  // bool enabled = 1;
+  void clear_enabled();
+  bool enabled() const;
+  void set_enabled(bool value);
+  private:
+  bool _internal_enabled() const;
+  void _internal_set_enabled(bool value);
+  public:
+
+  // float fluidity = 2;
+  void clear_fluidity();
+  float fluidity() const;
+  void set_fluidity(float value);
+  private:
+  float _internal_fluidity() const;
+  void _internal_set_fluidity(float value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.Character.Relationship)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  bool enabled_;
+  float fluidity_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
+};
 // -------------------------------------------------------------------
 
 class Character PROTOBUF_FINAL :
@@ -3424,7 +3322,7 @@ class Character PROTOBUF_FINAL :
                &_Character_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    12;
 
   friend void swap(Character& a, Character& b) {
     a.Swap(&b);
@@ -3493,14 +3391,14 @@ class Character PROTOBUF_FINAL :
   // nested types ----------------------------------------------------
 
   typedef Character_CharacterDescription CharacterDescription;
-  typedef Character_BrainSettings BrainSettings;
-  typedef Character_BrainTrigger BrainTrigger;
   typedef Character_CharacterAssets CharacterAssets;
   typedef Character_CharacterInitialMood CharacterInitialMood;
   typedef Character_CharacterPersonality CharacterPersonality;
   typedef Character_Fact Fact;
   typedef Character_Meta Meta;
   typedef Character_SharedPortalInfo SharedPortalInfo;
+  typedef Character_LongTermCoherence LongTermCoherence;
+  typedef Character_Relationship Relationship;
 
   typedef Character_Tag Tag;
   static constexpr Tag TAG_UNSPECIFIED =
@@ -3569,7 +3467,6 @@ class Character PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kBrainTriggersFieldNumber = 5,
     kCommonKnowledgesFieldNumber = 11,
     kScenesFieldNumber = 13,
     kFactsFieldNumber = 14,
@@ -3579,35 +3476,20 @@ class Character PROTOBUF_FINAL :
     kLanguageCodeFieldNumber = 2,
     kYamlConfigFieldNumber = 19,
     kDefaultCharacterDescriptionFieldNumber = 3,
-    kBrainSettingsFieldNumber = 4,
     kDefaultCharacterAssetsFieldNumber = 7,
     kInitialMoodFieldNumber = 9,
     kPersonalityFieldNumber = 10,
     kMetaFieldNumber = 16,
     kSharePortalInfoFieldNumber = 18,
+    kLongTermCoherenceFieldNumber = 24,
+    kRelationshipFieldNumber = 25,
     kSocialRankFieldNumber = 12,
     kEmotionalFluidityFieldNumber = 17,
     kRelationshipFluidityFieldNumber = 22,
     kFourthWallFieldNumber = 23,
+    kCognitiveControlFieldNumber = 26,
+    kLanguageFieldNumber = 27,
   };
-  // repeated .ai.inworld.studio.v1alpha.Character.BrainTrigger brain_triggers = 5;
-  int brain_triggers_size() const;
-  private:
-  int _internal_brain_triggers_size() const;
-  public:
-  void clear_brain_triggers();
-  ::ai::inworld::studio::v1alpha::Character_BrainTrigger* mutable_brain_triggers(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::Character_BrainTrigger >*
-      mutable_brain_triggers();
-  private:
-  const ::ai::inworld::studio::v1alpha::Character_BrainTrigger& _internal_brain_triggers(int index) const;
-  ::ai::inworld::studio::v1alpha::Character_BrainTrigger* _internal_add_brain_triggers();
-  public:
-  const ::ai::inworld::studio::v1alpha::Character_BrainTrigger& brain_triggers(int index) const;
-  ::ai::inworld::studio::v1alpha::Character_BrainTrigger* add_brain_triggers();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::Character_BrainTrigger >&
-      brain_triggers() const;
-
   // repeated string common_knowledges = 11;
   int common_knowledges_size() const;
   private:
@@ -3719,16 +3601,16 @@ class Character PROTOBUF_FINAL :
   std::string* _internal_mutable_name();
   public:
 
-  // string language_code = 2;
-  void clear_language_code();
-  const std::string& language_code() const;
-  void set_language_code(const std::string& value);
-  void set_language_code(std::string&& value);
-  void set_language_code(const char* value);
-  void set_language_code(const char* value, size_t size);
-  std::string* mutable_language_code();
-  std::string* release_language_code();
-  void set_allocated_language_code(std::string* language_code);
+  // string language_code = 2 [deprecated = true];
+  PROTOBUF_DEPRECATED void clear_language_code();
+  PROTOBUF_DEPRECATED const std::string& language_code() const;
+  PROTOBUF_DEPRECATED void set_language_code(const std::string& value);
+  PROTOBUF_DEPRECATED void set_language_code(std::string&& value);
+  PROTOBUF_DEPRECATED void set_language_code(const char* value);
+  PROTOBUF_DEPRECATED void set_language_code(const char* value, size_t size);
+  PROTOBUF_DEPRECATED std::string* mutable_language_code();
+  PROTOBUF_DEPRECATED std::string* release_language_code();
+  PROTOBUF_DEPRECATED void set_allocated_language_code(std::string* language_code);
   private:
   const std::string& _internal_language_code() const;
   void _internal_set_language_code(const std::string& value);
@@ -3768,24 +3650,6 @@ class Character PROTOBUF_FINAL :
   void unsafe_arena_set_allocated_default_character_description(
       ::ai::inworld::studio::v1alpha::Character_CharacterDescription* default_character_description);
   ::ai::inworld::studio::v1alpha::Character_CharacterDescription* unsafe_arena_release_default_character_description();
-
-  // .ai.inworld.studio.v1alpha.Character.BrainSettings brain_settings = 4;
-  bool has_brain_settings() const;
-  private:
-  bool _internal_has_brain_settings() const;
-  public:
-  void clear_brain_settings();
-  const ::ai::inworld::studio::v1alpha::Character_BrainSettings& brain_settings() const;
-  ::ai::inworld::studio::v1alpha::Character_BrainSettings* release_brain_settings();
-  ::ai::inworld::studio::v1alpha::Character_BrainSettings* mutable_brain_settings();
-  void set_allocated_brain_settings(::ai::inworld::studio::v1alpha::Character_BrainSettings* brain_settings);
-  private:
-  const ::ai::inworld::studio::v1alpha::Character_BrainSettings& _internal_brain_settings() const;
-  ::ai::inworld::studio::v1alpha::Character_BrainSettings* _internal_mutable_brain_settings();
-  public:
-  void unsafe_arena_set_allocated_brain_settings(
-      ::ai::inworld::studio::v1alpha::Character_BrainSettings* brain_settings);
-  ::ai::inworld::studio::v1alpha::Character_BrainSettings* unsafe_arena_release_brain_settings();
 
   // .ai.inworld.studio.v1alpha.Character.CharacterAssets default_character_assets = 7;
   bool has_default_character_assets() const;
@@ -3877,6 +3741,42 @@ class Character PROTOBUF_FINAL :
       ::ai::inworld::studio::v1alpha::Character_SharedPortalInfo* share_portal_info);
   ::ai::inworld::studio::v1alpha::Character_SharedPortalInfo* unsafe_arena_release_share_portal_info();
 
+  // .ai.inworld.studio.v1alpha.Character.LongTermCoherence long_term_coherence = 24;
+  bool has_long_term_coherence() const;
+  private:
+  bool _internal_has_long_term_coherence() const;
+  public:
+  void clear_long_term_coherence();
+  const ::ai::inworld::studio::v1alpha::Character_LongTermCoherence& long_term_coherence() const;
+  ::ai::inworld::studio::v1alpha::Character_LongTermCoherence* release_long_term_coherence();
+  ::ai::inworld::studio::v1alpha::Character_LongTermCoherence* mutable_long_term_coherence();
+  void set_allocated_long_term_coherence(::ai::inworld::studio::v1alpha::Character_LongTermCoherence* long_term_coherence);
+  private:
+  const ::ai::inworld::studio::v1alpha::Character_LongTermCoherence& _internal_long_term_coherence() const;
+  ::ai::inworld::studio::v1alpha::Character_LongTermCoherence* _internal_mutable_long_term_coherence();
+  public:
+  void unsafe_arena_set_allocated_long_term_coherence(
+      ::ai::inworld::studio::v1alpha::Character_LongTermCoherence* long_term_coherence);
+  ::ai::inworld::studio::v1alpha::Character_LongTermCoherence* unsafe_arena_release_long_term_coherence();
+
+  // .ai.inworld.studio.v1alpha.Character.Relationship relationship = 25;
+  bool has_relationship() const;
+  private:
+  bool _internal_has_relationship() const;
+  public:
+  void clear_relationship();
+  const ::ai::inworld::studio::v1alpha::Character_Relationship& relationship() const;
+  ::ai::inworld::studio::v1alpha::Character_Relationship* release_relationship();
+  ::ai::inworld::studio::v1alpha::Character_Relationship* mutable_relationship();
+  void set_allocated_relationship(::ai::inworld::studio::v1alpha::Character_Relationship* relationship);
+  private:
+  const ::ai::inworld::studio::v1alpha::Character_Relationship& _internal_relationship() const;
+  ::ai::inworld::studio::v1alpha::Character_Relationship* _internal_mutable_relationship();
+  public:
+  void unsafe_arena_set_allocated_relationship(
+      ::ai::inworld::studio::v1alpha::Character_Relationship* relationship);
+  ::ai::inworld::studio::v1alpha::Character_Relationship* unsafe_arena_release_relationship();
+
   // float social_rank = 12;
   void clear_social_rank();
   float social_rank() const;
@@ -3895,10 +3795,10 @@ class Character PROTOBUF_FINAL :
   void _internal_set_emotional_fluidity(float value);
   public:
 
-  // float relationship_fluidity = 22;
-  void clear_relationship_fluidity();
-  float relationship_fluidity() const;
-  void set_relationship_fluidity(float value);
+  // float relationship_fluidity = 22 [deprecated = true];
+  PROTOBUF_DEPRECATED void clear_relationship_fluidity();
+  PROTOBUF_DEPRECATED float relationship_fluidity() const;
+  PROTOBUF_DEPRECATED void set_relationship_fluidity(float value);
   private:
   float _internal_relationship_fluidity() const;
   void _internal_set_relationship_fluidity(float value);
@@ -3913,6 +3813,24 @@ class Character PROTOBUF_FINAL :
   void _internal_set_fourth_wall(::ai::inworld::studio::v1alpha::Character_FourthWallContainment value);
   public:
 
+  // .ai.inworld.studio.v1alpha.CognitiveControl cognitive_control = 26;
+  void clear_cognitive_control();
+  ::ai::inworld::studio::v1alpha::CognitiveControl cognitive_control() const;
+  void set_cognitive_control(::ai::inworld::studio::v1alpha::CognitiveControl value);
+  private:
+  ::ai::inworld::studio::v1alpha::CognitiveControl _internal_cognitive_control() const;
+  void _internal_set_cognitive_control(::ai::inworld::studio::v1alpha::CognitiveControl value);
+  public:
+
+  // .ai.inworld.language_codes.LanguageCode language = 27;
+  void clear_language();
+  ::ai::inworld::language_codes::LanguageCode language() const;
+  void set_language(::ai::inworld::language_codes::LanguageCode value);
+  private:
+  ::ai::inworld::language_codes::LanguageCode _internal_language() const;
+  void _internal_set_language(::ai::inworld::language_codes::LanguageCode value);
+  public:
+
   // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.Character)
  private:
   class _Internal;
@@ -3920,7 +3838,6 @@ class Character PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::Character_BrainTrigger > brain_triggers_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> common_knowledges_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::Scene > scenes_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::Character_Fact > facts_;
@@ -3934,16 +3851,19 @@ class Character PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr language_code_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr yaml_config_;
   ::ai::inworld::studio::v1alpha::Character_CharacterDescription* default_character_description_;
-  ::ai::inworld::studio::v1alpha::Character_BrainSettings* brain_settings_;
   ::ai::inworld::studio::v1alpha::Character_CharacterAssets* default_character_assets_;
   ::ai::inworld::studio::v1alpha::Character_CharacterInitialMood* initial_mood_;
   ::ai::inworld::studio::v1alpha::Character_CharacterPersonality* personality_;
   ::ai::inworld::studio::v1alpha::Character_Meta* meta_;
   ::ai::inworld::studio::v1alpha::Character_SharedPortalInfo* share_portal_info_;
+  ::ai::inworld::studio::v1alpha::Character_LongTermCoherence* long_term_coherence_;
+  ::ai::inworld::studio::v1alpha::Character_Relationship* relationship_;
   float social_rank_;
   float emotional_fluidity_;
   float relationship_fluidity_;
   int fourth_wall_;
+  int cognitive_control_;
+  int language_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
 };
@@ -3990,7 +3910,7 @@ class GetCharacterRequest PROTOBUF_FINAL :
                &_GetCharacterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    13;
 
   friend void swap(GetCharacterRequest& a, GetCharacterRequest& b) {
     a.Swap(&b);
@@ -4144,7 +4064,7 @@ class GetCharacterAdvancedSettingsRequest PROTOBUF_FINAL :
                &_GetCharacterAdvancedSettingsRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    14;
 
   friend void swap(GetCharacterAdvancedSettingsRequest& a, GetCharacterAdvancedSettingsRequest& b) {
     a.Swap(&b);
@@ -4287,7 +4207,7 @@ class UpdateCharacterAdvancedSettingsRequest PROTOBUF_FINAL :
                &_UpdateCharacterAdvancedSettingsRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    15;
 
   friend void swap(UpdateCharacterAdvancedSettingsRequest& a, UpdateCharacterAdvancedSettingsRequest& b) {
     a.Swap(&b);
@@ -4452,7 +4372,7 @@ class ListCharactersRequest PROTOBUF_FINAL :
                &_ListCharactersRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    16;
 
   friend void swap(ListCharactersRequest& a, ListCharactersRequest& b) {
     a.Swap(&b);
@@ -4653,7 +4573,7 @@ class CreateCharacterRequest PROTOBUF_FINAL :
                &_CreateCharacterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    17;
 
   friend void swap(CreateCharacterRequest& a, CreateCharacterRequest& b) {
     a.Swap(&b);
@@ -4827,7 +4747,7 @@ class UpdateCharacterRequest PROTOBUF_FINAL :
                &_UpdateCharacterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    18;
 
   friend void swap(UpdateCharacterRequest& a, UpdateCharacterRequest& b) {
     a.Swap(&b);
@@ -4992,7 +4912,7 @@ class DeleteCharacterRequest PROTOBUF_FINAL :
                &_DeleteCharacterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    19;
 
   friend void swap(DeleteCharacterRequest& a, DeleteCharacterRequest& b) {
     a.Swap(&b);
@@ -5135,7 +5055,7 @@ class DeployCharacterRequest PROTOBUF_FINAL :
                &_DeployCharacterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    20;
 
   friend void swap(DeployCharacterRequest& a, DeployCharacterRequest& b) {
     a.Swap(&b);
@@ -5278,7 +5198,7 @@ class CloneCharacterRequest PROTOBUF_FINAL :
                &_CloneCharacterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    21;
 
   friend void swap(CloneCharacterRequest& a, CloneCharacterRequest& b) {
     a.Swap(&b);
@@ -5457,7 +5377,7 @@ class ListCharactersResponse PROTOBUF_FINAL :
                &_ListCharactersResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    22;
 
   friend void swap(ListCharactersResponse& a, ListCharactersResponse& b) {
     a.Swap(&b);
@@ -5620,7 +5540,7 @@ class ReplaceCharacterRpmModelRequest PROTOBUF_FINAL :
                &_ReplaceCharacterRpmModelRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    23;
 
   friend void swap(ReplaceCharacterRpmModelRequest& a, ReplaceCharacterRpmModelRequest& b) {
     a.Swap(&b);
@@ -5781,7 +5701,7 @@ class ReplaceCharacterImageRequest PROTOBUF_FINAL :
                &_ReplaceCharacterImageRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    24;
 
   friend void swap(ReplaceCharacterImageRequest& a, ReplaceCharacterImageRequest& b) {
     a.Swap(&b);
@@ -5854,6 +5774,7 @@ class ReplaceCharacterImageRequest PROTOBUF_FINAL :
   enum : int {
     kCharacterFieldNumber = 1,
     kContentFieldNumber = 2,
+    kCharacterAssetTypeFieldNumber = 3,
   };
   // string character = 1 [(.ai.inworld.options.examples) = {
   void clear_character();
@@ -5887,6 +5808,15 @@ class ReplaceCharacterImageRequest PROTOBUF_FINAL :
   std::string* _internal_mutable_content();
   public:
 
+  // .ai.inworld.studio.v1alpha.CharacterAssetType character_asset_type = 3;
+  void clear_character_asset_type();
+  ::ai::inworld::studio::v1alpha::CharacterAssetType character_asset_type() const;
+  void set_character_asset_type(::ai::inworld::studio::v1alpha::CharacterAssetType value);
+  private:
+  ::ai::inworld::studio::v1alpha::CharacterAssetType _internal_character_asset_type() const;
+  void _internal_set_character_asset_type(::ai::inworld::studio::v1alpha::CharacterAssetType value);
+  public:
+
   // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.ReplaceCharacterImageRequest)
  private:
   class _Internal;
@@ -5896,6 +5826,7 @@ class ReplaceCharacterImageRequest PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr character_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr content_;
+  int character_asset_type_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
 };
@@ -5942,7 +5873,7 @@ class PreviewPromptTemplateRequest PROTOBUF_FINAL :
                &_PreviewPromptTemplateRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    25;
 
   friend void swap(PreviewPromptTemplateRequest& a, PreviewPromptTemplateRequest& b) {
     a.Swap(&b);
@@ -6103,7 +6034,7 @@ class PreviewPromptTempalteResponse PROTOBUF_FINAL :
                &_PreviewPromptTempalteResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    26;
 
   friend void swap(PreviewPromptTempalteResponse& a, PreviewPromptTempalteResponse& b) {
     a.Swap(&b);
@@ -6272,7 +6203,7 @@ class ShareCharacterRequest PROTOBUF_FINAL :
                &_ShareCharacterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    27;
 
   friend void swap(ShareCharacterRequest& a, ShareCharacterRequest& b) {
     a.Swap(&b);
@@ -6441,7 +6372,7 @@ class ShareCharacterPortalRequest PROTOBUF_FINAL :
                &_ShareCharacterPortalRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    28;
 
   friend void swap(ShareCharacterPortalRequest& a, ShareCharacterPortalRequest& b) {
     a.Swap(&b);
@@ -6631,7 +6562,7 @@ class UnshareCharacterPortalRequest PROTOBUF_FINAL :
                &_UnshareCharacterPortalRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    29;
 
   friend void swap(UnshareCharacterPortalRequest& a, UnshareCharacterPortalRequest& b) {
     a.Swap(&b);
@@ -6774,7 +6705,7 @@ class ListSharedCharactersRequest PROTOBUF_FINAL :
                &_ListSharedCharactersRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    30;
 
   friend void swap(ListSharedCharactersRequest& a, ListSharedCharactersRequest& b) {
     a.Swap(&b);
@@ -6946,7 +6877,7 @@ class ListSharedCharactersResponse PROTOBUF_FINAL :
                &_ListSharedCharactersResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    31;
 
   friend void swap(ListSharedCharactersResponse& a, ListSharedCharactersResponse& b) {
     a.Swap(&b);
@@ -7109,7 +7040,7 @@ class CharacterAdvancedSettings_ConversationConfig_EngineSpec PROTOBUF_FINAL :
                &_CharacterAdvancedSettings_ConversationConfig_EngineSpec_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    32;
 
   friend void swap(CharacterAdvancedSettings_ConversationConfig_EngineSpec& a, CharacterAdvancedSettings_ConversationConfig_EngineSpec& b) {
     a.Swap(&b);
@@ -7318,7 +7249,7 @@ class CharacterAdvancedSettings_ConversationConfig PROTOBUF_FINAL :
                &_CharacterAdvancedSettings_ConversationConfig_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    33;
 
   friend void swap(CharacterAdvancedSettings_ConversationConfig& a, CharacterAdvancedSettings_ConversationConfig& b) {
     a.Swap(&b);
@@ -7465,7 +7396,7 @@ class CharacterAdvancedSettings_SafetySpec PROTOBUF_FINAL :
                &_CharacterAdvancedSettings_SafetySpec_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    34;
 
   friend void swap(CharacterAdvancedSettings_SafetySpec& a, CharacterAdvancedSettings_SafetySpec& b) {
     a.Swap(&b);
@@ -7610,7 +7541,7 @@ class CharacterAdvancedSettings PROTOBUF_FINAL :
                &_CharacterAdvancedSettings_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    35;
 
   friend void swap(CharacterAdvancedSettings& a, CharacterAdvancedSettings& b) {
     a.Swap(&b);
@@ -7878,7 +7809,7 @@ class GetCharacterShareInfoRequest PROTOBUF_FINAL :
                &_GetCharacterShareInfoRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    36;
 
   friend void swap(GetCharacterShareInfoRequest& a, GetCharacterShareInfoRequest& b) {
     a.Swap(&b);
@@ -8032,7 +7963,7 @@ class CharacterShareInfo PROTOBUF_FINAL :
                &_CharacterShareInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    37;
 
   friend void swap(CharacterShareInfo& a, CharacterShareInfo& b) {
     a.Swap(&b);
@@ -8183,7 +8114,7 @@ class CheckDeployInfoRequest PROTOBUF_FINAL :
                &_CheckDeployInfoRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    38;
 
   friend void swap(CheckDeployInfoRequest& a, CheckDeployInfoRequest& b) {
     a.Swap(&b);
@@ -8326,7 +8257,7 @@ class DeployCharacterAsyncMetadata PROTOBUF_FINAL :
                &_DeployCharacterAsyncMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    39;
 
   friend void swap(DeployCharacterAsyncMetadata& a, DeployCharacterAsyncMetadata& b) {
     a.Swap(&b);
@@ -8449,7 +8380,7 @@ class DeployCharacterAsyncResponse PROTOBUF_FINAL :
                &_DeployCharacterAsyncResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    40;
 
   friend void swap(DeployCharacterAsyncResponse& a, DeployCharacterAsyncResponse& b) {
     a.Swap(&b);
@@ -8572,7 +8503,7 @@ class CreateCharacterMetadata PROTOBUF_FINAL :
                &_CreateCharacterMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    41;
 
   friend void swap(CreateCharacterMetadata& a, CreateCharacterMetadata& b) {
     a.Swap(&b);
@@ -8695,7 +8626,7 @@ class CheckDeployInfoResponse PROTOBUF_FINAL :
                &_CheckDeployInfoResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    42;
 
   friend void swap(CheckDeployInfoResponse& a, CheckDeployInfoResponse& b) {
     a.Swap(&b);
@@ -9013,80 +8944,6 @@ inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
 Character_CharacterDescription_CustomDialogStyle::mutable_adjectives() {
   // @@protoc_insertion_point(field_mutable_list:ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle.adjectives)
   return &adjectives_;
-}
-
-// repeated string adverbs = 5;
-inline int Character_CharacterDescription_CustomDialogStyle::_internal_adverbs_size() const {
-  return adverbs_.size();
-}
-inline int Character_CharacterDescription_CustomDialogStyle::adverbs_size() const {
-  return _internal_adverbs_size();
-}
-inline void Character_CharacterDescription_CustomDialogStyle::clear_adverbs() {
-  adverbs_.Clear();
-}
-inline std::string* Character_CharacterDescription_CustomDialogStyle::add_adverbs() {
-  // @@protoc_insertion_point(field_add_mutable:ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle.adverbs)
-  return _internal_add_adverbs();
-}
-inline const std::string& Character_CharacterDescription_CustomDialogStyle::_internal_adverbs(int index) const {
-  return adverbs_.Get(index);
-}
-inline const std::string& Character_CharacterDescription_CustomDialogStyle::adverbs(int index) const {
-  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle.adverbs)
-  return _internal_adverbs(index);
-}
-inline std::string* Character_CharacterDescription_CustomDialogStyle::mutable_adverbs(int index) {
-  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle.adverbs)
-  return adverbs_.Mutable(index);
-}
-inline void Character_CharacterDescription_CustomDialogStyle::set_adverbs(int index, const std::string& value) {
-  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle.adverbs)
-  adverbs_.Mutable(index)->assign(value);
-}
-inline void Character_CharacterDescription_CustomDialogStyle::set_adverbs(int index, std::string&& value) {
-  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle.adverbs)
-  adverbs_.Mutable(index)->assign(std::move(value));
-}
-inline void Character_CharacterDescription_CustomDialogStyle::set_adverbs(int index, const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  adverbs_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle.adverbs)
-}
-inline void Character_CharacterDescription_CustomDialogStyle::set_adverbs(int index, const char* value, size_t size) {
-  adverbs_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle.adverbs)
-}
-inline std::string* Character_CharacterDescription_CustomDialogStyle::_internal_add_adverbs() {
-  return adverbs_.Add();
-}
-inline void Character_CharacterDescription_CustomDialogStyle::add_adverbs(const std::string& value) {
-  adverbs_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle.adverbs)
-}
-inline void Character_CharacterDescription_CustomDialogStyle::add_adverbs(std::string&& value) {
-  adverbs_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle.adverbs)
-}
-inline void Character_CharacterDescription_CustomDialogStyle::add_adverbs(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  adverbs_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle.adverbs)
-}
-inline void Character_CharacterDescription_CustomDialogStyle::add_adverbs(const char* value, size_t size) {
-  adverbs_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle.adverbs)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
-Character_CharacterDescription_CustomDialogStyle::adverbs() const {
-  // @@protoc_insertion_point(field_list:ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle.adverbs)
-  return adverbs_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
-Character_CharacterDescription_CustomDialogStyle::mutable_adverbs() {
-  // @@protoc_insertion_point(field_mutable_list:ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle.adverbs)
-  return &adverbs_;
 }
 
 // string colloquialism = 6;
@@ -9490,128 +9347,6 @@ inline void Character_CharacterDescription::set_allocated_wikipedia_uri(std::str
   wikipedia_uri_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), wikipedia_uri,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Character.CharacterDescription.wikipedia_uri)
-}
-
-// string player_role = 7;
-inline void Character_CharacterDescription::clear_player_role() {
-  player_role_.ClearToEmpty();
-}
-inline const std::string& Character_CharacterDescription::player_role() const {
-  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.CharacterDescription.player_role)
-  return _internal_player_role();
-}
-inline void Character_CharacterDescription::set_player_role(const std::string& value) {
-  _internal_set_player_role(value);
-  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Character.CharacterDescription.player_role)
-}
-inline std::string* Character_CharacterDescription::mutable_player_role() {
-  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.Character.CharacterDescription.player_role)
-  return _internal_mutable_player_role();
-}
-inline const std::string& Character_CharacterDescription::_internal_player_role() const {
-  return player_role_.Get();
-}
-inline void Character_CharacterDescription::_internal_set_player_role(const std::string& value) {
-  
-  player_role_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void Character_CharacterDescription::set_player_role(std::string&& value) {
-  
-  player_role_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.studio.v1alpha.Character.CharacterDescription.player_role)
-}
-inline void Character_CharacterDescription::set_player_role(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  player_role_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:ai.inworld.studio.v1alpha.Character.CharacterDescription.player_role)
-}
-inline void Character_CharacterDescription::set_player_role(const char* value,
-    size_t size) {
-  
-  player_role_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:ai.inworld.studio.v1alpha.Character.CharacterDescription.player_role)
-}
-inline std::string* Character_CharacterDescription::_internal_mutable_player_role() {
-  
-  return player_role_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* Character_CharacterDescription::release_player_role() {
-  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.Character.CharacterDescription.player_role)
-  return player_role_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void Character_CharacterDescription::set_allocated_player_role(std::string* player_role) {
-  if (player_role != nullptr) {
-    
-  } else {
-    
-  }
-  player_role_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), player_role,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Character.CharacterDescription.player_role)
-}
-
-// string default_context = 8;
-inline void Character_CharacterDescription::clear_default_context() {
-  default_context_.ClearToEmpty();
-}
-inline const std::string& Character_CharacterDescription::default_context() const {
-  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.CharacterDescription.default_context)
-  return _internal_default_context();
-}
-inline void Character_CharacterDescription::set_default_context(const std::string& value) {
-  _internal_set_default_context(value);
-  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Character.CharacterDescription.default_context)
-}
-inline std::string* Character_CharacterDescription::mutable_default_context() {
-  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.Character.CharacterDescription.default_context)
-  return _internal_mutable_default_context();
-}
-inline const std::string& Character_CharacterDescription::_internal_default_context() const {
-  return default_context_.Get();
-}
-inline void Character_CharacterDescription::_internal_set_default_context(const std::string& value) {
-  
-  default_context_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void Character_CharacterDescription::set_default_context(std::string&& value) {
-  
-  default_context_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.studio.v1alpha.Character.CharacterDescription.default_context)
-}
-inline void Character_CharacterDescription::set_default_context(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  default_context_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:ai.inworld.studio.v1alpha.Character.CharacterDescription.default_context)
-}
-inline void Character_CharacterDescription::set_default_context(const char* value,
-    size_t size) {
-  
-  default_context_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:ai.inworld.studio.v1alpha.Character.CharacterDescription.default_context)
-}
-inline std::string* Character_CharacterDescription::_internal_mutable_default_context() {
-  
-  return default_context_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* Character_CharacterDescription::release_default_context() {
-  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.Character.CharacterDescription.default_context)
-  return default_context_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void Character_CharacterDescription::set_allocated_default_context(std::string* default_context) {
-  if (default_context != nullptr) {
-    
-  } else {
-    
-  }
-  default_context_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), default_context,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Character.CharacterDescription.default_context)
 }
 
 // string example_dialog = 9;
@@ -10044,388 +9779,24 @@ inline void Character_CharacterDescription::set_allocated_flaws(std::string* fla
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Character.CharacterDescription.flaws)
 }
 
-// -------------------------------------------------------------------
-
-// Character_BrainSettings_ConversationConfig_FillerSpec
-
-// bool fillers_disabled = 1;
-inline void Character_BrainSettings_ConversationConfig_FillerSpec::clear_fillers_disabled() {
-  fillers_disabled_ = false;
+// .ai.inworld.studio.v1alpha.Character.CharacterDescription.DialogResponseLength dialog_response_length = 19;
+inline void Character_CharacterDescription::clear_dialog_response_length() {
+  dialog_response_length_ = 0;
 }
-inline bool Character_BrainSettings_ConversationConfig_FillerSpec::_internal_fillers_disabled() const {
-  return fillers_disabled_;
+inline ::ai::inworld::studio::v1alpha::Character_CharacterDescription_DialogResponseLength Character_CharacterDescription::_internal_dialog_response_length() const {
+  return static_cast< ::ai::inworld::studio::v1alpha::Character_CharacterDescription_DialogResponseLength >(dialog_response_length_);
 }
-inline bool Character_BrainSettings_ConversationConfig_FillerSpec::fillers_disabled() const {
-  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.FillerSpec.fillers_disabled)
-  return _internal_fillers_disabled();
+inline ::ai::inworld::studio::v1alpha::Character_CharacterDescription_DialogResponseLength Character_CharacterDescription::dialog_response_length() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.CharacterDescription.dialog_response_length)
+  return _internal_dialog_response_length();
 }
-inline void Character_BrainSettings_ConversationConfig_FillerSpec::_internal_set_fillers_disabled(bool value) {
+inline void Character_CharacterDescription::_internal_set_dialog_response_length(::ai::inworld::studio::v1alpha::Character_CharacterDescription_DialogResponseLength value) {
   
-  fillers_disabled_ = value;
+  dialog_response_length_ = value;
 }
-inline void Character_BrainSettings_ConversationConfig_FillerSpec::set_fillers_disabled(bool value) {
-  _internal_set_fillers_disabled(value);
-  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.FillerSpec.fillers_disabled)
-}
-
-// -------------------------------------------------------------------
-
-// Character_BrainSettings_ConversationConfig
-
-// .ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.FillerSpec filler_spec = 2;
-inline bool Character_BrainSettings_ConversationConfig::_internal_has_filler_spec() const {
-  return this != internal_default_instance() && filler_spec_ != nullptr;
-}
-inline bool Character_BrainSettings_ConversationConfig::has_filler_spec() const {
-  return _internal_has_filler_spec();
-}
-inline void Character_BrainSettings_ConversationConfig::clear_filler_spec() {
-  if (GetArena() == nullptr && filler_spec_ != nullptr) {
-    delete filler_spec_;
-  }
-  filler_spec_ = nullptr;
-}
-inline const ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec& Character_BrainSettings_ConversationConfig::_internal_filler_spec() const {
-  const ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec* p = filler_spec_;
-  return p != nullptr ? *p : reinterpret_cast<const ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec&>(
-      ::ai::inworld::studio::v1alpha::_Character_BrainSettings_ConversationConfig_FillerSpec_default_instance_);
-}
-inline const ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec& Character_BrainSettings_ConversationConfig::filler_spec() const {
-  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.filler_spec)
-  return _internal_filler_spec();
-}
-inline void Character_BrainSettings_ConversationConfig::unsafe_arena_set_allocated_filler_spec(
-    ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec* filler_spec) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(filler_spec_);
-  }
-  filler_spec_ = filler_spec;
-  if (filler_spec) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.filler_spec)
-}
-inline ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec* Character_BrainSettings_ConversationConfig::release_filler_spec() {
-  
-  ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec* temp = filler_spec_;
-  filler_spec_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec* Character_BrainSettings_ConversationConfig::unsafe_arena_release_filler_spec() {
-  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.filler_spec)
-  
-  ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec* temp = filler_spec_;
-  filler_spec_ = nullptr;
-  return temp;
-}
-inline ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec* Character_BrainSettings_ConversationConfig::_internal_mutable_filler_spec() {
-  
-  if (filler_spec_ == nullptr) {
-    auto* p = CreateMaybeMessage<::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec>(GetArena());
-    filler_spec_ = p;
-  }
-  return filler_spec_;
-}
-inline ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec* Character_BrainSettings_ConversationConfig::mutable_filler_spec() {
-  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.filler_spec)
-  return _internal_mutable_filler_spec();
-}
-inline void Character_BrainSettings_ConversationConfig::set_allocated_filler_spec(::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig_FillerSpec* filler_spec) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete filler_spec_;
-  }
-  if (filler_spec) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(filler_spec);
-    if (message_arena != submessage_arena) {
-      filler_spec = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, filler_spec, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  filler_spec_ = filler_spec;
-  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.filler_spec)
-}
-
-// bool emotions_disabled = 4;
-inline void Character_BrainSettings_ConversationConfig::clear_emotions_disabled() {
-  emotions_disabled_ = false;
-}
-inline bool Character_BrainSettings_ConversationConfig::_internal_emotions_disabled() const {
-  return emotions_disabled_;
-}
-inline bool Character_BrainSettings_ConversationConfig::emotions_disabled() const {
-  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.emotions_disabled)
-  return _internal_emotions_disabled();
-}
-inline void Character_BrainSettings_ConversationConfig::_internal_set_emotions_disabled(bool value) {
-  
-  emotions_disabled_ = value;
-}
-inline void Character_BrainSettings_ConversationConfig::set_emotions_disabled(bool value) {
-  _internal_set_emotions_disabled(value);
-  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.emotions_disabled)
-}
-
-// bool behavioral_contexts_disabled = 5;
-inline void Character_BrainSettings_ConversationConfig::clear_behavioral_contexts_disabled() {
-  behavioral_contexts_disabled_ = false;
-}
-inline bool Character_BrainSettings_ConversationConfig::_internal_behavioral_contexts_disabled() const {
-  return behavioral_contexts_disabled_;
-}
-inline bool Character_BrainSettings_ConversationConfig::behavioral_contexts_disabled() const {
-  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.behavioral_contexts_disabled)
-  return _internal_behavioral_contexts_disabled();
-}
-inline void Character_BrainSettings_ConversationConfig::_internal_set_behavioral_contexts_disabled(bool value) {
-  
-  behavioral_contexts_disabled_ = value;
-}
-inline void Character_BrainSettings_ConversationConfig::set_behavioral_contexts_disabled(bool value) {
-  _internal_set_behavioral_contexts_disabled(value);
-  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig.behavioral_contexts_disabled)
-}
-
-// -------------------------------------------------------------------
-
-// Character_BrainSettings
-
-// .ai.inworld.studio.v1alpha.Character.BrainSettings.ConversationConfig conversation_config = 1;
-inline bool Character_BrainSettings::_internal_has_conversation_config() const {
-  return this != internal_default_instance() && conversation_config_ != nullptr;
-}
-inline bool Character_BrainSettings::has_conversation_config() const {
-  return _internal_has_conversation_config();
-}
-inline void Character_BrainSettings::clear_conversation_config() {
-  if (GetArena() == nullptr && conversation_config_ != nullptr) {
-    delete conversation_config_;
-  }
-  conversation_config_ = nullptr;
-}
-inline const ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig& Character_BrainSettings::_internal_conversation_config() const {
-  const ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig* p = conversation_config_;
-  return p != nullptr ? *p : reinterpret_cast<const ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig&>(
-      ::ai::inworld::studio::v1alpha::_Character_BrainSettings_ConversationConfig_default_instance_);
-}
-inline const ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig& Character_BrainSettings::conversation_config() const {
-  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.BrainSettings.conversation_config)
-  return _internal_conversation_config();
-}
-inline void Character_BrainSettings::unsafe_arena_set_allocated_conversation_config(
-    ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig* conversation_config) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(conversation_config_);
-  }
-  conversation_config_ = conversation_config;
-  if (conversation_config) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.studio.v1alpha.Character.BrainSettings.conversation_config)
-}
-inline ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig* Character_BrainSettings::release_conversation_config() {
-  
-  ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig* temp = conversation_config_;
-  conversation_config_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig* Character_BrainSettings::unsafe_arena_release_conversation_config() {
-  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.Character.BrainSettings.conversation_config)
-  
-  ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig* temp = conversation_config_;
-  conversation_config_ = nullptr;
-  return temp;
-}
-inline ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig* Character_BrainSettings::_internal_mutable_conversation_config() {
-  
-  if (conversation_config_ == nullptr) {
-    auto* p = CreateMaybeMessage<::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig>(GetArena());
-    conversation_config_ = p;
-  }
-  return conversation_config_;
-}
-inline ::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig* Character_BrainSettings::mutable_conversation_config() {
-  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.Character.BrainSettings.conversation_config)
-  return _internal_mutable_conversation_config();
-}
-inline void Character_BrainSettings::set_allocated_conversation_config(::ai::inworld::studio::v1alpha::Character_BrainSettings_ConversationConfig* conversation_config) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete conversation_config_;
-  }
-  if (conversation_config) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(conversation_config);
-    if (message_arena != submessage_arena) {
-      conversation_config = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, conversation_config, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  conversation_config_ = conversation_config;
-  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Character.BrainSettings.conversation_config)
-}
-
-// -------------------------------------------------------------------
-
-// Character_BrainTrigger
-
-// string trigger = 1 [(.google.api.resource_reference) = {
-inline void Character_BrainTrigger::clear_trigger() {
-  trigger_.ClearToEmpty();
-}
-inline const std::string& Character_BrainTrigger::trigger() const {
-  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.BrainTrigger.trigger)
-  return _internal_trigger();
-}
-inline void Character_BrainTrigger::set_trigger(const std::string& value) {
-  _internal_set_trigger(value);
-  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Character.BrainTrigger.trigger)
-}
-inline std::string* Character_BrainTrigger::mutable_trigger() {
-  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.Character.BrainTrigger.trigger)
-  return _internal_mutable_trigger();
-}
-inline const std::string& Character_BrainTrigger::_internal_trigger() const {
-  return trigger_.Get();
-}
-inline void Character_BrainTrigger::_internal_set_trigger(const std::string& value) {
-  
-  trigger_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void Character_BrainTrigger::set_trigger(std::string&& value) {
-  
-  trigger_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.studio.v1alpha.Character.BrainTrigger.trigger)
-}
-inline void Character_BrainTrigger::set_trigger(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  trigger_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:ai.inworld.studio.v1alpha.Character.BrainTrigger.trigger)
-}
-inline void Character_BrainTrigger::set_trigger(const char* value,
-    size_t size) {
-  
-  trigger_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:ai.inworld.studio.v1alpha.Character.BrainTrigger.trigger)
-}
-inline std::string* Character_BrainTrigger::_internal_mutable_trigger() {
-  
-  return trigger_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* Character_BrainTrigger::release_trigger() {
-  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.Character.BrainTrigger.trigger)
-  return trigger_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void Character_BrainTrigger::set_allocated_trigger(std::string* trigger) {
-  if (trigger != nullptr) {
-    
-  } else {
-    
-  }
-  trigger_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), trigger,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Character.BrainTrigger.trigger)
-}
-
-// string situation_description = 2;
-inline void Character_BrainTrigger::clear_situation_description() {
-  situation_description_.ClearToEmpty();
-}
-inline const std::string& Character_BrainTrigger::situation_description() const {
-  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.BrainTrigger.situation_description)
-  return _internal_situation_description();
-}
-inline void Character_BrainTrigger::set_situation_description(const std::string& value) {
-  _internal_set_situation_description(value);
-  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Character.BrainTrigger.situation_description)
-}
-inline std::string* Character_BrainTrigger::mutable_situation_description() {
-  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.Character.BrainTrigger.situation_description)
-  return _internal_mutable_situation_description();
-}
-inline const std::string& Character_BrainTrigger::_internal_situation_description() const {
-  return situation_description_.Get();
-}
-inline void Character_BrainTrigger::_internal_set_situation_description(const std::string& value) {
-  
-  situation_description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void Character_BrainTrigger::set_situation_description(std::string&& value) {
-  
-  situation_description_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.studio.v1alpha.Character.BrainTrigger.situation_description)
-}
-inline void Character_BrainTrigger::set_situation_description(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  situation_description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:ai.inworld.studio.v1alpha.Character.BrainTrigger.situation_description)
-}
-inline void Character_BrainTrigger::set_situation_description(const char* value,
-    size_t size) {
-  
-  situation_description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:ai.inworld.studio.v1alpha.Character.BrainTrigger.situation_description)
-}
-inline std::string* Character_BrainTrigger::_internal_mutable_situation_description() {
-  
-  return situation_description_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* Character_BrainTrigger::release_situation_description() {
-  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.Character.BrainTrigger.situation_description)
-  return situation_description_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void Character_BrainTrigger::set_allocated_situation_description(std::string* situation_description) {
-  if (situation_description != nullptr) {
-    
-  } else {
-    
-  }
-  situation_description_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), situation_description,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Character.BrainTrigger.situation_description)
-}
-
-// bool start_conversation = 3;
-inline void Character_BrainTrigger::clear_start_conversation() {
-  start_conversation_ = false;
-}
-inline bool Character_BrainTrigger::_internal_start_conversation() const {
-  return start_conversation_;
-}
-inline bool Character_BrainTrigger::start_conversation() const {
-  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.BrainTrigger.start_conversation)
-  return _internal_start_conversation();
-}
-inline void Character_BrainTrigger::_internal_set_start_conversation(bool value) {
-  
-  start_conversation_ = value;
-}
-inline void Character_BrainTrigger::set_start_conversation(bool value) {
-  _internal_set_start_conversation(value);
-  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Character.BrainTrigger.start_conversation)
+inline void Character_CharacterDescription::set_dialog_response_length(::ai::inworld::studio::v1alpha::Character_CharacterDescription_DialogResponseLength value) {
+  _internal_set_dialog_response_length(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Character.CharacterDescription.dialog_response_length)
 }
 
 // -------------------------------------------------------------------
@@ -10995,6 +10366,168 @@ inline void Character_CharacterAssets::set_allocated_avatar_material(std::string
   avatar_material_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), avatar_material,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_material)
+}
+
+// .ai.inworld.studio.v1alpha.Character.CharacterAssets.AvatarType avatar_type = 11;
+inline void Character_CharacterAssets::clear_avatar_type() {
+  avatar_type_ = 0;
+}
+inline ::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarType Character_CharacterAssets::_internal_avatar_type() const {
+  return static_cast< ::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarType >(avatar_type_);
+}
+inline ::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarType Character_CharacterAssets::avatar_type() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_type)
+  return _internal_avatar_type();
+}
+inline void Character_CharacterAssets::_internal_set_avatar_type(::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarType value) {
+  
+  avatar_type_ = value;
+}
+inline void Character_CharacterAssets::set_avatar_type(::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarType value) {
+  _internal_set_avatar_type(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_type)
+}
+
+// string innequin_img_uri = 12;
+inline void Character_CharacterAssets::clear_innequin_img_uri() {
+  innequin_img_uri_.ClearToEmpty();
+}
+inline const std::string& Character_CharacterAssets::innequin_img_uri() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.CharacterAssets.innequin_img_uri)
+  return _internal_innequin_img_uri();
+}
+inline void Character_CharacterAssets::set_innequin_img_uri(const std::string& value) {
+  _internal_set_innequin_img_uri(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Character.CharacterAssets.innequin_img_uri)
+}
+inline std::string* Character_CharacterAssets::mutable_innequin_img_uri() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.Character.CharacterAssets.innequin_img_uri)
+  return _internal_mutable_innequin_img_uri();
+}
+inline const std::string& Character_CharacterAssets::_internal_innequin_img_uri() const {
+  return innequin_img_uri_.Get();
+}
+inline void Character_CharacterAssets::_internal_set_innequin_img_uri(const std::string& value) {
+  
+  innequin_img_uri_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Character_CharacterAssets::set_innequin_img_uri(std::string&& value) {
+  
+  innequin_img_uri_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.studio.v1alpha.Character.CharacterAssets.innequin_img_uri)
+}
+inline void Character_CharacterAssets::set_innequin_img_uri(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  innequin_img_uri_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.studio.v1alpha.Character.CharacterAssets.innequin_img_uri)
+}
+inline void Character_CharacterAssets::set_innequin_img_uri(const char* value,
+    size_t size) {
+  
+  innequin_img_uri_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.studio.v1alpha.Character.CharacterAssets.innequin_img_uri)
+}
+inline std::string* Character_CharacterAssets::_internal_mutable_innequin_img_uri() {
+  
+  return innequin_img_uri_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Character_CharacterAssets::release_innequin_img_uri() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.Character.CharacterAssets.innequin_img_uri)
+  return innequin_img_uri_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Character_CharacterAssets::set_allocated_innequin_img_uri(std::string* innequin_img_uri) {
+  if (innequin_img_uri != nullptr) {
+    
+  } else {
+    
+  }
+  innequin_img_uri_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), innequin_img_uri,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Character.CharacterAssets.innequin_img_uri)
+}
+
+// .ai.inworld.studio.v1alpha.Character.CharacterAssets.AvatarDisplayImageSource avatar_display_image_source = 13;
+inline void Character_CharacterAssets::clear_avatar_display_image_source() {
+  avatar_display_image_source_ = 0;
+}
+inline ::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarDisplayImageSource Character_CharacterAssets::_internal_avatar_display_image_source() const {
+  return static_cast< ::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarDisplayImageSource >(avatar_display_image_source_);
+}
+inline ::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarDisplayImageSource Character_CharacterAssets::avatar_display_image_source() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_display_image_source)
+  return _internal_avatar_display_image_source();
+}
+inline void Character_CharacterAssets::_internal_set_avatar_display_image_source(::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarDisplayImageSource value) {
+  
+  avatar_display_image_source_ = value;
+}
+inline void Character_CharacterAssets::set_avatar_display_image_source(::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarDisplayImageSource value) {
+  _internal_set_avatar_display_image_source(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_display_image_source)
+}
+
+// string innequin_img_original = 14;
+inline void Character_CharacterAssets::clear_innequin_img_original() {
+  innequin_img_original_.ClearToEmpty();
+}
+inline const std::string& Character_CharacterAssets::innequin_img_original() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.CharacterAssets.innequin_img_original)
+  return _internal_innequin_img_original();
+}
+inline void Character_CharacterAssets::set_innequin_img_original(const std::string& value) {
+  _internal_set_innequin_img_original(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Character.CharacterAssets.innequin_img_original)
+}
+inline std::string* Character_CharacterAssets::mutable_innequin_img_original() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.Character.CharacterAssets.innequin_img_original)
+  return _internal_mutable_innequin_img_original();
+}
+inline const std::string& Character_CharacterAssets::_internal_innequin_img_original() const {
+  return innequin_img_original_.Get();
+}
+inline void Character_CharacterAssets::_internal_set_innequin_img_original(const std::string& value) {
+  
+  innequin_img_original_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Character_CharacterAssets::set_innequin_img_original(std::string&& value) {
+  
+  innequin_img_original_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.studio.v1alpha.Character.CharacterAssets.innequin_img_original)
+}
+inline void Character_CharacterAssets::set_innequin_img_original(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  innequin_img_original_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.studio.v1alpha.Character.CharacterAssets.innequin_img_original)
+}
+inline void Character_CharacterAssets::set_innequin_img_original(const char* value,
+    size_t size) {
+  
+  innequin_img_original_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.studio.v1alpha.Character.CharacterAssets.innequin_img_original)
+}
+inline std::string* Character_CharacterAssets::_internal_mutable_innequin_img_original() {
+  
+  return innequin_img_original_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Character_CharacterAssets::release_innequin_img_original() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.Character.CharacterAssets.innequin_img_original)
+  return innequin_img_original_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Character_CharacterAssets::set_allocated_innequin_img_original(std::string* innequin_img_original) {
+  if (innequin_img_original != nullptr) {
+    
+  } else {
+    
+  }
+  innequin_img_original_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), innequin_img_original,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Character.CharacterAssets.innequin_img_original)
 }
 
 // -------------------------------------------------------------------
@@ -11789,6 +11322,74 @@ inline void Character_SharedPortalInfo::set_allocated_interaction_count_stat(::a
 
 // -------------------------------------------------------------------
 
+// Character_LongTermCoherence
+
+// bool enabled = 1;
+inline void Character_LongTermCoherence::clear_enabled() {
+  enabled_ = false;
+}
+inline bool Character_LongTermCoherence::_internal_enabled() const {
+  return enabled_;
+}
+inline bool Character_LongTermCoherence::enabled() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.LongTermCoherence.enabled)
+  return _internal_enabled();
+}
+inline void Character_LongTermCoherence::_internal_set_enabled(bool value) {
+  
+  enabled_ = value;
+}
+inline void Character_LongTermCoherence::set_enabled(bool value) {
+  _internal_set_enabled(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Character.LongTermCoherence.enabled)
+}
+
+// -------------------------------------------------------------------
+
+// Character_Relationship
+
+// bool enabled = 1;
+inline void Character_Relationship::clear_enabled() {
+  enabled_ = false;
+}
+inline bool Character_Relationship::_internal_enabled() const {
+  return enabled_;
+}
+inline bool Character_Relationship::enabled() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.Relationship.enabled)
+  return _internal_enabled();
+}
+inline void Character_Relationship::_internal_set_enabled(bool value) {
+  
+  enabled_ = value;
+}
+inline void Character_Relationship::set_enabled(bool value) {
+  _internal_set_enabled(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Character.Relationship.enabled)
+}
+
+// float fluidity = 2;
+inline void Character_Relationship::clear_fluidity() {
+  fluidity_ = 0;
+}
+inline float Character_Relationship::_internal_fluidity() const {
+  return fluidity_;
+}
+inline float Character_Relationship::fluidity() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.Relationship.fluidity)
+  return _internal_fluidity();
+}
+inline void Character_Relationship::_internal_set_fluidity(float value) {
+  
+  fluidity_ = value;
+}
+inline void Character_Relationship::set_fluidity(float value) {
+  _internal_set_fluidity(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Character.Relationship.fluidity)
+}
+
+// -------------------------------------------------------------------
+
 // Character
 
 // string name = 1 [(.ai.inworld.options.examples) = {
@@ -11852,7 +11453,7 @@ inline void Character::set_allocated_name(std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Character.name)
 }
 
-// string language_code = 2;
+// string language_code = 2 [deprecated = true];
 inline void Character::clear_language_code() {
   language_code_.ClearToEmpty();
 }
@@ -11911,6 +11512,26 @@ inline void Character::set_allocated_language_code(std::string* language_code) {
   language_code_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), language_code,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Character.language_code)
+}
+
+// .ai.inworld.language_codes.LanguageCode language = 27;
+inline void Character::clear_language() {
+  language_ = 0;
+}
+inline ::ai::inworld::language_codes::LanguageCode Character::_internal_language() const {
+  return static_cast< ::ai::inworld::language_codes::LanguageCode >(language_);
+}
+inline ::ai::inworld::language_codes::LanguageCode Character::language() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.language)
+  return _internal_language();
+}
+inline void Character::_internal_set_language(::ai::inworld::language_codes::LanguageCode value) {
+  
+  language_ = value;
+}
+inline void Character::set_language(::ai::inworld::language_codes::LanguageCode value) {
+  _internal_set_language(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Character.language)
 }
 
 // .ai.inworld.studio.v1alpha.Character.CharacterDescription default_character_description = 3;
@@ -11994,128 +11615,6 @@ inline void Character::set_allocated_default_character_description(::ai::inworld
   }
   default_character_description_ = default_character_description;
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Character.default_character_description)
-}
-
-// .ai.inworld.studio.v1alpha.Character.BrainSettings brain_settings = 4;
-inline bool Character::_internal_has_brain_settings() const {
-  return this != internal_default_instance() && brain_settings_ != nullptr;
-}
-inline bool Character::has_brain_settings() const {
-  return _internal_has_brain_settings();
-}
-inline void Character::clear_brain_settings() {
-  if (GetArena() == nullptr && brain_settings_ != nullptr) {
-    delete brain_settings_;
-  }
-  brain_settings_ = nullptr;
-}
-inline const ::ai::inworld::studio::v1alpha::Character_BrainSettings& Character::_internal_brain_settings() const {
-  const ::ai::inworld::studio::v1alpha::Character_BrainSettings* p = brain_settings_;
-  return p != nullptr ? *p : reinterpret_cast<const ::ai::inworld::studio::v1alpha::Character_BrainSettings&>(
-      ::ai::inworld::studio::v1alpha::_Character_BrainSettings_default_instance_);
-}
-inline const ::ai::inworld::studio::v1alpha::Character_BrainSettings& Character::brain_settings() const {
-  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.brain_settings)
-  return _internal_brain_settings();
-}
-inline void Character::unsafe_arena_set_allocated_brain_settings(
-    ::ai::inworld::studio::v1alpha::Character_BrainSettings* brain_settings) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(brain_settings_);
-  }
-  brain_settings_ = brain_settings;
-  if (brain_settings) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.studio.v1alpha.Character.brain_settings)
-}
-inline ::ai::inworld::studio::v1alpha::Character_BrainSettings* Character::release_brain_settings() {
-  
-  ::ai::inworld::studio::v1alpha::Character_BrainSettings* temp = brain_settings_;
-  brain_settings_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::ai::inworld::studio::v1alpha::Character_BrainSettings* Character::unsafe_arena_release_brain_settings() {
-  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.Character.brain_settings)
-  
-  ::ai::inworld::studio::v1alpha::Character_BrainSettings* temp = brain_settings_;
-  brain_settings_ = nullptr;
-  return temp;
-}
-inline ::ai::inworld::studio::v1alpha::Character_BrainSettings* Character::_internal_mutable_brain_settings() {
-  
-  if (brain_settings_ == nullptr) {
-    auto* p = CreateMaybeMessage<::ai::inworld::studio::v1alpha::Character_BrainSettings>(GetArena());
-    brain_settings_ = p;
-  }
-  return brain_settings_;
-}
-inline ::ai::inworld::studio::v1alpha::Character_BrainSettings* Character::mutable_brain_settings() {
-  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.Character.brain_settings)
-  return _internal_mutable_brain_settings();
-}
-inline void Character::set_allocated_brain_settings(::ai::inworld::studio::v1alpha::Character_BrainSettings* brain_settings) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete brain_settings_;
-  }
-  if (brain_settings) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(brain_settings);
-    if (message_arena != submessage_arena) {
-      brain_settings = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, brain_settings, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  brain_settings_ = brain_settings;
-  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Character.brain_settings)
-}
-
-// repeated .ai.inworld.studio.v1alpha.Character.BrainTrigger brain_triggers = 5;
-inline int Character::_internal_brain_triggers_size() const {
-  return brain_triggers_.size();
-}
-inline int Character::brain_triggers_size() const {
-  return _internal_brain_triggers_size();
-}
-inline void Character::clear_brain_triggers() {
-  brain_triggers_.Clear();
-}
-inline ::ai::inworld::studio::v1alpha::Character_BrainTrigger* Character::mutable_brain_triggers(int index) {
-  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.Character.brain_triggers)
-  return brain_triggers_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::Character_BrainTrigger >*
-Character::mutable_brain_triggers() {
-  // @@protoc_insertion_point(field_mutable_list:ai.inworld.studio.v1alpha.Character.brain_triggers)
-  return &brain_triggers_;
-}
-inline const ::ai::inworld::studio::v1alpha::Character_BrainTrigger& Character::_internal_brain_triggers(int index) const {
-  return brain_triggers_.Get(index);
-}
-inline const ::ai::inworld::studio::v1alpha::Character_BrainTrigger& Character::brain_triggers(int index) const {
-  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.brain_triggers)
-  return _internal_brain_triggers(index);
-}
-inline ::ai::inworld::studio::v1alpha::Character_BrainTrigger* Character::_internal_add_brain_triggers() {
-  return brain_triggers_.Add();
-}
-inline ::ai::inworld::studio::v1alpha::Character_BrainTrigger* Character::add_brain_triggers() {
-  // @@protoc_insertion_point(field_add:ai.inworld.studio.v1alpha.Character.brain_triggers)
-  return _internal_add_brain_triggers();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::Character_BrainTrigger >&
-Character::brain_triggers() const {
-  // @@protoc_insertion_point(field_list:ai.inworld.studio.v1alpha.Character.brain_triggers)
-  return brain_triggers_;
 }
 
 // .ai.inworld.studio.v1alpha.Character.CharacterAssets default_character_assets = 7;
@@ -12848,7 +12347,7 @@ Character::mutable_safety_config() {
   return _internal_mutable_safety_config();
 }
 
-// float relationship_fluidity = 22;
+// float relationship_fluidity = 22 [deprecated = true];
 inline void Character::clear_relationship_fluidity() {
   relationship_fluidity_ = 0;
 }
@@ -12886,6 +12385,192 @@ inline void Character::_internal_set_fourth_wall(::ai::inworld::studio::v1alpha:
 inline void Character::set_fourth_wall(::ai::inworld::studio::v1alpha::Character_FourthWallContainment value) {
   _internal_set_fourth_wall(value);
   // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Character.fourth_wall)
+}
+
+// .ai.inworld.studio.v1alpha.Character.LongTermCoherence long_term_coherence = 24;
+inline bool Character::_internal_has_long_term_coherence() const {
+  return this != internal_default_instance() && long_term_coherence_ != nullptr;
+}
+inline bool Character::has_long_term_coherence() const {
+  return _internal_has_long_term_coherence();
+}
+inline void Character::clear_long_term_coherence() {
+  if (GetArena() == nullptr && long_term_coherence_ != nullptr) {
+    delete long_term_coherence_;
+  }
+  long_term_coherence_ = nullptr;
+}
+inline const ::ai::inworld::studio::v1alpha::Character_LongTermCoherence& Character::_internal_long_term_coherence() const {
+  const ::ai::inworld::studio::v1alpha::Character_LongTermCoherence* p = long_term_coherence_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ai::inworld::studio::v1alpha::Character_LongTermCoherence&>(
+      ::ai::inworld::studio::v1alpha::_Character_LongTermCoherence_default_instance_);
+}
+inline const ::ai::inworld::studio::v1alpha::Character_LongTermCoherence& Character::long_term_coherence() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.long_term_coherence)
+  return _internal_long_term_coherence();
+}
+inline void Character::unsafe_arena_set_allocated_long_term_coherence(
+    ::ai::inworld::studio::v1alpha::Character_LongTermCoherence* long_term_coherence) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(long_term_coherence_);
+  }
+  long_term_coherence_ = long_term_coherence;
+  if (long_term_coherence) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.studio.v1alpha.Character.long_term_coherence)
+}
+inline ::ai::inworld::studio::v1alpha::Character_LongTermCoherence* Character::release_long_term_coherence() {
+  
+  ::ai::inworld::studio::v1alpha::Character_LongTermCoherence* temp = long_term_coherence_;
+  long_term_coherence_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::ai::inworld::studio::v1alpha::Character_LongTermCoherence* Character::unsafe_arena_release_long_term_coherence() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.Character.long_term_coherence)
+  
+  ::ai::inworld::studio::v1alpha::Character_LongTermCoherence* temp = long_term_coherence_;
+  long_term_coherence_ = nullptr;
+  return temp;
+}
+inline ::ai::inworld::studio::v1alpha::Character_LongTermCoherence* Character::_internal_mutable_long_term_coherence() {
+  
+  if (long_term_coherence_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ai::inworld::studio::v1alpha::Character_LongTermCoherence>(GetArena());
+    long_term_coherence_ = p;
+  }
+  return long_term_coherence_;
+}
+inline ::ai::inworld::studio::v1alpha::Character_LongTermCoherence* Character::mutable_long_term_coherence() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.Character.long_term_coherence)
+  return _internal_mutable_long_term_coherence();
+}
+inline void Character::set_allocated_long_term_coherence(::ai::inworld::studio::v1alpha::Character_LongTermCoherence* long_term_coherence) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete long_term_coherence_;
+  }
+  if (long_term_coherence) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(long_term_coherence);
+    if (message_arena != submessage_arena) {
+      long_term_coherence = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, long_term_coherence, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  long_term_coherence_ = long_term_coherence;
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Character.long_term_coherence)
+}
+
+// .ai.inworld.studio.v1alpha.Character.Relationship relationship = 25;
+inline bool Character::_internal_has_relationship() const {
+  return this != internal_default_instance() && relationship_ != nullptr;
+}
+inline bool Character::has_relationship() const {
+  return _internal_has_relationship();
+}
+inline void Character::clear_relationship() {
+  if (GetArena() == nullptr && relationship_ != nullptr) {
+    delete relationship_;
+  }
+  relationship_ = nullptr;
+}
+inline const ::ai::inworld::studio::v1alpha::Character_Relationship& Character::_internal_relationship() const {
+  const ::ai::inworld::studio::v1alpha::Character_Relationship* p = relationship_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ai::inworld::studio::v1alpha::Character_Relationship&>(
+      ::ai::inworld::studio::v1alpha::_Character_Relationship_default_instance_);
+}
+inline const ::ai::inworld::studio::v1alpha::Character_Relationship& Character::relationship() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.relationship)
+  return _internal_relationship();
+}
+inline void Character::unsafe_arena_set_allocated_relationship(
+    ::ai::inworld::studio::v1alpha::Character_Relationship* relationship) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(relationship_);
+  }
+  relationship_ = relationship;
+  if (relationship) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.studio.v1alpha.Character.relationship)
+}
+inline ::ai::inworld::studio::v1alpha::Character_Relationship* Character::release_relationship() {
+  
+  ::ai::inworld::studio::v1alpha::Character_Relationship* temp = relationship_;
+  relationship_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::ai::inworld::studio::v1alpha::Character_Relationship* Character::unsafe_arena_release_relationship() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.Character.relationship)
+  
+  ::ai::inworld::studio::v1alpha::Character_Relationship* temp = relationship_;
+  relationship_ = nullptr;
+  return temp;
+}
+inline ::ai::inworld::studio::v1alpha::Character_Relationship* Character::_internal_mutable_relationship() {
+  
+  if (relationship_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ai::inworld::studio::v1alpha::Character_Relationship>(GetArena());
+    relationship_ = p;
+  }
+  return relationship_;
+}
+inline ::ai::inworld::studio::v1alpha::Character_Relationship* Character::mutable_relationship() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.Character.relationship)
+  return _internal_mutable_relationship();
+}
+inline void Character::set_allocated_relationship(::ai::inworld::studio::v1alpha::Character_Relationship* relationship) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete relationship_;
+  }
+  if (relationship) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(relationship);
+    if (message_arena != submessage_arena) {
+      relationship = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, relationship, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  relationship_ = relationship;
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.Character.relationship)
+}
+
+// .ai.inworld.studio.v1alpha.CognitiveControl cognitive_control = 26;
+inline void Character::clear_cognitive_control() {
+  cognitive_control_ = 0;
+}
+inline ::ai::inworld::studio::v1alpha::CognitiveControl Character::_internal_cognitive_control() const {
+  return static_cast< ::ai::inworld::studio::v1alpha::CognitiveControl >(cognitive_control_);
+}
+inline ::ai::inworld::studio::v1alpha::CognitiveControl Character::cognitive_control() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.Character.cognitive_control)
+  return _internal_cognitive_control();
+}
+inline void Character::_internal_set_cognitive_control(::ai::inworld::studio::v1alpha::CognitiveControl value) {
+  
+  cognitive_control_ = value;
+}
+inline void Character::set_cognitive_control(::ai::inworld::studio::v1alpha::CognitiveControl value) {
+  _internal_set_cognitive_control(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.Character.cognitive_control)
 }
 
 // -------------------------------------------------------------------
@@ -14432,6 +14117,26 @@ inline void ReplaceCharacterImageRequest::set_allocated_content(std::string* con
   content_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), content,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.ReplaceCharacterImageRequest.content)
+}
+
+// .ai.inworld.studio.v1alpha.CharacterAssetType character_asset_type = 3;
+inline void ReplaceCharacterImageRequest::clear_character_asset_type() {
+  character_asset_type_ = 0;
+}
+inline ::ai::inworld::studio::v1alpha::CharacterAssetType ReplaceCharacterImageRequest::_internal_character_asset_type() const {
+  return static_cast< ::ai::inworld::studio::v1alpha::CharacterAssetType >(character_asset_type_);
+}
+inline ::ai::inworld::studio::v1alpha::CharacterAssetType ReplaceCharacterImageRequest::character_asset_type() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.ReplaceCharacterImageRequest.character_asset_type)
+  return _internal_character_asset_type();
+}
+inline void ReplaceCharacterImageRequest::_internal_set_character_asset_type(::ai::inworld::studio::v1alpha::CharacterAssetType value) {
+  
+  character_asset_type_ = value;
+}
+inline void ReplaceCharacterImageRequest::set_character_asset_type(::ai::inworld::studio::v1alpha::CharacterAssetType value) {
+  _internal_set_character_asset_type(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.ReplaceCharacterImageRequest.character_asset_type)
 }
 
 // -------------------------------------------------------------------
@@ -16383,10 +16088,6 @@ inline void CheckDeployInfoResponse::set_is_fresh(bool value) {
 
 // -------------------------------------------------------------------
 
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -16411,6 +16112,21 @@ template <> struct is_proto_enum< ::ai::inworld::studio::v1alpha::Character_Char
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ai::inworld::studio::v1alpha::Character_CharacterDescription_LifeStage>() {
   return ::ai::inworld::studio::v1alpha::Character_CharacterDescription_LifeStage_descriptor();
+}
+template <> struct is_proto_enum< ::ai::inworld::studio::v1alpha::Character_CharacterDescription_DialogResponseLength> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ai::inworld::studio::v1alpha::Character_CharacterDescription_DialogResponseLength>() {
+  return ::ai::inworld::studio::v1alpha::Character_CharacterDescription_DialogResponseLength_descriptor();
+}
+template <> struct is_proto_enum< ::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarType>() {
+  return ::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarType_descriptor();
+}
+template <> struct is_proto_enum< ::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarDisplayImageSource> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarDisplayImageSource>() {
+  return ::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarDisplayImageSource_descriptor();
 }
 template <> struct is_proto_enum< ::ai::inworld::studio::v1alpha::Character_Tag> : ::std::true_type {};
 template <>
@@ -16446,6 +16162,16 @@ template <> struct is_proto_enum< ::ai::inworld::studio::v1alpha::SafetyLevel> :
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ai::inworld::studio::v1alpha::SafetyLevel>() {
   return ::ai::inworld::studio::v1alpha::SafetyLevel_descriptor();
+}
+template <> struct is_proto_enum< ::ai::inworld::studio::v1alpha::CognitiveControl> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ai::inworld::studio::v1alpha::CognitiveControl>() {
+  return ::ai::inworld::studio::v1alpha::CognitiveControl_descriptor();
+}
+template <> struct is_proto_enum< ::ai::inworld::studio::v1alpha::CharacterAssetType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ai::inworld::studio::v1alpha::CharacterAssetType>() {
+  return ::ai::inworld::studio::v1alpha::CharacterAssetType_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

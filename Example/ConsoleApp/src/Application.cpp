@@ -9,8 +9,8 @@
 #include "Utils/Log.h"
 
 // !!! Fill out this options !!!
-constexpr std::string_view g_SceneName = "";
-constexpr std::string_view g_Base64 = "";
+constexpr std::string_view g_SceneName = "workspaces/artem_v_test/scenes/demo";
+constexpr std::string_view g_Base64 = "TUdoSkowSTlQeVg3VDUzVWE3MFJlUHoyemJBZ29JTnA6dW9Lb0tCWEQ2emVMamdpaGJXSGRnVjNmendTNkRCMFRFWGxCVXB1VzR0czNMQ3pjV1l4eEEyVkdUNlNzQzhSUg==";
 constexpr std::string_view g_ApiKey = "";
 constexpr std::string_view g_ApiSecret = "";
 
@@ -18,8 +18,9 @@ void NDKApp::App::Run()
 {
 	if (
 		g_SceneName.empty() ||
-		g_ApiKey.empty() ||
-		g_ApiSecret.empty())
+		(g_Base64.empty() &&
+		(g_ApiKey.empty() ||
+		g_ApiSecret.empty())))
 	{
 		Inworld::LogError("Fill out client options in Application.cpp");
 		return;
