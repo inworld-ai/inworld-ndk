@@ -61,6 +61,7 @@ generate(proto_path, "world-engine.proto")
 generate(proto_path, "packets.proto")
 generate(proto_path, "voices.proto")
 generate(proto_path, "options.proto")
+generate(proto_path, "configuration.proto")
 
 for file_name in [
     "ai/inworld/studio/v1alpha/apikeys.proto",
