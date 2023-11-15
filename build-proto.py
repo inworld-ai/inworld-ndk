@@ -62,6 +62,7 @@ generate(proto_path, "packets.proto")
 generate(proto_path, "voices.proto")
 generate(proto_path, "options.proto")
 generate(proto_path, "configuration.proto")
+generate(proto_path, "language_codes.proto")
 
 for file_name in [
     "ai/inworld/studio/v1alpha/apikeys.proto",
@@ -71,6 +72,8 @@ for file_name in [
     "ai/inworld/studio/v1alpha/scenes.proto",
     "ai/inworld/studio/v1alpha/tokens.proto",
     "ai/inworld/studio/v1alpha/users.proto",
+    "ai/inworld/studio/v1alpha/impression_event_data.proto",
+    "ai/inworld/studio/v1alpha/language_code.proto",
     "ai/inworld/studio/v1alpha/workspaces.proto"
 ]:
     generate(proto_path, file_name)
