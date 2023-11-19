@@ -72,7 +72,9 @@ target_include_directories(InworldNDK PUBLIC
     src/ThirdParty
 )
 
-target_compile_features(InworldNDK PUBLIC cxx_std_20)
+if (NOT ANDROID)
+    target_compile_features(InworldNDK PUBLIC cxx_std_20)
+endif()
 
 GroupSourcesByFolder(InworldNDK)
 
@@ -265,8 +267,10 @@ if(INWORLD_LOG)
 endif()
 
 # gtest
-add_subdirectory(ThirdParty/googletest)
-target_link_libraries(InworldNDK PUBLIC gtest)
+if (WIN32 OR MAC)
+    add_subdirectory(ThirdParty/googletest)
+    target_link_libraries(InworldNDK PUBLIC gtest)
+endif()
 
 enable_testing()
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
