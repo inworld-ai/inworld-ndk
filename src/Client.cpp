@@ -153,12 +153,33 @@ void Inworld::ClientBase::StopAudioSession(const std::string& AgentId)
 	SendPacket(Packet);
 }
 
-void Inworld::ClientBase::InitClient(std::string ClientId, std::string ClientVer, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback)
+void Inworld::ClientBase::InitClient(const SdkInfo& SdkInfo, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback)
 {
 	gpr_set_log_function(GrpcLog);	
 
-	_ClientId = ClientId;
-	_ClientVer = ClientVer;
+	_SdkInfo = SdkInfo;
+	if (_SdkInfo.Type.empty())
+	{
+		_SdkInfo.Type = "ndk";
+		if (!_SdkInfo.Subtype.empty())
+		{
+			Inworld::LogWarning("SdkInfo.Type is empty, but SdkInfo.Subtype is %s. Using empty subtype.", _SdkInfo.Subtype.c_str());
+			_SdkInfo.Subtype = "";
+		}
+	}
+	if (_SdkInfo.Version.empty())
+	{
+		//TODO: add version after release process change
+		_SdkInfo.Version = "1.1.0";
+	}
+	if (_SdkInfo.OS.empty())
+	{
+		Inworld::LogWarning("Please provide SdkInfo.OS, operating system or browser");
+	}
+	if (_SdkInfo.ClientName.empty())
+	{
+		Inworld::LogWarning("Please provide SdkInfo.ClientName, your project name");
+	}
 
 	_OnConnectionStateChangedCallback = ConnectionStateCallback;
 	_OnPacketCallback = PacketCallback;
@@ -391,6 +412,21 @@ void Inworld::ClientBase::LoadScene()
 
 	Inworld::LogSetSessionId(_SessionInfo.SessionId);
 
+	std::string SdkDesc = _SdkInfo.Type;
+	SdkDesc += !_SdkInfo.Subtype.empty() ? ("/" + _SdkInfo.Subtype + ";") : ";";
+	if (!_SdkInfo.Version.empty())
+	{
+		SdkDesc += _SdkInfo.Version + ";";
+	}
+	if (!_SdkInfo.OS.empty())
+	{
+		SdkDesc += _SdkInfo.OS + ";";
+	}
+	if (!_SdkInfo.ClientName.empty())
+	{
+		SdkDesc += _SdkInfo.ClientName;
+	}
+
 	_AsyncLoadSceneTask->Start(
 		"InworldLoadScene",
 		std::make_unique<RunnableLoadScene>(
@@ -401,8 +437,9 @@ void Inworld::ClientBase::LoadScene()
 			_ClientOptions.PlayerName,
 			_ClientOptions.UserId,
 			_ClientOptions.UserSettings,
-			_ClientId,
-			_ClientVer,
+			_SdkInfo.Type,
+			_SdkInfo.Version,
+			SdkDesc,
 			_SessionInfo.SessionSavedState,
 			_ClientOptions.Capabilities,
 			[this](const grpc::Status& Status, const InworldEngine::LoadSceneResponse& Response)

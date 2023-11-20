@@ -57,12 +57,16 @@ def generate(path, filepath):
     print("------------------------------------------")
 
 proto_path = os.path.join(PROTO_REPO, "grpc-stub/world-engine/src/main/proto/")
-generate(proto_path, "world-engine.proto")
-generate(proto_path, "packets.proto")
-generate(proto_path, "voices.proto")
-generate(proto_path, "options.proto")
-generate(proto_path, "configuration.proto")
-generate(proto_path, "language_codes.proto")
+for file_name in [
+    "world-engine.proto",
+    "packets.proto",
+    "voices.proto",
+    "options.proto",
+    "configuration.proto",
+    "language_codes.proto",
+    "base_voice.proto",
+]:
+    generate(proto_path, file_name)
 
 for file_name in [
     "ai/inworld/studio/v1alpha/apikeys.proto",

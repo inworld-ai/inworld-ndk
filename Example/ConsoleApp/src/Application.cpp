@@ -128,7 +128,7 @@ void NDKApp::App::Run()
 					});
 			}
 		}
-});
+		});
 
 	_Options.ServerUrl = "api-engine.inworld.ai:443";
 	_Options.PlayerName = "Player";
@@ -153,8 +153,7 @@ void NDKApp::App::Run()
 	std::vector<Inworld::AgentInfo> AgentInfos;
 
 	_Client.InitClient(
-		"DefaultClientNDK",
-		"1.0.0",
+		{},
 		[this](Inworld::Client::ConnectionState ConnectionState)
 		{
 			std::string Error;
