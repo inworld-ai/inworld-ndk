@@ -176,10 +176,6 @@ void Inworld::ClientBase::InitClient(const SdkInfo& SdkInfo, std::function<void(
 	{
 		Inworld::LogWarning("Please provide SdkInfo.OS, operating system or browser");
 	}
-	if (_SdkInfo.ClientName.empty())
-	{
-		Inworld::LogWarning("Please provide SdkInfo.ClientName, your project name");
-	}
 
 	_OnConnectionStateChangedCallback = ConnectionStateCallback;
 	_OnPacketCallback = PacketCallback;
@@ -251,6 +247,10 @@ void Inworld::ClientBase::StartClient(const ClientOptions& Options, const Sessio
 		{
 			Inworld::LogError("Invalid base64 signature, ignored.");
 		}
+	}
+	if (_ClientOptions.ProjectName.empty())
+	{
+		Inworld::LogWarning("Please provide ClientOptions.ProjectName");
 	}
 
 	_SessionInfo = Info;
@@ -422,9 +422,9 @@ void Inworld::ClientBase::LoadScene()
 	{
 		SdkDesc += _SdkInfo.OS + ";";
 	}
-	if (!_SdkInfo.ClientName.empty())
+	if (!_ClientOptions.ProjectName.empty())
 	{
-		SdkDesc += _SdkInfo.ClientName;
+		SdkDesc += _ClientOptions.ProjectName;
 	}
 
 	_AsyncLoadSceneTask->Start(

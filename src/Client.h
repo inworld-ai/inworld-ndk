@@ -30,7 +30,6 @@ namespace Inworld
 		std::string Subtype;
 		std::string Version;
 		std::string OS;
-		std::string ClientName;
 	};
 
 	struct INWORLD_EXPORT ClientOptions
@@ -44,6 +43,7 @@ namespace Inworld
 		std::string ApiSecret;
 		std::string Base64;
 		std::string PlayerName;
+		std::string ProjectName;
 		std::string UserId;
 	};
 
