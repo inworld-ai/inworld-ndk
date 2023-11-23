@@ -135,14 +135,11 @@ void Unity_ResumeClient()
 	g_pWrapper->ResumeClient();
 }
 
-const char* Unity_SendText(const char* agentID, const char* message)
+void Unity_SendText(const char* agentID, const char* message)
 {
 	if (g_pWrapper == nullptr)
-		return "";
-	const auto pResult = g_pWrapper->SendTextMessage(agentID, message);
-	if (pResult == nullptr)
-		return "";	
-	return pResult->_PacketId._InteractionId.c_str();
+		return;
+	g_pWrapper->SendTextMessage(agentID, message);
 }
 
 void Unity_SendAudio(const char* agentID, const char* data)
@@ -152,23 +149,23 @@ void Unity_SendAudio(const char* agentID, const char* data)
 	g_pWrapper->SendSoundMessage(agentID, NDKUnity::Base64ToString(data));
 }
 
-const char* Unity_SendTrigger(const char* agentID, const char* triggerName)
+void Unity_SendTrigger(const char* agentID, const char* triggerName)
 {
 	if (g_pWrapper == nullptr)
-		return "";
+		return;
 	const auto pResult = g_pWrapper->SendCustomEvent(agentID, triggerName, {});
 	if (pResult == nullptr)
-		return "";	
-	return pResult->_PacketId._InteractionId.c_str();
+		return;
+	Inworld::Log("Send Trigger: %s. InteractionID: %s", triggerName, pResult->_PacketId._InteractionId.c_str());
 }
-const char* Unity_SendTriggerParam(const char* agentID, const char* triggerName, const char* param, const char* paramValue)
+void Unity_SendTriggerParam(const char* agentID, const char* triggerName, const char* param, const char* paramValue)
 {
 	if (g_pWrapper == nullptr)
-		return "";
+		return;
 	const auto pResult = g_pWrapper->SendCustomEvent(agentID, triggerName, {{param, paramValue}});
 	if (pResult == nullptr)
-		return "";	
-	return pResult->_PacketId._InteractionId.c_str();
+		return;	
+	Inworld::Log("Send Trigger: %s. %s:%s InteractionID: %s", triggerName, param, paramValue, pResult->_PacketId._InteractionId.c_str());
 }
 
 void Unity_CancelResponse(const char* agentID, const char* interactionIDToCancel)

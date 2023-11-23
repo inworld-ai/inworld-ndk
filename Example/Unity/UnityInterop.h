@@ -42,10 +42,10 @@ extern "C"
 #pragma endregion Inworld Status
 
 #pragma region Send Data
-	DLL_EXPORT const char* Unity_SendText(const char* agentID, const char* message);
+	DLL_EXPORT void Unity_SendText(const char* agentID, const char* message);
 	DLL_EXPORT void Unity_SendAudio(const char* agentID, const char* data);
-	DLL_EXPORT const char* Unity_SendTrigger(const char* agentID, const char* triggerName);
-	DLL_EXPORT const char* Unity_SendTriggerParam(const char* agentID, const char* triggerName, const char* param, const char* paramValue);
+	DLL_EXPORT void Unity_SendTrigger(const char* agentID, const char* triggerName);
+	DLL_EXPORT void Unity_SendTriggerParam(const char* agentID, const char* triggerName, const char* param, const char* paramValue);
 	DLL_EXPORT void Unity_CancelResponse(const char* agentID, const char* interactionIDToCancel);
 	DLL_EXPORT void Unity_StartAudio(const char* agentID);
 	DLL_EXPORT void Unity_StopAudio(const char* agentID);
