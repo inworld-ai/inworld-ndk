@@ -8,6 +8,15 @@ on:
       - '**/*.md'
 
 jobs:
+  build-win:
+    uses: ./.github/workflows/build-win.yml
+  build-mac:
+    uses: ./.github/workflows/build-mac.yml
+  build-ios:
+    uses: ./.github/workflows/build-ios.yml
+  build-android:
+    uses: ./.github/workflows/build-android.yml
+  
   upload-ndk-win:
     runs-on: windows-2022
     needs: [ build-win ]
