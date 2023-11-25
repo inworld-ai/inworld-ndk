@@ -184,10 +184,16 @@ grpc::Status Inworld::RunnableLoadScene::RunProcess()
 	User->set_name(_PlayerName);
 
 	Inworld::Log("RunnableLoadScene User id: %s", ARG_STR(_UserId));
+	Inworld::Log("RunnableLoadScene User name: %s", ARG_STR(_PlayerName));
 
 	auto* Client = LoadSceneRequest.mutable_client();
 	Client->set_id(_ClientId);
 	Client->set_version(_ClientVersion);
+	Client->set_description(_ClientDescription);
+
+	Inworld::Log("RunnableLoadScene Client id: %s", ARG_STR(_ClientId));
+	Inworld::Log("RunnableLoadScene Client version: %s", ARG_STR(_ClientVersion));
+	Inworld::Log("RunnableLoadScene Client description: %s", ARG_STR(_ClientDescription));
 
 	auto* UserSettings = LoadSceneRequest.mutable_user_settings();
 	auto* PlayerProfile = UserSettings->mutable_player_profile();

@@ -18,8 +18,9 @@ void NDKApp::App::Run()
 {
 	if (
 		g_SceneName.empty() ||
-		g_ApiKey.empty() ||
-		g_ApiSecret.empty())
+		(g_Base64.empty() &&
+		(g_ApiKey.empty() ||
+		g_ApiSecret.empty())))
 	{
 		Inworld::LogError("Fill out client options in Application.cpp");
 		return;
@@ -127,7 +128,7 @@ void NDKApp::App::Run()
 					});
 			}
 		}
-});
+		});
 
 	_Options.ServerUrl = "api-engine.inworld.ai:443";
 	_Options.PlayerName = "Player";
@@ -152,8 +153,7 @@ void NDKApp::App::Run()
 	std::vector<Inworld::AgentInfo> AgentInfos;
 
 	_Client.InitClient(
-		"DefaultClientNDK",
-		"1.0.0",
+		{},
 		[this](Inworld::Client::ConnectionState ConnectionState)
 		{
 			std::string Error;

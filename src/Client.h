@@ -23,9 +23,19 @@
 using PacketQueue = Inworld::SharedQueue<std::shared_ptr<Inworld::Packet>>;
 
 namespace Inworld
-{	
+{
+	struct INWORLD_EXPORT SdkInfo
+	{
+		std::string Type;
+		std::string Subtype;
+		std::string Version;
+		std::string OS;
+	};
+
 	struct INWORLD_EXPORT ClientOptions
 	{
+		CapabilitySet Capabilities;
+		UserSettings UserSettings;
 		std::string ServerUrl;
 		std::string SceneName;
 		std::string Resource;
@@ -33,9 +43,8 @@ namespace Inworld
 		std::string ApiSecret;
 		std::string Base64;
 		std::string PlayerName;
+		std::string ProjectName;
 		std::string UserId;
-		CapabilitySet Capabilities;
-		UserSettings UserSettings;
 	};
 
 	class INWORLD_EXPORT ClientBase
@@ -69,7 +78,7 @@ namespace Inworld
 		virtual void StartAudioSession(const std::string& AgentId);
 		virtual void StopAudioSession(const std::string& AgentId);
 
-		virtual void InitClient(std::string ClientId, std::string ClientVer, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback);
+		virtual void InitClient(const SdkInfo& SdkInfo, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback);
 		virtual void StartClient(const ClientOptions& Options, const SessionInfo& Info, std::function<void(const std::vector<AgentInfo>&)> LoadSceneCallback);
 		virtual void PauseClient();
 		virtual void ResumeClient();
@@ -115,8 +124,7 @@ namespace Inworld
 		void SetConnectionState(ConnectionState State);
 		ClientOptions _ClientOptions;
 		SessionInfo _SessionInfo;
-		std::string _ClientId;
-		std::string _ClientVer;
+		SdkInfo _SdkInfo;
 	private:
 		void LoadScene();
 		void OnSceneLoaded(const grpc::Status& Status, const InworldEngine::LoadSceneResponse& Response);		

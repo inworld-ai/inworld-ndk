@@ -217,7 +217,7 @@ namespace Inworld
 		std::string _SessionName;
 	};
 
-	struct CapabilitySet
+	struct INWORLD_EXPORT CapabilitySet
 	{
 		bool Animations = false;
 		bool Text = false;
@@ -236,7 +236,7 @@ namespace Inworld
 		bool Relations = true;
 	};
 
-	struct UserSettings
+	struct INWORLD_EXPORT UserSettings
 	{
 		struct PlayerProfile
 		{
@@ -255,7 +255,7 @@ namespace Inworld
 	class INWORLD_EXPORT RunnableLoadScene : public RunnableRequest<InworldEngine::WorldEngine, InworldEngine::LoadSceneResponse>
 	{
 	public:
-		RunnableLoadScene(const std::string& Token, const std::string& SessionId, const std::string& ServerUrl, const std::string& SceneName, const std::string& PlayerName, const std::string& UserId, const UserSettings& UserSettings, const std::string& ClientId, const std::string& ClientVersion, const std::string& SessionState, const CapabilitySet& Capabilities, std::function<void(const grpc::Status&, const InworldEngine::LoadSceneResponse&)> Callback = nullptr)
+		RunnableLoadScene(const std::string& Token, const std::string& SessionId, const std::string& ServerUrl, const std::string& SceneName, const std::string& PlayerName, const std::string& UserId, const UserSettings& UserSettings, const std::string& ClientId, const std::string& ClientVersion, const std::string& ClientDescription, const std::string& SessionState, const CapabilitySet& Capabilities, std::function<void(const grpc::Status&, const InworldEngine::LoadSceneResponse&)> Callback = nullptr)
 			: RunnableRequest(ServerUrl, Callback)
 			, _Token(Token)
 			, _SessionId(SessionId)
@@ -265,6 +265,7 @@ namespace Inworld
 			, _UserSettings(UserSettings)
 			, _ClientId(ClientId)
 			, _ClientVersion(ClientVersion)
+			, _ClientDescription(ClientDescription)
 			, _SessionState(SessionState)
 			, _Capabilities(Capabilities)
 		{}
@@ -290,6 +291,7 @@ namespace Inworld
 		UserSettings _UserSettings;
 		std::string _ClientId;
 		std::string _ClientVersion;
+		std::string _ClientDescription;
 		std::string _SessionState;
 		CapabilitySet _Capabilities;
 	};

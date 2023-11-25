@@ -41,6 +41,7 @@ class WorldEngine final {
    public:
     virtual ~StubInterface() {}
     // Bidirectional events based Session.
+    // Requires LoadScene RPC to be called before.
     std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>> Session(::grpc::ClientContext* context) {
       return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>>(SessionRaw(context));
     }
@@ -50,13 +51,20 @@ class WorldEngine final {
     std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>> PrepareAsyncSession(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>>(PrepareAsyncSessionRaw(context, cq));
     }
-    // RPC to create world for the interaction session.
-    virtual ::grpc::Status CreateWorld(::grpc::ClientContext* context, const ::ai::inworld::engine::CreateWorldRequest& request, ::ai::inworld::engine::CreateWorldResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::engine::CreateWorldResponse>> AsyncCreateWorld(::grpc::ClientContext* context, const ::ai::inworld::engine::CreateWorldRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::engine::CreateWorldResponse>>(AsyncCreateWorldRaw(context, request, cq));
+    // Bidirectional events based Session.
+    // Allows to open session with one rpc call.
+    // All necessary configuration should be passed before data packets.
+    // Configuration provided by SessionControlEvent and MutationEvent.
+    // The Client capabilities, user settings, client settings and scene are required to start session.
+    // Packets processed in the order of input.
+    std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>> OpenSession(::grpc::ClientContext* context) {
+      return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>>(OpenSessionRaw(context));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::engine::CreateWorldResponse>> PrepareAsyncCreateWorld(::grpc::ClientContext* context, const ::ai::inworld::engine::CreateWorldRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::engine::CreateWorldResponse>>(PrepareAsyncCreateWorldRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>> AsyncOpenSession(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>>(AsyncOpenSessionRaw(context, cq, tag));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>> PrepareAsyncOpenSession(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>>(PrepareAsyncOpenSessionRaw(context, cq));
     }
     // RPC to load world for the interaction session.
     virtual ::grpc::Status LoadScene(::grpc::ClientContext* context, const ::ai::inworld::engine::LoadSceneRequest& request, ::ai::inworld::engine::LoadSceneResponse* response) = 0;
@@ -103,17 +111,22 @@ class WorldEngine final {
      public:
       virtual ~experimental_async_interface() {}
       // Bidirectional events based Session.
+      // Requires LoadScene RPC to be called before.
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void Session(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::ai::inworld::packets::InworldPacket,::ai::inworld::packets::InworldPacket>* reactor) = 0;
       #else
       virtual void Session(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::ai::inworld::packets::InworldPacket,::ai::inworld::packets::InworldPacket>* reactor) = 0;
       #endif
-      // RPC to create world for the interaction session.
-      virtual void CreateWorld(::grpc::ClientContext* context, const ::ai::inworld::engine::CreateWorldRequest* request, ::ai::inworld::engine::CreateWorldResponse* response, std::function<void(::grpc::Status)>) = 0;
+      // Bidirectional events based Session.
+      // Allows to open session with one rpc call.
+      // All necessary configuration should be passed before data packets.
+      // Configuration provided by SessionControlEvent and MutationEvent.
+      // The Client capabilities, user settings, client settings and scene are required to start session.
+      // Packets processed in the order of input.
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void CreateWorld(::grpc::ClientContext* context, const ::ai::inworld::engine::CreateWorldRequest* request, ::ai::inworld::engine::CreateWorldResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void OpenSession(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::ai::inworld::packets::InworldPacket,::ai::inworld::packets::InworldPacket>* reactor) = 0;
       #else
-      virtual void CreateWorld(::grpc::ClientContext* context, const ::ai::inworld::engine::CreateWorldRequest* request, ::ai::inworld::engine::CreateWorldResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void OpenSession(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::ai::inworld::packets::InworldPacket,::ai::inworld::packets::InworldPacket>* reactor) = 0;
       #endif
       // RPC to load world for the interaction session.
       virtual void LoadScene(::grpc::ClientContext* context, const ::ai::inworld::engine::LoadSceneRequest* request, ::ai::inworld::engine::LoadSceneResponse* response, std::function<void(::grpc::Status)>) = 0;
@@ -163,8 +176,9 @@ class WorldEngine final {
     virtual ::grpc::ClientReaderWriterInterface< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* SessionRaw(::grpc::ClientContext* context) = 0;
     virtual ::grpc::ClientAsyncReaderWriterInterface< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* AsyncSessionRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) = 0;
     virtual ::grpc::ClientAsyncReaderWriterInterface< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* PrepareAsyncSessionRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::engine::CreateWorldResponse>* AsyncCreateWorldRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::CreateWorldRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::engine::CreateWorldResponse>* PrepareAsyncCreateWorldRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::CreateWorldRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientReaderWriterInterface< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* OpenSessionRaw(::grpc::ClientContext* context) = 0;
+    virtual ::grpc::ClientAsyncReaderWriterInterface< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* AsyncOpenSessionRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncReaderWriterInterface< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* PrepareAsyncOpenSessionRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::engine::LoadSceneResponse>* AsyncLoadSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::LoadSceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::engine::LoadSceneResponse>* PrepareAsyncLoadSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::LoadSceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* AsyncLogErrorRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -188,12 +202,14 @@ class WorldEngine final {
     std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>> PrepareAsyncSession(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>>(PrepareAsyncSessionRaw(context, cq));
     }
-    ::grpc::Status CreateWorld(::grpc::ClientContext* context, const ::ai::inworld::engine::CreateWorldRequest& request, ::ai::inworld::engine::CreateWorldResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::engine::CreateWorldResponse>> AsyncCreateWorld(::grpc::ClientContext* context, const ::ai::inworld::engine::CreateWorldRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::engine::CreateWorldResponse>>(AsyncCreateWorldRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>> OpenSession(::grpc::ClientContext* context) {
+      return std::unique_ptr< ::grpc::ClientReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>>(OpenSessionRaw(context));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::engine::CreateWorldResponse>> PrepareAsyncCreateWorld(::grpc::ClientContext* context, const ::ai::inworld::engine::CreateWorldRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::engine::CreateWorldResponse>>(PrepareAsyncCreateWorldRaw(context, request, cq));
+    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>> AsyncOpenSession(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>>(AsyncOpenSessionRaw(context, cq, tag));
+    }
+    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>> PrepareAsyncOpenSession(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>>(PrepareAsyncOpenSessionRaw(context, cq));
     }
     ::grpc::Status LoadScene(::grpc::ClientContext* context, const ::ai::inworld::engine::LoadSceneRequest& request, ::ai::inworld::engine::LoadSceneResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::engine::LoadSceneResponse>> AsyncLoadScene(::grpc::ClientContext* context, const ::ai::inworld::engine::LoadSceneRequest& request, ::grpc::CompletionQueue* cq) {
@@ -238,11 +254,10 @@ class WorldEngine final {
       #else
       void Session(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::ai::inworld::packets::InworldPacket,::ai::inworld::packets::InworldPacket>* reactor) override;
       #endif
-      void CreateWorld(::grpc::ClientContext* context, const ::ai::inworld::engine::CreateWorldRequest* request, ::ai::inworld::engine::CreateWorldResponse* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void CreateWorld(::grpc::ClientContext* context, const ::ai::inworld::engine::CreateWorldRequest* request, ::ai::inworld::engine::CreateWorldResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void OpenSession(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::ai::inworld::packets::InworldPacket,::ai::inworld::packets::InworldPacket>* reactor) override;
       #else
-      void CreateWorld(::grpc::ClientContext* context, const ::ai::inworld::engine::CreateWorldRequest* request, ::ai::inworld::engine::CreateWorldResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void OpenSession(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::ai::inworld::packets::InworldPacket,::ai::inworld::packets::InworldPacket>* reactor) override;
       #endif
       void LoadScene(::grpc::ClientContext* context, const ::ai::inworld::engine::LoadSceneRequest* request, ::ai::inworld::engine::LoadSceneResponse* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -288,8 +303,9 @@ class WorldEngine final {
     ::grpc::ClientReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* SessionRaw(::grpc::ClientContext* context) override;
     ::grpc::ClientAsyncReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* AsyncSessionRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) override;
     ::grpc::ClientAsyncReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* PrepareAsyncSessionRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::ai::inworld::engine::CreateWorldResponse>* AsyncCreateWorldRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::CreateWorldRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::ai::inworld::engine::CreateWorldResponse>* PrepareAsyncCreateWorldRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::CreateWorldRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* OpenSessionRaw(::grpc::ClientContext* context) override;
+    ::grpc::ClientAsyncReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* AsyncOpenSessionRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* PrepareAsyncOpenSessionRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::engine::LoadSceneResponse>* AsyncLoadSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::LoadSceneRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::engine::LoadSceneResponse>* PrepareAsyncLoadSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::LoadSceneRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* AsyncLogErrorRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -301,7 +317,7 @@ class WorldEngine final {
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::engine::AccessToken>* AsyncGenerateTokenRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::GenerateTokenRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::engine::AccessToken>* PrepareAsyncGenerateTokenRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::GenerateTokenRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_Session_;
-    const ::grpc::internal::RpcMethod rpcmethod_CreateWorld_;
+    const ::grpc::internal::RpcMethod rpcmethod_OpenSession_;
     const ::grpc::internal::RpcMethod rpcmethod_LoadScene_;
     const ::grpc::internal::RpcMethod rpcmethod_LogError_;
     const ::grpc::internal::RpcMethod rpcmethod_VoicePreview_;
@@ -315,9 +331,15 @@ class WorldEngine final {
     Service();
     virtual ~Service();
     // Bidirectional events based Session.
+    // Requires LoadScene RPC to be called before.
     virtual ::grpc::Status Session(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* stream);
-    // RPC to create world for the interaction session.
-    virtual ::grpc::Status CreateWorld(::grpc::ServerContext* context, const ::ai::inworld::engine::CreateWorldRequest* request, ::ai::inworld::engine::CreateWorldResponse* response);
+    // Bidirectional events based Session.
+    // Allows to open session with one rpc call.
+    // All necessary configuration should be passed before data packets.
+    // Configuration provided by SessionControlEvent and MutationEvent.
+    // The Client capabilities, user settings, client settings and scene are required to start session.
+    // Packets processed in the order of input.
+    virtual ::grpc::Status OpenSession(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* stream);
     // RPC to load world for the interaction session.
     virtual ::grpc::Status LoadScene(::grpc::ServerContext* context, const ::ai::inworld::engine::LoadSceneRequest* request, ::ai::inworld::engine::LoadSceneResponse* response);
     // RPC to log errors for the interaction session.
@@ -351,23 +373,23 @@ class WorldEngine final {
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_CreateWorld : public BaseClass {
+  class WithAsyncMethod_OpenSession : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_CreateWorld() {
+    WithAsyncMethod_OpenSession() {
       ::grpc::Service::MarkMethodAsync(1);
     }
-    ~WithAsyncMethod_CreateWorld() override {
+    ~WithAsyncMethod_OpenSession() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreateWorld(::grpc::ServerContext* /*context*/, const ::ai::inworld::engine::CreateWorldRequest* /*request*/, ::ai::inworld::engine::CreateWorldResponse* /*response*/) override {
+    ::grpc::Status OpenSession(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestCreateWorld(::grpc::ServerContext* context, ::ai::inworld::engine::CreateWorldRequest* request, ::grpc::ServerAsyncResponseWriter< ::ai::inworld::engine::CreateWorldResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    void RequestOpenSession(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncBidiStreaming(1, context, stream, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -470,7 +492,7 @@ class WorldEngine final {
       ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_Session<WithAsyncMethod_CreateWorld<WithAsyncMethod_LoadScene<WithAsyncMethod_LogError<WithAsyncMethod_VoicePreview<WithAsyncMethod_ListBaseVoices<WithAsyncMethod_GenerateToken<Service > > > > > > > AsyncService;
+  typedef WithAsyncMethod_Session<WithAsyncMethod_OpenSession<WithAsyncMethod_LoadScene<WithAsyncMethod_LogError<WithAsyncMethod_VoicePreview<WithAsyncMethod_ListBaseVoices<WithAsyncMethod_GenerateToken<Service > > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Session : public BaseClass {
    private:
@@ -510,49 +532,40 @@ class WorldEngine final {
       { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_CreateWorld : public BaseClass {
+  class ExperimentalWithCallbackMethod_OpenSession : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_CreateWorld() {
+    ExperimentalWithCallbackMethod_OpenSession() {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::Service::
     #else
       ::grpc::Service::experimental().
     #endif
         MarkMethodCallback(1,
-          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::engine::CreateWorldRequest, ::ai::inworld::engine::CreateWorldResponse>(
+          new ::grpc::internal::CallbackBidiHandler< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
                    ::grpc::CallbackServerContext*
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::ai::inworld::engine::CreateWorldRequest* request, ::ai::inworld::engine::CreateWorldResponse* response) { return this->CreateWorld(context, request, response); }));}
-    void SetMessageAllocatorFor_CreateWorld(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::engine::CreateWorldRequest, ::ai::inworld::engine::CreateWorldResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
-    #endif
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::engine::CreateWorldRequest, ::ai::inworld::engine::CreateWorldResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
+                     context) { return this->OpenSession(context); }));
     }
-    ~ExperimentalWithCallbackMethod_CreateWorld() override {
+    ~ExperimentalWithCallbackMethod_OpenSession() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreateWorld(::grpc::ServerContext* /*context*/, const ::ai::inworld::engine::CreateWorldRequest* /*request*/, ::ai::inworld::engine::CreateWorldResponse* /*response*/) override {
+    ::grpc::Status OpenSession(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* CreateWorld(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::engine::CreateWorldRequest* /*request*/, ::ai::inworld::engine::CreateWorldResponse* /*response*/)
+    virtual ::grpc::ServerBidiReactor< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* OpenSession(
+      ::grpc::CallbackServerContext* /*context*/)
     #else
-    virtual ::grpc::experimental::ServerUnaryReactor* CreateWorld(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::engine::CreateWorldRequest* /*request*/, ::ai::inworld::engine::CreateWorldResponse* /*response*/)
+    virtual ::grpc::experimental::ServerBidiReactor< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* OpenSession(
+      ::grpc::experimental::CallbackServerContext* /*context*/)
     #endif
       { return nullptr; }
   };
@@ -792,10 +805,10 @@ class WorldEngine final {
       { return nullptr; }
   };
   #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_Session<ExperimentalWithCallbackMethod_CreateWorld<ExperimentalWithCallbackMethod_LoadScene<ExperimentalWithCallbackMethod_LogError<ExperimentalWithCallbackMethod_VoicePreview<ExperimentalWithCallbackMethod_ListBaseVoices<ExperimentalWithCallbackMethod_GenerateToken<Service > > > > > > > CallbackService;
+  typedef ExperimentalWithCallbackMethod_Session<ExperimentalWithCallbackMethod_OpenSession<ExperimentalWithCallbackMethod_LoadScene<ExperimentalWithCallbackMethod_LogError<ExperimentalWithCallbackMethod_VoicePreview<ExperimentalWithCallbackMethod_ListBaseVoices<ExperimentalWithCallbackMethod_GenerateToken<Service > > > > > > > CallbackService;
   #endif
 
-  typedef ExperimentalWithCallbackMethod_Session<ExperimentalWithCallbackMethod_CreateWorld<ExperimentalWithCallbackMethod_LoadScene<ExperimentalWithCallbackMethod_LogError<ExperimentalWithCallbackMethod_VoicePreview<ExperimentalWithCallbackMethod_ListBaseVoices<ExperimentalWithCallbackMethod_GenerateToken<Service > > > > > > > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_Session<ExperimentalWithCallbackMethod_OpenSession<ExperimentalWithCallbackMethod_LoadScene<ExperimentalWithCallbackMethod_LogError<ExperimentalWithCallbackMethod_VoicePreview<ExperimentalWithCallbackMethod_ListBaseVoices<ExperimentalWithCallbackMethod_GenerateToken<Service > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_Session : public BaseClass {
    private:
@@ -814,18 +827,18 @@ class WorldEngine final {
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_CreateWorld : public BaseClass {
+  class WithGenericMethod_OpenSession : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_CreateWorld() {
+    WithGenericMethod_OpenSession() {
       ::grpc::Service::MarkMethodGeneric(1);
     }
-    ~WithGenericMethod_CreateWorld() override {
+    ~WithGenericMethod_OpenSession() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreateWorld(::grpc::ServerContext* /*context*/, const ::ai::inworld::engine::CreateWorldRequest* /*request*/, ::ai::inworld::engine::CreateWorldResponse* /*response*/) override {
+    ::grpc::Status OpenSession(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -936,23 +949,23 @@ class WorldEngine final {
     }
   };
   template <class BaseClass>
-  class WithRawMethod_CreateWorld : public BaseClass {
+  class WithRawMethod_OpenSession : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_CreateWorld() {
+    WithRawMethod_OpenSession() {
       ::grpc::Service::MarkMethodRaw(1);
     }
-    ~WithRawMethod_CreateWorld() override {
+    ~WithRawMethod_OpenSession() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreateWorld(::grpc::ServerContext* /*context*/, const ::ai::inworld::engine::CreateWorldRequest* /*request*/, ::ai::inworld::engine::CreateWorldResponse* /*response*/) override {
+    ::grpc::Status OpenSession(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestCreateWorld(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    void RequestOpenSession(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncBidiStreaming(1, context, stream, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1094,40 +1107,40 @@ class WorldEngine final {
       { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_CreateWorld : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_OpenSession : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_CreateWorld() {
+    ExperimentalWithRawCallbackMethod_OpenSession() {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::Service::
     #else
       ::grpc::Service::experimental().
     #endif
         MarkMethodRawCallback(1,
-          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          new ::grpc::internal::CallbackBidiHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
                    ::grpc::CallbackServerContext*
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->CreateWorld(context, request, response); }));
+                     context) { return this->OpenSession(context); }));
     }
-    ~ExperimentalWithRawCallbackMethod_CreateWorld() override {
+    ~ExperimentalWithRawCallbackMethod_OpenSession() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreateWorld(::grpc::ServerContext* /*context*/, const ::ai::inworld::engine::CreateWorldRequest* /*request*/, ::ai::inworld::engine::CreateWorldResponse* /*response*/) override {
+    ::grpc::Status OpenSession(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* CreateWorld(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    virtual ::grpc::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* OpenSession(
+      ::grpc::CallbackServerContext* /*context*/)
     #else
-    virtual ::grpc::experimental::ServerUnaryReactor* CreateWorld(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    virtual ::grpc::experimental::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* OpenSession(
+      ::grpc::experimental::CallbackServerContext* /*context*/)
     #endif
       { return nullptr; }
   };
@@ -1322,33 +1335,6 @@ class WorldEngine final {
       { return nullptr; }
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_CreateWorld : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithStreamedUnaryMethod_CreateWorld() {
-      ::grpc::Service::MarkMethodStreamed(1,
-        new ::grpc::internal::StreamedUnaryHandler<
-          ::ai::inworld::engine::CreateWorldRequest, ::ai::inworld::engine::CreateWorldResponse>(
-            [this](::grpc::ServerContext* context,
-                   ::grpc::ServerUnaryStreamer<
-                     ::ai::inworld::engine::CreateWorldRequest, ::ai::inworld::engine::CreateWorldResponse>* streamer) {
-                       return this->StreamedCreateWorld(context,
-                         streamer);
-                  }));
-    }
-    ~WithStreamedUnaryMethod_CreateWorld() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status CreateWorld(::grpc::ServerContext* /*context*/, const ::ai::inworld::engine::CreateWorldRequest* /*request*/, ::ai::inworld::engine::CreateWorldResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedCreateWorld(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::engine::CreateWorldRequest,::ai::inworld::engine::CreateWorldResponse>* server_unary_streamer) = 0;
-  };
-  template <class BaseClass>
   class WithStreamedUnaryMethod_LoadScene : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -1483,9 +1469,9 @@ class WorldEngine final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedGenerateToken(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::engine::GenerateTokenRequest,::ai::inworld::engine::AccessToken>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_CreateWorld<WithStreamedUnaryMethod_LoadScene<WithStreamedUnaryMethod_LogError<WithStreamedUnaryMethod_VoicePreview<WithStreamedUnaryMethod_ListBaseVoices<WithStreamedUnaryMethod_GenerateToken<Service > > > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_LoadScene<WithStreamedUnaryMethod_LogError<WithStreamedUnaryMethod_VoicePreview<WithStreamedUnaryMethod_ListBaseVoices<WithStreamedUnaryMethod_GenerateToken<Service > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_CreateWorld<WithStreamedUnaryMethod_LoadScene<WithStreamedUnaryMethod_LogError<WithStreamedUnaryMethod_VoicePreview<WithStreamedUnaryMethod_ListBaseVoices<WithStreamedUnaryMethod_GenerateToken<Service > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_LoadScene<WithStreamedUnaryMethod_LogError<WithStreamedUnaryMethod_VoicePreview<WithStreamedUnaryMethod_ListBaseVoices<WithStreamedUnaryMethod_GenerateToken<Service > > > > > StreamedService;
 };
 
 }  // namespace engine

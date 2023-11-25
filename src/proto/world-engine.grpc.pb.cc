@@ -26,7 +26,7 @@ namespace engine {
 
 static const char* WorldEngine_method_names[] = {
   "/ai.inworld.engine.WorldEngine/Session",
-  "/ai.inworld.engine.WorldEngine/CreateWorld",
+  "/ai.inworld.engine.WorldEngine/OpenSession",
   "/ai.inworld.engine.WorldEngine/LoadScene",
   "/ai.inworld.engine.WorldEngine/LogError",
   "/ai.inworld.engine.WorldEngine/VoicePreview",
@@ -42,7 +42,7 @@ std::unique_ptr< WorldEngine::Stub> WorldEngine::NewStub(const std::shared_ptr< 
 
 WorldEngine::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   : channel_(channel), rpcmethod_Session_(WorldEngine_method_names[0], ::grpc::internal::RpcMethod::BIDI_STREAMING, channel)
-  , rpcmethod_CreateWorld_(WorldEngine_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_OpenSession_(WorldEngine_method_names[1], ::grpc::internal::RpcMethod::BIDI_STREAMING, channel)
   , rpcmethod_LoadScene_(WorldEngine_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_LogError_(WorldEngine_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_VoicePreview_(WorldEngine_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
@@ -66,27 +66,20 @@ void WorldEngine::Stub::experimental_async::Session(::grpc::ClientContext* conte
   return ::grpc::internal::ClientAsyncReaderWriterFactory< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>::Create(channel_.get(), cq, rpcmethod_Session_, context, false, nullptr);
 }
 
-::grpc::Status WorldEngine::Stub::CreateWorld(::grpc::ClientContext* context, const ::ai::inworld::engine::CreateWorldRequest& request, ::ai::inworld::engine::CreateWorldResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::engine::CreateWorldRequest, ::ai::inworld::engine::CreateWorldResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_CreateWorld_, context, request, response);
+::grpc::ClientReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* WorldEngine::Stub::OpenSessionRaw(::grpc::ClientContext* context) {
+  return ::grpc::internal::ClientReaderWriterFactory< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>::Create(channel_.get(), rpcmethod_OpenSession_, context);
 }
 
-void WorldEngine::Stub::experimental_async::CreateWorld(::grpc::ClientContext* context, const ::ai::inworld::engine::CreateWorldRequest* request, ::ai::inworld::engine::CreateWorldResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::engine::CreateWorldRequest, ::ai::inworld::engine::CreateWorldResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CreateWorld_, context, request, response, std::move(f));
+void WorldEngine::Stub::experimental_async::OpenSession(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::ai::inworld::packets::InworldPacket,::ai::inworld::packets::InworldPacket>* reactor) {
+  ::grpc::internal::ClientCallbackReaderWriterFactory< ::ai::inworld::packets::InworldPacket,::ai::inworld::packets::InworldPacket>::Create(stub_->channel_.get(), stub_->rpcmethod_OpenSession_, context, reactor);
 }
 
-void WorldEngine::Stub::experimental_async::CreateWorld(::grpc::ClientContext* context, const ::ai::inworld::engine::CreateWorldRequest* request, ::ai::inworld::engine::CreateWorldResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CreateWorld_, context, request, response, reactor);
+::grpc::ClientAsyncReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* WorldEngine::Stub::AsyncOpenSessionRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>::Create(channel_.get(), cq, rpcmethod_OpenSession_, context, true, tag);
 }
 
-::grpc::ClientAsyncResponseReader< ::ai::inworld::engine::CreateWorldResponse>* WorldEngine::Stub::PrepareAsyncCreateWorldRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::CreateWorldRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::engine::CreateWorldResponse, ::ai::inworld::engine::CreateWorldRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_CreateWorld_, context, request);
-}
-
-::grpc::ClientAsyncResponseReader< ::ai::inworld::engine::CreateWorldResponse>* WorldEngine::Stub::AsyncCreateWorldRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::CreateWorldRequest& request, ::grpc::CompletionQueue* cq) {
-  auto* result =
-    this->PrepareAsyncCreateWorldRaw(context, request, cq);
-  result->StartCall();
-  return result;
+::grpc::ClientAsyncReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* WorldEngine::Stub::PrepareAsyncOpenSessionRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>::Create(channel_.get(), cq, rpcmethod_OpenSession_, context, false, nullptr);
 }
 
 ::grpc::Status WorldEngine::Stub::LoadScene(::grpc::ClientContext* context, const ::ai::inworld::engine::LoadSceneRequest& request, ::ai::inworld::engine::LoadSceneResponse* response) {
@@ -217,13 +210,13 @@ WorldEngine::Service::Service() {
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       WorldEngine_method_names[1],
-      ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< WorldEngine::Service, ::ai::inworld::engine::CreateWorldRequest, ::ai::inworld::engine::CreateWorldResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
+      ::grpc::internal::RpcMethod::BIDI_STREAMING,
+      new ::grpc::internal::BidiStreamingHandler< WorldEngine::Service, ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>(
           [](WorldEngine::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::ai::inworld::engine::CreateWorldRequest* req,
-             ::ai::inworld::engine::CreateWorldResponse* resp) {
-               return service->CreateWorld(ctx, req, resp);
+             ::grpc::ServerReaderWriter<::ai::inworld::packets::InworldPacket,
+             ::ai::inworld::packets::InworldPacket>* stream) {
+               return service->OpenSession(ctx, stream);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       WorldEngine_method_names[2],
@@ -286,10 +279,9 @@ WorldEngine::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status WorldEngine::Service::CreateWorld(::grpc::ServerContext* context, const ::ai::inworld::engine::CreateWorldRequest* request, ::ai::inworld::engine::CreateWorldResponse* response) {
+::grpc::Status WorldEngine::Service::OpenSession(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* stream) {
   (void) context;
-  (void) request;
-  (void) response;
+  (void) stream;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
