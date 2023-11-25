@@ -10,6 +10,7 @@ on:
 jobs:
   upload-ndk-win:
     runs-on: windows-2022
+    needs: [ build-win ]
     steps:
     - uses: actions/checkout@v2
     - name: git-update-dependecies
@@ -20,6 +21,12 @@ jobs:
         path: build\Package
         key: ndk-cache-win64-${{ github.sha }}
         fail-on-cache-miss: true
+    - name: check-cache-success
+      shell: pwsh
+      if: steps.ndk-cache-win64.outputs.cache-hit != 'true'
+      run: |
+        echo "cache restore failed"
+        exit 1
     - uses: actions/upload-artifact@v3
       with:
         name: NDK-Source
@@ -33,6 +40,7 @@ jobs:
   
   upload-ndk-mac:
     runs-on: macos-13
+    needs: [ build-mac ]
     steps:
     - uses: actions/checkout@v2
     - name: git-update-dependecies
@@ -43,6 +51,12 @@ jobs:
         path: build/Package
         key: ndk-cache-mac-${{ github.sha }}
         fail-on-cache-miss: true
+    - name: check-cache-success
+      shell: pwsh
+      if: steps.ndk-cache-win64.outputs.cache-hit != 'true'
+      run: |
+        echo "cache restore failed"
+        exit 1
     - uses: actions/upload-artifact@v3
       with:
         name: Mac-NDK-lib
@@ -50,6 +64,7 @@ jobs:
   
   upload-ndk-ios:
     runs-on: macos-13
+    needs: [ build-ios ]
     steps:
     - uses: actions/checkout@v2
     - name: git-update-dependecies
@@ -60,6 +75,12 @@ jobs:
         path: build/Package
         key: ndk-cache-ios-${{ github.sha }}
         fail-on-cache-miss: true
+    - name: check-cache-success
+      shell: pwsh
+      if: steps.ndk-cache-win64.outputs.cache-hit != 'true'
+      run: |
+        echo "cache restore failed"
+        exit 1
     - uses: actions/upload-artifact@v3
       with:
         name: iOS-NDK-lib
@@ -67,6 +88,7 @@ jobs:
 
   upload-ndk-android:
     runs-on: macos-13
+    needs: [ build-android ]
     steps:
     - uses: actions/checkout@v2
     - name: git-update-dependecies
@@ -77,6 +99,12 @@ jobs:
         path: build/Package
         key: ndk-cache-android-${{ github.sha }}
         fail-on-cache-miss: true
+    - name: check-cache-success
+      shell: pwsh
+      if: steps.ndk-cache-win64.outputs.cache-hit != 'true'
+      run: |
+        echo "cache restore failed"
+        exit 1
     - uses: actions/upload-artifact@v3
       with:
         name: Android-NDK-lib
