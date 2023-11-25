@@ -65,5 +65,9 @@ jobs:
             exit 1
           }
           exit 0
+    - uses: actions/cache/save@v3
+      with:
+        path: build\Package
+        key: ndk-cache-win64-${{ github.sha }}
 
          
