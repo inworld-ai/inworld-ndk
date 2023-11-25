@@ -12,7 +12,7 @@ on:
     branches: [ main ]
     paths-ignore:
       - '**/*.md'
-
+  workflow_call:
 
 jobs:
   build-android:
