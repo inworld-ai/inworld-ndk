@@ -149,7 +149,7 @@ jobs:
           path: Package/lib/Android
       - uses: actions/upload-artifact@v3
         with:
-          name: inworld-unreal-sdk
+          name: inworld-ndk
           path: |
             Package/src
             Package/lib
