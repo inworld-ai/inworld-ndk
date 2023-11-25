@@ -1,8 +1,43 @@
 cmake_minimum_required (VERSION 3.22)
-option(UNITY FALSE)
+
+project(InworldNDK VERSION 1.2.0)
 
 add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
 add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
+
+# InworldNDK setup
+set(ThirdPartyDir ${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty)
+
+file(GLOB_RECURSE FilesALL
+    src/*.h
+    src/*.cpp
+    src/*.cc
+    src/*.c
+)
+
+add_library(InworldNDK ${FilesALL})
+
+target_compile_definitions(InworldNDK PRIVATE
+    NDK_VERSION_MAJOR=${PROJECT_VERSION_MAJOR}
+    NDK_VERSION_MINOR=${PROJECT_VERSION_MINOR}
+    NDK_VERSION_PATCH=${PROJECT_VERSION_PATCH}
+    NDK_VERSION_STRING="${PROJECT_VERSION}"
+)
+
+if(ANDROID)
+    set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -fPIC")
+    target_compile_definitions(InworldNDK PRIVATE ANDROID=1)
+endif()
+
+target_include_directories(InworldNDK PUBLIC
+    ${ThirdPartyDir}/include
+    ${ThirdPartyDir}/grpc/include
+    src
+    src/proto
+    src/ThirdParty
+)
+
+target_compile_features(InworldNDK PUBLIC cxx_std_20)
 
 function(GroupSourcesByFolder target)
     set(SOURCE_GROUP_DELIMITER "/")
@@ -28,52 +63,6 @@ function(GroupSourcesByFolder target)
         source_group("${last_dir}" FILES ${files})
     endif()
 endfunction()
-
-find_package(Git REQUIRED)
-
-# update dependecies
-if(UPDATE_DEPENDENCIES)
-    message("Updating dependencies...")
-    execute_process(
-        COMMAND ${GIT_EXECUTABLE} submodule update --init --recursive
-        RESULT_VARIABLE error_code
-    )
-    if(error_code)
-        message(FATAL_ERROR "Failed to update dependecies")
-    else()
-        message("Dependecies updated")
-    endif()
-endif()
-
-# InworldNDK setup
-project(InworldNDK)
-
-set(ThirdPartyDir ${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty)
-
-file(GLOB_RECURSE FilesALL
-    src/*.h
-    src/*.cpp
-    src/*.cc
-    src/*.c
-)
-
-add_library(InworldNDK ${FilesALL})
-
-if(ANDROID)
-    set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -fPIC")
-    target_compile_definitions(InworldNDK PRIVATE ANDROID=1)
-endif()
-
-target_include_directories(InworldNDK PUBLIC
-    ${ThirdPartyDir}/include
-    ${ThirdPartyDir}/grpc/include
-    src
-    src/proto
-    src/ThirdParty
-)
-
-target_compile_features(InworldNDK PUBLIC cxx_std_20)
-
 GroupSourcesByFolder(InworldNDK)
 
 # webrtc aec setup
@@ -113,6 +102,7 @@ CheckPathValid(${ZlibDir})
 CheckPathValid(${OpenSSLDir})
 
 # Unity Setup
+option(UNITY FALSE)
 if(UNITY)
     message("Building for Unity...")
     target_compile_definitions(InworldNDK PUBLIC INWORLD_UNITY)

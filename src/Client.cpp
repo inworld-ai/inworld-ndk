@@ -169,8 +169,7 @@ void Inworld::ClientBase::InitClient(const SdkInfo& SdkInfo, std::function<void(
 	}
 	if (_SdkInfo.Version.empty())
 	{
-		//TODO: add version after release process change
-		_SdkInfo.Version = "1.1.0";
+		_SdkInfo.Version = NDK_VERSION_STRING;
 	}
 	if (_SdkInfo.OS.empty())
 	{
