@@ -41,7 +41,7 @@ jobs:
       - name: create-release
         uses: softprops/action-gh-release@v1
         with:
-          files: inworld-ndk-${{ env.VERSION }}
+          files: inworld-ndk-${{ env.VERSION }}.zip
           fail_on_unmatched_files: true
           generate_release_notes: true
           append_body: true
