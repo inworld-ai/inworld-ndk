@@ -26,7 +26,7 @@ jobs:
         echo "VERSION=$VERSION" >> $GITHUB_ENV
     - name: check-version
       run: |
-        if [[ "${{ github.ref }}" == "refs/tags/${{ env.VERSION }}" ]]; then
+        if [[ "${{ github.ref }}" == "refs/tags/v${{ env.VERSION }}" ]]; then
           echo "Release version matches CMakeLists.txt project version ${{ env.VERSION }}"
         else
           echo "Release version ${{ github.ref }} doesn't match CMakeLists.txt project version ${{ env.VERSION }}"
