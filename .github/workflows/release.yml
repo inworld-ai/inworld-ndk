@@ -1,15 +1,15 @@
-name: Create Pre-release
+name: create-release
 
 on:
   workflow_dispatch:
 
 jobs:
   package:
-    uses: ./.github/workflows/release.yml
+    uses: ./.github/workflows/package.yml
 
-  create_pre_release:
+  create-release:
     runs-on: ubuntu-latest
-    needs: [ build-win ]
+    needs: [ package ]
 
     steps:
       - name: Checkout code
@@ -21,34 +21,24 @@ jobs:
           name: inworld-ndk
           path: release
 
-      - name: Extract version from CMakeLists.txt
+      - name: extract-version
         run: |
-          # Extract version from CMakeLists.txt
           VERSION=$(grep -oP 'project\(InworldNDK VERSION \K[0-9]+\.[0-9]+\.[0-9]+' CMakeLists.txt)
-
-          # Output the version
           echo "Extracted version: $VERSION"
-
-          # Set the version as an environment variable for later use
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
-      - name: Set up Node.js
+      - name: setup-node-js
         uses: actions/setup-node@v3
         with:
           node-version: 14
 
-      - name: Install dependencies
+      - name: install-dependencies
         run: npm install
 
-      - name: Bump version and create pre-release
+      - name: create-pre-release
         run: |
-          # Bump the version using the extracted version
           npm version ${{ env.VERSION }}
-
-          # Create a pre-release
-          gh release create "v${{ env.VERSION }}" --title "Pre-release ${{ env.VERSION }}" --notes "Release notes for ${{ env.VERSION }}" --prerelease
-
-          # Upload the downloaded artifact as an asset to the pre-release
+          gh release create "v${{ env.VERSION }}" --title "${{ env.VERSION }}" --notes "Release ${{ env.VERSION }}" --prerelease
           gh release upload "inworld-ndk-${{ env.VERSION }}" release
 
         env:
