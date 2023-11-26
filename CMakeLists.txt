@@ -70,13 +70,13 @@ if (AEC)
     target_compile_definitions(InworldNDK PUBLIC INWORLD_AEC)
     target_include_directories(InworldNDK PUBLIC aec/aecplugin)
     if (WIN32)
-        target_link_libraries(InworldNDK PUBLIC ${ThirdPartyDir}/Prebuilt/Win64/webrtc_aec_plugin.dll.lib)
+        target_link_libraries(InworldNDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/aec/lib/Win64/webrtc_aec_plugin.dll.lib)
         add_custom_command(TARGET InworldNDK POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            ${ThirdPartyDir}/Prebuilt/Win64/webrtc_aec_plugin.dll
+            ${CMAKE_CURRENT_SOURCE_DIR}/aec/lib/Win64/webrtc_aec_plugin.dll
             ${CMAKE_CURRENT_SOURCE_DIR}/build)
     elseif (MAC)
-        target_link_libraries(InworldNDK PUBLIC ${ThirdPartyDir}/Prebuilt/Mac/libwebrtc_aec_plugin.dylib)
+        target_link_libraries(InworldNDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/aec/lib/Mac/libwebrtc_aec_plugin.dylib)
     else()
         message(FATAL_ERROR "AEC: not supported")
     endif()
@@ -376,12 +376,12 @@ endif()
 if (AEC)
     if (WIN32)
         list(APPEND LibFiles 
-            ${ThirdPartyDir}/Prebuilt/Win64/webrtc_aec_plugin.dll.lib
-            ${ThirdPartyDir}/Prebuilt/Win64/webrtc_aec_plugin.dll
+            ${CMAKE_CURRENT_SOURCE_DIR}/aec/lib/Win64/webrtc_aec_plugin.dll.lib
+            ${CMAKE_CURRENT_SOURCE_DIR}/aec/lib/Win64/webrtc_aec_plugin.dll
     )
     elseif (MAC)
         list(APPEND LibFiles 
-            ${ThirdPartyDir}/Prebuilt/Mac/libwebrtc_aec_plugin.dylib
+            ${CMAKE_CURRENT_SOURCE_DIR}/aec/lib/Mac/libwebrtc_aec_plugin.dylib
         )
     endif()
 endif()

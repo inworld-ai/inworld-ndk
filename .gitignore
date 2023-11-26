@@ -36,10 +36,8 @@
 .vs/*
 .vscode/*
 
-!ThirdParty/Prebuilt/Win64/webrtc_aec_plugin.dll
-!ThirdParty/Prebuilt/Mac/arm64/libwebrtc_aec_plugin.dylib
-!ThirdParty/Prebuilt/Mac/x86_64/libwebrtc_aec_plugin.dylib
-!ThirdParty/Prebuilt/Mac/libwebrtc_aec_plugin.dylib
+!aec/lib/win64/webrtc_aec_plugin.dll
+!aec/lib/mac/libwebrtc_aec_plugin.dylib
 
 CMakeLists.txt.user
 CMakeCache.txt
