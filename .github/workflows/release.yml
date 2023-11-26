@@ -54,14 +54,16 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: inworld-ndk
-          path: inworld-ndk-${{ env.VERSION }}
+          path: inworld-ndk
+      - name: copy-license
+        run: |
+          cp LICENSE.md inworld-ndk/
       - name: zip-release
-        run: zip -r inworld-ndk-${{ env.VERSION }}.zip inworld-ndk-${{ env.VERSION }}/
+        run: zip -r inworld-ndk-${{ env.VERSION }}.zip inworld-ndk/
 
       - name: create-release
         uses: softprops/action-gh-release@v1
         with:
           files: inworld-ndk-${{ env.VERSION }}.zip
           fail_on_unmatched_files: true
-          generate_release_notes: true
           append_body: true
