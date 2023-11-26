@@ -13,12 +13,12 @@ on:
       - "v*.*.*"
 
 jobs:
-#  package:
-#    uses: ./.github/workflows/package.yml
+  package:
+    uses: ./.github/workflows/package.yml
 
   create-release:
     runs-on: ubuntu-latest
-#    needs: [ package ]
+    needs: [ package ]
 
     steps:
       - name: checkout
@@ -30,13 +30,13 @@ jobs:
           echo "Extracted version: $VERSION"
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
-#      - name: download-package
-#        uses: actions/download-artifact@v2
-#        with:
-#          name: inworld-ndk
-#          path: inworld-ndk-${{ env.VERSION }}
+      - name: download-package
+        uses: actions/download-artifact@v2
+        with:
+          name: inworld-ndk
+          path: inworld-ndk-${{ env.VERSION }}
       - name: zip-release
-        run: zip -r inworld-ndk-${{ env.VERSION }}.zip src/
+        run: zip -r inworld-ndk-${{ env.VERSION }}.zip inworld-ndk-${{ env.VERSION }}/
 
       - name: create-release
         uses: softprops/action-gh-release@v1
