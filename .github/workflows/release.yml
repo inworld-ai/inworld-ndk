@@ -13,15 +13,15 @@ on:
       - "v*.*.*"
 
 jobs:
-  package:
-    uses: ./.github/workflows/package.yml
+#  package:
+#    uses: ./.github/workflows/package.yml
 
   create-release:
     runs-on: ubuntu-latest
-    needs: [ package ]
+#    needs: [ package ]
 
     steps:
-      - name: Checkout code
+      - name: checkout
         uses: actions/checkout@v2
 
       - name: extract-version
@@ -30,21 +30,18 @@ jobs:
           echo "Extracted version: $VERSION"
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
-      - name: Download artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: inworld-ndk
-          path: inworld-ndk-${{ env.VERSION }}
-
-      - name: setup-node-js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 14
-
-      - name: install-dependencies
-        run: npm install
+#      - name: download-package
+#        uses: actions/download-artifact@v2
+#        with:
+#          name: inworld-ndk
+#          path: inworld-ndk-${{ env.VERSION }}
+      - name: zip-release
+        run: zip -r inworld-ndk-${{ env.VERSION }}.zip src/
 
       - name: create-release
         uses: softprops/action-gh-release@v1
         with:
           files: inworld-ndk-${{ env.VERSION }}
+          fail_on_unmatched_files: true
+          generate_release_notes: true
+          append_body: true

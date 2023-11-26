@@ -1,3 +1,9 @@
+# /*************************************************************************************************
+# * Copyright 2022 Theai, Inc. (DBA Inworld)
+# *
+# * Use of this source code is governed by the Inworld.ai Software Development Kit License Agreement
+# * that can be found in the LICENSE.md file or at https://www.inworld.ai/sdk-license
+# *************************************************************************************************/
 
 name: Package
 
@@ -23,9 +29,6 @@ jobs:
     runs-on: windows-2022
     needs: [ build-win ]
     steps:
-    - uses: actions/checkout@v2
-    - name: git-update-dependecies
-      run: git submodule update --init --recursive
     - uses: actions/cache/restore@v3
       id: ndk-cache
       with:
@@ -53,9 +56,6 @@ jobs:
     runs-on: macos-13
     needs: [ build-mac ]
     steps:
-    - uses: actions/checkout@v2
-    - name: git-update-dependecies
-      run: git submodule update --init --recursive
     - uses: actions/cache/restore@v3
       id: ndk-cache
       with:
@@ -77,9 +77,6 @@ jobs:
     runs-on: macos-13
     needs: [ build-ios ]
     steps:
-    - uses: actions/checkout@v2
-    - name: git-update-dependecies
-      run: git submodule update --init --recursive
     - uses: actions/cache/restore@v3
       id: ndk-cache
       with:
@@ -101,9 +98,6 @@ jobs:
     runs-on: macos-13
     needs: [ build-android ]
     steps:
-    - uses: actions/checkout@v2
-    - name: git-update-dependecies
-      run: git submodule update --init --recursive
     - uses: actions/cache/restore@v3
       id: ndk-cache
       with:
@@ -125,9 +119,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: [ upload-ndk-win, upload-ndk-mac, upload-ndk-ios, upload-ndk-android ]
     steps:
-      - uses: actions/checkout@v2
-      - name: git-update-dependecies
-        run: git submodule update --init --recursive
       - uses: actions/download-artifact@v3
         with:
           name: NDK-Source
