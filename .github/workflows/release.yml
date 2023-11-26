@@ -8,7 +8,9 @@
 name: create-release
 
 on:
-  workflow_dispatch:
+  push:
+    tags:
+      - "v*.*.*"
 
 jobs:
   package:
@@ -22,17 +24,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Download artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: inworld-ndk
-          path: release
-
       - name: extract-version
         run: |
           VERSION=$(grep -oP 'project\(InworldNDK VERSION \K[0-9]+\.[0-9]+\.[0-9]+' CMakeLists.txt)
           echo "Extracted version: $VERSION"
           echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: inworld-ndk
+          path: inworld-ndk-${{ env.VERSION }}
 
       - name: setup-node-js
         uses: actions/setup-node@v3
@@ -42,10 +44,7 @@ jobs:
       - name: install-dependencies
         run: npm install
 
-      - name: create-pre-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          npm version ${{ env.VERSION }}
-          gh release create "v${{ env.VERSION }}" --title "${{ env.VERSION }}" --notes "Release ${{ env.VERSION }}" --prerelease
-          gh release upload "inworld-ndk-${{ env.VERSION }}" release
+      - name: create-release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: inworld-ndk-${{ env.VERSION }}
