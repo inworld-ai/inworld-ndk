@@ -59,7 +59,7 @@ file(GLOB_RECURSE FilesALL
 
 add_library(InworldNDK ${FilesALL})
 
-if(ANDROID)
+if (ANDROID)
     set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -fPIC")
     target_compile_definitions(InworldNDK PRIVATE ANDROID=1)
 endif()
@@ -72,8 +72,17 @@ target_include_directories(InworldNDK PUBLIC
     src/ThirdParty
 )
 
-if (NOT ANDROID)
-    target_compile_features(InworldNDK PUBLIC cxx_std_20)
+if (ANDROID)
+    #target_compile_options(InworldNDK PRIVATE -std=c++1z)
+    #set_target_properties(c PROPERTIES
+    #    CXX_STANDARD 17
+    #    CXX_STANDARD_REQUIRED ON
+    #    CXX_EXTENSIONS OFF
+    #)
+    #set_target_properties(InworldNDK PROPERTIES CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1z")
+    set_property(TARGET InworldNDK PROPERTY CMAKE_CXX_STANDARD 17)
+else()
+    target_compile_features(InworldNDK PRIVATE cxx_std_20)
 endif()
 
 GroupSourcesByFolder(InworldNDK)
@@ -270,23 +279,23 @@ endif()
 if (WIN32 OR MAC)
     add_subdirectory(ThirdParty/googletest)
     target_link_libraries(InworldNDK PUBLIC gtest)
-endif()
 
-enable_testing()
-include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
-add_executable( InworldNDKUnit src/Test/GTest.cpp )
-target_link_libraries(InworldNDKUnit gtest gtest_main)
-target_link_libraries(InworldNDKUnit InworldNDK)
-target_include_directories(InworldNDKUnit PUBLIC 
-    src
-)
-add_test( InworldNDKUnit InworldNDKUnit )
-if (WIN32)
-    add_custom_command(
-        TARGET InworldNDKUnit POST_BUILD
-        COMMAND InworldNDKUnit
-        VERBATIM
+    enable_testing()
+    include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
+    add_executable( InworldNDKUnit src/Test/GTest.cpp )
+    target_link_libraries(InworldNDKUnit gtest gtest_main)
+    target_link_libraries(InworldNDKUnit InworldNDK)
+    target_include_directories(InworldNDKUnit PUBLIC 
+        src
     )
+    add_test( InworldNDKUnit InworldNDKUnit )
+    if (WIN32)
+        add_custom_command(
+            TARGET InworldNDKUnit POST_BUILD
+            COMMAND InworldNDKUnit
+            VERBATIM
+        )
+    endif()
 endif()
 
 # post build package
@@ -328,9 +337,6 @@ set(AbslDir ${GrpcDir}/third_party/abseil-cpp/absl)
 if (IOS)
     set(ConfigDirName /$<CONFIGURATION>-iphoneos)
     set(ConfigDirNameCares /$<CONFIGURATION>)
-elseif (ANDROID)
-    set(ConfigDirName "")
-    set(ConfigDirNameCares "")
 else()
     set(ConfigDirName /$<CONFIGURATION>)
     set(ConfigDirNameCares /$<CONFIGURATION>)

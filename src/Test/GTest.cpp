@@ -5,7 +5,7 @@
  * that can be found in the LICENSE.md file or at https://www.inworld.ai/sdk-license
  */
 
-#ifndef INWORLD_UNREAL
+#if !defined(INWORLD_UNREAL) && !defined(ANDROID)
 
 #include <iostream>
 

@@ -60,19 +60,19 @@ Workspaces::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel
   {}
 
 ::grpc::Status Workspaces::Stub::GetWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceRequest& request, ::ai::inworld::studio::v1alpha::Workspace* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::GetWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_GetWorkspace_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::GetWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_GetWorkspace_, context, request, response);
 }
 
 void Workspaces::Stub::experimental_async::GetWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::GetWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetWorkspace_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::GetWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetWorkspace_, context, request, response, std::move(f));
 }
 
 void Workspaces::Stub::experimental_async::GetWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetWorkspace_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetWorkspace_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Workspace>* Workspaces::Stub::PrepareAsyncGetWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::Workspace, ::ai::inworld::studio::v1alpha::GetWorkspaceRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_GetWorkspace_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::Workspace, ::ai::inworld::studio::v1alpha::GetWorkspaceRequest, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_GetWorkspace_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Workspace>* Workspaces::Stub::AsyncGetWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
@@ -83,19 +83,19 @@ void Workspaces::Stub::experimental_async::GetWorkspace(::grpc::ClientContext* c
 }
 
 ::grpc::Status Workspaces::Stub::ListWorkspaces(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListWorkspacesRequest& request, ::ai::inworld::studio::v1alpha::ListWorkspacesResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::ListWorkspacesRequest, ::ai::inworld::studio::v1alpha::ListWorkspacesResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_ListWorkspaces_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::ListWorkspacesRequest, ::ai::inworld::studio::v1alpha::ListWorkspacesResponse, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_ListWorkspaces_, context, request, response);
 }
 
 void Workspaces::Stub::experimental_async::ListWorkspaces(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListWorkspacesRequest* request, ::ai::inworld::studio::v1alpha::ListWorkspacesResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::ListWorkspacesRequest, ::ai::inworld::studio::v1alpha::ListWorkspacesResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ListWorkspaces_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::ListWorkspacesRequest, ::ai::inworld::studio::v1alpha::ListWorkspacesResponse, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ListWorkspaces_, context, request, response, std::move(f));
 }
 
 void Workspaces::Stub::experimental_async::ListWorkspaces(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListWorkspacesRequest* request, ::ai::inworld::studio::v1alpha::ListWorkspacesResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ListWorkspaces_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ListWorkspaces_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ListWorkspacesResponse>* Workspaces::Stub::PrepareAsyncListWorkspacesRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListWorkspacesRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::ListWorkspacesResponse, ::ai::inworld::studio::v1alpha::ListWorkspacesRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_ListWorkspaces_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::ListWorkspacesResponse, ::ai::inworld::studio::v1alpha::ListWorkspacesRequest, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_ListWorkspaces_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ListWorkspacesResponse>* Workspaces::Stub::AsyncListWorkspacesRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListWorkspacesRequest& request, ::grpc::CompletionQueue* cq) {
@@ -106,19 +106,19 @@ void Workspaces::Stub::experimental_async::ListWorkspaces(::grpc::ClientContext*
 }
 
 ::grpc::Status Workspaces::Stub::UpdateWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest& request, ::ai::inworld::studio::v1alpha::Workspace* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_UpdateWorkspace_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_UpdateWorkspace_, context, request, response);
 }
 
 void Workspaces::Stub::experimental_async::UpdateWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_UpdateWorkspace_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_UpdateWorkspace_, context, request, response, std::move(f));
 }
 
 void Workspaces::Stub::experimental_async::UpdateWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_UpdateWorkspace_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_UpdateWorkspace_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Workspace>* Workspaces::Stub::PrepareAsyncUpdateWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::Workspace, ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_UpdateWorkspace_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::Workspace, ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_UpdateWorkspace_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Workspace>* Workspaces::Stub::AsyncUpdateWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
@@ -129,19 +129,19 @@ void Workspaces::Stub::experimental_async::UpdateWorkspace(::grpc::ClientContext
 }
 
 ::grpc::Status Workspaces::Stub::CreateWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest& request, ::ai::inworld::studio::v1alpha::Workspace* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_CreateWorkspace_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_CreateWorkspace_, context, request, response);
 }
 
 void Workspaces::Stub::experimental_async::CreateWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CreateWorkspace_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CreateWorkspace_, context, request, response, std::move(f));
 }
 
 void Workspaces::Stub::experimental_async::CreateWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CreateWorkspace_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CreateWorkspace_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Workspace>* Workspaces::Stub::PrepareAsyncCreateWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::Workspace, ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_CreateWorkspace_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::Workspace, ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_CreateWorkspace_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Workspace>* Workspaces::Stub::AsyncCreateWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
@@ -152,19 +152,19 @@ void Workspaces::Stub::experimental_async::CreateWorkspace(::grpc::ClientContext
 }
 
 ::grpc::Status Workspaces::Stub::DeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest& request, ::google::protobuf_inworld::Empty* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_DeleteWorkspace_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest, ::google::protobuf_inworld::Empty, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_DeleteWorkspace_, context, request, response);
 }
 
 void Workspaces::Stub::experimental_async::DeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeleteWorkspace_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest, ::google::protobuf_inworld::Empty, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeleteWorkspace_, context, request, response, std::move(f));
 }
 
 void Workspaces::Stub::experimental_async::DeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeleteWorkspace_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeleteWorkspace_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* Workspaces::Stub::PrepareAsyncDeleteWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf_inworld::Empty, ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_DeleteWorkspace_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf_inworld::Empty, ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_DeleteWorkspace_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* Workspaces::Stub::AsyncDeleteWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
@@ -175,19 +175,19 @@ void Workspaces::Stub::experimental_async::DeleteWorkspace(::grpc::ClientContext
 }
 
 ::grpc::Status Workspaces::Stub::CloneWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest& request, ::ai::inworld::studio::v1alpha::Workspace* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_CloneWorkspace_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_CloneWorkspace_, context, request, response);
 }
 
 void Workspaces::Stub::experimental_async::CloneWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CloneWorkspace_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CloneWorkspace_, context, request, response, std::move(f));
 }
 
 void Workspaces::Stub::experimental_async::CloneWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CloneWorkspace_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CloneWorkspace_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Workspace>* Workspaces::Stub::PrepareAsyncCloneWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::Workspace, ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_CloneWorkspace_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::Workspace, ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_CloneWorkspace_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Workspace>* Workspaces::Stub::AsyncCloneWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
@@ -198,19 +198,19 @@ void Workspaces::Stub::experimental_async::CloneWorkspace(::grpc::ClientContext*
 }
 
 ::grpc::Status Workspaces::Stub::ShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest& request, ::google::protobuf_inworld::Empty* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_ShareWorkspace_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest, ::google::protobuf_inworld::Empty, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_ShareWorkspace_, context, request, response);
 }
 
 void Workspaces::Stub::experimental_async::ShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ShareWorkspace_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest, ::google::protobuf_inworld::Empty, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ShareWorkspace_, context, request, response, std::move(f));
 }
 
 void Workspaces::Stub::experimental_async::ShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ShareWorkspace_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ShareWorkspace_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* Workspaces::Stub::PrepareAsyncShareWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf_inworld::Empty, ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_ShareWorkspace_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf_inworld::Empty, ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_ShareWorkspace_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* Workspaces::Stub::AsyncShareWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
@@ -221,19 +221,19 @@ void Workspaces::Stub::experimental_async::ShareWorkspace(::grpc::ClientContext*
 }
 
 ::grpc::Status Workspaces::Stub::generateResourceName(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest& request, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_generateResourceName_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_generateResourceName_, context, request, response);
 }
 
 void Workspaces::Stub::experimental_async::generateResourceName(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest* request, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_generateResourceName_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_generateResourceName_, context, request, response, std::move(f));
 }
 
 void Workspaces::Stub::experimental_async::generateResourceName(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest* request, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_generateResourceName_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_generateResourceName_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse>* Workspaces::Stub::PrepareAsyncgenerateResourceNameRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse, ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_generateResourceName_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse, ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_generateResourceName_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse>* Workspaces::Stub::AsyncgenerateResourceNameRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest& request, ::grpc::CompletionQueue* cq) {
@@ -244,19 +244,19 @@ void Workspaces::Stub::experimental_async::generateResourceName(::grpc::ClientCo
 }
 
 ::grpc::Status Workspaces::Stub::GetWorkspaceShareInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest& request, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_GetWorkspaceShareInfo_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_GetWorkspaceShareInfo_, context, request, response);
 }
 
 void Workspaces::Stub::experimental_async::GetWorkspaceShareInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetWorkspaceShareInfo_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetWorkspaceShareInfo_, context, request, response, std::move(f));
 }
 
 void Workspaces::Stub::experimental_async::GetWorkspaceShareInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetWorkspaceShareInfo_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetWorkspaceShareInfo_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::WorkspaceShareInfo>* Workspaces::Stub::PrepareAsyncGetWorkspaceShareInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::WorkspaceShareInfo, ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_GetWorkspaceShareInfo_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::WorkspaceShareInfo, ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_GetWorkspaceShareInfo_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::WorkspaceShareInfo>* Workspaces::Stub::AsyncGetWorkspaceShareInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest& request, ::grpc::CompletionQueue* cq) {
@@ -267,19 +267,19 @@ void Workspaces::Stub::experimental_async::GetWorkspaceShareInfo(::grpc::ClientC
 }
 
 ::grpc::Status Workspaces::Stub::GetWorkspaceLimitInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest& request, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_GetWorkspaceLimitInfo_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_GetWorkspaceLimitInfo_, context, request, response);
 }
 
 void Workspaces::Stub::experimental_async::GetWorkspaceLimitInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetWorkspaceLimitInfo_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetWorkspaceLimitInfo_, context, request, response, std::move(f));
 }
 
 void Workspaces::Stub::experimental_async::GetWorkspaceLimitInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetWorkspaceLimitInfo_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetWorkspaceLimitInfo_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo>* Workspaces::Stub::PrepareAsyncGetWorkspaceLimitInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo, ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_GetWorkspaceLimitInfo_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo, ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_GetWorkspaceLimitInfo_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo>* Workspaces::Stub::AsyncGetWorkspaceLimitInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest& request, ::grpc::CompletionQueue* cq) {
@@ -290,19 +290,19 @@ void Workspaces::Stub::experimental_async::GetWorkspaceLimitInfo(::grpc::ClientC
 }
 
 ::grpc::Status Workspaces::Stub::SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::google::protobuf_inworld::Empty* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_SendImpressionEvent_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf_inworld::Empty, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_SendImpressionEvent_, context, request, response);
 }
 
 void Workspaces::Stub::experimental_async::SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SendImpressionEvent_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf_inworld::Empty, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SendImpressionEvent_, context, request, response, std::move(f));
 }
 
 void Workspaces::Stub::experimental_async::SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SendImpressionEvent_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SendImpressionEvent_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* Workspaces::Stub::PrepareAsyncSendImpressionEventRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf_inworld::Empty, ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_SendImpressionEvent_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf_inworld::Empty, ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_SendImpressionEvent_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* Workspaces::Stub::AsyncSendImpressionEventRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) {
@@ -316,7 +316,7 @@ Workspaces::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Workspaces_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::GetWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::GetWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(
           [](Workspaces::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::GetWorkspaceRequest* req,
@@ -326,7 +326,7 @@ Workspaces::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Workspaces_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::ListWorkspacesRequest, ::ai::inworld::studio::v1alpha::ListWorkspacesResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::ListWorkspacesRequest, ::ai::inworld::studio::v1alpha::ListWorkspacesResponse, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(
           [](Workspaces::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::ListWorkspacesRequest* req,
@@ -336,7 +336,7 @@ Workspaces::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Workspaces_method_names[2],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(
           [](Workspaces::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest* req,
@@ -346,7 +346,7 @@ Workspaces::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Workspaces_method_names[3],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(
           [](Workspaces::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest* req,
@@ -356,7 +356,7 @@ Workspaces::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Workspaces_method_names[4],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest, ::google::protobuf_inworld::Empty, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(
           [](Workspaces::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* req,
@@ -366,7 +366,7 @@ Workspaces::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Workspaces_method_names[5],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(
           [](Workspaces::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest* req,
@@ -376,7 +376,7 @@ Workspaces::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Workspaces_method_names[6],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest, ::google::protobuf_inworld::Empty, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(
           [](Workspaces::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* req,
@@ -386,7 +386,7 @@ Workspaces::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Workspaces_method_names[7],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(
           [](Workspaces::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest* req,
@@ -396,7 +396,7 @@ Workspaces::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Workspaces_method_names[8],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(
           [](Workspaces::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest* req,
@@ -406,7 +406,7 @@ Workspaces::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Workspaces_method_names[9],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(
           [](Workspaces::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest* req,
@@ -416,7 +416,7 @@ Workspaces::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Workspaces_method_names[10],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf_inworld::Empty, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(
           [](Workspaces::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* req,

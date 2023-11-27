@@ -42,19 +42,19 @@ Tokens::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   {}
 
 ::grpc::Status Tokens::Stub::GenerateSessionToken(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateSessionTokenRequest& request, ::ai::inworld::studio::v1alpha::SessionAccessToken* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::GenerateSessionTokenRequest, ::ai::inworld::studio::v1alpha::SessionAccessToken, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_GenerateSessionToken_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::GenerateSessionTokenRequest, ::ai::inworld::studio::v1alpha::SessionAccessToken, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_GenerateSessionToken_, context, request, response);
 }
 
 void Tokens::Stub::experimental_async::GenerateSessionToken(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateSessionTokenRequest* request, ::ai::inworld::studio::v1alpha::SessionAccessToken* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::GenerateSessionTokenRequest, ::ai::inworld::studio::v1alpha::SessionAccessToken, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GenerateSessionToken_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::GenerateSessionTokenRequest, ::ai::inworld::studio::v1alpha::SessionAccessToken, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GenerateSessionToken_, context, request, response, std::move(f));
 }
 
 void Tokens::Stub::experimental_async::GenerateSessionToken(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateSessionTokenRequest* request, ::ai::inworld::studio::v1alpha::SessionAccessToken* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GenerateSessionToken_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GenerateSessionToken_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::SessionAccessToken>* Tokens::Stub::PrepareAsyncGenerateSessionTokenRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateSessionTokenRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::SessionAccessToken, ::ai::inworld::studio::v1alpha::GenerateSessionTokenRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_GenerateSessionToken_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::SessionAccessToken, ::ai::inworld::studio::v1alpha::GenerateSessionTokenRequest, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_GenerateSessionToken_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::SessionAccessToken>* Tokens::Stub::AsyncGenerateSessionTokenRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateSessionTokenRequest& request, ::grpc::CompletionQueue* cq) {
@@ -65,19 +65,19 @@ void Tokens::Stub::experimental_async::GenerateSessionToken(::grpc::ClientContex
 }
 
 ::grpc::Status Tokens::Stub::GenerateDefaultSessionToken(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateDefaultSessionTokenRequest& request, ::ai::inworld::studio::v1alpha::SessionAccessToken* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::GenerateDefaultSessionTokenRequest, ::ai::inworld::studio::v1alpha::SessionAccessToken, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_GenerateDefaultSessionToken_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::GenerateDefaultSessionTokenRequest, ::ai::inworld::studio::v1alpha::SessionAccessToken, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_GenerateDefaultSessionToken_, context, request, response);
 }
 
 void Tokens::Stub::experimental_async::GenerateDefaultSessionToken(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateDefaultSessionTokenRequest* request, ::ai::inworld::studio::v1alpha::SessionAccessToken* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::GenerateDefaultSessionTokenRequest, ::ai::inworld::studio::v1alpha::SessionAccessToken, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GenerateDefaultSessionToken_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::GenerateDefaultSessionTokenRequest, ::ai::inworld::studio::v1alpha::SessionAccessToken, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GenerateDefaultSessionToken_, context, request, response, std::move(f));
 }
 
 void Tokens::Stub::experimental_async::GenerateDefaultSessionToken(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateDefaultSessionTokenRequest* request, ::ai::inworld::studio::v1alpha::SessionAccessToken* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GenerateDefaultSessionToken_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GenerateDefaultSessionToken_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::SessionAccessToken>* Tokens::Stub::PrepareAsyncGenerateDefaultSessionTokenRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateDefaultSessionTokenRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::SessionAccessToken, ::ai::inworld::studio::v1alpha::GenerateDefaultSessionTokenRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_GenerateDefaultSessionToken_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::SessionAccessToken, ::ai::inworld::studio::v1alpha::GenerateDefaultSessionTokenRequest, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_GenerateDefaultSessionToken_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::SessionAccessToken>* Tokens::Stub::AsyncGenerateDefaultSessionTokenRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateDefaultSessionTokenRequest& request, ::grpc::CompletionQueue* cq) {
@@ -91,7 +91,7 @@ Tokens::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Tokens_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Tokens::Service, ::ai::inworld::studio::v1alpha::GenerateSessionTokenRequest, ::ai::inworld::studio::v1alpha::SessionAccessToken, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Tokens::Service, ::ai::inworld::studio::v1alpha::GenerateSessionTokenRequest, ::ai::inworld::studio::v1alpha::SessionAccessToken, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(
           [](Tokens::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::GenerateSessionTokenRequest* req,
@@ -101,7 +101,7 @@ Tokens::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Tokens_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Tokens::Service, ::ai::inworld::studio::v1alpha::GenerateDefaultSessionTokenRequest, ::ai::inworld::studio::v1alpha::SessionAccessToken, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Tokens::Service, ::ai::inworld::studio::v1alpha::GenerateDefaultSessionTokenRequest, ::ai::inworld::studio::v1alpha::SessionAccessToken, ::google::protobuf_inworld::MessageLite, ::google::protobuf_inworld::MessageLite>(
           [](Tokens::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::GenerateDefaultSessionTokenRequest* req,
