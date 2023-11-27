@@ -12,7 +12,7 @@ on:
     branches: [ main ]
     paths-ignore:
       - '**/*.md'
-
+  workflow_call:
 
 jobs:
   build-mac:
@@ -45,5 +45,9 @@ jobs:
             exit 1
           fi
           exit 0
+    - uses: actions/cache/save@v3
+      with:
+        path: build/Package
+        key: ndk-cache-mac-${{ github.sha }}
 
          

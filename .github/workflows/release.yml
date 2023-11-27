@@ -1,0 +1,69 @@
+# /*************************************************************************************************
+# * Copyright 2022 Theai, Inc. (DBA Inworld)
+# *
+# * Use of this source code is governed by the Inworld.ai Software Development Kit License Agreement
+# * that can be found in the LICENSE.md file or at https://www.inworld.ai/sdk-license
+# *************************************************************************************************/
+
+name: create-release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  check-version:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+
+    - name: extract-version
+      run: |
+        VERSION=$(grep -oP 'project\(InworldNDK VERSION \K[0-9]+\.[0-9]+\.[0-9]+' CMakeLists.txt)
+        echo "Extracted version: $VERSION"
+        echo "VERSION=$VERSION" >> $GITHUB_ENV
+    - name: check-version
+      run: |
+        if [[ "${{ github.ref }}" == "refs/tags/v${{ env.VERSION }}" ]]; then
+          echo "Release version matches CMakeLists.txt project version ${{ env.VERSION }}"
+        else
+          echo "Release version ${{ github.ref }} doesn't match CMakeLists.txt project version ${{ env.VERSION }}"
+          return 1
+        fi
+
+  package:
+    needs: [ check-version ]
+    uses: ./.github/workflows/package.yml
+
+  create-release:
+    runs-on: ubuntu-latest
+    needs: [ package ]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: extract-version
+        run: |
+          VERSION=$(grep -oP 'project\(InworldNDK VERSION \K[0-9]+\.[0-9]+\.[0-9]+' CMakeLists.txt)
+          echo "Extracted version: $VERSION"
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: download-package
+        uses: actions/download-artifact@v2
+        with:
+          name: inworld-ndk
+          path: inworld-ndk
+      - name: copy-license
+        run: |
+          cp LICENSE.md inworld-ndk/
+      - name: zip-release
+        run: zip -r inworld-ndk-${{ env.VERSION }}.zip inworld-ndk/
+
+      - name: create-release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: inworld-ndk-${{ env.VERSION }}.zip
+          fail_on_unmatched_files: true
+          append_body: true

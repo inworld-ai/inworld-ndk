@@ -1,0 +1,148 @@
+# /*************************************************************************************************
+# * Copyright 2022 Theai, Inc. (DBA Inworld)
+# *
+# * Use of this source code is governed by the Inworld.ai Software Development Kit License Agreement
+# * that can be found in the LICENSE.md file or at https://www.inworld.ai/sdk-license
+# *************************************************************************************************/
+
+name: Package
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths-ignore:
+      - '**/*.md'
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  build-win:
+    uses: ./.github/workflows/build-win.yml
+  build-mac:
+    uses: ./.github/workflows/build-mac.yml
+  build-ios:
+    uses: ./.github/workflows/build-ios.yml
+  build-android:
+    uses: ./.github/workflows/build-android.yml
+  
+  upload-ndk-win:
+    runs-on: windows-2022
+    needs: [ build-win ]
+    steps:
+    - uses: actions/cache/restore@v3
+      id: ndk-cache
+      with:
+        path: build\Package
+        key: ndk-cache-win64-${{ github.sha }}
+        fail-on-cache-miss: true
+    - name: check-cache-success
+      shell: pwsh
+      if: steps.ndk-cache.outputs.cache-hit != 'true'
+      run: |
+        echo "cache restore failed"
+        exit 1
+    - uses: actions/upload-artifact@v3
+      with:
+        name: NDK-Source
+        path: |
+          build\Package
+          !build\Package\lib
+    - uses: actions/upload-artifact@v3
+      with:
+        name: Win-NDK-lib
+        path: build\Package\lib\Win64
+  
+  upload-ndk-mac:
+    runs-on: macos-13
+    needs: [ build-mac ]
+    steps:
+    - uses: actions/cache/restore@v3
+      id: ndk-cache
+      with:
+        path: build/Package
+        key: ndk-cache-mac-${{ github.sha }}
+        fail-on-cache-miss: true
+    - name: check-cache-success
+      shell: pwsh
+      if: steps.ndk-cache.outputs.cache-hit != 'true'
+      run: |
+        echo "cache restore failed"
+        exit 1
+    - uses: actions/upload-artifact@v3
+      with:
+        name: Mac-NDK-lib
+        path: build/Package/lib/Mac
+  
+  upload-ndk-ios:
+    runs-on: macos-13
+    needs: [ build-ios ]
+    steps:
+    - uses: actions/cache/restore@v3
+      id: ndk-cache
+      with:
+        path: build/Package
+        key: ndk-cache-ios-${{ github.sha }}
+        fail-on-cache-miss: true
+    - name: check-cache-success
+      shell: pwsh
+      if: steps.ndk-cache.outputs.cache-hit != 'true'
+      run: |
+        echo "cache restore failed"
+        exit 1
+    - uses: actions/upload-artifact@v3
+      with:
+        name: iOS-NDK-lib
+        path: build/Package/lib/iOS
+
+  upload-ndk-android:
+    runs-on: macos-13
+    needs: [ build-android ]
+    steps:
+    - uses: actions/cache/restore@v3
+      id: ndk-cache
+      with:
+        path: build/Package
+        key: ndk-cache-android-${{ github.sha }}
+        fail-on-cache-miss: true
+    - name: check-cache-success
+      shell: pwsh
+      if: steps.ndk-cache.outputs.cache-hit != 'true'
+      run: |
+        echo "cache restore failed"
+        exit 1
+    - uses: actions/upload-artifact@v3
+      with:
+        name: Android-NDK-lib
+        path: build/Package/lib/Android
+
+  package:
+    runs-on: ubuntu-latest
+    needs: [ upload-ndk-win, upload-ndk-mac, upload-ndk-ios, upload-ndk-android ]
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: NDK-Source
+          path: Package
+      - uses: actions/download-artifact@v3
+        with:
+          name: Win-NDK-lib
+          path: Package/lib/Win64
+      - uses: actions/download-artifact@v3
+        with:
+          name: Mac-NDK-lib
+          path: Package/lib/Mac
+      - uses: actions/download-artifact@v3
+        with:
+          name: iOS-NDK-lib
+          path: Package/lib/iOS
+      - uses: actions/download-artifact@v3
+        with:
+          name: Android-NDK-lib
+          path: Package/lib/Android
+      - uses: actions/upload-artifact@v3
+        with:
+          name: inworld-ndk
+          path: |
+            Package/src
+            Package/lib
+            Package/include

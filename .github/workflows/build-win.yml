@@ -12,7 +12,7 @@ on:
     branches: [ main ]
     paths-ignore:
       - '**/*.md'
-
+  workflow_call:
 
 jobs:
   build-win:
@@ -38,7 +38,7 @@ jobs:
           cat BuildLog.txt
           if (Select-String -Path BuildLog.txt -Pattern "InworldNDK.vcxproj ->" -SimpleMatch -Quiet)
           {
-            "InworldNDK built successful"
+            "InworldNDK built successfully"
           }
           else
           {
@@ -46,7 +46,7 @@ jobs:
           }
           if (Select-String -Path BuildLog.txt -Pattern "InworldNDKApp.vcxproj ->" -SimpleMatch -Quiet)
           {
-            "InworldNDKApp built successful"
+            "InworldNDKApp built successfully"
           }
           else
           {
@@ -54,7 +54,7 @@ jobs:
           }
           if (Select-String -Path BuildLog.txt -Pattern "InworldNDKUnit.vcxproj ->" -SimpleMatch -Quiet)
           {
-            "InworldNDKUnit built successful"
+            "InworldNDKUnit built successfully"
           }
           else
           {
@@ -65,5 +65,9 @@ jobs:
             exit 1
           }
           exit 0
+    - uses: actions/cache/save@v3
+      with:
+        path: build\Package
+        key: ndk-cache-win64-${{ github.sha }}
 
          
