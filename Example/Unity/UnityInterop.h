@@ -27,15 +27,16 @@ extern "C"
 
 #pragma region Setter
 	DLL_EXPORT void Unity_SetLogger(Inworld::LoggerCallBack callback);
+	DLL_EXPORT void Unity_SetPublicWorkspace(const char* strPublicWorkspace);
 	DLL_EXPORT void Unity_SetPacketCallback(NDKUnity::UnityPacketCallback pktCallBack, NDKUnity::PhonemeCallBack phonemeCallBack, NDKUnity::TriggerParamCallBack triggerParamCallBack);
-	DLL_EXPORT void Unity_SetClientRequest(const char* strClientID, const char* strClientVersion);	
+	DLL_EXPORT void Unity_SetClientRequest(const char* strClientID, const char* strClientVersion, const char* strClientDescription);	
 	DLL_EXPORT void Unity_SetUserRequest(const char* strPlayerName, const char* strPlayerID);	
 	DLL_EXPORT void Unity_AddUserProfile(const char* strProfileID, const char* strProfileValue);
 	DLL_EXPORT void Unity_SetCapabilities(const NDKUnity::Capabilities& capabilities);
 #pragma endregion Setter
 	
 #pragma region Inworld Status
-	DLL_EXPORT void Unity_GetAccessToken(const char* strServerURL, const char* strAPIKey, const char* strAPISecret, NDKUnity::UnityCallback callback);
+	DLL_EXPORT void Unity_GetAccessToken(const char* serverURL, const char* strAPIKey, const char* strAPISecret, NDKUnity::UnityCallback callback);
 	DLL_EXPORT void Unity_LoadScene(const char* strSceneName, NDKUnity::UnityCallback callback);	
 	DLL_EXPORT void Unity_StartSession();
 	DLL_EXPORT void Unity_EndSession();
