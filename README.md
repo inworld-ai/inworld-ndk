@@ -33,6 +33,15 @@ The **Inworld NDK** is a library built by CMake. It contains all the source code
 
 Download latest release from [releases page](https://github.com/inworld-ai/inworld-ndk/releases). A release contains source code, headers and binaries for supported platforms.
 
+#### Release prebuilt binaries
+
+| Platform    | Built with                                |
+| ----------- | --------                                  |
+| Win64       | Visual Studio 2022, MSVC 19.37.32826.1    |
+| Mac         | Xcode 14.3.1, AppleClang 14.0.3.14030022  |
+| iOS         | Xcode 14.3.1, AppleClang 14.0.3.14030022  |
+| Android     | Clang 14.0.7                              |
+
 #### Build from source
 
 1. Clone *Main* branch
