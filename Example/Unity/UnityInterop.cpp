@@ -160,13 +160,19 @@ void Unity_SendTrigger(const char* agentID, const char* triggerName)
 {
 	if (g_pWrapper == nullptr)
 		return;
-	g_pWrapper->SendCustomEvent(agentID, triggerName, {});
+	const auto pResult = g_pWrapper->SendCustomEvent(agentID, triggerName, {});
+	if (pResult == nullptr)
+		return;
+	Inworld::Log("Send Trigger: %s. InteractionID: %s", triggerName, pResult->_PacketId._InteractionId.c_str());
 }
 void Unity_SendTriggerParam(const char* agentID, const char* triggerName, const char* param, const char* paramValue)
 {
 	if (g_pWrapper == nullptr)
 		return;
-	g_pWrapper->SendCustomEvent(agentID, triggerName, {{param, paramValue}});
+	const auto pResult = g_pWrapper->SendCustomEvent(agentID, triggerName, {{param, paramValue}});
+	if (pResult == nullptr)
+		return;
+	Inworld::Log("Send Trigger: %s. InteractionID: %s", triggerName, pResult->_PacketId._InteractionId.c_str());
 }
 
 void Unity_CancelResponse(const char* agentID, const char* interactionIDToCancel)
