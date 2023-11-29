@@ -28,10 +28,16 @@ void NDKUnity::CUnityWrapper::SetPacketCallBack(
 }
 
 
-void NDKUnity::CUnityWrapper::SetClientRequest(std::string strClientID, std::string strClientVersion)
+void NDKUnity::CUnityWrapper::SetClientRequest(const std::string& strClientID, const std::string& strClientVersion, const std::string& strClientDescription)
 {
-	_ClientId = strClientID;
-	_ClientVer = strClientVersion;	
+	_SdkInfo.Type = strClientID;
+	_SdkInfo.Version = strClientVersion;
+	_SdkInfo.Subtype = strClientDescription;
+}
+
+void NDKUnity::CUnityWrapper::SetPublicWorkspace(const std::string& strPublicWorkspace)
+{
+	_ClientOptions.Resource = strPublicWorkspace;
 }
 
 void NDKUnity::CUnityWrapper::SetUserRequest(const std::string& strPlayerName, const std::string& strUserID)
@@ -64,8 +70,9 @@ void NDKUnity::CUnityWrapper::LoadScene(const std::string& strSceneName, UnityCa
 			_ClientOptions.PlayerName,
 			_ClientOptions.UserId,
 			_ClientOptions.UserSettings,
-			_ClientId,
-			_ClientVer,
+			_SdkInfo.Type,
+			_SdkInfo.Version,
+			_SdkInfo.Subtype,
 			_SessionInfo.SessionSavedState,
 			_ClientOptions.Capabilities,
 			[this, callback](const grpc::Status& Status, const InworldEngine::LoadSceneResponse& Response)
@@ -130,8 +137,3 @@ void NDKUnity::CUnityWrapper::AddTaskToMainThread(std::function<void()> Task)
 	Task();
 }
 #pragma endregion Logger
-
-
-#pragma region Client Options
-
-#pragma endregion Client Options

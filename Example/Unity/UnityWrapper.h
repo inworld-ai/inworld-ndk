@@ -47,7 +47,9 @@ namespace NDKUnity
 		{
 			_ClientOptions.ApiSecret = strAPISecret;
 		}
-		void SetClientRequest(std::string strClientID, std::string strClientVersion);		
+		void SetClientRequest(const std::string& strClientID, const std::string& strClientVersion, const std::string& strClientDescription);
+
+		void SetPublicWorkspace(const std::string& strPublicWorkspace);
 
 		void SetUserRequest(const std::string& strPlayerName, const std::string& strUserID);
 		
@@ -75,6 +77,7 @@ namespace NDKUnity
 		}
 
 		void StopClient() override;
+
 	protected:
 		void AddTaskToMainThread(std::function<void()> Task) override;
 		
