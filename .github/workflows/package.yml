@@ -63,7 +63,6 @@ jobs:
         key: ndk-cache-mac-${{ github.sha }}
         fail-on-cache-miss: true
     - name: check-cache-success
-      shell: pwsh
       if: steps.ndk-cache.outputs.cache-hit != 'true'
       run: |
         echo "cache restore failed"
@@ -84,7 +83,6 @@ jobs:
         key: ndk-cache-ios-${{ github.sha }}
         fail-on-cache-miss: true
     - name: check-cache-success
-      shell: pwsh
       if: steps.ndk-cache.outputs.cache-hit != 'true'
       run: |
         echo "cache restore failed"
@@ -105,7 +103,6 @@ jobs:
         key: ndk-cache-android-${{ github.sha }}
         fail-on-cache-miss: true
     - name: check-cache-success
-      shell: pwsh
       if: steps.ndk-cache.outputs.cache-hit != 'true'
       run: |
         echo "cache restore failed"
