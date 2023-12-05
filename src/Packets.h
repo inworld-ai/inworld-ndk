@@ -210,6 +210,20 @@ namespace Inworld {
 		std::string _Chunk;
 	};
 
+	class TextureDataEvent : public DataEvent
+	{
+	public:
+		TextureDataEvent() = default;
+		TextureDataEvent(const InworldPakets::InworldPacket& GrpcPacket);
+		TextureDataEvent(const std::string& Data, const Routing& Routing)
+			: DataEvent(Data, Routing)
+		{}
+
+		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
+
+		const InworldPakets::DataChunk_DataType GetType() const override { return static_cast<InworldPakets::DataChunk_DataType>(2); }
+	};
+
 	class AudioDataEvent : public DataEvent
 	{
 	public:

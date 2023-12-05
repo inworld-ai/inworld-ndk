@@ -71,6 +71,8 @@ namespace Inworld
 		virtual std::shared_ptr<DataEvent> SendSoundMessageWithAEC(const std::string& AgentId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
 		virtual std::shared_ptr<CustomEvent> SendCustomEvent(std::string AgentId, const std::string& Name, const std::unordered_map<std::string, std::string>& Params);
 		
+		virtual std::shared_ptr<DataEvent> SendTextureMessage(const std::string& AgentId, const std::string& Data);
+
 		virtual std::shared_ptr<ChangeSceneEvent> SendChangeSceneEvent(const std::string& Scene);
 
 		virtual void CancelResponse(const std::string& AgentId, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds);

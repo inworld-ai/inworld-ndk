@@ -86,12 +86,12 @@ namespace Inworld {
     void DataEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
     {
         Proto.mutable_data_chunk()->set_chunk(_Chunk);
+        Proto.mutable_data_chunk()->set_type(GetType());
     }
 
     void AudioDataEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
     {
         DataEvent::ToProtoInternal(Proto);
-        Proto.mutable_data_chunk()->set_type(GetType());
 
         for (const auto& phoneme_info : GetPhonemeInfos())
         {
