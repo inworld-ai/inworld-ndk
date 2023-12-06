@@ -224,6 +224,20 @@ namespace Inworld {
 		const InworldPakets::DataChunk_DataType GetType() const override { return static_cast<InworldPakets::DataChunk_DataType>(2); }
 	};
 
+	class EnvironmentAudioDataEvent : public DataEvent
+	{
+	public:
+		EnvironmentAudioDataEvent() = default;
+		EnvironmentAudioDataEvent(const InworldPakets::InworldPacket& GrpcPacket);
+		EnvironmentAudioDataEvent(const std::string& Data, const Routing& Routing)
+			: DataEvent(Data, Routing)
+		{}
+
+		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
+
+		const InworldPakets::DataChunk_DataType GetType() const override { return static_cast<InworldPakets::DataChunk_DataType>(0); }
+	};
+
 	class AudioDataEvent : public DataEvent
 	{
 	public:

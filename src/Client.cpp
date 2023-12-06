@@ -94,6 +94,16 @@ std::shared_ptr<Inworld::DataEvent> Inworld::ClientBase::SendSoundMessage(const 
 
 std::shared_ptr<Inworld::DataEvent> Inworld::ClientBase::SendSoundMessageWithAEC(const std::string& AgentId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData)
 {
+	// environment sound
+	{
+		std::string Data;
+		Data.resize(OutputData.size() * sizeof(int16_t));
+		std::memcpy((void*)Data.data(), (void*)OutputData.data(), Data.size());
+
+		auto Packet = std::make_shared<EnvironmentAudioDataEvent>(Data, Routing::Player2Agent(AgentId));
+		SendPacket(Packet);
+	}
+
 	std::vector<int16_t> FilteredData = _EchoFilter.FilterAudio(InputData, OutputData);
 
 	std::string Data;
