@@ -148,7 +148,7 @@ grpc::Status Inworld::RunnableGenerateSessionToken::RunProcess()
 
 	auto& AuthCtx = UpdateContext({
 		{"authorization", GenerateHeader() },
-		{"x-debug-session-id", "world-engine=100.66.53.67:9090"}
+		{"x-debug-session-id", "world-engine=100.66.53.67:9090;brain-engine=100.66.53.67:50051;"}
 	});
 
 	return CreateStub()->GenerateToken(AuthCtx.get(), AuthRequest, &_Response);
@@ -211,7 +211,7 @@ grpc::Status Inworld::RunnableLoadScene::RunProcess()
 	auto& Ctx = UpdateContext({
 		{ "authorization", std::string("Bearer ") + _Token },
 		{ "session-id", _SessionId },
-		{"x-debug-session-id", "world-engine=100.66.53.67:9090"}
+		{"x-debug-session-id", "world-engine=100.66.53.67:9090;brain-engine=100.66.53.67:50051;"}
 	});
 
 	return CreateStub()->LoadScene(Ctx.get(), LoadSceneRequest, &_Response);
@@ -222,7 +222,7 @@ std::unique_ptr<Inworld::ReaderWriter> Inworld::RunnableLoadScene::Session()
 	auto& Ctx = UpdateContext({
 			{ "authorization", std::string("Bearer ") + _Token },
 			{ "session-id", _SessionId },
-			{"x-debug-session-id", "world-engine=100.66.53.67:9090"}
+			{"x-debug-session-id", "world-engine=100.66.53.67:9090;brain-engine=100.66.53.67:50051;"}
 		});
 	return _Stub->Session(Ctx.get());
 }
