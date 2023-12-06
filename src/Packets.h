@@ -235,7 +235,7 @@ namespace Inworld {
 
 		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
 
-		const InworldPakets::DataChunk_DataType GetType() const override { return static_cast<InworldPakets::DataChunk_DataType>(0); }
+		const InworldPakets::DataChunk_DataType GetType() const override { return InworldPakets::DataChunk_DataType_UNSPECIFIED; }
 	};
 
 	class AudioDataEvent : public DataEvent
