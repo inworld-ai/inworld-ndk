@@ -15,11 +15,18 @@ NDKUnity::CUnityWrapper* Unity_InitWrapper()
 	return g_pWrapper;	
 }
 
-void Unity_SetClientRequest(const char* strClientID, const char* strClientVersion)
+void Unity_SetClientRequest(const char* strClientID, const char* strClientVersion, const char* strClientDescription)
 {
 	if (g_pWrapper == nullptr)
 		return;
-	g_pWrapper->SetClientRequest(strClientID, strClientVersion);
+	g_pWrapper->SetClientRequest(strClientID, strClientVersion, strClientDescription);
+}
+
+void Unity_SetPublicWorkspace(const char* strPublicWorkspace)
+{
+	if (g_pWrapper == nullptr)
+		return;
+	g_pWrapper->SetPublicWorkspace(strPublicWorkspace);
 }
 
 void Unity_SetUserRequest(const char* strPlayerName, const char* strPlayerID)
@@ -54,7 +61,7 @@ void Unity_Hello()
 {
 	if (g_pWrapper == nullptr)
 		return;
-	if (g_pWrapper->GetAgentInfo().size() == 0)
+	if (g_pWrapper->GetAgentInfo().empty())
 		return;
 	g_pWrapper->SendTextMessage(g_pWrapper->GetAgentInfo()[0].agentId, "Hello");
 }
@@ -153,13 +160,19 @@ void Unity_SendTrigger(const char* agentID, const char* triggerName)
 {
 	if (g_pWrapper == nullptr)
 		return;
-	g_pWrapper->SendCustomEvent(agentID, triggerName, {});
+	const auto pResult = g_pWrapper->SendCustomEvent(agentID, triggerName, {});
+	if (pResult == nullptr)
+		return;
+	Inworld::Log("Send Trigger: %s. InteractionID: %s", triggerName, pResult->_PacketId._InteractionId.c_str());
 }
 void Unity_SendTriggerParam(const char* agentID, const char* triggerName, const char* param, const char* paramValue)
 {
 	if (g_pWrapper == nullptr)
 		return;
-	g_pWrapper->SendCustomEvent(agentID, triggerName, {{param, paramValue}});
+	const auto pResult = g_pWrapper->SendCustomEvent(agentID, triggerName, {{param, paramValue}});
+	if (pResult == nullptr)
+		return;
+	Inworld::Log("Send Trigger: %s. InteractionID: %s", triggerName, pResult->_PacketId._InteractionId.c_str());
 }
 
 void Unity_CancelResponse(const char* agentID, const char* interactionIDToCancel)
@@ -182,3 +195,5 @@ void Unity_StopAudio(const char* agentID)
 		return;
 	g_pWrapper->StopAudioSession(agentID);
 }
+
+
