@@ -11,6 +11,3 @@
 	path = ThirdParty/grpc
 	url = https://github.com/inworld-ai/inworld-ndk-grpc
 	branch = inworld-master
-[submodule "inworld-aec"]
-	path = inworld-aec
-	url = http://github.com/inworld-ai/inworld-aec
