@@ -8,10 +8,6 @@
 name: build-mac
 
 on:
-  pull_request:
-    branches: [ main ]
-    paths-ignore:
-      - '**/*.md'
   workflow_call:
 
 jobs:
