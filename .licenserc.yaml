@@ -106,6 +106,7 @@ header:
     - '**/include/**'
     - 'Example/Unity/proto/**'
     - 'Example/AndroidApp/**'
+    - 'inworld-aec/third-party/**'
 
     
   comment: on-failure
