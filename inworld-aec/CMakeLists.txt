@@ -100,6 +100,12 @@ target_include_directories(webrtc_base PUBLIC
 )
 
 target_compile_definitions(webrtc_base PUBLIC ${commonCompileDefines})
+if (MAC)
+    target_compile_definitions(webrtc_base PRIVATE
+        $<$<COMPILE_LANGUAGE:CXX>,$<TARGET_ARCH_ARM64>>:-DWEBRTC_ARCH_ARM_FAMILY>
+        $<$<COMPILE_LANGUAGE:CXX>,$<TARGET_ARCH_X86_64>>:-DWEBRTC_ARCH_X86_FAMILY>
+    )
+endif()
 
 # webrtc_aec3
 file(GLOB_RECURSE FilesAEC3
@@ -118,6 +124,12 @@ target_include_directories(webrtc_aec3 PUBLIC
 )
 
 target_compile_definitions(webrtc_aec3 PUBLIC ${commonCompileDefines})
+if (MAC)
+    target_compile_definitions(webrtc_aec3 PRIVATE
+        $<$<COMPILE_LANGUAGE:CXX>,$<TARGET_ARCH_ARM64>>:-DWEBRTC_ARCH_ARM_FAMILY>
+        $<$<COMPILE_LANGUAGE:CXX>,$<TARGET_ARCH_X86_64>>:-DWEBRTC_ARCH_X86_FAMILY>
+    )
+endif()
 
 # webrtc_api
 file(GLOB_RECURSE apiFiles
@@ -140,6 +152,12 @@ target_include_directories(webrtc_api PUBLIC
 target_link_libraries(webrtc_api PUBLIC webrtc_base webrtc_aec3)  
 
 target_compile_definitions(webrtc_api PUBLIC ${commonCompileDefines})
+if (MAC)
+    target_compile_definitions(webrtc_api PRIVATE
+        $<$<COMPILE_LANGUAGE:CXX>,$<TARGET_ARCH_ARM64>>:-DWEBRTC_ARCH_ARM_FAMILY>
+        $<$<COMPILE_LANGUAGE:CXX>,$<TARGET_ARCH_X86_64>>:-DWEBRTC_ARCH_X86_FAMILY>
+    )
+endif()
 
 # aec plugin
 file(GLOB_RECURSE aecPluginFiles
@@ -153,11 +171,15 @@ add_library(webrtc_aec_plugin SHARED ${aecPluginFiles})
 target_compile_features(webrtc_aec_plugin PUBLIC cxx_std_17)
 
 target_compile_definitions(webrtc_aec_plugin PUBLIC ${commonCompileDefines})
+if (MAC)
+    target_compile_definitions(webrtc_aec_plugin PRIVATE
+        $<$<COMPILE_LANGUAGE:CXX>,$<TARGET_ARCH_ARM64>>:-DWEBRTC_ARCH_ARM_FAMILY>
+        $<$<COMPILE_LANGUAGE:CXX>,$<TARGET_ARCH_X86_64>>:-DWEBRTC_ARCH_X86_FAMILY>
+    )
+endif()
 
 target_include_directories(webrtc_aec_plugin PUBLIC
     src
 )
-
-target_compile_definitions(webrtc_aec_plugin PUBLIC ${commonCompileDefines})
 
 target_link_libraries(webrtc_aec_plugin PUBLIC webrtc_base webrtc_aec3 webrtc_api)  
