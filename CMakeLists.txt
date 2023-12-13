@@ -68,15 +68,12 @@ GroupSourcesByFolder(InworldNDK)
 # webrtc aec setup
 if (AEC)
     target_compile_definitions(InworldNDK PUBLIC INWORLD_AEC)
-    target_include_directories(InworldNDK PUBLIC aec/aecplugin)
+    target_include_directories(InworldNDK PUBLIC inworld-aec/src)
+    add_subdirectory(inworld-aec)
     if (WIN32)
-        target_link_libraries(InworldNDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/aec/lib/Win64/webrtc_aec_plugin.dll.lib)
-        add_custom_command(TARGET InworldNDK POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            ${CMAKE_CURRENT_SOURCE_DIR}/aec/lib/Win64/webrtc_aec_plugin.dll
-            ${CMAKE_CURRENT_SOURCE_DIR}/build)
+        target_link_libraries(InworldNDK PUBLIC webrtc_aec_plugin)
     elseif (MAC)
-        target_link_libraries(InworldNDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/aec/lib/Mac/libwebrtc_aec_plugin.dylib)
+        target_link_libraries(InworldNDK PUBLIC webrtc_aec_plugin)
     else()
         message(FATAL_ERROR "AEC: not supported")
     endif()
@@ -376,12 +373,12 @@ endif()
 if (AEC)
     if (WIN32)
         list(APPEND LibFiles 
-            ${CMAKE_CURRENT_SOURCE_DIR}/aec/lib/Win64/webrtc_aec_plugin.dll.lib
-            ${CMAKE_CURRENT_SOURCE_DIR}/aec/lib/Win64/webrtc_aec_plugin.dll
+            ${CMAKE_CURRENT_SOURCE_DIR}/build/inworld-aec/Release/webrtc_aec_plugin.lib
+            ${CMAKE_CURRENT_SOURCE_DIR}/build/inworld-aec/Release/webrtc_aec_plugin.dll
     )
     elseif (MAC)
         list(APPEND LibFiles 
-            ${CMAKE_CURRENT_SOURCE_DIR}/aec/lib/Mac/libwebrtc_aec_plugin.dylib
+            ${CMAKE_CURRENT_SOURCE_DIR}build/inworld-aec/Release/libwebrtc_aec_plugin.dylib
         )
     endif()
 endif()
@@ -431,6 +428,6 @@ if (NOT IOS AND NOT ANDROID)
     if (AEC AND WIN32)
         add_custom_command(TARGET InworldNDKApp POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy
-            ${PROJECT_SOURCE_DIR}/ThirdParty/Prebuilt/Win64/webrtc_aec_plugin.dll  ${PackageDir}${ConfigDirName})
+            ${CMAKE_CURRENT_SOURCE_DIR}/build/inworld-aec/Release/webrtc_aec_plugin.dll  ${PackageDir}${ConfigDirName})
     endif()
 endif()

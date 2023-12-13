@@ -6,7 +6,7 @@
  */
 
 #include "AECFilter.h"
-#include "webrtc/aec.h"
+#include "AECInterop.h"
 #include <algorithm>
 
 Inworld::AECFilter::AECFilter()
