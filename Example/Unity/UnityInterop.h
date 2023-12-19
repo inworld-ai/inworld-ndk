@@ -37,7 +37,8 @@ extern "C"
 	
 #pragma region Inworld Status
 	DLL_EXPORT void Unity_GetAccessToken(const char* serverURL, const char* strAPIKey, const char* strAPISecret, NDKUnity::UnityCallback callback);
-	DLL_EXPORT void Unity_LoadScene(const char* strSceneName, NDKUnity::UnityCallback callback);	
+	DLL_EXPORT void Unity_SaveSessionState(NDKUnity::UnityCallback callback);
+	DLL_EXPORT void Unity_LoadScene(const char* strSceneName, const char* sessionState, NDKUnity::UnityCallback callback);	
 	DLL_EXPORT void Unity_StartSession();
 	DLL_EXPORT void Unity_EndSession();
 #pragma endregion Inworld Status
