@@ -27,6 +27,12 @@ void NDKUnity::CUnityWrapper::SetPacketCallBack(
 	m_PacketHandler.SetPacketCallback(pktCallBack,phonemeCallBack,	triggerParamCallBack);
 }
 
+void NDKUnity::CUnityWrapper::SetSessionState(const std::string& strSessionState)
+{
+	_SessionInfo.SessionSavedState = StringToBase64(strSessionState);
+	Inworld::Log("[NDK] Saved Session State!"); 
+}
+
 
 void NDKUnity::CUnityWrapper::SetClientRequest(const std::string& strClientID, const std::string& strClientVersion, const std::string& strClientDescription)
 {
@@ -51,13 +57,15 @@ void NDKUnity::CUnityWrapper::AddUserProfile(const std::string& strProfileID, co
 	_ClientOptions.UserSettings.Profile.Fields.push_back({strProfileID, strProfileVal});
 }
 
-void NDKUnity::CUnityWrapper::LoadScene(const std::string& strSceneName, UnityCallback callback)
+void NDKUnity::CUnityWrapper::LoadScene(const std::string& strSceneName, const std::string& strSessionState, UnityCallback callback)
 {
-	_ClientOptions.SceneName = strSceneName;
+	_ClientOptions.SceneName = strSceneName;	
 	if (!_SessionInfo.IsValid())
 	{
 		return;
 	}
+	if (!strSessionState.empty())
+		_SessionInfo.SessionSavedState = Base64ToString(strSessionState);
 	Inworld::LogSetSessionId(_SessionInfo.SessionId);
 
 	_AsyncLoadSceneTask->Start(

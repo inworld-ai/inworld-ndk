@@ -367,7 +367,6 @@ void Inworld::ClientBase::SaveSessionState(std::function<void(std::string, bool)
 						Callback({}, false);
 						return;
 					}
-
 					Callback(State.state(), true);
 				});
 			}

@@ -34,7 +34,9 @@ namespace NDKUnity
 		Inworld::LoggerCallBack GetLoggerCallBack() const
 		{
 			return m_LogCallBack;
-		}		
+		}
+
+		void SetSessionState(const std::string& strSessionState);
 		void SetServerURL(const std::string& strServerURL)
 		{
 			_ClientOptions.ServerUrl = strServerURL;
@@ -57,7 +59,7 @@ namespace NDKUnity
 
 		void AddUserProfile(const std::string& strProfileID, const std::string& strProfileVal);
 
-		void LoadScene(const std::string& strSceneName, UnityCallback callback);		
+		void LoadScene(const std::string& strSceneName, const std::string& strSessionState, UnityCallback callback);		
 
 		void StartSession();
 
@@ -83,8 +85,8 @@ namespace NDKUnity
 		
 	private:
 		CUnityPacketHandler m_PacketHandler;
-		std::string m_SavedSessionState;
 		std::vector<AgentInfo> m_AgentInfos;
+		
 		Inworld::LoggerCallBack m_LogCallBack = nullptr;		
 	};
 }
