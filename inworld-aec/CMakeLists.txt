@@ -109,23 +109,10 @@ file(GLOB_RECURSE FilesAEC3
     ${webrtcDir}/modules/audio_processing/*.c
 )
 
-message("----------------------")
-message(${FilesAEC3})
-message("----------------------")
-
 if (CMAKE_OSX_ARCHITECTURES STREQUAL "arm64")
-    message("REMOVING!!!!
-    ${CMAKE_CURRENT_SOURCE_DIR}/${webrtcDir}/modules/audio_processing/resampler/sinc_resampler_sse.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/${webrtcDir}/modules/audio_processing/utility/ooura_fft_sse2.cc")
-    list(REMOVE_ITEM ${FilesAEC3}
-        ${CMAKE_CURRENT_SOURCE_DIR}/${webrtcDir}/modules/audio_processing/resampler/sinc_resampler_sse.cc
-        ${CMAKE_CURRENT_SOURCE_DIR}/${webrtcDir}/modules/audio_processing/utility/ooura_fft_sse2.cc
-    )
+    list(FILTER FilesAEC3 EXCLUDE REGEX "sinc_resampler_sse.cc")
+    list(FILTER FilesAEC3 EXCLUDE REGEX "ooura_fft_sse2.cc")
 endif()
-
-message("----------------------")
-message(${FilesAEC3})
-message("----------------------")
 
 add_library(webrtc_aec3 ${FilesAEC3})
 target_compile_features(webrtc_aec3 PUBLIC cxx_std_17)
