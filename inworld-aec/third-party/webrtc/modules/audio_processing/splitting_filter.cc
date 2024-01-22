@@ -17,7 +17,7 @@
 #include "rtc_base/checks.h"
 
 #if defined(__cplusplus)
-extern "C"{
+//extern "C"{
 #endif
 
 extern void WebRtcSpl_AnalysisQMF(const int16_t* in_data,
@@ -34,7 +34,7 @@ extern void WebRtcSpl_SynthesisQMF(const int16_t* low_band,
 	int32_t* filter_state2);
 
 #if defined(__cplusplus)
-}
+//}
 #endif
 
 namespace webrtc {
