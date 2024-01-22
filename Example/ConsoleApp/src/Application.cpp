@@ -7,6 +7,8 @@
 
 #include "Application.h"
 #include "Utils/Log.h"
+#include <numeric>
+#include <algorithm>
 
 // !!! Fill out this options !!!
 constexpr std::string_view g_SceneName = "";
@@ -45,6 +47,25 @@ void NDKApp::App::Run()
 				}
 
 				_Client.SendTextMessage(_AgentInfos[_CurrentAgentIdx].AgentId, Args[0]);
+			}
+		},
+		{
+			"Narration",
+			"Send narration to a character (Arg0: Text)",
+			[this](std::vector<std::string> Args)
+			{
+				if (_CurrentAgentIdx == -1)
+				{
+					Error("Invalid character");
+					return;
+				}
+
+				const std::string Content = std::accumulate(Args.begin(), Args.end(), std::string(),
+					[](const std::string& acc, const std::string& s) {
+						return acc.empty() ? s : acc + ' ' + s;
+					});
+				_Client.SendNarrationEvent(_AgentInfos[_CurrentAgentIdx].AgentId, Content);
+				Inworld::Log("Narration sent.");
 			}
 		},
 		{
@@ -149,6 +170,7 @@ void NDKApp::App::Run()
 	_Options.Capabilities.SilenceEvents = true;
 	_Options.Capabilities.PhonemeInfo = true;
 	_Options.Capabilities.LoadSceneInSession = true;
+	_Options.Capabilities.NarratedActions = true;
 
 	std::vector<Inworld::AgentInfo> AgentInfos;
 

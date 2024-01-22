@@ -385,6 +385,9 @@ namespace Inworld {
 	public:
 		ActionEvent() = default;
 		ActionEvent(const InworldPakets::InworldPacket& GrpcPacket);
+		ActionEvent(const std::string& Content)
+			: _Content(Content)
+		{}
 		const std::string& GetContent() const { return _Content; }
 		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }	
 	

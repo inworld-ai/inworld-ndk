@@ -110,6 +110,13 @@ std::shared_ptr<Inworld::CustomEvent> Inworld::ClientBase::SendCustomEvent(std::
 	return Packet;
 }
 
+std::shared_ptr<Inworld::ActionEvent> Inworld::ClientBase::SendNarrationEvent(std::string AgentId, const std::string& Content)
+{
+	auto Packet = std::make_shared<ActionEvent>(Content);
+	SendPacket(Packet);
+	return Packet;
+}
+
 std::shared_ptr<Inworld::ChangeSceneEvent> Inworld::ClientBase::SendChangeSceneEvent(const std::string& Scene)
 {
 	auto Packet = std::make_shared<ChangeSceneEvent>(Scene, Routing());

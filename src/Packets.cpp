@@ -186,7 +186,6 @@ namespace Inworld {
         mutable_load_scene->set_name(_SceneName);
     }
 
-    
     RelationEvent::RelationEvent(const InworldPakets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
     {
         const auto currState = GrpcPacket.debug_info().relation().relation_state();
@@ -196,6 +195,7 @@ namespace Inworld {
         _Respect = currState.respect();
         _Trust = currState.trust();
     }
+
     void RelationEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
     {
         
@@ -208,6 +208,6 @@ namespace Inworld {
 
     void ActionEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
     {
-        
+        Proto.mutable_action()->mutable_narrated_action()->set_content(_Content);
     }
 }
