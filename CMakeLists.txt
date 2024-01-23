@@ -431,6 +431,6 @@ if (NOT IOS AND NOT ANDROID)
     if (AEC AND WIN32)
         add_custom_command(TARGET InworldNDKApp POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy
-            ${PROJECT_SOURCE_DIR}/ThirdParty/Prebuilt/Win64/webrtc_aec_plugin.dll  ${PackageDir}${ConfigDirName})
+            ${CMAKE_CURRENT_SOURCE_DIR}/aec/lib/Win64/webrtc_aec_plugin.dll  ${PackageDir}${ConfigDirName})
     endif()
 endif()
