@@ -41,8 +41,8 @@
 #include <google/protobuf/empty.pb.h>
 #include <google/protobuf/field_mask.pb.h>
 #include <google/protobuf/timestamp.pb.h>
-#include "options.pb.h"
-#include "language_codes.pb.h"
+#include "ai/inworld/options/options.pb.h"
+#include "ai/inworld/language_codes/language_codes.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto
