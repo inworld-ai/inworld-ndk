@@ -49,21 +49,24 @@ namespace Inworld {
 	struct INWORLD_EXPORT Routing
 	{
 		Routing() = default;
-		Routing(const InworldPakets::Routing& Routing) 
-			: _Source(Routing.source())
-			, _Target(Routing.target()) 
-		{}
+		Routing(const InworldPakets::Routing& Routing);
 		Routing(const Actor& Source, const Actor& Target) 
 			: _Source(Source)
 			, _Target(Target) 
 		{}
+		Routing(const Actor & Source, const std::vector<Actor>& Targets)
+			: _Source(Source)
+			, _Targets(Targets)
+		{}
 
 		static Routing Player2Agent(const std::string& AgentId);
+		static Routing Player2Agents(const std::vector<std::string>& AgentIds);
 
         InworldPakets::Routing ToProto() const;
         
 		Actor _Source;
         Actor _Target;
+		std::vector<Actor> _Targets;
 	};
 
 	struct INWORLD_EXPORT PacketId {
