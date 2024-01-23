@@ -7,8 +7,8 @@
 
 #pragma once
 
-#include "proto/ProtoDisableWarning.h"
-#include "proto/packets.pb.h"
+#include "ProtoDisableWarning.h"
+#include "ai/inworld/packets/packets.pb.h"
 
 #include "Define.h"
 #include "Types.h"
