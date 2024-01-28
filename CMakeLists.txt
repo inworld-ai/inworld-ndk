@@ -358,11 +358,15 @@ endif()
 
 # webrtc aec setup
 if (AEC)
-    target_compile_definitions(InworldNDK PUBLIC INWORLD_AEC)
-    target_include_directories(InworldNDK PUBLIC inworld-aec/src)
-    add_custom_command(TARGET InworldNDK POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy 
-        ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/src/AECInterop.h  ${PackageDir}/include)
+    if (WIN32 OR MAC)
+        target_compile_definitions(InworldNDK PUBLIC INWORLD_AEC)
+        target_include_directories(InworldNDK PUBLIC inworld-aec/src)
+        add_custom_command(TARGET InworldNDK POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy 
+            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/src/AECInterop.h  ${PackageDir}/include)
+    else()
+        message(FATAL_ERROR "AEC: not supported")
+    endif()
     
     if (WIN32)
         target_link_libraries(InworldNDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Win64/webrtc_aec_plugin.lib)
@@ -377,8 +381,6 @@ if (AEC)
         list(APPEND LibFiles 
             ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Mac/libwebrtc_aec_plugin.dylib
         )
-    else()
-        message(FATAL_ERROR "AEC: not supported")
     endif()
 endif()
 
