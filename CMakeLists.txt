@@ -65,20 +65,6 @@ function(GroupSourcesByFolder target)
 endfunction()
 GroupSourcesByFolder(InworldNDK)
 
-# webrtc aec setup
-if (AEC)
-    target_compile_definitions(InworldNDK PUBLIC INWORLD_AEC)
-    target_include_directories(InworldNDK PUBLIC inworld-aec/src)
-    add_subdirectory(inworld-aec)
-    if (WIN32)
-        target_link_libraries(InworldNDK PUBLIC webrtc_aec_plugin)
-    elseif (MAC)
-        target_link_libraries(InworldNDK PUBLIC webrtc_aec_plugin)
-    else()
-        message(FATAL_ERROR "AEC: not supported")
-    endif()
-endif()
-
 # grpc setup
 if(UE_DIR)
     set(ZlibDir ${UE_DIR}/Engine/Source/ThirdParty/zlib/1.2.12)
@@ -370,16 +356,25 @@ if (ANDROID AND INWORLD_LOG_SPD)
     ${CMAKE_CURRENT_SOURCE_DIR}/build/ThirdParty/spdlog/${LibPref}${LibSpglogName}.${LibExt})
 endif()
 
+# webrtc aec setup
 if (AEC)
+    target_compile_definitions(InworldNDK PUBLIC INWORLD_AEC)
+    target_include_directories(InworldNDK PUBLIC inworld-aec/src)
     if (WIN32)
+        target_link_libraries(InworldNDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/build/inworld-aec/prebuilt/Win64/webrtc_aec_plugin.lib)
+
         list(APPEND LibFiles 
-            ${CMAKE_CURRENT_SOURCE_DIR}/build/inworld-aec/Release/webrtc_aec_plugin.lib
-            ${CMAKE_CURRENT_SOURCE_DIR}/build/inworld-aec/Release/webrtc_aec_plugin.dll
-    )
-    elseif (MAC)
-        list(APPEND LibFiles 
-            ${CMAKE_CURRENT_SOURCE_DIR}build/inworld-aec/Release/libwebrtc_aec_plugin.dylib
+            ${CMAKE_CURRENT_SOURCE_DIR}/build/inworld-aec/prebuilt/Win64/webrtc_aec_plugin.lib
+            ${CMAKE_CURRENT_SOURCE_DIR}/build/inworld-aec/prebuilt/Win64/webrtc_aec_plugin.dll
         )
+    elseif (MAC)
+        target_link_libraries(InworldNDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/build/inworld-aec/prebuilt/Mac/libwebrtc_aec_plugin.dylib)
+
+        list(APPEND LibFiles 
+            ${CMAKE_CURRENT_SOURCE_DIR}/build/inworld-aec/prebuilt/Mac/libwebrtc_aec_plugin.dylib
+        )
+    else()
+        message(FATAL_ERROR "AEC: not supported")
     endif()
 endif()
 
