@@ -6,7 +6,9 @@
  */
 
 #include "AECFilter.h"
+#ifdef INWORLD_AEC
 #include "AECInterop.h"
+#endif // INWORLD_AEC
 #include <algorithm>
 
 Inworld::AECFilter::AECFilter()
