@@ -1,5 +1,5 @@
 ﻿/**
-* Copyright 2022 Theai, Inc. (DBA Inworld)
+* Copyright 2023-2024 Theai, Inc. dba Inworld AI
  *
  * Use of this source code is governed by the Inworld.ai Software Development Kit License Agreement
  * that can be found in the LICENSE.md file or at https://www.inworld.ai/sdk-license
@@ -34,7 +34,9 @@ namespace NDKUnity
 		Inworld::LoggerCallBack GetLoggerCallBack() const
 		{
 			return m_LogCallBack;
-		}		
+		}
+
+		void SetSessionState(const std::string& strSessionState);
 		void SetServerURL(const std::string& strServerURL)
 		{
 			_ClientOptions.ServerUrl = strServerURL;
@@ -57,7 +59,7 @@ namespace NDKUnity
 
 		void AddUserProfile(const std::string& strProfileID, const std::string& strProfileVal);
 
-		void LoadScene(const std::string& strSceneName, UnityCallback callback);		
+		void LoadScene(const std::string& strSceneName, const std::string& strSessionState, UnityCallback callback);		
 
 		void StartSession();
 
@@ -83,8 +85,8 @@ namespace NDKUnity
 		
 	private:
 		CUnityPacketHandler m_PacketHandler;
-		std::string m_SavedSessionState;
 		std::vector<AgentInfo> m_AgentInfos;
+		
 		Inworld::LoggerCallBack m_LogCallBack = nullptr;		
 	};
 }

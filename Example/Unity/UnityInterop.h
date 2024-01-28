@@ -1,5 +1,5 @@
 ﻿/**
-* Copyright 2022 Theai, Inc. (DBA Inworld)
+* Copyright 2023-2024 Theai, Inc. dba Inworld AI
  *
  * Use of this source code is governed by the Inworld.ai Software Development Kit License Agreement
  * that can be found in the LICENSE.md file or at https://www.inworld.ai/sdk-license
@@ -37,7 +37,8 @@ extern "C"
 	
 #pragma region Inworld Status
 	DLL_EXPORT void Unity_GetAccessToken(const char* serverURL, const char* strAPIKey, const char* strAPISecret, NDKUnity::UnityCallback callback);
-	DLL_EXPORT void Unity_LoadScene(const char* strSceneName, NDKUnity::UnityCallback callback);	
+	DLL_EXPORT void Unity_SaveSessionState(NDKUnity::UnityCallback callback);
+	DLL_EXPORT void Unity_LoadScene(const char* strSceneName, const char* sessionState, NDKUnity::UnityCallback callback);	
 	DLL_EXPORT void Unity_StartSession();
 	DLL_EXPORT void Unity_EndSession();
 #pragma endregion Inworld Status

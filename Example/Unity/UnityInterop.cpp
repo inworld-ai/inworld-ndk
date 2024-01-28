@@ -1,5 +1,5 @@
 ﻿/**
-* Copyright 2022 Theai, Inc. (DBA Inworld)
+* Copyright 2023-2024 Theai, Inc. dba Inworld AI
  *
  * Use of this source code is governed by the Inworld.ai Software Development Kit License Agreement
  * that can be found in the LICENSE.md file or at https://www.inworld.ai/sdk-license
@@ -65,7 +65,21 @@ void Unity_Hello()
 		return;
 	g_pWrapper->SendTextMessage(g_pWrapper->GetAgentInfo()[0].agentId, "Hello");
 }
+void Unity_SaveSessionState(NDKUnity::UnityCallback callback)
+{
+	if (g_pWrapper == nullptr)
+		return;
+	std::function bridgeCallback = [callback](std::string result, bool success) 
+	{
+		if (success)
+		{
+			g_pWrapper->SetSessionState(result);
+			callback();
+		}		
+	};
 
+	g_pWrapper->SaveSessionState(bridgeCallback);
+}
 void Unity_GetAccessToken(const char* serverURL, const char* apiKey, const char* apiSecret, NDKUnity::UnityCallback callback)
 {
 	if (g_pWrapper == nullptr)
@@ -91,11 +105,11 @@ const NDKUnity::SessionInfo* Unity_GetSessionInfo()
 	return new NDKUnity::SessionInfo(g_pWrapper->GetSessionInfo());
 }
 
-void Unity_LoadScene(const char* strSceneName, NDKUnity::UnityCallback callback)
+void Unity_LoadScene(const char* strSceneName, const char* sessionState, NDKUnity::UnityCallback callback)
 {
 	if (g_pWrapper == nullptr)
 		return;
-	g_pWrapper->LoadScene(strSceneName, callback);
+	g_pWrapper->LoadScene(strSceneName, sessionState, callback);
 }
 
 
