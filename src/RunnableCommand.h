@@ -234,6 +234,7 @@ namespace Inworld
 		bool TurnBasedSTT = true;
 		bool NarratedActions = true;
 		bool Relations = true;
+		bool Multiagent = true;
 	};
 
 	struct INWORLD_EXPORT UserSettings

@@ -177,6 +177,7 @@ void NDKApp::App::Run()
 	_Options.Capabilities.SilenceEvents = true;
 	_Options.Capabilities.PhonemeInfo = true;
 	_Options.Capabilities.LoadSceneInSession = true;
+	_Options.Capabilities.Multiagent = true;
 
 	std::vector<Inworld::AgentInfo> AgentInfos;
 

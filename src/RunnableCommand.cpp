@@ -178,6 +178,7 @@ grpc::Status Inworld::RunnableLoadScene::RunProcess()
 	Capabilities->set_turn_based_stt(_Capabilities.TurnBasedSTT);
 	Capabilities->set_relations(_Capabilities.Relations);
 	Capabilities->set_debug_info(_Capabilities.Relations); // YAN: Relations also requires debug info for now.
+	Capabilities->set_multi_agent(_Capabilities.Multiagent);
 
 	auto* User = LoadSceneRequest.mutable_user();
 	User->set_id(_UserId);
