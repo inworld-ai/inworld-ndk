@@ -1,6 +1,9 @@
 ﻿#include "AECInterop.h"
+#include "AECHandle.h"
 
 #include <iostream>
+	
+webrtc::AECHandle* g_pAECHandle = nullptr;
 
 void* WebRtcAec3_Create(int32_t sample_rate_hz)
 {

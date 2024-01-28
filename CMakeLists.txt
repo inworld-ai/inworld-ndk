@@ -360,12 +360,10 @@ endif()
 if (AEC)
     target_compile_definitions(InworldNDK PUBLIC INWORLD_AEC)
     target_include_directories(InworldNDK PUBLIC inworld-aec/src)
-    target_include_directories(InworldNDK PUBLIC inworld-aec/third-party/webrtc)
-    target_include_directories(InworldNDK PUBLIC inworld-aec/third-party/webrtc/base)
-    target_include_directories(InworldNDK PUBLIC inworld-aec/third-party/webrtc/base/abseil)
-    target_include_directories(InworldNDK PUBLIC inworld-aec/third-party/webrtc/base/json-cpp/include)
-    target_include_directories(InworldNDK PUBLIC inworld-aec/third-party/webrtc/base/system_wrappers/include)
-    target_include_directories(InworldNDK PUBLIC inworld-aec/third-party/webrtc/modules)
+    add_custom_command(TARGET InworldNDK POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy 
+        ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/src/AECInterop.h  ${PackageDir}/include)
+    
     if (WIN32)
         target_link_libraries(InworldNDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Win64/webrtc_aec_plugin.lib)
 

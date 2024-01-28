@@ -9,8 +9,6 @@
 
 #include <stdint.h>
 
-#include "AECHandle.h"
-
 #if defined(WEBRTC_WIN)
 #define DLL_EXPORT _declspec(dllexport)
 #elif defined(WEBRTC_MAC)
@@ -25,8 +23,6 @@
 extern "C"
 {
 #endif
-	
-	static webrtc::AECHandle* g_pAECHandle = nullptr;
 
 	DLL_EXPORT void* WebRtcAec3_Create(int32_t sample_rate_hz);
 	DLL_EXPORT void WebRtcAec3_Free(void *handle);
