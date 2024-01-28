@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.22)
+﻿cmake_minimum_required (VERSION 3.22)
 
 project(InworldNDK VERSION 1.2.0)
 
@@ -360,18 +360,24 @@ endif()
 if (AEC)
     target_compile_definitions(InworldNDK PUBLIC INWORLD_AEC)
     target_include_directories(InworldNDK PUBLIC inworld-aec/src)
+    target_include_directories(InworldNDK PUBLIC inworld-aec/third-party/webrtc)
+    target_include_directories(InworldNDK PUBLIC inworld-aec/third-party/webrtc/base)
+    target_include_directories(InworldNDK PUBLIC inworld-aec/third-party/webrtc/base/abseil)
+    target_include_directories(InworldNDK PUBLIC inworld-aec/third-party/webrtc/base/json-cpp/include)
+    target_include_directories(InworldNDK PUBLIC inworld-aec/third-party/webrtc/base/system_wrappers/include)
+    target_include_directories(InworldNDK PUBLIC inworld-aec/third-party/webrtc/modules)
     if (WIN32)
-        target_link_libraries(InworldNDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/build/inworld-aec/prebuilt/Win64/webrtc_aec_plugin.lib)
+        target_link_libraries(InworldNDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Win64/webrtc_aec_plugin.lib)
 
         list(APPEND LibFiles 
-            ${CMAKE_CURRENT_SOURCE_DIR}/build/inworld-aec/prebuilt/Win64/webrtc_aec_plugin.lib
-            ${CMAKE_CURRENT_SOURCE_DIR}/build/inworld-aec/prebuilt/Win64/webrtc_aec_plugin.dll
+            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Win64/webrtc_aec_plugin.lib
+            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Win64/webrtc_aec_plugin.dll
         )
     elseif (MAC)
-        target_link_libraries(InworldNDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/build/inworld-aec/prebuilt/Mac/libwebrtc_aec_plugin.dylib)
+        target_link_libraries(InworldNDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Mac/libwebrtc_aec_plugin.dylib)
 
         list(APPEND LibFiles 
-            ${CMAKE_CURRENT_SOURCE_DIR}/build/inworld-aec/prebuilt/Mac/libwebrtc_aec_plugin.dylib
+            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Mac/libwebrtc_aec_plugin.dylib
         )
     else()
         message(FATAL_ERROR "AEC: not supported")
