@@ -23,8 +23,6 @@
 #undef min
 #undef max
 
-
-
 constexpr int64_t gMaxTokenLifespan = 60 * 45; // 45 minutes
 
 const std::string DefaultTargetUrl = "api-engine.inworld.ai:443";
