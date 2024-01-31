@@ -1,5 +1,5 @@
 /**
- * Copyright 2022 Theai, Inc. (DBA Inworld)
+ * Copyright 2023-2024 Theai, Inc. dba Inworld AI
  *
  * Use of this source code is governed by the Inworld.ai Software Development Kit License Agreement
  * that can be found in the LICENSE.md file or at https://www.inworld.ai/sdk-license
@@ -22,8 +22,6 @@
 // prevent std::min/max errors on windows
 #undef min
 #undef max
-
-
 
 constexpr int64_t gMaxTokenLifespan = 60 * 45; // 45 minutes
 
