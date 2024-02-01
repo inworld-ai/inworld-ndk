@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.22)
+﻿cmake_minimum_required (VERSION 3.22)
 
 project(InworldNDK VERSION 1.2.0)
 
@@ -64,23 +64,6 @@ function(GroupSourcesByFolder target)
     endif()
 endfunction()
 GroupSourcesByFolder(InworldNDK)
-
-# webrtc aec setup
-if (AEC)
-    target_compile_definitions(InworldNDK PUBLIC INWORLD_AEC)
-    target_include_directories(InworldNDK PUBLIC aec/aecplugin)
-    if (WIN32)
-        target_link_libraries(InworldNDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/aec/lib/Win64/webrtc_aec_plugin.dll.lib)
-        add_custom_command(TARGET InworldNDK POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            ${CMAKE_CURRENT_SOURCE_DIR}/aec/lib/Win64/webrtc_aec_plugin.dll
-            ${CMAKE_CURRENT_SOURCE_DIR}/build)
-    elseif (MAC)
-        target_link_libraries(InworldNDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/aec/lib/Mac/libwebrtc_aec_plugin.dylib)
-    else()
-        message(FATAL_ERROR "AEC: not supported")
-    endif()
-endif()
 
 # grpc setup
 if(UE_DIR)
@@ -373,15 +356,30 @@ if (ANDROID AND INWORLD_LOG_SPD)
     ${CMAKE_CURRENT_SOURCE_DIR}/build/ThirdParty/spdlog/${LibPref}${LibSpglogName}.${LibExt})
 endif()
 
+# webrtc aec setup
 if (AEC)
+    if (WIN32 OR MAC)
+        target_compile_definitions(InworldNDK PUBLIC INWORLD_AEC)
+        target_include_directories(InworldNDK PUBLIC inworld-aec/src)
+        add_custom_command(TARGET InworldNDK POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy 
+            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/src/AECInterop.h  ${PackageDir}/include)
+    else()
+        message(FATAL_ERROR "AEC: not supported")
+    endif()
+    
     if (WIN32)
+        target_link_libraries(InworldNDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Win64/webrtc_aec_plugin.lib)
+
         list(APPEND LibFiles 
-            ${CMAKE_CURRENT_SOURCE_DIR}/aec/lib/Win64/webrtc_aec_plugin.dll.lib
-            ${CMAKE_CURRENT_SOURCE_DIR}/aec/lib/Win64/webrtc_aec_plugin.dll
-    )
+            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Win64/webrtc_aec_plugin.lib
+            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Win64/webrtc_aec_plugin.dll
+        )
     elseif (MAC)
+        target_link_libraries(InworldNDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Mac/libwebrtc_aec_plugin.dylib)
+
         list(APPEND LibFiles 
-            ${CMAKE_CURRENT_SOURCE_DIR}/aec/lib/Mac/libwebrtc_aec_plugin.dylib
+            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Mac/libwebrtc_aec_plugin.dylib
         )
     endif()
 endif()
@@ -431,6 +429,6 @@ if (NOT IOS AND NOT ANDROID)
     if (AEC AND WIN32)
         add_custom_command(TARGET InworldNDKApp POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy
-            ${CMAKE_CURRENT_SOURCE_DIR}/aec/lib/Win64/webrtc_aec_plugin.dll  ${PackageDir}${ConfigDirName})
+            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Win64/webrtc_aec_plugin.dll  ${PackageDir}${ConfigDirName})
     endif()
 endif()
