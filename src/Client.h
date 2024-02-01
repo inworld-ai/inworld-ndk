@@ -113,7 +113,7 @@ namespace Inworld
 			_AsyncLoadSceneTask = std::make_unique<TAsyncRoutine>();
 			_AsyncGenerateTokenTask = std::make_unique<TAsyncRoutine>();
 			_AsyncGetSessionState = std::make_unique<TAsyncRoutine>();
-#ifdef  INWORLD_AUDIO_DUMP
+#ifdef INWORLD_AUDIO_DUMP
 			_AsyncAudioDumper = std::make_unique<TAsyncRoutine>();
 #endif			
 		}
