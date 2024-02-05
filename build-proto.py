@@ -56,19 +56,16 @@ def generate(path, filepath):
 
     print("------------------------------------------")
 
-proto_path = os.path.join(PROTO_REPO, "grpc-stub/world-engine/src/main/proto/")
+proto_path = os.path.join(PROTO_REPO, "proto/")
 for file_name in [
-    "world-engine.proto",
-    "packets.proto",
-    "voices.proto",
-    "options.proto",
-    "configuration.proto",
-    "language_codes.proto",
-    "base_voice.proto",
-]:
-    generate(proto_path, file_name)
-
-for file_name in [
+    "ai/inworld/engine/world-engine.proto",
+    "ai/inworld/engine/v1/state_serialization.proto",
+    "ai/inworld/packets/packets.proto",
+    "ai/inworld/voices/voices.proto",
+    "ai/inworld/voices/base_voice.proto",
+    "ai/inworld/options/options.proto",
+    "ai/inworld/engine/configuration/configuration.proto",
+    "ai/inworld/language_codes/language_codes.proto",
     "ai/inworld/studio/v1alpha/apikeys.proto",
     "ai/inworld/studio/v1alpha/behavioral_contexts.proto",
     "ai/inworld/studio/v1alpha/characters.proto",
@@ -78,11 +75,9 @@ for file_name in [
     "ai/inworld/studio/v1alpha/users.proto",
     "ai/inworld/studio/v1alpha/impression_event_data.proto",
     "ai/inworld/studio/v1alpha/language_code.proto",
-    "ai/inworld/studio/v1alpha/workspaces.proto"
+    "ai/inworld/studio/v1alpha/workspaces.proto",
 ]:
     generate(proto_path, file_name)
-
-generate(PROTO_REPO, "grpc-stub/platform-public/src/main/proto/ai/inworld/engine/v1/state_serialization.proto")
 
 for file_name in [
     "google/api/annotations.proto",

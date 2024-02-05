@@ -44,14 +44,40 @@ namespace Inworld {
         InworldPakets::Routing routing;
         *routing.mutable_source() = _Source.ToProto();
         *routing.mutable_target() = _Target.ToProto();
+
+        for (auto& T : _Targets)
+        {
+            auto* Actor = routing.add_targets();
+            *Actor = T.ToProto();
+        }
         return routing;
     }
 
-    Routing Routing::Player2Agent(const std::string& AgentId) {
-        return Routing(Actor(InworldPakets::Actor_Type_PLAYER, ""), Actor(InworldPakets::Actor_Type_AGENT, AgentId));
+	Routing::Routing(const InworldPakets::Routing& Routing)
+		: _Source(Routing.source())
+		, _Target(Routing.target())
+	{
+        for (uint32_t i = 0; i < Routing.targets_size(); i++)
+        {
+            _Targets.emplace_back(Routing.targets(i));
+        }
+	}
+
+	Routing Routing::Player2Agent(const std::string& AgentId) {
+        return { { InworldPakets::Actor_Type_PLAYER, "" }, { InworldPakets::Actor_Type_AGENT, AgentId} };
     }
 
-    InworldPakets::PacketId PacketId::ToProto() const
+	Routing Routing::Player2Agents(const std::vector<std::string>& AgentIds)
+	{
+        std::vector<Actor> Actors;
+        for (auto& Id : AgentIds)
+        {
+            Actors.emplace_back(InworldPakets::Actor_Type_AGENT, Id);
+        }
+        return { { InworldPakets::Actor_Type_PLAYER, "" }, Actors };
+	}
+
+	InworldPakets::PacketId PacketId::ToProto() const
     {
         InworldPakets::PacketId proto;
         proto.set_packet_id(_UID);
