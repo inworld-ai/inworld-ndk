@@ -394,6 +394,9 @@ void Inworld::ClientBase::StopClient()
 	_AsyncLoadSceneTask->Stop();
 	_AsyncGenerateTokenTask->Stop();
 	_AsyncGetSessionState->Stop();
+#ifdef INWORLD_AUDIO_DUMP
+	_AsyncAudioDumper->Stop();
+#endif
 	_ClientOptions = ClientOptions();
 	_SessionInfo = SessionInfo();
 	SetConnectionState(ConnectionState::Idle);
@@ -408,9 +411,6 @@ void Inworld::ClientBase::DestroyClient()
 	_OnGenerateTokenCallback = nullptr;
 	_OnConnectionStateChangedCallback = nullptr;
 	_LatencyTracker.ClearCallback();
-#ifdef INWORLD_AUDIO_DUMP
-	_AsyncAudioDumper->Stop();
-#endif
 }
 
 void Inworld::ClientBase::SaveSessionState(std::function<void(std::string, bool)> Callback)
