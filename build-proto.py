@@ -4,8 +4,8 @@ import subprocess
 
 PROTO_REPO = "C:/Projects/inworld/inworld-proto/"
 CURRENT_DIR = os.getcwd()
-PROTOC_PATH = os.path.join(CURRENT_DIR, "build/ThirdParty/grpc/third_party/protobuf/Release/protoc.exe")
-CPP_PLUGIN_PATH = os.path.join(CURRENT_DIR, "build/ThirdParty/grpc/Release/grpc_cpp_plugin.exe")
+PROTOC_PATH = os.path.join(CURRENT_DIR, "build/test/grpc/third_party/protobuf/Release/protoc.exe") #TODO remove test
+CPP_PLUGIN_PATH = os.path.join(CURRENT_DIR, "build/test/grpc/Release/grpc_cpp_plugin.exe")
 COMMON_PROTO_PATH = os.path.join(CURRENT_DIR, "ThirdParty/api-common-protos/")
 
 def add_line_to_file_start(filename, line):
