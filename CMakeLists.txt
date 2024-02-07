@@ -29,10 +29,12 @@ if(ANDROID)
     target_compile_definitions(InworldNDK PRIVATE ANDROID=1)
 endif()
 
+set(GrpcDir ${CMAKE_CURRENT_BINARY_DIR}/test/grpc)
+
 target_include_directories(InworldNDK PUBLIC
     ${ThirdPartyDir}/include
-    ${ThirdPartyDir}/grpc/include
-    ${ThirdPartyDir}/grpc/third_party/protobuf/src
+    ${GrpcDir}/include
+    ${GrpcDir}/third_party/protobuf/src
     src
     src/proto
     src/ThirdParty
@@ -184,7 +186,6 @@ CheckPathValid(${OPENSSL_SSL_LIBRARY})
 #set(BUILD_SHARED_LIBS ON)
 set(gRPC_INSTALL OFF)
 
-set(GrpcDir ${CMAKE_CURRENT_BINARY_DIR}/test/grpc)
 add_subdirectory(test/grpc)
 
 if (ANDROID)
@@ -483,7 +484,7 @@ function(CopyIncludeDir Path)
 endfunction()
 
 CopyIncludeDir(${ThirdPartyDir}/include)
-CopyIncludeDir(${ThirdPartyDir}/grpc/include)
+CopyIncludeDir(${GrpcDir}/include)
 if(INWORLD_LOG_SPD)
     CopyIncludeDir(${ThirdPartyDir}/spdlog/include)
 endif()

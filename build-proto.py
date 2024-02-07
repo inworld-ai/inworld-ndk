@@ -51,8 +51,8 @@ def generate(path, filepath):
     add_line_to_file_start(out_filename + ".pb.cc", "#include \"ProtoDisableWarning.h\"")
     add_line_to_file_start(out_filename + ".grpc.pb.cc", "#include \"ProtoDisableWarning.h\"")
 
-    for file_extension in [".pb.h", ".pb.cc", ".grpc.pb.h", ".grpc.pb.cc"]:
-        replace_protobuf_namespace(out_filename + file_extension)
+    #for file_extension in [".pb.h", ".pb.cc", ".grpc.pb.h", ".grpc.pb.cc"]:
+    #    replace_protobuf_namespace(out_filename + file_extension)
 
     print("------------------------------------------")
 
