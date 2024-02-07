@@ -88,27 +88,6 @@ endfunction()
 CheckPathValid(${ZlibDir})
 CheckPathValid(${OpenSSLDir})
 
-# Unity Setup
-option(UNITY FALSE)
-if(UNITY)
-    message("Building for Unity...")
-    target_compile_definitions(InworldNDK PUBLIC INWORLD_UNITY)
-    file(GLOB_RECURSE UnityNDKFiles
-        Example/Unity/*.h
-        Example/Unity/*.cpp
-        Example/Unity/*.cc
-        Example/Unity/*.c
-    )        
-    list(APPEND FilesALL ${UnityNDKFiles})
-    if (IOS)
-        add_library(InworldUnityWrapper STATIC ${UnityNDKFiles})
-    else()
-        add_library(InworldUnityWrapper SHARED ${UnityNDKFiles})
-    endif()
-    target_include_directories(InworldUnityWrapper PUBLIC InworldNDK/src)    
-    target_link_libraries(InworldUnityWrapper PRIVATE InworldNDK)  
-endif()
-
 if (IOS OR ANDROID)
     set(CMAKE_MAKE_PROGRAM /usr/bin/make)
     set(CMAKE_POLICY_DEFAULT_CMP0063 NEW)
@@ -148,6 +127,8 @@ set(gRPC_PROTOBUF_PROVIDER module)
 set(gRPC_RE2_PROVIDER module)
 set(protobuf_BUILD_TESTS OFF)
 set(protobuf_BUILD_SHARED_LIBS OFF)
+set(protobuf_INSTALL OFF)
+set(utf8_range_ENABLE_INSTALL OFF)
 
 set(gRPC_ZLIB_PROVIDER "package" CACHE STRING "Provider of zlib library")
 set(gRPC_SSL_PROVIDER "package" CACHE STRING "Provider of ssl library")
@@ -197,7 +178,11 @@ CheckPathValid(${OPENSSL_CRYPTO_LIBRARY})
 CheckPathValid(${OPENSSL_ROOT_DIR})
 CheckPathValid(${OPENSSL_SSL_LIBRARY})
 
-add_subdirectory(ThirdParty/grpc)
+#set(BUILD_SHARED_LIBS ON)
+set(gRPC_INSTALL OFF)
+
+set(GrpcDir ${CMAKE_CURRENT_BINARY_DIR}/test/grpc)
+add_subdirectory(test/grpc)
 
 if (ANDROID)
     target_include_directories(grpc PUBLIC
@@ -210,6 +195,27 @@ endif()
 
 target_link_libraries(InworldNDK PUBLIC grpc)
 target_link_libraries(InworldNDK PUBLIC grpc++)
+
+# Unity Setup
+option(UNITY FALSE)
+if(UNITY)
+    message("Building for Unity...")
+    target_compile_definitions(InworldNDK PUBLIC INWORLD_UNITY)
+    file(GLOB_RECURSE UnityNDKFiles
+        Example/Unity/*.h
+        Example/Unity/*.cpp
+        Example/Unity/*.cc
+        Example/Unity/*.c
+    )        
+    list(APPEND FilesALL ${UnityNDKFiles})
+    if (IOS)
+        add_library(InworldUnityWrapper STATIC ${UnityNDKFiles})
+    else()
+        add_library(InworldUnityWrapper SHARED ${UnityNDKFiles})
+    endif()
+    target_include_directories(InworldUnityWrapper PUBLIC InworldNDK/src)    
+    target_link_libraries(InworldUnityWrapper PRIVATE InworldNDK)  
+endif()
 
 # logging
 if(INWORLD_LOG_CALLBACK)
@@ -295,7 +301,6 @@ endif()
 add_custom_command(TARGET InworldNDK POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E make_directory ${PackageLibDir})
 
-set(GrpcDir ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc)
 set(AbslDir ${GrpcDir}/third_party/abseil-cpp/absl)
 
 if (IOS)
