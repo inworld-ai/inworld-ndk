@@ -48,19 +48,19 @@ ApiKeys::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, c
   {}
 
 ::grpc::Status ApiKeys::Stub::ListApiKeys(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListApiKeysRequest& request, ::ai::inworld::studio::v1alpha::ListApiKeysResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::ListApiKeysRequest, ::ai::inworld::studio::v1alpha::ListApiKeysResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_ListApiKeys_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::ListApiKeysRequest, ::ai::inworld::studio::v1alpha::ListApiKeysResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_ListApiKeys_, context, request, response);
 }
 
 void ApiKeys::Stub::async::ListApiKeys(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListApiKeysRequest* request, ::ai::inworld::studio::v1alpha::ListApiKeysResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::ListApiKeysRequest, ::ai::inworld::studio::v1alpha::ListApiKeysResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ListApiKeys_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::ListApiKeysRequest, ::ai::inworld::studio::v1alpha::ListApiKeysResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ListApiKeys_, context, request, response, std::move(f));
 }
 
 void ApiKeys::Stub::async::ListApiKeys(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListApiKeysRequest* request, ::ai::inworld::studio::v1alpha::ListApiKeysResponse* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ListApiKeys_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ListApiKeys_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ListApiKeysResponse>* ApiKeys::Stub::PrepareAsyncListApiKeysRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListApiKeysRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::ListApiKeysResponse, ::ai::inworld::studio::v1alpha::ListApiKeysRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_ListApiKeys_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::ListApiKeysResponse, ::ai::inworld::studio::v1alpha::ListApiKeysRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_ListApiKeys_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ListApiKeysResponse>* ApiKeys::Stub::AsyncListApiKeysRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListApiKeysRequest& request, ::grpc::CompletionQueue* cq) {
@@ -71,19 +71,19 @@ void ApiKeys::Stub::async::ListApiKeys(::grpc::ClientContext* context, const ::a
 }
 
 ::grpc::Status ApiKeys::Stub::SuspendApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest& request, ::ai::inworld::studio::v1alpha::ApiKey* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_SuspendApiKey_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SuspendApiKey_, context, request, response);
 }
 
 void ApiKeys::Stub::async::SuspendApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SuspendApiKey_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SuspendApiKey_, context, request, response, std::move(f));
 }
 
 void ApiKeys::Stub::async::SuspendApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SuspendApiKey_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SuspendApiKey_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ApiKey>* ApiKeys::Stub::PrepareAsyncSuspendApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::ApiKey, ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_SuspendApiKey_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::ApiKey, ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SuspendApiKey_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ApiKey>* ApiKeys::Stub::AsyncSuspendApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest& request, ::grpc::CompletionQueue* cq) {
@@ -94,19 +94,19 @@ void ApiKeys::Stub::async::SuspendApiKey(::grpc::ClientContext* context, const :
 }
 
 ::grpc::Status ApiKeys::Stub::ActivateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest& request, ::ai::inworld::studio::v1alpha::ApiKey* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_ActivateApiKey_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_ActivateApiKey_, context, request, response);
 }
 
 void ApiKeys::Stub::async::ActivateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ActivateApiKey_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ActivateApiKey_, context, request, response, std::move(f));
 }
 
 void ApiKeys::Stub::async::ActivateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ActivateApiKey_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ActivateApiKey_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ApiKey>* ApiKeys::Stub::PrepareAsyncActivateApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::ApiKey, ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_ActivateApiKey_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::ApiKey, ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_ActivateApiKey_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ApiKey>* ApiKeys::Stub::AsyncActivateApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest& request, ::grpc::CompletionQueue* cq) {
@@ -116,23 +116,23 @@ void ApiKeys::Stub::async::ActivateApiKey(::grpc::ClientContext* context, const 
   return result;
 }
 
-::grpc::Status ApiKeys::Stub::DeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest& request, ::google::protobuf_inworld::Empty* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_DeleteApiKey_, context, request, response);
+::grpc::Status ApiKeys::Stub::DeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest& request, ::google::protobuf::Empty* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_DeleteApiKey_, context, request, response);
 }
 
-void ApiKeys::Stub::async::DeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeleteApiKey_, context, request, response, std::move(f));
+void ApiKeys::Stub::async::DeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeleteApiKey_, context, request, response, std::move(f));
 }
 
-void ApiKeys::Stub::async::DeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeleteApiKey_, context, request, response, reactor);
+void ApiKeys::Stub::async::DeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DeleteApiKey_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* ApiKeys::Stub::PrepareAsyncDeleteApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf_inworld::Empty, ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_DeleteApiKey_, context, request);
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* ApiKeys::Stub::PrepareAsyncDeleteApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf::Empty, ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_DeleteApiKey_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* ApiKeys::Stub::AsyncDeleteApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* ApiKeys::Stub::AsyncDeleteApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncDeleteApiKeyRaw(context, request, cq);
   result->StartCall();
@@ -140,19 +140,19 @@ void ApiKeys::Stub::async::DeleteApiKey(::grpc::ClientContext* context, const ::
 }
 
 ::grpc::Status ApiKeys::Stub::GenerateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest& request, ::ai::inworld::studio::v1alpha::ApiKey* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_GenerateApiKey_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GenerateApiKey_, context, request, response);
 }
 
 void ApiKeys::Stub::async::GenerateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GenerateApiKey_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GenerateApiKey_, context, request, response, std::move(f));
 }
 
 void ApiKeys::Stub::async::GenerateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GenerateApiKey_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GenerateApiKey_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ApiKey>* ApiKeys::Stub::PrepareAsyncGenerateApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::ApiKey, ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_GenerateApiKey_, context, request);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::ApiKey, ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GenerateApiKey_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ApiKey>* ApiKeys::Stub::AsyncGenerateApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest& request, ::grpc::CompletionQueue* cq) {
@@ -166,7 +166,7 @@ ApiKeys::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       ApiKeys_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< ApiKeys::Service, ::ai::inworld::studio::v1alpha::ListApiKeysRequest, ::ai::inworld::studio::v1alpha::ListApiKeysResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< ApiKeys::Service, ::ai::inworld::studio::v1alpha::ListApiKeysRequest, ::ai::inworld::studio::v1alpha::ListApiKeysResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](ApiKeys::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::ListApiKeysRequest* req,
@@ -176,7 +176,7 @@ ApiKeys::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       ApiKeys_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< ApiKeys::Service, ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< ApiKeys::Service, ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](ApiKeys::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest* req,
@@ -186,7 +186,7 @@ ApiKeys::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       ApiKeys_method_names[2],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< ApiKeys::Service, ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< ApiKeys::Service, ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](ApiKeys::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest* req,
@@ -196,17 +196,17 @@ ApiKeys::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       ApiKeys_method_names[3],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< ApiKeys::Service, ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< ApiKeys::Service, ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](ApiKeys::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* req,
-             ::google::protobuf_inworld::Empty* resp) {
+             ::google::protobuf::Empty* resp) {
                return service->DeleteApiKey(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       ApiKeys_method_names[4],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< ApiKeys::Service, ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< ApiKeys::Service, ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](ApiKeys::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest* req,
@@ -239,7 +239,7 @@ ApiKeys::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status ApiKeys::Service::DeleteApiKey(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::google::protobuf_inworld::Empty* response) {
+::grpc::Status ApiKeys::Service::DeleteApiKey(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::google::protobuf::Empty* response) {
   (void) context;
   (void) request;
   (void) response;

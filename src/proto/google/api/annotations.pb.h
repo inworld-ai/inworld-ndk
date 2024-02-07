@@ -53,7 +53,7 @@ class AnyMetadata;
 struct TableStruct_google_2fapi_2fannotations_2eproto {
   static const ::uint32_t offsets[];
 };
-extern const ::google::protobuf_inworld::internal::DescriptorTable
+extern const ::google::protobuf::internal::DescriptorTable
     descriptor_table_google_2fapi_2fannotations_2eproto;
 namespace google {
 namespace protobuf {
@@ -72,8 +72,8 @@ namespace api {
 
 
 static const int kHttpFieldNumber = 72295728;
-extern ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::MethodOptions,
-    ::google::protobuf_inworld::internal::MessageTypeTraits< ::google::api::HttpRule >, 11, false >
+extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::MethodOptions,
+    ::google::protobuf::internal::MessageTypeTraits< ::google::api::HttpRule >, 11, false >
   http;
 
 // ===================================================================

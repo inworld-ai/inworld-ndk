@@ -52,7 +52,7 @@ class AnyMetadata;
 struct TableStruct_google_2fapi_2fclient_2eproto {
   static const ::uint32_t offsets[];
 };
-extern const ::google::protobuf_inworld::internal::DescriptorTable
+extern const ::google::protobuf::internal::DescriptorTable
     descriptor_table_google_2fapi_2fclient_2eproto;
 namespace google {
 namespace protobuf {
@@ -71,16 +71,16 @@ namespace api {
 
 
 static const int kMethodSignatureFieldNumber = 1051;
-extern ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::MethodOptions,
-    ::google::protobuf_inworld::internal::RepeatedStringTypeTraits, 9, false >
+extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::MethodOptions,
+    ::google::protobuf::internal::RepeatedStringTypeTraits, 9, false >
   method_signature;
 static const int kDefaultHostFieldNumber = 1049;
-extern ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::ServiceOptions,
-    ::google::protobuf_inworld::internal::StringTypeTraits, 9, false >
+extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::ServiceOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false >
   default_host;
 static const int kOauthScopesFieldNumber = 1050;
-extern ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::ServiceOptions,
-    ::google::protobuf_inworld::internal::StringTypeTraits, 9, false >
+extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::ServiceOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false >
   oauth_scopes;
 
 // ===================================================================

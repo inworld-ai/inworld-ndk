@@ -19,8 +19,8 @@
 #include "google/protobuf/port_def.inc"
 PROTOBUF_PRAGMA_INIT_SEG
 namespace _pb = ::google::protobuf;
-namespace _pbi = ::google::protobuf_inworld::internal;
-namespace _fl = ::google::protobuf_inworld::internal::field_layout;
+namespace _pbi = ::google::protobuf::internal;
+namespace _fl = ::google::protobuf::internal::field_layout;
 namespace ai {
 namespace inworld {
 namespace studio {
@@ -96,8 +96,8 @@ namespace ai {
 namespace inworld {
 namespace studio {
 namespace v1alpha {
-const ::google::protobuf_inworld::EnumDescriptor* LanguageCode_descriptor() {
-  ::google::protobuf_inworld::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2flanguage_5fcode_2eproto);
+const ::google::protobuf::EnumDescriptor* LanguageCode_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2flanguage_5fcode_2eproto);
   return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2flanguage_5fcode_2eproto[0];
 }
 PROTOBUF_CONSTINIT const uint32_t LanguageCode_internal_data_[] = {
@@ -106,12 +106,12 @@ bool LanguageCode_IsValid(int value) {
   return 0 <= value && value <= 3;
 }
 const std::string language_code_string_default("");
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::EnumValueOptions,
-    ::google::protobuf_inworld::internal::StringTypeTraits, 9, false>
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumValueOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false>
   language_code_string(kLanguageCodeStringFieldNumber, language_code_string_default, nullptr);
 const std::string language_name_default("");
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::EnumValueOptions,
-    ::google::protobuf_inworld::internal::StringTypeTraits, 9, false>
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumValueOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false>
   language_name(kLanguageNameFieldNumber, language_name_default, nullptr);
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace v1alpha

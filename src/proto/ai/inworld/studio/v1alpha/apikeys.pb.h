@@ -61,7 +61,7 @@ class AnyMetadata;
 struct TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto {
   static const ::uint32_t offsets[];
 };
-extern const ::google::protobuf_inworld::internal::DescriptorTable
+extern const ::google::protobuf::internal::DescriptorTable
     descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto;
 namespace ai {
 namespace inworld {
@@ -120,7 +120,7 @@ extern const uint32_t ApiKey_State_internal_data_[];
 constexpr ApiKey_State ApiKey_State_State_MIN = static_cast<ApiKey_State>(0);
 constexpr ApiKey_State ApiKey_State_State_MAX = static_cast<ApiKey_State>(3);
 constexpr int ApiKey_State_State_ARRAYSIZE = 3 + 1;
-const ::google::protobuf_inworld::EnumDescriptor*
+const ::google::protobuf::EnumDescriptor*
 ApiKey_State_descriptor();
 template <typename T>
 const std::string& ApiKey_State_Name(T value) {
@@ -131,12 +131,12 @@ const std::string& ApiKey_State_Name(T value) {
 }
 template <>
 inline const std::string& ApiKey_State_Name(ApiKey_State value) {
-  return ::google::protobuf_inworld::internal::NameOfDenseEnum<ApiKey_State_descriptor,
+  return ::google::protobuf::internal::NameOfDenseEnum<ApiKey_State_descriptor,
                                                  0, 3>(
       static_cast<int>(value));
 }
 inline bool ApiKey_State_Parse(absl::string_view name, ApiKey_State* value) {
-  return ::google::protobuf_inworld::internal::ParseNamedEnum<ApiKey_State>(
+  return ::google::protobuf::internal::ParseNamedEnum<ApiKey_State>(
       ApiKey_State_descriptor(), name, value);
 }
 
@@ -146,12 +146,12 @@ inline bool ApiKey_State_Parse(absl::string_view name, ApiKey_State* value) {
 // -------------------------------------------------------------------
 
 class SuspendApiKeyRequest final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.SuspendApiKeyRequest) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.SuspendApiKeyRequest) */ {
  public:
   inline SuspendApiKeyRequest() : SuspendApiKeyRequest(nullptr) {}
   ~SuspendApiKeyRequest() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR SuspendApiKeyRequest(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR SuspendApiKeyRequest(::google::protobuf::internal::ConstantInitialized);
 
   inline SuspendApiKeyRequest(const SuspendApiKeyRequest& from)
       : SuspendApiKeyRequest(nullptr, from) {}
@@ -178,22 +178,22 @@ class SuspendApiKeyRequest final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const SuspendApiKeyRequest& default_instance() {
@@ -219,7 +219,7 @@ class SuspendApiKeyRequest final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(SuspendApiKeyRequest* other) {
@@ -230,47 +230,47 @@ class SuspendApiKeyRequest final :
 
   // implements Message ----------------------------------------------
 
-  SuspendApiKeyRequest* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  SuspendApiKeyRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<SuspendApiKeyRequest>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const SuspendApiKeyRequest& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const SuspendApiKeyRequest& from) {
     SuspendApiKeyRequest::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(SuspendApiKeyRequest* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.SuspendApiKeyRequest";
   }
   protected:
-  explicit SuspendApiKeyRequest(::google::protobuf_inworld::Arena* arena);
-  SuspendApiKeyRequest(::google::protobuf_inworld::Arena* arena, const SuspendApiKeyRequest& from);
+  explicit SuspendApiKeyRequest(::google::protobuf::Arena* arena);
+  SuspendApiKeyRequest(::google::protobuf::Arena* arena, const SuspendApiKeyRequest& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -299,27 +299,27 @@ class SuspendApiKeyRequest final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       0, 1, 0,
       59, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::ArenaStringPtr name_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr name_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -327,12 +327,12 @@ class SuspendApiKeyRequest final :
 };// -------------------------------------------------------------------
 
 class ListApiKeysRequest final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.ListApiKeysRequest) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.ListApiKeysRequest) */ {
  public:
   inline ListApiKeysRequest() : ListApiKeysRequest(nullptr) {}
   ~ListApiKeysRequest() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR ListApiKeysRequest(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR ListApiKeysRequest(::google::protobuf::internal::ConstantInitialized);
 
   inline ListApiKeysRequest(const ListApiKeysRequest& from)
       : ListApiKeysRequest(nullptr, from) {}
@@ -359,22 +359,22 @@ class ListApiKeysRequest final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const ListApiKeysRequest& default_instance() {
@@ -400,7 +400,7 @@ class ListApiKeysRequest final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(ListApiKeysRequest* other) {
@@ -411,47 +411,47 @@ class ListApiKeysRequest final :
 
   // implements Message ----------------------------------------------
 
-  ListApiKeysRequest* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  ListApiKeysRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<ListApiKeysRequest>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const ListApiKeysRequest& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const ListApiKeysRequest& from) {
     ListApiKeysRequest::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(ListApiKeysRequest* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.ListApiKeysRequest";
   }
   protected:
-  explicit ListApiKeysRequest(::google::protobuf_inworld::Arena* arena);
-  ListApiKeysRequest(::google::protobuf_inworld::Arena* arena, const ListApiKeysRequest& from);
+  explicit ListApiKeysRequest(::google::protobuf::Arena* arena);
+  ListApiKeysRequest(::google::protobuf::Arena* arena, const ListApiKeysRequest& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -508,29 +508,29 @@ class ListApiKeysRequest final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       2, 3, 0,
       69, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::ArenaStringPtr parent_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr page_token_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr parent_;
+    ::google::protobuf::internal::ArenaStringPtr page_token_;
     ::int32_t page_size_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -538,12 +538,12 @@ class ListApiKeysRequest final :
 };// -------------------------------------------------------------------
 
 class GenerateApiKeyRequest final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.GenerateApiKeyRequest) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.GenerateApiKeyRequest) */ {
  public:
   inline GenerateApiKeyRequest() : GenerateApiKeyRequest(nullptr) {}
   ~GenerateApiKeyRequest() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR GenerateApiKeyRequest(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR GenerateApiKeyRequest(::google::protobuf::internal::ConstantInitialized);
 
   inline GenerateApiKeyRequest(const GenerateApiKeyRequest& from)
       : GenerateApiKeyRequest(nullptr, from) {}
@@ -570,22 +570,22 @@ class GenerateApiKeyRequest final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const GenerateApiKeyRequest& default_instance() {
@@ -611,7 +611,7 @@ class GenerateApiKeyRequest final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(GenerateApiKeyRequest* other) {
@@ -622,47 +622,47 @@ class GenerateApiKeyRequest final :
 
   // implements Message ----------------------------------------------
 
-  GenerateApiKeyRequest* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  GenerateApiKeyRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<GenerateApiKeyRequest>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const GenerateApiKeyRequest& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const GenerateApiKeyRequest& from) {
     GenerateApiKeyRequest::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(GenerateApiKeyRequest* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.GenerateApiKeyRequest";
   }
   protected:
-  explicit GenerateApiKeyRequest(::google::protobuf_inworld::Arena* arena);
-  GenerateApiKeyRequest(::google::protobuf_inworld::Arena* arena, const GenerateApiKeyRequest& from);
+  explicit GenerateApiKeyRequest(::google::protobuf::Arena* arena);
+  GenerateApiKeyRequest(::google::protobuf::Arena* arena, const GenerateApiKeyRequest& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -691,27 +691,27 @@ class GenerateApiKeyRequest final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       0, 1, 0,
       62, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::ArenaStringPtr parent_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr parent_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -719,12 +719,12 @@ class GenerateApiKeyRequest final :
 };// -------------------------------------------------------------------
 
 class DeleteApiKeyRequest final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.DeleteApiKeyRequest) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.DeleteApiKeyRequest) */ {
  public:
   inline DeleteApiKeyRequest() : DeleteApiKeyRequest(nullptr) {}
   ~DeleteApiKeyRequest() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR DeleteApiKeyRequest(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR DeleteApiKeyRequest(::google::protobuf::internal::ConstantInitialized);
 
   inline DeleteApiKeyRequest(const DeleteApiKeyRequest& from)
       : DeleteApiKeyRequest(nullptr, from) {}
@@ -751,22 +751,22 @@ class DeleteApiKeyRequest final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const DeleteApiKeyRequest& default_instance() {
@@ -792,7 +792,7 @@ class DeleteApiKeyRequest final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(DeleteApiKeyRequest* other) {
@@ -803,47 +803,47 @@ class DeleteApiKeyRequest final :
 
   // implements Message ----------------------------------------------
 
-  DeleteApiKeyRequest* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  DeleteApiKeyRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<DeleteApiKeyRequest>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const DeleteApiKeyRequest& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const DeleteApiKeyRequest& from) {
     DeleteApiKeyRequest::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(DeleteApiKeyRequest* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.DeleteApiKeyRequest";
   }
   protected:
-  explicit DeleteApiKeyRequest(::google::protobuf_inworld::Arena* arena);
-  DeleteApiKeyRequest(::google::protobuf_inworld::Arena* arena, const DeleteApiKeyRequest& from);
+  explicit DeleteApiKeyRequest(::google::protobuf::Arena* arena);
+  DeleteApiKeyRequest(::google::protobuf::Arena* arena, const DeleteApiKeyRequest& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -872,27 +872,27 @@ class DeleteApiKeyRequest final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       0, 1, 0,
       58, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::ArenaStringPtr name_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr name_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -900,12 +900,12 @@ class DeleteApiKeyRequest final :
 };// -------------------------------------------------------------------
 
 class ActivateApiKeyRequest final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.ActivateApiKeyRequest) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.ActivateApiKeyRequest) */ {
  public:
   inline ActivateApiKeyRequest() : ActivateApiKeyRequest(nullptr) {}
   ~ActivateApiKeyRequest() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR ActivateApiKeyRequest(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR ActivateApiKeyRequest(::google::protobuf::internal::ConstantInitialized);
 
   inline ActivateApiKeyRequest(const ActivateApiKeyRequest& from)
       : ActivateApiKeyRequest(nullptr, from) {}
@@ -932,22 +932,22 @@ class ActivateApiKeyRequest final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const ActivateApiKeyRequest& default_instance() {
@@ -973,7 +973,7 @@ class ActivateApiKeyRequest final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(ActivateApiKeyRequest* other) {
@@ -984,47 +984,47 @@ class ActivateApiKeyRequest final :
 
   // implements Message ----------------------------------------------
 
-  ActivateApiKeyRequest* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  ActivateApiKeyRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<ActivateApiKeyRequest>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const ActivateApiKeyRequest& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const ActivateApiKeyRequest& from) {
     ActivateApiKeyRequest::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(ActivateApiKeyRequest* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.ActivateApiKeyRequest";
   }
   protected:
-  explicit ActivateApiKeyRequest(::google::protobuf_inworld::Arena* arena);
-  ActivateApiKeyRequest(::google::protobuf_inworld::Arena* arena, const ActivateApiKeyRequest& from);
+  explicit ActivateApiKeyRequest(::google::protobuf::Arena* arena);
+  ActivateApiKeyRequest(::google::protobuf::Arena* arena, const ActivateApiKeyRequest& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -1053,27 +1053,27 @@ class ActivateApiKeyRequest final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       0, 1, 0,
       60, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::ArenaStringPtr name_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr name_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -1081,12 +1081,12 @@ class ActivateApiKeyRequest final :
 };// -------------------------------------------------------------------
 
 class ApiKey_UsageLimits final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.ApiKey.UsageLimits) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.ApiKey.UsageLimits) */ {
  public:
   inline ApiKey_UsageLimits() : ApiKey_UsageLimits(nullptr) {}
   ~ApiKey_UsageLimits() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR ApiKey_UsageLimits(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR ApiKey_UsageLimits(::google::protobuf::internal::ConstantInitialized);
 
   inline ApiKey_UsageLimits(const ApiKey_UsageLimits& from)
       : ApiKey_UsageLimits(nullptr, from) {}
@@ -1113,22 +1113,22 @@ class ApiKey_UsageLimits final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const ApiKey_UsageLimits& default_instance() {
@@ -1154,7 +1154,7 @@ class ApiKey_UsageLimits final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(ApiKey_UsageLimits* other) {
@@ -1165,47 +1165,47 @@ class ApiKey_UsageLimits final :
 
   // implements Message ----------------------------------------------
 
-  ApiKey_UsageLimits* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  ApiKey_UsageLimits* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<ApiKey_UsageLimits>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const ApiKey_UsageLimits& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const ApiKey_UsageLimits& from) {
     ApiKey_UsageLimits::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(ApiKey_UsageLimits* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.ApiKey.UsageLimits";
   }
   protected:
-  explicit ApiKey_UsageLimits(::google::protobuf_inworld::Arena* arena);
-  ApiKey_UsageLimits(::google::protobuf_inworld::Arena* arena, const ApiKey_UsageLimits& from);
+  explicit ApiKey_UsageLimits(::google::protobuf::Arena* arena);
+  ApiKey_UsageLimits(::google::protobuf::Arena* arena, const ApiKey_UsageLimits& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -1220,16 +1220,16 @@ class ApiKey_UsageLimits final :
   // .google.protobuf.Timestamp expiration_time = 4 [(.google.api.field_behavior) = OPTIONAL];
   bool has_expiration_time() const;
   void clear_expiration_time() ;
-  const ::google::protobuf_inworld::Timestamp& expiration_time() const;
-  PROTOBUF_NODISCARD ::google::protobuf_inworld::Timestamp* release_expiration_time();
-  ::google::protobuf_inworld::Timestamp* mutable_expiration_time();
-  void set_allocated_expiration_time(::google::protobuf_inworld::Timestamp* value);
-  void unsafe_arena_set_allocated_expiration_time(::google::protobuf_inworld::Timestamp* value);
-  ::google::protobuf_inworld::Timestamp* unsafe_arena_release_expiration_time();
+  const ::google::protobuf::Timestamp& expiration_time() const;
+  PROTOBUF_NODISCARD ::google::protobuf::Timestamp* release_expiration_time();
+  ::google::protobuf::Timestamp* mutable_expiration_time();
+  void set_allocated_expiration_time(::google::protobuf::Timestamp* value);
+  void unsafe_arena_set_allocated_expiration_time(::google::protobuf::Timestamp* value);
+  ::google::protobuf::Timestamp* unsafe_arena_release_expiration_time();
 
   private:
-  const ::google::protobuf_inworld::Timestamp& _internal_expiration_time() const;
-  ::google::protobuf_inworld::Timestamp* _internal_mutable_expiration_time();
+  const ::google::protobuf::Timestamp& _internal_expiration_time() const;
+  ::google::protobuf::Timestamp* _internal_mutable_expiration_time();
 
   public:
   // int64 daily_limit_seconds_amount = 2 [(.google.api.field_behavior) = OPTIONAL];
@@ -1266,28 +1266,28 @@ class ApiKey_UsageLimits final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       2, 4, 1,
       0, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::HasBits<1> _has_bits_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
-    ::google::protobuf_inworld::Timestamp* expiration_time_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::Timestamp* expiration_time_;
     ::int64_t daily_limit_seconds_amount_;
     ::int64_t total_limit_seconds_amount_;
     ::int32_t max_concurrent_sessions_;
@@ -1298,12 +1298,12 @@ class ApiKey_UsageLimits final :
 };// -------------------------------------------------------------------
 
 class ApiKey final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.ApiKey) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.ApiKey) */ {
  public:
   inline ApiKey() : ApiKey(nullptr) {}
   ~ApiKey() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR ApiKey(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR ApiKey(::google::protobuf::internal::ConstantInitialized);
 
   inline ApiKey(const ApiKey& from)
       : ApiKey(nullptr, from) {}
@@ -1330,22 +1330,22 @@ class ApiKey final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const ApiKey& default_instance() {
@@ -1371,7 +1371,7 @@ class ApiKey final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(ApiKey* other) {
@@ -1382,47 +1382,47 @@ class ApiKey final :
 
   // implements Message ----------------------------------------------
 
-  ApiKey* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  ApiKey* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<ApiKey>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const ApiKey& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const ApiKey& from) {
     ApiKey::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(ApiKey* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.ApiKey";
   }
   protected:
-  explicit ApiKey(::google::protobuf_inworld::Arena* arena);
-  ApiKey(::google::protobuf_inworld::Arena* arena, const ApiKey& from);
+  explicit ApiKey(::google::protobuf::Arena* arena);
+  ApiKey(::google::protobuf::Arena* arena, const ApiKey& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -1439,7 +1439,7 @@ class ApiKey final :
   static constexpr State State_MIN = ApiKey_State_State_MIN;
   static constexpr State State_MAX = ApiKey_State_State_MAX;
   static constexpr int State_ARRAYSIZE = ApiKey_State_State_ARRAYSIZE;
-  static inline const ::google::protobuf_inworld::EnumDescriptor* State_descriptor() {
+  static inline const ::google::protobuf::EnumDescriptor* State_descriptor() {
     return ApiKey_State_descriptor();
   }
   template <typename T>
@@ -1536,30 +1536,30 @@ class ApiKey final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       3, 5, 1,
       54, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::HasBits<1> _has_bits_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr name_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr key_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr secret_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::internal::ArenaStringPtr name_;
+    ::google::protobuf::internal::ArenaStringPtr key_;
+    ::google::protobuf::internal::ArenaStringPtr secret_;
     ::ai::inworld::studio::v1alpha::ApiKey_UsageLimits* usage_limits_;
     int state_;
     PROTOBUF_TSAN_DECLARE_MEMBER
@@ -1569,12 +1569,12 @@ class ApiKey final :
 };// -------------------------------------------------------------------
 
 class ListApiKeysResponse final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.ListApiKeysResponse) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.ListApiKeysResponse) */ {
  public:
   inline ListApiKeysResponse() : ListApiKeysResponse(nullptr) {}
   ~ListApiKeysResponse() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR ListApiKeysResponse(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR ListApiKeysResponse(::google::protobuf::internal::ConstantInitialized);
 
   inline ListApiKeysResponse(const ListApiKeysResponse& from)
       : ListApiKeysResponse(nullptr, from) {}
@@ -1601,22 +1601,22 @@ class ListApiKeysResponse final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const ListApiKeysResponse& default_instance() {
@@ -1642,7 +1642,7 @@ class ListApiKeysResponse final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(ListApiKeysResponse* other) {
@@ -1653,47 +1653,47 @@ class ListApiKeysResponse final :
 
   // implements Message ----------------------------------------------
 
-  ListApiKeysResponse* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  ListApiKeysResponse* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<ListApiKeysResponse>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const ListApiKeysResponse& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const ListApiKeysResponse& from) {
     ListApiKeysResponse::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(ListApiKeysResponse* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.ListApiKeysResponse";
   }
   protected:
-  explicit ListApiKeysResponse(::google::protobuf_inworld::Arena* arena);
-  ListApiKeysResponse(::google::protobuf_inworld::Arena* arena, const ListApiKeysResponse& from);
+  explicit ListApiKeysResponse(::google::protobuf::Arena* arena);
+  ListApiKeysResponse(::google::protobuf::Arena* arena, const ListApiKeysResponse& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -1711,15 +1711,15 @@ class ListApiKeysResponse final :
   public:
   void clear_api_keys() ;
   ::ai::inworld::studio::v1alpha::ApiKey* mutable_api_keys(int index);
-  ::google::protobuf_inworld::RepeatedPtrField< ::ai::inworld::studio::v1alpha::ApiKey >*
+  ::google::protobuf::RepeatedPtrField< ::ai::inworld::studio::v1alpha::ApiKey >*
       mutable_api_keys();
   private:
-  const ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::ApiKey>& _internal_api_keys() const;
-  ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::ApiKey>* _internal_mutable_api_keys();
+  const ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::ApiKey>& _internal_api_keys() const;
+  ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::ApiKey>* _internal_mutable_api_keys();
   public:
   const ::ai::inworld::studio::v1alpha::ApiKey& api_keys(int index) const;
   ::ai::inworld::studio::v1alpha::ApiKey* add_api_keys();
-  const ::google::protobuf_inworld::RepeatedPtrField< ::ai::inworld::studio::v1alpha::ApiKey >&
+  const ::google::protobuf::RepeatedPtrField< ::ai::inworld::studio::v1alpha::ApiKey >&
       api_keys() const;
   // string next_page_token = 2;
   void clear_next_page_token() ;
@@ -1741,28 +1741,28 @@ class ListApiKeysResponse final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       1, 2, 1,
       69, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::RepeatedPtrField< ::ai::inworld::studio::v1alpha::ApiKey > api_keys_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr next_page_token_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::RepeatedPtrField< ::ai::inworld::studio::v1alpha::ApiKey > api_keys_;
+    ::google::protobuf::internal::ArenaStringPtr next_page_token_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -1860,21 +1860,21 @@ inline bool ApiKey_UsageLimits::has_expiration_time() const {
   PROTOBUF_ASSUME(!value || _impl_.expiration_time_ != nullptr);
   return value;
 }
-inline const ::google::protobuf_inworld::Timestamp& ApiKey_UsageLimits::_internal_expiration_time() const {
+inline const ::google::protobuf::Timestamp& ApiKey_UsageLimits::_internal_expiration_time() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
-  const ::google::protobuf_inworld::Timestamp* p = _impl_.expiration_time_;
-  return p != nullptr ? *p : reinterpret_cast<const ::google::protobuf_inworld::Timestamp&>(::google::protobuf_inworld::_Timestamp_default_instance_);
+  const ::google::protobuf::Timestamp* p = _impl_.expiration_time_;
+  return p != nullptr ? *p : reinterpret_cast<const ::google::protobuf::Timestamp&>(::google::protobuf::_Timestamp_default_instance_);
 }
-inline const ::google::protobuf_inworld::Timestamp& ApiKey_UsageLimits::expiration_time() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+inline const ::google::protobuf::Timestamp& ApiKey_UsageLimits::expiration_time() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.ApiKey.UsageLimits.expiration_time)
   return _internal_expiration_time();
 }
-inline void ApiKey_UsageLimits::unsafe_arena_set_allocated_expiration_time(::google::protobuf_inworld::Timestamp* value) {
+inline void ApiKey_UsageLimits::unsafe_arena_set_allocated_expiration_time(::google::protobuf::Timestamp* value) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf_inworld::MessageLite*>(_impl_.expiration_time_);
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.expiration_time_);
   }
-  _impl_.expiration_time_ = reinterpret_cast<::google::protobuf_inworld::Timestamp*>(value);
+  _impl_.expiration_time_ = reinterpret_cast<::google::protobuf::Timestamp*>(value);
   if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
@@ -1882,66 +1882,66 @@ inline void ApiKey_UsageLimits::unsafe_arena_set_allocated_expiration_time(::goo
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.studio.v1alpha.ApiKey.UsageLimits.expiration_time)
 }
-inline ::google::protobuf_inworld::Timestamp* ApiKey_UsageLimits::release_expiration_time() {
+inline ::google::protobuf::Timestamp* ApiKey_UsageLimits::release_expiration_time() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
 
   _impl_._has_bits_[0] &= ~0x00000001u;
-  ::google::protobuf_inworld::Timestamp* released = _impl_.expiration_time_;
+  ::google::protobuf::Timestamp* released = _impl_.expiration_time_;
   _impl_.expiration_time_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf_inworld::MessageLite*>(released);
-  released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   if (GetArena() == nullptr) {
     delete old;
   }
 #else   // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArena() != nullptr) {
-    released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   }
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return released;
 }
-inline ::google::protobuf_inworld::Timestamp* ApiKey_UsageLimits::unsafe_arena_release_expiration_time() {
+inline ::google::protobuf::Timestamp* ApiKey_UsageLimits::unsafe_arena_release_expiration_time() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.ApiKey.UsageLimits.expiration_time)
 
   _impl_._has_bits_[0] &= ~0x00000001u;
-  ::google::protobuf_inworld::Timestamp* temp = _impl_.expiration_time_;
+  ::google::protobuf::Timestamp* temp = _impl_.expiration_time_;
   _impl_.expiration_time_ = nullptr;
   return temp;
 }
-inline ::google::protobuf_inworld::Timestamp* ApiKey_UsageLimits::_internal_mutable_expiration_time() {
+inline ::google::protobuf::Timestamp* ApiKey_UsageLimits::_internal_mutable_expiration_time() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   _impl_._has_bits_[0] |= 0x00000001u;
   if (_impl_.expiration_time_ == nullptr) {
-    auto* p = CreateMaybeMessage<::google::protobuf_inworld::Timestamp>(GetArena());
-    _impl_.expiration_time_ = reinterpret_cast<::google::protobuf_inworld::Timestamp*>(p);
+    auto* p = CreateMaybeMessage<::google::protobuf::Timestamp>(GetArena());
+    _impl_.expiration_time_ = reinterpret_cast<::google::protobuf::Timestamp*>(p);
   }
   return _impl_.expiration_time_;
 }
-inline ::google::protobuf_inworld::Timestamp* ApiKey_UsageLimits::mutable_expiration_time() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::google::protobuf_inworld::Timestamp* _msg = _internal_mutable_expiration_time();
+inline ::google::protobuf::Timestamp* ApiKey_UsageLimits::mutable_expiration_time() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::Timestamp* _msg = _internal_mutable_expiration_time();
   // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.ApiKey.UsageLimits.expiration_time)
   return _msg;
 }
-inline void ApiKey_UsageLimits::set_allocated_expiration_time(::google::protobuf_inworld::Timestamp* value) {
-  ::google::protobuf_inworld::Arena* message_arena = GetArena();
+inline void ApiKey_UsageLimits::set_allocated_expiration_time(::google::protobuf::Timestamp* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (message_arena == nullptr) {
-    delete reinterpret_cast<::google::protobuf_inworld::MessageLite*>(_impl_.expiration_time_);
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.expiration_time_);
   }
 
   if (value != nullptr) {
-    ::google::protobuf_inworld::Arena* submessage_arena = reinterpret_cast<::google::protobuf_inworld::MessageLite*>(value)->GetArena();
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
     if (message_arena != submessage_arena) {
-      value = ::google::protobuf_inworld::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
 
-  _impl_.expiration_time_ = reinterpret_cast<::google::protobuf_inworld::Timestamp*>(value);
+  _impl_.expiration_time_ = reinterpret_cast<::google::protobuf::Timestamp*>(value);
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.ApiKey.UsageLimits.expiration_time)
 }
 
@@ -2154,7 +2154,7 @@ inline const ::ai::inworld::studio::v1alpha::ApiKey_UsageLimits& ApiKey::usage_l
 inline void ApiKey::unsafe_arena_set_allocated_usage_limits(::ai::inworld::studio::v1alpha::ApiKey_UsageLimits* value) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf_inworld::MessageLite*>(_impl_.usage_limits_);
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.usage_limits_);
   }
   _impl_.usage_limits_ = reinterpret_cast<::ai::inworld::studio::v1alpha::ApiKey_UsageLimits*>(value);
   if (value != nullptr) {
@@ -2171,14 +2171,14 @@ inline ::ai::inworld::studio::v1alpha::ApiKey_UsageLimits* ApiKey::release_usage
   ::ai::inworld::studio::v1alpha::ApiKey_UsageLimits* released = _impl_.usage_limits_;
   _impl_.usage_limits_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf_inworld::MessageLite*>(released);
-  released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   if (GetArena() == nullptr) {
     delete old;
   }
 #else   // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArena() != nullptr) {
-    released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   }
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return released;
@@ -2207,16 +2207,16 @@ inline ::ai::inworld::studio::v1alpha::ApiKey_UsageLimits* ApiKey::mutable_usage
   return _msg;
 }
 inline void ApiKey::set_allocated_usage_limits(::ai::inworld::studio::v1alpha::ApiKey_UsageLimits* value) {
-  ::google::protobuf_inworld::Arena* message_arena = GetArena();
+  ::google::protobuf::Arena* message_arena = GetArena();
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (message_arena == nullptr) {
     delete reinterpret_cast<::ai::inworld::studio::v1alpha::ApiKey_UsageLimits*>(_impl_.usage_limits_);
   }
 
   if (value != nullptr) {
-    ::google::protobuf_inworld::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::ApiKey_UsageLimits*>(value)->GetArena();
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::ApiKey_UsageLimits*>(value)->GetArena();
     if (message_arena != submessage_arena) {
-      value = ::google::protobuf_inworld::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
@@ -2608,7 +2608,7 @@ inline ::ai::inworld::studio::v1alpha::ApiKey* ListApiKeysResponse::mutable_api_
   // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.ListApiKeysResponse.api_keys)
   return _internal_mutable_api_keys()->Mutable(index);
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::ApiKey>* ListApiKeysResponse::mutable_api_keys()
+inline ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::ApiKey>* ListApiKeysResponse::mutable_api_keys()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_mutable_list:ai.inworld.studio.v1alpha.ListApiKeysResponse.api_keys)
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
@@ -2625,17 +2625,17 @@ inline ::ai::inworld::studio::v1alpha::ApiKey* ListApiKeysResponse::add_api_keys
   // @@protoc_insertion_point(field_add:ai.inworld.studio.v1alpha.ListApiKeysResponse.api_keys)
   return _add;
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::ApiKey>& ListApiKeysResponse::api_keys() const
+inline const ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::ApiKey>& ListApiKeysResponse::api_keys() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_list:ai.inworld.studio.v1alpha.ListApiKeysResponse.api_keys)
   return _internal_api_keys();
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::ApiKey>&
+inline const ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::ApiKey>&
 ListApiKeysResponse::_internal_api_keys() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return _impl_.api_keys_;
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::ApiKey>*
+inline ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::ApiKey>*
 ListApiKeysResponse::_internal_mutable_api_keys() {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return &_impl_.api_keys_;

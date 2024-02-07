@@ -60,7 +60,7 @@ class AnyMetadata;
 struct TableStruct_google_2flongrunning_2foperations_2eproto {
   static const ::uint32_t offsets[];
 };
-extern const ::google::protobuf_inworld::internal::DescriptorTable
+extern const ::google::protobuf::internal::DescriptorTable
     descriptor_table_google_2flongrunning_2foperations_2eproto;
 namespace google {
 namespace longrunning {
@@ -102,12 +102,12 @@ namespace longrunning {
 // -------------------------------------------------------------------
 
 class OperationInfo final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:google.longrunning.OperationInfo) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.longrunning.OperationInfo) */ {
  public:
   inline OperationInfo() : OperationInfo(nullptr) {}
   ~OperationInfo() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR OperationInfo(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR OperationInfo(::google::protobuf::internal::ConstantInitialized);
 
   inline OperationInfo(const OperationInfo& from)
       : OperationInfo(nullptr, from) {}
@@ -134,22 +134,22 @@ class OperationInfo final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const OperationInfo& default_instance() {
@@ -175,7 +175,7 @@ class OperationInfo final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(OperationInfo* other) {
@@ -186,47 +186,47 @@ class OperationInfo final :
 
   // implements Message ----------------------------------------------
 
-  OperationInfo* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  OperationInfo* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<OperationInfo>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const OperationInfo& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const OperationInfo& from) {
     OperationInfo::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(OperationInfo* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "google.longrunning.OperationInfo";
   }
   protected:
-  explicit OperationInfo(::google::protobuf_inworld::Arena* arena);
-  OperationInfo(::google::protobuf_inworld::Arena* arena, const OperationInfo& from);
+  explicit OperationInfo(::google::protobuf::Arena* arena);
+  OperationInfo(::google::protobuf::Arena* arena, const OperationInfo& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -272,28 +272,28 @@ class OperationInfo final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       1, 2, 0,
       67, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::ArenaStringPtr response_type_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr metadata_type_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr response_type_;
+    ::google::protobuf::internal::ArenaStringPtr metadata_type_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -301,12 +301,12 @@ class OperationInfo final :
 };// -------------------------------------------------------------------
 
 class ListOperationsRequest final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:google.longrunning.ListOperationsRequest) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.longrunning.ListOperationsRequest) */ {
  public:
   inline ListOperationsRequest() : ListOperationsRequest(nullptr) {}
   ~ListOperationsRequest() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR ListOperationsRequest(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR ListOperationsRequest(::google::protobuf::internal::ConstantInitialized);
 
   inline ListOperationsRequest(const ListOperationsRequest& from)
       : ListOperationsRequest(nullptr, from) {}
@@ -333,22 +333,22 @@ class ListOperationsRequest final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const ListOperationsRequest& default_instance() {
@@ -374,7 +374,7 @@ class ListOperationsRequest final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(ListOperationsRequest* other) {
@@ -385,47 +385,47 @@ class ListOperationsRequest final :
 
   // implements Message ----------------------------------------------
 
-  ListOperationsRequest* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  ListOperationsRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<ListOperationsRequest>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const ListOperationsRequest& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const ListOperationsRequest& from) {
     ListOperationsRequest::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(ListOperationsRequest* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "google.longrunning.ListOperationsRequest";
   }
   protected:
-  explicit ListOperationsRequest(::google::protobuf_inworld::Arena* arena);
-  ListOperationsRequest(::google::protobuf_inworld::Arena* arena, const ListOperationsRequest& from);
+  explicit ListOperationsRequest(::google::protobuf::Arena* arena);
+  ListOperationsRequest(::google::protobuf::Arena* arena, const ListOperationsRequest& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -499,30 +499,30 @@ class ListOperationsRequest final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       2, 4, 0,
       69, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::ArenaStringPtr filter_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr page_token_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr name_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr filter_;
+    ::google::protobuf::internal::ArenaStringPtr page_token_;
+    ::google::protobuf::internal::ArenaStringPtr name_;
     ::int32_t page_size_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -530,12 +530,12 @@ class ListOperationsRequest final :
 };// -------------------------------------------------------------------
 
 class GetOperationRequest final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:google.longrunning.GetOperationRequest) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.longrunning.GetOperationRequest) */ {
  public:
   inline GetOperationRequest() : GetOperationRequest(nullptr) {}
   ~GetOperationRequest() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR GetOperationRequest(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR GetOperationRequest(::google::protobuf::internal::ConstantInitialized);
 
   inline GetOperationRequest(const GetOperationRequest& from)
       : GetOperationRequest(nullptr, from) {}
@@ -562,22 +562,22 @@ class GetOperationRequest final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const GetOperationRequest& default_instance() {
@@ -603,7 +603,7 @@ class GetOperationRequest final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(GetOperationRequest* other) {
@@ -614,47 +614,47 @@ class GetOperationRequest final :
 
   // implements Message ----------------------------------------------
 
-  GetOperationRequest* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  GetOperationRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<GetOperationRequest>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const GetOperationRequest& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const GetOperationRequest& from) {
     GetOperationRequest::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(GetOperationRequest* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "google.longrunning.GetOperationRequest";
   }
   protected:
-  explicit GetOperationRequest(::google::protobuf_inworld::Arena* arena);
-  GetOperationRequest(::google::protobuf_inworld::Arena* arena, const GetOperationRequest& from);
+  explicit GetOperationRequest(::google::protobuf::Arena* arena);
+  GetOperationRequest(::google::protobuf::Arena* arena, const GetOperationRequest& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -683,27 +683,27 @@ class GetOperationRequest final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       0, 1, 0,
       51, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::ArenaStringPtr name_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr name_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -711,12 +711,12 @@ class GetOperationRequest final :
 };// -------------------------------------------------------------------
 
 class DeleteOperationRequest final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:google.longrunning.DeleteOperationRequest) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.longrunning.DeleteOperationRequest) */ {
  public:
   inline DeleteOperationRequest() : DeleteOperationRequest(nullptr) {}
   ~DeleteOperationRequest() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR DeleteOperationRequest(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR DeleteOperationRequest(::google::protobuf::internal::ConstantInitialized);
 
   inline DeleteOperationRequest(const DeleteOperationRequest& from)
       : DeleteOperationRequest(nullptr, from) {}
@@ -743,22 +743,22 @@ class DeleteOperationRequest final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const DeleteOperationRequest& default_instance() {
@@ -784,7 +784,7 @@ class DeleteOperationRequest final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(DeleteOperationRequest* other) {
@@ -795,47 +795,47 @@ class DeleteOperationRequest final :
 
   // implements Message ----------------------------------------------
 
-  DeleteOperationRequest* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  DeleteOperationRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<DeleteOperationRequest>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const DeleteOperationRequest& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const DeleteOperationRequest& from) {
     DeleteOperationRequest::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(DeleteOperationRequest* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "google.longrunning.DeleteOperationRequest";
   }
   protected:
-  explicit DeleteOperationRequest(::google::protobuf_inworld::Arena* arena);
-  DeleteOperationRequest(::google::protobuf_inworld::Arena* arena, const DeleteOperationRequest& from);
+  explicit DeleteOperationRequest(::google::protobuf::Arena* arena);
+  DeleteOperationRequest(::google::protobuf::Arena* arena, const DeleteOperationRequest& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -864,27 +864,27 @@ class DeleteOperationRequest final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       0, 1, 0,
       54, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::ArenaStringPtr name_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr name_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -892,12 +892,12 @@ class DeleteOperationRequest final :
 };// -------------------------------------------------------------------
 
 class CancelOperationRequest final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:google.longrunning.CancelOperationRequest) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.longrunning.CancelOperationRequest) */ {
  public:
   inline CancelOperationRequest() : CancelOperationRequest(nullptr) {}
   ~CancelOperationRequest() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR CancelOperationRequest(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR CancelOperationRequest(::google::protobuf::internal::ConstantInitialized);
 
   inline CancelOperationRequest(const CancelOperationRequest& from)
       : CancelOperationRequest(nullptr, from) {}
@@ -924,22 +924,22 @@ class CancelOperationRequest final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const CancelOperationRequest& default_instance() {
@@ -965,7 +965,7 @@ class CancelOperationRequest final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(CancelOperationRequest* other) {
@@ -976,47 +976,47 @@ class CancelOperationRequest final :
 
   // implements Message ----------------------------------------------
 
-  CancelOperationRequest* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  CancelOperationRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<CancelOperationRequest>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const CancelOperationRequest& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const CancelOperationRequest& from) {
     CancelOperationRequest::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(CancelOperationRequest* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "google.longrunning.CancelOperationRequest";
   }
   protected:
-  explicit CancelOperationRequest(::google::protobuf_inworld::Arena* arena);
-  CancelOperationRequest(::google::protobuf_inworld::Arena* arena, const CancelOperationRequest& from);
+  explicit CancelOperationRequest(::google::protobuf::Arena* arena);
+  CancelOperationRequest(::google::protobuf::Arena* arena, const CancelOperationRequest& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -1045,27 +1045,27 @@ class CancelOperationRequest final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       0, 1, 0,
       54, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::ArenaStringPtr name_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr name_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -1073,12 +1073,12 @@ class CancelOperationRequest final :
 };// -------------------------------------------------------------------
 
 class WaitOperationRequest final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:google.longrunning.WaitOperationRequest) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.longrunning.WaitOperationRequest) */ {
  public:
   inline WaitOperationRequest() : WaitOperationRequest(nullptr) {}
   ~WaitOperationRequest() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR WaitOperationRequest(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR WaitOperationRequest(::google::protobuf::internal::ConstantInitialized);
 
   inline WaitOperationRequest(const WaitOperationRequest& from)
       : WaitOperationRequest(nullptr, from) {}
@@ -1105,22 +1105,22 @@ class WaitOperationRequest final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const WaitOperationRequest& default_instance() {
@@ -1146,7 +1146,7 @@ class WaitOperationRequest final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(WaitOperationRequest* other) {
@@ -1157,47 +1157,47 @@ class WaitOperationRequest final :
 
   // implements Message ----------------------------------------------
 
-  WaitOperationRequest* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  WaitOperationRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<WaitOperationRequest>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const WaitOperationRequest& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const WaitOperationRequest& from) {
     WaitOperationRequest::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(WaitOperationRequest* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "google.longrunning.WaitOperationRequest";
   }
   protected:
-  explicit WaitOperationRequest(::google::protobuf_inworld::Arena* arena);
-  WaitOperationRequest(::google::protobuf_inworld::Arena* arena, const WaitOperationRequest& from);
+  explicit WaitOperationRequest(::google::protobuf::Arena* arena);
+  WaitOperationRequest(::google::protobuf::Arena* arena, const WaitOperationRequest& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -1226,45 +1226,45 @@ class WaitOperationRequest final :
   // .google.protobuf.Duration timeout = 2;
   bool has_timeout() const;
   void clear_timeout() ;
-  const ::google::protobuf_inworld::Duration& timeout() const;
-  PROTOBUF_NODISCARD ::google::protobuf_inworld::Duration* release_timeout();
-  ::google::protobuf_inworld::Duration* mutable_timeout();
-  void set_allocated_timeout(::google::protobuf_inworld::Duration* value);
-  void unsafe_arena_set_allocated_timeout(::google::protobuf_inworld::Duration* value);
-  ::google::protobuf_inworld::Duration* unsafe_arena_release_timeout();
+  const ::google::protobuf::Duration& timeout() const;
+  PROTOBUF_NODISCARD ::google::protobuf::Duration* release_timeout();
+  ::google::protobuf::Duration* mutable_timeout();
+  void set_allocated_timeout(::google::protobuf::Duration* value);
+  void unsafe_arena_set_allocated_timeout(::google::protobuf::Duration* value);
+  ::google::protobuf::Duration* unsafe_arena_release_timeout();
 
   private:
-  const ::google::protobuf_inworld::Duration& _internal_timeout() const;
-  ::google::protobuf_inworld::Duration* _internal_mutable_timeout();
+  const ::google::protobuf::Duration& _internal_timeout() const;
+  ::google::protobuf::Duration* _internal_mutable_timeout();
 
   public:
   // @@protoc_insertion_point(class_scope:google.longrunning.WaitOperationRequest)
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       1, 2, 1,
       52, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::HasBits<1> _has_bits_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr name_;
-    ::google::protobuf_inworld::Duration* timeout_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::internal::ArenaStringPtr name_;
+    ::google::protobuf::Duration* timeout_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -1272,12 +1272,12 @@ class WaitOperationRequest final :
 };// -------------------------------------------------------------------
 
 class Operation final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:google.longrunning.Operation) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.longrunning.Operation) */ {
  public:
   inline Operation() : Operation(nullptr) {}
   ~Operation() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR Operation(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR Operation(::google::protobuf::internal::ConstantInitialized);
 
   inline Operation(const Operation& from)
       : Operation(nullptr, from) {}
@@ -1304,22 +1304,22 @@ class Operation final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const Operation& default_instance() {
@@ -1351,7 +1351,7 @@ class Operation final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(Operation* other) {
@@ -1362,47 +1362,47 @@ class Operation final :
 
   // implements Message ----------------------------------------------
 
-  Operation* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  Operation* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<Operation>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const Operation& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const Operation& from) {
     Operation::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(Operation* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "google.longrunning.Operation";
   }
   protected:
-  explicit Operation(::google::protobuf_inworld::Arena* arena);
-  Operation(::google::protobuf_inworld::Arena* arena, const Operation& from);
+  explicit Operation(::google::protobuf::Arena* arena);
+  Operation(::google::protobuf::Arena* arena, const Operation& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -1434,16 +1434,16 @@ class Operation final :
   // .google.protobuf.Any metadata = 2;
   bool has_metadata() const;
   void clear_metadata() ;
-  const ::google::protobuf_inworld::Any& metadata() const;
-  PROTOBUF_NODISCARD ::google::protobuf_inworld::Any* release_metadata();
-  ::google::protobuf_inworld::Any* mutable_metadata();
-  void set_allocated_metadata(::google::protobuf_inworld::Any* value);
-  void unsafe_arena_set_allocated_metadata(::google::protobuf_inworld::Any* value);
-  ::google::protobuf_inworld::Any* unsafe_arena_release_metadata();
+  const ::google::protobuf::Any& metadata() const;
+  PROTOBUF_NODISCARD ::google::protobuf::Any* release_metadata();
+  ::google::protobuf::Any* mutable_metadata();
+  void set_allocated_metadata(::google::protobuf::Any* value);
+  void unsafe_arena_set_allocated_metadata(::google::protobuf::Any* value);
+  ::google::protobuf::Any* unsafe_arena_release_metadata();
 
   private:
-  const ::google::protobuf_inworld::Any& _internal_metadata() const;
-  ::google::protobuf_inworld::Any* _internal_mutable_metadata();
+  const ::google::protobuf::Any& _internal_metadata() const;
+  ::google::protobuf::Any* _internal_mutable_metadata();
 
   public:
   // bool done = 3;
@@ -1482,16 +1482,16 @@ class Operation final :
 
   public:
   void clear_response() ;
-  const ::google::protobuf_inworld::Any& response() const;
-  PROTOBUF_NODISCARD ::google::protobuf_inworld::Any* release_response();
-  ::google::protobuf_inworld::Any* mutable_response();
-  void set_allocated_response(::google::protobuf_inworld::Any* value);
-  void unsafe_arena_set_allocated_response(::google::protobuf_inworld::Any* value);
-  ::google::protobuf_inworld::Any* unsafe_arena_release_response();
+  const ::google::protobuf::Any& response() const;
+  PROTOBUF_NODISCARD ::google::protobuf::Any* release_response();
+  ::google::protobuf::Any* mutable_response();
+  void set_allocated_response(::google::protobuf::Any* value);
+  void unsafe_arena_set_allocated_response(::google::protobuf::Any* value);
+  ::google::protobuf::Any* unsafe_arena_release_response();
 
   private:
-  const ::google::protobuf_inworld::Any& _internal_response() const;
-  ::google::protobuf_inworld::Any* _internal_mutable_response();
+  const ::google::protobuf::Any& _internal_response() const;
+  ::google::protobuf::Any* _internal_mutable_response();
 
   public:
   void clear_result();
@@ -1505,35 +1505,35 @@ class Operation final :
   inline bool has_result() const;
   inline void clear_has_result();
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       2, 5, 3,
       41, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::HasBits<1> _has_bits_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr name_;
-    ::google::protobuf_inworld::Any* metadata_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::internal::ArenaStringPtr name_;
+    ::google::protobuf::Any* metadata_;
     bool done_;
     union ResultUnion {
       constexpr ResultUnion() : _constinit_{} {}
-        ::google::protobuf_inworld::internal::ConstantInitialized _constinit_;
+        ::google::protobuf::internal::ConstantInitialized _constinit_;
       ::google::rpc::Status* error_;
-      ::google::protobuf_inworld::Any* response_;
+      ::google::protobuf::Any* response_;
     } result_;
     ::uint32_t _oneof_case_[1];
 
@@ -1544,12 +1544,12 @@ class Operation final :
 };// -------------------------------------------------------------------
 
 class ListOperationsResponse final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:google.longrunning.ListOperationsResponse) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.longrunning.ListOperationsResponse) */ {
  public:
   inline ListOperationsResponse() : ListOperationsResponse(nullptr) {}
   ~ListOperationsResponse() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR ListOperationsResponse(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR ListOperationsResponse(::google::protobuf::internal::ConstantInitialized);
 
   inline ListOperationsResponse(const ListOperationsResponse& from)
       : ListOperationsResponse(nullptr, from) {}
@@ -1576,22 +1576,22 @@ class ListOperationsResponse final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const ListOperationsResponse& default_instance() {
@@ -1617,7 +1617,7 @@ class ListOperationsResponse final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(ListOperationsResponse* other) {
@@ -1628,47 +1628,47 @@ class ListOperationsResponse final :
 
   // implements Message ----------------------------------------------
 
-  ListOperationsResponse* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  ListOperationsResponse* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<ListOperationsResponse>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const ListOperationsResponse& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const ListOperationsResponse& from) {
     ListOperationsResponse::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(ListOperationsResponse* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "google.longrunning.ListOperationsResponse";
   }
   protected:
-  explicit ListOperationsResponse(::google::protobuf_inworld::Arena* arena);
-  ListOperationsResponse(::google::protobuf_inworld::Arena* arena, const ListOperationsResponse& from);
+  explicit ListOperationsResponse(::google::protobuf::Arena* arena);
+  ListOperationsResponse(::google::protobuf::Arena* arena, const ListOperationsResponse& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -1686,15 +1686,15 @@ class ListOperationsResponse final :
   public:
   void clear_operations() ;
   ::google::longrunning::Operation* mutable_operations(int index);
-  ::google::protobuf_inworld::RepeatedPtrField< ::google::longrunning::Operation >*
+  ::google::protobuf::RepeatedPtrField< ::google::longrunning::Operation >*
       mutable_operations();
   private:
-  const ::google::protobuf_inworld::RepeatedPtrField<::google::longrunning::Operation>& _internal_operations() const;
-  ::google::protobuf_inworld::RepeatedPtrField<::google::longrunning::Operation>* _internal_mutable_operations();
+  const ::google::protobuf::RepeatedPtrField<::google::longrunning::Operation>& _internal_operations() const;
+  ::google::protobuf::RepeatedPtrField<::google::longrunning::Operation>* _internal_mutable_operations();
   public:
   const ::google::longrunning::Operation& operations(int index) const;
   ::google::longrunning::Operation* add_operations();
-  const ::google::protobuf_inworld::RepeatedPtrField< ::google::longrunning::Operation >&
+  const ::google::protobuf::RepeatedPtrField< ::google::longrunning::Operation >&
       operations() const;
   // string next_page_token = 2;
   void clear_next_page_token() ;
@@ -1716,28 +1716,28 @@ class ListOperationsResponse final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       1, 2, 1,
       65, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::RepeatedPtrField< ::google::longrunning::Operation > operations_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr next_page_token_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::RepeatedPtrField< ::google::longrunning::Operation > operations_;
+    ::google::protobuf::internal::ArenaStringPtr next_page_token_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -1749,8 +1749,8 @@ class ListOperationsResponse final :
 
 
 static const int kOperationInfoFieldNumber = 1049;
-extern ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::MethodOptions,
-    ::google::protobuf_inworld::internal::MessageTypeTraits< ::google::longrunning::OperationInfo >, 11, false >
+extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::MethodOptions,
+    ::google::protobuf::internal::MessageTypeTraits< ::google::longrunning::OperationInfo >, 11, false >
   operation_info;
 
 // ===================================================================
@@ -1823,21 +1823,21 @@ inline bool Operation::has_metadata() const {
   PROTOBUF_ASSUME(!value || _impl_.metadata_ != nullptr);
   return value;
 }
-inline const ::google::protobuf_inworld::Any& Operation::_internal_metadata() const {
+inline const ::google::protobuf::Any& Operation::_internal_metadata() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
-  const ::google::protobuf_inworld::Any* p = _impl_.metadata_;
-  return p != nullptr ? *p : reinterpret_cast<const ::google::protobuf_inworld::Any&>(::google::protobuf_inworld::_Any_default_instance_);
+  const ::google::protobuf::Any* p = _impl_.metadata_;
+  return p != nullptr ? *p : reinterpret_cast<const ::google::protobuf::Any&>(::google::protobuf::_Any_default_instance_);
 }
-inline const ::google::protobuf_inworld::Any& Operation::metadata() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+inline const ::google::protobuf::Any& Operation::metadata() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_get:google.longrunning.Operation.metadata)
   return _internal_metadata();
 }
-inline void Operation::unsafe_arena_set_allocated_metadata(::google::protobuf_inworld::Any* value) {
+inline void Operation::unsafe_arena_set_allocated_metadata(::google::protobuf::Any* value) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf_inworld::MessageLite*>(_impl_.metadata_);
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.metadata_);
   }
-  _impl_.metadata_ = reinterpret_cast<::google::protobuf_inworld::Any*>(value);
+  _impl_.metadata_ = reinterpret_cast<::google::protobuf::Any*>(value);
   if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
@@ -1845,66 +1845,66 @@ inline void Operation::unsafe_arena_set_allocated_metadata(::google::protobuf_in
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:google.longrunning.Operation.metadata)
 }
-inline ::google::protobuf_inworld::Any* Operation::release_metadata() {
+inline ::google::protobuf::Any* Operation::release_metadata() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
 
   _impl_._has_bits_[0] &= ~0x00000001u;
-  ::google::protobuf_inworld::Any* released = _impl_.metadata_;
+  ::google::protobuf::Any* released = _impl_.metadata_;
   _impl_.metadata_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf_inworld::MessageLite*>(released);
-  released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   if (GetArena() == nullptr) {
     delete old;
   }
 #else   // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArena() != nullptr) {
-    released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   }
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return released;
 }
-inline ::google::protobuf_inworld::Any* Operation::unsafe_arena_release_metadata() {
+inline ::google::protobuf::Any* Operation::unsafe_arena_release_metadata() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   // @@protoc_insertion_point(field_release:google.longrunning.Operation.metadata)
 
   _impl_._has_bits_[0] &= ~0x00000001u;
-  ::google::protobuf_inworld::Any* temp = _impl_.metadata_;
+  ::google::protobuf::Any* temp = _impl_.metadata_;
   _impl_.metadata_ = nullptr;
   return temp;
 }
-inline ::google::protobuf_inworld::Any* Operation::_internal_mutable_metadata() {
+inline ::google::protobuf::Any* Operation::_internal_mutable_metadata() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   _impl_._has_bits_[0] |= 0x00000001u;
   if (_impl_.metadata_ == nullptr) {
-    auto* p = CreateMaybeMessage<::google::protobuf_inworld::Any>(GetArena());
-    _impl_.metadata_ = reinterpret_cast<::google::protobuf_inworld::Any*>(p);
+    auto* p = CreateMaybeMessage<::google::protobuf::Any>(GetArena());
+    _impl_.metadata_ = reinterpret_cast<::google::protobuf::Any*>(p);
   }
   return _impl_.metadata_;
 }
-inline ::google::protobuf_inworld::Any* Operation::mutable_metadata() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::google::protobuf_inworld::Any* _msg = _internal_mutable_metadata();
+inline ::google::protobuf::Any* Operation::mutable_metadata() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::Any* _msg = _internal_mutable_metadata();
   // @@protoc_insertion_point(field_mutable:google.longrunning.Operation.metadata)
   return _msg;
 }
-inline void Operation::set_allocated_metadata(::google::protobuf_inworld::Any* value) {
-  ::google::protobuf_inworld::Arena* message_arena = GetArena();
+inline void Operation::set_allocated_metadata(::google::protobuf::Any* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (message_arena == nullptr) {
-    delete reinterpret_cast<::google::protobuf_inworld::MessageLite*>(_impl_.metadata_);
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.metadata_);
   }
 
   if (value != nullptr) {
-    ::google::protobuf_inworld::Arena* submessage_arena = reinterpret_cast<::google::protobuf_inworld::MessageLite*>(value)->GetArena();
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
     if (message_arena != submessage_arena) {
-      value = ::google::protobuf_inworld::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
 
-  _impl_.metadata_ = reinterpret_cast<::google::protobuf_inworld::Any*>(value);
+  _impl_.metadata_ = reinterpret_cast<::google::protobuf::Any*>(value);
   // @@protoc_insertion_point(field_set_allocated:google.longrunning.Operation.metadata)
 }
 
@@ -1947,7 +1947,7 @@ inline ::google::rpc::Status* Operation::release_error() {
     clear_has_result();
     auto* temp = _impl_.result_.error_;
     if (GetArena() != nullptr) {
-      temp = ::google::protobuf_inworld::internal::DuplicateIfNonNull(temp);
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
     }
     _impl_.result_.error_ = nullptr;
     return temp;
@@ -2008,13 +2008,13 @@ inline bool Operation::_internal_has_response() const {
 inline void Operation::set_has_response() {
   _impl_._oneof_case_[0] = kResponse;
 }
-inline ::google::protobuf_inworld::Any* Operation::release_response() {
+inline ::google::protobuf::Any* Operation::release_response() {
   // @@protoc_insertion_point(field_release:google.longrunning.Operation.response)
   if (result_case() == kResponse) {
     clear_has_result();
     auto* temp = _impl_.result_.response_;
     if (GetArena() != nullptr) {
-      temp = ::google::protobuf_inworld::internal::DuplicateIfNonNull(temp);
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
     }
     _impl_.result_.response_ = nullptr;
     return temp;
@@ -2022,14 +2022,14 @@ inline ::google::protobuf_inworld::Any* Operation::release_response() {
     return nullptr;
   }
 }
-inline const ::google::protobuf_inworld::Any& Operation::_internal_response() const {
-  return result_case() == kResponse ? *_impl_.result_.response_ : reinterpret_cast<::google::protobuf_inworld::Any&>(::google::protobuf_inworld::_Any_default_instance_);
+inline const ::google::protobuf::Any& Operation::_internal_response() const {
+  return result_case() == kResponse ? *_impl_.result_.response_ : reinterpret_cast<::google::protobuf::Any&>(::google::protobuf::_Any_default_instance_);
 }
-inline const ::google::protobuf_inworld::Any& Operation::response() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+inline const ::google::protobuf::Any& Operation::response() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_get:google.longrunning.Operation.response)
   return _internal_response();
 }
-inline ::google::protobuf_inworld::Any* Operation::unsafe_arena_release_response() {
+inline ::google::protobuf::Any* Operation::unsafe_arena_release_response() {
   // @@protoc_insertion_point(field_unsafe_arena_release:google.longrunning.Operation.response)
   if (result_case() == kResponse) {
     clear_has_result();
@@ -2040,7 +2040,7 @@ inline ::google::protobuf_inworld::Any* Operation::unsafe_arena_release_response
     return nullptr;
   }
 }
-inline void Operation::unsafe_arena_set_allocated_response(::google::protobuf_inworld::Any* value) {
+inline void Operation::unsafe_arena_set_allocated_response(::google::protobuf::Any* value) {
   // We rely on the oneof clear method to free the earlier contents
   // of this oneof. We can directly use the pointer we're given to
   // set the new value.
@@ -2051,16 +2051,16 @@ inline void Operation::unsafe_arena_set_allocated_response(::google::protobuf_in
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:google.longrunning.Operation.response)
 }
-inline ::google::protobuf_inworld::Any* Operation::_internal_mutable_response() {
+inline ::google::protobuf::Any* Operation::_internal_mutable_response() {
   if (result_case() != kResponse) {
     clear_result();
     set_has_response();
-    _impl_.result_.response_ = CreateMaybeMessage<::google::protobuf_inworld::Any>(GetArena());
+    _impl_.result_.response_ = CreateMaybeMessage<::google::protobuf::Any>(GetArena());
   }
   return _impl_.result_.response_;
 }
-inline ::google::protobuf_inworld::Any* Operation::mutable_response() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::google::protobuf_inworld::Any* _msg = _internal_mutable_response();
+inline ::google::protobuf::Any* Operation::mutable_response() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::Any* _msg = _internal_mutable_response();
   // @@protoc_insertion_point(field_mutable:google.longrunning.Operation.response)
   return _msg;
 }
@@ -2337,7 +2337,7 @@ inline ::google::longrunning::Operation* ListOperationsResponse::mutable_operati
   // @@protoc_insertion_point(field_mutable:google.longrunning.ListOperationsResponse.operations)
   return _internal_mutable_operations()->Mutable(index);
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<::google::longrunning::Operation>* ListOperationsResponse::mutable_operations()
+inline ::google::protobuf::RepeatedPtrField<::google::longrunning::Operation>* ListOperationsResponse::mutable_operations()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_mutable_list:google.longrunning.ListOperationsResponse.operations)
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
@@ -2354,17 +2354,17 @@ inline ::google::longrunning::Operation* ListOperationsResponse::add_operations(
   // @@protoc_insertion_point(field_add:google.longrunning.ListOperationsResponse.operations)
   return _add;
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<::google::longrunning::Operation>& ListOperationsResponse::operations() const
+inline const ::google::protobuf::RepeatedPtrField<::google::longrunning::Operation>& ListOperationsResponse::operations() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_list:google.longrunning.ListOperationsResponse.operations)
   return _internal_operations();
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<::google::longrunning::Operation>&
+inline const ::google::protobuf::RepeatedPtrField<::google::longrunning::Operation>&
 ListOperationsResponse::_internal_operations() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return _impl_.operations_;
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<::google::longrunning::Operation>*
+inline ::google::protobuf::RepeatedPtrField<::google::longrunning::Operation>*
 ListOperationsResponse::_internal_mutable_operations() {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return &_impl_.operations_;
@@ -2600,21 +2600,21 @@ inline bool WaitOperationRequest::has_timeout() const {
   PROTOBUF_ASSUME(!value || _impl_.timeout_ != nullptr);
   return value;
 }
-inline const ::google::protobuf_inworld::Duration& WaitOperationRequest::_internal_timeout() const {
+inline const ::google::protobuf::Duration& WaitOperationRequest::_internal_timeout() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
-  const ::google::protobuf_inworld::Duration* p = _impl_.timeout_;
-  return p != nullptr ? *p : reinterpret_cast<const ::google::protobuf_inworld::Duration&>(::google::protobuf_inworld::_Duration_default_instance_);
+  const ::google::protobuf::Duration* p = _impl_.timeout_;
+  return p != nullptr ? *p : reinterpret_cast<const ::google::protobuf::Duration&>(::google::protobuf::_Duration_default_instance_);
 }
-inline const ::google::protobuf_inworld::Duration& WaitOperationRequest::timeout() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+inline const ::google::protobuf::Duration& WaitOperationRequest::timeout() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_get:google.longrunning.WaitOperationRequest.timeout)
   return _internal_timeout();
 }
-inline void WaitOperationRequest::unsafe_arena_set_allocated_timeout(::google::protobuf_inworld::Duration* value) {
+inline void WaitOperationRequest::unsafe_arena_set_allocated_timeout(::google::protobuf::Duration* value) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf_inworld::MessageLite*>(_impl_.timeout_);
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.timeout_);
   }
-  _impl_.timeout_ = reinterpret_cast<::google::protobuf_inworld::Duration*>(value);
+  _impl_.timeout_ = reinterpret_cast<::google::protobuf::Duration*>(value);
   if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
@@ -2622,66 +2622,66 @@ inline void WaitOperationRequest::unsafe_arena_set_allocated_timeout(::google::p
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:google.longrunning.WaitOperationRequest.timeout)
 }
-inline ::google::protobuf_inworld::Duration* WaitOperationRequest::release_timeout() {
+inline ::google::protobuf::Duration* WaitOperationRequest::release_timeout() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
 
   _impl_._has_bits_[0] &= ~0x00000001u;
-  ::google::protobuf_inworld::Duration* released = _impl_.timeout_;
+  ::google::protobuf::Duration* released = _impl_.timeout_;
   _impl_.timeout_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf_inworld::MessageLite*>(released);
-  released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   if (GetArena() == nullptr) {
     delete old;
   }
 #else   // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArena() != nullptr) {
-    released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   }
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return released;
 }
-inline ::google::protobuf_inworld::Duration* WaitOperationRequest::unsafe_arena_release_timeout() {
+inline ::google::protobuf::Duration* WaitOperationRequest::unsafe_arena_release_timeout() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   // @@protoc_insertion_point(field_release:google.longrunning.WaitOperationRequest.timeout)
 
   _impl_._has_bits_[0] &= ~0x00000001u;
-  ::google::protobuf_inworld::Duration* temp = _impl_.timeout_;
+  ::google::protobuf::Duration* temp = _impl_.timeout_;
   _impl_.timeout_ = nullptr;
   return temp;
 }
-inline ::google::protobuf_inworld::Duration* WaitOperationRequest::_internal_mutable_timeout() {
+inline ::google::protobuf::Duration* WaitOperationRequest::_internal_mutable_timeout() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   _impl_._has_bits_[0] |= 0x00000001u;
   if (_impl_.timeout_ == nullptr) {
-    auto* p = CreateMaybeMessage<::google::protobuf_inworld::Duration>(GetArena());
-    _impl_.timeout_ = reinterpret_cast<::google::protobuf_inworld::Duration*>(p);
+    auto* p = CreateMaybeMessage<::google::protobuf::Duration>(GetArena());
+    _impl_.timeout_ = reinterpret_cast<::google::protobuf::Duration*>(p);
   }
   return _impl_.timeout_;
 }
-inline ::google::protobuf_inworld::Duration* WaitOperationRequest::mutable_timeout() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::google::protobuf_inworld::Duration* _msg = _internal_mutable_timeout();
+inline ::google::protobuf::Duration* WaitOperationRequest::mutable_timeout() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::Duration* _msg = _internal_mutable_timeout();
   // @@protoc_insertion_point(field_mutable:google.longrunning.WaitOperationRequest.timeout)
   return _msg;
 }
-inline void WaitOperationRequest::set_allocated_timeout(::google::protobuf_inworld::Duration* value) {
-  ::google::protobuf_inworld::Arena* message_arena = GetArena();
+inline void WaitOperationRequest::set_allocated_timeout(::google::protobuf::Duration* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (message_arena == nullptr) {
-    delete reinterpret_cast<::google::protobuf_inworld::MessageLite*>(_impl_.timeout_);
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.timeout_);
   }
 
   if (value != nullptr) {
-    ::google::protobuf_inworld::Arena* submessage_arena = reinterpret_cast<::google::protobuf_inworld::MessageLite*>(value)->GetArena();
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
     if (message_arena != submessage_arena) {
-      value = ::google::protobuf_inworld::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
 
-  _impl_.timeout_ = reinterpret_cast<::google::protobuf_inworld::Duration*>(value);
+  _impl_.timeout_ = reinterpret_cast<::google::protobuf::Duration*>(value);
   // @@protoc_insertion_point(field_set_allocated:google.longrunning.WaitOperationRequest.timeout)
 }
 

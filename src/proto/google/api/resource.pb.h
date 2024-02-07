@@ -55,7 +55,7 @@ class AnyMetadata;
 struct TableStruct_google_2fapi_2fresource_2eproto {
   static const ::uint32_t offsets[];
 };
-extern const ::google::protobuf_inworld::internal::DescriptorTable
+extern const ::google::protobuf::internal::DescriptorTable
     descriptor_table_google_2fapi_2fresource_2eproto;
 namespace google {
 namespace api {
@@ -87,7 +87,7 @@ extern const uint32_t ResourceDescriptor_History_internal_data_[];
 constexpr ResourceDescriptor_History ResourceDescriptor_History_History_MIN = static_cast<ResourceDescriptor_History>(0);
 constexpr ResourceDescriptor_History ResourceDescriptor_History_History_MAX = static_cast<ResourceDescriptor_History>(2);
 constexpr int ResourceDescriptor_History_History_ARRAYSIZE = 2 + 1;
-const ::google::protobuf_inworld::EnumDescriptor*
+const ::google::protobuf::EnumDescriptor*
 ResourceDescriptor_History_descriptor();
 template <typename T>
 const std::string& ResourceDescriptor_History_Name(T value) {
@@ -98,12 +98,12 @@ const std::string& ResourceDescriptor_History_Name(T value) {
 }
 template <>
 inline const std::string& ResourceDescriptor_History_Name(ResourceDescriptor_History value) {
-  return ::google::protobuf_inworld::internal::NameOfDenseEnum<ResourceDescriptor_History_descriptor,
+  return ::google::protobuf::internal::NameOfDenseEnum<ResourceDescriptor_History_descriptor,
                                                  0, 2>(
       static_cast<int>(value));
 }
 inline bool ResourceDescriptor_History_Parse(absl::string_view name, ResourceDescriptor_History* value) {
-  return ::google::protobuf_inworld::internal::ParseNamedEnum<ResourceDescriptor_History>(
+  return ::google::protobuf::internal::ParseNamedEnum<ResourceDescriptor_History>(
       ResourceDescriptor_History_descriptor(), name, value);
 }
 enum ResourceDescriptor_Style : int {
@@ -120,7 +120,7 @@ extern const uint32_t ResourceDescriptor_Style_internal_data_[];
 constexpr ResourceDescriptor_Style ResourceDescriptor_Style_Style_MIN = static_cast<ResourceDescriptor_Style>(0);
 constexpr ResourceDescriptor_Style ResourceDescriptor_Style_Style_MAX = static_cast<ResourceDescriptor_Style>(1);
 constexpr int ResourceDescriptor_Style_Style_ARRAYSIZE = 1 + 1;
-const ::google::protobuf_inworld::EnumDescriptor*
+const ::google::protobuf::EnumDescriptor*
 ResourceDescriptor_Style_descriptor();
 template <typename T>
 const std::string& ResourceDescriptor_Style_Name(T value) {
@@ -131,12 +131,12 @@ const std::string& ResourceDescriptor_Style_Name(T value) {
 }
 template <>
 inline const std::string& ResourceDescriptor_Style_Name(ResourceDescriptor_Style value) {
-  return ::google::protobuf_inworld::internal::NameOfDenseEnum<ResourceDescriptor_Style_descriptor,
+  return ::google::protobuf::internal::NameOfDenseEnum<ResourceDescriptor_Style_descriptor,
                                                  0, 1>(
       static_cast<int>(value));
 }
 inline bool ResourceDescriptor_Style_Parse(absl::string_view name, ResourceDescriptor_Style* value) {
-  return ::google::protobuf_inworld::internal::ParseNamedEnum<ResourceDescriptor_Style>(
+  return ::google::protobuf::internal::ParseNamedEnum<ResourceDescriptor_Style>(
       ResourceDescriptor_Style_descriptor(), name, value);
 }
 
@@ -146,12 +146,12 @@ inline bool ResourceDescriptor_Style_Parse(absl::string_view name, ResourceDescr
 // -------------------------------------------------------------------
 
 class ResourceReference final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:google.api.ResourceReference) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.api.ResourceReference) */ {
  public:
   inline ResourceReference() : ResourceReference(nullptr) {}
   ~ResourceReference() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR ResourceReference(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR ResourceReference(::google::protobuf::internal::ConstantInitialized);
 
   inline ResourceReference(const ResourceReference& from)
       : ResourceReference(nullptr, from) {}
@@ -178,22 +178,22 @@ class ResourceReference final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const ResourceReference& default_instance() {
@@ -219,7 +219,7 @@ class ResourceReference final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(ResourceReference* other) {
@@ -230,47 +230,47 @@ class ResourceReference final :
 
   // implements Message ----------------------------------------------
 
-  ResourceReference* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  ResourceReference* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<ResourceReference>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const ResourceReference& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const ResourceReference& from) {
     ResourceReference::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(ResourceReference* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "google.api.ResourceReference";
   }
   protected:
-  explicit ResourceReference(::google::protobuf_inworld::Arena* arena);
-  ResourceReference(::google::protobuf_inworld::Arena* arena, const ResourceReference& from);
+  explicit ResourceReference(::google::protobuf::Arena* arena);
+  ResourceReference(::google::protobuf::Arena* arena, const ResourceReference& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -316,28 +316,28 @@ class ResourceReference final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       1, 2, 0,
       51, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::ArenaStringPtr type_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr child_type_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr type_;
+    ::google::protobuf::internal::ArenaStringPtr child_type_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -345,12 +345,12 @@ class ResourceReference final :
 };// -------------------------------------------------------------------
 
 class ResourceDescriptor final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:google.api.ResourceDescriptor) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.api.ResourceDescriptor) */ {
  public:
   inline ResourceDescriptor() : ResourceDescriptor(nullptr) {}
   ~ResourceDescriptor() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR ResourceDescriptor(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR ResourceDescriptor(::google::protobuf::internal::ConstantInitialized);
 
   inline ResourceDescriptor(const ResourceDescriptor& from)
       : ResourceDescriptor(nullptr, from) {}
@@ -377,22 +377,22 @@ class ResourceDescriptor final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const ResourceDescriptor& default_instance() {
@@ -418,7 +418,7 @@ class ResourceDescriptor final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(ResourceDescriptor* other) {
@@ -429,47 +429,47 @@ class ResourceDescriptor final :
 
   // implements Message ----------------------------------------------
 
-  ResourceDescriptor* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  ResourceDescriptor* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<ResourceDescriptor>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const ResourceDescriptor& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const ResourceDescriptor& from) {
     ResourceDescriptor::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(ResourceDescriptor* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "google.api.ResourceDescriptor";
   }
   protected:
-  explicit ResourceDescriptor(::google::protobuf_inworld::Arena* arena);
-  ResourceDescriptor(::google::protobuf_inworld::Arena* arena, const ResourceDescriptor& from);
+  explicit ResourceDescriptor(::google::protobuf::Arena* arena);
+  ResourceDescriptor(::google::protobuf::Arena* arena, const ResourceDescriptor& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -483,7 +483,7 @@ class ResourceDescriptor final :
   static constexpr History History_MIN = ResourceDescriptor_History_History_MIN;
   static constexpr History History_MAX = ResourceDescriptor_History_History_MAX;
   static constexpr int History_ARRAYSIZE = ResourceDescriptor_History_History_ARRAYSIZE;
-  static inline const ::google::protobuf_inworld::EnumDescriptor* History_descriptor() {
+  static inline const ::google::protobuf::EnumDescriptor* History_descriptor() {
     return ResourceDescriptor_History_descriptor();
   }
   template <typename T>
@@ -503,7 +503,7 @@ class ResourceDescriptor final :
   static constexpr Style Style_MIN = ResourceDescriptor_Style_Style_MIN;
   static constexpr Style Style_MAX = ResourceDescriptor_Style_Style_MAX;
   static constexpr int Style_ARRAYSIZE = ResourceDescriptor_Style_Style_ARRAYSIZE;
-  static inline const ::google::protobuf_inworld::EnumDescriptor* Style_descriptor() {
+  static inline const ::google::protobuf::EnumDescriptor* Style_descriptor() {
     return ResourceDescriptor_Style_descriptor();
   }
   template <typename T>
@@ -545,12 +545,12 @@ class ResourceDescriptor final :
   void add_pattern(const char* value);
   void add_pattern(const char* value, std::size_t size);
   void add_pattern(absl::string_view value);
-  const ::google::protobuf_inworld::RepeatedPtrField<std::string>& pattern() const;
-  ::google::protobuf_inworld::RepeatedPtrField<std::string>* mutable_pattern();
+  const ::google::protobuf::RepeatedPtrField<std::string>& pattern() const;
+  ::google::protobuf::RepeatedPtrField<std::string>* mutable_pattern();
 
   private:
-  const ::google::protobuf_inworld::RepeatedPtrField<std::string>& _internal_pattern() const;
-  ::google::protobuf_inworld::RepeatedPtrField<std::string>* _internal_mutable_pattern();
+  const ::google::protobuf::RepeatedPtrField<std::string>& _internal_pattern() const;
+  ::google::protobuf::RepeatedPtrField<std::string>* _internal_mutable_pattern();
 
   public:
   // repeated .google.api.ResourceDescriptor.Style style = 10;
@@ -564,12 +564,12 @@ class ResourceDescriptor final :
   ::google::api::ResourceDescriptor_Style style(int index) const;
   void set_style(int index, ::google::api::ResourceDescriptor_Style value);
   void add_style(::google::api::ResourceDescriptor_Style value);
-  const ::google::protobuf_inworld::RepeatedField<int>& style() const;
-  ::google::protobuf_inworld::RepeatedField<int>* mutable_style();
+  const ::google::protobuf::RepeatedField<int>& style() const;
+  ::google::protobuf::RepeatedField<int>* mutable_style();
 
   private:
-  const ::google::protobuf_inworld::RepeatedField<int>& _internal_style() const;
-  ::google::protobuf_inworld::RepeatedField<int>* _internal_mutable_style();
+  const ::google::protobuf::RepeatedField<int>& _internal_style() const;
+  ::google::protobuf::RepeatedField<int>* _internal_mutable_style();
 
   public:
   // string type = 1;
@@ -650,34 +650,34 @@ class ResourceDescriptor final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       3, 7, 0,
       73, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::RepeatedPtrField<std::string> pattern_;
-    ::google::protobuf_inworld::RepeatedField<int> style_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _style_cached_byte_size_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr type_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr name_field_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr plural_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr singular_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::RepeatedPtrField<std::string> pattern_;
+    ::google::protobuf::RepeatedField<int> style_;
+    mutable ::google::protobuf::internal::CachedSize _style_cached_byte_size_;
+    ::google::protobuf::internal::ArenaStringPtr type_;
+    ::google::protobuf::internal::ArenaStringPtr name_field_;
+    ::google::protobuf::internal::ArenaStringPtr plural_;
+    ::google::protobuf::internal::ArenaStringPtr singular_;
     int history_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -689,16 +689,16 @@ class ResourceDescriptor final :
 
 
 static const int kResourceReferenceFieldNumber = 1055;
-extern ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::FieldOptions,
-    ::google::protobuf_inworld::internal::MessageTypeTraits< ::google::api::ResourceReference >, 11, false >
+extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::FieldOptions,
+    ::google::protobuf::internal::MessageTypeTraits< ::google::api::ResourceReference >, 11, false >
   resource_reference;
 static const int kResourceDefinitionFieldNumber = 1053;
-extern ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::FileOptions,
-    ::google::protobuf_inworld::internal::RepeatedMessageTypeTraits< ::google::api::ResourceDescriptor >, 11, false >
+extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::FileOptions,
+    ::google::protobuf::internal::RepeatedMessageTypeTraits< ::google::api::ResourceDescriptor >, 11, false >
   resource_definition;
 static const int kResourceFieldNumber = 1053;
-extern ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::MessageOptions,
-    ::google::protobuf_inworld::internal::MessageTypeTraits< ::google::api::ResourceDescriptor >, 11, false >
+extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::MessageOptions,
+    ::google::protobuf::internal::MessageTypeTraits< ::google::api::ResourceDescriptor >, 11, false >
   resource;
 
 // ===================================================================
@@ -844,23 +844,23 @@ inline void ResourceDescriptor::add_pattern(absl::string_view value) {
   _internal_mutable_pattern()->Add()->assign(value.data(), value.size());
   // @@protoc_insertion_point(field_add_string_piece:google.api.ResourceDescriptor.pattern)
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<std::string>&
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
 ResourceDescriptor::pattern() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_list:google.api.ResourceDescriptor.pattern)
   return _internal_pattern();
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<std::string>*
+inline ::google::protobuf::RepeatedPtrField<std::string>*
 ResourceDescriptor::mutable_pattern() ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_mutable_list:google.api.ResourceDescriptor.pattern)
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   return _internal_mutable_pattern();
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<std::string>&
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
 ResourceDescriptor::_internal_pattern() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return _impl_.pattern_;
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<std::string>*
+inline ::google::protobuf::RepeatedPtrField<std::string>*
 ResourceDescriptor::_internal_mutable_pattern() {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return &_impl_.pattern_;
@@ -1072,22 +1072,22 @@ inline void ResourceDescriptor::add_style(::google::api::ResourceDescriptor_Styl
   _internal_mutable_style()->Add(value);
   // @@protoc_insertion_point(field_add:google.api.ResourceDescriptor.style)
 }
-inline const ::google::protobuf_inworld::RepeatedField<int>& ResourceDescriptor::style() const
+inline const ::google::protobuf::RepeatedField<int>& ResourceDescriptor::style() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_list:google.api.ResourceDescriptor.style)
   return _internal_style();
 }
-inline ::google::protobuf_inworld::RepeatedField<int>* ResourceDescriptor::mutable_style()
+inline ::google::protobuf::RepeatedField<int>* ResourceDescriptor::mutable_style()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_mutable_list:google.api.ResourceDescriptor.style)
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   return _internal_mutable_style();
 }
-inline const ::google::protobuf_inworld::RepeatedField<int>& ResourceDescriptor::_internal_style() const {
+inline const ::google::protobuf::RepeatedField<int>& ResourceDescriptor::_internal_style() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return _impl_.style_;
 }
-inline ::google::protobuf_inworld::RepeatedField<int>* ResourceDescriptor::_internal_mutable_style() {
+inline ::google::protobuf::RepeatedField<int>* ResourceDescriptor::_internal_mutable_style() {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return &_impl_.style_;
 }

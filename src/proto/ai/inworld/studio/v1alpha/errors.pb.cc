@@ -19,8 +19,8 @@
 #include "google/protobuf/port_def.inc"
 PROTOBUF_PRAGMA_INIT_SEG
 namespace _pb = ::google::protobuf;
-namespace _pbi = ::google::protobuf_inworld::internal;
-namespace _fl = ::google::protobuf_inworld::internal::field_layout;
+namespace _pbi = ::google::protobuf::internal;
+namespace _fl = ::google::protobuf::internal::field_layout;
 namespace ai {
 namespace inworld {
 namespace studio {
@@ -42,10 +42,10 @@ inline constexpr BadRequest_FieldViolation::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : metadata_{},
         field_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         description_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
 
@@ -196,9 +196,9 @@ namespace v1alpha {
 // ===================================================================
 
 BadRequest_FieldViolation_MetadataEntry_DoNotUse::BadRequest_FieldViolation_MetadataEntry_DoNotUse() {}
-BadRequest_FieldViolation_MetadataEntry_DoNotUse::BadRequest_FieldViolation_MetadataEntry_DoNotUse(::google::protobuf_inworld::Arena* arena)
+BadRequest_FieldViolation_MetadataEntry_DoNotUse::BadRequest_FieldViolation_MetadataEntry_DoNotUse(::google::protobuf::Arena* arena)
     : SuperType(arena) {}
-::google::protobuf_inworld::Metadata BadRequest_FieldViolation_MetadataEntry_DoNotUse::GetMetadata() const {
+::google::protobuf::Metadata BadRequest_FieldViolation_MetadataEntry_DoNotUse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2ferrors_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2ferrors_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2ferrors_2eproto[0]);
@@ -209,13 +209,13 @@ class BadRequest_FieldViolation::_Internal {
  public:
 };
 
-BadRequest_FieldViolation::BadRequest_FieldViolation(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+BadRequest_FieldViolation::BadRequest_FieldViolation(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.BadRequest.FieldViolation)
 }
 inline PROTOBUF_NDEBUG_INLINE BadRequest_FieldViolation::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : metadata_{visibility, arena, from.metadata_},
         field_(arena, from.field_),
@@ -223,20 +223,20 @@ inline PROTOBUF_NDEBUG_INLINE BadRequest_FieldViolation::Impl_::Impl_(
         _cached_size_{0} {}
 
 BadRequest_FieldViolation::BadRequest_FieldViolation(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const BadRequest_FieldViolation& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   BadRequest_FieldViolation* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.BadRequest.FieldViolation)
 }
 inline PROTOBUF_NDEBUG_INLINE BadRequest_FieldViolation::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : metadata_{visibility, arena},
         field_(arena),
         description_(arena),
@@ -247,7 +247,7 @@ inline void BadRequest_FieldViolation::SharedCtor(::_pb::Arena* arena) {
 }
 BadRequest_FieldViolation::~BadRequest_FieldViolation() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.BadRequest.FieldViolation)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void BadRequest_FieldViolation::SharedDtor() {
@@ -267,7 +267,7 @@ PROTOBUF_NOINLINE void BadRequest_FieldViolation::Clear() {
   _impl_.metadata_.Clear();
   _impl_.field_.ClearToEmpty();
   _impl_.description_.ClearToEmpty();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* BadRequest_FieldViolation::_InternalParse(
@@ -326,7 +326,7 @@ const ::_pbi::TcParseTable<1, 3, 1, 84, 2> BadRequest_FieldViolation::_table_ = 
 
 ::uint8_t* BadRequest_FieldViolation::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.BadRequest.FieldViolation)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -334,48 +334,48 @@ const ::_pbi::TcParseTable<1, 3, 1, 84, 2> BadRequest_FieldViolation::_table_ = 
   // string field = 1;
   if (!this->_internal_field().empty()) {
     const std::string& _s = this->_internal_field();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.BadRequest.FieldViolation.field");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.BadRequest.FieldViolation.field");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // string description = 2;
   if (!this->_internal_description().empty()) {
     const std::string& _s = this->_internal_description();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.BadRequest.FieldViolation.description");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.BadRequest.FieldViolation.description");
     target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
   // map<string, string> metadata = 3;
   if (!_internal_metadata().empty()) {
-    using MapType = ::google::protobuf_inworld::Map<std::string, std::string>;
+    using MapType = ::google::protobuf::Map<std::string, std::string>;
     using WireHelper = _pbi::MapEntryFuncs<std::string, std::string,
                                    _pbi::WireFormatLite::TYPE_STRING,
                                    _pbi::WireFormatLite::TYPE_STRING>;
     const auto& field = _internal_metadata();
 
     if (stream->IsSerializationDeterministic() && field.size() > 1) {
-      for (const auto& entry : ::google::protobuf_inworld::internal::MapSorterPtr<MapType>(field)) {
+      for (const auto& entry : ::google::protobuf::internal::MapSorterPtr<MapType>(field)) {
         target = WireHelper::InternalSerialize(
             3, entry.first, entry.second, target, stream);
-        ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             entry.first.data(), static_cast<int>(entry.first.length()),
- ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.BadRequest.FieldViolation.metadata");
-        ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.BadRequest.FieldViolation.metadata");
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             entry.second.data(), static_cast<int>(entry.second.length()),
- ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.BadRequest.FieldViolation.metadata");
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.BadRequest.FieldViolation.metadata");
       }
     } else {
       for (const auto& entry : field) {
         target = WireHelper::InternalSerialize(
             3, entry.first, entry.second, target, stream);
-        ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             entry.first.data(), static_cast<int>(entry.first.length()),
- ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.BadRequest.FieldViolation.metadata");
-        ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.BadRequest.FieldViolation.metadata");
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             entry.second.data(), static_cast<int>(entry.second.length()),
- ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.BadRequest.FieldViolation.metadata");
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.BadRequest.FieldViolation.metadata");
       }
     }
   }
@@ -383,7 +383,7 @@ const ::_pbi::TcParseTable<1, 3, 1, 84, 2> BadRequest_FieldViolation::_table_ = 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.BadRequest.FieldViolation)
   return target;
@@ -398,7 +398,7 @@ const ::_pbi::TcParseTable<1, 3, 1, 84, 2> BadRequest_FieldViolation::_table_ = 
   (void) cached_has_bits;
 
   // map<string, string> metadata = 3;
-  total_size += 1 * ::google::protobuf_inworld::internal::FromIntSize(_internal_metadata_size());
+  total_size += 1 * ::google::protobuf::internal::FromIntSize(_internal_metadata_size());
   for (const auto& entry : _internal_metadata()) {
     total_size += _pbi::MapEntryFuncs<std::string, std::string,
                                    _pbi::WireFormatLite::TYPE_STRING,
@@ -406,28 +406,28 @@ const ::_pbi::TcParseTable<1, 3, 1, 84, 2> BadRequest_FieldViolation::_table_ = 
   }
   // string field = 1;
   if (!this->_internal_field().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_field());
   }
 
   // string description = 2;
   if (!this->_internal_description().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_description());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData BadRequest_FieldViolation::_class_data_ = {
+const ::google::protobuf::Message::ClassData BadRequest_FieldViolation::_class_data_ = {
     BadRequest_FieldViolation::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* BadRequest_FieldViolation::GetClassData() const {
+const ::google::protobuf::Message::ClassData* BadRequest_FieldViolation::GetClassData() const {
   return &_class_data_;
 }
 
-void BadRequest_FieldViolation::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void BadRequest_FieldViolation::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<BadRequest_FieldViolation*>(&to_msg);
   auto& from = static_cast<const BadRequest_FieldViolation&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.BadRequest.FieldViolation)
@@ -442,7 +442,7 @@ void BadRequest_FieldViolation::MergeImpl(::google::protobuf_inworld::Message& t
   if (!from._internal_description().empty()) {
     _this->_internal_set_description(from._internal_description());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void BadRequest_FieldViolation::CopyFrom(const BadRequest_FieldViolation& from) {
@@ -469,7 +469,7 @@ void BadRequest_FieldViolation::InternalSwap(BadRequest_FieldViolation* PROTOBUF
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.description_, &other->_impl_.description_, arena);
 }
 
-::google::protobuf_inworld::Metadata BadRequest_FieldViolation::GetMetadata() const {
+::google::protobuf::Metadata BadRequest_FieldViolation::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2ferrors_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2ferrors_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2ferrors_2eproto[1]);
@@ -480,32 +480,32 @@ class BadRequest::_Internal {
  public:
 };
 
-BadRequest::BadRequest(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+BadRequest::BadRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.BadRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE BadRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : field_violations_{visibility, arena, from.field_violations_},
         _cached_size_{0} {}
 
 BadRequest::BadRequest(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const BadRequest& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   BadRequest* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.BadRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE BadRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : field_violations_{visibility, arena},
         _cached_size_{0} {}
 
@@ -514,7 +514,7 @@ inline void BadRequest::SharedCtor(::_pb::Arena* arena) {
 }
 BadRequest::~BadRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.BadRequest)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void BadRequest::SharedDtor() {
@@ -530,7 +530,7 @@ PROTOBUF_NOINLINE void BadRequest::Clear() {
   (void) cached_has_bits;
 
   _impl_.field_violations_.Clear();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* BadRequest::_InternalParse(
@@ -572,7 +572,7 @@ const ::_pbi::TcParseTable<0, 1, 1, 0, 2> BadRequest::_table_ = {
 
 ::uint8_t* BadRequest::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.BadRequest)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -581,14 +581,14 @@ const ::_pbi::TcParseTable<0, 1, 1, 0, 2> BadRequest::_table_ = {
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_field_violations_size()); i < n; i++) {
     const auto& repfield = this->_internal_field_violations().Get(i);
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.BadRequest)
   return target;
@@ -606,20 +606,20 @@ const ::_pbi::TcParseTable<0, 1, 1, 0, 2> BadRequest::_table_ = {
   total_size += 1UL * this->_internal_field_violations_size();
   for (const auto& msg : this->_internal_field_violations()) {
     total_size +=
-      ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(msg);
+      ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
   }
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData BadRequest::_class_data_ = {
+const ::google::protobuf::Message::ClassData BadRequest::_class_data_ = {
     BadRequest::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* BadRequest::GetClassData() const {
+const ::google::protobuf::Message::ClassData* BadRequest::GetClassData() const {
   return &_class_data_;
 }
 
-void BadRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void BadRequest::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<BadRequest*>(&to_msg);
   auto& from = static_cast<const BadRequest&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.BadRequest)
@@ -629,7 +629,7 @@ void BadRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::
 
   _this->_internal_mutable_field_violations()->MergeFrom(
       from._internal_field_violations());
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void BadRequest::CopyFrom(const BadRequest& from) {
@@ -652,7 +652,7 @@ void BadRequest::InternalSwap(BadRequest* PROTOBUF_RESTRICT other) {
   _impl_.field_violations_.InternalSwap(&other->_impl_.field_violations_);
 }
 
-::google::protobuf_inworld::Metadata BadRequest::GetMetadata() const {
+::google::protobuf::Metadata BadRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2ferrors_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2ferrors_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2ferrors_2eproto[2]);

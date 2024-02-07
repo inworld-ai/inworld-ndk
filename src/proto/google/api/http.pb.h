@@ -53,7 +53,7 @@ class AnyMetadata;
 struct TableStruct_google_2fapi_2fhttp_2eproto {
   static const ::uint32_t offsets[];
 };
-extern const ::google::protobuf_inworld::internal::DescriptorTable
+extern const ::google::protobuf::internal::DescriptorTable
     descriptor_table_google_2fapi_2fhttp_2eproto;
 namespace google {
 namespace api {
@@ -80,12 +80,12 @@ namespace api {
 // -------------------------------------------------------------------
 
 class CustomHttpPattern final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:google.api.CustomHttpPattern) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.api.CustomHttpPattern) */ {
  public:
   inline CustomHttpPattern() : CustomHttpPattern(nullptr) {}
   ~CustomHttpPattern() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR CustomHttpPattern(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR CustomHttpPattern(::google::protobuf::internal::ConstantInitialized);
 
   inline CustomHttpPattern(const CustomHttpPattern& from)
       : CustomHttpPattern(nullptr, from) {}
@@ -112,22 +112,22 @@ class CustomHttpPattern final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const CustomHttpPattern& default_instance() {
@@ -153,7 +153,7 @@ class CustomHttpPattern final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(CustomHttpPattern* other) {
@@ -164,47 +164,47 @@ class CustomHttpPattern final :
 
   // implements Message ----------------------------------------------
 
-  CustomHttpPattern* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  CustomHttpPattern* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<CustomHttpPattern>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const CustomHttpPattern& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const CustomHttpPattern& from) {
     CustomHttpPattern::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(CustomHttpPattern* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "google.api.CustomHttpPattern";
   }
   protected:
-  explicit CustomHttpPattern(::google::protobuf_inworld::Arena* arena);
-  CustomHttpPattern(::google::protobuf_inworld::Arena* arena, const CustomHttpPattern& from);
+  explicit CustomHttpPattern(::google::protobuf::Arena* arena);
+  CustomHttpPattern(::google::protobuf::Arena* arena, const CustomHttpPattern& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -250,28 +250,28 @@ class CustomHttpPattern final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       1, 2, 0,
       45, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::ArenaStringPtr kind_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr path_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr kind_;
+    ::google::protobuf::internal::ArenaStringPtr path_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -279,12 +279,12 @@ class CustomHttpPattern final :
 };// -------------------------------------------------------------------
 
 class HttpRule final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:google.api.HttpRule) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.api.HttpRule) */ {
  public:
   inline HttpRule() : HttpRule(nullptr) {}
   ~HttpRule() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR HttpRule(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR HttpRule(::google::protobuf::internal::ConstantInitialized);
 
   inline HttpRule(const HttpRule& from)
       : HttpRule(nullptr, from) {}
@@ -311,22 +311,22 @@ class HttpRule final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const HttpRule& default_instance() {
@@ -362,7 +362,7 @@ class HttpRule final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(HttpRule* other) {
@@ -373,47 +373,47 @@ class HttpRule final :
 
   // implements Message ----------------------------------------------
 
-  HttpRule* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  HttpRule* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<HttpRule>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const HttpRule& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const HttpRule& from) {
     HttpRule::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(HttpRule* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "google.api.HttpRule";
   }
   protected:
-  explicit HttpRule(::google::protobuf_inworld::Arena* arena);
-  HttpRule(::google::protobuf_inworld::Arena* arena, const HttpRule& from);
+  explicit HttpRule(::google::protobuf::Arena* arena);
+  HttpRule(::google::protobuf::Arena* arena, const HttpRule& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -439,15 +439,15 @@ class HttpRule final :
   public:
   void clear_additional_bindings() ;
   ::google::api::HttpRule* mutable_additional_bindings(int index);
-  ::google::protobuf_inworld::RepeatedPtrField< ::google::api::HttpRule >*
+  ::google::protobuf::RepeatedPtrField< ::google::api::HttpRule >*
       mutable_additional_bindings();
   private:
-  const ::google::protobuf_inworld::RepeatedPtrField<::google::api::HttpRule>& _internal_additional_bindings() const;
-  ::google::protobuf_inworld::RepeatedPtrField<::google::api::HttpRule>* _internal_mutable_additional_bindings();
+  const ::google::protobuf::RepeatedPtrField<::google::api::HttpRule>& _internal_additional_bindings() const;
+  ::google::protobuf::RepeatedPtrField<::google::api::HttpRule>* _internal_mutable_additional_bindings();
   public:
   const ::google::api::HttpRule& additional_bindings(int index) const;
   ::google::api::HttpRule* add_additional_bindings();
-  const ::google::protobuf_inworld::RepeatedPtrField< ::google::api::HttpRule >&
+  const ::google::protobuf::RepeatedPtrField< ::google::api::HttpRule >&
       additional_bindings() const;
   // string selector = 1;
   void clear_selector() ;
@@ -616,40 +616,40 @@ class HttpRule final :
   inline bool has_pattern() const;
   inline void clear_has_pattern();
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       3, 10, 2,
       82, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::RepeatedPtrField< ::google::api::HttpRule > additional_bindings_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr selector_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr body_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr response_body_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::RepeatedPtrField< ::google::api::HttpRule > additional_bindings_;
+    ::google::protobuf::internal::ArenaStringPtr selector_;
+    ::google::protobuf::internal::ArenaStringPtr body_;
+    ::google::protobuf::internal::ArenaStringPtr response_body_;
     union PatternUnion {
       constexpr PatternUnion() : _constinit_{} {}
-        ::google::protobuf_inworld::internal::ConstantInitialized _constinit_;
-      ::google::protobuf_inworld::internal::ArenaStringPtr get_;
-      ::google::protobuf_inworld::internal::ArenaStringPtr put_;
-      ::google::protobuf_inworld::internal::ArenaStringPtr post_;
-      ::google::protobuf_inworld::internal::ArenaStringPtr delete__;
-      ::google::protobuf_inworld::internal::ArenaStringPtr patch_;
+        ::google::protobuf::internal::ConstantInitialized _constinit_;
+      ::google::protobuf::internal::ArenaStringPtr get_;
+      ::google::protobuf::internal::ArenaStringPtr put_;
+      ::google::protobuf::internal::ArenaStringPtr post_;
+      ::google::protobuf::internal::ArenaStringPtr delete__;
+      ::google::protobuf::internal::ArenaStringPtr patch_;
       ::google::api::CustomHttpPattern* custom_;
     } pattern_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     ::uint32_t _oneof_case_[1];
 
     PROTOBUF_TSAN_DECLARE_MEMBER
@@ -659,12 +659,12 @@ class HttpRule final :
 };// -------------------------------------------------------------------
 
 class Http final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:google.api.Http) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.api.Http) */ {
  public:
   inline Http() : Http(nullptr) {}
   ~Http() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR Http(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR Http(::google::protobuf::internal::ConstantInitialized);
 
   inline Http(const Http& from)
       : Http(nullptr, from) {}
@@ -691,22 +691,22 @@ class Http final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const Http& default_instance() {
@@ -732,7 +732,7 @@ class Http final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(Http* other) {
@@ -743,47 +743,47 @@ class Http final :
 
   // implements Message ----------------------------------------------
 
-  Http* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  Http* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<Http>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const Http& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const Http& from) {
     Http::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(Http* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "google.api.Http";
   }
   protected:
-  explicit Http(::google::protobuf_inworld::Arena* arena);
-  Http(::google::protobuf_inworld::Arena* arena, const Http& from);
+  explicit Http(::google::protobuf::Arena* arena);
+  Http(::google::protobuf::Arena* arena, const Http& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -801,15 +801,15 @@ class Http final :
   public:
   void clear_rules() ;
   ::google::api::HttpRule* mutable_rules(int index);
-  ::google::protobuf_inworld::RepeatedPtrField< ::google::api::HttpRule >*
+  ::google::protobuf::RepeatedPtrField< ::google::api::HttpRule >*
       mutable_rules();
   private:
-  const ::google::protobuf_inworld::RepeatedPtrField<::google::api::HttpRule>& _internal_rules() const;
-  ::google::protobuf_inworld::RepeatedPtrField<::google::api::HttpRule>* _internal_mutable_rules();
+  const ::google::protobuf::RepeatedPtrField<::google::api::HttpRule>& _internal_rules() const;
+  ::google::protobuf::RepeatedPtrField<::google::api::HttpRule>* _internal_mutable_rules();
   public:
   const ::google::api::HttpRule& rules(int index) const;
   ::google::api::HttpRule* add_rules();
-  const ::google::protobuf_inworld::RepeatedPtrField< ::google::api::HttpRule >&
+  const ::google::protobuf::RepeatedPtrField< ::google::api::HttpRule >&
       rules() const;
   // bool fully_decode_reserved_expansion = 2;
   void clear_fully_decode_reserved_expansion() ;
@@ -825,28 +825,28 @@ class Http final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       1, 2, 1,
       0, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::RepeatedPtrField< ::google::api::HttpRule > rules_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::RepeatedPtrField< ::google::api::HttpRule > rules_;
     bool fully_decode_reserved_expansion_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -885,7 +885,7 @@ inline ::google::api::HttpRule* Http::mutable_rules(int index)
   // @@protoc_insertion_point(field_mutable:google.api.Http.rules)
   return _internal_mutable_rules()->Mutable(index);
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<::google::api::HttpRule>* Http::mutable_rules()
+inline ::google::protobuf::RepeatedPtrField<::google::api::HttpRule>* Http::mutable_rules()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_mutable_list:google.api.Http.rules)
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
@@ -902,17 +902,17 @@ inline ::google::api::HttpRule* Http::add_rules() ABSL_ATTRIBUTE_LIFETIME_BOUND 
   // @@protoc_insertion_point(field_add:google.api.Http.rules)
   return _add;
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<::google::api::HttpRule>& Http::rules() const
+inline const ::google::protobuf::RepeatedPtrField<::google::api::HttpRule>& Http::rules() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_list:google.api.Http.rules)
   return _internal_rules();
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<::google::api::HttpRule>&
+inline const ::google::protobuf::RepeatedPtrField<::google::api::HttpRule>&
 Http::_internal_rules() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return _impl_.rules_;
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<::google::api::HttpRule>*
+inline ::google::protobuf::RepeatedPtrField<::google::api::HttpRule>*
 Http::_internal_mutable_rules() {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return &_impl_.rules_;
@@ -1038,7 +1038,7 @@ inline std::string* HttpRule::mutable_get() ABSL_ATTRIBUTE_LIFETIME_BOUND {
 inline const std::string& HttpRule::_internal_get() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   if (pattern_case() != kGet) {
-    return ::google::protobuf_inworld::internal::GetEmptyStringAlreadyInited();
+    return ::google::protobuf::internal::GetEmptyStringAlreadyInited();
   }
   return _impl_.pattern_.get_.Get();
 }
@@ -1123,7 +1123,7 @@ inline std::string* HttpRule::mutable_put() ABSL_ATTRIBUTE_LIFETIME_BOUND {
 inline const std::string& HttpRule::_internal_put() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   if (pattern_case() != kPut) {
-    return ::google::protobuf_inworld::internal::GetEmptyStringAlreadyInited();
+    return ::google::protobuf::internal::GetEmptyStringAlreadyInited();
   }
   return _impl_.pattern_.put_.Get();
 }
@@ -1208,7 +1208,7 @@ inline std::string* HttpRule::mutable_post() ABSL_ATTRIBUTE_LIFETIME_BOUND {
 inline const std::string& HttpRule::_internal_post() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   if (pattern_case() != kPost) {
-    return ::google::protobuf_inworld::internal::GetEmptyStringAlreadyInited();
+    return ::google::protobuf::internal::GetEmptyStringAlreadyInited();
   }
   return _impl_.pattern_.post_.Get();
 }
@@ -1293,7 +1293,7 @@ inline std::string* HttpRule::mutable_delete_() ABSL_ATTRIBUTE_LIFETIME_BOUND {
 inline const std::string& HttpRule::_internal_delete_() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   if (pattern_case() != kDelete) {
-    return ::google::protobuf_inworld::internal::GetEmptyStringAlreadyInited();
+    return ::google::protobuf::internal::GetEmptyStringAlreadyInited();
   }
   return _impl_.pattern_.delete__.Get();
 }
@@ -1378,7 +1378,7 @@ inline std::string* HttpRule::mutable_patch() ABSL_ATTRIBUTE_LIFETIME_BOUND {
 inline const std::string& HttpRule::_internal_patch() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   if (pattern_case() != kPatch) {
-    return ::google::protobuf_inworld::internal::GetEmptyStringAlreadyInited();
+    return ::google::protobuf::internal::GetEmptyStringAlreadyInited();
   }
   return _impl_.pattern_.patch_.Get();
 }
@@ -1448,7 +1448,7 @@ inline ::google::api::CustomHttpPattern* HttpRule::release_custom() {
     clear_has_pattern();
     auto* temp = _impl_.pattern_.custom_;
     if (GetArena() != nullptr) {
-      temp = ::google::protobuf_inworld::internal::DuplicateIfNonNull(temp);
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
     }
     _impl_.pattern_.custom_ = nullptr;
     return temp;
@@ -1621,7 +1621,7 @@ inline ::google::api::HttpRule* HttpRule::mutable_additional_bindings(int index)
   // @@protoc_insertion_point(field_mutable:google.api.HttpRule.additional_bindings)
   return _internal_mutable_additional_bindings()->Mutable(index);
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<::google::api::HttpRule>* HttpRule::mutable_additional_bindings()
+inline ::google::protobuf::RepeatedPtrField<::google::api::HttpRule>* HttpRule::mutable_additional_bindings()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_mutable_list:google.api.HttpRule.additional_bindings)
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
@@ -1638,17 +1638,17 @@ inline ::google::api::HttpRule* HttpRule::add_additional_bindings() ABSL_ATTRIBU
   // @@protoc_insertion_point(field_add:google.api.HttpRule.additional_bindings)
   return _add;
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<::google::api::HttpRule>& HttpRule::additional_bindings() const
+inline const ::google::protobuf::RepeatedPtrField<::google::api::HttpRule>& HttpRule::additional_bindings() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_list:google.api.HttpRule.additional_bindings)
   return _internal_additional_bindings();
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<::google::api::HttpRule>&
+inline const ::google::protobuf::RepeatedPtrField<::google::api::HttpRule>&
 HttpRule::_internal_additional_bindings() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return _impl_.additional_bindings_;
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<::google::api::HttpRule>*
+inline ::google::protobuf::RepeatedPtrField<::google::api::HttpRule>*
 HttpRule::_internal_mutable_additional_bindings() {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return &_impl_.additional_bindings_;

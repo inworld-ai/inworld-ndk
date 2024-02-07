@@ -58,7 +58,7 @@ class AnyMetadata;
 struct TableStruct_ai_2finworld_2fvoices_2fvoices_2eproto {
   static const ::uint32_t offsets[];
 };
-extern const ::google::protobuf_inworld::internal::DescriptorTable
+extern const ::google::protobuf::internal::DescriptorTable
     descriptor_table_ai_2finworld_2fvoices_2fvoices_2eproto;
 namespace ai {
 namespace inworld {
@@ -99,7 +99,7 @@ extern const uint32_t Gender_internal_data_[];
 constexpr Gender Gender_MIN = static_cast<Gender>(0);
 constexpr Gender Gender_MAX = static_cast<Gender>(3);
 constexpr int Gender_ARRAYSIZE = 3 + 1;
-const ::google::protobuf_inworld::EnumDescriptor*
+const ::google::protobuf::EnumDescriptor*
 Gender_descriptor();
 template <typename T>
 const std::string& Gender_Name(T value) {
@@ -110,12 +110,12 @@ const std::string& Gender_Name(T value) {
 }
 template <>
 inline const std::string& Gender_Name(Gender value) {
-  return ::google::protobuf_inworld::internal::NameOfDenseEnum<Gender_descriptor,
+  return ::google::protobuf::internal::NameOfDenseEnum<Gender_descriptor,
                                                  0, 3>(
       static_cast<int>(value));
 }
 inline bool Gender_Parse(absl::string_view name, Gender* value) {
-  return ::google::protobuf_inworld::internal::ParseNamedEnum<Gender>(
+  return ::google::protobuf::internal::ParseNamedEnum<Gender>(
       Gender_descriptor(), name, value);
 }
 enum Age : int {
@@ -134,7 +134,7 @@ extern const uint32_t Age_internal_data_[];
 constexpr Age Age_MIN = static_cast<Age>(0);
 constexpr Age Age_MAX = static_cast<Age>(3);
 constexpr int Age_ARRAYSIZE = 3 + 1;
-const ::google::protobuf_inworld::EnumDescriptor*
+const ::google::protobuf::EnumDescriptor*
 Age_descriptor();
 template <typename T>
 const std::string& Age_Name(T value) {
@@ -145,12 +145,12 @@ const std::string& Age_Name(T value) {
 }
 template <>
 inline const std::string& Age_Name(Age value) {
-  return ::google::protobuf_inworld::internal::NameOfDenseEnum<Age_descriptor,
+  return ::google::protobuf::internal::NameOfDenseEnum<Age_descriptor,
                                                  0, 3>(
       static_cast<int>(value));
 }
 inline bool Age_Parse(absl::string_view name, Age* value) {
-  return ::google::protobuf_inworld::internal::ParseNamedEnum<Age>(
+  return ::google::protobuf::internal::ParseNamedEnum<Age>(
       Age_descriptor(), name, value);
 }
 enum TTSType : int {
@@ -169,7 +169,7 @@ extern const uint32_t TTSType_internal_data_[];
 constexpr TTSType TTSType_MIN = static_cast<TTSType>(0);
 constexpr TTSType TTSType_MAX = static_cast<TTSType>(3);
 constexpr int TTSType_ARRAYSIZE = 3 + 1;
-const ::google::protobuf_inworld::EnumDescriptor*
+const ::google::protobuf::EnumDescriptor*
 TTSType_descriptor();
 template <typename T>
 const std::string& TTSType_Name(T value) {
@@ -180,12 +180,12 @@ const std::string& TTSType_Name(T value) {
 }
 template <>
 inline const std::string& TTSType_Name(TTSType value) {
-  return ::google::protobuf_inworld::internal::NameOfDenseEnum<TTSType_descriptor,
+  return ::google::protobuf::internal::NameOfDenseEnum<TTSType_descriptor,
                                                  0, 3>(
       static_cast<int>(value));
 }
 inline bool TTSType_Parse(absl::string_view name, TTSType* value) {
-  return ::google::protobuf_inworld::internal::ParseNamedEnum<TTSType>(
+  return ::google::protobuf::internal::ParseNamedEnum<TTSType>(
       TTSType_descriptor(), name, value);
 }
 
@@ -195,42 +195,42 @@ inline bool TTSType_Parse(absl::string_view name, TTSType* value) {
 // -------------------------------------------------------------------
 
 class Voice_PhonemesOverridesEntry_DoNotUse final
-    : public ::google::protobuf_inworld::internal::MapEntry<
+    : public ::google::protobuf::internal::MapEntry<
           Voice_PhonemesOverridesEntry_DoNotUse, std::string, std::string,
-          ::google::protobuf_inworld::internal::WireFormatLite::TYPE_STRING,
-          ::google::protobuf_inworld::internal::WireFormatLite::TYPE_STRING> {
+          ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+          ::google::protobuf::internal::WireFormatLite::TYPE_STRING> {
  public:
-  using SuperType = ::google::protobuf_inworld::internal::MapEntry<
+  using SuperType = ::google::protobuf::internal::MapEntry<
       Voice_PhonemesOverridesEntry_DoNotUse, std::string, std::string,
-      ::google::protobuf_inworld::internal::WireFormatLite::TYPE_STRING,
-      ::google::protobuf_inworld::internal::WireFormatLite::TYPE_STRING>;
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING>;
   Voice_PhonemesOverridesEntry_DoNotUse();
   template <typename = void>
   explicit PROTOBUF_CONSTEXPR Voice_PhonemesOverridesEntry_DoNotUse(
-      ::google::protobuf_inworld::internal::ConstantInitialized);
-  explicit Voice_PhonemesOverridesEntry_DoNotUse(::google::protobuf_inworld::Arena* arena);
+      ::google::protobuf::internal::ConstantInitialized);
+  explicit Voice_PhonemesOverridesEntry_DoNotUse(::google::protobuf::Arena* arena);
   static const Voice_PhonemesOverridesEntry_DoNotUse* internal_default_instance() {
     return reinterpret_cast<const Voice_PhonemesOverridesEntry_DoNotUse*>(
         &_Voice_PhonemesOverridesEntry_DoNotUse_default_instance_);
   }
   static bool ValidateKey(std::string* s) {
-    return ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::google::protobuf_inworld::internal::WireFormatLite::PARSE, "ai.inworld.voices.Voice.PhonemesOverridesEntry.key");
+    return ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::google::protobuf::internal::WireFormatLite::PARSE, "ai.inworld.voices.Voice.PhonemesOverridesEntry.key");
  }
   static bool ValidateValue(std::string* s) {
-    return ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::google::protobuf_inworld::internal::WireFormatLite::PARSE, "ai.inworld.voices.Voice.PhonemesOverridesEntry.value");
+    return ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::google::protobuf::internal::WireFormatLite::PARSE, "ai.inworld.voices.Voice.PhonemesOverridesEntry.value");
  }
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
   friend struct ::TableStruct_ai_2finworld_2fvoices_2fvoices_2eproto;
 };
 // -------------------------------------------------------------------
 
 class Voice_ElevenLabsMetadata final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.voices.Voice.ElevenLabsMetadata) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.voices.Voice.ElevenLabsMetadata) */ {
  public:
   inline Voice_ElevenLabsMetadata() : Voice_ElevenLabsMetadata(nullptr) {}
   ~Voice_ElevenLabsMetadata() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR Voice_ElevenLabsMetadata(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR Voice_ElevenLabsMetadata(::google::protobuf::internal::ConstantInitialized);
 
   inline Voice_ElevenLabsMetadata(const Voice_ElevenLabsMetadata& from)
       : Voice_ElevenLabsMetadata(nullptr, from) {}
@@ -257,22 +257,22 @@ class Voice_ElevenLabsMetadata final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const Voice_ElevenLabsMetadata& default_instance() {
@@ -298,7 +298,7 @@ class Voice_ElevenLabsMetadata final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(Voice_ElevenLabsMetadata* other) {
@@ -309,47 +309,47 @@ class Voice_ElevenLabsMetadata final :
 
   // implements Message ----------------------------------------------
 
-  Voice_ElevenLabsMetadata* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  Voice_ElevenLabsMetadata* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<Voice_ElevenLabsMetadata>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const Voice_ElevenLabsMetadata& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const Voice_ElevenLabsMetadata& from) {
     Voice_ElevenLabsMetadata::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(Voice_ElevenLabsMetadata* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.voices.Voice.ElevenLabsMetadata";
   }
   protected:
-  explicit Voice_ElevenLabsMetadata(::google::protobuf_inworld::Arena* arena);
-  Voice_ElevenLabsMetadata(::google::protobuf_inworld::Arena* arena, const Voice_ElevenLabsMetadata& from);
+  explicit Voice_ElevenLabsMetadata(::google::protobuf::Arena* arena);
+  Voice_ElevenLabsMetadata(::google::protobuf::Arena* arena, const Voice_ElevenLabsMetadata& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -378,27 +378,27 @@ class Voice_ElevenLabsMetadata final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       0, 1, 0,
       59, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::ArenaStringPtr voice_id_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr voice_id_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -406,12 +406,12 @@ class Voice_ElevenLabsMetadata final :
 };// -------------------------------------------------------------------
 
 class Voice final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.voices.Voice) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.voices.Voice) */ {
  public:
   inline Voice() : Voice(nullptr) {}
   ~Voice() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR Voice(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR Voice(::google::protobuf::internal::ConstantInitialized);
 
   inline Voice(const Voice& from)
       : Voice(nullptr, from) {}
@@ -438,22 +438,22 @@ class Voice final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const Voice& default_instance() {
@@ -484,7 +484,7 @@ class Voice final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(Voice* other) {
@@ -495,47 +495,47 @@ class Voice final :
 
   // implements Message ----------------------------------------------
 
-  Voice* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  Voice* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<Voice>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const Voice& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const Voice& from) {
     Voice::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(Voice* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.voices.Voice";
   }
   protected:
-  explicit Voice(::google::protobuf_inworld::Arena* arena);
-  Voice(::google::protobuf_inworld::Arena* arena, const Voice& from);
+  explicit Voice(::google::protobuf::Arena* arena);
+  Voice(::google::protobuf::Arena* arena, const Voice& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -563,12 +563,12 @@ class Voice final :
 
   public:
   void clear_phonemes_overrides() ;
-  const ::google::protobuf_inworld::Map<std::string, std::string>& phonemes_overrides() const;
-  ::google::protobuf_inworld::Map<std::string, std::string>* mutable_phonemes_overrides();
+  const ::google::protobuf::Map<std::string, std::string>& phonemes_overrides() const;
+  ::google::protobuf::Map<std::string, std::string>* mutable_phonemes_overrides();
 
   private:
-  const ::google::protobuf_inworld::Map<std::string, std::string>& _internal_phonemes_overrides() const;
-  ::google::protobuf_inworld::Map<std::string, std::string>* _internal_mutable_phonemes_overrides();
+  const ::google::protobuf::Map<std::string, std::string>& _internal_phonemes_overrides() const;
+  ::google::protobuf::Map<std::string, std::string>* _internal_mutable_phonemes_overrides();
 
   public:
   // string baseName = 1;
@@ -702,31 +702,31 @@ class Voice final :
   inline bool has_tts_metadata() const;
   inline void clear_has_tts_metadata();
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       4, 11, 2,
       79, 7>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::MapField<Voice_PhonemesOverridesEntry_DoNotUse, std::string, std::string,
-                      ::google::protobuf_inworld::internal::WireFormatLite::TYPE_STRING,
-                      ::google::protobuf_inworld::internal::WireFormatLite::TYPE_STRING>
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::MapField<Voice_PhonemesOverridesEntry_DoNotUse, std::string, std::string,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING>
         phonemes_overrides_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr basename_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr language_code_;
+    ::google::protobuf::internal::ArenaStringPtr basename_;
+    ::google::protobuf::internal::ArenaStringPtr language_code_;
     int tts_type_;
     int gender_;
     double pitch_;
@@ -736,10 +736,10 @@ class Voice final :
     int language_;
     union TtsMetadataUnion {
       constexpr TtsMetadataUnion() : _constinit_{} {}
-        ::google::protobuf_inworld::internal::ConstantInitialized _constinit_;
+        ::google::protobuf::internal::ConstantInitialized _constinit_;
       ::ai::inworld::voices::Voice_ElevenLabsMetadata* elevenlabs_metadata_;
     } tts_metadata_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     ::uint32_t _oneof_case_[1];
 
     PROTOBUF_TSAN_DECLARE_MEMBER
@@ -1002,19 +1002,19 @@ inline void Voice::clear_phonemes_overrides() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   _impl_.phonemes_overrides_.Clear();
 }
-inline const ::google::protobuf_inworld::Map<std::string, std::string>& Voice::_internal_phonemes_overrides() const {
+inline const ::google::protobuf::Map<std::string, std::string>& Voice::_internal_phonemes_overrides() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return _impl_.phonemes_overrides_.GetMap();
 }
-inline const ::google::protobuf_inworld::Map<std::string, std::string>& Voice::phonemes_overrides() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+inline const ::google::protobuf::Map<std::string, std::string>& Voice::phonemes_overrides() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_map:ai.inworld.voices.Voice.phonemes_overrides)
   return _internal_phonemes_overrides();
 }
-inline ::google::protobuf_inworld::Map<std::string, std::string>* Voice::_internal_mutable_phonemes_overrides() {
+inline ::google::protobuf::Map<std::string, std::string>* Voice::_internal_mutable_phonemes_overrides() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   return _impl_.phonemes_overrides_.MutableMap();
 }
-inline ::google::protobuf_inworld::Map<std::string, std::string>* Voice::mutable_phonemes_overrides() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+inline ::google::protobuf::Map<std::string, std::string>* Voice::mutable_phonemes_overrides() ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_mutable_map:ai.inworld.voices.Voice.phonemes_overrides)
   return _internal_mutable_phonemes_overrides();
 }
@@ -1143,7 +1143,7 @@ inline ::ai::inworld::voices::Voice_ElevenLabsMetadata* Voice::release_elevenlab
     clear_has_tts_metadata();
     auto* temp = _impl_.tts_metadata_.elevenlabs_metadata_;
     if (GetArena() != nullptr) {
-      temp = ::google::protobuf_inworld::internal::DuplicateIfNonNull(temp);
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
     }
     _impl_.tts_metadata_.elevenlabs_metadata_ = nullptr;
     return temp;

@@ -74,12 +74,12 @@ class WorldEngine final {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::engine::LoadSceneResponse>>(PrepareAsyncLoadSceneRaw(context, request, cq));
     }
     // RPC to log errors for the interaction session.
-    virtual ::grpc::Status LogError(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest& request, ::google::protobuf_inworld::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> AsyncLogError(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(AsyncLogErrorRaw(context, request, cq));
+    virtual ::grpc::Status LogError(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest& request, ::google::protobuf::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncLogError(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncLogErrorRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> PrepareAsyncLogError(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(PrepareAsyncLogErrorRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncLogError(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncLogErrorRaw(context, request, cq));
     }
     // RPC to get voice preview
     virtual ::grpc::Status VoicePreview(::grpc::ClientContext* context, const ::ai::inworld::engine::VoicePreviewRequest& request, ::ai::inworld::engine::VoicePreviewResponse* response) = 0;
@@ -123,8 +123,8 @@ class WorldEngine final {
       virtual void LoadScene(::grpc::ClientContext* context, const ::ai::inworld::engine::LoadSceneRequest* request, ::ai::inworld::engine::LoadSceneResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void LoadScene(::grpc::ClientContext* context, const ::ai::inworld::engine::LoadSceneRequest* request, ::ai::inworld::engine::LoadSceneResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // RPC to log errors for the interaction session.
-      virtual void LogError(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void LogError(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void LogError(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void LogError(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // RPC to get voice preview
       virtual void VoicePreview(::grpc::ClientContext* context, const ::ai::inworld::engine::VoicePreviewRequest* request, ::ai::inworld::engine::VoicePreviewResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void VoicePreview(::grpc::ClientContext* context, const ::ai::inworld::engine::VoicePreviewRequest* request, ::ai::inworld::engine::VoicePreviewResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
@@ -148,8 +148,8 @@ class WorldEngine final {
     virtual ::grpc::ClientAsyncReaderWriterInterface< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* PrepareAsyncOpenSessionRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::engine::LoadSceneResponse>* AsyncLoadSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::LoadSceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::engine::LoadSceneResponse>* PrepareAsyncLoadSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::LoadSceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* AsyncLogErrorRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* PrepareAsyncLogErrorRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncLogErrorRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncLogErrorRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::engine::VoicePreviewResponse>* AsyncVoicePreviewRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::VoicePreviewRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::engine::VoicePreviewResponse>* PrepareAsyncVoicePreviewRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::VoicePreviewRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::engine::ListBaseVoicesResponce>* AsyncListBaseVoicesRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::ListBaseVoicesRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -185,12 +185,12 @@ class WorldEngine final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::engine::LoadSceneResponse>> PrepareAsyncLoadScene(::grpc::ClientContext* context, const ::ai::inworld::engine::LoadSceneRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::engine::LoadSceneResponse>>(PrepareAsyncLoadSceneRaw(context, request, cq));
     }
-    ::grpc::Status LogError(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest& request, ::google::protobuf_inworld::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> AsyncLogError(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(AsyncLogErrorRaw(context, request, cq));
+    ::grpc::Status LogError(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest& request, ::google::protobuf::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncLogError(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncLogErrorRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> PrepareAsyncLogError(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(PrepareAsyncLogErrorRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncLogError(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncLogErrorRaw(context, request, cq));
     }
     ::grpc::Status VoicePreview(::grpc::ClientContext* context, const ::ai::inworld::engine::VoicePreviewRequest& request, ::ai::inworld::engine::VoicePreviewResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::engine::VoicePreviewResponse>> AsyncVoicePreview(::grpc::ClientContext* context, const ::ai::inworld::engine::VoicePreviewRequest& request, ::grpc::CompletionQueue* cq) {
@@ -220,8 +220,8 @@ class WorldEngine final {
       void OpenSession(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::ai::inworld::packets::InworldPacket,::ai::inworld::packets::InworldPacket>* reactor) override;
       void LoadScene(::grpc::ClientContext* context, const ::ai::inworld::engine::LoadSceneRequest* request, ::ai::inworld::engine::LoadSceneResponse* response, std::function<void(::grpc::Status)>) override;
       void LoadScene(::grpc::ClientContext* context, const ::ai::inworld::engine::LoadSceneRequest* request, ::ai::inworld::engine::LoadSceneResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void LogError(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
-      void LogError(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void LogError(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
+      void LogError(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
       void VoicePreview(::grpc::ClientContext* context, const ::ai::inworld::engine::VoicePreviewRequest* request, ::ai::inworld::engine::VoicePreviewResponse* response, std::function<void(::grpc::Status)>) override;
       void VoicePreview(::grpc::ClientContext* context, const ::ai::inworld::engine::VoicePreviewRequest* request, ::ai::inworld::engine::VoicePreviewResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       void ListBaseVoices(::grpc::ClientContext* context, const ::ai::inworld::engine::ListBaseVoicesRequest* request, ::ai::inworld::engine::ListBaseVoicesResponce* response, std::function<void(::grpc::Status)>) override;
@@ -247,8 +247,8 @@ class WorldEngine final {
     ::grpc::ClientAsyncReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* PrepareAsyncOpenSessionRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::engine::LoadSceneResponse>* AsyncLoadSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::LoadSceneRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::engine::LoadSceneResponse>* PrepareAsyncLoadSceneRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::LoadSceneRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* AsyncLogErrorRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* PrepareAsyncLogErrorRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncLogErrorRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncLogErrorRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::engine::VoicePreviewResponse>* AsyncVoicePreviewRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::VoicePreviewRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::engine::VoicePreviewResponse>* PrepareAsyncVoicePreviewRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::VoicePreviewRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::engine::ListBaseVoicesResponce>* AsyncListBaseVoicesRaw(::grpc::ClientContext* context, const ::ai::inworld::engine::ListBaseVoicesRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -282,7 +282,7 @@ class WorldEngine final {
     // RPC to load world for the interaction session.
     virtual ::grpc::Status LoadScene(::grpc::ServerContext* context, const ::ai::inworld::engine::LoadSceneRequest* request, ::ai::inworld::engine::LoadSceneResponse* response);
     // RPC to log errors for the interaction session.
-    virtual ::grpc::Status LogError(::grpc::ServerContext* context, const ::ai::inworld::engine::LogErrorRequest* request, ::google::protobuf_inworld::Empty* response);
+    virtual ::grpc::Status LogError(::grpc::ServerContext* context, const ::ai::inworld::engine::LogErrorRequest* request, ::google::protobuf::Empty* response);
     // RPC to get voice preview
     virtual ::grpc::Status VoicePreview(::grpc::ServerContext* context, const ::ai::inworld::engine::VoicePreviewRequest* request, ::ai::inworld::engine::VoicePreviewResponse* response);
     // RPC to load list of base voices.
@@ -363,11 +363,11 @@ class WorldEngine final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status LogError(::grpc::ServerContext* /*context*/, const ::ai::inworld::engine::LogErrorRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status LogError(::grpc::ServerContext* /*context*/, const ::ai::inworld::engine::LogErrorRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestLogError(::grpc::ServerContext* context, ::ai::inworld::engine::LogErrorRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf_inworld::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestLogError(::grpc::ServerContext* context, ::ai::inworld::engine::LogErrorRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -512,25 +512,25 @@ class WorldEngine final {
    public:
     WithCallbackMethod_LogError() {
       ::grpc::Service::MarkMethodCallback(3,
-          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::engine::LogErrorRequest, ::google::protobuf_inworld::Empty>(
+          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::engine::LogErrorRequest, ::google::protobuf::Empty>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::ai::inworld::engine::LogErrorRequest* request, ::google::protobuf_inworld::Empty* response) { return this->LogError(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::engine::LogErrorRequest* request, ::google::protobuf::Empty* response) { return this->LogError(context, request, response); }));}
     void SetMessageAllocatorFor_LogError(
-        ::grpc::MessageAllocator< ::ai::inworld::engine::LogErrorRequest, ::google::protobuf_inworld::Empty>* allocator) {
+        ::grpc::MessageAllocator< ::ai::inworld::engine::LogErrorRequest, ::google::protobuf::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::engine::LogErrorRequest, ::google::protobuf_inworld::Empty>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::engine::LogErrorRequest, ::google::protobuf::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_LogError() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status LogError(::grpc::ServerContext* /*context*/, const ::ai::inworld::engine::LogErrorRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status LogError(::grpc::ServerContext* /*context*/, const ::ai::inworld::engine::LogErrorRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* LogError(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::engine::LogErrorRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::engine::LogErrorRequest* /*request*/, ::google::protobuf::Empty* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_VoicePreview : public BaseClass {
@@ -678,7 +678,7 @@ class WorldEngine final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status LogError(::grpc::ServerContext* /*context*/, const ::ai::inworld::engine::LogErrorRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status LogError(::grpc::ServerContext* /*context*/, const ::ai::inworld::engine::LogErrorRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -806,7 +806,7 @@ class WorldEngine final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status LogError(::grpc::ServerContext* /*context*/, const ::ai::inworld::engine::LogErrorRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status LogError(::grpc::ServerContext* /*context*/, const ::ai::inworld::engine::LogErrorRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -957,7 +957,7 @@ class WorldEngine final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status LogError(::grpc::ServerContext* /*context*/, const ::ai::inworld::engine::LogErrorRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status LogError(::grpc::ServerContext* /*context*/, const ::ai::inworld::engine::LogErrorRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1065,10 +1065,10 @@ class WorldEngine final {
     WithStreamedUnaryMethod_LogError() {
       ::grpc::Service::MarkMethodStreamed(3,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::ai::inworld::engine::LogErrorRequest, ::google::protobuf_inworld::Empty>(
+          ::ai::inworld::engine::LogErrorRequest, ::google::protobuf::Empty>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::ai::inworld::engine::LogErrorRequest, ::google::protobuf_inworld::Empty>* streamer) {
+                     ::ai::inworld::engine::LogErrorRequest, ::google::protobuf::Empty>* streamer) {
                        return this->StreamedLogError(context,
                          streamer);
                   }));
@@ -1077,12 +1077,12 @@ class WorldEngine final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status LogError(::grpc::ServerContext* /*context*/, const ::ai::inworld::engine::LogErrorRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status LogError(::grpc::ServerContext* /*context*/, const ::ai::inworld::engine::LogErrorRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedLogError(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::engine::LogErrorRequest,::google::protobuf_inworld::Empty>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedLogError(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::engine::LogErrorRequest,::google::protobuf::Empty>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_VoicePreview : public BaseClass {

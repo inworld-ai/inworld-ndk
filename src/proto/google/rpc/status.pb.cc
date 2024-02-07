@@ -19,8 +19,8 @@
 #include "google/protobuf/port_def.inc"
 PROTOBUF_PRAGMA_INIT_SEG
 namespace _pb = ::google::protobuf;
-namespace _pbi = ::google::protobuf_inworld::internal;
-namespace _fl = ::google::protobuf_inworld::internal::field_layout;
+namespace _pbi = ::google::protobuf::internal;
+namespace _fl = ::google::protobuf::internal::field_layout;
 namespace google {
 namespace rpc {
 
@@ -28,7 +28,7 @@ inline constexpr Status::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : details_{},
         message_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         code_{0},
         _cached_size_{0} {}
@@ -137,25 +137,25 @@ void Status::clear_details() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   _impl_.details_.Clear();
 }
-Status::Status(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+Status::Status(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:google.rpc.Status)
 }
 inline PROTOBUF_NDEBUG_INLINE Status::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : details_{visibility, arena, from.details_},
         message_(arena, from.message_),
         _cached_size_{0} {}
 
 Status::Status(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const Status& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   Status* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
   _impl_.code_ = from._impl_.code_;
@@ -163,8 +163,8 @@ Status::Status(
   // @@protoc_insertion_point(copy_constructor:google.rpc.Status)
 }
 inline PROTOBUF_NDEBUG_INLINE Status::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : details_{visibility, arena},
         message_(arena),
         _cached_size_{0} {}
@@ -175,7 +175,7 @@ inline void Status::SharedCtor(::_pb::Arena* arena) {
 }
 Status::~Status() {
   // @@protoc_insertion_point(destructor:google.rpc.Status)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void Status::SharedDtor() {
@@ -194,7 +194,7 @@ PROTOBUF_NOINLINE void Status::Clear() {
   _impl_.details_.Clear();
   _impl_.message_.ClearToEmpty();
   _impl_.code_ = 0;
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* Status::_InternalParse(
@@ -242,7 +242,7 @@ const ::_pbi::TcParseTable<2, 3, 1, 33, 2> Status::_table_ = {
     {PROTOBUF_FIELD_OFFSET(Status, _impl_.details_), 0, 0,
     (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
-    {::_pbi::TcParser::GetTable<::google::protobuf_inworld::Any>()},
+    {::_pbi::TcParser::GetTable<::google::protobuf::Any>()},
   }}, {{
     "\21\0\7\0\0\0\0\0"
     "google.rpc.Status"
@@ -252,14 +252,14 @@ const ::_pbi::TcParseTable<2, 3, 1, 33, 2> Status::_table_ = {
 
 ::uint8_t* Status::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:google.rpc.Status)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
   // int32 code = 1;
   if (this->_internal_code() != 0) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         WriteInt32ToArrayWithField<1>(
             stream, this->_internal_code(), target);
   }
@@ -267,8 +267,8 @@ const ::_pbi::TcParseTable<2, 3, 1, 33, 2> Status::_table_ = {
   // string message = 2;
   if (!this->_internal_message().empty()) {
     const std::string& _s = this->_internal_message();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "google.rpc.Status.message");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "google.rpc.Status.message");
     target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
@@ -276,14 +276,14 @@ const ::_pbi::TcParseTable<2, 3, 1, 33, 2> Status::_table_ = {
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_details_size()); i < n; i++) {
     const auto& repfield = this->_internal_details().Get(i);
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         InternalWriteMessage(3, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:google.rpc.Status)
   return target;
@@ -301,11 +301,11 @@ const ::_pbi::TcParseTable<2, 3, 1, 33, 2> Status::_table_ = {
   total_size += 1UL * this->_internal_details_size();
   for (const auto& msg : this->_internal_details()) {
     total_size +=
-      ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(msg);
+      ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
   }
   // string message = 2;
   if (!this->_internal_message().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_message());
   }
 
@@ -318,15 +318,15 @@ const ::_pbi::TcParseTable<2, 3, 1, 33, 2> Status::_table_ = {
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData Status::_class_data_ = {
+const ::google::protobuf::Message::ClassData Status::_class_data_ = {
     Status::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* Status::GetClassData() const {
+const ::google::protobuf::Message::ClassData* Status::GetClassData() const {
   return &_class_data_;
 }
 
-void Status::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void Status::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<Status*>(&to_msg);
   auto& from = static_cast<const Status&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:google.rpc.Status)
@@ -342,7 +342,7 @@ void Status::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::goog
   if (from._internal_code() != 0) {
     _this->_internal_set_code(from._internal_code());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Status::CopyFrom(const Status& from) {
@@ -369,7 +369,7 @@ void Status::InternalSwap(Status* PROTOBUF_RESTRICT other) {
         swap(_impl_.code_, other->_impl_.code_);
 }
 
-::google::protobuf_inworld::Metadata Status::GetMetadata() const {
+::google::protobuf::Metadata Status::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_google_2frpc_2fstatus_2eproto_getter, &descriptor_table_google_2frpc_2fstatus_2eproto_once,
       file_level_metadata_google_2frpc_2fstatus_2eproto[0]);

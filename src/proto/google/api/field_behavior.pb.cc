@@ -19,8 +19,8 @@
 #include "google/protobuf/port_def.inc"
 PROTOBUF_PRAGMA_INIT_SEG
 namespace _pb = ::google::protobuf;
-namespace _pbi = ::google::protobuf_inworld::internal;
-namespace _fl = ::google::protobuf_inworld::internal::field_layout;
+namespace _pbi = ::google::protobuf::internal;
+namespace _fl = ::google::protobuf::internal::field_layout;
 namespace google {
 namespace api {
 }  // namespace api
@@ -86,8 +86,8 @@ PROTOBUF_ATTRIBUTE_INIT_PRIORITY2
 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_google_2fapi_2ffield_5fbehavior_2eproto(&descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto);
 namespace google {
 namespace api {
-const ::google::protobuf_inworld::EnumDescriptor* FieldBehavior_descriptor() {
-  ::google::protobuf_inworld::internal::AssignDescriptors(&descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto);
+const ::google::protobuf::EnumDescriptor* FieldBehavior_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto);
   return file_level_enum_descriptors_google_2fapi_2ffield_5fbehavior_2eproto[0];
 }
 PROTOBUF_CONSTINIT const uint32_t FieldBehavior_internal_data_[] = {
@@ -95,8 +95,8 @@ PROTOBUF_CONSTINIT const uint32_t FieldBehavior_internal_data_[] = {
 bool FieldBehavior_IsValid(int value) {
   return 0 <= value && value <= 6;
 }
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::FieldOptions,
-    ::google::protobuf_inworld::internal::RepeatedEnumTypeTraits< ::google::api::FieldBehavior, ::google::api::FieldBehavior_IsValid>, 14, true>
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::FieldOptions,
+    ::google::protobuf::internal::RepeatedEnumTypeTraits< ::google::api::FieldBehavior, ::google::api::FieldBehavior_IsValid>, 14, true>
   field_behavior(kFieldBehaviorFieldNumber, static_cast< ::google::api::FieldBehavior >(0), nullptr);
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace api

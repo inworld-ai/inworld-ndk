@@ -19,8 +19,8 @@
 #include "google/protobuf/port_def.inc"
 PROTOBUF_PRAGMA_INIT_SEG
 namespace _pb = ::google::protobuf;
-namespace _pbi = ::google::protobuf_inworld::internal;
-namespace _fl = ::google::protobuf_inworld::internal::field_layout;
+namespace _pbi = ::google::protobuf::internal;
+namespace _fl = ::google::protobuf::internal::field_layout;
 namespace google {
 namespace api {
 }  // namespace api
@@ -86,16 +86,16 @@ static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_google_2fapi_2fclient_2ep
 namespace google {
 namespace api {
 const std::string method_signature_default("");
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::MethodOptions,
-    ::google::protobuf_inworld::internal::RepeatedStringTypeTraits, 9, false>
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::MethodOptions,
+    ::google::protobuf::internal::RepeatedStringTypeTraits, 9, false>
   method_signature(kMethodSignatureFieldNumber, method_signature_default, nullptr);
 const std::string default_host_default("");
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::ServiceOptions,
-    ::google::protobuf_inworld::internal::StringTypeTraits, 9, false>
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::ServiceOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false>
   default_host(kDefaultHostFieldNumber, default_host_default, nullptr);
 const std::string oauth_scopes_default("");
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::ServiceOptions,
-    ::google::protobuf_inworld::internal::StringTypeTraits, 9, false>
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::ServiceOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false>
   oauth_scopes(kOauthScopesFieldNumber, oauth_scopes_default, nullptr);
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace api

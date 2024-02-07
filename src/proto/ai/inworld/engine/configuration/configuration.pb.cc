@@ -19,8 +19,8 @@
 #include "google/protobuf/port_def.inc"
 PROTOBUF_PRAGMA_INIT_SEG
 namespace _pb = ::google::protobuf;
-namespace _pbi = ::google::protobuf_inworld::internal;
-namespace _fl = ::google::protobuf_inworld::internal::field_layout;
+namespace _pbi = ::google::protobuf::internal;
+namespace _fl = ::google::protobuf::internal::field_layout;
 namespace ai {
 namespace inworld {
 namespace engine {
@@ -29,10 +29,10 @@ namespace configuration {
 inline constexpr UserConfiguration_UserSettings_PlayerProfile_PlayerField::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : field_id_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         field_value_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
 
@@ -53,7 +53,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr SessionConfiguration::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : game_session_id_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
 
@@ -74,13 +74,13 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr ClientConfiguration::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : id_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         version_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         description_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
 
@@ -174,10 +174,10 @@ inline constexpr UserConfiguration::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
         name_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         id_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         user_settings_{nullptr} {}
 
@@ -394,19 +394,19 @@ class CapabilitiesConfiguration::_Internal {
  public:
 };
 
-CapabilitiesConfiguration::CapabilitiesConfiguration(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+CapabilitiesConfiguration::CapabilitiesConfiguration(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.engine.configuration.CapabilitiesConfiguration)
 }
 CapabilitiesConfiguration::CapabilitiesConfiguration(
-    ::google::protobuf_inworld::Arena* arena, const CapabilitiesConfiguration& from)
+    ::google::protobuf::Arena* arena, const CapabilitiesConfiguration& from)
     : CapabilitiesConfiguration(arena) {
   MergeFrom(from);
 }
 inline PROTOBUF_NDEBUG_INLINE CapabilitiesConfiguration::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : _cached_size_{0} {}
 
 inline void CapabilitiesConfiguration::SharedCtor(::_pb::Arena* arena) {
@@ -420,7 +420,7 @@ inline void CapabilitiesConfiguration::SharedCtor(::_pb::Arena* arena) {
 }
 CapabilitiesConfiguration::~CapabilitiesConfiguration() {
   // @@protoc_insertion_point(destructor:ai.inworld.engine.configuration.CapabilitiesConfiguration)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void CapabilitiesConfiguration::SharedDtor() {
@@ -438,7 +438,7 @@ PROTOBUF_NOINLINE void CapabilitiesConfiguration::Clear() {
   ::memset(&_impl_.audio_, 0, static_cast<::size_t>(
       reinterpret_cast<char*>(&_impl_.multi_agent_) -
       reinterpret_cast<char*>(&_impl_.audio_)) + sizeof(_impl_.multi_agent_));
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* CapabilitiesConfiguration::_InternalParse(
@@ -563,7 +563,7 @@ const ::_pbi::TcParseTable<4, 15, 0, 0, 2> CapabilitiesConfiguration::_table_ = 
 
 ::uint8_t* CapabilitiesConfiguration::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.engine.configuration.CapabilitiesConfiguration)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -676,7 +676,7 @@ const ::_pbi::TcParseTable<4, 15, 0, 0, 2> CapabilitiesConfiguration::_table_ = 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.engine.configuration.CapabilitiesConfiguration)
   return target;
@@ -768,15 +768,15 @@ const ::_pbi::TcParseTable<4, 15, 0, 0, 2> CapabilitiesConfiguration::_table_ = 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData CapabilitiesConfiguration::_class_data_ = {
+const ::google::protobuf::Message::ClassData CapabilitiesConfiguration::_class_data_ = {
     CapabilitiesConfiguration::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* CapabilitiesConfiguration::GetClassData() const {
+const ::google::protobuf::Message::ClassData* CapabilitiesConfiguration::GetClassData() const {
   return &_class_data_;
 }
 
-void CapabilitiesConfiguration::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void CapabilitiesConfiguration::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<CapabilitiesConfiguration*>(&to_msg);
   auto& from = static_cast<const CapabilitiesConfiguration&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.engine.configuration.CapabilitiesConfiguration)
@@ -829,7 +829,7 @@ void CapabilitiesConfiguration::MergeImpl(::google::protobuf_inworld::Message& t
   if (from._internal_multi_agent() != 0) {
     _this->_internal_set_multi_agent(from._internal_multi_agent());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void CapabilitiesConfiguration::CopyFrom(const CapabilitiesConfiguration& from) {
@@ -849,7 +849,7 @@ PROTOBUF_NOINLINE bool CapabilitiesConfiguration::IsInitialized() const {
 void CapabilitiesConfiguration::InternalSwap(CapabilitiesConfiguration* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::google::protobuf_inworld::internal::memswap<
+  ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.multi_agent_)
       + sizeof(CapabilitiesConfiguration::_impl_.multi_agent_)
       - PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.audio_)>(
@@ -857,7 +857,7 @@ void CapabilitiesConfiguration::InternalSwap(CapabilitiesConfiguration* PROTOBUF
           reinterpret_cast<char*>(&other->_impl_.audio_));
 }
 
-::google::protobuf_inworld::Metadata CapabilitiesConfiguration::GetMetadata() const {
+::google::protobuf::Metadata CapabilitiesConfiguration::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_getter, &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_once,
       file_level_metadata_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto[0]);
@@ -868,33 +868,33 @@ class UserConfiguration_UserSettings_PlayerProfile_PlayerField::_Internal {
  public:
 };
 
-UserConfiguration_UserSettings_PlayerProfile_PlayerField::UserConfiguration_UserSettings_PlayerProfile_PlayerField(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+UserConfiguration_UserSettings_PlayerProfile_PlayerField::UserConfiguration_UserSettings_PlayerProfile_PlayerField(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField)
 }
 inline PROTOBUF_NDEBUG_INLINE UserConfiguration_UserSettings_PlayerProfile_PlayerField::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : field_id_(arena, from.field_id_),
         field_value_(arena, from.field_value_),
         _cached_size_{0} {}
 
 UserConfiguration_UserSettings_PlayerProfile_PlayerField::UserConfiguration_UserSettings_PlayerProfile_PlayerField(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const UserConfiguration_UserSettings_PlayerProfile_PlayerField& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   UserConfiguration_UserSettings_PlayerProfile_PlayerField* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField)
 }
 inline PROTOBUF_NDEBUG_INLINE UserConfiguration_UserSettings_PlayerProfile_PlayerField::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : field_id_(arena),
         field_value_(arena),
         _cached_size_{0} {}
@@ -904,7 +904,7 @@ inline void UserConfiguration_UserSettings_PlayerProfile_PlayerField::SharedCtor
 }
 UserConfiguration_UserSettings_PlayerProfile_PlayerField::~UserConfiguration_UserSettings_PlayerProfile_PlayerField() {
   // @@protoc_insertion_point(destructor:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void UserConfiguration_UserSettings_PlayerProfile_PlayerField::SharedDtor() {
@@ -923,7 +923,7 @@ PROTOBUF_NOINLINE void UserConfiguration_UserSettings_PlayerProfile_PlayerField:
 
   _impl_.field_id_.ClearToEmpty();
   _impl_.field_value_.ClearToEmpty();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* UserConfiguration_UserSettings_PlayerProfile_PlayerField::_InternalParse(
@@ -975,7 +975,7 @@ const ::_pbi::TcParseTable<1, 2, 0, 116, 2> UserConfiguration_UserSettings_Playe
 
 ::uint8_t* UserConfiguration_UserSettings_PlayerProfile_PlayerField::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -983,23 +983,23 @@ const ::_pbi::TcParseTable<1, 2, 0, 116, 2> UserConfiguration_UserSettings_Playe
   // string field_id = 1;
   if (!this->_internal_field_id().empty()) {
     const std::string& _s = this->_internal_field_id();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField.field_id");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField.field_id");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // string field_value = 2;
   if (!this->_internal_field_value().empty()) {
     const std::string& _s = this->_internal_field_value();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField.field_value");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField.field_value");
     target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField)
   return target;
@@ -1015,28 +1015,28 @@ const ::_pbi::TcParseTable<1, 2, 0, 116, 2> UserConfiguration_UserSettings_Playe
 
   // string field_id = 1;
   if (!this->_internal_field_id().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_field_id());
   }
 
   // string field_value = 2;
   if (!this->_internal_field_value().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_field_value());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData UserConfiguration_UserSettings_PlayerProfile_PlayerField::_class_data_ = {
+const ::google::protobuf::Message::ClassData UserConfiguration_UserSettings_PlayerProfile_PlayerField::_class_data_ = {
     UserConfiguration_UserSettings_PlayerProfile_PlayerField::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* UserConfiguration_UserSettings_PlayerProfile_PlayerField::GetClassData() const {
+const ::google::protobuf::Message::ClassData* UserConfiguration_UserSettings_PlayerProfile_PlayerField::GetClassData() const {
   return &_class_data_;
 }
 
-void UserConfiguration_UserSettings_PlayerProfile_PlayerField::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void UserConfiguration_UserSettings_PlayerProfile_PlayerField::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<UserConfiguration_UserSettings_PlayerProfile_PlayerField*>(&to_msg);
   auto& from = static_cast<const UserConfiguration_UserSettings_PlayerProfile_PlayerField&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField)
@@ -1050,7 +1050,7 @@ void UserConfiguration_UserSettings_PlayerProfile_PlayerField::MergeImpl(::googl
   if (!from._internal_field_value().empty()) {
     _this->_internal_set_field_value(from._internal_field_value());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void UserConfiguration_UserSettings_PlayerProfile_PlayerField::CopyFrom(const UserConfiguration_UserSettings_PlayerProfile_PlayerField& from) {
@@ -1076,7 +1076,7 @@ void UserConfiguration_UserSettings_PlayerProfile_PlayerField::InternalSwap(User
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.field_value_, &other->_impl_.field_value_, arena);
 }
 
-::google::protobuf_inworld::Metadata UserConfiguration_UserSettings_PlayerProfile_PlayerField::GetMetadata() const {
+::google::protobuf::Metadata UserConfiguration_UserSettings_PlayerProfile_PlayerField::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_getter, &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_once,
       file_level_metadata_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto[1]);
@@ -1087,32 +1087,32 @@ class UserConfiguration_UserSettings_PlayerProfile::_Internal {
  public:
 };
 
-UserConfiguration_UserSettings_PlayerProfile::UserConfiguration_UserSettings_PlayerProfile(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+UserConfiguration_UserSettings_PlayerProfile::UserConfiguration_UserSettings_PlayerProfile(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile)
 }
 inline PROTOBUF_NDEBUG_INLINE UserConfiguration_UserSettings_PlayerProfile::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : fields_{visibility, arena, from.fields_},
         _cached_size_{0} {}
 
 UserConfiguration_UserSettings_PlayerProfile::UserConfiguration_UserSettings_PlayerProfile(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const UserConfiguration_UserSettings_PlayerProfile& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   UserConfiguration_UserSettings_PlayerProfile* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile)
 }
 inline PROTOBUF_NDEBUG_INLINE UserConfiguration_UserSettings_PlayerProfile::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : fields_{visibility, arena},
         _cached_size_{0} {}
 
@@ -1121,7 +1121,7 @@ inline void UserConfiguration_UserSettings_PlayerProfile::SharedCtor(::_pb::Aren
 }
 UserConfiguration_UserSettings_PlayerProfile::~UserConfiguration_UserSettings_PlayerProfile() {
   // @@protoc_insertion_point(destructor:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void UserConfiguration_UserSettings_PlayerProfile::SharedDtor() {
@@ -1137,7 +1137,7 @@ PROTOBUF_NOINLINE void UserConfiguration_UserSettings_PlayerProfile::Clear() {
   (void) cached_has_bits;
 
   _impl_.fields_.Clear();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* UserConfiguration_UserSettings_PlayerProfile::_InternalParse(
@@ -1179,7 +1179,7 @@ const ::_pbi::TcParseTable<0, 1, 1, 0, 2> UserConfiguration_UserSettings_PlayerP
 
 ::uint8_t* UserConfiguration_UserSettings_PlayerProfile::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -1188,14 +1188,14 @@ const ::_pbi::TcParseTable<0, 1, 1, 0, 2> UserConfiguration_UserSettings_PlayerP
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_fields_size()); i < n; i++) {
     const auto& repfield = this->_internal_fields().Get(i);
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         InternalWriteMessage(3, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile)
   return target;
@@ -1213,20 +1213,20 @@ const ::_pbi::TcParseTable<0, 1, 1, 0, 2> UserConfiguration_UserSettings_PlayerP
   total_size += 1UL * this->_internal_fields_size();
   for (const auto& msg : this->_internal_fields()) {
     total_size +=
-      ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(msg);
+      ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
   }
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData UserConfiguration_UserSettings_PlayerProfile::_class_data_ = {
+const ::google::protobuf::Message::ClassData UserConfiguration_UserSettings_PlayerProfile::_class_data_ = {
     UserConfiguration_UserSettings_PlayerProfile::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* UserConfiguration_UserSettings_PlayerProfile::GetClassData() const {
+const ::google::protobuf::Message::ClassData* UserConfiguration_UserSettings_PlayerProfile::GetClassData() const {
   return &_class_data_;
 }
 
-void UserConfiguration_UserSettings_PlayerProfile::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void UserConfiguration_UserSettings_PlayerProfile::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<UserConfiguration_UserSettings_PlayerProfile*>(&to_msg);
   auto& from = static_cast<const UserConfiguration_UserSettings_PlayerProfile&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile)
@@ -1236,7 +1236,7 @@ void UserConfiguration_UserSettings_PlayerProfile::MergeImpl(::google::protobuf_
 
   _this->_internal_mutable_fields()->MergeFrom(
       from._internal_fields());
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void UserConfiguration_UserSettings_PlayerProfile::CopyFrom(const UserConfiguration_UserSettings_PlayerProfile& from) {
@@ -1259,7 +1259,7 @@ void UserConfiguration_UserSettings_PlayerProfile::InternalSwap(UserConfiguratio
   _impl_.fields_.InternalSwap(&other->_impl_.fields_);
 }
 
-::google::protobuf_inworld::Metadata UserConfiguration_UserSettings_PlayerProfile::GetMetadata() const {
+::google::protobuf::Metadata UserConfiguration_UserSettings_PlayerProfile::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_getter, &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_once,
       file_level_metadata_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto[2]);
@@ -1280,24 +1280,24 @@ class UserConfiguration_UserSettings::_Internal {
 const ::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile& UserConfiguration_UserSettings::_Internal::player_profile(const UserConfiguration_UserSettings* msg) {
   return *msg->_impl_.player_profile_;
 }
-UserConfiguration_UserSettings::UserConfiguration_UserSettings(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+UserConfiguration_UserSettings::UserConfiguration_UserSettings(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.engine.configuration.UserConfiguration.UserSettings)
 }
 inline PROTOBUF_NDEBUG_INLINE UserConfiguration_UserSettings::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : _has_bits_{from._has_bits_},
         _cached_size_{0} {}
 
 UserConfiguration_UserSettings::UserConfiguration_UserSettings(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const UserConfiguration_UserSettings& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   UserConfiguration_UserSettings* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
   ::uint32_t cached_has_bits = _impl_._has_bits_[0];
@@ -1309,8 +1309,8 @@ UserConfiguration_UserSettings::UserConfiguration_UserSettings(
   // @@protoc_insertion_point(copy_constructor:ai.inworld.engine.configuration.UserConfiguration.UserSettings)
 }
 inline PROTOBUF_NDEBUG_INLINE UserConfiguration_UserSettings::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : _cached_size_{0} {}
 
 inline void UserConfiguration_UserSettings::SharedCtor(::_pb::Arena* arena) {
@@ -1324,7 +1324,7 @@ inline void UserConfiguration_UserSettings::SharedCtor(::_pb::Arena* arena) {
 }
 UserConfiguration_UserSettings::~UserConfiguration_UserSettings() {
   // @@protoc_insertion_point(destructor:ai.inworld.engine.configuration.UserConfiguration.UserSettings)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void UserConfiguration_UserSettings::SharedDtor() {
@@ -1347,7 +1347,7 @@ PROTOBUF_NOINLINE void UserConfiguration_UserSettings::Clear() {
   }
   _impl_.view_transcript_consent_ = false;
   _impl_._has_bits_.Clear();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* UserConfiguration_UserSettings::_InternalParse(
@@ -1395,7 +1395,7 @@ const ::_pbi::TcParseTable<1, 2, 1, 0, 2> UserConfiguration_UserSettings::_table
 
 ::uint8_t* UserConfiguration_UserSettings::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -1410,7 +1410,7 @@ const ::_pbi::TcParseTable<1, 2, 1, 0, 2> UserConfiguration_UserSettings::_table
   cached_has_bits = _impl_._has_bits_[0];
   // .ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile player_profile = 2;
   if (cached_has_bits & 0x00000001u) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         2, _Internal::player_profile(this),
         _Internal::player_profile(this).GetCachedSize(), target, stream);
   }
@@ -1418,7 +1418,7 @@ const ::_pbi::TcParseTable<1, 2, 1, 0, 2> UserConfiguration_UserSettings::_table
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.engine.configuration.UserConfiguration.UserSettings)
   return target;
@@ -1436,7 +1436,7 @@ const ::_pbi::TcParseTable<1, 2, 1, 0, 2> UserConfiguration_UserSettings::_table
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size +=
-        1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.player_profile_);
+        1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.player_profile_);
   }
 
   // bool view_transcript_consent = 1;
@@ -1447,15 +1447,15 @@ const ::_pbi::TcParseTable<1, 2, 1, 0, 2> UserConfiguration_UserSettings::_table
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData UserConfiguration_UserSettings::_class_data_ = {
+const ::google::protobuf::Message::ClassData UserConfiguration_UserSettings::_class_data_ = {
     UserConfiguration_UserSettings::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* UserConfiguration_UserSettings::GetClassData() const {
+const ::google::protobuf::Message::ClassData* UserConfiguration_UserSettings::GetClassData() const {
   return &_class_data_;
 }
 
-void UserConfiguration_UserSettings::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void UserConfiguration_UserSettings::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<UserConfiguration_UserSettings*>(&to_msg);
   auto& from = static_cast<const UserConfiguration_UserSettings&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings)
@@ -1470,7 +1470,7 @@ void UserConfiguration_UserSettings::MergeImpl(::google::protobuf_inworld::Messa
   if (from._internal_view_transcript_consent() != 0) {
     _this->_internal_set_view_transcript_consent(from._internal_view_transcript_consent());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void UserConfiguration_UserSettings::CopyFrom(const UserConfiguration_UserSettings& from) {
@@ -1491,7 +1491,7 @@ void UserConfiguration_UserSettings::InternalSwap(UserConfiguration_UserSettings
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::google::protobuf_inworld::internal::memswap<
+  ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(UserConfiguration_UserSettings, _impl_.view_transcript_consent_)
       + sizeof(UserConfiguration_UserSettings::_impl_.view_transcript_consent_)
       - PROTOBUF_FIELD_OFFSET(UserConfiguration_UserSettings, _impl_.player_profile_)>(
@@ -1499,7 +1499,7 @@ void UserConfiguration_UserSettings::InternalSwap(UserConfiguration_UserSettings
           reinterpret_cast<char*>(&other->_impl_.player_profile_));
 }
 
-::google::protobuf_inworld::Metadata UserConfiguration_UserSettings::GetMetadata() const {
+::google::protobuf::Metadata UserConfiguration_UserSettings::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_getter, &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_once,
       file_level_metadata_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto[3]);
@@ -1520,13 +1520,13 @@ class UserConfiguration::_Internal {
 const ::ai::inworld::engine::configuration::UserConfiguration_UserSettings& UserConfiguration::_Internal::user_settings(const UserConfiguration* msg) {
   return *msg->_impl_.user_settings_;
 }
-UserConfiguration::UserConfiguration(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+UserConfiguration::UserConfiguration(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.engine.configuration.UserConfiguration)
 }
 inline PROTOBUF_NDEBUG_INLINE UserConfiguration::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
@@ -1534,12 +1534,12 @@ inline PROTOBUF_NDEBUG_INLINE UserConfiguration::Impl_::Impl_(
         id_(arena, from.id_) {}
 
 UserConfiguration::UserConfiguration(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const UserConfiguration& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   UserConfiguration* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
   ::uint32_t cached_has_bits = _impl_._has_bits_[0];
@@ -1550,8 +1550,8 @@ UserConfiguration::UserConfiguration(
   // @@protoc_insertion_point(copy_constructor:ai.inworld.engine.configuration.UserConfiguration)
 }
 inline PROTOBUF_NDEBUG_INLINE UserConfiguration::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : _cached_size_{0},
         name_(arena),
         id_(arena) {}
@@ -1562,7 +1562,7 @@ inline void UserConfiguration::SharedCtor(::_pb::Arena* arena) {
 }
 UserConfiguration::~UserConfiguration() {
   // @@protoc_insertion_point(destructor:ai.inworld.engine.configuration.UserConfiguration)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void UserConfiguration::SharedDtor() {
@@ -1588,7 +1588,7 @@ PROTOBUF_NOINLINE void UserConfiguration::Clear() {
     _impl_.user_settings_->Clear();
   }
   _impl_._has_bits_.Clear();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* UserConfiguration::_InternalParse(
@@ -1647,7 +1647,7 @@ const ::_pbi::TcParseTable<2, 3, 1, 64, 2> UserConfiguration::_table_ = {
 
 ::uint8_t* UserConfiguration::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.engine.configuration.UserConfiguration)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -1655,23 +1655,23 @@ const ::_pbi::TcParseTable<2, 3, 1, 64, 2> UserConfiguration::_table_ = {
   // string name = 1;
   if (!this->_internal_name().empty()) {
     const std::string& _s = this->_internal_name();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.engine.configuration.UserConfiguration.name");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.engine.configuration.UserConfiguration.name");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // string id = 2;
   if (!this->_internal_id().empty()) {
     const std::string& _s = this->_internal_id();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.engine.configuration.UserConfiguration.id");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.engine.configuration.UserConfiguration.id");
     target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
   cached_has_bits = _impl_._has_bits_[0];
   // .ai.inworld.engine.configuration.UserConfiguration.UserSettings user_settings = 3;
   if (cached_has_bits & 0x00000001u) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         3, _Internal::user_settings(this),
         _Internal::user_settings(this).GetCachedSize(), target, stream);
   }
@@ -1679,7 +1679,7 @@ const ::_pbi::TcParseTable<2, 3, 1, 64, 2> UserConfiguration::_table_ = {
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.engine.configuration.UserConfiguration)
   return target;
@@ -1695,13 +1695,13 @@ const ::_pbi::TcParseTable<2, 3, 1, 64, 2> UserConfiguration::_table_ = {
 
   // string name = 1;
   if (!this->_internal_name().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_name());
   }
 
   // string id = 2;
   if (!this->_internal_id().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_id());
   }
 
@@ -1709,21 +1709,21 @@ const ::_pbi::TcParseTable<2, 3, 1, 64, 2> UserConfiguration::_table_ = {
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size +=
-        1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.user_settings_);
+        1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.user_settings_);
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData UserConfiguration::_class_data_ = {
+const ::google::protobuf::Message::ClassData UserConfiguration::_class_data_ = {
     UserConfiguration::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* UserConfiguration::GetClassData() const {
+const ::google::protobuf::Message::ClassData* UserConfiguration::GetClassData() const {
   return &_class_data_;
 }
 
-void UserConfiguration::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void UserConfiguration::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<UserConfiguration*>(&to_msg);
   auto& from = static_cast<const UserConfiguration&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.engine.configuration.UserConfiguration)
@@ -1741,7 +1741,7 @@ void UserConfiguration::MergeImpl(::google::protobuf_inworld::Message& to_msg, c
     _this->_internal_mutable_user_settings()->::ai::inworld::engine::configuration::UserConfiguration_UserSettings::MergeFrom(
         from._internal_user_settings());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void UserConfiguration::CopyFrom(const UserConfiguration& from) {
@@ -1769,7 +1769,7 @@ void UserConfiguration::InternalSwap(UserConfiguration* PROTOBUF_RESTRICT other)
   swap(_impl_.user_settings_, other->_impl_.user_settings_);
 }
 
-::google::protobuf_inworld::Metadata UserConfiguration::GetMetadata() const {
+::google::protobuf::Metadata UserConfiguration::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_getter, &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_once,
       file_level_metadata_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto[4]);
@@ -1780,13 +1780,13 @@ class ClientConfiguration::_Internal {
  public:
 };
 
-ClientConfiguration::ClientConfiguration(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+ClientConfiguration::ClientConfiguration(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.engine.configuration.ClientConfiguration)
 }
 inline PROTOBUF_NDEBUG_INLINE ClientConfiguration::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : id_(arena, from.id_),
         version_(arena, from.version_),
@@ -1794,20 +1794,20 @@ inline PROTOBUF_NDEBUG_INLINE ClientConfiguration::Impl_::Impl_(
         _cached_size_{0} {}
 
 ClientConfiguration::ClientConfiguration(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const ClientConfiguration& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   ClientConfiguration* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.engine.configuration.ClientConfiguration)
 }
 inline PROTOBUF_NDEBUG_INLINE ClientConfiguration::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : id_(arena),
         version_(arena),
         description_(arena),
@@ -1818,7 +1818,7 @@ inline void ClientConfiguration::SharedCtor(::_pb::Arena* arena) {
 }
 ClientConfiguration::~ClientConfiguration() {
   // @@protoc_insertion_point(destructor:ai.inworld.engine.configuration.ClientConfiguration)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void ClientConfiguration::SharedDtor() {
@@ -1839,7 +1839,7 @@ PROTOBUF_NOINLINE void ClientConfiguration::Clear() {
   _impl_.id_.ClearToEmpty();
   _impl_.version_.ClearToEmpty();
   _impl_.description_.ClearToEmpty();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* ClientConfiguration::_InternalParse(
@@ -1899,7 +1899,7 @@ const ::_pbi::TcParseTable<2, 3, 0, 80, 2> ClientConfiguration::_table_ = {
 
 ::uint8_t* ClientConfiguration::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.engine.configuration.ClientConfiguration)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -1907,31 +1907,31 @@ const ::_pbi::TcParseTable<2, 3, 0, 80, 2> ClientConfiguration::_table_ = {
   // string id = 1;
   if (!this->_internal_id().empty()) {
     const std::string& _s = this->_internal_id();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.engine.configuration.ClientConfiguration.id");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.engine.configuration.ClientConfiguration.id");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // string version = 2;
   if (!this->_internal_version().empty()) {
     const std::string& _s = this->_internal_version();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.engine.configuration.ClientConfiguration.version");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.engine.configuration.ClientConfiguration.version");
     target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
   // string description = 3;
   if (!this->_internal_description().empty()) {
     const std::string& _s = this->_internal_description();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.engine.configuration.ClientConfiguration.description");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.engine.configuration.ClientConfiguration.description");
     target = stream->WriteStringMaybeAliased(3, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.engine.configuration.ClientConfiguration)
   return target;
@@ -1947,34 +1947,34 @@ const ::_pbi::TcParseTable<2, 3, 0, 80, 2> ClientConfiguration::_table_ = {
 
   // string id = 1;
   if (!this->_internal_id().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_id());
   }
 
   // string version = 2;
   if (!this->_internal_version().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_version());
   }
 
   // string description = 3;
   if (!this->_internal_description().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_description());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData ClientConfiguration::_class_data_ = {
+const ::google::protobuf::Message::ClassData ClientConfiguration::_class_data_ = {
     ClientConfiguration::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* ClientConfiguration::GetClassData() const {
+const ::google::protobuf::Message::ClassData* ClientConfiguration::GetClassData() const {
   return &_class_data_;
 }
 
-void ClientConfiguration::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void ClientConfiguration::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<ClientConfiguration*>(&to_msg);
   auto& from = static_cast<const ClientConfiguration&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.engine.configuration.ClientConfiguration)
@@ -1991,7 +1991,7 @@ void ClientConfiguration::MergeImpl(::google::protobuf_inworld::Message& to_msg,
   if (!from._internal_description().empty()) {
     _this->_internal_set_description(from._internal_description());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ClientConfiguration::CopyFrom(const ClientConfiguration& from) {
@@ -2018,7 +2018,7 @@ void ClientConfiguration::InternalSwap(ClientConfiguration* PROTOBUF_RESTRICT ot
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.description_, &other->_impl_.description_, arena);
 }
 
-::google::protobuf_inworld::Metadata ClientConfiguration::GetMetadata() const {
+::google::protobuf::Metadata ClientConfiguration::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_getter, &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_once,
       file_level_metadata_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto[5]);
@@ -2029,32 +2029,32 @@ class SessionConfiguration::_Internal {
  public:
 };
 
-SessionConfiguration::SessionConfiguration(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+SessionConfiguration::SessionConfiguration(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.engine.configuration.SessionConfiguration)
 }
 inline PROTOBUF_NDEBUG_INLINE SessionConfiguration::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : game_session_id_(arena, from.game_session_id_),
         _cached_size_{0} {}
 
 SessionConfiguration::SessionConfiguration(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const SessionConfiguration& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   SessionConfiguration* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.engine.configuration.SessionConfiguration)
 }
 inline PROTOBUF_NDEBUG_INLINE SessionConfiguration::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : game_session_id_(arena),
         _cached_size_{0} {}
 
@@ -2063,7 +2063,7 @@ inline void SessionConfiguration::SharedCtor(::_pb::Arena* arena) {
 }
 SessionConfiguration::~SessionConfiguration() {
   // @@protoc_insertion_point(destructor:ai.inworld.engine.configuration.SessionConfiguration)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void SessionConfiguration::SharedDtor() {
@@ -2080,7 +2080,7 @@ PROTOBUF_NOINLINE void SessionConfiguration::Clear() {
   (void) cached_has_bits;
 
   _impl_.game_session_id_.ClearToEmpty();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* SessionConfiguration::_InternalParse(
@@ -2125,7 +2125,7 @@ const ::_pbi::TcParseTable<0, 1, 0, 76, 2> SessionConfiguration::_table_ = {
 
 ::uint8_t* SessionConfiguration::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.engine.configuration.SessionConfiguration)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -2133,15 +2133,15 @@ const ::_pbi::TcParseTable<0, 1, 0, 76, 2> SessionConfiguration::_table_ = {
   // string game_session_id = 2;
   if (!this->_internal_game_session_id().empty()) {
     const std::string& _s = this->_internal_game_session_id();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.engine.configuration.SessionConfiguration.game_session_id");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.engine.configuration.SessionConfiguration.game_session_id");
     target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.engine.configuration.SessionConfiguration)
   return target;
@@ -2157,22 +2157,22 @@ const ::_pbi::TcParseTable<0, 1, 0, 76, 2> SessionConfiguration::_table_ = {
 
   // string game_session_id = 2;
   if (!this->_internal_game_session_id().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_game_session_id());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData SessionConfiguration::_class_data_ = {
+const ::google::protobuf::Message::ClassData SessionConfiguration::_class_data_ = {
     SessionConfiguration::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* SessionConfiguration::GetClassData() const {
+const ::google::protobuf::Message::ClassData* SessionConfiguration::GetClassData() const {
   return &_class_data_;
 }
 
-void SessionConfiguration::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void SessionConfiguration::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<SessionConfiguration*>(&to_msg);
   auto& from = static_cast<const SessionConfiguration&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.engine.configuration.SessionConfiguration)
@@ -2183,7 +2183,7 @@ void SessionConfiguration::MergeImpl(::google::protobuf_inworld::Message& to_msg
   if (!from._internal_game_session_id().empty()) {
     _this->_internal_set_game_session_id(from._internal_game_session_id());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void SessionConfiguration::CopyFrom(const SessionConfiguration& from) {
@@ -2208,7 +2208,7 @@ void SessionConfiguration::InternalSwap(SessionConfiguration* PROTOBUF_RESTRICT 
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.game_session_id_, &other->_impl_.game_session_id_, arena);
 }
 
-::google::protobuf_inworld::Metadata SessionConfiguration::GetMetadata() const {
+::google::protobuf::Metadata SessionConfiguration::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_getter, &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_once,
       file_level_metadata_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto[6]);

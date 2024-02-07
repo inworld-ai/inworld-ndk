@@ -19,18 +19,18 @@
 #include "google/protobuf/port_def.inc"
 PROTOBUF_PRAGMA_INIT_SEG
 namespace _pb = ::google::protobuf;
-namespace _pbi = ::google::protobuf_inworld::internal;
-namespace _fl = ::google::protobuf_inworld::internal::field_layout;
+namespace _pbi = ::google::protobuf::internal;
+namespace _fl = ::google::protobuf::internal::field_layout;
 namespace google {
 namespace api {
 
 inline constexpr ResourceReference::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : type_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         child_type_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
 
@@ -54,16 +54,16 @@ inline constexpr ResourceDescriptor::Impl_::Impl_(
         style_{},
         _style_cached_byte_size_{0},
         type_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         name_field_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         plural_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         singular_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         history_{static_cast< ::google::api::ResourceDescriptor_History >(0)},
         _cached_size_{0} {}
@@ -193,8 +193,8 @@ PROTOBUF_ATTRIBUTE_INIT_PRIORITY2
 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_google_2fapi_2fresource_2eproto(&descriptor_table_google_2fapi_2fresource_2eproto);
 namespace google {
 namespace api {
-const ::google::protobuf_inworld::EnumDescriptor* ResourceDescriptor_History_descriptor() {
-  ::google::protobuf_inworld::internal::AssignDescriptors(&descriptor_table_google_2fapi_2fresource_2eproto);
+const ::google::protobuf::EnumDescriptor* ResourceDescriptor_History_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_google_2fapi_2fresource_2eproto);
   return file_level_enum_descriptors_google_2fapi_2fresource_2eproto[0];
 }
 PROTOBUF_CONSTINIT const uint32_t ResourceDescriptor_History_internal_data_[] = {
@@ -214,8 +214,8 @@ constexpr int ResourceDescriptor::History_ARRAYSIZE;
 
 #endif  // (__cplusplus < 201703) &&
         // (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-const ::google::protobuf_inworld::EnumDescriptor* ResourceDescriptor_Style_descriptor() {
-  ::google::protobuf_inworld::internal::AssignDescriptors(&descriptor_table_google_2fapi_2fresource_2eproto);
+const ::google::protobuf::EnumDescriptor* ResourceDescriptor_Style_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_google_2fapi_2fresource_2eproto);
   return file_level_enum_descriptors_google_2fapi_2fresource_2eproto[1];
 }
 PROTOBUF_CONSTINIT const uint32_t ResourceDescriptor_Style_internal_data_[] = {
@@ -240,13 +240,13 @@ class ResourceDescriptor::_Internal {
  public:
 };
 
-ResourceDescriptor::ResourceDescriptor(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+ResourceDescriptor::ResourceDescriptor(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:google.api.ResourceDescriptor)
 }
 inline PROTOBUF_NDEBUG_INLINE ResourceDescriptor::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : pattern_{visibility, arena, from.pattern_},
         style_{visibility, arena, from.style_},
@@ -258,12 +258,12 @@ inline PROTOBUF_NDEBUG_INLINE ResourceDescriptor::Impl_::Impl_(
         _cached_size_{0} {}
 
 ResourceDescriptor::ResourceDescriptor(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const ResourceDescriptor& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   ResourceDescriptor* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
   _impl_.history_ = from._impl_.history_;
@@ -271,8 +271,8 @@ ResourceDescriptor::ResourceDescriptor(
   // @@protoc_insertion_point(copy_constructor:google.api.ResourceDescriptor)
 }
 inline PROTOBUF_NDEBUG_INLINE ResourceDescriptor::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : pattern_{visibility, arena},
         style_{visibility, arena},
         _style_cached_byte_size_{0},
@@ -288,7 +288,7 @@ inline void ResourceDescriptor::SharedCtor(::_pb::Arena* arena) {
 }
 ResourceDescriptor::~ResourceDescriptor() {
   // @@protoc_insertion_point(destructor:google.api.ResourceDescriptor)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void ResourceDescriptor::SharedDtor() {
@@ -314,7 +314,7 @@ PROTOBUF_NOINLINE void ResourceDescriptor::Clear() {
   _impl_.plural_.ClearToEmpty();
   _impl_.singular_.ClearToEmpty();
   _impl_.history_ = 0;
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* ResourceDescriptor::_InternalParse(
@@ -398,7 +398,7 @@ const ::_pbi::TcParseTable<3, 7, 0, 73, 2> ResourceDescriptor::_table_ = {
 
 ::uint8_t* ResourceDescriptor::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:google.api.ResourceDescriptor)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -406,24 +406,24 @@ const ::_pbi::TcParseTable<3, 7, 0, 73, 2> ResourceDescriptor::_table_ = {
   // string type = 1;
   if (!this->_internal_type().empty()) {
     const std::string& _s = this->_internal_type();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "google.api.ResourceDescriptor.type");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "google.api.ResourceDescriptor.type");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // repeated string pattern = 2;
   for (int i = 0, n = this->_internal_pattern_size(); i < n; ++i) {
     const auto& s = this->_internal_pattern().Get(i);
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        s.data(), static_cast<int>(s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "google.api.ResourceDescriptor.pattern");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        s.data(), static_cast<int>(s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "google.api.ResourceDescriptor.pattern");
     target = stream->WriteString(2, s, target);
   }
 
   // string name_field = 3;
   if (!this->_internal_name_field().empty()) {
     const std::string& _s = this->_internal_name_field();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "google.api.ResourceDescriptor.name_field");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "google.api.ResourceDescriptor.name_field");
     target = stream->WriteStringMaybeAliased(3, _s, target);
   }
 
@@ -437,16 +437,16 @@ const ::_pbi::TcParseTable<3, 7, 0, 73, 2> ResourceDescriptor::_table_ = {
   // string plural = 5;
   if (!this->_internal_plural().empty()) {
     const std::string& _s = this->_internal_plural();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "google.api.ResourceDescriptor.plural");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "google.api.ResourceDescriptor.plural");
     target = stream->WriteStringMaybeAliased(5, _s, target);
   }
 
   // string singular = 6;
   if (!this->_internal_singular().empty()) {
     const std::string& _s = this->_internal_singular();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "google.api.ResourceDescriptor.singular");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "google.api.ResourceDescriptor.singular");
     target = stream->WriteStringMaybeAliased(6, _s, target);
   }
 
@@ -462,7 +462,7 @@ const ::_pbi::TcParseTable<3, 7, 0, 73, 2> ResourceDescriptor::_table_ = {
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:google.api.ResourceDescriptor)
   return target;
@@ -477,9 +477,9 @@ const ::_pbi::TcParseTable<3, 7, 0, 73, 2> ResourceDescriptor::_table_ = {
   (void) cached_has_bits;
 
   // repeated string pattern = 2;
-  total_size += 1 * ::google::protobuf_inworld::internal::FromIntSize(_internal_pattern().size());
+  total_size += 1 * ::google::protobuf::internal::FromIntSize(_internal_pattern().size());
   for (int i = 0, n = _internal_pattern().size(); i < n; ++i) {
-    total_size += ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
         _internal_pattern().Get(i));
   }
   // repeated .google.api.ResourceDescriptor.Style style = 10;
@@ -501,25 +501,25 @@ const ::_pbi::TcParseTable<3, 7, 0, 73, 2> ResourceDescriptor::_table_ = {
   }
   // string type = 1;
   if (!this->_internal_type().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_type());
   }
 
   // string name_field = 3;
   if (!this->_internal_name_field().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_name_field());
   }
 
   // string plural = 5;
   if (!this->_internal_plural().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_plural());
   }
 
   // string singular = 6;
   if (!this->_internal_singular().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_singular());
   }
 
@@ -532,15 +532,15 @@ const ::_pbi::TcParseTable<3, 7, 0, 73, 2> ResourceDescriptor::_table_ = {
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData ResourceDescriptor::_class_data_ = {
+const ::google::protobuf::Message::ClassData ResourceDescriptor::_class_data_ = {
     ResourceDescriptor::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* ResourceDescriptor::GetClassData() const {
+const ::google::protobuf::Message::ClassData* ResourceDescriptor::GetClassData() const {
   return &_class_data_;
 }
 
-void ResourceDescriptor::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void ResourceDescriptor::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<ResourceDescriptor*>(&to_msg);
   auto& from = static_cast<const ResourceDescriptor&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:google.api.ResourceDescriptor)
@@ -565,7 +565,7 @@ void ResourceDescriptor::MergeImpl(::google::protobuf_inworld::Message& to_msg, 
   if (from._internal_history() != 0) {
     _this->_internal_set_history(from._internal_history());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ResourceDescriptor::CopyFrom(const ResourceDescriptor& from) {
@@ -596,7 +596,7 @@ void ResourceDescriptor::InternalSwap(ResourceDescriptor* PROTOBUF_RESTRICT othe
   swap(_impl_.history_, other->_impl_.history_);
 }
 
-::google::protobuf_inworld::Metadata ResourceDescriptor::GetMetadata() const {
+::google::protobuf::Metadata ResourceDescriptor::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_google_2fapi_2fresource_2eproto_getter, &descriptor_table_google_2fapi_2fresource_2eproto_once,
       file_level_metadata_google_2fapi_2fresource_2eproto[0]);
@@ -607,33 +607,33 @@ class ResourceReference::_Internal {
  public:
 };
 
-ResourceReference::ResourceReference(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+ResourceReference::ResourceReference(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:google.api.ResourceReference)
 }
 inline PROTOBUF_NDEBUG_INLINE ResourceReference::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : type_(arena, from.type_),
         child_type_(arena, from.child_type_),
         _cached_size_{0} {}
 
 ResourceReference::ResourceReference(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const ResourceReference& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   ResourceReference* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
 
   // @@protoc_insertion_point(copy_constructor:google.api.ResourceReference)
 }
 inline PROTOBUF_NDEBUG_INLINE ResourceReference::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : type_(arena),
         child_type_(arena),
         _cached_size_{0} {}
@@ -643,7 +643,7 @@ inline void ResourceReference::SharedCtor(::_pb::Arena* arena) {
 }
 ResourceReference::~ResourceReference() {
   // @@protoc_insertion_point(destructor:google.api.ResourceReference)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void ResourceReference::SharedDtor() {
@@ -662,7 +662,7 @@ PROTOBUF_NOINLINE void ResourceReference::Clear() {
 
   _impl_.type_.ClearToEmpty();
   _impl_.child_type_.ClearToEmpty();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* ResourceReference::_InternalParse(
@@ -714,7 +714,7 @@ const ::_pbi::TcParseTable<1, 2, 0, 51, 2> ResourceReference::_table_ = {
 
 ::uint8_t* ResourceReference::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:google.api.ResourceReference)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -722,23 +722,23 @@ const ::_pbi::TcParseTable<1, 2, 0, 51, 2> ResourceReference::_table_ = {
   // string type = 1;
   if (!this->_internal_type().empty()) {
     const std::string& _s = this->_internal_type();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "google.api.ResourceReference.type");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "google.api.ResourceReference.type");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // string child_type = 2;
   if (!this->_internal_child_type().empty()) {
     const std::string& _s = this->_internal_child_type();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "google.api.ResourceReference.child_type");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "google.api.ResourceReference.child_type");
     target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:google.api.ResourceReference)
   return target;
@@ -754,28 +754,28 @@ const ::_pbi::TcParseTable<1, 2, 0, 51, 2> ResourceReference::_table_ = {
 
   // string type = 1;
   if (!this->_internal_type().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_type());
   }
 
   // string child_type = 2;
   if (!this->_internal_child_type().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_child_type());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData ResourceReference::_class_data_ = {
+const ::google::protobuf::Message::ClassData ResourceReference::_class_data_ = {
     ResourceReference::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* ResourceReference::GetClassData() const {
+const ::google::protobuf::Message::ClassData* ResourceReference::GetClassData() const {
   return &_class_data_;
 }
 
-void ResourceReference::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void ResourceReference::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<ResourceReference*>(&to_msg);
   auto& from = static_cast<const ResourceReference&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:google.api.ResourceReference)
@@ -789,7 +789,7 @@ void ResourceReference::MergeImpl(::google::protobuf_inworld::Message& to_msg, c
   if (!from._internal_child_type().empty()) {
     _this->_internal_set_child_type(from._internal_child_type());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ResourceReference::CopyFrom(const ResourceReference& from) {
@@ -815,19 +815,19 @@ void ResourceReference::InternalSwap(ResourceReference* PROTOBUF_RESTRICT other)
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.child_type_, &other->_impl_.child_type_, arena);
 }
 
-::google::protobuf_inworld::Metadata ResourceReference::GetMetadata() const {
+::google::protobuf::Metadata ResourceReference::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_google_2fapi_2fresource_2eproto_getter, &descriptor_table_google_2fapi_2fresource_2eproto_once,
       file_level_metadata_google_2fapi_2fresource_2eproto[1]);
 }
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::FieldOptions,
-    ::google::protobuf_inworld::internal::MessageTypeTraits< ::google::api::ResourceReference >, 11, false>
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::FieldOptions,
+    ::google::protobuf::internal::MessageTypeTraits< ::google::api::ResourceReference >, 11, false>
   resource_reference(kResourceReferenceFieldNumber, ::google::api::ResourceReference::default_instance(), nullptr);
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::FileOptions,
-    ::google::protobuf_inworld::internal::RepeatedMessageTypeTraits< ::google::api::ResourceDescriptor >, 11, false>
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::FileOptions,
+    ::google::protobuf::internal::RepeatedMessageTypeTraits< ::google::api::ResourceDescriptor >, 11, false>
   resource_definition(kResourceDefinitionFieldNumber, ::google::api::ResourceDescriptor::default_instance(), nullptr);
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::MessageOptions,
-    ::google::protobuf_inworld::internal::MessageTypeTraits< ::google::api::ResourceDescriptor >, 11, false>
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::MessageOptions,
+    ::google::protobuf::internal::MessageTypeTraits< ::google::api::ResourceDescriptor >, 11, false>
   resource(kResourceFieldNumber, ::google::api::ResourceDescriptor::default_instance(), nullptr);
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace api

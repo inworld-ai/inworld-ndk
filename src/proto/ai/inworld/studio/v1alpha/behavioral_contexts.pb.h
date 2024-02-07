@@ -56,7 +56,7 @@ class AnyMetadata;
 struct TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fbehavioral_5fcontexts_2eproto {
   static const ::uint32_t offsets[];
 };
-extern const ::google::protobuf_inworld::internal::DescriptorTable
+extern const ::google::protobuf::internal::DescriptorTable
     descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fbehavioral_5fcontexts_2eproto;
 namespace ai {
 namespace inworld {
@@ -113,7 +113,7 @@ extern const uint32_t BehavioralContextInteractionType_internal_data_[];
 constexpr BehavioralContextInteractionType BehavioralContextInteractionType_MIN = static_cast<BehavioralContextInteractionType>(0);
 constexpr BehavioralContextInteractionType BehavioralContextInteractionType_MAX = static_cast<BehavioralContextInteractionType>(1);
 constexpr int BehavioralContextInteractionType_ARRAYSIZE = 1 + 1;
-const ::google::protobuf_inworld::EnumDescriptor*
+const ::google::protobuf::EnumDescriptor*
 BehavioralContextInteractionType_descriptor();
 template <typename T>
 const std::string& BehavioralContextInteractionType_Name(T value) {
@@ -124,12 +124,12 @@ const std::string& BehavioralContextInteractionType_Name(T value) {
 }
 template <>
 inline const std::string& BehavioralContextInteractionType_Name(BehavioralContextInteractionType value) {
-  return ::google::protobuf_inworld::internal::NameOfDenseEnum<BehavioralContextInteractionType_descriptor,
+  return ::google::protobuf::internal::NameOfDenseEnum<BehavioralContextInteractionType_descriptor,
                                                  0, 1>(
       static_cast<int>(value));
 }
 inline bool BehavioralContextInteractionType_Parse(absl::string_view name, BehavioralContextInteractionType* value) {
-  return ::google::protobuf_inworld::internal::ParseNamedEnum<BehavioralContextInteractionType>(
+  return ::google::protobuf::internal::ParseNamedEnum<BehavioralContextInteractionType>(
       BehavioralContextInteractionType_descriptor(), name, value);
 }
 enum SpaffCode : int {
@@ -164,7 +164,7 @@ extern const uint32_t SpaffCode_internal_data_[];
 constexpr SpaffCode SpaffCode_MIN = static_cast<SpaffCode>(0);
 constexpr SpaffCode SpaffCode_MAX = static_cast<SpaffCode>(19);
 constexpr int SpaffCode_ARRAYSIZE = 19 + 1;
-const ::google::protobuf_inworld::EnumDescriptor*
+const ::google::protobuf::EnumDescriptor*
 SpaffCode_descriptor();
 template <typename T>
 const std::string& SpaffCode_Name(T value) {
@@ -175,12 +175,12 @@ const std::string& SpaffCode_Name(T value) {
 }
 template <>
 inline const std::string& SpaffCode_Name(SpaffCode value) {
-  return ::google::protobuf_inworld::internal::NameOfDenseEnum<SpaffCode_descriptor,
+  return ::google::protobuf::internal::NameOfDenseEnum<SpaffCode_descriptor,
                                                  0, 19>(
       static_cast<int>(value));
 }
 inline bool SpaffCode_Parse(absl::string_view name, SpaffCode* value) {
-  return ::google::protobuf_inworld::internal::ParseNamedEnum<SpaffCode>(
+  return ::google::protobuf::internal::ParseNamedEnum<SpaffCode>(
       SpaffCode_descriptor(), name, value);
 }
 
@@ -190,12 +190,12 @@ inline bool SpaffCode_Parse(absl::string_view name, SpaffCode* value) {
 // -------------------------------------------------------------------
 
 class TellInstructedContextAction final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.TellInstructedContextAction) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.TellInstructedContextAction) */ {
  public:
   inline TellInstructedContextAction() : TellInstructedContextAction(nullptr) {}
   ~TellInstructedContextAction() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR TellInstructedContextAction(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR TellInstructedContextAction(::google::protobuf::internal::ConstantInitialized);
 
   inline TellInstructedContextAction(const TellInstructedContextAction& from)
       : TellInstructedContextAction(nullptr, from) {}
@@ -222,22 +222,22 @@ class TellInstructedContextAction final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const TellInstructedContextAction& default_instance() {
@@ -263,7 +263,7 @@ class TellInstructedContextAction final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(TellInstructedContextAction* other) {
@@ -274,47 +274,47 @@ class TellInstructedContextAction final :
 
   // implements Message ----------------------------------------------
 
-  TellInstructedContextAction* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  TellInstructedContextAction* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<TellInstructedContextAction>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const TellInstructedContextAction& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const TellInstructedContextAction& from) {
     TellInstructedContextAction::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(TellInstructedContextAction* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.TellInstructedContextAction";
   }
   protected:
-  explicit TellInstructedContextAction(::google::protobuf_inworld::Arena* arena);
-  TellInstructedContextAction(::google::protobuf_inworld::Arena* arena, const TellInstructedContextAction& from);
+  explicit TellInstructedContextAction(::google::protobuf::Arena* arena);
+  TellInstructedContextAction(::google::protobuf::Arena* arena, const TellInstructedContextAction& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -343,27 +343,27 @@ class TellInstructedContextAction final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       0, 1, 0,
       80, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::ArenaStringPtr speech_instruction_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr speech_instruction_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -371,12 +371,12 @@ class TellInstructedContextAction final :
 };// -------------------------------------------------------------------
 
 class TellExactTextContextAction final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.TellExactTextContextAction) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.TellExactTextContextAction) */ {
  public:
   inline TellExactTextContextAction() : TellExactTextContextAction(nullptr) {}
   ~TellExactTextContextAction() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR TellExactTextContextAction(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR TellExactTextContextAction(::google::protobuf::internal::ConstantInitialized);
 
   inline TellExactTextContextAction(const TellExactTextContextAction& from)
       : TellExactTextContextAction(nullptr, from) {}
@@ -403,22 +403,22 @@ class TellExactTextContextAction final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const TellExactTextContextAction& default_instance() {
@@ -444,7 +444,7 @@ class TellExactTextContextAction final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(TellExactTextContextAction* other) {
@@ -455,47 +455,47 @@ class TellExactTextContextAction final :
 
   // implements Message ----------------------------------------------
 
-  TellExactTextContextAction* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  TellExactTextContextAction* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<TellExactTextContextAction>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const TellExactTextContextAction& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const TellExactTextContextAction& from) {
     TellExactTextContextAction::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(TellExactTextContextAction* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.TellExactTextContextAction";
   }
   protected:
-  explicit TellExactTextContextAction(::google::protobuf_inworld::Arena* arena);
-  TellExactTextContextAction(::google::protobuf_inworld::Arena* arena, const TellExactTextContextAction& from);
+  explicit TellExactTextContextAction(::google::protobuf::Arena* arena);
+  TellExactTextContextAction(::google::protobuf::Arena* arena, const TellExactTextContextAction& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -524,27 +524,27 @@ class TellExactTextContextAction final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       0, 1, 0,
       71, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::ArenaStringPtr exact_text_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr exact_text_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -552,12 +552,12 @@ class TellExactTextContextAction final :
 };// -------------------------------------------------------------------
 
 class SetEmotionContextAction final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.SetEmotionContextAction) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.SetEmotionContextAction) */ {
  public:
   inline SetEmotionContextAction() : SetEmotionContextAction(nullptr) {}
   ~SetEmotionContextAction() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR SetEmotionContextAction(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR SetEmotionContextAction(::google::protobuf::internal::ConstantInitialized);
 
   inline SetEmotionContextAction(const SetEmotionContextAction& from)
       : SetEmotionContextAction(nullptr, from) {}
@@ -584,22 +584,22 @@ class SetEmotionContextAction final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const SetEmotionContextAction& default_instance() {
@@ -625,7 +625,7 @@ class SetEmotionContextAction final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(SetEmotionContextAction* other) {
@@ -636,47 +636,47 @@ class SetEmotionContextAction final :
 
   // implements Message ----------------------------------------------
 
-  SetEmotionContextAction* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  SetEmotionContextAction* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<SetEmotionContextAction>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const SetEmotionContextAction& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const SetEmotionContextAction& from) {
     SetEmotionContextAction::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(SetEmotionContextAction* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.SetEmotionContextAction";
   }
   protected:
-  explicit SetEmotionContextAction(::google::protobuf_inworld::Arena* arena);
-  SetEmotionContextAction(::google::protobuf_inworld::Arena* arena, const SetEmotionContextAction& from);
+  explicit SetEmotionContextAction(::google::protobuf::Arena* arena);
+  SetEmotionContextAction(::google::protobuf::Arena* arena, const SetEmotionContextAction& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -699,27 +699,27 @@ class SetEmotionContextAction final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       0, 1, 0,
       0, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
     int behavior_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -727,12 +727,12 @@ class SetEmotionContextAction final :
 };// -------------------------------------------------------------------
 
 class SendCustomEventContextAction final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.SendCustomEventContextAction) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.SendCustomEventContextAction) */ {
  public:
   inline SendCustomEventContextAction() : SendCustomEventContextAction(nullptr) {}
   ~SendCustomEventContextAction() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR SendCustomEventContextAction(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR SendCustomEventContextAction(::google::protobuf::internal::ConstantInitialized);
 
   inline SendCustomEventContextAction(const SendCustomEventContextAction& from)
       : SendCustomEventContextAction(nullptr, from) {}
@@ -759,22 +759,22 @@ class SendCustomEventContextAction final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const SendCustomEventContextAction& default_instance() {
@@ -800,7 +800,7 @@ class SendCustomEventContextAction final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(SendCustomEventContextAction* other) {
@@ -811,47 +811,47 @@ class SendCustomEventContextAction final :
 
   // implements Message ----------------------------------------------
 
-  SendCustomEventContextAction* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  SendCustomEventContextAction* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<SendCustomEventContextAction>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const SendCustomEventContextAction& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const SendCustomEventContextAction& from) {
     SendCustomEventContextAction::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(SendCustomEventContextAction* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.SendCustomEventContextAction";
   }
   protected:
-  explicit SendCustomEventContextAction(::google::protobuf_inworld::Arena* arena);
-  SendCustomEventContextAction(::google::protobuf_inworld::Arena* arena, const SendCustomEventContextAction& from);
+  explicit SendCustomEventContextAction(::google::protobuf::Arena* arena);
+  SendCustomEventContextAction(::google::protobuf::Arena* arena, const SendCustomEventContextAction& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -880,27 +880,27 @@ class SendCustomEventContextAction final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       0, 1, 0,
       75, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::ArenaStringPtr custom_event_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr custom_event_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -908,12 +908,12 @@ class SendCustomEventContextAction final :
 };// -------------------------------------------------------------------
 
 class BehavioralContextProperties final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.BehavioralContextProperties) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.BehavioralContextProperties) */ {
  public:
   inline BehavioralContextProperties() : BehavioralContextProperties(nullptr) {}
   ~BehavioralContextProperties() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR BehavioralContextProperties(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR BehavioralContextProperties(::google::protobuf::internal::ConstantInitialized);
 
   inline BehavioralContextProperties(const BehavioralContextProperties& from)
       : BehavioralContextProperties(nullptr, from) {}
@@ -940,22 +940,22 @@ class BehavioralContextProperties final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const BehavioralContextProperties& default_instance() {
@@ -981,7 +981,7 @@ class BehavioralContextProperties final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(BehavioralContextProperties* other) {
@@ -992,47 +992,47 @@ class BehavioralContextProperties final :
 
   // implements Message ----------------------------------------------
 
-  BehavioralContextProperties* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  BehavioralContextProperties* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<BehavioralContextProperties>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const BehavioralContextProperties& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const BehavioralContextProperties& from) {
     BehavioralContextProperties::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(BehavioralContextProperties* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.BehavioralContextProperties";
   }
   protected:
-  explicit BehavioralContextProperties(::google::protobuf_inworld::Arena* arena);
-  BehavioralContextProperties(::google::protobuf_inworld::Arena* arena, const BehavioralContextProperties& from);
+  explicit BehavioralContextProperties(::google::protobuf::Arena* arena);
+  BehavioralContextProperties(::google::protobuf::Arena* arena, const BehavioralContextProperties& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -1077,29 +1077,29 @@ class BehavioralContextProperties final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       2, 3, 0,
       0, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
     ::int32_t priority_;
     bool start_conversation_;
     bool is_default_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -1107,12 +1107,12 @@ class BehavioralContextProperties final :
 };// -------------------------------------------------------------------
 
 class BehavioralContextAction final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.BehavioralContextAction) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.BehavioralContextAction) */ {
  public:
   inline BehavioralContextAction() : BehavioralContextAction(nullptr) {}
   ~BehavioralContextAction() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR BehavioralContextAction(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR BehavioralContextAction(::google::protobuf::internal::ConstantInitialized);
 
   inline BehavioralContextAction(const BehavioralContextAction& from)
       : BehavioralContextAction(nullptr, from) {}
@@ -1139,22 +1139,22 @@ class BehavioralContextAction final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const BehavioralContextAction& default_instance() {
@@ -1188,7 +1188,7 @@ class BehavioralContextAction final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(BehavioralContextAction* other) {
@@ -1199,47 +1199,47 @@ class BehavioralContextAction final :
 
   // implements Message ----------------------------------------------
 
-  BehavioralContextAction* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  BehavioralContextAction* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<BehavioralContextAction>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const BehavioralContextAction& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const BehavioralContextAction& from) {
     BehavioralContextAction::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(BehavioralContextAction* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.BehavioralContextAction";
   }
   protected:
-  explicit BehavioralContextAction(::google::protobuf_inworld::Arena* arena);
-  BehavioralContextAction(::google::protobuf_inworld::Arena* arena, const BehavioralContextAction& from);
+  explicit BehavioralContextAction(::google::protobuf::Arena* arena);
+  BehavioralContextAction(::google::protobuf::Arena* arena, const BehavioralContextAction& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -1357,35 +1357,35 @@ class BehavioralContextAction final :
   inline bool has_action() const;
   inline void clear_has_action();
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       0, 5, 4,
       62, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::ArenaStringPtr uuid_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr uuid_;
     union ActionUnion {
       constexpr ActionUnion() : _constinit_{} {}
-        ::google::protobuf_inworld::internal::ConstantInitialized _constinit_;
+        ::google::protobuf::internal::ConstantInitialized _constinit_;
       ::ai::inworld::studio::v1alpha::TellExactTextContextAction* tell_exact_;
       ::ai::inworld::studio::v1alpha::TellInstructedContextAction* tell_instructed_;
       ::ai::inworld::studio::v1alpha::SendCustomEventContextAction* send_custom_event_;
       ::ai::inworld::studio::v1alpha::SetEmotionContextAction* set_emotion_;
     } action_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     ::uint32_t _oneof_case_[1];
 
     PROTOBUF_TSAN_DECLARE_MEMBER
@@ -1395,12 +1395,12 @@ class BehavioralContextAction final :
 };// -------------------------------------------------------------------
 
 class BehavioralContextInteraction final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.BehavioralContextInteraction) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.BehavioralContextInteraction) */ {
  public:
   inline BehavioralContextInteraction() : BehavioralContextInteraction(nullptr) {}
   ~BehavioralContextInteraction() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR BehavioralContextInteraction(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR BehavioralContextInteraction(::google::protobuf::internal::ConstantInitialized);
 
   inline BehavioralContextInteraction(const BehavioralContextInteraction& from)
       : BehavioralContextInteraction(nullptr, from) {}
@@ -1427,22 +1427,22 @@ class BehavioralContextInteraction final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const BehavioralContextInteraction& default_instance() {
@@ -1468,7 +1468,7 @@ class BehavioralContextInteraction final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(BehavioralContextInteraction* other) {
@@ -1479,47 +1479,47 @@ class BehavioralContextInteraction final :
 
   // implements Message ----------------------------------------------
 
-  BehavioralContextInteraction* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  BehavioralContextInteraction* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<BehavioralContextInteraction>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const BehavioralContextInteraction& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const BehavioralContextInteraction& from) {
     BehavioralContextInteraction::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(BehavioralContextInteraction* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.BehavioralContextInteraction";
   }
   protected:
-  explicit BehavioralContextInteraction(::google::protobuf_inworld::Arena* arena);
-  BehavioralContextInteraction(::google::protobuf_inworld::Arena* arena, const BehavioralContextInteraction& from);
+  explicit BehavioralContextInteraction(::google::protobuf::Arena* arena);
+  BehavioralContextInteraction(::google::protobuf::Arena* arena, const BehavioralContextInteraction& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -1538,15 +1538,15 @@ class BehavioralContextInteraction final :
   public:
   void clear_actions() ;
   ::ai::inworld::studio::v1alpha::BehavioralContextAction* mutable_actions(int index);
-  ::google::protobuf_inworld::RepeatedPtrField< ::ai::inworld::studio::v1alpha::BehavioralContextAction >*
+  ::google::protobuf::RepeatedPtrField< ::ai::inworld::studio::v1alpha::BehavioralContextAction >*
       mutable_actions();
   private:
-  const ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::BehavioralContextAction>& _internal_actions() const;
-  ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::BehavioralContextAction>* _internal_mutable_actions();
+  const ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::BehavioralContextAction>& _internal_actions() const;
+  ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::BehavioralContextAction>* _internal_mutable_actions();
   public:
   const ::ai::inworld::studio::v1alpha::BehavioralContextAction& actions(int index) const;
   ::ai::inworld::studio::v1alpha::BehavioralContextAction* add_actions();
-  const ::google::protobuf_inworld::RepeatedPtrField< ::ai::inworld::studio::v1alpha::BehavioralContextAction >&
+  const ::google::protobuf::RepeatedPtrField< ::ai::inworld::studio::v1alpha::BehavioralContextAction >&
       actions() const;
   // string uuid = 3;
   void clear_uuid() ;
@@ -1578,29 +1578,29 @@ class BehavioralContextInteraction final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       2, 3, 1,
       67, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::RepeatedPtrField< ::ai::inworld::studio::v1alpha::BehavioralContextAction > actions_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr uuid_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::RepeatedPtrField< ::ai::inworld::studio::v1alpha::BehavioralContextAction > actions_;
+    ::google::protobuf::internal::ArenaStringPtr uuid_;
     int interaction_type_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -1608,12 +1608,12 @@ class BehavioralContextInteraction final :
 };// -------------------------------------------------------------------
 
 class BehavioralContext final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.BehavioralContext) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.BehavioralContext) */ {
  public:
   inline BehavioralContext() : BehavioralContext(nullptr) {}
   ~BehavioralContext() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR BehavioralContext(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR BehavioralContext(::google::protobuf::internal::ConstantInitialized);
 
   inline BehavioralContext(const BehavioralContext& from)
       : BehavioralContext(nullptr, from) {}
@@ -1640,22 +1640,22 @@ class BehavioralContext final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const BehavioralContext& default_instance() {
@@ -1681,7 +1681,7 @@ class BehavioralContext final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(BehavioralContext* other) {
@@ -1692,47 +1692,47 @@ class BehavioralContext final :
 
   // implements Message ----------------------------------------------
 
-  BehavioralContext* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  BehavioralContext* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<BehavioralContext>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const BehavioralContext& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const BehavioralContext& from) {
     BehavioralContext::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(BehavioralContext* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.BehavioralContext";
   }
   protected:
-  explicit BehavioralContext(::google::protobuf_inworld::Arena* arena);
-  BehavioralContext(::google::protobuf_inworld::Arena* arena, const BehavioralContext& from);
+  explicit BehavioralContext(::google::protobuf::Arena* arena);
+  BehavioralContext(::google::protobuf::Arena* arena, const BehavioralContext& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -1765,12 +1765,12 @@ class BehavioralContext final :
   void add_triggers(const char* value);
   void add_triggers(const char* value, std::size_t size);
   void add_triggers(absl::string_view value);
-  const ::google::protobuf_inworld::RepeatedPtrField<std::string>& triggers() const;
-  ::google::protobuf_inworld::RepeatedPtrField<std::string>* mutable_triggers();
+  const ::google::protobuf::RepeatedPtrField<std::string>& triggers() const;
+  ::google::protobuf::RepeatedPtrField<std::string>* mutable_triggers();
 
   private:
-  const ::google::protobuf_inworld::RepeatedPtrField<std::string>& _internal_triggers() const;
-  ::google::protobuf_inworld::RepeatedPtrField<std::string>* _internal_mutable_triggers();
+  const ::google::protobuf::RepeatedPtrField<std::string>& _internal_triggers() const;
+  ::google::protobuf::RepeatedPtrField<std::string>* _internal_mutable_triggers();
 
   public:
   // repeated .ai.inworld.studio.v1alpha.BehavioralContextInteraction behavioral_context_interaction = 5;
@@ -1781,15 +1781,15 @@ class BehavioralContext final :
   public:
   void clear_behavioral_context_interaction() ;
   ::ai::inworld::studio::v1alpha::BehavioralContextInteraction* mutable_behavioral_context_interaction(int index);
-  ::google::protobuf_inworld::RepeatedPtrField< ::ai::inworld::studio::v1alpha::BehavioralContextInteraction >*
+  ::google::protobuf::RepeatedPtrField< ::ai::inworld::studio::v1alpha::BehavioralContextInteraction >*
       mutable_behavioral_context_interaction();
   private:
-  const ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::BehavioralContextInteraction>& _internal_behavioral_context_interaction() const;
-  ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::BehavioralContextInteraction>* _internal_mutable_behavioral_context_interaction();
+  const ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::BehavioralContextInteraction>& _internal_behavioral_context_interaction() const;
+  ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::BehavioralContextInteraction>* _internal_mutable_behavioral_context_interaction();
   public:
   const ::ai::inworld::studio::v1alpha::BehavioralContextInteraction& behavioral_context_interaction(int index) const;
   ::ai::inworld::studio::v1alpha::BehavioralContextInteraction* add_behavioral_context_interaction();
-  const ::google::protobuf_inworld::RepeatedPtrField< ::ai::inworld::studio::v1alpha::BehavioralContextInteraction >&
+  const ::google::protobuf::RepeatedPtrField< ::ai::inworld::studio::v1alpha::BehavioralContextInteraction >&
       behavioral_context_interaction() const;
   // string name = 1;
   void clear_name() ;
@@ -1842,31 +1842,31 @@ class BehavioralContext final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       3, 5, 2,
       74, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::HasBits<1> _has_bits_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
-    ::google::protobuf_inworld::RepeatedPtrField<std::string> triggers_;
-    ::google::protobuf_inworld::RepeatedPtrField< ::ai::inworld::studio::v1alpha::BehavioralContextInteraction > behavioral_context_interaction_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr name_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr motivation_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedPtrField<std::string> triggers_;
+    ::google::protobuf::RepeatedPtrField< ::ai::inworld::studio::v1alpha::BehavioralContextInteraction > behavioral_context_interaction_;
+    ::google::protobuf::internal::ArenaStringPtr name_;
+    ::google::protobuf::internal::ArenaStringPtr motivation_;
     ::ai::inworld::studio::v1alpha::BehavioralContextProperties* properties_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -2239,7 +2239,7 @@ inline ::ai::inworld::studio::v1alpha::TellExactTextContextAction* BehavioralCon
     clear_has_action();
     auto* temp = _impl_.action_.tell_exact_;
     if (GetArena() != nullptr) {
-      temp = ::google::protobuf_inworld::internal::DuplicateIfNonNull(temp);
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
     }
     _impl_.action_.tell_exact_ = nullptr;
     return temp;
@@ -2315,7 +2315,7 @@ inline ::ai::inworld::studio::v1alpha::TellInstructedContextAction* BehavioralCo
     clear_has_action();
     auto* temp = _impl_.action_.tell_instructed_;
     if (GetArena() != nullptr) {
-      temp = ::google::protobuf_inworld::internal::DuplicateIfNonNull(temp);
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
     }
     _impl_.action_.tell_instructed_ = nullptr;
     return temp;
@@ -2391,7 +2391,7 @@ inline ::ai::inworld::studio::v1alpha::SendCustomEventContextAction* BehavioralC
     clear_has_action();
     auto* temp = _impl_.action_.send_custom_event_;
     if (GetArena() != nullptr) {
-      temp = ::google::protobuf_inworld::internal::DuplicateIfNonNull(temp);
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
     }
     _impl_.action_.send_custom_event_ = nullptr;
     return temp;
@@ -2467,7 +2467,7 @@ inline ::ai::inworld::studio::v1alpha::SetEmotionContextAction* BehavioralContex
     clear_has_action();
     auto* temp = _impl_.action_.set_emotion_;
     if (GetArena() != nullptr) {
-      temp = ::google::protobuf_inworld::internal::DuplicateIfNonNull(temp);
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
     }
     _impl_.action_.set_emotion_ = nullptr;
     return temp;
@@ -2570,7 +2570,7 @@ inline ::ai::inworld::studio::v1alpha::BehavioralContextAction* BehavioralContex
   // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.BehavioralContextInteraction.actions)
   return _internal_mutable_actions()->Mutable(index);
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::BehavioralContextAction>* BehavioralContextInteraction::mutable_actions()
+inline ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::BehavioralContextAction>* BehavioralContextInteraction::mutable_actions()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_mutable_list:ai.inworld.studio.v1alpha.BehavioralContextInteraction.actions)
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
@@ -2587,17 +2587,17 @@ inline ::ai::inworld::studio::v1alpha::BehavioralContextAction* BehavioralContex
   // @@protoc_insertion_point(field_add:ai.inworld.studio.v1alpha.BehavioralContextInteraction.actions)
   return _add;
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::BehavioralContextAction>& BehavioralContextInteraction::actions() const
+inline const ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::BehavioralContextAction>& BehavioralContextInteraction::actions() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_list:ai.inworld.studio.v1alpha.BehavioralContextInteraction.actions)
   return _internal_actions();
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::BehavioralContextAction>&
+inline const ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::BehavioralContextAction>&
 BehavioralContextInteraction::_internal_actions() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return _impl_.actions_;
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::BehavioralContextAction>*
+inline ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::BehavioralContextAction>*
 BehavioralContextInteraction::_internal_mutable_actions() {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return &_impl_.actions_;
@@ -2789,7 +2789,7 @@ inline const ::ai::inworld::studio::v1alpha::BehavioralContextProperties& Behavi
 inline void BehavioralContext::unsafe_arena_set_allocated_properties(::ai::inworld::studio::v1alpha::BehavioralContextProperties* value) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf_inworld::MessageLite*>(_impl_.properties_);
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.properties_);
   }
   _impl_.properties_ = reinterpret_cast<::ai::inworld::studio::v1alpha::BehavioralContextProperties*>(value);
   if (value != nullptr) {
@@ -2806,14 +2806,14 @@ inline ::ai::inworld::studio::v1alpha::BehavioralContextProperties* BehavioralCo
   ::ai::inworld::studio::v1alpha::BehavioralContextProperties* released = _impl_.properties_;
   _impl_.properties_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf_inworld::MessageLite*>(released);
-  released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   if (GetArena() == nullptr) {
     delete old;
   }
 #else   // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArena() != nullptr) {
-    released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   }
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return released;
@@ -2842,16 +2842,16 @@ inline ::ai::inworld::studio::v1alpha::BehavioralContextProperties* BehavioralCo
   return _msg;
 }
 inline void BehavioralContext::set_allocated_properties(::ai::inworld::studio::v1alpha::BehavioralContextProperties* value) {
-  ::google::protobuf_inworld::Arena* message_arena = GetArena();
+  ::google::protobuf::Arena* message_arena = GetArena();
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (message_arena == nullptr) {
     delete reinterpret_cast<::ai::inworld::studio::v1alpha::BehavioralContextProperties*>(_impl_.properties_);
   }
 
   if (value != nullptr) {
-    ::google::protobuf_inworld::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::BehavioralContextProperties*>(value)->GetArena();
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::BehavioralContextProperties*>(value)->GetArena();
     if (message_arena != submessage_arena) {
-      value = ::google::protobuf_inworld::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
@@ -2941,23 +2941,23 @@ inline void BehavioralContext::add_triggers(absl::string_view value) {
   _internal_mutable_triggers()->Add()->assign(value.data(), value.size());
   // @@protoc_insertion_point(field_add_string_piece:ai.inworld.studio.v1alpha.BehavioralContext.triggers)
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<std::string>&
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
 BehavioralContext::triggers() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_list:ai.inworld.studio.v1alpha.BehavioralContext.triggers)
   return _internal_triggers();
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<std::string>*
+inline ::google::protobuf::RepeatedPtrField<std::string>*
 BehavioralContext::mutable_triggers() ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_mutable_list:ai.inworld.studio.v1alpha.BehavioralContext.triggers)
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   return _internal_mutable_triggers();
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<std::string>&
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
 BehavioralContext::_internal_triggers() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return _impl_.triggers_;
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<std::string>*
+inline ::google::protobuf::RepeatedPtrField<std::string>*
 BehavioralContext::_internal_mutable_triggers() {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return &_impl_.triggers_;
@@ -2979,7 +2979,7 @@ inline ::ai::inworld::studio::v1alpha::BehavioralContextInteraction* BehavioralC
   // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.BehavioralContext.behavioral_context_interaction)
   return _internal_mutable_behavioral_context_interaction()->Mutable(index);
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::BehavioralContextInteraction>* BehavioralContext::mutable_behavioral_context_interaction()
+inline ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::BehavioralContextInteraction>* BehavioralContext::mutable_behavioral_context_interaction()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_mutable_list:ai.inworld.studio.v1alpha.BehavioralContext.behavioral_context_interaction)
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
@@ -2996,17 +2996,17 @@ inline ::ai::inworld::studio::v1alpha::BehavioralContextInteraction* BehavioralC
   // @@protoc_insertion_point(field_add:ai.inworld.studio.v1alpha.BehavioralContext.behavioral_context_interaction)
   return _add;
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::BehavioralContextInteraction>& BehavioralContext::behavioral_context_interaction() const
+inline const ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::BehavioralContextInteraction>& BehavioralContext::behavioral_context_interaction() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_list:ai.inworld.studio.v1alpha.BehavioralContext.behavioral_context_interaction)
   return _internal_behavioral_context_interaction();
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::BehavioralContextInteraction>&
+inline const ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::BehavioralContextInteraction>&
 BehavioralContext::_internal_behavioral_context_interaction() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return _impl_.behavioral_context_interaction_;
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::BehavioralContextInteraction>*
+inline ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::BehavioralContextInteraction>*
 BehavioralContext::_internal_mutable_behavioral_context_interaction() {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return &_impl_.behavioral_context_interaction_;

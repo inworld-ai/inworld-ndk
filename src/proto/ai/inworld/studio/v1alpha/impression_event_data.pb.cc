@@ -19,8 +19,8 @@
 #include "google/protobuf/port_def.inc"
 PROTOBUF_PRAGMA_INIT_SEG
 namespace _pb = ::google::protobuf;
-namespace _pbi = ::google::protobuf_inworld::internal;
-namespace _fl = ::google::protobuf_inworld::internal::field_layout;
+namespace _pbi = ::google::protobuf::internal;
+namespace _fl = ::google::protobuf::internal::field_layout;
 namespace ai {
 namespace inworld {
 namespace studio {
@@ -30,19 +30,19 @@ inline constexpr ImpressionEventData::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
         feature_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         variant_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         payload_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         stickiness_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         workspace_id_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         event_time_{nullptr} {}
 
@@ -168,13 +168,13 @@ class ImpressionEventData::_Internal {
   using HasBits = decltype(std::declval<ImpressionEventData>()._impl_._has_bits_);
   static constexpr ::int32_t kHasBitsOffset =
     8 * PROTOBUF_FIELD_OFFSET(ImpressionEventData, _impl_._has_bits_);
-  static const ::google::protobuf_inworld::Timestamp& event_time(const ImpressionEventData* msg);
+  static const ::google::protobuf::Timestamp& event_time(const ImpressionEventData* msg);
   static void set_has_event_time(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
 };
 
-const ::google::protobuf_inworld::Timestamp& ImpressionEventData::_Internal::event_time(const ImpressionEventData* msg) {
+const ::google::protobuf::Timestamp& ImpressionEventData::_Internal::event_time(const ImpressionEventData* msg) {
   return *msg->_impl_.event_time_;
 }
 void ImpressionEventData::clear_event_time() {
@@ -182,13 +182,13 @@ void ImpressionEventData::clear_event_time() {
   if (_impl_.event_time_ != nullptr) _impl_.event_time_->Clear();
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-ImpressionEventData::ImpressionEventData(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+ImpressionEventData::ImpressionEventData(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.ImpressionEventData)
 }
 inline PROTOBUF_NDEBUG_INLINE ImpressionEventData::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
@@ -199,24 +199,24 @@ inline PROTOBUF_NDEBUG_INLINE ImpressionEventData::Impl_::Impl_(
         workspace_id_(arena, from.workspace_id_) {}
 
 ImpressionEventData::ImpressionEventData(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const ImpressionEventData& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   ImpressionEventData* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
   ::uint32_t cached_has_bits = _impl_._has_bits_[0];
   _impl_.event_time_ = (cached_has_bits & 0x00000001u)
-                ? CreateMaybeMessage<::google::protobuf_inworld::Timestamp>(arena, *from._impl_.event_time_)
+                ? CreateMaybeMessage<::google::protobuf::Timestamp>(arena, *from._impl_.event_time_)
                 : nullptr;
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.ImpressionEventData)
 }
 inline PROTOBUF_NDEBUG_INLINE ImpressionEventData::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : _cached_size_{0},
         feature_(arena),
         variant_(arena),
@@ -230,7 +230,7 @@ inline void ImpressionEventData::SharedCtor(::_pb::Arena* arena) {
 }
 ImpressionEventData::~ImpressionEventData() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.ImpressionEventData)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void ImpressionEventData::SharedDtor() {
@@ -262,7 +262,7 @@ PROTOBUF_NOINLINE void ImpressionEventData::Clear() {
     _impl_.event_time_->Clear();
   }
   _impl_._has_bits_.Clear();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* ImpressionEventData::_InternalParse(
@@ -329,7 +329,7 @@ const ::_pbi::TcParseTable<3, 6, 1, 97, 2> ImpressionEventData::_table_ = {
     {PROTOBUF_FIELD_OFFSET(ImpressionEventData, _impl_.workspace_id_), -1, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
   }}, {{
-    {::_pbi::TcParser::GetTable<::google::protobuf_inworld::Timestamp>()},
+    {::_pbi::TcParser::GetTable<::google::protobuf::Timestamp>()},
   }}, {{
     "\55\7\7\7\12\0\14\0"
     "ai.inworld.studio.v1alpha.ImpressionEventData"
@@ -343,7 +343,7 @@ const ::_pbi::TcParseTable<3, 6, 1, 97, 2> ImpressionEventData::_table_ = {
 
 ::uint8_t* ImpressionEventData::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.ImpressionEventData)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -351,39 +351,39 @@ const ::_pbi::TcParseTable<3, 6, 1, 97, 2> ImpressionEventData::_table_ = {
   // string feature = 1;
   if (!this->_internal_feature().empty()) {
     const std::string& _s = this->_internal_feature();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ImpressionEventData.feature");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ImpressionEventData.feature");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // string variant = 2;
   if (!this->_internal_variant().empty()) {
     const std::string& _s = this->_internal_variant();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ImpressionEventData.variant");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ImpressionEventData.variant");
     target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
   // string payload = 3;
   if (!this->_internal_payload().empty()) {
     const std::string& _s = this->_internal_payload();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ImpressionEventData.payload");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ImpressionEventData.payload");
     target = stream->WriteStringMaybeAliased(3, _s, target);
   }
 
   // string stickiness = 4;
   if (!this->_internal_stickiness().empty()) {
     const std::string& _s = this->_internal_stickiness();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ImpressionEventData.stickiness");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ImpressionEventData.stickiness");
     target = stream->WriteStringMaybeAliased(4, _s, target);
   }
 
   cached_has_bits = _impl_._has_bits_[0];
   // .google.protobuf.Timestamp event_time = 5;
   if (cached_has_bits & 0x00000001u) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         5, _Internal::event_time(this),
         _Internal::event_time(this).GetCachedSize(), target, stream);
   }
@@ -391,15 +391,15 @@ const ::_pbi::TcParseTable<3, 6, 1, 97, 2> ImpressionEventData::_table_ = {
   // string workspace_id = 6;
   if (!this->_internal_workspace_id().empty()) {
     const std::string& _s = this->_internal_workspace_id();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ImpressionEventData.workspace_id");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ImpressionEventData.workspace_id");
     target = stream->WriteStringMaybeAliased(6, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.ImpressionEventData)
   return target;
@@ -415,31 +415,31 @@ const ::_pbi::TcParseTable<3, 6, 1, 97, 2> ImpressionEventData::_table_ = {
 
   // string feature = 1;
   if (!this->_internal_feature().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_feature());
   }
 
   // string variant = 2;
   if (!this->_internal_variant().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_variant());
   }
 
   // string payload = 3;
   if (!this->_internal_payload().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_payload());
   }
 
   // string stickiness = 4;
   if (!this->_internal_stickiness().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_stickiness());
   }
 
   // string workspace_id = 6;
   if (!this->_internal_workspace_id().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_workspace_id());
   }
 
@@ -447,21 +447,21 @@ const ::_pbi::TcParseTable<3, 6, 1, 97, 2> ImpressionEventData::_table_ = {
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size +=
-        1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.event_time_);
+        1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.event_time_);
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData ImpressionEventData::_class_data_ = {
+const ::google::protobuf::Message::ClassData ImpressionEventData::_class_data_ = {
     ImpressionEventData::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* ImpressionEventData::GetClassData() const {
+const ::google::protobuf::Message::ClassData* ImpressionEventData::GetClassData() const {
   return &_class_data_;
 }
 
-void ImpressionEventData::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void ImpressionEventData::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<ImpressionEventData*>(&to_msg);
   auto& from = static_cast<const ImpressionEventData&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.ImpressionEventData)
@@ -485,10 +485,10 @@ void ImpressionEventData::MergeImpl(::google::protobuf_inworld::Message& to_msg,
     _this->_internal_set_workspace_id(from._internal_workspace_id());
   }
   if ((from._impl_._has_bits_[0] & 0x00000001u) != 0) {
-    _this->_internal_mutable_event_time()->::google::protobuf_inworld::Timestamp::MergeFrom(
+    _this->_internal_mutable_event_time()->::google::protobuf::Timestamp::MergeFrom(
         from._internal_event_time());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ImpressionEventData::CopyFrom(const ImpressionEventData& from) {
@@ -519,7 +519,7 @@ void ImpressionEventData::InternalSwap(ImpressionEventData* PROTOBUF_RESTRICT ot
   swap(_impl_.event_time_, other->_impl_.event_time_);
 }
 
-::google::protobuf_inworld::Metadata ImpressionEventData::GetMetadata() const {
+::google::protobuf::Metadata ImpressionEventData::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto[0]);

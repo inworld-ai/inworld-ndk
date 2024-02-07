@@ -53,7 +53,7 @@ class AnyMetadata;
 struct TableStruct_google_2fapi_2ffield_5fbehavior_2eproto {
   static const ::uint32_t offsets[];
 };
-extern const ::google::protobuf_inworld::internal::DescriptorTable
+extern const ::google::protobuf::internal::DescriptorTable
     descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto;
 namespace google {
 namespace protobuf {
@@ -81,7 +81,7 @@ extern const uint32_t FieldBehavior_internal_data_[];
 constexpr FieldBehavior FieldBehavior_MIN = static_cast<FieldBehavior>(0);
 constexpr FieldBehavior FieldBehavior_MAX = static_cast<FieldBehavior>(6);
 constexpr int FieldBehavior_ARRAYSIZE = 6 + 1;
-const ::google::protobuf_inworld::EnumDescriptor*
+const ::google::protobuf::EnumDescriptor*
 FieldBehavior_descriptor();
 template <typename T>
 const std::string& FieldBehavior_Name(T value) {
@@ -92,12 +92,12 @@ const std::string& FieldBehavior_Name(T value) {
 }
 template <>
 inline const std::string& FieldBehavior_Name(FieldBehavior value) {
-  return ::google::protobuf_inworld::internal::NameOfDenseEnum<FieldBehavior_descriptor,
+  return ::google::protobuf::internal::NameOfDenseEnum<FieldBehavior_descriptor,
                                                  0, 6>(
       static_cast<int>(value));
 }
 inline bool FieldBehavior_Parse(absl::string_view name, FieldBehavior* value) {
-  return ::google::protobuf_inworld::internal::ParseNamedEnum<FieldBehavior>(
+  return ::google::protobuf::internal::ParseNamedEnum<FieldBehavior>(
       FieldBehavior_descriptor(), name, value);
 }
 
@@ -110,8 +110,8 @@ inline bool FieldBehavior_Parse(absl::string_view name, FieldBehavior* value) {
 
 
 static const int kFieldBehaviorFieldNumber = 1052;
-extern ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::FieldOptions,
-    ::google::protobuf_inworld::internal::RepeatedEnumTypeTraits< ::google::api::FieldBehavior, ::google::api::FieldBehavior_IsValid>, 14, true >
+extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::FieldOptions,
+    ::google::protobuf::internal::RepeatedEnumTypeTraits< ::google::api::FieldBehavior, ::google::api::FieldBehavior_IsValid>, 14, true >
   field_behavior;
 
 // ===================================================================

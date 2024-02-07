@@ -19,8 +19,8 @@
 #include "google/protobuf/port_def.inc"
 PROTOBUF_PRAGMA_INIT_SEG
 namespace _pb = ::google::protobuf;
-namespace _pbi = ::google::protobuf_inworld::internal;
-namespace _fl = ::google::protobuf_inworld::internal::field_layout;
+namespace _pbi = ::google::protobuf::internal;
+namespace _fl = ::google::protobuf::internal::field_layout;
 namespace ai {
 namespace inworld {
 namespace studio {
@@ -29,7 +29,7 @@ namespace v1alpha {
 inline constexpr UnshareCharacterPortalRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : name_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
 
@@ -51,7 +51,7 @@ inline constexpr ShareCharacterRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : external_ids_{},
         name_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
 
@@ -72,13 +72,13 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr ShareCharacterPortalRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : name_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         byline_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         prompt_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         allowed_on_showcase_{false},
         _cached_size_{0} {}
@@ -100,10 +100,10 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr ReplaceCharacterRpmModelRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : character_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         rpm_model_uri_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
 
@@ -124,10 +124,10 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr ReplaceCharacterImageRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : character_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         content_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         character_asset_type_{static_cast< ::ai::inworld::studio::v1alpha::CharacterAssetType >(0)},
         _cached_size_{0} {}
@@ -149,10 +149,10 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr PreviewPromptTemplateRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : character_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         template__(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
 
@@ -174,7 +174,7 @@ inline constexpr PreviewPromptTempalteResponse::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : errors_{},
         prompt_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
 
@@ -195,10 +195,10 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr ListSharedCharactersRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : parent_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         page_token_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         page_size_{0},
         _cached_size_{0} {}
@@ -220,13 +220,13 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr ListCharactersRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : parent_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         page_token_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         filter_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         page_size_{0},
         view_{static_cast< ::ai::inworld::studio::v1alpha::CharacterView >(0)},
@@ -249,7 +249,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr GetCharacterShareInfoRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : name_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         view_{static_cast< ::ai::inworld::studio::v1alpha::CharacterSharePurpose >(0)},
         _cached_size_{0} {}
@@ -271,7 +271,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr GetCharacterRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : name_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         view_{static_cast< ::ai::inworld::studio::v1alpha::CharacterItemView >(0)},
         _cached_size_{0} {}
@@ -293,7 +293,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr GetCharacterAdvancedSettingsRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : name_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
 
@@ -314,7 +314,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr DeployCharacterRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : name_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
 
@@ -359,7 +359,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr DeleteCharacterRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : name_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
 
@@ -392,13 +392,13 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr CloneCharacterRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : name_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         workspace_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         new_name_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
 
@@ -438,7 +438,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr CheckDeployInfoRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : character_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
 
@@ -498,7 +498,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr CharacterAdvancedSettings_ConversationConfig_EngineSpec::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : engine_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         temperature_{0},
         max_tokens_{0},
@@ -621,7 +621,7 @@ inline constexpr Character_Fact::Impl_::Impl_(
         tags_{},
         _tags_cached_byte_size_{0},
         uuid_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
 
@@ -687,13 +687,13 @@ inline constexpr Character_CharacterDescription_CustomDialogStyle::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : adjectives_{},
         uuid_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         display_name_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         colloquialism_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         is_active_{false},
         _cached_size_{0} {}
@@ -735,13 +735,13 @@ inline constexpr Character_SharedPortalInfo::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
         byline_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         prompt_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         short_alias_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         interaction_count_stat_{nullptr},
         is_shared_{false},
@@ -768,25 +768,25 @@ inline constexpr Character_CharacterDescription::Impl_::Impl_(
         hobby_or_interests_{},
         custom_dialog_styles_{},
         given_name_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         description_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         motivation_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         wikipedia_uri_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         example_dialog_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         character_role_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         flaws_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         pronoun_{static_cast< ::ai::inworld::studio::v1alpha::Character_CharacterDescription_Pronoun >(0)},
         example_dialog_style_{static_cast< ::ai::inworld::studio::v1alpha::Character_CharacterDescription_ExampleDialogStyle >(0)},
@@ -813,13 +813,13 @@ inline constexpr CharacterAdvancedSettings::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
         name_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         custom_prompt_template_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         additional_agent_info_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         conversation_config_{nullptr},
         speech_safety_spec_{nullptr} {}
@@ -842,34 +842,34 @@ inline constexpr Character_CharacterAssets::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
         rpm_model_uri_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         rpm_image_uri_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         rpm_image_uri_portrait_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         rpm_image_uri_posture_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         avatar_img_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         avatar_img_original_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         avatar_background_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         avatar_material_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         innequin_img_uri_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         innequin_img_original_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         voice_{nullptr},
         avatar_type_{static_cast< ::ai::inworld::studio::v1alpha::Character_CharacterAssets_AvatarType >(0)},
@@ -918,13 +918,13 @@ inline constexpr Character::Impl_::Impl_(
         behavioral_contexts_{},
         safety_config_{},
         name_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         language_code_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         yaml_config_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         default_character_description_{nullptr},
         default_character_assets_{nullptr},
@@ -979,7 +979,7 @@ inline constexpr ListSharedCharactersResponse::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : shared_characters_{},
         next_page_token_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
 
@@ -1001,7 +1001,7 @@ inline constexpr ListCharactersResponse::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : characters_{},
         next_page_token_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
 
@@ -1023,7 +1023,7 @@ inline constexpr CreateCharacterRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
         parent_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         character_{nullptr},
         skip_auto_create_{false} {}
@@ -2126,8 +2126,8 @@ namespace ai {
 namespace inworld {
 namespace studio {
 namespace v1alpha {
-const ::google::protobuf_inworld::EnumDescriptor* Character_CharacterDescription_Pronoun_descriptor() {
-  ::google::protobuf_inworld::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+const ::google::protobuf::EnumDescriptor* Character_CharacterDescription_Pronoun_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
   return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[0];
 }
 PROTOBUF_CONSTINIT const uint32_t Character_CharacterDescription_Pronoun_internal_data_[] = {
@@ -2148,8 +2148,8 @@ constexpr int Character_CharacterDescription::Pronoun_ARRAYSIZE;
 
 #endif  // (__cplusplus < 201703) &&
         // (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-const ::google::protobuf_inworld::EnumDescriptor* Character_CharacterDescription_ExampleDialogStyle_descriptor() {
-  ::google::protobuf_inworld::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+const ::google::protobuf::EnumDescriptor* Character_CharacterDescription_ExampleDialogStyle_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
   return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[1];
 }
 PROTOBUF_CONSTINIT const uint32_t Character_CharacterDescription_ExampleDialogStyle_internal_data_[] = {
@@ -2185,8 +2185,8 @@ constexpr int Character_CharacterDescription::ExampleDialogStyle_ARRAYSIZE;
 
 #endif  // (__cplusplus < 201703) &&
         // (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-const ::google::protobuf_inworld::EnumDescriptor* Character_CharacterDescription_LifeStage_descriptor() {
-  ::google::protobuf_inworld::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+const ::google::protobuf::EnumDescriptor* Character_CharacterDescription_LifeStage_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
   return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[2];
 }
 PROTOBUF_CONSTINIT const uint32_t Character_CharacterDescription_LifeStage_internal_data_[] = {
@@ -2213,8 +2213,8 @@ constexpr int Character_CharacterDescription::LifeStage_ARRAYSIZE;
 
 #endif  // (__cplusplus < 201703) &&
         // (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-const ::google::protobuf_inworld::EnumDescriptor* Character_CharacterDescription_DialogResponseLength_descriptor() {
-  ::google::protobuf_inworld::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+const ::google::protobuf::EnumDescriptor* Character_CharacterDescription_DialogResponseLength_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
   return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[3];
 }
 PROTOBUF_CONSTINIT const uint32_t Character_CharacterDescription_DialogResponseLength_internal_data_[] = {
@@ -2237,8 +2237,8 @@ constexpr int Character_CharacterDescription::DialogResponseLength_ARRAYSIZE;
 
 #endif  // (__cplusplus < 201703) &&
         // (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-const ::google::protobuf_inworld::EnumDescriptor* Character_CharacterAssets_AvatarType_descriptor() {
-  ::google::protobuf_inworld::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+const ::google::protobuf::EnumDescriptor* Character_CharacterAssets_AvatarType_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
   return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[4];
 }
 PROTOBUF_CONSTINIT const uint32_t Character_CharacterAssets_AvatarType_internal_data_[] = {
@@ -2258,8 +2258,8 @@ constexpr int Character_CharacterAssets::AvatarType_ARRAYSIZE;
 
 #endif  // (__cplusplus < 201703) &&
         // (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-const ::google::protobuf_inworld::EnumDescriptor* Character_CharacterAssets_AvatarDisplayImageSource_descriptor() {
-  ::google::protobuf_inworld::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+const ::google::protobuf::EnumDescriptor* Character_CharacterAssets_AvatarDisplayImageSource_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
   return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[5];
 }
 PROTOBUF_CONSTINIT const uint32_t Character_CharacterAssets_AvatarDisplayImageSource_internal_data_[] = {
@@ -2280,8 +2280,8 @@ constexpr int Character_CharacterAssets::AvatarDisplayImageSource_ARRAYSIZE;
 
 #endif  // (__cplusplus < 201703) &&
         // (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-const ::google::protobuf_inworld::EnumDescriptor* Character_Tag_descriptor() {
-  ::google::protobuf_inworld::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+const ::google::protobuf::EnumDescriptor* Character_Tag_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
   return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[6];
 }
 PROTOBUF_CONSTINIT const uint32_t Character_Tag_internal_data_[] = {
@@ -2301,8 +2301,8 @@ constexpr int Character::Tag_ARRAYSIZE;
 
 #endif  // (__cplusplus < 201703) &&
         // (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-const ::google::protobuf_inworld::EnumDescriptor* Character_FourthWallContainment_descriptor() {
-  ::google::protobuf_inworld::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+const ::google::protobuf::EnumDescriptor* Character_FourthWallContainment_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
   return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[7];
 }
 PROTOBUF_CONSTINIT const uint32_t Character_FourthWallContainment_internal_data_[] = {
@@ -2322,8 +2322,8 @@ constexpr int Character::FourthWallContainment_ARRAYSIZE;
 
 #endif  // (__cplusplus < 201703) &&
         // (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-const ::google::protobuf_inworld::EnumDescriptor* CharacterAdvancedSettings_SafetyTopicName_descriptor() {
-  ::google::protobuf_inworld::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+const ::google::protobuf::EnumDescriptor* CharacterAdvancedSettings_SafetyTopicName_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
   return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[8];
 }
 PROTOBUF_CONSTINIT const uint32_t CharacterAdvancedSettings_SafetyTopicName_internal_data_[] = {
@@ -2350,8 +2350,8 @@ constexpr int CharacterAdvancedSettings::SafetyTopicName_ARRAYSIZE;
 
 #endif  // (__cplusplus < 201703) &&
         // (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-const ::google::protobuf_inworld::EnumDescriptor* CharacterView_descriptor() {
-  ::google::protobuf_inworld::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+const ::google::protobuf::EnumDescriptor* CharacterView_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
   return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[9];
 }
 PROTOBUF_CONSTINIT const uint32_t CharacterView_internal_data_[] = {
@@ -2359,8 +2359,8 @@ PROTOBUF_CONSTINIT const uint32_t CharacterView_internal_data_[] = {
 bool CharacterView_IsValid(int value) {
   return 0 <= value && value <= 2;
 }
-const ::google::protobuf_inworld::EnumDescriptor* CharacterItemView_descriptor() {
-  ::google::protobuf_inworld::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+const ::google::protobuf::EnumDescriptor* CharacterItemView_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
   return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[10];
 }
 PROTOBUF_CONSTINIT const uint32_t CharacterItemView_internal_data_[] = {
@@ -2368,8 +2368,8 @@ PROTOBUF_CONSTINIT const uint32_t CharacterItemView_internal_data_[] = {
 bool CharacterItemView_IsValid(int value) {
   return 0 <= value && value <= 2;
 }
-const ::google::protobuf_inworld::EnumDescriptor* CharacterSharePurpose_descriptor() {
-  ::google::protobuf_inworld::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+const ::google::protobuf::EnumDescriptor* CharacterSharePurpose_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
   return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[11];
 }
 PROTOBUF_CONSTINIT const uint32_t CharacterSharePurpose_internal_data_[] = {
@@ -2377,8 +2377,8 @@ PROTOBUF_CONSTINIT const uint32_t CharacterSharePurpose_internal_data_[] = {
 bool CharacterSharePurpose_IsValid(int value) {
   return 0 <= value && value <= 2;
 }
-const ::google::protobuf_inworld::EnumDescriptor* SafetyLevel_descriptor() {
-  ::google::protobuf_inworld::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+const ::google::protobuf::EnumDescriptor* SafetyLevel_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
   return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[12];
 }
 PROTOBUF_CONSTINIT const uint32_t SafetyLevel_internal_data_[] = {
@@ -2386,8 +2386,8 @@ PROTOBUF_CONSTINIT const uint32_t SafetyLevel_internal_data_[] = {
 bool SafetyLevel_IsValid(int value) {
   return 0 <= value && value <= 3;
 }
-const ::google::protobuf_inworld::EnumDescriptor* CognitiveControl_descriptor() {
-  ::google::protobuf_inworld::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+const ::google::protobuf::EnumDescriptor* CognitiveControl_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
   return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[13];
 }
 PROTOBUF_CONSTINIT const uint32_t CognitiveControl_internal_data_[] = {
@@ -2395,8 +2395,8 @@ PROTOBUF_CONSTINIT const uint32_t CognitiveControl_internal_data_[] = {
 bool CognitiveControl_IsValid(int value) {
   return 0 <= value && value <= 3;
 }
-const ::google::protobuf_inworld::EnumDescriptor* CharacterAssetType_descriptor() {
-  ::google::protobuf_inworld::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+const ::google::protobuf::EnumDescriptor* CharacterAssetType_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
   return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[14];
 }
 PROTOBUF_CONSTINIT const uint32_t CharacterAssetType_internal_data_[] = {
@@ -2410,13 +2410,13 @@ class Character_CharacterDescription_CustomDialogStyle::_Internal {
  public:
 };
 
-Character_CharacterDescription_CustomDialogStyle::Character_CharacterDescription_CustomDialogStyle(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+Character_CharacterDescription_CustomDialogStyle::Character_CharacterDescription_CustomDialogStyle(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle)
 }
 inline PROTOBUF_NDEBUG_INLINE Character_CharacterDescription_CustomDialogStyle::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : adjectives_{visibility, arena, from.adjectives_},
         uuid_(arena, from.uuid_),
@@ -2425,12 +2425,12 @@ inline PROTOBUF_NDEBUG_INLINE Character_CharacterDescription_CustomDialogStyle::
         _cached_size_{0} {}
 
 Character_CharacterDescription_CustomDialogStyle::Character_CharacterDescription_CustomDialogStyle(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const Character_CharacterDescription_CustomDialogStyle& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   Character_CharacterDescription_CustomDialogStyle* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
   _impl_.is_active_ = from._impl_.is_active_;
@@ -2438,8 +2438,8 @@ Character_CharacterDescription_CustomDialogStyle::Character_CharacterDescription
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle)
 }
 inline PROTOBUF_NDEBUG_INLINE Character_CharacterDescription_CustomDialogStyle::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : adjectives_{visibility, arena},
         uuid_(arena),
         display_name_(arena),
@@ -2452,7 +2452,7 @@ inline void Character_CharacterDescription_CustomDialogStyle::SharedCtor(::_pb::
 }
 Character_CharacterDescription_CustomDialogStyle::~Character_CharacterDescription_CustomDialogStyle() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void Character_CharacterDescription_CustomDialogStyle::SharedDtor() {
@@ -2475,7 +2475,7 @@ PROTOBUF_NOINLINE void Character_CharacterDescription_CustomDialogStyle::Clear()
   _impl_.display_name_.ClearToEmpty();
   _impl_.colloquialism_.ClearToEmpty();
   _impl_.is_active_ = false;
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* Character_CharacterDescription_CustomDialogStyle::_InternalParse(
@@ -2550,7 +2550,7 @@ const ::_pbi::TcParseTable<3, 5, 0, 122, 2> Character_CharacterDescription_Custo
 
 ::uint8_t* Character_CharacterDescription_CustomDialogStyle::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -2558,16 +2558,16 @@ const ::_pbi::TcParseTable<3, 5, 0, 122, 2> Character_CharacterDescription_Custo
   // string uuid = 1;
   if (!this->_internal_uuid().empty()) {
     const std::string& _s = this->_internal_uuid();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle.uuid");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle.uuid");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // string display_name = 2;
   if (!this->_internal_display_name().empty()) {
     const std::string& _s = this->_internal_display_name();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle.display_name");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle.display_name");
     target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
@@ -2581,23 +2581,23 @@ const ::_pbi::TcParseTable<3, 5, 0, 122, 2> Character_CharacterDescription_Custo
   // repeated string adjectives = 4;
   for (int i = 0, n = this->_internal_adjectives_size(); i < n; ++i) {
     const auto& s = this->_internal_adjectives().Get(i);
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        s.data(), static_cast<int>(s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle.adjectives");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        s.data(), static_cast<int>(s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle.adjectives");
     target = stream->WriteString(4, s, target);
   }
 
   // string colloquialism = 6;
   if (!this->_internal_colloquialism().empty()) {
     const std::string& _s = this->_internal_colloquialism();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle.colloquialism");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle.colloquialism");
     target = stream->WriteStringMaybeAliased(6, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle)
   return target;
@@ -2612,26 +2612,26 @@ const ::_pbi::TcParseTable<3, 5, 0, 122, 2> Character_CharacterDescription_Custo
   (void) cached_has_bits;
 
   // repeated string adjectives = 4;
-  total_size += 1 * ::google::protobuf_inworld::internal::FromIntSize(_internal_adjectives().size());
+  total_size += 1 * ::google::protobuf::internal::FromIntSize(_internal_adjectives().size());
   for (int i = 0, n = _internal_adjectives().size(); i < n; ++i) {
-    total_size += ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
         _internal_adjectives().Get(i));
   }
   // string uuid = 1;
   if (!this->_internal_uuid().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_uuid());
   }
 
   // string display_name = 2;
   if (!this->_internal_display_name().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_display_name());
   }
 
   // string colloquialism = 6;
   if (!this->_internal_colloquialism().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_colloquialism());
   }
 
@@ -2643,15 +2643,15 @@ const ::_pbi::TcParseTable<3, 5, 0, 122, 2> Character_CharacterDescription_Custo
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData Character_CharacterDescription_CustomDialogStyle::_class_data_ = {
+const ::google::protobuf::Message::ClassData Character_CharacterDescription_CustomDialogStyle::_class_data_ = {
     Character_CharacterDescription_CustomDialogStyle::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* Character_CharacterDescription_CustomDialogStyle::GetClassData() const {
+const ::google::protobuf::Message::ClassData* Character_CharacterDescription_CustomDialogStyle::GetClassData() const {
   return &_class_data_;
 }
 
-void Character_CharacterDescription_CustomDialogStyle::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void Character_CharacterDescription_CustomDialogStyle::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<Character_CharacterDescription_CustomDialogStyle*>(&to_msg);
   auto& from = static_cast<const Character_CharacterDescription_CustomDialogStyle&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle)
@@ -2672,7 +2672,7 @@ void Character_CharacterDescription_CustomDialogStyle::MergeImpl(::google::proto
   if (from._internal_is_active() != 0) {
     _this->_internal_set_is_active(from._internal_is_active());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Character_CharacterDescription_CustomDialogStyle::CopyFrom(const Character_CharacterDescription_CustomDialogStyle& from) {
@@ -2701,7 +2701,7 @@ void Character_CharacterDescription_CustomDialogStyle::InternalSwap(Character_Ch
         swap(_impl_.is_active_, other->_impl_.is_active_);
 }
 
-::google::protobuf_inworld::Metadata Character_CharacterDescription_CustomDialogStyle::GetMetadata() const {
+::google::protobuf::Metadata Character_CharacterDescription_CustomDialogStyle::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[0]);
@@ -2712,13 +2712,13 @@ class Character_CharacterDescription::_Internal {
  public:
 };
 
-Character_CharacterDescription::Character_CharacterDescription(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+Character_CharacterDescription::Character_CharacterDescription(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.Character.CharacterDescription)
 }
 inline PROTOBUF_NDEBUG_INLINE Character_CharacterDescription::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : nicknames_{visibility, arena, from.nicknames_},
         personality_adjectives_{visibility, arena, from.personality_adjectives_},
@@ -2734,12 +2734,12 @@ inline PROTOBUF_NDEBUG_INLINE Character_CharacterDescription::Impl_::Impl_(
         _cached_size_{0} {}
 
 Character_CharacterDescription::Character_CharacterDescription(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const Character_CharacterDescription& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   Character_CharacterDescription* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
   ::memcpy(reinterpret_cast<char *>(&_impl_) +
@@ -2753,8 +2753,8 @@ Character_CharacterDescription::Character_CharacterDescription(
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.Character.CharacterDescription)
 }
 inline PROTOBUF_NDEBUG_INLINE Character_CharacterDescription::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : nicknames_{visibility, arena},
         personality_adjectives_{visibility, arena},
         hobby_or_interests_{visibility, arena},
@@ -2779,7 +2779,7 @@ inline void Character_CharacterDescription::SharedCtor(::_pb::Arena* arena) {
 }
 Character_CharacterDescription::~Character_CharacterDescription() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.Character.CharacterDescription)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void Character_CharacterDescription::SharedDtor() {
@@ -2815,7 +2815,7 @@ PROTOBUF_NOINLINE void Character_CharacterDescription::Clear() {
   ::memset(&_impl_.pronoun_, 0, static_cast<::size_t>(
       reinterpret_cast<char*>(&_impl_.dialog_response_length_) -
       reinterpret_cast<char*>(&_impl_.pronoun_)) + sizeof(_impl_.dialog_response_length_));
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* Character_CharacterDescription::_InternalParse(
@@ -2975,7 +2975,7 @@ const ::_pbi::TcParseTable<5, 16, 1, 207, 2> Character_CharacterDescription::_ta
 
 ::uint8_t* Character_CharacterDescription::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.Character.CharacterDescription)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -2983,16 +2983,16 @@ const ::_pbi::TcParseTable<5, 16, 1, 207, 2> Character_CharacterDescription::_ta
   // string given_name = 1 [(.ai.inworld.options.examples) = {
   if (!this->_internal_given_name().empty()) {
     const std::string& _s = this->_internal_given_name();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.given_name");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.given_name");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // string description = 2;
   if (!this->_internal_description().empty()) {
     const std::string& _s = this->_internal_description();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.description");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.description");
     target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
@@ -3006,32 +3006,32 @@ const ::_pbi::TcParseTable<5, 16, 1, 207, 2> Character_CharacterDescription::_ta
   // repeated string nicknames = 4;
   for (int i = 0, n = this->_internal_nicknames_size(); i < n; ++i) {
     const auto& s = this->_internal_nicknames().Get(i);
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        s.data(), static_cast<int>(s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.nicknames");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        s.data(), static_cast<int>(s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.nicknames");
     target = stream->WriteString(4, s, target);
   }
 
   // string motivation = 5;
   if (!this->_internal_motivation().empty()) {
     const std::string& _s = this->_internal_motivation();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.motivation");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.motivation");
     target = stream->WriteStringMaybeAliased(5, _s, target);
   }
 
   // string wikipedia_uri = 6;
   if (!this->_internal_wikipedia_uri().empty()) {
     const std::string& _s = this->_internal_wikipedia_uri();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.wikipedia_uri");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.wikipedia_uri");
     target = stream->WriteStringMaybeAliased(6, _s, target);
   }
 
   // string example_dialog = 9;
   if (!this->_internal_example_dialog().empty()) {
     const std::string& _s = this->_internal_example_dialog();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.example_dialog");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.example_dialog");
     target = stream->WriteStringMaybeAliased(9, _s, target);
   }
 
@@ -3045,8 +3045,8 @@ const ::_pbi::TcParseTable<5, 16, 1, 207, 2> Character_CharacterDescription::_ta
   // repeated string personality_adjectives = 11;
   for (int i = 0, n = this->_internal_personality_adjectives_size(); i < n; ++i) {
     const auto& s = this->_internal_personality_adjectives().Get(i);
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        s.data(), static_cast<int>(s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.personality_adjectives");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        s.data(), static_cast<int>(s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.personality_adjectives");
     target = stream->WriteString(11, s, target);
   }
 
@@ -3060,16 +3060,16 @@ const ::_pbi::TcParseTable<5, 16, 1, 207, 2> Character_CharacterDescription::_ta
   // repeated string hobby_or_interests = 13;
   for (int i = 0, n = this->_internal_hobby_or_interests_size(); i < n; ++i) {
     const auto& s = this->_internal_hobby_or_interests().Get(i);
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        s.data(), static_cast<int>(s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.hobby_or_interests");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        s.data(), static_cast<int>(s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.hobby_or_interests");
     target = stream->WriteString(13, s, target);
   }
 
   // string character_role = 14;
   if (!this->_internal_character_role().empty()) {
     const std::string& _s = this->_internal_character_role();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.character_role");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.character_role");
     target = stream->WriteStringMaybeAliased(14, _s, target);
   }
 
@@ -3084,15 +3084,15 @@ const ::_pbi::TcParseTable<5, 16, 1, 207, 2> Character_CharacterDescription::_ta
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_custom_dialog_styles_size()); i < n; i++) {
     const auto& repfield = this->_internal_custom_dialog_styles().Get(i);
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         InternalWriteMessage(16, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   // string flaws = 17;
   if (!this->_internal_flaws().empty()) {
     const std::string& _s = this->_internal_flaws();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.flaws");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterDescription.flaws");
     target = stream->WriteStringMaybeAliased(17, _s, target);
   }
 
@@ -3106,7 +3106,7 @@ const ::_pbi::TcParseTable<5, 16, 1, 207, 2> Character_CharacterDescription::_ta
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.Character.CharacterDescription)
   return target;
@@ -3121,68 +3121,68 @@ const ::_pbi::TcParseTable<5, 16, 1, 207, 2> Character_CharacterDescription::_ta
   (void) cached_has_bits;
 
   // repeated string nicknames = 4;
-  total_size += 1 * ::google::protobuf_inworld::internal::FromIntSize(_internal_nicknames().size());
+  total_size += 1 * ::google::protobuf::internal::FromIntSize(_internal_nicknames().size());
   for (int i = 0, n = _internal_nicknames().size(); i < n; ++i) {
-    total_size += ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
         _internal_nicknames().Get(i));
   }
   // repeated string personality_adjectives = 11;
-  total_size += 1 * ::google::protobuf_inworld::internal::FromIntSize(_internal_personality_adjectives().size());
+  total_size += 1 * ::google::protobuf::internal::FromIntSize(_internal_personality_adjectives().size());
   for (int i = 0, n = _internal_personality_adjectives().size(); i < n; ++i) {
-    total_size += ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
         _internal_personality_adjectives().Get(i));
   }
   // repeated string hobby_or_interests = 13;
-  total_size += 1 * ::google::protobuf_inworld::internal::FromIntSize(_internal_hobby_or_interests().size());
+  total_size += 1 * ::google::protobuf::internal::FromIntSize(_internal_hobby_or_interests().size());
   for (int i = 0, n = _internal_hobby_or_interests().size(); i < n; ++i) {
-    total_size += ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
         _internal_hobby_or_interests().Get(i));
   }
   // repeated .ai.inworld.studio.v1alpha.Character.CharacterDescription.CustomDialogStyle custom_dialog_styles = 16;
   total_size += 2UL * this->_internal_custom_dialog_styles_size();
   for (const auto& msg : this->_internal_custom_dialog_styles()) {
     total_size +=
-      ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(msg);
+      ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
   }
   // string given_name = 1 [(.ai.inworld.options.examples) = {
   if (!this->_internal_given_name().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_given_name());
   }
 
   // string description = 2;
   if (!this->_internal_description().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_description());
   }
 
   // string motivation = 5;
   if (!this->_internal_motivation().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_motivation());
   }
 
   // string wikipedia_uri = 6;
   if (!this->_internal_wikipedia_uri().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_wikipedia_uri());
   }
 
   // string example_dialog = 9;
   if (!this->_internal_example_dialog().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_example_dialog());
   }
 
   // string character_role = 14;
   if (!this->_internal_character_role().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_character_role());
   }
 
   // string flaws = 17;
   if (!this->_internal_flaws().empty()) {
-    total_size += 2 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 2 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_flaws());
   }
 
@@ -3218,15 +3218,15 @@ const ::_pbi::TcParseTable<5, 16, 1, 207, 2> Character_CharacterDescription::_ta
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData Character_CharacterDescription::_class_data_ = {
+const ::google::protobuf::Message::ClassData Character_CharacterDescription::_class_data_ = {
     Character_CharacterDescription::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* Character_CharacterDescription::GetClassData() const {
+const ::google::protobuf::Message::ClassData* Character_CharacterDescription::GetClassData() const {
   return &_class_data_;
 }
 
-void Character_CharacterDescription::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void Character_CharacterDescription::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<Character_CharacterDescription*>(&to_msg);
   auto& from = static_cast<const Character_CharacterDescription&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.Character.CharacterDescription)
@@ -3275,7 +3275,7 @@ void Character_CharacterDescription::MergeImpl(::google::protobuf_inworld::Messa
   if (from._internal_dialog_response_length() != 0) {
     _this->_internal_set_dialog_response_length(from._internal_dialog_response_length());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Character_CharacterDescription::CopyFrom(const Character_CharacterDescription& from) {
@@ -3308,7 +3308,7 @@ void Character_CharacterDescription::InternalSwap(Character_CharacterDescription
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.example_dialog_, &other->_impl_.example_dialog_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.character_role_, &other->_impl_.character_role_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.flaws_, &other->_impl_.flaws_, arena);
-  ::google::protobuf_inworld::internal::memswap<
+  ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(Character_CharacterDescription, _impl_.dialog_response_length_)
       + sizeof(Character_CharacterDescription::_impl_.dialog_response_length_)
       - PROTOBUF_FIELD_OFFSET(Character_CharacterDescription, _impl_.pronoun_)>(
@@ -3316,7 +3316,7 @@ void Character_CharacterDescription::InternalSwap(Character_CharacterDescription
           reinterpret_cast<char*>(&other->_impl_.pronoun_));
 }
 
-::google::protobuf_inworld::Metadata Character_CharacterDescription::GetMetadata() const {
+::google::protobuf::Metadata Character_CharacterDescription::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[1]);
@@ -3342,13 +3342,13 @@ void Character_CharacterAssets::clear_voice() {
   if (_impl_.voice_ != nullptr) _impl_.voice_->Clear();
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-Character_CharacterAssets::Character_CharacterAssets(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+Character_CharacterAssets::Character_CharacterAssets(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.Character.CharacterAssets)
 }
 inline PROTOBUF_NDEBUG_INLINE Character_CharacterAssets::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
@@ -3364,12 +3364,12 @@ inline PROTOBUF_NDEBUG_INLINE Character_CharacterAssets::Impl_::Impl_(
         innequin_img_original_(arena, from.innequin_img_original_) {}
 
 Character_CharacterAssets::Character_CharacterAssets(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const Character_CharacterAssets& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   Character_CharacterAssets* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
   ::uint32_t cached_has_bits = _impl_._has_bits_[0];
@@ -3387,8 +3387,8 @@ Character_CharacterAssets::Character_CharacterAssets(
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.Character.CharacterAssets)
 }
 inline PROTOBUF_NDEBUG_INLINE Character_CharacterAssets::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : _cached_size_{0},
         rpm_model_uri_(arena),
         rpm_image_uri_(arena),
@@ -3412,7 +3412,7 @@ inline void Character_CharacterAssets::SharedCtor(::_pb::Arena* arena) {
 }
 Character_CharacterAssets::~Character_CharacterAssets() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.Character.CharacterAssets)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void Character_CharacterAssets::SharedDtor() {
@@ -3457,7 +3457,7 @@ PROTOBUF_NOINLINE void Character_CharacterAssets::Clear() {
       reinterpret_cast<char*>(&_impl_.avatar_display_image_source_) -
       reinterpret_cast<char*>(&_impl_.avatar_type_)) + sizeof(_impl_.avatar_display_image_source_));
   _impl_._has_bits_.Clear();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* Character_CharacterAssets::_InternalParse(
@@ -3586,7 +3586,7 @@ const ::_pbi::TcParseTable<4, 13, 1, 235, 2> Character_CharacterAssets::_table_ 
 
 ::uint8_t* Character_CharacterAssets::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.Character.CharacterAssets)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -3594,39 +3594,39 @@ const ::_pbi::TcParseTable<4, 13, 1, 235, 2> Character_CharacterAssets::_table_ 
   // string rpm_model_uri = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];
   if (!this->_internal_rpm_model_uri().empty()) {
     const std::string& _s = this->_internal_rpm_model_uri();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterAssets.rpm_model_uri");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterAssets.rpm_model_uri");
     target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
   // string rpm_image_uri = 3 [deprecated = true, (.google.api.field_behavior) = OUTPUT_ONLY];
   if (!this->_internal_rpm_image_uri().empty()) {
     const std::string& _s = this->_internal_rpm_image_uri();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterAssets.rpm_image_uri");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterAssets.rpm_image_uri");
     target = stream->WriteStringMaybeAliased(3, _s, target);
   }
 
   // string rpm_image_uri_portrait = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];
   if (!this->_internal_rpm_image_uri_portrait().empty()) {
     const std::string& _s = this->_internal_rpm_image_uri_portrait();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterAssets.rpm_image_uri_portrait");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterAssets.rpm_image_uri_portrait");
     target = stream->WriteStringMaybeAliased(4, _s, target);
   }
 
   // string rpm_image_uri_posture = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];
   if (!this->_internal_rpm_image_uri_posture().empty()) {
     const std::string& _s = this->_internal_rpm_image_uri_posture();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterAssets.rpm_image_uri_posture");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterAssets.rpm_image_uri_posture");
     target = stream->WriteStringMaybeAliased(5, _s, target);
   }
 
   cached_has_bits = _impl_._has_bits_[0];
   // .ai.inworld.voices.Voice voice = 6;
   if (cached_has_bits & 0x00000001u) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         6, _Internal::voice(this),
         _Internal::voice(this).GetCachedSize(), target, stream);
   }
@@ -3634,32 +3634,32 @@ const ::_pbi::TcParseTable<4, 13, 1, 235, 2> Character_CharacterAssets::_table_ 
   // string avatar_img = 7;
   if (!this->_internal_avatar_img().empty()) {
     const std::string& _s = this->_internal_avatar_img();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_img");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_img");
     target = stream->WriteStringMaybeAliased(7, _s, target);
   }
 
   // string avatar_img_original = 8;
   if (!this->_internal_avatar_img_original().empty()) {
     const std::string& _s = this->_internal_avatar_img_original();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_img_original");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_img_original");
     target = stream->WriteStringMaybeAliased(8, _s, target);
   }
 
   // string avatar_background = 9;
   if (!this->_internal_avatar_background().empty()) {
     const std::string& _s = this->_internal_avatar_background();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_background");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_background");
     target = stream->WriteStringMaybeAliased(9, _s, target);
   }
 
   // string avatar_material = 10;
   if (!this->_internal_avatar_material().empty()) {
     const std::string& _s = this->_internal_avatar_material();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_material");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterAssets.avatar_material");
     target = stream->WriteStringMaybeAliased(10, _s, target);
   }
 
@@ -3673,8 +3673,8 @@ const ::_pbi::TcParseTable<4, 13, 1, 235, 2> Character_CharacterAssets::_table_ 
   // string innequin_img_uri = 12;
   if (!this->_internal_innequin_img_uri().empty()) {
     const std::string& _s = this->_internal_innequin_img_uri();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterAssets.innequin_img_uri");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterAssets.innequin_img_uri");
     target = stream->WriteStringMaybeAliased(12, _s, target);
   }
 
@@ -3688,15 +3688,15 @@ const ::_pbi::TcParseTable<4, 13, 1, 235, 2> Character_CharacterAssets::_table_ 
   // string innequin_img_original = 14;
   if (!this->_internal_innequin_img_original().empty()) {
     const std::string& _s = this->_internal_innequin_img_original();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterAssets.innequin_img_original");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.CharacterAssets.innequin_img_original");
     target = stream->WriteStringMaybeAliased(14, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.Character.CharacterAssets)
   return target;
@@ -3712,61 +3712,61 @@ const ::_pbi::TcParseTable<4, 13, 1, 235, 2> Character_CharacterAssets::_table_ 
 
   // string rpm_model_uri = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];
   if (!this->_internal_rpm_model_uri().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_rpm_model_uri());
   }
 
   // string rpm_image_uri = 3 [deprecated = true, (.google.api.field_behavior) = OUTPUT_ONLY];
   if (!this->_internal_rpm_image_uri().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_rpm_image_uri());
   }
 
   // string rpm_image_uri_portrait = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];
   if (!this->_internal_rpm_image_uri_portrait().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_rpm_image_uri_portrait());
   }
 
   // string rpm_image_uri_posture = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];
   if (!this->_internal_rpm_image_uri_posture().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_rpm_image_uri_posture());
   }
 
   // string avatar_img = 7;
   if (!this->_internal_avatar_img().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_avatar_img());
   }
 
   // string avatar_img_original = 8;
   if (!this->_internal_avatar_img_original().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_avatar_img_original());
   }
 
   // string avatar_background = 9;
   if (!this->_internal_avatar_background().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_avatar_background());
   }
 
   // string avatar_material = 10;
   if (!this->_internal_avatar_material().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_avatar_material());
   }
 
   // string innequin_img_uri = 12;
   if (!this->_internal_innequin_img_uri().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_innequin_img_uri());
   }
 
   // string innequin_img_original = 14;
   if (!this->_internal_innequin_img_original().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_innequin_img_original());
   }
 
@@ -3774,7 +3774,7 @@ const ::_pbi::TcParseTable<4, 13, 1, 235, 2> Character_CharacterAssets::_table_ 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size +=
-        1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.voice_);
+        1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.voice_);
   }
 
   // .ai.inworld.studio.v1alpha.Character.CharacterAssets.AvatarType avatar_type = 11;
@@ -3792,15 +3792,15 @@ const ::_pbi::TcParseTable<4, 13, 1, 235, 2> Character_CharacterAssets::_table_ 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData Character_CharacterAssets::_class_data_ = {
+const ::google::protobuf::Message::ClassData Character_CharacterAssets::_class_data_ = {
     Character_CharacterAssets::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* Character_CharacterAssets::GetClassData() const {
+const ::google::protobuf::Message::ClassData* Character_CharacterAssets::GetClassData() const {
   return &_class_data_;
 }
 
-void Character_CharacterAssets::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void Character_CharacterAssets::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<Character_CharacterAssets*>(&to_msg);
   auto& from = static_cast<const Character_CharacterAssets&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.Character.CharacterAssets)
@@ -3848,7 +3848,7 @@ void Character_CharacterAssets::MergeImpl(::google::protobuf_inworld::Message& t
   if (from._internal_avatar_display_image_source() != 0) {
     _this->_internal_set_avatar_display_image_source(from._internal_avatar_display_image_source());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Character_CharacterAssets::CopyFrom(const Character_CharacterAssets& from) {
@@ -3881,7 +3881,7 @@ void Character_CharacterAssets::InternalSwap(Character_CharacterAssets* PROTOBUF
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.avatar_material_, &other->_impl_.avatar_material_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.innequin_img_uri_, &other->_impl_.innequin_img_uri_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.innequin_img_original_, &other->_impl_.innequin_img_original_, arena);
-  ::google::protobuf_inworld::internal::memswap<
+  ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(Character_CharacterAssets, _impl_.avatar_display_image_source_)
       + sizeof(Character_CharacterAssets::_impl_.avatar_display_image_source_)
       - PROTOBUF_FIELD_OFFSET(Character_CharacterAssets, _impl_.voice_)>(
@@ -3889,7 +3889,7 @@ void Character_CharacterAssets::InternalSwap(Character_CharacterAssets* PROTOBUF
           reinterpret_cast<char*>(&other->_impl_.voice_));
 }
 
-::google::protobuf_inworld::Metadata Character_CharacterAssets::GetMetadata() const {
+::google::protobuf::Metadata Character_CharacterAssets::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[2]);
@@ -3900,19 +3900,19 @@ class Character_CharacterInitialMood::_Internal {
  public:
 };
 
-Character_CharacterInitialMood::Character_CharacterInitialMood(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+Character_CharacterInitialMood::Character_CharacterInitialMood(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.Character.CharacterInitialMood)
 }
 Character_CharacterInitialMood::Character_CharacterInitialMood(
-    ::google::protobuf_inworld::Arena* arena, const Character_CharacterInitialMood& from)
+    ::google::protobuf::Arena* arena, const Character_CharacterInitialMood& from)
     : Character_CharacterInitialMood(arena) {
   MergeFrom(from);
 }
 inline PROTOBUF_NDEBUG_INLINE Character_CharacterInitialMood::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : _cached_size_{0} {}
 
 inline void Character_CharacterInitialMood::SharedCtor(::_pb::Arena* arena) {
@@ -3926,7 +3926,7 @@ inline void Character_CharacterInitialMood::SharedCtor(::_pb::Arena* arena) {
 }
 Character_CharacterInitialMood::~Character_CharacterInitialMood() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.Character.CharacterInitialMood)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void Character_CharacterInitialMood::SharedDtor() {
@@ -3944,7 +3944,7 @@ PROTOBUF_NOINLINE void Character_CharacterInitialMood::Clear() {
   ::memset(&_impl_.joy_, 0, static_cast<::size_t>(
       reinterpret_cast<char*>(&_impl_.surprise_) -
       reinterpret_cast<char*>(&_impl_.joy_)) + sizeof(_impl_.surprise_));
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* Character_CharacterInitialMood::_InternalParse(
@@ -4004,35 +4004,35 @@ const ::_pbi::TcParseTable<2, 4, 0, 0, 2> Character_CharacterInitialMood::_table
 
 ::uint8_t* Character_CharacterInitialMood::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.Character.CharacterInitialMood)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
   // int32 joy = 1;
   if (this->_internal_joy() != 0) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         WriteInt32ToArrayWithField<1>(
             stream, this->_internal_joy(), target);
   }
 
   // int32 fear = 2;
   if (this->_internal_fear() != 0) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         WriteInt32ToArrayWithField<2>(
             stream, this->_internal_fear(), target);
   }
 
   // int32 trust = 3;
   if (this->_internal_trust() != 0) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         WriteInt32ToArrayWithField<3>(
             stream, this->_internal_trust(), target);
   }
 
   // int32 surprise = 4;
   if (this->_internal_surprise() != 0) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         WriteInt32ToArrayWithField<4>(
             stream, this->_internal_surprise(), target);
   }
@@ -4040,7 +4040,7 @@ const ::_pbi::TcParseTable<2, 4, 0, 0, 2> Character_CharacterInitialMood::_table
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.Character.CharacterInitialMood)
   return target;
@@ -4081,15 +4081,15 @@ const ::_pbi::TcParseTable<2, 4, 0, 0, 2> Character_CharacterInitialMood::_table
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData Character_CharacterInitialMood::_class_data_ = {
+const ::google::protobuf::Message::ClassData Character_CharacterInitialMood::_class_data_ = {
     Character_CharacterInitialMood::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* Character_CharacterInitialMood::GetClassData() const {
+const ::google::protobuf::Message::ClassData* Character_CharacterInitialMood::GetClassData() const {
   return &_class_data_;
 }
 
-void Character_CharacterInitialMood::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void Character_CharacterInitialMood::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<Character_CharacterInitialMood*>(&to_msg);
   auto& from = static_cast<const Character_CharacterInitialMood&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.Character.CharacterInitialMood)
@@ -4109,7 +4109,7 @@ void Character_CharacterInitialMood::MergeImpl(::google::protobuf_inworld::Messa
   if (from._internal_surprise() != 0) {
     _this->_internal_set_surprise(from._internal_surprise());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Character_CharacterInitialMood::CopyFrom(const Character_CharacterInitialMood& from) {
@@ -4129,7 +4129,7 @@ PROTOBUF_NOINLINE bool Character_CharacterInitialMood::IsInitialized() const {
 void Character_CharacterInitialMood::InternalSwap(Character_CharacterInitialMood* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::google::protobuf_inworld::internal::memswap<
+  ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(Character_CharacterInitialMood, _impl_.surprise_)
       + sizeof(Character_CharacterInitialMood::_impl_.surprise_)
       - PROTOBUF_FIELD_OFFSET(Character_CharacterInitialMood, _impl_.joy_)>(
@@ -4137,7 +4137,7 @@ void Character_CharacterInitialMood::InternalSwap(Character_CharacterInitialMood
           reinterpret_cast<char*>(&other->_impl_.joy_));
 }
 
-::google::protobuf_inworld::Metadata Character_CharacterInitialMood::GetMetadata() const {
+::google::protobuf::Metadata Character_CharacterInitialMood::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[3]);
@@ -4148,19 +4148,19 @@ class Character_CharacterPersonality::_Internal {
  public:
 };
 
-Character_CharacterPersonality::Character_CharacterPersonality(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+Character_CharacterPersonality::Character_CharacterPersonality(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.Character.CharacterPersonality)
 }
 Character_CharacterPersonality::Character_CharacterPersonality(
-    ::google::protobuf_inworld::Arena* arena, const Character_CharacterPersonality& from)
+    ::google::protobuf::Arena* arena, const Character_CharacterPersonality& from)
     : Character_CharacterPersonality(arena) {
   MergeFrom(from);
 }
 inline PROTOBUF_NDEBUG_INLINE Character_CharacterPersonality::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : _cached_size_{0} {}
 
 inline void Character_CharacterPersonality::SharedCtor(::_pb::Arena* arena) {
@@ -4174,7 +4174,7 @@ inline void Character_CharacterPersonality::SharedCtor(::_pb::Arena* arena) {
 }
 Character_CharacterPersonality::~Character_CharacterPersonality() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.Character.CharacterPersonality)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void Character_CharacterPersonality::SharedDtor() {
@@ -4192,7 +4192,7 @@ PROTOBUF_NOINLINE void Character_CharacterPersonality::Clear() {
   ::memset(&_impl_.positive_, 0, static_cast<::size_t>(
       reinterpret_cast<char*>(&_impl_.extravert_) -
       reinterpret_cast<char*>(&_impl_.positive_)) + sizeof(_impl_.extravert_));
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* Character_CharacterPersonality::_InternalParse(
@@ -4252,35 +4252,35 @@ const ::_pbi::TcParseTable<2, 4, 0, 0, 2> Character_CharacterPersonality::_table
 
 ::uint8_t* Character_CharacterPersonality::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.Character.CharacterPersonality)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
   // int32 positive = 1;
   if (this->_internal_positive() != 0) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         WriteInt32ToArrayWithField<1>(
             stream, this->_internal_positive(), target);
   }
 
   // int32 peaceful = 2;
   if (this->_internal_peaceful() != 0) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         WriteInt32ToArrayWithField<2>(
             stream, this->_internal_peaceful(), target);
   }
 
   // int32 open = 3;
   if (this->_internal_open() != 0) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         WriteInt32ToArrayWithField<3>(
             stream, this->_internal_open(), target);
   }
 
   // int32 extravert = 4;
   if (this->_internal_extravert() != 0) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         WriteInt32ToArrayWithField<4>(
             stream, this->_internal_extravert(), target);
   }
@@ -4288,7 +4288,7 @@ const ::_pbi::TcParseTable<2, 4, 0, 0, 2> Character_CharacterPersonality::_table
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.Character.CharacterPersonality)
   return target;
@@ -4329,15 +4329,15 @@ const ::_pbi::TcParseTable<2, 4, 0, 0, 2> Character_CharacterPersonality::_table
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData Character_CharacterPersonality::_class_data_ = {
+const ::google::protobuf::Message::ClassData Character_CharacterPersonality::_class_data_ = {
     Character_CharacterPersonality::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* Character_CharacterPersonality::GetClassData() const {
+const ::google::protobuf::Message::ClassData* Character_CharacterPersonality::GetClassData() const {
   return &_class_data_;
 }
 
-void Character_CharacterPersonality::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void Character_CharacterPersonality::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<Character_CharacterPersonality*>(&to_msg);
   auto& from = static_cast<const Character_CharacterPersonality&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.Character.CharacterPersonality)
@@ -4357,7 +4357,7 @@ void Character_CharacterPersonality::MergeImpl(::google::protobuf_inworld::Messa
   if (from._internal_extravert() != 0) {
     _this->_internal_set_extravert(from._internal_extravert());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Character_CharacterPersonality::CopyFrom(const Character_CharacterPersonality& from) {
@@ -4377,7 +4377,7 @@ PROTOBUF_NOINLINE bool Character_CharacterPersonality::IsInitialized() const {
 void Character_CharacterPersonality::InternalSwap(Character_CharacterPersonality* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::google::protobuf_inworld::internal::memswap<
+  ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(Character_CharacterPersonality, _impl_.extravert_)
       + sizeof(Character_CharacterPersonality::_impl_.extravert_)
       - PROTOBUF_FIELD_OFFSET(Character_CharacterPersonality, _impl_.positive_)>(
@@ -4385,7 +4385,7 @@ void Character_CharacterPersonality::InternalSwap(Character_CharacterPersonality
           reinterpret_cast<char*>(&other->_impl_.positive_));
 }
 
-::google::protobuf_inworld::Metadata Character_CharacterPersonality::GetMetadata() const {
+::google::protobuf::Metadata Character_CharacterPersonality::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[4]);
@@ -4396,13 +4396,13 @@ class Character_Fact::_Internal {
  public:
 };
 
-Character_Fact::Character_Fact(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+Character_Fact::Character_Fact(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.Character.Fact)
 }
 inline PROTOBUF_NDEBUG_INLINE Character_Fact::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : text_{visibility, arena, from.text_},
         tags_{visibility, arena, from.tags_},
@@ -4411,20 +4411,20 @@ inline PROTOBUF_NDEBUG_INLINE Character_Fact::Impl_::Impl_(
         _cached_size_{0} {}
 
 Character_Fact::Character_Fact(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const Character_Fact& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   Character_Fact* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.Character.Fact)
 }
 inline PROTOBUF_NDEBUG_INLINE Character_Fact::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : text_{visibility, arena},
         tags_{visibility, arena},
         _tags_cached_byte_size_{0},
@@ -4436,7 +4436,7 @@ inline void Character_Fact::SharedCtor(::_pb::Arena* arena) {
 }
 Character_Fact::~Character_Fact() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.Character.Fact)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void Character_Fact::SharedDtor() {
@@ -4455,7 +4455,7 @@ PROTOBUF_NOINLINE void Character_Fact::Clear() {
   _impl_.text_.Clear();
   _impl_.tags_.Clear();
   _impl_.uuid_.ClearToEmpty();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* Character_Fact::_InternalParse(
@@ -4514,7 +4514,7 @@ const ::_pbi::TcParseTable<2, 3, 0, 57, 2> Character_Fact::_table_ = {
 
 ::uint8_t* Character_Fact::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.Character.Fact)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -4522,16 +4522,16 @@ const ::_pbi::TcParseTable<2, 3, 0, 57, 2> Character_Fact::_table_ = {
   // string uuid = 1;
   if (!this->_internal_uuid().empty()) {
     const std::string& _s = this->_internal_uuid();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.Fact.uuid");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.Fact.uuid");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // repeated string text = 2;
   for (int i = 0, n = this->_internal_text_size(); i < n; ++i) {
     const auto& s = this->_internal_text().Get(i);
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        s.data(), static_cast<int>(s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.Fact.text");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        s.data(), static_cast<int>(s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.Fact.text");
     target = stream->WriteString(2, s, target);
   }
 
@@ -4547,7 +4547,7 @@ const ::_pbi::TcParseTable<2, 3, 0, 57, 2> Character_Fact::_table_ = {
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.Character.Fact)
   return target;
@@ -4562,9 +4562,9 @@ const ::_pbi::TcParseTable<2, 3, 0, 57, 2> Character_Fact::_table_ = {
   (void) cached_has_bits;
 
   // repeated string text = 2;
-  total_size += 1 * ::google::protobuf_inworld::internal::FromIntSize(_internal_text().size());
+  total_size += 1 * ::google::protobuf::internal::FromIntSize(_internal_text().size());
   for (int i = 0, n = _internal_text().size(); i < n; ++i) {
-    total_size += ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
         _internal_text().Get(i));
   }
   // repeated .ai.inworld.studio.v1alpha.Character.Tag tags = 3;
@@ -4586,22 +4586,22 @@ const ::_pbi::TcParseTable<2, 3, 0, 57, 2> Character_Fact::_table_ = {
   }
   // string uuid = 1;
   if (!this->_internal_uuid().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_uuid());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData Character_Fact::_class_data_ = {
+const ::google::protobuf::Message::ClassData Character_Fact::_class_data_ = {
     Character_Fact::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* Character_Fact::GetClassData() const {
+const ::google::protobuf::Message::ClassData* Character_Fact::GetClassData() const {
   return &_class_data_;
 }
 
-void Character_Fact::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void Character_Fact::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<Character_Fact*>(&to_msg);
   auto& from = static_cast<const Character_Fact&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.Character.Fact)
@@ -4614,7 +4614,7 @@ void Character_Fact::MergeImpl(::google::protobuf_inworld::Message& to_msg, cons
   if (!from._internal_uuid().empty()) {
     _this->_internal_set_uuid(from._internal_uuid());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Character_Fact::CopyFrom(const Character_Fact& from) {
@@ -4641,7 +4641,7 @@ void Character_Fact::InternalSwap(Character_Fact* PROTOBUF_RESTRICT other) {
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.uuid_, &other->_impl_.uuid_, arena);
 }
 
-::google::protobuf_inworld::Metadata Character_Fact::GetMetadata() const {
+::google::protobuf::Metadata Character_Fact::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[5]);
@@ -4652,19 +4652,19 @@ class Character_Meta::_Internal {
  public:
 };
 
-Character_Meta::Character_Meta(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+Character_Meta::Character_Meta(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.Character.Meta)
 }
 Character_Meta::Character_Meta(
-    ::google::protobuf_inworld::Arena* arena, const Character_Meta& from)
+    ::google::protobuf::Arena* arena, const Character_Meta& from)
     : Character_Meta(arena) {
   MergeFrom(from);
 }
 inline PROTOBUF_NDEBUG_INLINE Character_Meta::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : _cached_size_{0} {}
 
 inline void Character_Meta::SharedCtor(::_pb::Arena* arena) {
@@ -4678,7 +4678,7 @@ inline void Character_Meta::SharedCtor(::_pb::Arena* arena) {
 }
 Character_Meta::~Character_Meta() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.Character.Meta)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void Character_Meta::SharedDtor() {
@@ -4696,7 +4696,7 @@ PROTOBUF_NOINLINE void Character_Meta::Clear() {
   ::memset(&_impl_.total_triggers_, 0, static_cast<::size_t>(
       reinterpret_cast<char*>(&_impl_.goals_version_) -
       reinterpret_cast<char*>(&_impl_.total_triggers_)) + sizeof(_impl_.goals_version_));
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* Character_Meta::_InternalParse(
@@ -4751,28 +4751,28 @@ const ::_pbi::TcParseTable<2, 3, 0, 0, 2> Character_Meta::_table_ = {
 
 ::uint8_t* Character_Meta::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.Character.Meta)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
   // int32 total_triggers = 1;
   if (this->_internal_total_triggers() != 0) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         WriteInt32ToArrayWithField<1>(
             stream, this->_internal_total_triggers(), target);
   }
 
   // int32 total_common_knowledge = 2;
   if (this->_internal_total_common_knowledge() != 0) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         WriteInt32ToArrayWithField<2>(
             stream, this->_internal_total_common_knowledge(), target);
   }
 
   // int32 goals_version = 3;
   if (this->_internal_goals_version() != 0) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         WriteInt32ToArrayWithField<3>(
             stream, this->_internal_goals_version(), target);
   }
@@ -4780,7 +4780,7 @@ const ::_pbi::TcParseTable<2, 3, 0, 0, 2> Character_Meta::_table_ = {
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.Character.Meta)
   return target;
@@ -4815,15 +4815,15 @@ const ::_pbi::TcParseTable<2, 3, 0, 0, 2> Character_Meta::_table_ = {
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData Character_Meta::_class_data_ = {
+const ::google::protobuf::Message::ClassData Character_Meta::_class_data_ = {
     Character_Meta::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* Character_Meta::GetClassData() const {
+const ::google::protobuf::Message::ClassData* Character_Meta::GetClassData() const {
   return &_class_data_;
 }
 
-void Character_Meta::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void Character_Meta::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<Character_Meta*>(&to_msg);
   auto& from = static_cast<const Character_Meta&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.Character.Meta)
@@ -4840,7 +4840,7 @@ void Character_Meta::MergeImpl(::google::protobuf_inworld::Message& to_msg, cons
   if (from._internal_goals_version() != 0) {
     _this->_internal_set_goals_version(from._internal_goals_version());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Character_Meta::CopyFrom(const Character_Meta& from) {
@@ -4860,7 +4860,7 @@ PROTOBUF_NOINLINE bool Character_Meta::IsInitialized() const {
 void Character_Meta::InternalSwap(Character_Meta* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::google::protobuf_inworld::internal::memswap<
+  ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(Character_Meta, _impl_.goals_version_)
       + sizeof(Character_Meta::_impl_.goals_version_)
       - PROTOBUF_FIELD_OFFSET(Character_Meta, _impl_.total_triggers_)>(
@@ -4868,7 +4868,7 @@ void Character_Meta::InternalSwap(Character_Meta* PROTOBUF_RESTRICT other) {
           reinterpret_cast<char*>(&other->_impl_.total_triggers_));
 }
 
-::google::protobuf_inworld::Metadata Character_Meta::GetMetadata() const {
+::google::protobuf::Metadata Character_Meta::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[6]);
@@ -4879,19 +4879,19 @@ class Character_SharedPortalInfo_InteractionCountStat::_Internal {
  public:
 };
 
-Character_SharedPortalInfo_InteractionCountStat::Character_SharedPortalInfo_InteractionCountStat(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+Character_SharedPortalInfo_InteractionCountStat::Character_SharedPortalInfo_InteractionCountStat(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.Character.SharedPortalInfo.InteractionCountStat)
 }
 Character_SharedPortalInfo_InteractionCountStat::Character_SharedPortalInfo_InteractionCountStat(
-    ::google::protobuf_inworld::Arena* arena, const Character_SharedPortalInfo_InteractionCountStat& from)
+    ::google::protobuf::Arena* arena, const Character_SharedPortalInfo_InteractionCountStat& from)
     : Character_SharedPortalInfo_InteractionCountStat(arena) {
   MergeFrom(from);
 }
 inline PROTOBUF_NDEBUG_INLINE Character_SharedPortalInfo_InteractionCountStat::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : _cached_size_{0} {}
 
 inline void Character_SharedPortalInfo_InteractionCountStat::SharedCtor(::_pb::Arena* arena) {
@@ -4905,7 +4905,7 @@ inline void Character_SharedPortalInfo_InteractionCountStat::SharedCtor(::_pb::A
 }
 Character_SharedPortalInfo_InteractionCountStat::~Character_SharedPortalInfo_InteractionCountStat() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.Character.SharedPortalInfo.InteractionCountStat)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void Character_SharedPortalInfo_InteractionCountStat::SharedDtor() {
@@ -4923,7 +4923,7 @@ PROTOBUF_NOINLINE void Character_SharedPortalInfo_InteractionCountStat::Clear() 
   ::memset(&_impl_.total_count_, 0, static_cast<::size_t>(
       reinterpret_cast<char*>(&_impl_.total_read_count_) -
       reinterpret_cast<char*>(&_impl_.total_count_)) + sizeof(_impl_.total_read_count_));
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* Character_SharedPortalInfo_InteractionCountStat::_InternalParse(
@@ -4978,28 +4978,28 @@ const ::_pbi::TcParseTable<2, 3, 0, 0, 2> Character_SharedPortalInfo_Interaction
 
 ::uint8_t* Character_SharedPortalInfo_InteractionCountStat::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.Character.SharedPortalInfo.InteractionCountStat)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
   // int32 total_count = 1;
   if (this->_internal_total_count() != 0) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         WriteInt32ToArrayWithField<1>(
             stream, this->_internal_total_count(), target);
   }
 
   // int32 total_unread_count = 2;
   if (this->_internal_total_unread_count() != 0) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         WriteInt32ToArrayWithField<2>(
             stream, this->_internal_total_unread_count(), target);
   }
 
   // int32 total_read_count = 3;
   if (this->_internal_total_read_count() != 0) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         WriteInt32ToArrayWithField<3>(
             stream, this->_internal_total_read_count(), target);
   }
@@ -5007,7 +5007,7 @@ const ::_pbi::TcParseTable<2, 3, 0, 0, 2> Character_SharedPortalInfo_Interaction
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.Character.SharedPortalInfo.InteractionCountStat)
   return target;
@@ -5042,15 +5042,15 @@ const ::_pbi::TcParseTable<2, 3, 0, 0, 2> Character_SharedPortalInfo_Interaction
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData Character_SharedPortalInfo_InteractionCountStat::_class_data_ = {
+const ::google::protobuf::Message::ClassData Character_SharedPortalInfo_InteractionCountStat::_class_data_ = {
     Character_SharedPortalInfo_InteractionCountStat::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* Character_SharedPortalInfo_InteractionCountStat::GetClassData() const {
+const ::google::protobuf::Message::ClassData* Character_SharedPortalInfo_InteractionCountStat::GetClassData() const {
   return &_class_data_;
 }
 
-void Character_SharedPortalInfo_InteractionCountStat::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void Character_SharedPortalInfo_InteractionCountStat::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<Character_SharedPortalInfo_InteractionCountStat*>(&to_msg);
   auto& from = static_cast<const Character_SharedPortalInfo_InteractionCountStat&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.Character.SharedPortalInfo.InteractionCountStat)
@@ -5067,7 +5067,7 @@ void Character_SharedPortalInfo_InteractionCountStat::MergeImpl(::google::protob
   if (from._internal_total_read_count() != 0) {
     _this->_internal_set_total_read_count(from._internal_total_read_count());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Character_SharedPortalInfo_InteractionCountStat::CopyFrom(const Character_SharedPortalInfo_InteractionCountStat& from) {
@@ -5087,7 +5087,7 @@ PROTOBUF_NOINLINE bool Character_SharedPortalInfo_InteractionCountStat::IsInitia
 void Character_SharedPortalInfo_InteractionCountStat::InternalSwap(Character_SharedPortalInfo_InteractionCountStat* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::google::protobuf_inworld::internal::memswap<
+  ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(Character_SharedPortalInfo_InteractionCountStat, _impl_.total_read_count_)
       + sizeof(Character_SharedPortalInfo_InteractionCountStat::_impl_.total_read_count_)
       - PROTOBUF_FIELD_OFFSET(Character_SharedPortalInfo_InteractionCountStat, _impl_.total_count_)>(
@@ -5095,7 +5095,7 @@ void Character_SharedPortalInfo_InteractionCountStat::InternalSwap(Character_Sha
           reinterpret_cast<char*>(&other->_impl_.total_count_));
 }
 
-::google::protobuf_inworld::Metadata Character_SharedPortalInfo_InteractionCountStat::GetMetadata() const {
+::google::protobuf::Metadata Character_SharedPortalInfo_InteractionCountStat::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[7]);
@@ -5116,13 +5116,13 @@ class Character_SharedPortalInfo::_Internal {
 const ::ai::inworld::studio::v1alpha::Character_SharedPortalInfo_InteractionCountStat& Character_SharedPortalInfo::_Internal::interaction_count_stat(const Character_SharedPortalInfo* msg) {
   return *msg->_impl_.interaction_count_stat_;
 }
-Character_SharedPortalInfo::Character_SharedPortalInfo(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+Character_SharedPortalInfo::Character_SharedPortalInfo(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.Character.SharedPortalInfo)
 }
 inline PROTOBUF_NDEBUG_INLINE Character_SharedPortalInfo::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
@@ -5131,12 +5131,12 @@ inline PROTOBUF_NDEBUG_INLINE Character_SharedPortalInfo::Impl_::Impl_(
         short_alias_(arena, from.short_alias_) {}
 
 Character_SharedPortalInfo::Character_SharedPortalInfo(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const Character_SharedPortalInfo& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   Character_SharedPortalInfo* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
   ::uint32_t cached_has_bits = _impl_._has_bits_[0];
@@ -5154,8 +5154,8 @@ Character_SharedPortalInfo::Character_SharedPortalInfo(
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.Character.SharedPortalInfo)
 }
 inline PROTOBUF_NDEBUG_INLINE Character_SharedPortalInfo::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : _cached_size_{0},
         byline_(arena),
         prompt_(arena),
@@ -5172,7 +5172,7 @@ inline void Character_SharedPortalInfo::SharedCtor(::_pb::Arena* arena) {
 }
 Character_SharedPortalInfo::~Character_SharedPortalInfo() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.Character.SharedPortalInfo)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void Character_SharedPortalInfo::SharedDtor() {
@@ -5203,7 +5203,7 @@ PROTOBUF_NOINLINE void Character_SharedPortalInfo::Clear() {
       reinterpret_cast<char*>(&_impl_.allowed_on_showcase_) -
       reinterpret_cast<char*>(&_impl_.is_shared_)) + sizeof(_impl_.allowed_on_showcase_));
   _impl_._has_bits_.Clear();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* Character_SharedPortalInfo::_InternalParse(
@@ -5282,7 +5282,7 @@ const ::_pbi::TcParseTable<3, 6, 1, 84, 2> Character_SharedPortalInfo::_table_ =
 
 ::uint8_t* Character_SharedPortalInfo::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.Character.SharedPortalInfo)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -5297,24 +5297,24 @@ const ::_pbi::TcParseTable<3, 6, 1, 84, 2> Character_SharedPortalInfo::_table_ =
   // string byline = 2;
   if (!this->_internal_byline().empty()) {
     const std::string& _s = this->_internal_byline();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.SharedPortalInfo.byline");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.SharedPortalInfo.byline");
     target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
   // string prompt = 3;
   if (!this->_internal_prompt().empty()) {
     const std::string& _s = this->_internal_prompt();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.SharedPortalInfo.prompt");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.SharedPortalInfo.prompt");
     target = stream->WriteStringMaybeAliased(3, _s, target);
   }
 
   // string short_alias = 4;
   if (!this->_internal_short_alias().empty()) {
     const std::string& _s = this->_internal_short_alias();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.SharedPortalInfo.short_alias");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.SharedPortalInfo.short_alias");
     target = stream->WriteStringMaybeAliased(4, _s, target);
   }
 
@@ -5328,7 +5328,7 @@ const ::_pbi::TcParseTable<3, 6, 1, 84, 2> Character_SharedPortalInfo::_table_ =
   cached_has_bits = _impl_._has_bits_[0];
   // .ai.inworld.studio.v1alpha.Character.SharedPortalInfo.InteractionCountStat interaction_count_stat = 6;
   if (cached_has_bits & 0x00000001u) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         6, _Internal::interaction_count_stat(this),
         _Internal::interaction_count_stat(this).GetCachedSize(), target, stream);
   }
@@ -5336,7 +5336,7 @@ const ::_pbi::TcParseTable<3, 6, 1, 84, 2> Character_SharedPortalInfo::_table_ =
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.Character.SharedPortalInfo)
   return target;
@@ -5352,19 +5352,19 @@ const ::_pbi::TcParseTable<3, 6, 1, 84, 2> Character_SharedPortalInfo::_table_ =
 
   // string byline = 2;
   if (!this->_internal_byline().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_byline());
   }
 
   // string prompt = 3;
   if (!this->_internal_prompt().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_prompt());
   }
 
   // string short_alias = 4;
   if (!this->_internal_short_alias().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_short_alias());
   }
 
@@ -5372,7 +5372,7 @@ const ::_pbi::TcParseTable<3, 6, 1, 84, 2> Character_SharedPortalInfo::_table_ =
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size +=
-        1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.interaction_count_stat_);
+        1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.interaction_count_stat_);
   }
 
   // bool is_shared = 1;
@@ -5388,15 +5388,15 @@ const ::_pbi::TcParseTable<3, 6, 1, 84, 2> Character_SharedPortalInfo::_table_ =
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData Character_SharedPortalInfo::_class_data_ = {
+const ::google::protobuf::Message::ClassData Character_SharedPortalInfo::_class_data_ = {
     Character_SharedPortalInfo::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* Character_SharedPortalInfo::GetClassData() const {
+const ::google::protobuf::Message::ClassData* Character_SharedPortalInfo::GetClassData() const {
   return &_class_data_;
 }
 
-void Character_SharedPortalInfo::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void Character_SharedPortalInfo::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<Character_SharedPortalInfo*>(&to_msg);
   auto& from = static_cast<const Character_SharedPortalInfo&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.Character.SharedPortalInfo)
@@ -5423,7 +5423,7 @@ void Character_SharedPortalInfo::MergeImpl(::google::protobuf_inworld::Message& 
   if (from._internal_allowed_on_showcase() != 0) {
     _this->_internal_set_allowed_on_showcase(from._internal_allowed_on_showcase());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Character_SharedPortalInfo::CopyFrom(const Character_SharedPortalInfo& from) {
@@ -5449,7 +5449,7 @@ void Character_SharedPortalInfo::InternalSwap(Character_SharedPortalInfo* PROTOB
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.byline_, &other->_impl_.byline_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.prompt_, &other->_impl_.prompt_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.short_alias_, &other->_impl_.short_alias_, arena);
-  ::google::protobuf_inworld::internal::memswap<
+  ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(Character_SharedPortalInfo, _impl_.allowed_on_showcase_)
       + sizeof(Character_SharedPortalInfo::_impl_.allowed_on_showcase_)
       - PROTOBUF_FIELD_OFFSET(Character_SharedPortalInfo, _impl_.interaction_count_stat_)>(
@@ -5457,7 +5457,7 @@ void Character_SharedPortalInfo::InternalSwap(Character_SharedPortalInfo* PROTOB
           reinterpret_cast<char*>(&other->_impl_.interaction_count_stat_));
 }
 
-::google::protobuf_inworld::Metadata Character_SharedPortalInfo::GetMetadata() const {
+::google::protobuf::Metadata Character_SharedPortalInfo::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[8]);
@@ -5465,9 +5465,9 @@ void Character_SharedPortalInfo::InternalSwap(Character_SharedPortalInfo* PROTOB
 // ===================================================================
 
 Character_SafetyConfigEntry_DoNotUse::Character_SafetyConfigEntry_DoNotUse() {}
-Character_SafetyConfigEntry_DoNotUse::Character_SafetyConfigEntry_DoNotUse(::google::protobuf_inworld::Arena* arena)
+Character_SafetyConfigEntry_DoNotUse::Character_SafetyConfigEntry_DoNotUse(::google::protobuf::Arena* arena)
     : SuperType(arena) {}
-::google::protobuf_inworld::Metadata Character_SafetyConfigEntry_DoNotUse::GetMetadata() const {
+::google::protobuf::Metadata Character_SafetyConfigEntry_DoNotUse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[9]);
@@ -5478,19 +5478,19 @@ class Character_LongTermCoherence::_Internal {
  public:
 };
 
-Character_LongTermCoherence::Character_LongTermCoherence(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+Character_LongTermCoherence::Character_LongTermCoherence(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.Character.LongTermCoherence)
 }
 Character_LongTermCoherence::Character_LongTermCoherence(
-    ::google::protobuf_inworld::Arena* arena, const Character_LongTermCoherence& from)
+    ::google::protobuf::Arena* arena, const Character_LongTermCoherence& from)
     : Character_LongTermCoherence(arena) {
   MergeFrom(from);
 }
 inline PROTOBUF_NDEBUG_INLINE Character_LongTermCoherence::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : _cached_size_{0} {}
 
 inline void Character_LongTermCoherence::SharedCtor(::_pb::Arena* arena) {
@@ -5499,7 +5499,7 @@ inline void Character_LongTermCoherence::SharedCtor(::_pb::Arena* arena) {
 }
 Character_LongTermCoherence::~Character_LongTermCoherence() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.Character.LongTermCoherence)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void Character_LongTermCoherence::SharedDtor() {
@@ -5515,7 +5515,7 @@ PROTOBUF_NOINLINE void Character_LongTermCoherence::Clear() {
   (void) cached_has_bits;
 
   _impl_.enabled_ = false;
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* Character_LongTermCoherence::_InternalParse(
@@ -5557,7 +5557,7 @@ const ::_pbi::TcParseTable<0, 1, 0, 0, 2> Character_LongTermCoherence::_table_ =
 
 ::uint8_t* Character_LongTermCoherence::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.Character.LongTermCoherence)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -5572,7 +5572,7 @@ const ::_pbi::TcParseTable<0, 1, 0, 0, 2> Character_LongTermCoherence::_table_ =
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.Character.LongTermCoherence)
   return target;
@@ -5594,15 +5594,15 @@ const ::_pbi::TcParseTable<0, 1, 0, 0, 2> Character_LongTermCoherence::_table_ =
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData Character_LongTermCoherence::_class_data_ = {
+const ::google::protobuf::Message::ClassData Character_LongTermCoherence::_class_data_ = {
     Character_LongTermCoherence::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* Character_LongTermCoherence::GetClassData() const {
+const ::google::protobuf::Message::ClassData* Character_LongTermCoherence::GetClassData() const {
   return &_class_data_;
 }
 
-void Character_LongTermCoherence::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void Character_LongTermCoherence::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<Character_LongTermCoherence*>(&to_msg);
   auto& from = static_cast<const Character_LongTermCoherence&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.Character.LongTermCoherence)
@@ -5613,7 +5613,7 @@ void Character_LongTermCoherence::MergeImpl(::google::protobuf_inworld::Message&
   if (from._internal_enabled() != 0) {
     _this->_internal_set_enabled(from._internal_enabled());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Character_LongTermCoherence::CopyFrom(const Character_LongTermCoherence& from) {
@@ -5636,7 +5636,7 @@ void Character_LongTermCoherence::InternalSwap(Character_LongTermCoherence* PROT
         swap(_impl_.enabled_, other->_impl_.enabled_);
 }
 
-::google::protobuf_inworld::Metadata Character_LongTermCoherence::GetMetadata() const {
+::google::protobuf::Metadata Character_LongTermCoherence::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[10]);
@@ -5647,19 +5647,19 @@ class Character_Relationship::_Internal {
  public:
 };
 
-Character_Relationship::Character_Relationship(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+Character_Relationship::Character_Relationship(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.Character.Relationship)
 }
 Character_Relationship::Character_Relationship(
-    ::google::protobuf_inworld::Arena* arena, const Character_Relationship& from)
+    ::google::protobuf::Arena* arena, const Character_Relationship& from)
     : Character_Relationship(arena) {
   MergeFrom(from);
 }
 inline PROTOBUF_NDEBUG_INLINE Character_Relationship::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : _cached_size_{0} {}
 
 inline void Character_Relationship::SharedCtor(::_pb::Arena* arena) {
@@ -5673,7 +5673,7 @@ inline void Character_Relationship::SharedCtor(::_pb::Arena* arena) {
 }
 Character_Relationship::~Character_Relationship() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.Character.Relationship)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void Character_Relationship::SharedDtor() {
@@ -5691,7 +5691,7 @@ PROTOBUF_NOINLINE void Character_Relationship::Clear() {
   ::memset(&_impl_.enabled_, 0, static_cast<::size_t>(
       reinterpret_cast<char*>(&_impl_.fluidity_) -
       reinterpret_cast<char*>(&_impl_.enabled_)) + sizeof(_impl_.fluidity_));
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* Character_Relationship::_InternalParse(
@@ -5739,7 +5739,7 @@ const ::_pbi::TcParseTable<1, 2, 0, 0, 2> Character_Relationship::_table_ = {
 
 ::uint8_t* Character_Relationship::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.Character.Relationship)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -5766,7 +5766,7 @@ const ::_pbi::TcParseTable<1, 2, 0, 0, 2> Character_Relationship::_table_ = {
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.Character.Relationship)
   return target;
@@ -5798,15 +5798,15 @@ const ::_pbi::TcParseTable<1, 2, 0, 0, 2> Character_Relationship::_table_ = {
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData Character_Relationship::_class_data_ = {
+const ::google::protobuf::Message::ClassData Character_Relationship::_class_data_ = {
     Character_Relationship::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* Character_Relationship::GetClassData() const {
+const ::google::protobuf::Message::ClassData* Character_Relationship::GetClassData() const {
   return &_class_data_;
 }
 
-void Character_Relationship::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void Character_Relationship::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<Character_Relationship*>(&to_msg);
   auto& from = static_cast<const Character_Relationship&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.Character.Relationship)
@@ -5825,7 +5825,7 @@ void Character_Relationship::MergeImpl(::google::protobuf_inworld::Message& to_m
   if (raw_fluidity != 0) {
     _this->_internal_set_fluidity(from._internal_fluidity());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Character_Relationship::CopyFrom(const Character_Relationship& from) {
@@ -5845,7 +5845,7 @@ PROTOBUF_NOINLINE bool Character_Relationship::IsInitialized() const {
 void Character_Relationship::InternalSwap(Character_Relationship* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::google::protobuf_inworld::internal::memswap<
+  ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(Character_Relationship, _impl_.fluidity_)
       + sizeof(Character_Relationship::_impl_.fluidity_)
       - PROTOBUF_FIELD_OFFSET(Character_Relationship, _impl_.enabled_)>(
@@ -5853,7 +5853,7 @@ void Character_Relationship::InternalSwap(Character_Relationship* PROTOBUF_RESTR
           reinterpret_cast<char*>(&other->_impl_.enabled_));
 }
 
-::google::protobuf_inworld::Metadata Character_Relationship::GetMetadata() const {
+::google::protobuf::Metadata Character_Relationship::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[11]);
@@ -5931,13 +5931,13 @@ void Character::clear_behavioral_contexts() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   _impl_.behavioral_contexts_.Clear();
 }
-Character::Character(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+Character::Character(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.Character)
 }
 inline PROTOBUF_NDEBUG_INLINE Character::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
@@ -5951,12 +5951,12 @@ inline PROTOBUF_NDEBUG_INLINE Character::Impl_::Impl_(
         yaml_config_(arena, from.yaml_config_) {}
 
 Character::Character(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const Character& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   Character* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
   ::uint32_t cached_has_bits = _impl_._has_bits_[0];
@@ -5995,8 +5995,8 @@ Character::Character(
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.Character)
 }
 inline PROTOBUF_NDEBUG_INLINE Character::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : _cached_size_{0},
         common_knowledges_{visibility, arena},
         scenes_{visibility, arena},
@@ -6018,7 +6018,7 @@ inline void Character::SharedCtor(::_pb::Arena* arena) {
 }
 Character::~Character() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.Character)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void Character::SharedDtor() {
@@ -6091,7 +6091,7 @@ PROTOBUF_NOINLINE void Character::Clear() {
       reinterpret_cast<char*>(&_impl_.language_) -
       reinterpret_cast<char*>(&_impl_.social_rank_)) + sizeof(_impl_.language_));
   _impl_._has_bits_.Clear();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* Character::_InternalParse(
@@ -6288,7 +6288,7 @@ const ::_pbi::TcParseTable<5, 22, 12, 118, 2> Character::_table_ = {
 
 ::uint8_t* Character::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.Character)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -6296,44 +6296,44 @@ const ::_pbi::TcParseTable<5, 22, 12, 118, 2> Character::_table_ = {
   // string name = 1 [(.ai.inworld.options.examples) = {
   if (!this->_internal_name().empty()) {
     const std::string& _s = this->_internal_name();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.name");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.name");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // string language_code = 2 [deprecated = true];
   if (!this->_internal_language_code().empty()) {
     const std::string& _s = this->_internal_language_code();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.language_code");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.language_code");
     target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
   cached_has_bits = _impl_._has_bits_[0];
   // .ai.inworld.studio.v1alpha.Character.CharacterDescription default_character_description = 3;
   if (cached_has_bits & 0x00000001u) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         3, _Internal::default_character_description(this),
         _Internal::default_character_description(this).GetCachedSize(), target, stream);
   }
 
   // .ai.inworld.studio.v1alpha.Character.CharacterAssets default_character_assets = 7;
   if (cached_has_bits & 0x00000002u) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         7, _Internal::default_character_assets(this),
         _Internal::default_character_assets(this).GetCachedSize(), target, stream);
   }
 
   // .ai.inworld.studio.v1alpha.Character.CharacterInitialMood initial_mood = 9;
   if (cached_has_bits & 0x00000004u) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         9, _Internal::initial_mood(this),
         _Internal::initial_mood(this).GetCachedSize(), target, stream);
   }
 
   // .ai.inworld.studio.v1alpha.Character.CharacterPersonality personality = 10;
   if (cached_has_bits & 0x00000008u) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         10, _Internal::personality(this),
         _Internal::personality(this).GetCachedSize(), target, stream);
   }
@@ -6341,8 +6341,8 @@ const ::_pbi::TcParseTable<5, 22, 12, 118, 2> Character::_table_ = {
   // repeated string common_knowledges = 11;
   for (int i = 0, n = this->_internal_common_knowledges_size(); i < n; ++i) {
     const auto& s = this->_internal_common_knowledges().Get(i);
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        s.data(), static_cast<int>(s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.common_knowledges");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        s.data(), static_cast<int>(s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.common_knowledges");
     target = stream->WriteString(11, s, target);
   }
 
@@ -6362,7 +6362,7 @@ const ::_pbi::TcParseTable<5, 22, 12, 118, 2> Character::_table_ = {
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_scenes_size()); i < n; i++) {
     const auto& repfield = this->_internal_scenes().Get(i);
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         InternalWriteMessage(13, repfield, repfield.GetCachedSize(), target, stream);
   }
 
@@ -6370,7 +6370,7 @@ const ::_pbi::TcParseTable<5, 22, 12, 118, 2> Character::_table_ = {
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_facts_size()); i < n; i++) {
     const auto& repfield = this->_internal_facts().Get(i);
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         InternalWriteMessage(14, repfield, repfield.GetCachedSize(), target, stream);
   }
 
@@ -6378,13 +6378,13 @@ const ::_pbi::TcParseTable<5, 22, 12, 118, 2> Character::_table_ = {
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_behavioral_contexts_size()); i < n; i++) {
     const auto& repfield = this->_internal_behavioral_contexts().Get(i);
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         InternalWriteMessage(15, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   // .ai.inworld.studio.v1alpha.Character.Meta meta = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];
   if (cached_has_bits & 0x00000010u) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         16, _Internal::meta(this),
         _Internal::meta(this).GetCachedSize(), target, stream);
   }
@@ -6403,7 +6403,7 @@ const ::_pbi::TcParseTable<5, 22, 12, 118, 2> Character::_table_ = {
 
   // .ai.inworld.studio.v1alpha.Character.SharedPortalInfo share_portal_info = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];
   if (cached_has_bits & 0x00000020u) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         18, _Internal::share_portal_info(this),
         _Internal::share_portal_info(this).GetCachedSize(), target, stream);
   }
@@ -6411,34 +6411,34 @@ const ::_pbi::TcParseTable<5, 22, 12, 118, 2> Character::_table_ = {
   // string yaml_config = 19;
   if (!this->_internal_yaml_config().empty()) {
     const std::string& _s = this->_internal_yaml_config();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.yaml_config");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.yaml_config");
     target = stream->WriteStringMaybeAliased(19, _s, target);
   }
 
   // map<string, .ai.inworld.studio.v1alpha.SafetyLevel> safety_config = 21;
   if (!_internal_safety_config().empty()) {
-    using MapType = ::google::protobuf_inworld::Map<std::string, ::ai::inworld::studio::v1alpha::SafetyLevel>;
+    using MapType = ::google::protobuf::Map<std::string, ::ai::inworld::studio::v1alpha::SafetyLevel>;
     using WireHelper = _pbi::MapEntryFuncs<std::string, ::ai::inworld::studio::v1alpha::SafetyLevel,
                                    _pbi::WireFormatLite::TYPE_STRING,
                                    _pbi::WireFormatLite::TYPE_ENUM>;
     const auto& field = _internal_safety_config();
 
     if (stream->IsSerializationDeterministic() && field.size() > 1) {
-      for (const auto& entry : ::google::protobuf_inworld::internal::MapSorterPtr<MapType>(field)) {
+      for (const auto& entry : ::google::protobuf::internal::MapSorterPtr<MapType>(field)) {
         target = WireHelper::InternalSerialize(
             21, entry.first, entry.second, target, stream);
-        ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             entry.first.data(), static_cast<int>(entry.first.length()),
- ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.safety_config");
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.safety_config");
       }
     } else {
       for (const auto& entry : field) {
         target = WireHelper::InternalSerialize(
             21, entry.first, entry.second, target, stream);
-        ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             entry.first.data(), static_cast<int>(entry.first.length()),
- ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.safety_config");
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.Character.safety_config");
       }
     }
   }
@@ -6464,14 +6464,14 @@ const ::_pbi::TcParseTable<5, 22, 12, 118, 2> Character::_table_ = {
 
   // .ai.inworld.studio.v1alpha.Character.LongTermCoherence long_term_coherence = 24;
   if (cached_has_bits & 0x00000040u) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         24, _Internal::long_term_coherence(this),
         _Internal::long_term_coherence(this).GetCachedSize(), target, stream);
   }
 
   // .ai.inworld.studio.v1alpha.Character.Relationship relationship = 25;
   if (cached_has_bits & 0x00000080u) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         25, _Internal::relationship(this),
         _Internal::relationship(this).GetCachedSize(), target, stream);
   }
@@ -6493,7 +6493,7 @@ const ::_pbi::TcParseTable<5, 22, 12, 118, 2> Character::_table_ = {
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.Character)
   return target;
@@ -6508,31 +6508,31 @@ const ::_pbi::TcParseTable<5, 22, 12, 118, 2> Character::_table_ = {
   (void) cached_has_bits;
 
   // repeated string common_knowledges = 11;
-  total_size += 1 * ::google::protobuf_inworld::internal::FromIntSize(_internal_common_knowledges().size());
+  total_size += 1 * ::google::protobuf::internal::FromIntSize(_internal_common_knowledges().size());
   for (int i = 0, n = _internal_common_knowledges().size(); i < n; ++i) {
-    total_size += ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
         _internal_common_knowledges().Get(i));
   }
   // repeated .ai.inworld.studio.v1alpha.Scene scenes = 13;
   total_size += 1UL * this->_internal_scenes_size();
   for (const auto& msg : this->_internal_scenes()) {
     total_size +=
-      ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(msg);
+      ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
   }
   // repeated .ai.inworld.studio.v1alpha.Character.Fact facts = 14;
   total_size += 1UL * this->_internal_facts_size();
   for (const auto& msg : this->_internal_facts()) {
     total_size +=
-      ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(msg);
+      ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
   }
   // repeated .ai.inworld.studio.v1alpha.BehavioralContext behavioral_contexts = 15;
   total_size += 1UL * this->_internal_behavioral_contexts_size();
   for (const auto& msg : this->_internal_behavioral_contexts()) {
     total_size +=
-      ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(msg);
+      ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
   }
   // map<string, .ai.inworld.studio.v1alpha.SafetyLevel> safety_config = 21;
-  total_size += 2 * ::google::protobuf_inworld::internal::FromIntSize(_internal_safety_config_size());
+  total_size += 2 * ::google::protobuf::internal::FromIntSize(_internal_safety_config_size());
   for (const auto& entry : _internal_safety_config()) {
     total_size += _pbi::MapEntryFuncs<std::string, ::ai::inworld::studio::v1alpha::SafetyLevel,
                                    _pbi::WireFormatLite::TYPE_STRING,
@@ -6540,19 +6540,19 @@ const ::_pbi::TcParseTable<5, 22, 12, 118, 2> Character::_table_ = {
   }
   // string name = 1 [(.ai.inworld.options.examples) = {
   if (!this->_internal_name().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_name());
   }
 
   // string language_code = 2 [deprecated = true];
   if (!this->_internal_language_code().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_language_code());
   }
 
   // string yaml_config = 19;
   if (!this->_internal_yaml_config().empty()) {
-    total_size += 2 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 2 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_yaml_config());
   }
 
@@ -6561,49 +6561,49 @@ const ::_pbi::TcParseTable<5, 22, 12, 118, 2> Character::_table_ = {
     // .ai.inworld.studio.v1alpha.Character.CharacterDescription default_character_description = 3;
     if (cached_has_bits & 0x00000001u) {
       total_size +=
-          1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.default_character_description_);
+          1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.default_character_description_);
     }
 
     // .ai.inworld.studio.v1alpha.Character.CharacterAssets default_character_assets = 7;
     if (cached_has_bits & 0x00000002u) {
       total_size +=
-          1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.default_character_assets_);
+          1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.default_character_assets_);
     }
 
     // .ai.inworld.studio.v1alpha.Character.CharacterInitialMood initial_mood = 9;
     if (cached_has_bits & 0x00000004u) {
       total_size +=
-          1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.initial_mood_);
+          1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.initial_mood_);
     }
 
     // .ai.inworld.studio.v1alpha.Character.CharacterPersonality personality = 10;
     if (cached_has_bits & 0x00000008u) {
       total_size +=
-          1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.personality_);
+          1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.personality_);
     }
 
     // .ai.inworld.studio.v1alpha.Character.Meta meta = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];
     if (cached_has_bits & 0x00000010u) {
       total_size +=
-          2 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.meta_);
+          2 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.meta_);
     }
 
     // .ai.inworld.studio.v1alpha.Character.SharedPortalInfo share_portal_info = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];
     if (cached_has_bits & 0x00000020u) {
       total_size +=
-          2 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.share_portal_info_);
+          2 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.share_portal_info_);
     }
 
     // .ai.inworld.studio.v1alpha.Character.LongTermCoherence long_term_coherence = 24;
     if (cached_has_bits & 0x00000040u) {
       total_size +=
-          2 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.long_term_coherence_);
+          2 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.long_term_coherence_);
     }
 
     // .ai.inworld.studio.v1alpha.Character.Relationship relationship = 25;
     if (cached_has_bits & 0x00000080u) {
       total_size +=
-          2 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.relationship_);
+          2 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.relationship_);
     }
 
   }
@@ -6658,15 +6658,15 @@ const ::_pbi::TcParseTable<5, 22, 12, 118, 2> Character::_table_ = {
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData Character::_class_data_ = {
+const ::google::protobuf::Message::ClassData Character::_class_data_ = {
     Character::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* Character::GetClassData() const {
+const ::google::protobuf::Message::ClassData* Character::GetClassData() const {
   return &_class_data_;
 }
 
-void Character::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void Character::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<Character*>(&to_msg);
   auto& from = static_cast<const Character&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.Character)
@@ -6759,7 +6759,7 @@ void Character::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::g
   if (from._internal_language() != 0) {
     _this->_internal_set_language(from._internal_language());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Character::CopyFrom(const Character& from) {
@@ -6790,7 +6790,7 @@ void Character::InternalSwap(Character* PROTOBUF_RESTRICT other) {
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.language_code_, &other->_impl_.language_code_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.yaml_config_, &other->_impl_.yaml_config_, arena);
-  ::google::protobuf_inworld::internal::memswap<
+  ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(Character, _impl_.language_)
       + sizeof(Character::_impl_.language_)
       - PROTOBUF_FIELD_OFFSET(Character, _impl_.default_character_description_)>(
@@ -6798,7 +6798,7 @@ void Character::InternalSwap(Character* PROTOBUF_RESTRICT other) {
           reinterpret_cast<char*>(&other->_impl_.default_character_description_));
 }
 
-::google::protobuf_inworld::Metadata Character::GetMetadata() const {
+::google::protobuf::Metadata Character::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[12]);
@@ -6809,24 +6809,24 @@ class GetCharacterRequest::_Internal {
  public:
 };
 
-GetCharacterRequest::GetCharacterRequest(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+GetCharacterRequest::GetCharacterRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.GetCharacterRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE GetCharacterRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : name_(arena, from.name_),
         _cached_size_{0} {}
 
 GetCharacterRequest::GetCharacterRequest(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const GetCharacterRequest& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   GetCharacterRequest* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
   _impl_.view_ = from._impl_.view_;
@@ -6834,8 +6834,8 @@ GetCharacterRequest::GetCharacterRequest(
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.GetCharacterRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE GetCharacterRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : name_(arena),
         _cached_size_{0} {}
 
@@ -6845,7 +6845,7 @@ inline void GetCharacterRequest::SharedCtor(::_pb::Arena* arena) {
 }
 GetCharacterRequest::~GetCharacterRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.GetCharacterRequest)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void GetCharacterRequest::SharedDtor() {
@@ -6863,7 +6863,7 @@ PROTOBUF_NOINLINE void GetCharacterRequest::Clear() {
 
   _impl_.name_.ClearToEmpty();
   _impl_.view_ = 0;
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* GetCharacterRequest::_InternalParse(
@@ -6914,7 +6914,7 @@ const ::_pbi::TcParseTable<1, 2, 0, 58, 2> GetCharacterRequest::_table_ = {
 
 ::uint8_t* GetCharacterRequest::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.GetCharacterRequest)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -6922,8 +6922,8 @@ const ::_pbi::TcParseTable<1, 2, 0, 58, 2> GetCharacterRequest::_table_ = {
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_name().empty()) {
     const std::string& _s = this->_internal_name();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.GetCharacterRequest.name");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.GetCharacterRequest.name");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
@@ -6937,7 +6937,7 @@ const ::_pbi::TcParseTable<1, 2, 0, 58, 2> GetCharacterRequest::_table_ = {
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.GetCharacterRequest)
   return target;
@@ -6953,7 +6953,7 @@ const ::_pbi::TcParseTable<1, 2, 0, 58, 2> GetCharacterRequest::_table_ = {
 
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_name().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_name());
   }
 
@@ -6966,15 +6966,15 @@ const ::_pbi::TcParseTable<1, 2, 0, 58, 2> GetCharacterRequest::_table_ = {
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData GetCharacterRequest::_class_data_ = {
+const ::google::protobuf::Message::ClassData GetCharacterRequest::_class_data_ = {
     GetCharacterRequest::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* GetCharacterRequest::GetClassData() const {
+const ::google::protobuf::Message::ClassData* GetCharacterRequest::GetClassData() const {
   return &_class_data_;
 }
 
-void GetCharacterRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void GetCharacterRequest::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<GetCharacterRequest*>(&to_msg);
   auto& from = static_cast<const GetCharacterRequest&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.GetCharacterRequest)
@@ -6988,7 +6988,7 @@ void GetCharacterRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg,
   if (from._internal_view() != 0) {
     _this->_internal_set_view(from._internal_view());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void GetCharacterRequest::CopyFrom(const GetCharacterRequest& from) {
@@ -7014,7 +7014,7 @@ void GetCharacterRequest::InternalSwap(GetCharacterRequest* PROTOBUF_RESTRICT ot
   swap(_impl_.view_, other->_impl_.view_);
 }
 
-::google::protobuf_inworld::Metadata GetCharacterRequest::GetMetadata() const {
+::google::protobuf::Metadata GetCharacterRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[13]);
@@ -7025,32 +7025,32 @@ class GetCharacterAdvancedSettingsRequest::_Internal {
  public:
 };
 
-GetCharacterAdvancedSettingsRequest::GetCharacterAdvancedSettingsRequest(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+GetCharacterAdvancedSettingsRequest::GetCharacterAdvancedSettingsRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.GetCharacterAdvancedSettingsRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE GetCharacterAdvancedSettingsRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : name_(arena, from.name_),
         _cached_size_{0} {}
 
 GetCharacterAdvancedSettingsRequest::GetCharacterAdvancedSettingsRequest(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const GetCharacterAdvancedSettingsRequest& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   GetCharacterAdvancedSettingsRequest* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.GetCharacterAdvancedSettingsRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE GetCharacterAdvancedSettingsRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : name_(arena),
         _cached_size_{0} {}
 
@@ -7059,7 +7059,7 @@ inline void GetCharacterAdvancedSettingsRequest::SharedCtor(::_pb::Arena* arena)
 }
 GetCharacterAdvancedSettingsRequest::~GetCharacterAdvancedSettingsRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.GetCharacterAdvancedSettingsRequest)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void GetCharacterAdvancedSettingsRequest::SharedDtor() {
@@ -7076,7 +7076,7 @@ PROTOBUF_NOINLINE void GetCharacterAdvancedSettingsRequest::Clear() {
   (void) cached_has_bits;
 
   _impl_.name_.ClearToEmpty();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* GetCharacterAdvancedSettingsRequest::_InternalParse(
@@ -7121,7 +7121,7 @@ const ::_pbi::TcParseTable<0, 1, 0, 74, 2> GetCharacterAdvancedSettingsRequest::
 
 ::uint8_t* GetCharacterAdvancedSettingsRequest::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.GetCharacterAdvancedSettingsRequest)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -7129,15 +7129,15 @@ const ::_pbi::TcParseTable<0, 1, 0, 74, 2> GetCharacterAdvancedSettingsRequest::
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_name().empty()) {
     const std::string& _s = this->_internal_name();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.GetCharacterAdvancedSettingsRequest.name");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.GetCharacterAdvancedSettingsRequest.name");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.GetCharacterAdvancedSettingsRequest)
   return target;
@@ -7153,22 +7153,22 @@ const ::_pbi::TcParseTable<0, 1, 0, 74, 2> GetCharacterAdvancedSettingsRequest::
 
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_name().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_name());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData GetCharacterAdvancedSettingsRequest::_class_data_ = {
+const ::google::protobuf::Message::ClassData GetCharacterAdvancedSettingsRequest::_class_data_ = {
     GetCharacterAdvancedSettingsRequest::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* GetCharacterAdvancedSettingsRequest::GetClassData() const {
+const ::google::protobuf::Message::ClassData* GetCharacterAdvancedSettingsRequest::GetClassData() const {
   return &_class_data_;
 }
 
-void GetCharacterAdvancedSettingsRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void GetCharacterAdvancedSettingsRequest::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<GetCharacterAdvancedSettingsRequest*>(&to_msg);
   auto& from = static_cast<const GetCharacterAdvancedSettingsRequest&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.GetCharacterAdvancedSettingsRequest)
@@ -7179,7 +7179,7 @@ void GetCharacterAdvancedSettingsRequest::MergeImpl(::google::protobuf_inworld::
   if (!from._internal_name().empty()) {
     _this->_internal_set_name(from._internal_name());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void GetCharacterAdvancedSettingsRequest::CopyFrom(const GetCharacterAdvancedSettingsRequest& from) {
@@ -7204,7 +7204,7 @@ void GetCharacterAdvancedSettingsRequest::InternalSwap(GetCharacterAdvancedSetti
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
 }
 
-::google::protobuf_inworld::Metadata GetCharacterAdvancedSettingsRequest::GetMetadata() const {
+::google::protobuf::Metadata GetCharacterAdvancedSettingsRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[14]);
@@ -7220,7 +7220,7 @@ class UpdateCharacterAdvancedSettingsRequest::_Internal {
   static void set_has_character_advanced_settings(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
-  static const ::google::protobuf_inworld::FieldMask& update_mask(const UpdateCharacterAdvancedSettingsRequest* msg);
+  static const ::google::protobuf::FieldMask& update_mask(const UpdateCharacterAdvancedSettingsRequest* msg);
   static void set_has_update_mask(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
@@ -7229,7 +7229,7 @@ class UpdateCharacterAdvancedSettingsRequest::_Internal {
 const ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings& UpdateCharacterAdvancedSettingsRequest::_Internal::character_advanced_settings(const UpdateCharacterAdvancedSettingsRequest* msg) {
   return *msg->_impl_.character_advanced_settings_;
 }
-const ::google::protobuf_inworld::FieldMask& UpdateCharacterAdvancedSettingsRequest::_Internal::update_mask(const UpdateCharacterAdvancedSettingsRequest* msg) {
+const ::google::protobuf::FieldMask& UpdateCharacterAdvancedSettingsRequest::_Internal::update_mask(const UpdateCharacterAdvancedSettingsRequest* msg) {
   return *msg->_impl_.update_mask_;
 }
 void UpdateCharacterAdvancedSettingsRequest::clear_update_mask() {
@@ -7237,24 +7237,24 @@ void UpdateCharacterAdvancedSettingsRequest::clear_update_mask() {
   if (_impl_.update_mask_ != nullptr) _impl_.update_mask_->Clear();
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-UpdateCharacterAdvancedSettingsRequest::UpdateCharacterAdvancedSettingsRequest(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+UpdateCharacterAdvancedSettingsRequest::UpdateCharacterAdvancedSettingsRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.UpdateCharacterAdvancedSettingsRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE UpdateCharacterAdvancedSettingsRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : _has_bits_{from._has_bits_},
         _cached_size_{0} {}
 
 UpdateCharacterAdvancedSettingsRequest::UpdateCharacterAdvancedSettingsRequest(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const UpdateCharacterAdvancedSettingsRequest& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   UpdateCharacterAdvancedSettingsRequest* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
   ::uint32_t cached_has_bits = _impl_._has_bits_[0];
@@ -7262,14 +7262,14 @@ UpdateCharacterAdvancedSettingsRequest::UpdateCharacterAdvancedSettingsRequest(
                 ? CreateMaybeMessage<::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>(arena, *from._impl_.character_advanced_settings_)
                 : nullptr;
   _impl_.update_mask_ = (cached_has_bits & 0x00000002u)
-                ? CreateMaybeMessage<::google::protobuf_inworld::FieldMask>(arena, *from._impl_.update_mask_)
+                ? CreateMaybeMessage<::google::protobuf::FieldMask>(arena, *from._impl_.update_mask_)
                 : nullptr;
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.UpdateCharacterAdvancedSettingsRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE UpdateCharacterAdvancedSettingsRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : _cached_size_{0} {}
 
 inline void UpdateCharacterAdvancedSettingsRequest::SharedCtor(::_pb::Arena* arena) {
@@ -7283,7 +7283,7 @@ inline void UpdateCharacterAdvancedSettingsRequest::SharedCtor(::_pb::Arena* are
 }
 UpdateCharacterAdvancedSettingsRequest::~UpdateCharacterAdvancedSettingsRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.UpdateCharacterAdvancedSettingsRequest)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void UpdateCharacterAdvancedSettingsRequest::SharedDtor() {
@@ -7312,7 +7312,7 @@ PROTOBUF_NOINLINE void UpdateCharacterAdvancedSettingsRequest::Clear() {
     }
   }
   _impl_._has_bits_.Clear();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* UpdateCharacterAdvancedSettingsRequest::_InternalParse(
@@ -7354,14 +7354,14 @@ const ::_pbi::TcParseTable<1, 2, 2, 0, 2> UpdateCharacterAdvancedSettingsRequest
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
     {::_pbi::TcParser::GetTable<::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>()},
-    {::_pbi::TcParser::GetTable<::google::protobuf_inworld::FieldMask>()},
+    {::_pbi::TcParser::GetTable<::google::protobuf::FieldMask>()},
   }}, {{
   }},
 };
 
 ::uint8_t* UpdateCharacterAdvancedSettingsRequest::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.UpdateCharacterAdvancedSettingsRequest)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -7369,14 +7369,14 @@ const ::_pbi::TcParseTable<1, 2, 2, 0, 2> UpdateCharacterAdvancedSettingsRequest
   cached_has_bits = _impl_._has_bits_[0];
   // .ai.inworld.studio.v1alpha.CharacterAdvancedSettings character_advanced_settings = 1 [(.google.api.field_behavior) = REQUIRED];
   if (cached_has_bits & 0x00000001u) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         1, _Internal::character_advanced_settings(this),
         _Internal::character_advanced_settings(this).GetCachedSize(), target, stream);
   }
 
   // .google.protobuf.FieldMask update_mask = 2 [(.google.api.field_behavior) = REQUIRED];
   if (cached_has_bits & 0x00000002u) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         2, _Internal::update_mask(this),
         _Internal::update_mask(this).GetCachedSize(), target, stream);
   }
@@ -7384,7 +7384,7 @@ const ::_pbi::TcParseTable<1, 2, 2, 0, 2> UpdateCharacterAdvancedSettingsRequest
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.UpdateCharacterAdvancedSettingsRequest)
   return target;
@@ -7403,28 +7403,28 @@ const ::_pbi::TcParseTable<1, 2, 2, 0, 2> UpdateCharacterAdvancedSettingsRequest
     // .ai.inworld.studio.v1alpha.CharacterAdvancedSettings character_advanced_settings = 1 [(.google.api.field_behavior) = REQUIRED];
     if (cached_has_bits & 0x00000001u) {
       total_size +=
-          1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.character_advanced_settings_);
+          1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.character_advanced_settings_);
     }
 
     // .google.protobuf.FieldMask update_mask = 2 [(.google.api.field_behavior) = REQUIRED];
     if (cached_has_bits & 0x00000002u) {
       total_size +=
-          1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.update_mask_);
+          1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.update_mask_);
     }
 
   }
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData UpdateCharacterAdvancedSettingsRequest::_class_data_ = {
+const ::google::protobuf::Message::ClassData UpdateCharacterAdvancedSettingsRequest::_class_data_ = {
     UpdateCharacterAdvancedSettingsRequest::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* UpdateCharacterAdvancedSettingsRequest::GetClassData() const {
+const ::google::protobuf::Message::ClassData* UpdateCharacterAdvancedSettingsRequest::GetClassData() const {
   return &_class_data_;
 }
 
-void UpdateCharacterAdvancedSettingsRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void UpdateCharacterAdvancedSettingsRequest::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<UpdateCharacterAdvancedSettingsRequest*>(&to_msg);
   auto& from = static_cast<const UpdateCharacterAdvancedSettingsRequest&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.UpdateCharacterAdvancedSettingsRequest)
@@ -7439,11 +7439,11 @@ void UpdateCharacterAdvancedSettingsRequest::MergeImpl(::google::protobuf_inworl
           from._internal_character_advanced_settings());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_internal_mutable_update_mask()->::google::protobuf_inworld::FieldMask::MergeFrom(
+      _this->_internal_mutable_update_mask()->::google::protobuf::FieldMask::MergeFrom(
           from._internal_update_mask());
     }
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void UpdateCharacterAdvancedSettingsRequest::CopyFrom(const UpdateCharacterAdvancedSettingsRequest& from) {
@@ -7464,7 +7464,7 @@ void UpdateCharacterAdvancedSettingsRequest::InternalSwap(UpdateCharacterAdvance
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::google::protobuf_inworld::internal::memswap<
+  ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(UpdateCharacterAdvancedSettingsRequest, _impl_.update_mask_)
       + sizeof(UpdateCharacterAdvancedSettingsRequest::_impl_.update_mask_)
       - PROTOBUF_FIELD_OFFSET(UpdateCharacterAdvancedSettingsRequest, _impl_.character_advanced_settings_)>(
@@ -7472,7 +7472,7 @@ void UpdateCharacterAdvancedSettingsRequest::InternalSwap(UpdateCharacterAdvance
           reinterpret_cast<char*>(&other->_impl_.character_advanced_settings_));
 }
 
-::google::protobuf_inworld::Metadata UpdateCharacterAdvancedSettingsRequest::GetMetadata() const {
+::google::protobuf::Metadata UpdateCharacterAdvancedSettingsRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[15]);
@@ -7483,13 +7483,13 @@ class ListCharactersRequest::_Internal {
  public:
 };
 
-ListCharactersRequest::ListCharactersRequest(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+ListCharactersRequest::ListCharactersRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.ListCharactersRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE ListCharactersRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : parent_(arena, from.parent_),
         page_token_(arena, from.page_token_),
@@ -7497,12 +7497,12 @@ inline PROTOBUF_NDEBUG_INLINE ListCharactersRequest::Impl_::Impl_(
         _cached_size_{0} {}
 
 ListCharactersRequest::ListCharactersRequest(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const ListCharactersRequest& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   ListCharactersRequest* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
   ::memcpy(reinterpret_cast<char *>(&_impl_) +
@@ -7516,8 +7516,8 @@ ListCharactersRequest::ListCharactersRequest(
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.ListCharactersRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE ListCharactersRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : parent_(arena),
         page_token_(arena),
         filter_(arena),
@@ -7534,7 +7534,7 @@ inline void ListCharactersRequest::SharedCtor(::_pb::Arena* arena) {
 }
 ListCharactersRequest::~ListCharactersRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.ListCharactersRequest)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void ListCharactersRequest::SharedDtor() {
@@ -7558,7 +7558,7 @@ PROTOBUF_NOINLINE void ListCharactersRequest::Clear() {
   ::memset(&_impl_.page_size_, 0, static_cast<::size_t>(
       reinterpret_cast<char*>(&_impl_.view_) -
       reinterpret_cast<char*>(&_impl_.page_size_)) + sizeof(_impl_.view_));
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* ListCharactersRequest::_InternalParse(
@@ -7632,7 +7632,7 @@ const ::_pbi::TcParseTable<3, 5, 0, 78, 2> ListCharactersRequest::_table_ = {
 
 ::uint8_t* ListCharactersRequest::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.ListCharactersRequest)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -7640,14 +7640,14 @@ const ::_pbi::TcParseTable<3, 5, 0, 78, 2> ListCharactersRequest::_table_ = {
   // string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_parent().empty()) {
     const std::string& _s = this->_internal_parent();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ListCharactersRequest.parent");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ListCharactersRequest.parent");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // int32 page_size = 2;
   if (this->_internal_page_size() != 0) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         WriteInt32ToArrayWithField<2>(
             stream, this->_internal_page_size(), target);
   }
@@ -7655,8 +7655,8 @@ const ::_pbi::TcParseTable<3, 5, 0, 78, 2> ListCharactersRequest::_table_ = {
   // string page_token = 3;
   if (!this->_internal_page_token().empty()) {
     const std::string& _s = this->_internal_page_token();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ListCharactersRequest.page_token");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ListCharactersRequest.page_token");
     target = stream->WriteStringMaybeAliased(3, _s, target);
   }
 
@@ -7670,15 +7670,15 @@ const ::_pbi::TcParseTable<3, 5, 0, 78, 2> ListCharactersRequest::_table_ = {
   // string filter = 5;
   if (!this->_internal_filter().empty()) {
     const std::string& _s = this->_internal_filter();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ListCharactersRequest.filter");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ListCharactersRequest.filter");
     target = stream->WriteStringMaybeAliased(5, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.ListCharactersRequest)
   return target;
@@ -7694,19 +7694,19 @@ const ::_pbi::TcParseTable<3, 5, 0, 78, 2> ListCharactersRequest::_table_ = {
 
   // string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_parent().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_parent());
   }
 
   // string page_token = 3;
   if (!this->_internal_page_token().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_page_token());
   }
 
   // string filter = 5;
   if (!this->_internal_filter().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_filter());
   }
 
@@ -7725,15 +7725,15 @@ const ::_pbi::TcParseTable<3, 5, 0, 78, 2> ListCharactersRequest::_table_ = {
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData ListCharactersRequest::_class_data_ = {
+const ::google::protobuf::Message::ClassData ListCharactersRequest::_class_data_ = {
     ListCharactersRequest::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* ListCharactersRequest::GetClassData() const {
+const ::google::protobuf::Message::ClassData* ListCharactersRequest::GetClassData() const {
   return &_class_data_;
 }
 
-void ListCharactersRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void ListCharactersRequest::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<ListCharactersRequest*>(&to_msg);
   auto& from = static_cast<const ListCharactersRequest&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.ListCharactersRequest)
@@ -7756,7 +7756,7 @@ void ListCharactersRequest::MergeImpl(::google::protobuf_inworld::Message& to_ms
   if (from._internal_view() != 0) {
     _this->_internal_set_view(from._internal_view());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ListCharactersRequest::CopyFrom(const ListCharactersRequest& from) {
@@ -7781,7 +7781,7 @@ void ListCharactersRequest::InternalSwap(ListCharactersRequest* PROTOBUF_RESTRIC
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.parent_, &other->_impl_.parent_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.page_token_, &other->_impl_.page_token_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.filter_, &other->_impl_.filter_, arena);
-  ::google::protobuf_inworld::internal::memswap<
+  ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(ListCharactersRequest, _impl_.view_)
       + sizeof(ListCharactersRequest::_impl_.view_)
       - PROTOBUF_FIELD_OFFSET(ListCharactersRequest, _impl_.page_size_)>(
@@ -7789,7 +7789,7 @@ void ListCharactersRequest::InternalSwap(ListCharactersRequest* PROTOBUF_RESTRIC
           reinterpret_cast<char*>(&other->_impl_.page_size_));
 }
 
-::google::protobuf_inworld::Metadata ListCharactersRequest::GetMetadata() const {
+::google::protobuf::Metadata ListCharactersRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[16]);
@@ -7810,25 +7810,25 @@ class CreateCharacterRequest::_Internal {
 const ::ai::inworld::studio::v1alpha::Character& CreateCharacterRequest::_Internal::character(const CreateCharacterRequest* msg) {
   return *msg->_impl_.character_;
 }
-CreateCharacterRequest::CreateCharacterRequest(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+CreateCharacterRequest::CreateCharacterRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.CreateCharacterRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE CreateCharacterRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
         parent_(arena, from.parent_) {}
 
 CreateCharacterRequest::CreateCharacterRequest(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const CreateCharacterRequest& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   CreateCharacterRequest* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
   ::uint32_t cached_has_bits = _impl_._has_bits_[0];
@@ -7840,8 +7840,8 @@ CreateCharacterRequest::CreateCharacterRequest(
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.CreateCharacterRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE CreateCharacterRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : _cached_size_{0},
         parent_(arena) {}
 
@@ -7856,7 +7856,7 @@ inline void CreateCharacterRequest::SharedCtor(::_pb::Arena* arena) {
 }
 CreateCharacterRequest::~CreateCharacterRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.CreateCharacterRequest)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void CreateCharacterRequest::SharedDtor() {
@@ -7881,7 +7881,7 @@ PROTOBUF_NOINLINE void CreateCharacterRequest::Clear() {
   }
   _impl_.skip_auto_create_ = false;
   _impl_._has_bits_.Clear();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* CreateCharacterRequest::_InternalParse(
@@ -7939,7 +7939,7 @@ const ::_pbi::TcParseTable<2, 3, 1, 63, 2> CreateCharacterRequest::_table_ = {
 
 ::uint8_t* CreateCharacterRequest::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.CreateCharacterRequest)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -7947,15 +7947,15 @@ const ::_pbi::TcParseTable<2, 3, 1, 63, 2> CreateCharacterRequest::_table_ = {
   // string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_parent().empty()) {
     const std::string& _s = this->_internal_parent();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.CreateCharacterRequest.parent");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.CreateCharacterRequest.parent");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   cached_has_bits = _impl_._has_bits_[0];
   // .ai.inworld.studio.v1alpha.Character character = 2 [(.google.api.field_behavior) = REQUIRED];
   if (cached_has_bits & 0x00000001u) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         2, _Internal::character(this),
         _Internal::character(this).GetCachedSize(), target, stream);
   }
@@ -7970,7 +7970,7 @@ const ::_pbi::TcParseTable<2, 3, 1, 63, 2> CreateCharacterRequest::_table_ = {
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.CreateCharacterRequest)
   return target;
@@ -7986,7 +7986,7 @@ const ::_pbi::TcParseTable<2, 3, 1, 63, 2> CreateCharacterRequest::_table_ = {
 
   // string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_parent().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_parent());
   }
 
@@ -7994,7 +7994,7 @@ const ::_pbi::TcParseTable<2, 3, 1, 63, 2> CreateCharacterRequest::_table_ = {
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size +=
-        1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.character_);
+        1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.character_);
   }
 
   // bool skip_auto_create = 3;
@@ -8005,15 +8005,15 @@ const ::_pbi::TcParseTable<2, 3, 1, 63, 2> CreateCharacterRequest::_table_ = {
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData CreateCharacterRequest::_class_data_ = {
+const ::google::protobuf::Message::ClassData CreateCharacterRequest::_class_data_ = {
     CreateCharacterRequest::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* CreateCharacterRequest::GetClassData() const {
+const ::google::protobuf::Message::ClassData* CreateCharacterRequest::GetClassData() const {
   return &_class_data_;
 }
 
-void CreateCharacterRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void CreateCharacterRequest::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<CreateCharacterRequest*>(&to_msg);
   auto& from = static_cast<const CreateCharacterRequest&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.CreateCharacterRequest)
@@ -8031,7 +8031,7 @@ void CreateCharacterRequest::MergeImpl(::google::protobuf_inworld::Message& to_m
   if (from._internal_skip_auto_create() != 0) {
     _this->_internal_set_skip_auto_create(from._internal_skip_auto_create());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void CreateCharacterRequest::CopyFrom(const CreateCharacterRequest& from) {
@@ -8055,7 +8055,7 @@ void CreateCharacterRequest::InternalSwap(CreateCharacterRequest* PROTOBUF_RESTR
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.parent_, &other->_impl_.parent_, arena);
-  ::google::protobuf_inworld::internal::memswap<
+  ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CreateCharacterRequest, _impl_.skip_auto_create_)
       + sizeof(CreateCharacterRequest::_impl_.skip_auto_create_)
       - PROTOBUF_FIELD_OFFSET(CreateCharacterRequest, _impl_.character_)>(
@@ -8063,7 +8063,7 @@ void CreateCharacterRequest::InternalSwap(CreateCharacterRequest* PROTOBUF_RESTR
           reinterpret_cast<char*>(&other->_impl_.character_));
 }
 
-::google::protobuf_inworld::Metadata CreateCharacterRequest::GetMetadata() const {
+::google::protobuf::Metadata CreateCharacterRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[17]);
@@ -8079,7 +8079,7 @@ class UpdateCharacterRequest::_Internal {
   static void set_has_character(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
-  static const ::google::protobuf_inworld::FieldMask& update_mask(const UpdateCharacterRequest* msg);
+  static const ::google::protobuf::FieldMask& update_mask(const UpdateCharacterRequest* msg);
   static void set_has_update_mask(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
@@ -8088,7 +8088,7 @@ class UpdateCharacterRequest::_Internal {
 const ::ai::inworld::studio::v1alpha::Character& UpdateCharacterRequest::_Internal::character(const UpdateCharacterRequest* msg) {
   return *msg->_impl_.character_;
 }
-const ::google::protobuf_inworld::FieldMask& UpdateCharacterRequest::_Internal::update_mask(const UpdateCharacterRequest* msg) {
+const ::google::protobuf::FieldMask& UpdateCharacterRequest::_Internal::update_mask(const UpdateCharacterRequest* msg) {
   return *msg->_impl_.update_mask_;
 }
 void UpdateCharacterRequest::clear_update_mask() {
@@ -8096,24 +8096,24 @@ void UpdateCharacterRequest::clear_update_mask() {
   if (_impl_.update_mask_ != nullptr) _impl_.update_mask_->Clear();
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-UpdateCharacterRequest::UpdateCharacterRequest(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+UpdateCharacterRequest::UpdateCharacterRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.UpdateCharacterRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE UpdateCharacterRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : _has_bits_{from._has_bits_},
         _cached_size_{0} {}
 
 UpdateCharacterRequest::UpdateCharacterRequest(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const UpdateCharacterRequest& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   UpdateCharacterRequest* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
   ::uint32_t cached_has_bits = _impl_._has_bits_[0];
@@ -8121,14 +8121,14 @@ UpdateCharacterRequest::UpdateCharacterRequest(
                 ? CreateMaybeMessage<::ai::inworld::studio::v1alpha::Character>(arena, *from._impl_.character_)
                 : nullptr;
   _impl_.update_mask_ = (cached_has_bits & 0x00000002u)
-                ? CreateMaybeMessage<::google::protobuf_inworld::FieldMask>(arena, *from._impl_.update_mask_)
+                ? CreateMaybeMessage<::google::protobuf::FieldMask>(arena, *from._impl_.update_mask_)
                 : nullptr;
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.UpdateCharacterRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE UpdateCharacterRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : _cached_size_{0} {}
 
 inline void UpdateCharacterRequest::SharedCtor(::_pb::Arena* arena) {
@@ -8142,7 +8142,7 @@ inline void UpdateCharacterRequest::SharedCtor(::_pb::Arena* arena) {
 }
 UpdateCharacterRequest::~UpdateCharacterRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.UpdateCharacterRequest)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void UpdateCharacterRequest::SharedDtor() {
@@ -8171,7 +8171,7 @@ PROTOBUF_NOINLINE void UpdateCharacterRequest::Clear() {
     }
   }
   _impl_._has_bits_.Clear();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* UpdateCharacterRequest::_InternalParse(
@@ -8213,14 +8213,14 @@ const ::_pbi::TcParseTable<1, 2, 2, 0, 2> UpdateCharacterRequest::_table_ = {
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
     {::_pbi::TcParser::GetTable<::ai::inworld::studio::v1alpha::Character>()},
-    {::_pbi::TcParser::GetTable<::google::protobuf_inworld::FieldMask>()},
+    {::_pbi::TcParser::GetTable<::google::protobuf::FieldMask>()},
   }}, {{
   }},
 };
 
 ::uint8_t* UpdateCharacterRequest::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.UpdateCharacterRequest)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -8228,14 +8228,14 @@ const ::_pbi::TcParseTable<1, 2, 2, 0, 2> UpdateCharacterRequest::_table_ = {
   cached_has_bits = _impl_._has_bits_[0];
   // .ai.inworld.studio.v1alpha.Character character = 1 [(.google.api.field_behavior) = REQUIRED];
   if (cached_has_bits & 0x00000001u) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         1, _Internal::character(this),
         _Internal::character(this).GetCachedSize(), target, stream);
   }
 
   // .google.protobuf.FieldMask update_mask = 2 [(.google.api.field_behavior) = REQUIRED];
   if (cached_has_bits & 0x00000002u) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         2, _Internal::update_mask(this),
         _Internal::update_mask(this).GetCachedSize(), target, stream);
   }
@@ -8243,7 +8243,7 @@ const ::_pbi::TcParseTable<1, 2, 2, 0, 2> UpdateCharacterRequest::_table_ = {
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.UpdateCharacterRequest)
   return target;
@@ -8262,28 +8262,28 @@ const ::_pbi::TcParseTable<1, 2, 2, 0, 2> UpdateCharacterRequest::_table_ = {
     // .ai.inworld.studio.v1alpha.Character character = 1 [(.google.api.field_behavior) = REQUIRED];
     if (cached_has_bits & 0x00000001u) {
       total_size +=
-          1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.character_);
+          1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.character_);
     }
 
     // .google.protobuf.FieldMask update_mask = 2 [(.google.api.field_behavior) = REQUIRED];
     if (cached_has_bits & 0x00000002u) {
       total_size +=
-          1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.update_mask_);
+          1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.update_mask_);
     }
 
   }
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData UpdateCharacterRequest::_class_data_ = {
+const ::google::protobuf::Message::ClassData UpdateCharacterRequest::_class_data_ = {
     UpdateCharacterRequest::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* UpdateCharacterRequest::GetClassData() const {
+const ::google::protobuf::Message::ClassData* UpdateCharacterRequest::GetClassData() const {
   return &_class_data_;
 }
 
-void UpdateCharacterRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void UpdateCharacterRequest::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<UpdateCharacterRequest*>(&to_msg);
   auto& from = static_cast<const UpdateCharacterRequest&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.UpdateCharacterRequest)
@@ -8298,11 +8298,11 @@ void UpdateCharacterRequest::MergeImpl(::google::protobuf_inworld::Message& to_m
           from._internal_character());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_internal_mutable_update_mask()->::google::protobuf_inworld::FieldMask::MergeFrom(
+      _this->_internal_mutable_update_mask()->::google::protobuf::FieldMask::MergeFrom(
           from._internal_update_mask());
     }
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void UpdateCharacterRequest::CopyFrom(const UpdateCharacterRequest& from) {
@@ -8323,7 +8323,7 @@ void UpdateCharacterRequest::InternalSwap(UpdateCharacterRequest* PROTOBUF_RESTR
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::google::protobuf_inworld::internal::memswap<
+  ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(UpdateCharacterRequest, _impl_.update_mask_)
       + sizeof(UpdateCharacterRequest::_impl_.update_mask_)
       - PROTOBUF_FIELD_OFFSET(UpdateCharacterRequest, _impl_.character_)>(
@@ -8331,7 +8331,7 @@ void UpdateCharacterRequest::InternalSwap(UpdateCharacterRequest* PROTOBUF_RESTR
           reinterpret_cast<char*>(&other->_impl_.character_));
 }
 
-::google::protobuf_inworld::Metadata UpdateCharacterRequest::GetMetadata() const {
+::google::protobuf::Metadata UpdateCharacterRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[18]);
@@ -8342,32 +8342,32 @@ class DeleteCharacterRequest::_Internal {
  public:
 };
 
-DeleteCharacterRequest::DeleteCharacterRequest(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+DeleteCharacterRequest::DeleteCharacterRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.DeleteCharacterRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE DeleteCharacterRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : name_(arena, from.name_),
         _cached_size_{0} {}
 
 DeleteCharacterRequest::DeleteCharacterRequest(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const DeleteCharacterRequest& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   DeleteCharacterRequest* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.DeleteCharacterRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE DeleteCharacterRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : name_(arena),
         _cached_size_{0} {}
 
@@ -8376,7 +8376,7 @@ inline void DeleteCharacterRequest::SharedCtor(::_pb::Arena* arena) {
 }
 DeleteCharacterRequest::~DeleteCharacterRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.DeleteCharacterRequest)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void DeleteCharacterRequest::SharedDtor() {
@@ -8393,7 +8393,7 @@ PROTOBUF_NOINLINE void DeleteCharacterRequest::Clear() {
   (void) cached_has_bits;
 
   _impl_.name_.ClearToEmpty();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* DeleteCharacterRequest::_InternalParse(
@@ -8438,7 +8438,7 @@ const ::_pbi::TcParseTable<0, 1, 0, 61, 2> DeleteCharacterRequest::_table_ = {
 
 ::uint8_t* DeleteCharacterRequest::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.DeleteCharacterRequest)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -8446,15 +8446,15 @@ const ::_pbi::TcParseTable<0, 1, 0, 61, 2> DeleteCharacterRequest::_table_ = {
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_name().empty()) {
     const std::string& _s = this->_internal_name();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.DeleteCharacterRequest.name");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.DeleteCharacterRequest.name");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.DeleteCharacterRequest)
   return target;
@@ -8470,22 +8470,22 @@ const ::_pbi::TcParseTable<0, 1, 0, 61, 2> DeleteCharacterRequest::_table_ = {
 
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_name().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_name());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData DeleteCharacterRequest::_class_data_ = {
+const ::google::protobuf::Message::ClassData DeleteCharacterRequest::_class_data_ = {
     DeleteCharacterRequest::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* DeleteCharacterRequest::GetClassData() const {
+const ::google::protobuf::Message::ClassData* DeleteCharacterRequest::GetClassData() const {
   return &_class_data_;
 }
 
-void DeleteCharacterRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void DeleteCharacterRequest::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<DeleteCharacterRequest*>(&to_msg);
   auto& from = static_cast<const DeleteCharacterRequest&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.DeleteCharacterRequest)
@@ -8496,7 +8496,7 @@ void DeleteCharacterRequest::MergeImpl(::google::protobuf_inworld::Message& to_m
   if (!from._internal_name().empty()) {
     _this->_internal_set_name(from._internal_name());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void DeleteCharacterRequest::CopyFrom(const DeleteCharacterRequest& from) {
@@ -8521,7 +8521,7 @@ void DeleteCharacterRequest::InternalSwap(DeleteCharacterRequest* PROTOBUF_RESTR
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
 }
 
-::google::protobuf_inworld::Metadata DeleteCharacterRequest::GetMetadata() const {
+::google::protobuf::Metadata DeleteCharacterRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[19]);
@@ -8532,32 +8532,32 @@ class DeployCharacterRequest::_Internal {
  public:
 };
 
-DeployCharacterRequest::DeployCharacterRequest(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+DeployCharacterRequest::DeployCharacterRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.DeployCharacterRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE DeployCharacterRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : name_(arena, from.name_),
         _cached_size_{0} {}
 
 DeployCharacterRequest::DeployCharacterRequest(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const DeployCharacterRequest& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   DeployCharacterRequest* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.DeployCharacterRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE DeployCharacterRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : name_(arena),
         _cached_size_{0} {}
 
@@ -8566,7 +8566,7 @@ inline void DeployCharacterRequest::SharedCtor(::_pb::Arena* arena) {
 }
 DeployCharacterRequest::~DeployCharacterRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.DeployCharacterRequest)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void DeployCharacterRequest::SharedDtor() {
@@ -8583,7 +8583,7 @@ PROTOBUF_NOINLINE void DeployCharacterRequest::Clear() {
   (void) cached_has_bits;
 
   _impl_.name_.ClearToEmpty();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* DeployCharacterRequest::_InternalParse(
@@ -8628,7 +8628,7 @@ const ::_pbi::TcParseTable<0, 1, 0, 61, 2> DeployCharacterRequest::_table_ = {
 
 ::uint8_t* DeployCharacterRequest::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.DeployCharacterRequest)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -8636,15 +8636,15 @@ const ::_pbi::TcParseTable<0, 1, 0, 61, 2> DeployCharacterRequest::_table_ = {
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_name().empty()) {
     const std::string& _s = this->_internal_name();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.DeployCharacterRequest.name");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.DeployCharacterRequest.name");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.DeployCharacterRequest)
   return target;
@@ -8660,22 +8660,22 @@ const ::_pbi::TcParseTable<0, 1, 0, 61, 2> DeployCharacterRequest::_table_ = {
 
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_name().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_name());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData DeployCharacterRequest::_class_data_ = {
+const ::google::protobuf::Message::ClassData DeployCharacterRequest::_class_data_ = {
     DeployCharacterRequest::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* DeployCharacterRequest::GetClassData() const {
+const ::google::protobuf::Message::ClassData* DeployCharacterRequest::GetClassData() const {
   return &_class_data_;
 }
 
-void DeployCharacterRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void DeployCharacterRequest::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<DeployCharacterRequest*>(&to_msg);
   auto& from = static_cast<const DeployCharacterRequest&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.DeployCharacterRequest)
@@ -8686,7 +8686,7 @@ void DeployCharacterRequest::MergeImpl(::google::protobuf_inworld::Message& to_m
   if (!from._internal_name().empty()) {
     _this->_internal_set_name(from._internal_name());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void DeployCharacterRequest::CopyFrom(const DeployCharacterRequest& from) {
@@ -8711,7 +8711,7 @@ void DeployCharacterRequest::InternalSwap(DeployCharacterRequest* PROTOBUF_RESTR
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
 }
 
-::google::protobuf_inworld::Metadata DeployCharacterRequest::GetMetadata() const {
+::google::protobuf::Metadata DeployCharacterRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[20]);
@@ -8722,13 +8722,13 @@ class CloneCharacterRequest::_Internal {
  public:
 };
 
-CloneCharacterRequest::CloneCharacterRequest(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+CloneCharacterRequest::CloneCharacterRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.CloneCharacterRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE CloneCharacterRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : name_(arena, from.name_),
         workspace_(arena, from.workspace_),
@@ -8736,20 +8736,20 @@ inline PROTOBUF_NDEBUG_INLINE CloneCharacterRequest::Impl_::Impl_(
         _cached_size_{0} {}
 
 CloneCharacterRequest::CloneCharacterRequest(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const CloneCharacterRequest& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   CloneCharacterRequest* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.CloneCharacterRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE CloneCharacterRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : name_(arena),
         workspace_(arena),
         new_name_(arena),
@@ -8760,7 +8760,7 @@ inline void CloneCharacterRequest::SharedCtor(::_pb::Arena* arena) {
 }
 CloneCharacterRequest::~CloneCharacterRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.CloneCharacterRequest)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void CloneCharacterRequest::SharedDtor() {
@@ -8781,7 +8781,7 @@ PROTOBUF_NOINLINE void CloneCharacterRequest::Clear() {
   _impl_.name_.ClearToEmpty();
   _impl_.workspace_.ClearToEmpty();
   _impl_.new_name_.ClearToEmpty();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* CloneCharacterRequest::_InternalParse(
@@ -8841,7 +8841,7 @@ const ::_pbi::TcParseTable<2, 3, 0, 77, 2> CloneCharacterRequest::_table_ = {
 
 ::uint8_t* CloneCharacterRequest::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.CloneCharacterRequest)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -8849,31 +8849,31 @@ const ::_pbi::TcParseTable<2, 3, 0, 77, 2> CloneCharacterRequest::_table_ = {
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_name().empty()) {
     const std::string& _s = this->_internal_name();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.CloneCharacterRequest.name");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.CloneCharacterRequest.name");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // string workspace = 2 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_workspace().empty()) {
     const std::string& _s = this->_internal_workspace();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.CloneCharacterRequest.workspace");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.CloneCharacterRequest.workspace");
     target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
   // string new_name = 3 [(.google.api.field_behavior) = REQUIRED];
   if (!this->_internal_new_name().empty()) {
     const std::string& _s = this->_internal_new_name();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.CloneCharacterRequest.new_name");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.CloneCharacterRequest.new_name");
     target = stream->WriteStringMaybeAliased(3, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.CloneCharacterRequest)
   return target;
@@ -8889,34 +8889,34 @@ const ::_pbi::TcParseTable<2, 3, 0, 77, 2> CloneCharacterRequest::_table_ = {
 
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_name().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_name());
   }
 
   // string workspace = 2 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_workspace().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_workspace());
   }
 
   // string new_name = 3 [(.google.api.field_behavior) = REQUIRED];
   if (!this->_internal_new_name().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_new_name());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData CloneCharacterRequest::_class_data_ = {
+const ::google::protobuf::Message::ClassData CloneCharacterRequest::_class_data_ = {
     CloneCharacterRequest::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* CloneCharacterRequest::GetClassData() const {
+const ::google::protobuf::Message::ClassData* CloneCharacterRequest::GetClassData() const {
   return &_class_data_;
 }
 
-void CloneCharacterRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void CloneCharacterRequest::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<CloneCharacterRequest*>(&to_msg);
   auto& from = static_cast<const CloneCharacterRequest&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.CloneCharacterRequest)
@@ -8933,7 +8933,7 @@ void CloneCharacterRequest::MergeImpl(::google::protobuf_inworld::Message& to_ms
   if (!from._internal_new_name().empty()) {
     _this->_internal_set_new_name(from._internal_new_name());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void CloneCharacterRequest::CopyFrom(const CloneCharacterRequest& from) {
@@ -8960,7 +8960,7 @@ void CloneCharacterRequest::InternalSwap(CloneCharacterRequest* PROTOBUF_RESTRIC
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.new_name_, &other->_impl_.new_name_, arena);
 }
 
-::google::protobuf_inworld::Metadata CloneCharacterRequest::GetMetadata() const {
+::google::protobuf::Metadata CloneCharacterRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[21]);
@@ -8971,33 +8971,33 @@ class ListCharactersResponse::_Internal {
  public:
 };
 
-ListCharactersResponse::ListCharactersResponse(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+ListCharactersResponse::ListCharactersResponse(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.ListCharactersResponse)
 }
 inline PROTOBUF_NDEBUG_INLINE ListCharactersResponse::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : characters_{visibility, arena, from.characters_},
         next_page_token_(arena, from.next_page_token_),
         _cached_size_{0} {}
 
 ListCharactersResponse::ListCharactersResponse(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const ListCharactersResponse& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   ListCharactersResponse* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.ListCharactersResponse)
 }
 inline PROTOBUF_NDEBUG_INLINE ListCharactersResponse::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : characters_{visibility, arena},
         next_page_token_(arena),
         _cached_size_{0} {}
@@ -9007,7 +9007,7 @@ inline void ListCharactersResponse::SharedCtor(::_pb::Arena* arena) {
 }
 ListCharactersResponse::~ListCharactersResponse() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.ListCharactersResponse)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void ListCharactersResponse::SharedDtor() {
@@ -9025,7 +9025,7 @@ PROTOBUF_NOINLINE void ListCharactersResponse::Clear() {
 
   _impl_.characters_.Clear();
   _impl_.next_page_token_.ClearToEmpty();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* ListCharactersResponse::_InternalParse(
@@ -9076,7 +9076,7 @@ const ::_pbi::TcParseTable<1, 2, 1, 72, 2> ListCharactersResponse::_table_ = {
 
 ::uint8_t* ListCharactersResponse::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.ListCharactersResponse)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -9085,22 +9085,22 @@ const ::_pbi::TcParseTable<1, 2, 1, 72, 2> ListCharactersResponse::_table_ = {
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_characters_size()); i < n; i++) {
     const auto& repfield = this->_internal_characters().Get(i);
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   // string next_page_token = 2;
   if (!this->_internal_next_page_token().empty()) {
     const std::string& _s = this->_internal_next_page_token();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ListCharactersResponse.next_page_token");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ListCharactersResponse.next_page_token");
     target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.ListCharactersResponse)
   return target;
@@ -9118,26 +9118,26 @@ const ::_pbi::TcParseTable<1, 2, 1, 72, 2> ListCharactersResponse::_table_ = {
   total_size += 1UL * this->_internal_characters_size();
   for (const auto& msg : this->_internal_characters()) {
     total_size +=
-      ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(msg);
+      ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
   }
   // string next_page_token = 2;
   if (!this->_internal_next_page_token().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_next_page_token());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData ListCharactersResponse::_class_data_ = {
+const ::google::protobuf::Message::ClassData ListCharactersResponse::_class_data_ = {
     ListCharactersResponse::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* ListCharactersResponse::GetClassData() const {
+const ::google::protobuf::Message::ClassData* ListCharactersResponse::GetClassData() const {
   return &_class_data_;
 }
 
-void ListCharactersResponse::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void ListCharactersResponse::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<ListCharactersResponse*>(&to_msg);
   auto& from = static_cast<const ListCharactersResponse&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.ListCharactersResponse)
@@ -9150,7 +9150,7 @@ void ListCharactersResponse::MergeImpl(::google::protobuf_inworld::Message& to_m
   if (!from._internal_next_page_token().empty()) {
     _this->_internal_set_next_page_token(from._internal_next_page_token());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ListCharactersResponse::CopyFrom(const ListCharactersResponse& from) {
@@ -9176,7 +9176,7 @@ void ListCharactersResponse::InternalSwap(ListCharactersResponse* PROTOBUF_RESTR
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.next_page_token_, &other->_impl_.next_page_token_, arena);
 }
 
-::google::protobuf_inworld::Metadata ListCharactersResponse::GetMetadata() const {
+::google::protobuf::Metadata ListCharactersResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[22]);
@@ -9187,33 +9187,33 @@ class ReplaceCharacterRpmModelRequest::_Internal {
  public:
 };
 
-ReplaceCharacterRpmModelRequest::ReplaceCharacterRpmModelRequest(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+ReplaceCharacterRpmModelRequest::ReplaceCharacterRpmModelRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.ReplaceCharacterRpmModelRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE ReplaceCharacterRpmModelRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : character_(arena, from.character_),
         rpm_model_uri_(arena, from.rpm_model_uri_),
         _cached_size_{0} {}
 
 ReplaceCharacterRpmModelRequest::ReplaceCharacterRpmModelRequest(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const ReplaceCharacterRpmModelRequest& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   ReplaceCharacterRpmModelRequest* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.ReplaceCharacterRpmModelRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE ReplaceCharacterRpmModelRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : character_(arena),
         rpm_model_uri_(arena),
         _cached_size_{0} {}
@@ -9223,7 +9223,7 @@ inline void ReplaceCharacterRpmModelRequest::SharedCtor(::_pb::Arena* arena) {
 }
 ReplaceCharacterRpmModelRequest::~ReplaceCharacterRpmModelRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.ReplaceCharacterRpmModelRequest)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void ReplaceCharacterRpmModelRequest::SharedDtor() {
@@ -9242,7 +9242,7 @@ PROTOBUF_NOINLINE void ReplaceCharacterRpmModelRequest::Clear() {
 
   _impl_.character_.ClearToEmpty();
   _impl_.rpm_model_uri_.ClearToEmpty();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* ReplaceCharacterRpmModelRequest::_InternalParse(
@@ -9294,7 +9294,7 @@ const ::_pbi::TcParseTable<1, 2, 0, 88, 2> ReplaceCharacterRpmModelRequest::_tab
 
 ::uint8_t* ReplaceCharacterRpmModelRequest::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.ReplaceCharacterRpmModelRequest)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -9302,23 +9302,23 @@ const ::_pbi::TcParseTable<1, 2, 0, 88, 2> ReplaceCharacterRpmModelRequest::_tab
   // string character = 1 [(.ai.inworld.options.examples) = {
   if (!this->_internal_character().empty()) {
     const std::string& _s = this->_internal_character();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ReplaceCharacterRpmModelRequest.character");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ReplaceCharacterRpmModelRequest.character");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // string rpm_model_uri = 2;
   if (!this->_internal_rpm_model_uri().empty()) {
     const std::string& _s = this->_internal_rpm_model_uri();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ReplaceCharacterRpmModelRequest.rpm_model_uri");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ReplaceCharacterRpmModelRequest.rpm_model_uri");
     target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.ReplaceCharacterRpmModelRequest)
   return target;
@@ -9334,28 +9334,28 @@ const ::_pbi::TcParseTable<1, 2, 0, 88, 2> ReplaceCharacterRpmModelRequest::_tab
 
   // string character = 1 [(.ai.inworld.options.examples) = {
   if (!this->_internal_character().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_character());
   }
 
   // string rpm_model_uri = 2;
   if (!this->_internal_rpm_model_uri().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_rpm_model_uri());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData ReplaceCharacterRpmModelRequest::_class_data_ = {
+const ::google::protobuf::Message::ClassData ReplaceCharacterRpmModelRequest::_class_data_ = {
     ReplaceCharacterRpmModelRequest::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* ReplaceCharacterRpmModelRequest::GetClassData() const {
+const ::google::protobuf::Message::ClassData* ReplaceCharacterRpmModelRequest::GetClassData() const {
   return &_class_data_;
 }
 
-void ReplaceCharacterRpmModelRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void ReplaceCharacterRpmModelRequest::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<ReplaceCharacterRpmModelRequest*>(&to_msg);
   auto& from = static_cast<const ReplaceCharacterRpmModelRequest&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.ReplaceCharacterRpmModelRequest)
@@ -9369,7 +9369,7 @@ void ReplaceCharacterRpmModelRequest::MergeImpl(::google::protobuf_inworld::Mess
   if (!from._internal_rpm_model_uri().empty()) {
     _this->_internal_set_rpm_model_uri(from._internal_rpm_model_uri());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ReplaceCharacterRpmModelRequest::CopyFrom(const ReplaceCharacterRpmModelRequest& from) {
@@ -9395,7 +9395,7 @@ void ReplaceCharacterRpmModelRequest::InternalSwap(ReplaceCharacterRpmModelReque
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.rpm_model_uri_, &other->_impl_.rpm_model_uri_, arena);
 }
 
-::google::protobuf_inworld::Metadata ReplaceCharacterRpmModelRequest::GetMetadata() const {
+::google::protobuf::Metadata ReplaceCharacterRpmModelRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[23]);
@@ -9406,25 +9406,25 @@ class ReplaceCharacterImageRequest::_Internal {
  public:
 };
 
-ReplaceCharacterImageRequest::ReplaceCharacterImageRequest(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+ReplaceCharacterImageRequest::ReplaceCharacterImageRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.ReplaceCharacterImageRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE ReplaceCharacterImageRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : character_(arena, from.character_),
         content_(arena, from.content_),
         _cached_size_{0} {}
 
 ReplaceCharacterImageRequest::ReplaceCharacterImageRequest(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const ReplaceCharacterImageRequest& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   ReplaceCharacterImageRequest* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
   _impl_.character_asset_type_ = from._impl_.character_asset_type_;
@@ -9432,8 +9432,8 @@ ReplaceCharacterImageRequest::ReplaceCharacterImageRequest(
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.ReplaceCharacterImageRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE ReplaceCharacterImageRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : character_(arena),
         content_(arena),
         _cached_size_{0} {}
@@ -9444,7 +9444,7 @@ inline void ReplaceCharacterImageRequest::SharedCtor(::_pb::Arena* arena) {
 }
 ReplaceCharacterImageRequest::~ReplaceCharacterImageRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.ReplaceCharacterImageRequest)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void ReplaceCharacterImageRequest::SharedDtor() {
@@ -9464,7 +9464,7 @@ PROTOBUF_NOINLINE void ReplaceCharacterImageRequest::Clear() {
   _impl_.character_.ClearToEmpty();
   _impl_.content_.ClearToEmpty();
   _impl_.character_asset_type_ = 0;
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* ReplaceCharacterImageRequest::_InternalParse(
@@ -9522,7 +9522,7 @@ const ::_pbi::TcParseTable<2, 3, 0, 72, 2> ReplaceCharacterImageRequest::_table_
 
 ::uint8_t* ReplaceCharacterImageRequest::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.ReplaceCharacterImageRequest)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -9530,8 +9530,8 @@ const ::_pbi::TcParseTable<2, 3, 0, 72, 2> ReplaceCharacterImageRequest::_table_
   // string character = 1 [(.ai.inworld.options.examples) = {
   if (!this->_internal_character().empty()) {
     const std::string& _s = this->_internal_character();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ReplaceCharacterImageRequest.character");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ReplaceCharacterImageRequest.character");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
@@ -9551,7 +9551,7 @@ const ::_pbi::TcParseTable<2, 3, 0, 72, 2> ReplaceCharacterImageRequest::_table_
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.ReplaceCharacterImageRequest)
   return target;
@@ -9567,13 +9567,13 @@ const ::_pbi::TcParseTable<2, 3, 0, 72, 2> ReplaceCharacterImageRequest::_table_
 
   // string character = 1 [(.ai.inworld.options.examples) = {
   if (!this->_internal_character().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_character());
   }
 
   // bytes content = 2;
   if (!this->_internal_content().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::BytesSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::BytesSize(
                                     this->_internal_content());
   }
 
@@ -9586,15 +9586,15 @@ const ::_pbi::TcParseTable<2, 3, 0, 72, 2> ReplaceCharacterImageRequest::_table_
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData ReplaceCharacterImageRequest::_class_data_ = {
+const ::google::protobuf::Message::ClassData ReplaceCharacterImageRequest::_class_data_ = {
     ReplaceCharacterImageRequest::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* ReplaceCharacterImageRequest::GetClassData() const {
+const ::google::protobuf::Message::ClassData* ReplaceCharacterImageRequest::GetClassData() const {
   return &_class_data_;
 }
 
-void ReplaceCharacterImageRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void ReplaceCharacterImageRequest::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<ReplaceCharacterImageRequest*>(&to_msg);
   auto& from = static_cast<const ReplaceCharacterImageRequest&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.ReplaceCharacterImageRequest)
@@ -9611,7 +9611,7 @@ void ReplaceCharacterImageRequest::MergeImpl(::google::protobuf_inworld::Message
   if (from._internal_character_asset_type() != 0) {
     _this->_internal_set_character_asset_type(from._internal_character_asset_type());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ReplaceCharacterImageRequest::CopyFrom(const ReplaceCharacterImageRequest& from) {
@@ -9638,7 +9638,7 @@ void ReplaceCharacterImageRequest::InternalSwap(ReplaceCharacterImageRequest* PR
   swap(_impl_.character_asset_type_, other->_impl_.character_asset_type_);
 }
 
-::google::protobuf_inworld::Metadata ReplaceCharacterImageRequest::GetMetadata() const {
+::google::protobuf::Metadata ReplaceCharacterImageRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[24]);
@@ -9649,33 +9649,33 @@ class PreviewPromptTemplateRequest::_Internal {
  public:
 };
 
-PreviewPromptTemplateRequest::PreviewPromptTemplateRequest(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+PreviewPromptTemplateRequest::PreviewPromptTemplateRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.PreviewPromptTemplateRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE PreviewPromptTemplateRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : character_(arena, from.character_),
         template__(arena, from.template__),
         _cached_size_{0} {}
 
 PreviewPromptTemplateRequest::PreviewPromptTemplateRequest(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const PreviewPromptTemplateRequest& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   PreviewPromptTemplateRequest* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.PreviewPromptTemplateRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE PreviewPromptTemplateRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : character_(arena),
         template__(arena),
         _cached_size_{0} {}
@@ -9685,7 +9685,7 @@ inline void PreviewPromptTemplateRequest::SharedCtor(::_pb::Arena* arena) {
 }
 PreviewPromptTemplateRequest::~PreviewPromptTemplateRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.PreviewPromptTemplateRequest)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void PreviewPromptTemplateRequest::SharedDtor() {
@@ -9704,7 +9704,7 @@ PROTOBUF_NOINLINE void PreviewPromptTemplateRequest::Clear() {
 
   _impl_.character_.ClearToEmpty();
   _impl_.template__.ClearToEmpty();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* PreviewPromptTemplateRequest::_InternalParse(
@@ -9756,7 +9756,7 @@ const ::_pbi::TcParseTable<1, 2, 0, 80, 2> PreviewPromptTemplateRequest::_table_
 
 ::uint8_t* PreviewPromptTemplateRequest::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.PreviewPromptTemplateRequest)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -9764,23 +9764,23 @@ const ::_pbi::TcParseTable<1, 2, 0, 80, 2> PreviewPromptTemplateRequest::_table_
   // string character = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_character().empty()) {
     const std::string& _s = this->_internal_character();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.PreviewPromptTemplateRequest.character");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.PreviewPromptTemplateRequest.character");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // string template = 2;
   if (!this->_internal_template_().empty()) {
     const std::string& _s = this->_internal_template_();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.PreviewPromptTemplateRequest.template");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.PreviewPromptTemplateRequest.template");
     target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.PreviewPromptTemplateRequest)
   return target;
@@ -9796,28 +9796,28 @@ const ::_pbi::TcParseTable<1, 2, 0, 80, 2> PreviewPromptTemplateRequest::_table_
 
   // string character = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_character().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_character());
   }
 
   // string template = 2;
   if (!this->_internal_template_().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_template_());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData PreviewPromptTemplateRequest::_class_data_ = {
+const ::google::protobuf::Message::ClassData PreviewPromptTemplateRequest::_class_data_ = {
     PreviewPromptTemplateRequest::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* PreviewPromptTemplateRequest::GetClassData() const {
+const ::google::protobuf::Message::ClassData* PreviewPromptTemplateRequest::GetClassData() const {
   return &_class_data_;
 }
 
-void PreviewPromptTemplateRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void PreviewPromptTemplateRequest::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<PreviewPromptTemplateRequest*>(&to_msg);
   auto& from = static_cast<const PreviewPromptTemplateRequest&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.PreviewPromptTemplateRequest)
@@ -9831,7 +9831,7 @@ void PreviewPromptTemplateRequest::MergeImpl(::google::protobuf_inworld::Message
   if (!from._internal_template_().empty()) {
     _this->_internal_set_template_(from._internal_template_());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void PreviewPromptTemplateRequest::CopyFrom(const PreviewPromptTemplateRequest& from) {
@@ -9857,7 +9857,7 @@ void PreviewPromptTemplateRequest::InternalSwap(PreviewPromptTemplateRequest* PR
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.template__, &other->_impl_.template__, arena);
 }
 
-::google::protobuf_inworld::Metadata PreviewPromptTemplateRequest::GetMetadata() const {
+::google::protobuf::Metadata PreviewPromptTemplateRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[25]);
@@ -9868,33 +9868,33 @@ class PreviewPromptTempalteResponse::_Internal {
  public:
 };
 
-PreviewPromptTempalteResponse::PreviewPromptTempalteResponse(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+PreviewPromptTempalteResponse::PreviewPromptTempalteResponse(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.PreviewPromptTempalteResponse)
 }
 inline PROTOBUF_NDEBUG_INLINE PreviewPromptTempalteResponse::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : errors_{visibility, arena, from.errors_},
         prompt_(arena, from.prompt_),
         _cached_size_{0} {}
 
 PreviewPromptTempalteResponse::PreviewPromptTempalteResponse(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const PreviewPromptTempalteResponse& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   PreviewPromptTempalteResponse* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.PreviewPromptTempalteResponse)
 }
 inline PROTOBUF_NDEBUG_INLINE PreviewPromptTempalteResponse::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : errors_{visibility, arena},
         prompt_(arena),
         _cached_size_{0} {}
@@ -9904,7 +9904,7 @@ inline void PreviewPromptTempalteResponse::SharedCtor(::_pb::Arena* arena) {
 }
 PreviewPromptTempalteResponse::~PreviewPromptTempalteResponse() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.PreviewPromptTempalteResponse)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void PreviewPromptTempalteResponse::SharedDtor() {
@@ -9922,7 +9922,7 @@ PROTOBUF_NOINLINE void PreviewPromptTempalteResponse::Clear() {
 
   _impl_.errors_.Clear();
   _impl_.prompt_.ClearToEmpty();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* PreviewPromptTempalteResponse::_InternalParse(
@@ -9974,7 +9974,7 @@ const ::_pbi::TcParseTable<1, 2, 0, 76, 2> PreviewPromptTempalteResponse::_table
 
 ::uint8_t* PreviewPromptTempalteResponse::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.PreviewPromptTempalteResponse)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -9982,23 +9982,23 @@ const ::_pbi::TcParseTable<1, 2, 0, 76, 2> PreviewPromptTempalteResponse::_table
   // string prompt = 1;
   if (!this->_internal_prompt().empty()) {
     const std::string& _s = this->_internal_prompt();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.PreviewPromptTempalteResponse.prompt");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.PreviewPromptTempalteResponse.prompt");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // repeated string errors = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];
   for (int i = 0, n = this->_internal_errors_size(); i < n; ++i) {
     const auto& s = this->_internal_errors().Get(i);
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        s.data(), static_cast<int>(s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.PreviewPromptTempalteResponse.errors");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        s.data(), static_cast<int>(s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.PreviewPromptTempalteResponse.errors");
     target = stream->WriteString(2, s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.PreviewPromptTempalteResponse)
   return target;
@@ -10013,29 +10013,29 @@ const ::_pbi::TcParseTable<1, 2, 0, 76, 2> PreviewPromptTempalteResponse::_table
   (void) cached_has_bits;
 
   // repeated string errors = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];
-  total_size += 1 * ::google::protobuf_inworld::internal::FromIntSize(_internal_errors().size());
+  total_size += 1 * ::google::protobuf::internal::FromIntSize(_internal_errors().size());
   for (int i = 0, n = _internal_errors().size(); i < n; ++i) {
-    total_size += ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
         _internal_errors().Get(i));
   }
   // string prompt = 1;
   if (!this->_internal_prompt().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_prompt());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData PreviewPromptTempalteResponse::_class_data_ = {
+const ::google::protobuf::Message::ClassData PreviewPromptTempalteResponse::_class_data_ = {
     PreviewPromptTempalteResponse::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* PreviewPromptTempalteResponse::GetClassData() const {
+const ::google::protobuf::Message::ClassData* PreviewPromptTempalteResponse::GetClassData() const {
   return &_class_data_;
 }
 
-void PreviewPromptTempalteResponse::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void PreviewPromptTempalteResponse::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<PreviewPromptTempalteResponse*>(&to_msg);
   auto& from = static_cast<const PreviewPromptTempalteResponse&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.PreviewPromptTempalteResponse)
@@ -10047,7 +10047,7 @@ void PreviewPromptTempalteResponse::MergeImpl(::google::protobuf_inworld::Messag
   if (!from._internal_prompt().empty()) {
     _this->_internal_set_prompt(from._internal_prompt());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void PreviewPromptTempalteResponse::CopyFrom(const PreviewPromptTempalteResponse& from) {
@@ -10073,7 +10073,7 @@ void PreviewPromptTempalteResponse::InternalSwap(PreviewPromptTempalteResponse* 
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.prompt_, &other->_impl_.prompt_, arena);
 }
 
-::google::protobuf_inworld::Metadata PreviewPromptTempalteResponse::GetMetadata() const {
+::google::protobuf::Metadata PreviewPromptTempalteResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[26]);
@@ -10084,33 +10084,33 @@ class ShareCharacterRequest::_Internal {
  public:
 };
 
-ShareCharacterRequest::ShareCharacterRequest(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+ShareCharacterRequest::ShareCharacterRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.ShareCharacterRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE ShareCharacterRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : external_ids_{visibility, arena, from.external_ids_},
         name_(arena, from.name_),
         _cached_size_{0} {}
 
 ShareCharacterRequest::ShareCharacterRequest(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const ShareCharacterRequest& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   ShareCharacterRequest* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.ShareCharacterRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE ShareCharacterRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : external_ids_{visibility, arena},
         name_(arena),
         _cached_size_{0} {}
@@ -10120,7 +10120,7 @@ inline void ShareCharacterRequest::SharedCtor(::_pb::Arena* arena) {
 }
 ShareCharacterRequest::~ShareCharacterRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.ShareCharacterRequest)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void ShareCharacterRequest::SharedDtor() {
@@ -10138,7 +10138,7 @@ PROTOBUF_NOINLINE void ShareCharacterRequest::Clear() {
 
   _impl_.external_ids_.Clear();
   _impl_.name_.ClearToEmpty();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* ShareCharacterRequest::_InternalParse(
@@ -10190,7 +10190,7 @@ const ::_pbi::TcParseTable<1, 2, 0, 72, 2> ShareCharacterRequest::_table_ = {
 
 ::uint8_t* ShareCharacterRequest::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.ShareCharacterRequest)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -10198,23 +10198,23 @@ const ::_pbi::TcParseTable<1, 2, 0, 72, 2> ShareCharacterRequest::_table_ = {
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_name().empty()) {
     const std::string& _s = this->_internal_name();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ShareCharacterRequest.name");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ShareCharacterRequest.name");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // repeated string external_ids = 2;
   for (int i = 0, n = this->_internal_external_ids_size(); i < n; ++i) {
     const auto& s = this->_internal_external_ids().Get(i);
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        s.data(), static_cast<int>(s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ShareCharacterRequest.external_ids");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        s.data(), static_cast<int>(s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ShareCharacterRequest.external_ids");
     target = stream->WriteString(2, s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.ShareCharacterRequest)
   return target;
@@ -10229,29 +10229,29 @@ const ::_pbi::TcParseTable<1, 2, 0, 72, 2> ShareCharacterRequest::_table_ = {
   (void) cached_has_bits;
 
   // repeated string external_ids = 2;
-  total_size += 1 * ::google::protobuf_inworld::internal::FromIntSize(_internal_external_ids().size());
+  total_size += 1 * ::google::protobuf::internal::FromIntSize(_internal_external_ids().size());
   for (int i = 0, n = _internal_external_ids().size(); i < n; ++i) {
-    total_size += ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
         _internal_external_ids().Get(i));
   }
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_name().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_name());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData ShareCharacterRequest::_class_data_ = {
+const ::google::protobuf::Message::ClassData ShareCharacterRequest::_class_data_ = {
     ShareCharacterRequest::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* ShareCharacterRequest::GetClassData() const {
+const ::google::protobuf::Message::ClassData* ShareCharacterRequest::GetClassData() const {
   return &_class_data_;
 }
 
-void ShareCharacterRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void ShareCharacterRequest::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<ShareCharacterRequest*>(&to_msg);
   auto& from = static_cast<const ShareCharacterRequest&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.ShareCharacterRequest)
@@ -10263,7 +10263,7 @@ void ShareCharacterRequest::MergeImpl(::google::protobuf_inworld::Message& to_ms
   if (!from._internal_name().empty()) {
     _this->_internal_set_name(from._internal_name());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ShareCharacterRequest::CopyFrom(const ShareCharacterRequest& from) {
@@ -10289,7 +10289,7 @@ void ShareCharacterRequest::InternalSwap(ShareCharacterRequest* PROTOBUF_RESTRIC
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
 }
 
-::google::protobuf_inworld::Metadata ShareCharacterRequest::GetMetadata() const {
+::google::protobuf::Metadata ShareCharacterRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[27]);
@@ -10300,13 +10300,13 @@ class ShareCharacterPortalRequest::_Internal {
  public:
 };
 
-ShareCharacterPortalRequest::ShareCharacterPortalRequest(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+ShareCharacterPortalRequest::ShareCharacterPortalRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.ShareCharacterPortalRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE ShareCharacterPortalRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : name_(arena, from.name_),
         byline_(arena, from.byline_),
@@ -10314,12 +10314,12 @@ inline PROTOBUF_NDEBUG_INLINE ShareCharacterPortalRequest::Impl_::Impl_(
         _cached_size_{0} {}
 
 ShareCharacterPortalRequest::ShareCharacterPortalRequest(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const ShareCharacterPortalRequest& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   ShareCharacterPortalRequest* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
   _impl_.allowed_on_showcase_ = from._impl_.allowed_on_showcase_;
@@ -10327,8 +10327,8 @@ ShareCharacterPortalRequest::ShareCharacterPortalRequest(
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.ShareCharacterPortalRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE ShareCharacterPortalRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : name_(arena),
         byline_(arena),
         prompt_(arena),
@@ -10340,7 +10340,7 @@ inline void ShareCharacterPortalRequest::SharedCtor(::_pb::Arena* arena) {
 }
 ShareCharacterPortalRequest::~ShareCharacterPortalRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.ShareCharacterPortalRequest)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void ShareCharacterPortalRequest::SharedDtor() {
@@ -10362,7 +10362,7 @@ PROTOBUF_NOINLINE void ShareCharacterPortalRequest::Clear() {
   _impl_.byline_.ClearToEmpty();
   _impl_.prompt_.ClearToEmpty();
   _impl_.allowed_on_showcase_ = false;
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* ShareCharacterPortalRequest::_InternalParse(
@@ -10427,7 +10427,7 @@ const ::_pbi::TcParseTable<2, 4, 0, 78, 2> ShareCharacterPortalRequest::_table_ 
 
 ::uint8_t* ShareCharacterPortalRequest::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.ShareCharacterPortalRequest)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -10435,24 +10435,24 @@ const ::_pbi::TcParseTable<2, 4, 0, 78, 2> ShareCharacterPortalRequest::_table_ 
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_name().empty()) {
     const std::string& _s = this->_internal_name();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ShareCharacterPortalRequest.name");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ShareCharacterPortalRequest.name");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // string byline = 2;
   if (!this->_internal_byline().empty()) {
     const std::string& _s = this->_internal_byline();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ShareCharacterPortalRequest.byline");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ShareCharacterPortalRequest.byline");
     target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
   // string prompt = 3;
   if (!this->_internal_prompt().empty()) {
     const std::string& _s = this->_internal_prompt();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ShareCharacterPortalRequest.prompt");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ShareCharacterPortalRequest.prompt");
     target = stream->WriteStringMaybeAliased(3, _s, target);
   }
 
@@ -10466,7 +10466,7 @@ const ::_pbi::TcParseTable<2, 4, 0, 78, 2> ShareCharacterPortalRequest::_table_ 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.ShareCharacterPortalRequest)
   return target;
@@ -10482,19 +10482,19 @@ const ::_pbi::TcParseTable<2, 4, 0, 78, 2> ShareCharacterPortalRequest::_table_ 
 
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_name().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_name());
   }
 
   // string byline = 2;
   if (!this->_internal_byline().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_byline());
   }
 
   // string prompt = 3;
   if (!this->_internal_prompt().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_prompt());
   }
 
@@ -10506,15 +10506,15 @@ const ::_pbi::TcParseTable<2, 4, 0, 78, 2> ShareCharacterPortalRequest::_table_ 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData ShareCharacterPortalRequest::_class_data_ = {
+const ::google::protobuf::Message::ClassData ShareCharacterPortalRequest::_class_data_ = {
     ShareCharacterPortalRequest::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* ShareCharacterPortalRequest::GetClassData() const {
+const ::google::protobuf::Message::ClassData* ShareCharacterPortalRequest::GetClassData() const {
   return &_class_data_;
 }
 
-void ShareCharacterPortalRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void ShareCharacterPortalRequest::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<ShareCharacterPortalRequest*>(&to_msg);
   auto& from = static_cast<const ShareCharacterPortalRequest&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.ShareCharacterPortalRequest)
@@ -10534,7 +10534,7 @@ void ShareCharacterPortalRequest::MergeImpl(::google::protobuf_inworld::Message&
   if (from._internal_allowed_on_showcase() != 0) {
     _this->_internal_set_allowed_on_showcase(from._internal_allowed_on_showcase());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ShareCharacterPortalRequest::CopyFrom(const ShareCharacterPortalRequest& from) {
@@ -10562,7 +10562,7 @@ void ShareCharacterPortalRequest::InternalSwap(ShareCharacterPortalRequest* PROT
         swap(_impl_.allowed_on_showcase_, other->_impl_.allowed_on_showcase_);
 }
 
-::google::protobuf_inworld::Metadata ShareCharacterPortalRequest::GetMetadata() const {
+::google::protobuf::Metadata ShareCharacterPortalRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[28]);
@@ -10573,32 +10573,32 @@ class UnshareCharacterPortalRequest::_Internal {
  public:
 };
 
-UnshareCharacterPortalRequest::UnshareCharacterPortalRequest(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+UnshareCharacterPortalRequest::UnshareCharacterPortalRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.UnshareCharacterPortalRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE UnshareCharacterPortalRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : name_(arena, from.name_),
         _cached_size_{0} {}
 
 UnshareCharacterPortalRequest::UnshareCharacterPortalRequest(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const UnshareCharacterPortalRequest& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   UnshareCharacterPortalRequest* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.UnshareCharacterPortalRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE UnshareCharacterPortalRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : name_(arena),
         _cached_size_{0} {}
 
@@ -10607,7 +10607,7 @@ inline void UnshareCharacterPortalRequest::SharedCtor(::_pb::Arena* arena) {
 }
 UnshareCharacterPortalRequest::~UnshareCharacterPortalRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.UnshareCharacterPortalRequest)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void UnshareCharacterPortalRequest::SharedDtor() {
@@ -10624,7 +10624,7 @@ PROTOBUF_NOINLINE void UnshareCharacterPortalRequest::Clear() {
   (void) cached_has_bits;
 
   _impl_.name_.ClearToEmpty();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* UnshareCharacterPortalRequest::_InternalParse(
@@ -10669,7 +10669,7 @@ const ::_pbi::TcParseTable<0, 1, 0, 68, 2> UnshareCharacterPortalRequest::_table
 
 ::uint8_t* UnshareCharacterPortalRequest::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.UnshareCharacterPortalRequest)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -10677,15 +10677,15 @@ const ::_pbi::TcParseTable<0, 1, 0, 68, 2> UnshareCharacterPortalRequest::_table
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_name().empty()) {
     const std::string& _s = this->_internal_name();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.UnshareCharacterPortalRequest.name");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.UnshareCharacterPortalRequest.name");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.UnshareCharacterPortalRequest)
   return target;
@@ -10701,22 +10701,22 @@ const ::_pbi::TcParseTable<0, 1, 0, 68, 2> UnshareCharacterPortalRequest::_table
 
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_name().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_name());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData UnshareCharacterPortalRequest::_class_data_ = {
+const ::google::protobuf::Message::ClassData UnshareCharacterPortalRequest::_class_data_ = {
     UnshareCharacterPortalRequest::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* UnshareCharacterPortalRequest::GetClassData() const {
+const ::google::protobuf::Message::ClassData* UnshareCharacterPortalRequest::GetClassData() const {
   return &_class_data_;
 }
 
-void UnshareCharacterPortalRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void UnshareCharacterPortalRequest::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<UnshareCharacterPortalRequest*>(&to_msg);
   auto& from = static_cast<const UnshareCharacterPortalRequest&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.UnshareCharacterPortalRequest)
@@ -10727,7 +10727,7 @@ void UnshareCharacterPortalRequest::MergeImpl(::google::protobuf_inworld::Messag
   if (!from._internal_name().empty()) {
     _this->_internal_set_name(from._internal_name());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void UnshareCharacterPortalRequest::CopyFrom(const UnshareCharacterPortalRequest& from) {
@@ -10752,7 +10752,7 @@ void UnshareCharacterPortalRequest::InternalSwap(UnshareCharacterPortalRequest* 
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
 }
 
-::google::protobuf_inworld::Metadata UnshareCharacterPortalRequest::GetMetadata() const {
+::google::protobuf::Metadata UnshareCharacterPortalRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[29]);
@@ -10763,25 +10763,25 @@ class ListSharedCharactersRequest::_Internal {
  public:
 };
 
-ListSharedCharactersRequest::ListSharedCharactersRequest(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+ListSharedCharactersRequest::ListSharedCharactersRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.ListSharedCharactersRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE ListSharedCharactersRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : parent_(arena, from.parent_),
         page_token_(arena, from.page_token_),
         _cached_size_{0} {}
 
 ListSharedCharactersRequest::ListSharedCharactersRequest(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const ListSharedCharactersRequest& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   ListSharedCharactersRequest* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
   _impl_.page_size_ = from._impl_.page_size_;
@@ -10789,8 +10789,8 @@ ListSharedCharactersRequest::ListSharedCharactersRequest(
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.ListSharedCharactersRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE ListSharedCharactersRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : parent_(arena),
         page_token_(arena),
         _cached_size_{0} {}
@@ -10801,7 +10801,7 @@ inline void ListSharedCharactersRequest::SharedCtor(::_pb::Arena* arena) {
 }
 ListSharedCharactersRequest::~ListSharedCharactersRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.ListSharedCharactersRequest)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void ListSharedCharactersRequest::SharedDtor() {
@@ -10821,7 +10821,7 @@ PROTOBUF_NOINLINE void ListSharedCharactersRequest::Clear() {
   _impl_.parent_.ClearToEmpty();
   _impl_.page_token_.ClearToEmpty();
   _impl_.page_size_ = 0;
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* ListSharedCharactersRequest::_InternalParse(
@@ -10880,7 +10880,7 @@ const ::_pbi::TcParseTable<2, 3, 0, 78, 2> ListSharedCharactersRequest::_table_ 
 
 ::uint8_t* ListSharedCharactersRequest::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.ListSharedCharactersRequest)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -10888,14 +10888,14 @@ const ::_pbi::TcParseTable<2, 3, 0, 78, 2> ListSharedCharactersRequest::_table_ 
   // string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_parent().empty()) {
     const std::string& _s = this->_internal_parent();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ListSharedCharactersRequest.parent");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ListSharedCharactersRequest.parent");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // int32 page_size = 2;
   if (this->_internal_page_size() != 0) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         WriteInt32ToArrayWithField<2>(
             stream, this->_internal_page_size(), target);
   }
@@ -10903,15 +10903,15 @@ const ::_pbi::TcParseTable<2, 3, 0, 78, 2> ListSharedCharactersRequest::_table_ 
   // string page_token = 3;
   if (!this->_internal_page_token().empty()) {
     const std::string& _s = this->_internal_page_token();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ListSharedCharactersRequest.page_token");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ListSharedCharactersRequest.page_token");
     target = stream->WriteStringMaybeAliased(3, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.ListSharedCharactersRequest)
   return target;
@@ -10927,13 +10927,13 @@ const ::_pbi::TcParseTable<2, 3, 0, 78, 2> ListSharedCharactersRequest::_table_ 
 
   // string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_parent().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_parent());
   }
 
   // string page_token = 3;
   if (!this->_internal_page_token().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_page_token());
   }
 
@@ -10946,15 +10946,15 @@ const ::_pbi::TcParseTable<2, 3, 0, 78, 2> ListSharedCharactersRequest::_table_ 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData ListSharedCharactersRequest::_class_data_ = {
+const ::google::protobuf::Message::ClassData ListSharedCharactersRequest::_class_data_ = {
     ListSharedCharactersRequest::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* ListSharedCharactersRequest::GetClassData() const {
+const ::google::protobuf::Message::ClassData* ListSharedCharactersRequest::GetClassData() const {
   return &_class_data_;
 }
 
-void ListSharedCharactersRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void ListSharedCharactersRequest::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<ListSharedCharactersRequest*>(&to_msg);
   auto& from = static_cast<const ListSharedCharactersRequest&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.ListSharedCharactersRequest)
@@ -10971,7 +10971,7 @@ void ListSharedCharactersRequest::MergeImpl(::google::protobuf_inworld::Message&
   if (from._internal_page_size() != 0) {
     _this->_internal_set_page_size(from._internal_page_size());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ListSharedCharactersRequest::CopyFrom(const ListSharedCharactersRequest& from) {
@@ -10998,7 +10998,7 @@ void ListSharedCharactersRequest::InternalSwap(ListSharedCharactersRequest* PROT
         swap(_impl_.page_size_, other->_impl_.page_size_);
 }
 
-::google::protobuf_inworld::Metadata ListSharedCharactersRequest::GetMetadata() const {
+::google::protobuf::Metadata ListSharedCharactersRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[30]);
@@ -11009,33 +11009,33 @@ class ListSharedCharactersResponse::_Internal {
  public:
 };
 
-ListSharedCharactersResponse::ListSharedCharactersResponse(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+ListSharedCharactersResponse::ListSharedCharactersResponse(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.ListSharedCharactersResponse)
 }
 inline PROTOBUF_NDEBUG_INLINE ListSharedCharactersResponse::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : shared_characters_{visibility, arena, from.shared_characters_},
         next_page_token_(arena, from.next_page_token_),
         _cached_size_{0} {}
 
 ListSharedCharactersResponse::ListSharedCharactersResponse(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const ListSharedCharactersResponse& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   ListSharedCharactersResponse* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.ListSharedCharactersResponse)
 }
 inline PROTOBUF_NDEBUG_INLINE ListSharedCharactersResponse::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : shared_characters_{visibility, arena},
         next_page_token_(arena),
         _cached_size_{0} {}
@@ -11045,7 +11045,7 @@ inline void ListSharedCharactersResponse::SharedCtor(::_pb::Arena* arena) {
 }
 ListSharedCharactersResponse::~ListSharedCharactersResponse() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.ListSharedCharactersResponse)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void ListSharedCharactersResponse::SharedDtor() {
@@ -11063,7 +11063,7 @@ PROTOBUF_NOINLINE void ListSharedCharactersResponse::Clear() {
 
   _impl_.shared_characters_.Clear();
   _impl_.next_page_token_.ClearToEmpty();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* ListSharedCharactersResponse::_InternalParse(
@@ -11114,7 +11114,7 @@ const ::_pbi::TcParseTable<1, 2, 1, 78, 2> ListSharedCharactersResponse::_table_
 
 ::uint8_t* ListSharedCharactersResponse::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.ListSharedCharactersResponse)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -11123,22 +11123,22 @@ const ::_pbi::TcParseTable<1, 2, 1, 78, 2> ListSharedCharactersResponse::_table_
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_shared_characters_size()); i < n; i++) {
     const auto& repfield = this->_internal_shared_characters().Get(i);
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   // string next_page_token = 2;
   if (!this->_internal_next_page_token().empty()) {
     const std::string& _s = this->_internal_next_page_token();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ListSharedCharactersResponse.next_page_token");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ListSharedCharactersResponse.next_page_token");
     target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.ListSharedCharactersResponse)
   return target;
@@ -11156,26 +11156,26 @@ const ::_pbi::TcParseTable<1, 2, 1, 78, 2> ListSharedCharactersResponse::_table_
   total_size += 1UL * this->_internal_shared_characters_size();
   for (const auto& msg : this->_internal_shared_characters()) {
     total_size +=
-      ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(msg);
+      ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
   }
   // string next_page_token = 2;
   if (!this->_internal_next_page_token().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_next_page_token());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData ListSharedCharactersResponse::_class_data_ = {
+const ::google::protobuf::Message::ClassData ListSharedCharactersResponse::_class_data_ = {
     ListSharedCharactersResponse::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* ListSharedCharactersResponse::GetClassData() const {
+const ::google::protobuf::Message::ClassData* ListSharedCharactersResponse::GetClassData() const {
   return &_class_data_;
 }
 
-void ListSharedCharactersResponse::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void ListSharedCharactersResponse::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<ListSharedCharactersResponse*>(&to_msg);
   auto& from = static_cast<const ListSharedCharactersResponse&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.ListSharedCharactersResponse)
@@ -11188,7 +11188,7 @@ void ListSharedCharactersResponse::MergeImpl(::google::protobuf_inworld::Message
   if (!from._internal_next_page_token().empty()) {
     _this->_internal_set_next_page_token(from._internal_next_page_token());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ListSharedCharactersResponse::CopyFrom(const ListSharedCharactersResponse& from) {
@@ -11214,7 +11214,7 @@ void ListSharedCharactersResponse::InternalSwap(ListSharedCharactersResponse* PR
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.next_page_token_, &other->_impl_.next_page_token_, arena);
 }
 
-::google::protobuf_inworld::Metadata ListSharedCharactersResponse::GetMetadata() const {
+::google::protobuf::Metadata ListSharedCharactersResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[31]);
@@ -11225,24 +11225,24 @@ class CharacterAdvancedSettings_ConversationConfig_EngineSpec::_Internal {
  public:
 };
 
-CharacterAdvancedSettings_ConversationConfig_EngineSpec::CharacterAdvancedSettings_ConversationConfig_EngineSpec(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+CharacterAdvancedSettings_ConversationConfig_EngineSpec::CharacterAdvancedSettings_ConversationConfig_EngineSpec(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.ConversationConfig.EngineSpec)
 }
 inline PROTOBUF_NDEBUG_INLINE CharacterAdvancedSettings_ConversationConfig_EngineSpec::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : engine_(arena, from.engine_),
         _cached_size_{0} {}
 
 CharacterAdvancedSettings_ConversationConfig_EngineSpec::CharacterAdvancedSettings_ConversationConfig_EngineSpec(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const CharacterAdvancedSettings_ConversationConfig_EngineSpec& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   CharacterAdvancedSettings_ConversationConfig_EngineSpec* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
   ::memcpy(reinterpret_cast<char *>(&_impl_) +
@@ -11256,8 +11256,8 @@ CharacterAdvancedSettings_ConversationConfig_EngineSpec::CharacterAdvancedSettin
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.ConversationConfig.EngineSpec)
 }
 inline PROTOBUF_NDEBUG_INLINE CharacterAdvancedSettings_ConversationConfig_EngineSpec::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : engine_(arena),
         _cached_size_{0} {}
 
@@ -11272,7 +11272,7 @@ inline void CharacterAdvancedSettings_ConversationConfig_EngineSpec::SharedCtor(
 }
 CharacterAdvancedSettings_ConversationConfig_EngineSpec::~CharacterAdvancedSettings_ConversationConfig_EngineSpec() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.ConversationConfig.EngineSpec)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void CharacterAdvancedSettings_ConversationConfig_EngineSpec::SharedDtor() {
@@ -11292,7 +11292,7 @@ PROTOBUF_NOINLINE void CharacterAdvancedSettings_ConversationConfig_EngineSpec::
   ::memset(&_impl_.temperature_, 0, static_cast<::size_t>(
       reinterpret_cast<char*>(&_impl_.repetition_penalty_) -
       reinterpret_cast<char*>(&_impl_.temperature_)) + sizeof(_impl_.repetition_penalty_));
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* CharacterAdvancedSettings_ConversationConfig_EngineSpec::_InternalParse(
@@ -11374,7 +11374,7 @@ const ::_pbi::TcParseTable<3, 7, 0, 96, 2> CharacterAdvancedSettings_Conversatio
 
 ::uint8_t* CharacterAdvancedSettings_ConversationConfig_EngineSpec::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.ConversationConfig.EngineSpec)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -11382,8 +11382,8 @@ const ::_pbi::TcParseTable<3, 7, 0, 96, 2> CharacterAdvancedSettings_Conversatio
   // string engine = 1;
   if (!this->_internal_engine().empty()) {
     const std::string& _s = this->_internal_engine();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.CharacterAdvancedSettings.ConversationConfig.EngineSpec.engine");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.CharacterAdvancedSettings.ConversationConfig.EngineSpec.engine");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
@@ -11401,7 +11401,7 @@ const ::_pbi::TcParseTable<3, 7, 0, 96, 2> CharacterAdvancedSettings_Conversatio
 
   // int32 max_tokens = 3;
   if (this->_internal_max_tokens() != 0) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         WriteInt32ToArrayWithField<3>(
             stream, this->_internal_max_tokens(), target);
   }
@@ -11457,7 +11457,7 @@ const ::_pbi::TcParseTable<3, 7, 0, 96, 2> CharacterAdvancedSettings_Conversatio
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.ConversationConfig.EngineSpec)
   return target;
@@ -11473,7 +11473,7 @@ const ::_pbi::TcParseTable<3, 7, 0, 96, 2> CharacterAdvancedSettings_Conversatio
 
   // string engine = 1;
   if (!this->_internal_engine().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_engine());
   }
 
@@ -11536,15 +11536,15 @@ const ::_pbi::TcParseTable<3, 7, 0, 96, 2> CharacterAdvancedSettings_Conversatio
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData CharacterAdvancedSettings_ConversationConfig_EngineSpec::_class_data_ = {
+const ::google::protobuf::Message::ClassData CharacterAdvancedSettings_ConversationConfig_EngineSpec::_class_data_ = {
     CharacterAdvancedSettings_ConversationConfig_EngineSpec::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* CharacterAdvancedSettings_ConversationConfig_EngineSpec::GetClassData() const {
+const ::google::protobuf::Message::ClassData* CharacterAdvancedSettings_ConversationConfig_EngineSpec::GetClassData() const {
   return &_class_data_;
 }
 
-void CharacterAdvancedSettings_ConversationConfig_EngineSpec::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void CharacterAdvancedSettings_ConversationConfig_EngineSpec::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<CharacterAdvancedSettings_ConversationConfig_EngineSpec*>(&to_msg);
   auto& from = static_cast<const CharacterAdvancedSettings_ConversationConfig_EngineSpec&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.ConversationConfig.EngineSpec)
@@ -11598,7 +11598,7 @@ void CharacterAdvancedSettings_ConversationConfig_EngineSpec::MergeImpl(::google
   if (raw_repetition_penalty != 0) {
     _this->_internal_set_repetition_penalty(from._internal_repetition_penalty());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void CharacterAdvancedSettings_ConversationConfig_EngineSpec::CopyFrom(const CharacterAdvancedSettings_ConversationConfig_EngineSpec& from) {
@@ -11621,7 +11621,7 @@ void CharacterAdvancedSettings_ConversationConfig_EngineSpec::InternalSwap(Chara
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.engine_, &other->_impl_.engine_, arena);
-  ::google::protobuf_inworld::internal::memswap<
+  ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CharacterAdvancedSettings_ConversationConfig_EngineSpec, _impl_.repetition_penalty_)
       + sizeof(CharacterAdvancedSettings_ConversationConfig_EngineSpec::_impl_.repetition_penalty_)
       - PROTOBUF_FIELD_OFFSET(CharacterAdvancedSettings_ConversationConfig_EngineSpec, _impl_.temperature_)>(
@@ -11629,7 +11629,7 @@ void CharacterAdvancedSettings_ConversationConfig_EngineSpec::InternalSwap(Chara
           reinterpret_cast<char*>(&other->_impl_.temperature_));
 }
 
-::google::protobuf_inworld::Metadata CharacterAdvancedSettings_ConversationConfig_EngineSpec::GetMetadata() const {
+::google::protobuf::Metadata CharacterAdvancedSettings_ConversationConfig_EngineSpec::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[32]);
@@ -11650,24 +11650,24 @@ class CharacterAdvancedSettings_ConversationConfig::_Internal {
 const ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_ConversationConfig_EngineSpec& CharacterAdvancedSettings_ConversationConfig::_Internal::engine_spec(const CharacterAdvancedSettings_ConversationConfig* msg) {
   return *msg->_impl_.engine_spec_;
 }
-CharacterAdvancedSettings_ConversationConfig::CharacterAdvancedSettings_ConversationConfig(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+CharacterAdvancedSettings_ConversationConfig::CharacterAdvancedSettings_ConversationConfig(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.ConversationConfig)
 }
 inline PROTOBUF_NDEBUG_INLINE CharacterAdvancedSettings_ConversationConfig::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : _has_bits_{from._has_bits_},
         _cached_size_{0} {}
 
 CharacterAdvancedSettings_ConversationConfig::CharacterAdvancedSettings_ConversationConfig(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const CharacterAdvancedSettings_ConversationConfig& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   CharacterAdvancedSettings_ConversationConfig* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
   ::uint32_t cached_has_bits = _impl_._has_bits_[0];
@@ -11678,8 +11678,8 @@ CharacterAdvancedSettings_ConversationConfig::CharacterAdvancedSettings_Conversa
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.ConversationConfig)
 }
 inline PROTOBUF_NDEBUG_INLINE CharacterAdvancedSettings_ConversationConfig::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : _cached_size_{0} {}
 
 inline void CharacterAdvancedSettings_ConversationConfig::SharedCtor(::_pb::Arena* arena) {
@@ -11688,7 +11688,7 @@ inline void CharacterAdvancedSettings_ConversationConfig::SharedCtor(::_pb::Aren
 }
 CharacterAdvancedSettings_ConversationConfig::~CharacterAdvancedSettings_ConversationConfig() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.ConversationConfig)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void CharacterAdvancedSettings_ConversationConfig::SharedDtor() {
@@ -11710,7 +11710,7 @@ PROTOBUF_NOINLINE void CharacterAdvancedSettings_ConversationConfig::Clear() {
     _impl_.engine_spec_->Clear();
   }
   _impl_._has_bits_.Clear();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* CharacterAdvancedSettings_ConversationConfig::_InternalParse(
@@ -11752,7 +11752,7 @@ const ::_pbi::TcParseTable<0, 1, 1, 0, 2> CharacterAdvancedSettings_Conversation
 
 ::uint8_t* CharacterAdvancedSettings_ConversationConfig::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.ConversationConfig)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -11760,7 +11760,7 @@ const ::_pbi::TcParseTable<0, 1, 1, 0, 2> CharacterAdvancedSettings_Conversation
   cached_has_bits = _impl_._has_bits_[0];
   // .ai.inworld.studio.v1alpha.CharacterAdvancedSettings.ConversationConfig.EngineSpec engine_spec = 1;
   if (cached_has_bits & 0x00000001u) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         1, _Internal::engine_spec(this),
         _Internal::engine_spec(this).GetCachedSize(), target, stream);
   }
@@ -11768,7 +11768,7 @@ const ::_pbi::TcParseTable<0, 1, 1, 0, 2> CharacterAdvancedSettings_Conversation
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.ConversationConfig)
   return target;
@@ -11786,21 +11786,21 @@ const ::_pbi::TcParseTable<0, 1, 1, 0, 2> CharacterAdvancedSettings_Conversation
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size +=
-        1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.engine_spec_);
+        1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.engine_spec_);
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData CharacterAdvancedSettings_ConversationConfig::_class_data_ = {
+const ::google::protobuf::Message::ClassData CharacterAdvancedSettings_ConversationConfig::_class_data_ = {
     CharacterAdvancedSettings_ConversationConfig::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* CharacterAdvancedSettings_ConversationConfig::GetClassData() const {
+const ::google::protobuf::Message::ClassData* CharacterAdvancedSettings_ConversationConfig::GetClassData() const {
   return &_class_data_;
 }
 
-void CharacterAdvancedSettings_ConversationConfig::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void CharacterAdvancedSettings_ConversationConfig::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<CharacterAdvancedSettings_ConversationConfig*>(&to_msg);
   auto& from = static_cast<const CharacterAdvancedSettings_ConversationConfig&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.ConversationConfig)
@@ -11812,7 +11812,7 @@ void CharacterAdvancedSettings_ConversationConfig::MergeImpl(::google::protobuf_
     _this->_internal_mutable_engine_spec()->::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_ConversationConfig_EngineSpec::MergeFrom(
         from._internal_engine_spec());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void CharacterAdvancedSettings_ConversationConfig::CopyFrom(const CharacterAdvancedSettings_ConversationConfig& from) {
@@ -11836,7 +11836,7 @@ void CharacterAdvancedSettings_ConversationConfig::InternalSwap(CharacterAdvance
   swap(_impl_.engine_spec_, other->_impl_.engine_spec_);
 }
 
-::google::protobuf_inworld::Metadata CharacterAdvancedSettings_ConversationConfig::GetMetadata() const {
+::google::protobuf::Metadata CharacterAdvancedSettings_ConversationConfig::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[33]);
@@ -11847,33 +11847,33 @@ class CharacterAdvancedSettings_SafetySpec::_Internal {
  public:
 };
 
-CharacterAdvancedSettings_SafetySpec::CharacterAdvancedSettings_SafetySpec(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+CharacterAdvancedSettings_SafetySpec::CharacterAdvancedSettings_SafetySpec(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.SafetySpec)
 }
 inline PROTOBUF_NDEBUG_INLINE CharacterAdvancedSettings_SafetySpec::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : allowed_topics_{visibility, arena, from.allowed_topics_},
         _allowed_topics_cached_byte_size_{0},
         _cached_size_{0} {}
 
 CharacterAdvancedSettings_SafetySpec::CharacterAdvancedSettings_SafetySpec(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const CharacterAdvancedSettings_SafetySpec& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   CharacterAdvancedSettings_SafetySpec* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.SafetySpec)
 }
 inline PROTOBUF_NDEBUG_INLINE CharacterAdvancedSettings_SafetySpec::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : allowed_topics_{visibility, arena},
         _allowed_topics_cached_byte_size_{0},
         _cached_size_{0} {}
@@ -11883,7 +11883,7 @@ inline void CharacterAdvancedSettings_SafetySpec::SharedCtor(::_pb::Arena* arena
 }
 CharacterAdvancedSettings_SafetySpec::~CharacterAdvancedSettings_SafetySpec() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.SafetySpec)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void CharacterAdvancedSettings_SafetySpec::SharedDtor() {
@@ -11899,7 +11899,7 @@ PROTOBUF_NOINLINE void CharacterAdvancedSettings_SafetySpec::Clear() {
   (void) cached_has_bits;
 
   _impl_.allowed_topics_.Clear();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* CharacterAdvancedSettings_SafetySpec::_InternalParse(
@@ -11941,7 +11941,7 @@ const ::_pbi::TcParseTable<0, 1, 0, 0, 2> CharacterAdvancedSettings_SafetySpec::
 
 ::uint8_t* CharacterAdvancedSettings_SafetySpec::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.SafetySpec)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -11958,7 +11958,7 @@ const ::_pbi::TcParseTable<0, 1, 0, 0, 2> CharacterAdvancedSettings_SafetySpec::
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.SafetySpec)
   return target;
@@ -11992,15 +11992,15 @@ const ::_pbi::TcParseTable<0, 1, 0, 0, 2> CharacterAdvancedSettings_SafetySpec::
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData CharacterAdvancedSettings_SafetySpec::_class_data_ = {
+const ::google::protobuf::Message::ClassData CharacterAdvancedSettings_SafetySpec::_class_data_ = {
     CharacterAdvancedSettings_SafetySpec::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* CharacterAdvancedSettings_SafetySpec::GetClassData() const {
+const ::google::protobuf::Message::ClassData* CharacterAdvancedSettings_SafetySpec::GetClassData() const {
   return &_class_data_;
 }
 
-void CharacterAdvancedSettings_SafetySpec::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void CharacterAdvancedSettings_SafetySpec::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<CharacterAdvancedSettings_SafetySpec*>(&to_msg);
   auto& from = static_cast<const CharacterAdvancedSettings_SafetySpec&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.SafetySpec)
@@ -12009,7 +12009,7 @@ void CharacterAdvancedSettings_SafetySpec::MergeImpl(::google::protobuf_inworld:
   (void) cached_has_bits;
 
   _this->_internal_mutable_allowed_topics()->MergeFrom(from._internal_allowed_topics());
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void CharacterAdvancedSettings_SafetySpec::CopyFrom(const CharacterAdvancedSettings_SafetySpec& from) {
@@ -12032,7 +12032,7 @@ void CharacterAdvancedSettings_SafetySpec::InternalSwap(CharacterAdvancedSetting
   _impl_.allowed_topics_.InternalSwap(&other->_impl_.allowed_topics_);
 }
 
-::google::protobuf_inworld::Metadata CharacterAdvancedSettings_SafetySpec::GetMetadata() const {
+::google::protobuf::Metadata CharacterAdvancedSettings_SafetySpec::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[34]);
@@ -12060,13 +12060,13 @@ const ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_ConversationConf
 const ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_SafetySpec& CharacterAdvancedSettings::_Internal::speech_safety_spec(const CharacterAdvancedSettings* msg) {
   return *msg->_impl_.speech_safety_spec_;
 }
-CharacterAdvancedSettings::CharacterAdvancedSettings(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+CharacterAdvancedSettings::CharacterAdvancedSettings(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.CharacterAdvancedSettings)
 }
 inline PROTOBUF_NDEBUG_INLINE CharacterAdvancedSettings::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
@@ -12075,12 +12075,12 @@ inline PROTOBUF_NDEBUG_INLINE CharacterAdvancedSettings::Impl_::Impl_(
         additional_agent_info_(arena, from.additional_agent_info_) {}
 
 CharacterAdvancedSettings::CharacterAdvancedSettings(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const CharacterAdvancedSettings& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   CharacterAdvancedSettings* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
   ::uint32_t cached_has_bits = _impl_._has_bits_[0];
@@ -12094,8 +12094,8 @@ CharacterAdvancedSettings::CharacterAdvancedSettings(
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.CharacterAdvancedSettings)
 }
 inline PROTOBUF_NDEBUG_INLINE CharacterAdvancedSettings::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : _cached_size_{0},
         name_(arena),
         custom_prompt_template_(arena),
@@ -12112,7 +12112,7 @@ inline void CharacterAdvancedSettings::SharedCtor(::_pb::Arena* arena) {
 }
 CharacterAdvancedSettings::~CharacterAdvancedSettings() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.CharacterAdvancedSettings)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void CharacterAdvancedSettings::SharedDtor() {
@@ -12147,7 +12147,7 @@ PROTOBUF_NOINLINE void CharacterAdvancedSettings::Clear() {
     }
   }
   _impl_._has_bits_.Clear();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* CharacterAdvancedSettings::_InternalParse(
@@ -12222,7 +12222,7 @@ const ::_pbi::TcParseTable<3, 5, 2, 107, 2> CharacterAdvancedSettings::_table_ =
 
 ::uint8_t* CharacterAdvancedSettings::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.CharacterAdvancedSettings)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -12230,15 +12230,15 @@ const ::_pbi::TcParseTable<3, 5, 2, 107, 2> CharacterAdvancedSettings::_table_ =
   // string name = 1 [(.ai.inworld.options.examples) = {
   if (!this->_internal_name().empty()) {
     const std::string& _s = this->_internal_name();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.CharacterAdvancedSettings.name");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.CharacterAdvancedSettings.name");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   cached_has_bits = _impl_._has_bits_[0];
   // .ai.inworld.studio.v1alpha.CharacterAdvancedSettings.ConversationConfig conversation_config = 2;
   if (cached_has_bits & 0x00000001u) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         2, _Internal::conversation_config(this),
         _Internal::conversation_config(this).GetCachedSize(), target, stream);
   }
@@ -12246,14 +12246,14 @@ const ::_pbi::TcParseTable<3, 5, 2, 107, 2> CharacterAdvancedSettings::_table_ =
   // string custom_prompt_template = 4;
   if (!this->_internal_custom_prompt_template().empty()) {
     const std::string& _s = this->_internal_custom_prompt_template();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.CharacterAdvancedSettings.custom_prompt_template");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.CharacterAdvancedSettings.custom_prompt_template");
     target = stream->WriteStringMaybeAliased(4, _s, target);
   }
 
   // .ai.inworld.studio.v1alpha.CharacterAdvancedSettings.SafetySpec speech_safety_spec = 5;
   if (cached_has_bits & 0x00000002u) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         5, _Internal::speech_safety_spec(this),
         _Internal::speech_safety_spec(this).GetCachedSize(), target, stream);
   }
@@ -12261,15 +12261,15 @@ const ::_pbi::TcParseTable<3, 5, 2, 107, 2> CharacterAdvancedSettings::_table_ =
   // string additional_agent_info = 6;
   if (!this->_internal_additional_agent_info().empty()) {
     const std::string& _s = this->_internal_additional_agent_info();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.CharacterAdvancedSettings.additional_agent_info");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.CharacterAdvancedSettings.additional_agent_info");
     target = stream->WriteStringMaybeAliased(6, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.CharacterAdvancedSettings)
   return target;
@@ -12285,19 +12285,19 @@ const ::_pbi::TcParseTable<3, 5, 2, 107, 2> CharacterAdvancedSettings::_table_ =
 
   // string name = 1 [(.ai.inworld.options.examples) = {
   if (!this->_internal_name().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_name());
   }
 
   // string custom_prompt_template = 4;
   if (!this->_internal_custom_prompt_template().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_custom_prompt_template());
   }
 
   // string additional_agent_info = 6;
   if (!this->_internal_additional_agent_info().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_additional_agent_info());
   }
 
@@ -12306,28 +12306,28 @@ const ::_pbi::TcParseTable<3, 5, 2, 107, 2> CharacterAdvancedSettings::_table_ =
     // .ai.inworld.studio.v1alpha.CharacterAdvancedSettings.ConversationConfig conversation_config = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size +=
-          1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.conversation_config_);
+          1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.conversation_config_);
     }
 
     // .ai.inworld.studio.v1alpha.CharacterAdvancedSettings.SafetySpec speech_safety_spec = 5;
     if (cached_has_bits & 0x00000002u) {
       total_size +=
-          1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.speech_safety_spec_);
+          1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.speech_safety_spec_);
     }
 
   }
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData CharacterAdvancedSettings::_class_data_ = {
+const ::google::protobuf::Message::ClassData CharacterAdvancedSettings::_class_data_ = {
     CharacterAdvancedSettings::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* CharacterAdvancedSettings::GetClassData() const {
+const ::google::protobuf::Message::ClassData* CharacterAdvancedSettings::GetClassData() const {
   return &_class_data_;
 }
 
-void CharacterAdvancedSettings::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void CharacterAdvancedSettings::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<CharacterAdvancedSettings*>(&to_msg);
   auto& from = static_cast<const CharacterAdvancedSettings&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.CharacterAdvancedSettings)
@@ -12355,7 +12355,7 @@ void CharacterAdvancedSettings::MergeImpl(::google::protobuf_inworld::Message& t
           from._internal_speech_safety_spec());
     }
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void CharacterAdvancedSettings::CopyFrom(const CharacterAdvancedSettings& from) {
@@ -12381,7 +12381,7 @@ void CharacterAdvancedSettings::InternalSwap(CharacterAdvancedSettings* PROTOBUF
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.custom_prompt_template_, &other->_impl_.custom_prompt_template_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.additional_agent_info_, &other->_impl_.additional_agent_info_, arena);
-  ::google::protobuf_inworld::internal::memswap<
+  ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CharacterAdvancedSettings, _impl_.speech_safety_spec_)
       + sizeof(CharacterAdvancedSettings::_impl_.speech_safety_spec_)
       - PROTOBUF_FIELD_OFFSET(CharacterAdvancedSettings, _impl_.conversation_config_)>(
@@ -12389,7 +12389,7 @@ void CharacterAdvancedSettings::InternalSwap(CharacterAdvancedSettings* PROTOBUF
           reinterpret_cast<char*>(&other->_impl_.conversation_config_));
 }
 
-::google::protobuf_inworld::Metadata CharacterAdvancedSettings::GetMetadata() const {
+::google::protobuf::Metadata CharacterAdvancedSettings::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[35]);
@@ -12400,24 +12400,24 @@ class GetCharacterShareInfoRequest::_Internal {
  public:
 };
 
-GetCharacterShareInfoRequest::GetCharacterShareInfoRequest(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+GetCharacterShareInfoRequest::GetCharacterShareInfoRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.GetCharacterShareInfoRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE GetCharacterShareInfoRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : name_(arena, from.name_),
         _cached_size_{0} {}
 
 GetCharacterShareInfoRequest::GetCharacterShareInfoRequest(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const GetCharacterShareInfoRequest& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   GetCharacterShareInfoRequest* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
   _impl_.view_ = from._impl_.view_;
@@ -12425,8 +12425,8 @@ GetCharacterShareInfoRequest::GetCharacterShareInfoRequest(
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.GetCharacterShareInfoRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE GetCharacterShareInfoRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : name_(arena),
         _cached_size_{0} {}
 
@@ -12436,7 +12436,7 @@ inline void GetCharacterShareInfoRequest::SharedCtor(::_pb::Arena* arena) {
 }
 GetCharacterShareInfoRequest::~GetCharacterShareInfoRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.GetCharacterShareInfoRequest)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void GetCharacterShareInfoRequest::SharedDtor() {
@@ -12454,7 +12454,7 @@ PROTOBUF_NOINLINE void GetCharacterShareInfoRequest::Clear() {
 
   _impl_.name_.ClearToEmpty();
   _impl_.view_ = 0;
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* GetCharacterShareInfoRequest::_InternalParse(
@@ -12505,7 +12505,7 @@ const ::_pbi::TcParseTable<1, 2, 0, 67, 2> GetCharacterShareInfoRequest::_table_
 
 ::uint8_t* GetCharacterShareInfoRequest::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.GetCharacterShareInfoRequest)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -12513,8 +12513,8 @@ const ::_pbi::TcParseTable<1, 2, 0, 67, 2> GetCharacterShareInfoRequest::_table_
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_name().empty()) {
     const std::string& _s = this->_internal_name();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.GetCharacterShareInfoRequest.name");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.GetCharacterShareInfoRequest.name");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
@@ -12528,7 +12528,7 @@ const ::_pbi::TcParseTable<1, 2, 0, 67, 2> GetCharacterShareInfoRequest::_table_
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.GetCharacterShareInfoRequest)
   return target;
@@ -12544,7 +12544,7 @@ const ::_pbi::TcParseTable<1, 2, 0, 67, 2> GetCharacterShareInfoRequest::_table_
 
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_name().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_name());
   }
 
@@ -12557,15 +12557,15 @@ const ::_pbi::TcParseTable<1, 2, 0, 67, 2> GetCharacterShareInfoRequest::_table_
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData GetCharacterShareInfoRequest::_class_data_ = {
+const ::google::protobuf::Message::ClassData GetCharacterShareInfoRequest::_class_data_ = {
     GetCharacterShareInfoRequest::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* GetCharacterShareInfoRequest::GetClassData() const {
+const ::google::protobuf::Message::ClassData* GetCharacterShareInfoRequest::GetClassData() const {
   return &_class_data_;
 }
 
-void GetCharacterShareInfoRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void GetCharacterShareInfoRequest::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<GetCharacterShareInfoRequest*>(&to_msg);
   auto& from = static_cast<const GetCharacterShareInfoRequest&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.GetCharacterShareInfoRequest)
@@ -12579,7 +12579,7 @@ void GetCharacterShareInfoRequest::MergeImpl(::google::protobuf_inworld::Message
   if (from._internal_view() != 0) {
     _this->_internal_set_view(from._internal_view());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void GetCharacterShareInfoRequest::CopyFrom(const GetCharacterShareInfoRequest& from) {
@@ -12605,7 +12605,7 @@ void GetCharacterShareInfoRequest::InternalSwap(GetCharacterShareInfoRequest* PR
   swap(_impl_.view_, other->_impl_.view_);
 }
 
-::google::protobuf_inworld::Metadata GetCharacterShareInfoRequest::GetMetadata() const {
+::google::protobuf::Metadata GetCharacterShareInfoRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[36]);
@@ -12616,32 +12616,32 @@ class CharacterShareInfo::_Internal {
  public:
 };
 
-CharacterShareInfo::CharacterShareInfo(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+CharacterShareInfo::CharacterShareInfo(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.CharacterShareInfo)
 }
 inline PROTOBUF_NDEBUG_INLINE CharacterShareInfo::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : external_ids_{visibility, arena, from.external_ids_},
         _cached_size_{0} {}
 
 CharacterShareInfo::CharacterShareInfo(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const CharacterShareInfo& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   CharacterShareInfo* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.CharacterShareInfo)
 }
 inline PROTOBUF_NDEBUG_INLINE CharacterShareInfo::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : external_ids_{visibility, arena},
         _cached_size_{0} {}
 
@@ -12650,7 +12650,7 @@ inline void CharacterShareInfo::SharedCtor(::_pb::Arena* arena) {
 }
 CharacterShareInfo::~CharacterShareInfo() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.CharacterShareInfo)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void CharacterShareInfo::SharedDtor() {
@@ -12666,7 +12666,7 @@ PROTOBUF_NOINLINE void CharacterShareInfo::Clear() {
   (void) cached_has_bits;
 
   _impl_.external_ids_.Clear();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* CharacterShareInfo::_InternalParse(
@@ -12711,7 +12711,7 @@ const ::_pbi::TcParseTable<0, 1, 0, 65, 2> CharacterShareInfo::_table_ = {
 
 ::uint8_t* CharacterShareInfo::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.CharacterShareInfo)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -12719,15 +12719,15 @@ const ::_pbi::TcParseTable<0, 1, 0, 65, 2> CharacterShareInfo::_table_ = {
   // repeated string external_ids = 1;
   for (int i = 0, n = this->_internal_external_ids_size(); i < n; ++i) {
     const auto& s = this->_internal_external_ids().Get(i);
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        s.data(), static_cast<int>(s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.CharacterShareInfo.external_ids");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        s.data(), static_cast<int>(s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.CharacterShareInfo.external_ids");
     target = stream->WriteString(1, s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.CharacterShareInfo)
   return target;
@@ -12742,23 +12742,23 @@ const ::_pbi::TcParseTable<0, 1, 0, 65, 2> CharacterShareInfo::_table_ = {
   (void) cached_has_bits;
 
   // repeated string external_ids = 1;
-  total_size += 1 * ::google::protobuf_inworld::internal::FromIntSize(_internal_external_ids().size());
+  total_size += 1 * ::google::protobuf::internal::FromIntSize(_internal_external_ids().size());
   for (int i = 0, n = _internal_external_ids().size(); i < n; ++i) {
-    total_size += ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
         _internal_external_ids().Get(i));
   }
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData CharacterShareInfo::_class_data_ = {
+const ::google::protobuf::Message::ClassData CharacterShareInfo::_class_data_ = {
     CharacterShareInfo::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* CharacterShareInfo::GetClassData() const {
+const ::google::protobuf::Message::ClassData* CharacterShareInfo::GetClassData() const {
   return &_class_data_;
 }
 
-void CharacterShareInfo::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void CharacterShareInfo::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<CharacterShareInfo*>(&to_msg);
   auto& from = static_cast<const CharacterShareInfo&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.CharacterShareInfo)
@@ -12767,7 +12767,7 @@ void CharacterShareInfo::MergeImpl(::google::protobuf_inworld::Message& to_msg, 
   (void) cached_has_bits;
 
   _this->_internal_mutable_external_ids()->MergeFrom(from._internal_external_ids());
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void CharacterShareInfo::CopyFrom(const CharacterShareInfo& from) {
@@ -12790,7 +12790,7 @@ void CharacterShareInfo::InternalSwap(CharacterShareInfo* PROTOBUF_RESTRICT othe
   _impl_.external_ids_.InternalSwap(&other->_impl_.external_ids_);
 }
 
-::google::protobuf_inworld::Metadata CharacterShareInfo::GetMetadata() const {
+::google::protobuf::Metadata CharacterShareInfo::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[37]);
@@ -12801,32 +12801,32 @@ class CheckDeployInfoRequest::_Internal {
  public:
 };
 
-CheckDeployInfoRequest::CheckDeployInfoRequest(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+CheckDeployInfoRequest::CheckDeployInfoRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.CheckDeployInfoRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE CheckDeployInfoRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : character_(arena, from.character_),
         _cached_size_{0} {}
 
 CheckDeployInfoRequest::CheckDeployInfoRequest(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const CheckDeployInfoRequest& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   CheckDeployInfoRequest* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.CheckDeployInfoRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE CheckDeployInfoRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : character_(arena),
         _cached_size_{0} {}
 
@@ -12835,7 +12835,7 @@ inline void CheckDeployInfoRequest::SharedCtor(::_pb::Arena* arena) {
 }
 CheckDeployInfoRequest::~CheckDeployInfoRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.CheckDeployInfoRequest)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void CheckDeployInfoRequest::SharedDtor() {
@@ -12852,7 +12852,7 @@ PROTOBUF_NOINLINE void CheckDeployInfoRequest::Clear() {
   (void) cached_has_bits;
 
   _impl_.character_.ClearToEmpty();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* CheckDeployInfoRequest::_InternalParse(
@@ -12897,7 +12897,7 @@ const ::_pbi::TcParseTable<0, 1, 0, 66, 2> CheckDeployInfoRequest::_table_ = {
 
 ::uint8_t* CheckDeployInfoRequest::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.CheckDeployInfoRequest)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -12905,15 +12905,15 @@ const ::_pbi::TcParseTable<0, 1, 0, 66, 2> CheckDeployInfoRequest::_table_ = {
   // string character = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_character().empty()) {
     const std::string& _s = this->_internal_character();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.CheckDeployInfoRequest.character");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.CheckDeployInfoRequest.character");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.CheckDeployInfoRequest)
   return target;
@@ -12929,22 +12929,22 @@ const ::_pbi::TcParseTable<0, 1, 0, 66, 2> CheckDeployInfoRequest::_table_ = {
 
   // string character = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   if (!this->_internal_character().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_character());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData CheckDeployInfoRequest::_class_data_ = {
+const ::google::protobuf::Message::ClassData CheckDeployInfoRequest::_class_data_ = {
     CheckDeployInfoRequest::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* CheckDeployInfoRequest::GetClassData() const {
+const ::google::protobuf::Message::ClassData* CheckDeployInfoRequest::GetClassData() const {
   return &_class_data_;
 }
 
-void CheckDeployInfoRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void CheckDeployInfoRequest::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<CheckDeployInfoRequest*>(&to_msg);
   auto& from = static_cast<const CheckDeployInfoRequest&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.CheckDeployInfoRequest)
@@ -12955,7 +12955,7 @@ void CheckDeployInfoRequest::MergeImpl(::google::protobuf_inworld::Message& to_m
   if (!from._internal_character().empty()) {
     _this->_internal_set_character(from._internal_character());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void CheckDeployInfoRequest::CopyFrom(const CheckDeployInfoRequest& from) {
@@ -12980,7 +12980,7 @@ void CheckDeployInfoRequest::InternalSwap(CheckDeployInfoRequest* PROTOBUF_RESTR
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.character_, &other->_impl_.character_, arena);
 }
 
-::google::protobuf_inworld::Metadata CheckDeployInfoRequest::GetMetadata() const {
+::google::protobuf::Metadata CheckDeployInfoRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[38]);
@@ -12991,17 +12991,17 @@ class DeployCharacterAsyncMetadata::_Internal {
  public:
 };
 
-DeployCharacterAsyncMetadata::DeployCharacterAsyncMetadata(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::internal::ZeroFieldsBase(arena) {
+DeployCharacterAsyncMetadata::DeployCharacterAsyncMetadata(::google::protobuf::Arena* arena)
+    : ::google::protobuf::internal::ZeroFieldsBase(arena) {
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.DeployCharacterAsyncMetadata)
 }
 DeployCharacterAsyncMetadata::DeployCharacterAsyncMetadata(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const DeployCharacterAsyncMetadata& from)
-    : ::google::protobuf_inworld::internal::ZeroFieldsBase(arena) {
+    : ::google::protobuf::internal::ZeroFieldsBase(arena) {
   DeployCharacterAsyncMetadata* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.DeployCharacterAsyncMetadata)
@@ -13015,7 +13015,7 @@ DeployCharacterAsyncMetadata::DeployCharacterAsyncMetadata(
 
 
 
-::google::protobuf_inworld::Metadata DeployCharacterAsyncMetadata::GetMetadata() const {
+::google::protobuf::Metadata DeployCharacterAsyncMetadata::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[39]);
@@ -13026,17 +13026,17 @@ class DeployCharacterAsyncResponse::_Internal {
  public:
 };
 
-DeployCharacterAsyncResponse::DeployCharacterAsyncResponse(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::internal::ZeroFieldsBase(arena) {
+DeployCharacterAsyncResponse::DeployCharacterAsyncResponse(::google::protobuf::Arena* arena)
+    : ::google::protobuf::internal::ZeroFieldsBase(arena) {
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.DeployCharacterAsyncResponse)
 }
 DeployCharacterAsyncResponse::DeployCharacterAsyncResponse(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const DeployCharacterAsyncResponse& from)
-    : ::google::protobuf_inworld::internal::ZeroFieldsBase(arena) {
+    : ::google::protobuf::internal::ZeroFieldsBase(arena) {
   DeployCharacterAsyncResponse* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.DeployCharacterAsyncResponse)
@@ -13050,7 +13050,7 @@ DeployCharacterAsyncResponse::DeployCharacterAsyncResponse(
 
 
 
-::google::protobuf_inworld::Metadata DeployCharacterAsyncResponse::GetMetadata() const {
+::google::protobuf::Metadata DeployCharacterAsyncResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[40]);
@@ -13061,17 +13061,17 @@ class CreateCharacterMetadata::_Internal {
  public:
 };
 
-CreateCharacterMetadata::CreateCharacterMetadata(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::internal::ZeroFieldsBase(arena) {
+CreateCharacterMetadata::CreateCharacterMetadata(::google::protobuf::Arena* arena)
+    : ::google::protobuf::internal::ZeroFieldsBase(arena) {
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.CreateCharacterMetadata)
 }
 CreateCharacterMetadata::CreateCharacterMetadata(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const CreateCharacterMetadata& from)
-    : ::google::protobuf_inworld::internal::ZeroFieldsBase(arena) {
+    : ::google::protobuf::internal::ZeroFieldsBase(arena) {
   CreateCharacterMetadata* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.CreateCharacterMetadata)
@@ -13085,7 +13085,7 @@ CreateCharacterMetadata::CreateCharacterMetadata(
 
 
 
-::google::protobuf_inworld::Metadata CreateCharacterMetadata::GetMetadata() const {
+::google::protobuf::Metadata CreateCharacterMetadata::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[41]);
@@ -13096,19 +13096,19 @@ class CheckDeployInfoResponse::_Internal {
  public:
 };
 
-CheckDeployInfoResponse::CheckDeployInfoResponse(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+CheckDeployInfoResponse::CheckDeployInfoResponse(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.CheckDeployInfoResponse)
 }
 CheckDeployInfoResponse::CheckDeployInfoResponse(
-    ::google::protobuf_inworld::Arena* arena, const CheckDeployInfoResponse& from)
+    ::google::protobuf::Arena* arena, const CheckDeployInfoResponse& from)
     : CheckDeployInfoResponse(arena) {
   MergeFrom(from);
 }
 inline PROTOBUF_NDEBUG_INLINE CheckDeployInfoResponse::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : _cached_size_{0} {}
 
 inline void CheckDeployInfoResponse::SharedCtor(::_pb::Arena* arena) {
@@ -13117,7 +13117,7 @@ inline void CheckDeployInfoResponse::SharedCtor(::_pb::Arena* arena) {
 }
 CheckDeployInfoResponse::~CheckDeployInfoResponse() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.CheckDeployInfoResponse)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void CheckDeployInfoResponse::SharedDtor() {
@@ -13133,7 +13133,7 @@ PROTOBUF_NOINLINE void CheckDeployInfoResponse::Clear() {
   (void) cached_has_bits;
 
   _impl_.is_fresh_ = false;
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* CheckDeployInfoResponse::_InternalParse(
@@ -13175,7 +13175,7 @@ const ::_pbi::TcParseTable<0, 1, 0, 0, 2> CheckDeployInfoResponse::_table_ = {
 
 ::uint8_t* CheckDeployInfoResponse::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.CheckDeployInfoResponse)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -13190,7 +13190,7 @@ const ::_pbi::TcParseTable<0, 1, 0, 0, 2> CheckDeployInfoResponse::_table_ = {
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.CheckDeployInfoResponse)
   return target;
@@ -13212,15 +13212,15 @@ const ::_pbi::TcParseTable<0, 1, 0, 0, 2> CheckDeployInfoResponse::_table_ = {
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData CheckDeployInfoResponse::_class_data_ = {
+const ::google::protobuf::Message::ClassData CheckDeployInfoResponse::_class_data_ = {
     CheckDeployInfoResponse::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* CheckDeployInfoResponse::GetClassData() const {
+const ::google::protobuf::Message::ClassData* CheckDeployInfoResponse::GetClassData() const {
   return &_class_data_;
 }
 
-void CheckDeployInfoResponse::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void CheckDeployInfoResponse::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<CheckDeployInfoResponse*>(&to_msg);
   auto& from = static_cast<const CheckDeployInfoResponse&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.CheckDeployInfoResponse)
@@ -13231,7 +13231,7 @@ void CheckDeployInfoResponse::MergeImpl(::google::protobuf_inworld::Message& to_
   if (from._internal_is_fresh() != 0) {
     _this->_internal_set_is_fresh(from._internal_is_fresh());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void CheckDeployInfoResponse::CopyFrom(const CheckDeployInfoResponse& from) {
@@ -13254,7 +13254,7 @@ void CheckDeployInfoResponse::InternalSwap(CheckDeployInfoResponse* PROTOBUF_RES
         swap(_impl_.is_fresh_, other->_impl_.is_fresh_);
 }
 
-::google::protobuf_inworld::Metadata CheckDeployInfoResponse::GetMetadata() const {
+::google::protobuf::Metadata CheckDeployInfoResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto[42]);

@@ -19,8 +19,8 @@
 #include "google/protobuf/port_def.inc"
 PROTOBUF_PRAGMA_INIT_SEG
 namespace _pb = ::google::protobuf;
-namespace _pbi = ::google::protobuf_inworld::internal;
-namespace _fl = ::google::protobuf_inworld::internal::field_layout;
+namespace _pbi = ::google::protobuf::internal;
+namespace _fl = ::google::protobuf::internal::field_layout;
 namespace ai {
 namespace inworld {
 namespace voices {
@@ -31,7 +31,7 @@ inline constexpr BaseVoice::Impl_::Impl_(
         languages_{},
         _languages_cached_byte_size_{0},
         name_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         gender_{static_cast< ::ai::inworld::voices::Gender >(0)},
         natural_sample_rate_hertz_{0},
@@ -164,12 +164,12 @@ const ::ai::inworld::voices::Voice_ElevenLabsMetadata& BaseVoice::_Internal::ele
   return *msg->_impl_.tts_metadata_.elevenlabs_metadata_;
 }
 void BaseVoice::set_allocated_elevenlabs_metadata(::ai::inworld::voices::Voice_ElevenLabsMetadata* elevenlabs_metadata) {
-  ::google::protobuf_inworld::Arena* message_arena = GetArena();
+  ::google::protobuf::Arena* message_arena = GetArena();
   clear_tts_metadata();
   if (elevenlabs_metadata) {
-    ::google::protobuf_inworld::Arena* submessage_arena = reinterpret_cast<::google::protobuf_inworld::MessageLite*>(elevenlabs_metadata)->GetArena();
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(elevenlabs_metadata)->GetArena();
     if (message_arena != submessage_arena) {
-      elevenlabs_metadata = ::google::protobuf_inworld::internal::GetOwnedMessage(message_arena, elevenlabs_metadata, submessage_arena);
+      elevenlabs_metadata = ::google::protobuf::internal::GetOwnedMessage(message_arena, elevenlabs_metadata, submessage_arena);
     }
     set_has_elevenlabs_metadata();
     _impl_.tts_metadata_.elevenlabs_metadata_ = elevenlabs_metadata;
@@ -185,13 +185,13 @@ void BaseVoice::clear_elevenlabs_metadata() {
     clear_has_tts_metadata();
   }
 }
-BaseVoice::BaseVoice(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+BaseVoice::BaseVoice(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.voices.BaseVoice)
 }
 inline PROTOBUF_NDEBUG_INLINE BaseVoice::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : language_codes_{visibility, arena, from.language_codes_},
         languages_{visibility, arena, from.languages_},
@@ -202,12 +202,12 @@ inline PROTOBUF_NDEBUG_INLINE BaseVoice::Impl_::Impl_(
         _oneof_case_{from._oneof_case_[0]} {}
 
 BaseVoice::BaseVoice(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const BaseVoice& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   BaseVoice* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
   ::memcpy(reinterpret_cast<char *>(&_impl_) +
@@ -228,8 +228,8 @@ BaseVoice::BaseVoice(
   // @@protoc_insertion_point(copy_constructor:ai.inworld.voices.BaseVoice)
 }
 inline PROTOBUF_NDEBUG_INLINE BaseVoice::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : language_codes_{visibility, arena},
         languages_{visibility, arena},
         _languages_cached_byte_size_{0},
@@ -249,7 +249,7 @@ inline void BaseVoice::SharedCtor(::_pb::Arena* arena) {
 }
 BaseVoice::~BaseVoice() {
   // @@protoc_insertion_point(destructor:ai.inworld.voices.BaseVoice)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void BaseVoice::SharedDtor() {
@@ -293,7 +293,7 @@ PROTOBUF_NOINLINE void BaseVoice::Clear() {
       reinterpret_cast<char*>(&_impl_.age_) -
       reinterpret_cast<char*>(&_impl_.gender_)) + sizeof(_impl_.age_));
   clear_tts_metadata();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* BaseVoice::_InternalParse(
@@ -376,7 +376,7 @@ const ::_pbi::TcParseTable<3, 7, 1, 54, 7> BaseVoice::_table_ = {
 
 ::uint8_t* BaseVoice::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.voices.BaseVoice)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -384,16 +384,16 @@ const ::_pbi::TcParseTable<3, 7, 1, 54, 7> BaseVoice::_table_ = {
   // repeated string language_codes = 1 [deprecated = true];
   for (int i = 0, n = this->_internal_language_codes_size(); i < n; ++i) {
     const auto& s = this->_internal_language_codes().Get(i);
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        s.data(), static_cast<int>(s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.voices.BaseVoice.language_codes");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        s.data(), static_cast<int>(s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.voices.BaseVoice.language_codes");
     target = stream->WriteString(1, s, target);
   }
 
   // string name = 2;
   if (!this->_internal_name().empty()) {
     const std::string& _s = this->_internal_name();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.voices.BaseVoice.name");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.voices.BaseVoice.name");
     target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
@@ -406,7 +406,7 @@ const ::_pbi::TcParseTable<3, 7, 1, 54, 7> BaseVoice::_table_ = {
 
   // int32 natural_sample_rate_hertz = 4;
   if (this->_internal_natural_sample_rate_hertz() != 0) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         WriteInt32ToArrayWithField<4>(
             stream, this->_internal_natural_sample_rate_hertz(), target);
   }
@@ -429,7 +429,7 @@ const ::_pbi::TcParseTable<3, 7, 1, 54, 7> BaseVoice::_table_ = {
 
   // .ai.inworld.voices.Voice.ElevenLabsMetadata elevenlabs_metadata = 100;
   if (tts_metadata_case() == kElevenlabsMetadata) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         100, _Internal::elevenlabs_metadata(this),
         _Internal::elevenlabs_metadata(this).GetCachedSize(), target, stream);
   }
@@ -437,7 +437,7 @@ const ::_pbi::TcParseTable<3, 7, 1, 54, 7> BaseVoice::_table_ = {
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.voices.BaseVoice)
   return target;
@@ -452,9 +452,9 @@ const ::_pbi::TcParseTable<3, 7, 1, 54, 7> BaseVoice::_table_ = {
   (void) cached_has_bits;
 
   // repeated string language_codes = 1 [deprecated = true];
-  total_size += 1 * ::google::protobuf_inworld::internal::FromIntSize(_internal_language_codes().size());
+  total_size += 1 * ::google::protobuf::internal::FromIntSize(_internal_language_codes().size());
   for (int i = 0, n = _internal_language_codes().size(); i < n; ++i) {
-    total_size += ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
         _internal_language_codes().Get(i));
   }
   // repeated .ai.inworld.language_codes.LanguageCode languages = 6;
@@ -476,7 +476,7 @@ const ::_pbi::TcParseTable<3, 7, 1, 54, 7> BaseVoice::_table_ = {
   }
   // string name = 2;
   if (!this->_internal_name().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_name());
   }
 
@@ -502,7 +502,7 @@ const ::_pbi::TcParseTable<3, 7, 1, 54, 7> BaseVoice::_table_ = {
     // .ai.inworld.voices.Voice.ElevenLabsMetadata elevenlabs_metadata = 100;
     case kElevenlabsMetadata: {
       total_size +=
-          2 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.tts_metadata_.elevenlabs_metadata_);
+          2 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.tts_metadata_.elevenlabs_metadata_);
       break;
     }
     case TTS_METADATA_NOT_SET: {
@@ -512,15 +512,15 @@ const ::_pbi::TcParseTable<3, 7, 1, 54, 7> BaseVoice::_table_ = {
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData BaseVoice::_class_data_ = {
+const ::google::protobuf::Message::ClassData BaseVoice::_class_data_ = {
     BaseVoice::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* BaseVoice::GetClassData() const {
+const ::google::protobuf::Message::ClassData* BaseVoice::GetClassData() const {
   return &_class_data_;
 }
 
-void BaseVoice::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void BaseVoice::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<BaseVoice*>(&to_msg);
   auto& from = static_cast<const BaseVoice&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.voices.BaseVoice)
@@ -552,7 +552,7 @@ void BaseVoice::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::g
       break;
     }
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void BaseVoice::CopyFrom(const BaseVoice& from) {
@@ -577,7 +577,7 @@ void BaseVoice::InternalSwap(BaseVoice* PROTOBUF_RESTRICT other) {
   _impl_.language_codes_.InternalSwap(&other->_impl_.language_codes_);
   _impl_.languages_.InternalSwap(&other->_impl_.languages_);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
-  ::google::protobuf_inworld::internal::memswap<
+  ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(BaseVoice, _impl_.age_)
       + sizeof(BaseVoice::_impl_.age_)
       - PROTOBUF_FIELD_OFFSET(BaseVoice, _impl_.gender_)>(
@@ -587,7 +587,7 @@ void BaseVoice::InternalSwap(BaseVoice* PROTOBUF_RESTRICT other) {
   swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
 }
 
-::google::protobuf_inworld::Metadata BaseVoice::GetMetadata() const {
+::google::protobuf::Metadata BaseVoice::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fvoices_2fbase_5fvoice_2eproto_getter, &descriptor_table_ai_2finworld_2fvoices_2fbase_5fvoice_2eproto_once,
       file_level_metadata_ai_2finworld_2fvoices_2fbase_5fvoice_2eproto[0]);

@@ -54,7 +54,7 @@ class AnyMetadata;
 struct TableStruct_google_2frpc_2fstatus_2eproto {
   static const ::uint32_t offsets[];
 };
-extern const ::google::protobuf_inworld::internal::DescriptorTable
+extern const ::google::protobuf::internal::DescriptorTable
     descriptor_table_google_2frpc_2fstatus_2eproto;
 namespace google {
 namespace rpc {
@@ -75,12 +75,12 @@ namespace rpc {
 // -------------------------------------------------------------------
 
 class Status final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:google.rpc.Status) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.rpc.Status) */ {
  public:
   inline Status() : Status(nullptr) {}
   ~Status() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR Status(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR Status(::google::protobuf::internal::ConstantInitialized);
 
   inline Status(const Status& from)
       : Status(nullptr, from) {}
@@ -107,22 +107,22 @@ class Status final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const Status& default_instance() {
@@ -148,7 +148,7 @@ class Status final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(Status* other) {
@@ -159,47 +159,47 @@ class Status final :
 
   // implements Message ----------------------------------------------
 
-  Status* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  Status* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<Status>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const Status& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const Status& from) {
     Status::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(Status* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "google.rpc.Status";
   }
   protected:
-  explicit Status(::google::protobuf_inworld::Arena* arena);
-  Status(::google::protobuf_inworld::Arena* arena, const Status& from);
+  explicit Status(::google::protobuf::Arena* arena);
+  Status(::google::protobuf::Arena* arena, const Status& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -217,16 +217,16 @@ class Status final :
 
   public:
   void clear_details() ;
-  ::google::protobuf_inworld::Any* mutable_details(int index);
-  ::google::protobuf_inworld::RepeatedPtrField< ::google::protobuf_inworld::Any >*
+  ::google::protobuf::Any* mutable_details(int index);
+  ::google::protobuf::RepeatedPtrField< ::google::protobuf::Any >*
       mutable_details();
   private:
-  const ::google::protobuf_inworld::RepeatedPtrField<::google::protobuf_inworld::Any>& _internal_details() const;
-  ::google::protobuf_inworld::RepeatedPtrField<::google::protobuf_inworld::Any>* _internal_mutable_details();
+  const ::google::protobuf::RepeatedPtrField<::google::protobuf::Any>& _internal_details() const;
+  ::google::protobuf::RepeatedPtrField<::google::protobuf::Any>* _internal_mutable_details();
   public:
-  const ::google::protobuf_inworld::Any& details(int index) const;
-  ::google::protobuf_inworld::Any* add_details();
-  const ::google::protobuf_inworld::RepeatedPtrField< ::google::protobuf_inworld::Any >&
+  const ::google::protobuf::Any& details(int index) const;
+  ::google::protobuf::Any* add_details();
+  const ::google::protobuf::RepeatedPtrField< ::google::protobuf::Any >&
       details() const;
   // string message = 2;
   void clear_message() ;
@@ -258,29 +258,29 @@ class Status final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       2, 3, 1,
       33, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::RepeatedPtrField< ::google::protobuf_inworld::Any > details_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr message_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::RepeatedPtrField< ::google::protobuf::Any > details_;
+    ::google::protobuf::internal::ArenaStringPtr message_;
     ::int32_t code_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -386,39 +386,39 @@ inline int Status::_internal_details_size() const {
 inline int Status::details_size() const {
   return _internal_details_size();
 }
-inline ::google::protobuf_inworld::Any* Status::mutable_details(int index)
+inline ::google::protobuf::Any* Status::mutable_details(int index)
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_mutable:google.rpc.Status.details)
   return _internal_mutable_details()->Mutable(index);
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<::google::protobuf_inworld::Any>* Status::mutable_details()
+inline ::google::protobuf::RepeatedPtrField<::google::protobuf::Any>* Status::mutable_details()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_mutable_list:google.rpc.Status.details)
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   return _internal_mutable_details();
 }
-inline const ::google::protobuf_inworld::Any& Status::details(int index) const
+inline const ::google::protobuf::Any& Status::details(int index) const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_get:google.rpc.Status.details)
   return _internal_details().Get(index);
 }
-inline ::google::protobuf_inworld::Any* Status::add_details() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+inline ::google::protobuf::Any* Status::add_details() ABSL_ATTRIBUTE_LIFETIME_BOUND {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  ::google::protobuf_inworld::Any* _add = _internal_mutable_details()->Add();
+  ::google::protobuf::Any* _add = _internal_mutable_details()->Add();
   // @@protoc_insertion_point(field_add:google.rpc.Status.details)
   return _add;
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<::google::protobuf_inworld::Any>& Status::details() const
+inline const ::google::protobuf::RepeatedPtrField<::google::protobuf::Any>& Status::details() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_list:google.rpc.Status.details)
   return _internal_details();
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<::google::protobuf_inworld::Any>&
+inline const ::google::protobuf::RepeatedPtrField<::google::protobuf::Any>&
 Status::_internal_details() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return _impl_.details_;
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<::google::protobuf_inworld::Any>*
+inline ::google::protobuf::RepeatedPtrField<::google::protobuf::Any>*
 Status::_internal_mutable_details() {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return &_impl_.details_;

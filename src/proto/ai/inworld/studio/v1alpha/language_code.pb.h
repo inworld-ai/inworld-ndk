@@ -53,7 +53,7 @@ class AnyMetadata;
 struct TableStruct_ai_2finworld_2fstudio_2fv1alpha_2flanguage_5fcode_2eproto {
   static const ::uint32_t offsets[];
 };
-extern const ::google::protobuf_inworld::internal::DescriptorTable
+extern const ::google::protobuf::internal::DescriptorTable
     descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2flanguage_5fcode_2eproto;
 namespace google {
 namespace protobuf {
@@ -80,7 +80,7 @@ extern const uint32_t LanguageCode_internal_data_[];
 constexpr LanguageCode LanguageCode_MIN = static_cast<LanguageCode>(0);
 constexpr LanguageCode LanguageCode_MAX = static_cast<LanguageCode>(3);
 constexpr int LanguageCode_ARRAYSIZE = 3 + 1;
-const ::google::protobuf_inworld::EnumDescriptor*
+const ::google::protobuf::EnumDescriptor*
 LanguageCode_descriptor();
 template <typename T>
 const std::string& LanguageCode_Name(T value) {
@@ -91,12 +91,12 @@ const std::string& LanguageCode_Name(T value) {
 }
 template <>
 inline const std::string& LanguageCode_Name(LanguageCode value) {
-  return ::google::protobuf_inworld::internal::NameOfDenseEnum<LanguageCode_descriptor,
+  return ::google::protobuf::internal::NameOfDenseEnum<LanguageCode_descriptor,
                                                  0, 3>(
       static_cast<int>(value));
 }
 inline bool LanguageCode_Parse(absl::string_view name, LanguageCode* value) {
-  return ::google::protobuf_inworld::internal::ParseNamedEnum<LanguageCode>(
+  return ::google::protobuf::internal::ParseNamedEnum<LanguageCode>(
       LanguageCode_descriptor(), name, value);
 }
 
@@ -109,12 +109,12 @@ inline bool LanguageCode_Parse(absl::string_view name, LanguageCode* value) {
 
 
 static const int kLanguageCodeStringFieldNumber = 123456789;
-extern ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::EnumValueOptions,
-    ::google::protobuf_inworld::internal::StringTypeTraits, 9, false >
+extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumValueOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false >
   language_code_string;
 static const int kLanguageNameFieldNumber = 123456790;
-extern ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::EnumValueOptions,
-    ::google::protobuf_inworld::internal::StringTypeTraits, 9, false >
+extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumValueOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false >
   language_name;
 
 // ===================================================================

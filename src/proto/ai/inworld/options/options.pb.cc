@@ -19,8 +19,8 @@
 #include "google/protobuf/port_def.inc"
 PROTOBUF_PRAGMA_INIT_SEG
 namespace _pb = ::google::protobuf;
-namespace _pbi = ::google::protobuf_inworld::internal;
-namespace _fl = ::google::protobuf_inworld::internal::field_layout;
+namespace _pbi = ::google::protobuf::internal;
+namespace _fl = ::google::protobuf::internal::field_layout;
 namespace ai {
 namespace inworld {
 namespace options {
@@ -131,8 +131,8 @@ static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_ai_2finworld_2foptions_2f
 namespace ai {
 namespace inworld {
 namespace options {
-const ::google::protobuf_inworld::EnumDescriptor* FieldMode_descriptor() {
-  ::google::protobuf_inworld::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2foptions_2foptions_2eproto);
+const ::google::protobuf::EnumDescriptor* FieldMode_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2foptions_2foptions_2eproto);
   return file_level_enum_descriptors_ai_2finworld_2foptions_2foptions_2eproto[0];
 }
 PROTOBUF_CONSTINIT const uint32_t FieldMode_internal_data_[] = {
@@ -150,32 +150,32 @@ void ExampleValue::clear_example() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   _impl_.example_.Clear();
 }
-ExampleValue::ExampleValue(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+ExampleValue::ExampleValue(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.options.ExampleValue)
 }
 inline PROTOBUF_NDEBUG_INLINE ExampleValue::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : example_{visibility, arena, from.example_},
         _cached_size_{0} {}
 
 ExampleValue::ExampleValue(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const ExampleValue& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   ExampleValue* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.options.ExampleValue)
 }
 inline PROTOBUF_NDEBUG_INLINE ExampleValue::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : example_{visibility, arena},
         _cached_size_{0} {}
 
@@ -184,7 +184,7 @@ inline void ExampleValue::SharedCtor(::_pb::Arena* arena) {
 }
 ExampleValue::~ExampleValue() {
   // @@protoc_insertion_point(destructor:ai.inworld.options.ExampleValue)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void ExampleValue::SharedDtor() {
@@ -200,7 +200,7 @@ PROTOBUF_NOINLINE void ExampleValue::Clear() {
   (void) cached_has_bits;
 
   _impl_.example_.Clear();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* ExampleValue::_InternalParse(
@@ -235,14 +235,14 @@ const ::_pbi::TcParseTable<0, 1, 1, 0, 2> ExampleValue::_table_ = {
     {PROTOBUF_FIELD_OFFSET(ExampleValue, _impl_.example_), 0, 0,
     (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
-    {::_pbi::TcParser::GetTable<::google::protobuf_inworld::Value>()},
+    {::_pbi::TcParser::GetTable<::google::protobuf::Value>()},
   }}, {{
   }},
 };
 
 ::uint8_t* ExampleValue::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.options.ExampleValue)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -251,14 +251,14 @@ const ::_pbi::TcParseTable<0, 1, 1, 0, 2> ExampleValue::_table_ = {
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_example_size()); i < n; i++) {
     const auto& repfield = this->_internal_example().Get(i);
-    target = ::google::protobuf_inworld::internal::WireFormatLite::
+    target = ::google::protobuf::internal::WireFormatLite::
         InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.options.ExampleValue)
   return target;
@@ -276,20 +276,20 @@ const ::_pbi::TcParseTable<0, 1, 1, 0, 2> ExampleValue::_table_ = {
   total_size += 1UL * this->_internal_example_size();
   for (const auto& msg : this->_internal_example()) {
     total_size +=
-      ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(msg);
+      ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
   }
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData ExampleValue::_class_data_ = {
+const ::google::protobuf::Message::ClassData ExampleValue::_class_data_ = {
     ExampleValue::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* ExampleValue::GetClassData() const {
+const ::google::protobuf::Message::ClassData* ExampleValue::GetClassData() const {
   return &_class_data_;
 }
 
-void ExampleValue::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void ExampleValue::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<ExampleValue*>(&to_msg);
   auto& from = static_cast<const ExampleValue&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.options.ExampleValue)
@@ -299,7 +299,7 @@ void ExampleValue::MergeImpl(::google::protobuf_inworld::Message& to_msg, const 
 
   _this->_internal_mutable_example()->MergeFrom(
       from._internal_example());
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ExampleValue::CopyFrom(const ExampleValue& from) {
@@ -322,16 +322,16 @@ void ExampleValue::InternalSwap(ExampleValue* PROTOBUF_RESTRICT other) {
   _impl_.example_.InternalSwap(&other->_impl_.example_);
 }
 
-::google::protobuf_inworld::Metadata ExampleValue::GetMetadata() const {
+::google::protobuf::Metadata ExampleValue::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2foptions_2foptions_2eproto_getter, &descriptor_table_ai_2finworld_2foptions_2foptions_2eproto_once,
       file_level_metadata_ai_2finworld_2foptions_2foptions_2eproto[0]);
 }
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::FieldOptions,
-    ::google::protobuf_inworld::internal::MessageTypeTraits< ::ai::inworld::options::ExampleValue >, 11, false>
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::FieldOptions,
+    ::google::protobuf::internal::MessageTypeTraits< ::ai::inworld::options::ExampleValue >, 11, false>
   examples(kExamplesFieldNumber, ::ai::inworld::options::ExampleValue::default_instance(), nullptr);
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::FieldOptions,
-    ::google::protobuf_inworld::internal::RepeatedEnumTypeTraits< ::ai::inworld::options::FieldMode, ::ai::inworld::options::FieldMode_IsValid>, 14, true>
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::FieldOptions,
+    ::google::protobuf::internal::RepeatedEnumTypeTraits< ::ai::inworld::options::FieldMode, ::ai::inworld::options::FieldMode_IsValid>, 14, true>
   field_mode(kFieldModeFieldNumber, static_cast< ::ai::inworld::options::FieldMode >(0), nullptr);
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace options

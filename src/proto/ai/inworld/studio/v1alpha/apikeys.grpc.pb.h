@@ -68,12 +68,12 @@ class ApiKeys final {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::ApiKey>>(PrepareAsyncActivateApiKeyRaw(context, request, cq));
     }
     // Deletes one specified API key.
-    virtual ::grpc::Status DeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest& request, ::google::protobuf_inworld::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> AsyncDeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(AsyncDeleteApiKeyRaw(context, request, cq));
+    virtual ::grpc::Status DeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest& request, ::google::protobuf::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncDeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncDeleteApiKeyRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> PrepareAsyncDeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(PrepareAsyncDeleteApiKeyRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncDeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncDeleteApiKeyRaw(context, request, cq));
     }
     // Generates an new API key with random secret and default parameters.
     // (-- api-linter: core::0136::http-parent-variable=disabled
@@ -102,8 +102,8 @@ class ApiKeys final {
       virtual void ActivateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, std::function<void(::grpc::Status)>) = 0;
       virtual void ActivateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // Deletes one specified API key.
-      virtual void DeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void DeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void DeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void DeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // Generates an new API key with random secret and default parameters.
       // (-- api-linter: core::0136::http-parent-variable=disabled
       //     aip.dev/not-precedent: Linter false detects a violation here --)
@@ -120,8 +120,8 @@ class ApiKeys final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::ApiKey>* PrepareAsyncSuspendApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::ApiKey>* AsyncActivateApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::ApiKey>* PrepareAsyncActivateApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* AsyncDeleteApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* PrepareAsyncDeleteApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncDeleteApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncDeleteApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::ApiKey>* AsyncGenerateApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::ApiKey>* PrepareAsyncGenerateApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
@@ -149,12 +149,12 @@ class ApiKeys final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ApiKey>> PrepareAsyncActivateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ApiKey>>(PrepareAsyncActivateApiKeyRaw(context, request, cq));
     }
-    ::grpc::Status DeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest& request, ::google::protobuf_inworld::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> AsyncDeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(AsyncDeleteApiKeyRaw(context, request, cq));
+    ::grpc::Status DeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest& request, ::google::protobuf::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncDeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncDeleteApiKeyRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> PrepareAsyncDeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(PrepareAsyncDeleteApiKeyRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncDeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncDeleteApiKeyRaw(context, request, cq));
     }
     ::grpc::Status GenerateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest& request, ::ai::inworld::studio::v1alpha::ApiKey* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ApiKey>> AsyncGenerateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest& request, ::grpc::CompletionQueue* cq) {
@@ -172,8 +172,8 @@ class ApiKeys final {
       void SuspendApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, ::grpc::ClientUnaryReactor* reactor) override;
       void ActivateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, std::function<void(::grpc::Status)>) override;
       void ActivateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void DeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
-      void DeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void DeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
+      void DeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
       void GenerateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, std::function<void(::grpc::Status)>) override;
       void GenerateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
@@ -193,8 +193,8 @@ class ApiKeys final {
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ApiKey>* PrepareAsyncSuspendApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ApiKey>* AsyncActivateApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ApiKey>* PrepareAsyncActivateApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* AsyncDeleteApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* PrepareAsyncDeleteApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncDeleteApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncDeleteApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ApiKey>* AsyncGenerateApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ApiKey>* PrepareAsyncGenerateApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_ListApiKeys_;
@@ -220,7 +220,7 @@ class ApiKeys final {
     //     aip.dev/not-precedent: Linter false detects a violation here --)
     virtual ::grpc::Status ActivateApiKey(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response);
     // Deletes one specified API key.
-    virtual ::grpc::Status DeleteApiKey(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::google::protobuf_inworld::Empty* response);
+    virtual ::grpc::Status DeleteApiKey(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::google::protobuf::Empty* response);
     // Generates an new API key with random secret and default parameters.
     // (-- api-linter: core::0136::http-parent-variable=disabled
     //     aip.dev/not-precedent: Linter false detects a violation here --)
@@ -298,11 +298,11 @@ class ApiKeys final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteApiKey(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status DeleteApiKey(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestDeleteApiKey(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf_inworld::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestDeleteApiKey(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -415,25 +415,25 @@ class ApiKeys final {
    public:
     WithCallbackMethod_DeleteApiKey() {
       ::grpc::Service::MarkMethodCallback(3,
-          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest, ::google::protobuf_inworld::Empty>(
+          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest, ::google::protobuf::Empty>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::google::protobuf_inworld::Empty* response) { return this->DeleteApiKey(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::google::protobuf::Empty* response) { return this->DeleteApiKey(context, request, response); }));}
     void SetMessageAllocatorFor_DeleteApiKey(
-        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest, ::google::protobuf_inworld::Empty>* allocator) {
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest, ::google::protobuf::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest, ::google::protobuf_inworld::Empty>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest, ::google::protobuf::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_DeleteApiKey() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteApiKey(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status DeleteApiKey(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* DeleteApiKey(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* /*request*/, ::google::protobuf::Empty* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_GenerateApiKey : public BaseClass {
@@ -527,7 +527,7 @@ class ApiKeys final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteApiKey(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status DeleteApiKey(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -621,7 +621,7 @@ class ApiKeys final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteApiKey(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status DeleteApiKey(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -730,7 +730,7 @@ class ApiKeys final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteApiKey(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status DeleteApiKey(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -848,10 +848,10 @@ class ApiKeys final {
     WithStreamedUnaryMethod_DeleteApiKey() {
       ::grpc::Service::MarkMethodStreamed(3,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest, ::google::protobuf_inworld::Empty>(
+          ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest, ::google::protobuf::Empty>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest, ::google::protobuf_inworld::Empty>* streamer) {
+                     ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest, ::google::protobuf::Empty>* streamer) {
                        return this->StreamedDeleteApiKey(context,
                          streamer);
                   }));
@@ -860,12 +860,12 @@ class ApiKeys final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status DeleteApiKey(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status DeleteApiKey(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedDeleteApiKey(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest,::google::protobuf_inworld::Empty>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedDeleteApiKey(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest,::google::protobuf::Empty>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_GenerateApiKey : public BaseClass {

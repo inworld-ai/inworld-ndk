@@ -57,12 +57,12 @@ class Characters final {
     //   behavioralContexts.<INDEX1>.triggers.<INDEX2>
     //   behavioralContexts.<INDEX1>.behavioralContextInteraction.<INDEX2>.actions.<INDEX3>.tellInstructed.speechInstruction
     //   behavioralContexts.<INDEX1>.behavioralContextInteraction.<INDEX2>.actions.<INDEX3>.sendCustomEvent.customEvent
-    virtual ::grpc::Status DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::google::protobuf_inworld::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> AsyncDeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(AsyncDeployCharacterRaw(context, request, cq));
+    virtual ::grpc::Status DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::google::protobuf::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncDeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncDeployCharacterRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> PrepareAsyncDeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(PrepareAsyncDeployCharacterRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncDeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncDeployCharacterRaw(context, request, cq));
     }
     // Clone one character into another one in the same workspace for now
     virtual ::grpc::Status CloneCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest& request, ::ai::inworld::studio::v1alpha::Character* response) = 0;
@@ -116,12 +116,12 @@ class Characters final {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>>(PrepareAsyncCreateCharacterRaw(context, request, cq));
     }
     // RPC to delete a character.
-    virtual ::grpc::Status DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::google::protobuf_inworld::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> AsyncDeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(AsyncDeleteCharacterRaw(context, request, cq));
+    virtual ::grpc::Status DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::google::protobuf::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncDeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncDeleteCharacterRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> PrepareAsyncDeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(PrepareAsyncDeleteCharacterRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncDeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncDeleteCharacterRaw(context, request, cq));
     }
     // RPC to update RPM model for the character.
     virtual ::grpc::Status ReplaceCharacterRpmModel(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest& request, ::ai::inworld::studio::v1alpha::Character* response) = 0;
@@ -173,28 +173,28 @@ class Characters final {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>>(PrepareAsyncUpdateCharacterAdvancedSettingsRaw(context, request, cq));
     }
     // RPC to share the character with listed of external ids
-    virtual ::grpc::Status ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::google::protobuf_inworld::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> AsyncShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(AsyncShareCharacterRaw(context, request, cq));
+    virtual ::grpc::Status ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::google::protobuf::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncShareCharacterRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> PrepareAsyncShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(PrepareAsyncShareCharacterRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncShareCharacterRaw(context, request, cq));
     }
     // RPC to share the character with portal users
-    virtual ::grpc::Status ShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::google::protobuf_inworld::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> AsyncShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(AsyncShareCharacterPortalRaw(context, request, cq));
+    virtual ::grpc::Status ShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::google::protobuf::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncShareCharacterPortalRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> PrepareAsyncShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(PrepareAsyncShareCharacterPortalRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncShareCharacterPortalRaw(context, request, cq));
     }
     // RPC to un share the character with portal users
-    virtual ::grpc::Status UnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest& request, ::google::protobuf_inworld::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> AsyncUnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(AsyncUnshareCharacterPortalRaw(context, request, cq));
+    virtual ::grpc::Status UnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest& request, ::google::protobuf::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncUnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncUnshareCharacterPortalRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> PrepareAsyncUnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(PrepareAsyncUnshareCharacterPortalRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncUnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncUnshareCharacterPortalRaw(context, request, cq));
     }
     // Returns characters which were shared with the current user
     // (-- api-linter: core::0136::http-uri-suffix=disabled --)
@@ -234,8 +234,8 @@ class Characters final {
       //   behavioralContexts.<INDEX1>.triggers.<INDEX2>
       //   behavioralContexts.<INDEX1>.behavioralContextInteraction.<INDEX2>.actions.<INDEX3>.tellInstructed.speechInstruction
       //   behavioralContexts.<INDEX1>.behavioralContextInteraction.<INDEX2>.actions.<INDEX3>.sendCustomEvent.customEvent
-      virtual void DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // Clone one character into another one in the same workspace for now
       virtual void CloneCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) = 0;
       virtual void CloneCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::ClientUnaryReactor* reactor) = 0;
@@ -258,8 +258,8 @@ class Characters final {
       virtual void CreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::google::longrunning::Operation* response, std::function<void(::grpc::Status)>) = 0;
       virtual void CreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::google::longrunning::Operation* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // RPC to delete a character.
-      virtual void DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // RPC to update RPM model for the character.
       virtual void ReplaceCharacterRpmModel(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) = 0;
       virtual void ReplaceCharacterRpmModel(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::ClientUnaryReactor* reactor) = 0;
@@ -280,14 +280,14 @@ class Characters final {
       virtual void UpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, std::function<void(::grpc::Status)>) = 0;
       virtual void UpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // RPC to share the character with listed of external ids
-      virtual void ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // RPC to share the character with portal users
-      virtual void ShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void ShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void ShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void ShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // RPC to un share the character with portal users
-      virtual void UnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void UnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void UnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void UnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // Returns characters which were shared with the current user
       // (-- api-linter: core::0136::http-uri-suffix=disabled --)
       virtual void ListSharedCharacters(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse* response, std::function<void(::grpc::Status)>) = 0;
@@ -300,8 +300,8 @@ class Characters final {
     virtual class async_interface* async() { return nullptr; }
     class async_interface* experimental_async() { return async(); }
    private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* AsyncDeployCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* PrepareAsyncDeployCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncDeployCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncDeployCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>* AsyncCloneCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>* PrepareAsyncCloneCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>* AsyncDeployCharacterAsynchronouslyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -314,8 +314,8 @@ class Characters final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>* PrepareAsyncUpdateCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>* AsyncCreateCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>* PrepareAsyncCreateCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* AsyncDeleteCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* PrepareAsyncDeleteCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncDeleteCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncDeleteCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>* AsyncReplaceCharacterRpmModelRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>* PrepareAsyncReplaceCharacterRpmModelRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>* AsyncReplaceCharacterImageRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -328,12 +328,12 @@ class Characters final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* PrepareAsyncGetCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* AsyncUpdateCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* PrepareAsyncUpdateCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* AsyncShareCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* PrepareAsyncShareCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* AsyncShareCharacterPortalRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* PrepareAsyncShareCharacterPortalRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* AsyncUnshareCharacterPortalRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* PrepareAsyncUnshareCharacterPortalRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncShareCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncShareCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncShareCharacterPortalRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncShareCharacterPortalRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncUnshareCharacterPortalRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncUnshareCharacterPortalRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse>* AsyncListSharedCharactersRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse>* PrepareAsyncListSharedCharactersRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::CharacterShareInfo>* AsyncGetCharacterShareInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -342,12 +342,12 @@ class Characters final {
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
-    ::grpc::Status DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::google::protobuf_inworld::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> AsyncDeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(AsyncDeployCharacterRaw(context, request, cq));
+    ::grpc::Status DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::google::protobuf::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncDeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncDeployCharacterRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> PrepareAsyncDeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(PrepareAsyncDeployCharacterRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncDeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncDeployCharacterRaw(context, request, cq));
     }
     ::grpc::Status CloneCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest& request, ::ai::inworld::studio::v1alpha::Character* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>> AsyncCloneCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest& request, ::grpc::CompletionQueue* cq) {
@@ -391,12 +391,12 @@ class Characters final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>> PrepareAsyncCreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>>(PrepareAsyncCreateCharacterRaw(context, request, cq));
     }
-    ::grpc::Status DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::google::protobuf_inworld::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> AsyncDeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(AsyncDeleteCharacterRaw(context, request, cq));
+    ::grpc::Status DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::google::protobuf::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncDeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncDeleteCharacterRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> PrepareAsyncDeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(PrepareAsyncDeleteCharacterRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncDeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncDeleteCharacterRaw(context, request, cq));
     }
     ::grpc::Status ReplaceCharacterRpmModel(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest& request, ::ai::inworld::studio::v1alpha::Character* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>> AsyncReplaceCharacterRpmModel(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest& request, ::grpc::CompletionQueue* cq) {
@@ -440,26 +440,26 @@ class Characters final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>> PrepareAsyncUpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>>(PrepareAsyncUpdateCharacterAdvancedSettingsRaw(context, request, cq));
     }
-    ::grpc::Status ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::google::protobuf_inworld::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> AsyncShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(AsyncShareCharacterRaw(context, request, cq));
+    ::grpc::Status ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::google::protobuf::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncShareCharacterRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> PrepareAsyncShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(PrepareAsyncShareCharacterRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncShareCharacterRaw(context, request, cq));
     }
-    ::grpc::Status ShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::google::protobuf_inworld::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> AsyncShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(AsyncShareCharacterPortalRaw(context, request, cq));
+    ::grpc::Status ShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::google::protobuf::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncShareCharacterPortalRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> PrepareAsyncShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(PrepareAsyncShareCharacterPortalRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncShareCharacterPortalRaw(context, request, cq));
     }
-    ::grpc::Status UnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest& request, ::google::protobuf_inworld::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> AsyncUnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(AsyncUnshareCharacterPortalRaw(context, request, cq));
+    ::grpc::Status UnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest& request, ::google::protobuf::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncUnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncUnshareCharacterPortalRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> PrepareAsyncUnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(PrepareAsyncUnshareCharacterPortalRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncUnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncUnshareCharacterPortalRaw(context, request, cq));
     }
     ::grpc::Status ListSharedCharacters(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest& request, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse>> AsyncListSharedCharacters(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest& request, ::grpc::CompletionQueue* cq) {
@@ -478,8 +478,8 @@ class Characters final {
     class async final :
       public StubInterface::async_interface {
      public:
-      void DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
-      void DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
+      void DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
       void CloneCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) override;
       void CloneCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::ClientUnaryReactor* reactor) override;
       void DeployCharacterAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::longrunning::Operation* response, std::function<void(::grpc::Status)>) override;
@@ -492,8 +492,8 @@ class Characters final {
       void UpdateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::ClientUnaryReactor* reactor) override;
       void CreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::google::longrunning::Operation* response, std::function<void(::grpc::Status)>) override;
       void CreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::google::longrunning::Operation* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
-      void DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
+      void DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
       void ReplaceCharacterRpmModel(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) override;
       void ReplaceCharacterRpmModel(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::ClientUnaryReactor* reactor) override;
       void ReplaceCharacterImage(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) override;
@@ -506,12 +506,12 @@ class Characters final {
       void GetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, ::grpc::ClientUnaryReactor* reactor) override;
       void UpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, std::function<void(::grpc::Status)>) override;
       void UpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
-      void ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void ShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
-      void ShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void UnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
-      void UnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
+      void ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void ShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
+      void ShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void UnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
+      void UnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
       void ListSharedCharacters(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse* response, std::function<void(::grpc::Status)>) override;
       void ListSharedCharacters(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       void GetCharacterShareInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest* request, ::ai::inworld::studio::v1alpha::CharacterShareInfo* response, std::function<void(::grpc::Status)>) override;
@@ -527,8 +527,8 @@ class Characters final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* AsyncDeployCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* PrepareAsyncDeployCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncDeployCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncDeployCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* AsyncCloneCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* PrepareAsyncCloneCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>* AsyncDeployCharacterAsynchronouslyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -541,8 +541,8 @@ class Characters final {
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* PrepareAsyncUpdateCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>* AsyncCreateCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>* PrepareAsyncCreateCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* AsyncDeleteCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* PrepareAsyncDeleteCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncDeleteCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncDeleteCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* AsyncReplaceCharacterRpmModelRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* PrepareAsyncReplaceCharacterRpmModelRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* AsyncReplaceCharacterImageRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -555,12 +555,12 @@ class Characters final {
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* PrepareAsyncGetCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* AsyncUpdateCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* PrepareAsyncUpdateCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* AsyncShareCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* PrepareAsyncShareCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* AsyncShareCharacterPortalRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* PrepareAsyncShareCharacterPortalRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* AsyncUnshareCharacterPortalRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* PrepareAsyncUnshareCharacterPortalRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncShareCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncShareCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncShareCharacterPortalRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncShareCharacterPortalRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncUnshareCharacterPortalRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncUnshareCharacterPortalRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse>* AsyncListSharedCharactersRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse>* PrepareAsyncListSharedCharactersRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterShareInfo>* AsyncGetCharacterShareInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -609,7 +609,7 @@ class Characters final {
     //   behavioralContexts.<INDEX1>.triggers.<INDEX2>
     //   behavioralContexts.<INDEX1>.behavioralContextInteraction.<INDEX2>.actions.<INDEX3>.tellInstructed.speechInstruction
     //   behavioralContexts.<INDEX1>.behavioralContextInteraction.<INDEX2>.actions.<INDEX3>.sendCustomEvent.customEvent
-    virtual ::grpc::Status DeployCharacter(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf_inworld::Empty* response);
+    virtual ::grpc::Status DeployCharacter(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf::Empty* response);
     // Clone one character into another one in the same workspace for now
     virtual ::grpc::Status CloneCharacter(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response);
     // Async version of DeployCharacter. Returns a long running operation object
@@ -626,7 +626,7 @@ class Characters final {
     // RPC to create character.
     virtual ::grpc::Status CreateCharacter(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::google::longrunning::Operation* response);
     // RPC to delete a character.
-    virtual ::grpc::Status DeleteCharacter(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf_inworld::Empty* response);
+    virtual ::grpc::Status DeleteCharacter(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf::Empty* response);
     // RPC to update RPM model for the character.
     virtual ::grpc::Status ReplaceCharacterRpmModel(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* request, ::ai::inworld::studio::v1alpha::Character* response);
     // RPC to update image for the character.
@@ -641,11 +641,11 @@ class Characters final {
     // RPC to update a character advanced settings.
     virtual ::grpc::Status UpdateCharacterAdvancedSettings(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response);
     // RPC to share the character with listed of external ids
-    virtual ::grpc::Status ShareCharacter(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf_inworld::Empty* response);
+    virtual ::grpc::Status ShareCharacter(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf::Empty* response);
     // RPC to share the character with portal users
-    virtual ::grpc::Status ShareCharacterPortal(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response);
+    virtual ::grpc::Status ShareCharacterPortal(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf::Empty* response);
     // RPC to un share the character with portal users
-    virtual ::grpc::Status UnshareCharacterPortal(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response);
+    virtual ::grpc::Status UnshareCharacterPortal(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf::Empty* response);
     // Returns characters which were shared with the current user
     // (-- api-linter: core::0136::http-uri-suffix=disabled --)
     virtual ::grpc::Status ListSharedCharacters(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse* response);
@@ -664,11 +664,11 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeployCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status DeployCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestDeployCharacter(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf_inworld::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestDeployCharacter(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -804,11 +804,11 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status DeleteCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestDeleteCharacter(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf_inworld::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestDeleteCharacter(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -944,11 +944,11 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ShareCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status ShareCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestShareCharacter(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf_inworld::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestShareCharacter(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(14, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -964,11 +964,11 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ShareCharacterPortal(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status ShareCharacterPortal(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestShareCharacterPortal(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf_inworld::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestShareCharacterPortal(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(15, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -984,11 +984,11 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UnshareCharacterPortal(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status UnshareCharacterPortal(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestUnshareCharacterPortal(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf_inworld::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestUnshareCharacterPortal(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(16, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -1040,25 +1040,25 @@ class Characters final {
    public:
     WithCallbackMethod_DeployCharacter() {
       ::grpc::Service::MarkMethodCallback(0,
-          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::protobuf_inworld::Empty>(
+          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::protobuf::Empty>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf_inworld::Empty* response) { return this->DeployCharacter(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf::Empty* response) { return this->DeployCharacter(context, request, response); }));}
     void SetMessageAllocatorFor_DeployCharacter(
-        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::protobuf_inworld::Empty>* allocator) {
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::protobuf::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::protobuf_inworld::Empty>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::protobuf::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_DeployCharacter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeployCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status DeployCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* DeployCharacter(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::protobuf::Empty* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_CloneCharacter : public BaseClass {
@@ -1229,25 +1229,25 @@ class Characters final {
    public:
     WithCallbackMethod_DeleteCharacter() {
       ::grpc::Service::MarkMethodCallback(7,
-          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteCharacterRequest, ::google::protobuf_inworld::Empty>(
+          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteCharacterRequest, ::google::protobuf::Empty>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf_inworld::Empty* response) { return this->DeleteCharacter(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf::Empty* response) { return this->DeleteCharacter(context, request, response); }));}
     void SetMessageAllocatorFor_DeleteCharacter(
-        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::DeleteCharacterRequest, ::google::protobuf_inworld::Empty>* allocator) {
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::DeleteCharacterRequest, ::google::protobuf::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(7);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteCharacterRequest, ::google::protobuf_inworld::Empty>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteCharacterRequest, ::google::protobuf::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_DeleteCharacter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status DeleteCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* DeleteCharacter(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* /*request*/, ::google::protobuf::Empty* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_ReplaceCharacterRpmModel : public BaseClass {
@@ -1418,25 +1418,25 @@ class Characters final {
    public:
     WithCallbackMethod_ShareCharacter() {
       ::grpc::Service::MarkMethodCallback(14,
-          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf_inworld::Empty>(
+          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf::Empty>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf_inworld::Empty* response) { return this->ShareCharacter(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf::Empty* response) { return this->ShareCharacter(context, request, response); }));}
     void SetMessageAllocatorFor_ShareCharacter(
-        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf_inworld::Empty>* allocator) {
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(14);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf_inworld::Empty>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_ShareCharacter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ShareCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status ShareCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* ShareCharacter(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* /*request*/, ::google::protobuf::Empty* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_ShareCharacterPortal : public BaseClass {
@@ -1445,25 +1445,25 @@ class Characters final {
    public:
     WithCallbackMethod_ShareCharacterPortal() {
       ::grpc::Service::MarkMethodCallback(15,
-          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf_inworld::Empty>(
+          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf::Empty>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response) { return this->ShareCharacterPortal(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf::Empty* response) { return this->ShareCharacterPortal(context, request, response); }));}
     void SetMessageAllocatorFor_ShareCharacterPortal(
-        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf_inworld::Empty>* allocator) {
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(15);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf_inworld::Empty>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_ShareCharacterPortal() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ShareCharacterPortal(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status ShareCharacterPortal(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* ShareCharacterPortal(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* /*request*/, ::google::protobuf::Empty* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_UnshareCharacterPortal : public BaseClass {
@@ -1472,25 +1472,25 @@ class Characters final {
    public:
     WithCallbackMethod_UnshareCharacterPortal() {
       ::grpc::Service::MarkMethodCallback(16,
-          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf_inworld::Empty>(
+          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf::Empty>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response) { return this->UnshareCharacterPortal(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf::Empty* response) { return this->UnshareCharacterPortal(context, request, response); }));}
     void SetMessageAllocatorFor_UnshareCharacterPortal(
-        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf_inworld::Empty>* allocator) {
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(16);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf_inworld::Empty>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_UnshareCharacterPortal() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UnshareCharacterPortal(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status UnshareCharacterPortal(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* UnshareCharacterPortal(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* /*request*/, ::google::protobuf::Empty* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_ListSharedCharacters : public BaseClass {
@@ -1560,7 +1560,7 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeployCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status DeployCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1679,7 +1679,7 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status DeleteCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1798,7 +1798,7 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ShareCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status ShareCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1815,7 +1815,7 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ShareCharacterPortal(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status ShareCharacterPortal(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1832,7 +1832,7 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UnshareCharacterPortal(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status UnshareCharacterPortal(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1883,7 +1883,7 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeployCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status DeployCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2023,7 +2023,7 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status DeleteCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2163,7 +2163,7 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ShareCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status ShareCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2183,7 +2183,7 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ShareCharacterPortal(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status ShareCharacterPortal(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2203,7 +2203,7 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UnshareCharacterPortal(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status UnshareCharacterPortal(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2266,7 +2266,7 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeployCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status DeployCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2420,7 +2420,7 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status DeleteCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2574,7 +2574,7 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ShareCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status ShareCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2596,7 +2596,7 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ShareCharacterPortal(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status ShareCharacterPortal(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2618,7 +2618,7 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UnshareCharacterPortal(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status UnshareCharacterPortal(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2677,10 +2677,10 @@ class Characters final {
     WithStreamedUnaryMethod_DeployCharacter() {
       ::grpc::Service::MarkMethodStreamed(0,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::protobuf_inworld::Empty>(
+          ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::protobuf::Empty>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::protobuf_inworld::Empty>* streamer) {
+                     ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::protobuf::Empty>* streamer) {
                        return this->StreamedDeployCharacter(context,
                          streamer);
                   }));
@@ -2689,12 +2689,12 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status DeployCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status DeployCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedDeployCharacter(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::DeployCharacterRequest,::google::protobuf_inworld::Empty>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedDeployCharacter(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::DeployCharacterRequest,::google::protobuf::Empty>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_CloneCharacter : public BaseClass {
@@ -2866,10 +2866,10 @@ class Characters final {
     WithStreamedUnaryMethod_DeleteCharacter() {
       ::grpc::Service::MarkMethodStreamed(7,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::ai::inworld::studio::v1alpha::DeleteCharacterRequest, ::google::protobuf_inworld::Empty>(
+          ::ai::inworld::studio::v1alpha::DeleteCharacterRequest, ::google::protobuf::Empty>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::ai::inworld::studio::v1alpha::DeleteCharacterRequest, ::google::protobuf_inworld::Empty>* streamer) {
+                     ::ai::inworld::studio::v1alpha::DeleteCharacterRequest, ::google::protobuf::Empty>* streamer) {
                        return this->StreamedDeleteCharacter(context,
                          streamer);
                   }));
@@ -2878,12 +2878,12 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status DeleteCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status DeleteCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedDeleteCharacter(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::DeleteCharacterRequest,::google::protobuf_inworld::Empty>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedDeleteCharacter(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::DeleteCharacterRequest,::google::protobuf::Empty>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_ReplaceCharacterRpmModel : public BaseClass {
@@ -3055,10 +3055,10 @@ class Characters final {
     WithStreamedUnaryMethod_ShareCharacter() {
       ::grpc::Service::MarkMethodStreamed(14,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf_inworld::Empty>(
+          ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf::Empty>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf_inworld::Empty>* streamer) {
+                     ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf::Empty>* streamer) {
                        return this->StreamedShareCharacter(context,
                          streamer);
                   }));
@@ -3067,12 +3067,12 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status ShareCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status ShareCharacter(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedShareCharacter(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::ShareCharacterRequest,::google::protobuf_inworld::Empty>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedShareCharacter(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::ShareCharacterRequest,::google::protobuf::Empty>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_ShareCharacterPortal : public BaseClass {
@@ -3082,10 +3082,10 @@ class Characters final {
     WithStreamedUnaryMethod_ShareCharacterPortal() {
       ::grpc::Service::MarkMethodStreamed(15,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf_inworld::Empty>(
+          ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf::Empty>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf_inworld::Empty>* streamer) {
+                     ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf::Empty>* streamer) {
                        return this->StreamedShareCharacterPortal(context,
                          streamer);
                   }));
@@ -3094,12 +3094,12 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status ShareCharacterPortal(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status ShareCharacterPortal(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedShareCharacterPortal(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest,::google::protobuf_inworld::Empty>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedShareCharacterPortal(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest,::google::protobuf::Empty>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_UnshareCharacterPortal : public BaseClass {
@@ -3109,10 +3109,10 @@ class Characters final {
     WithStreamedUnaryMethod_UnshareCharacterPortal() {
       ::grpc::Service::MarkMethodStreamed(16,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf_inworld::Empty>(
+          ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf::Empty>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf_inworld::Empty>* streamer) {
+                     ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf::Empty>* streamer) {
                        return this->StreamedUnshareCharacterPortal(context,
                          streamer);
                   }));
@@ -3121,12 +3121,12 @@ class Characters final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status UnshareCharacterPortal(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/) override {
+    ::grpc::Status UnshareCharacterPortal(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedUnshareCharacterPortal(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest,::google::protobuf_inworld::Empty>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedUnshareCharacterPortal(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest,::google::protobuf::Empty>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_ListSharedCharacters : public BaseClass {

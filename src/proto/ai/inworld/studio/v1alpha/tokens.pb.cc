@@ -19,8 +19,8 @@
 #include "google/protobuf/port_def.inc"
 PROTOBUF_PRAGMA_INIT_SEG
 namespace _pb = ::google::protobuf;
-namespace _pbi = ::google::protobuf_inworld::internal;
-namespace _fl = ::google::protobuf_inworld::internal::field_layout;
+namespace _pbi = ::google::protobuf::internal;
+namespace _fl = ::google::protobuf::internal::field_layout;
 namespace ai {
 namespace inworld {
 namespace studio {
@@ -29,7 +29,7 @@ namespace v1alpha {
 inline constexpr GenerateSessionTokenRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : key_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
 
@@ -50,7 +50,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr GenerateDefaultSessionTokenRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : parent_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
 
@@ -72,13 +72,13 @@ inline constexpr SessionAccessToken::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
         token_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         type_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         session_id_(
-            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         expiration_time_{nullptr} {}
 
@@ -243,13 +243,13 @@ class SessionAccessToken::_Internal {
   using HasBits = decltype(std::declval<SessionAccessToken>()._impl_._has_bits_);
   static constexpr ::int32_t kHasBitsOffset =
     8 * PROTOBUF_FIELD_OFFSET(SessionAccessToken, _impl_._has_bits_);
-  static const ::google::protobuf_inworld::Timestamp& expiration_time(const SessionAccessToken* msg);
+  static const ::google::protobuf::Timestamp& expiration_time(const SessionAccessToken* msg);
   static void set_has_expiration_time(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
 };
 
-const ::google::protobuf_inworld::Timestamp& SessionAccessToken::_Internal::expiration_time(const SessionAccessToken* msg) {
+const ::google::protobuf::Timestamp& SessionAccessToken::_Internal::expiration_time(const SessionAccessToken* msg) {
   return *msg->_impl_.expiration_time_;
 }
 void SessionAccessToken::clear_expiration_time() {
@@ -257,13 +257,13 @@ void SessionAccessToken::clear_expiration_time() {
   if (_impl_.expiration_time_ != nullptr) _impl_.expiration_time_->Clear();
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-SessionAccessToken::SessionAccessToken(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+SessionAccessToken::SessionAccessToken(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.SessionAccessToken)
 }
 inline PROTOBUF_NDEBUG_INLINE SessionAccessToken::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
@@ -272,24 +272,24 @@ inline PROTOBUF_NDEBUG_INLINE SessionAccessToken::Impl_::Impl_(
         session_id_(arena, from.session_id_) {}
 
 SessionAccessToken::SessionAccessToken(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const SessionAccessToken& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   SessionAccessToken* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
   ::uint32_t cached_has_bits = _impl_._has_bits_[0];
   _impl_.expiration_time_ = (cached_has_bits & 0x00000001u)
-                ? CreateMaybeMessage<::google::protobuf_inworld::Timestamp>(arena, *from._impl_.expiration_time_)
+                ? CreateMaybeMessage<::google::protobuf::Timestamp>(arena, *from._impl_.expiration_time_)
                 : nullptr;
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.SessionAccessToken)
 }
 inline PROTOBUF_NDEBUG_INLINE SessionAccessToken::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : _cached_size_{0},
         token_(arena),
         type_(arena),
@@ -301,7 +301,7 @@ inline void SessionAccessToken::SharedCtor(::_pb::Arena* arena) {
 }
 SessionAccessToken::~SessionAccessToken() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.SessionAccessToken)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void SessionAccessToken::SharedDtor() {
@@ -329,7 +329,7 @@ PROTOBUF_NOINLINE void SessionAccessToken::Clear() {
     _impl_.expiration_time_->Clear();
   }
   _impl_._has_bits_.Clear();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* SessionAccessToken::_InternalParse(
@@ -382,7 +382,7 @@ const ::_pbi::TcParseTable<2, 4, 1, 72, 2> SessionAccessToken::_table_ = {
     {PROTOBUF_FIELD_OFFSET(SessionAccessToken, _impl_.session_id_), -1, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
   }}, {{
-    {::_pbi::TcParser::GetTable<::google::protobuf_inworld::Timestamp>()},
+    {::_pbi::TcParser::GetTable<::google::protobuf::Timestamp>()},
   }}, {{
     "\54\5\4\0\12\0\0\0"
     "ai.inworld.studio.v1alpha.SessionAccessToken"
@@ -394,7 +394,7 @@ const ::_pbi::TcParseTable<2, 4, 1, 72, 2> SessionAccessToken::_table_ = {
 
 ::uint8_t* SessionAccessToken::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.SessionAccessToken)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -402,23 +402,23 @@ const ::_pbi::TcParseTable<2, 4, 1, 72, 2> SessionAccessToken::_table_ = {
   // string token = 1;
   if (!this->_internal_token().empty()) {
     const std::string& _s = this->_internal_token();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.SessionAccessToken.token");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.SessionAccessToken.token");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // string type = 2;
   if (!this->_internal_type().empty()) {
     const std::string& _s = this->_internal_type();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.SessionAccessToken.type");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.SessionAccessToken.type");
     target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
   cached_has_bits = _impl_._has_bits_[0];
   // .google.protobuf.Timestamp expiration_time = 3;
   if (cached_has_bits & 0x00000001u) {
-    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         3, _Internal::expiration_time(this),
         _Internal::expiration_time(this).GetCachedSize(), target, stream);
   }
@@ -426,15 +426,15 @@ const ::_pbi::TcParseTable<2, 4, 1, 72, 2> SessionAccessToken::_table_ = {
   // string session_id = 4;
   if (!this->_internal_session_id().empty()) {
     const std::string& _s = this->_internal_session_id();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.SessionAccessToken.session_id");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.SessionAccessToken.session_id");
     target = stream->WriteStringMaybeAliased(4, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.SessionAccessToken)
   return target;
@@ -450,19 +450,19 @@ const ::_pbi::TcParseTable<2, 4, 1, 72, 2> SessionAccessToken::_table_ = {
 
   // string token = 1;
   if (!this->_internal_token().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_token());
   }
 
   // string type = 2;
   if (!this->_internal_type().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_type());
   }
 
   // string session_id = 4;
   if (!this->_internal_session_id().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_session_id());
   }
 
@@ -470,21 +470,21 @@ const ::_pbi::TcParseTable<2, 4, 1, 72, 2> SessionAccessToken::_table_ = {
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size +=
-        1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.expiration_time_);
+        1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.expiration_time_);
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData SessionAccessToken::_class_data_ = {
+const ::google::protobuf::Message::ClassData SessionAccessToken::_class_data_ = {
     SessionAccessToken::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* SessionAccessToken::GetClassData() const {
+const ::google::protobuf::Message::ClassData* SessionAccessToken::GetClassData() const {
   return &_class_data_;
 }
 
-void SessionAccessToken::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void SessionAccessToken::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<SessionAccessToken*>(&to_msg);
   auto& from = static_cast<const SessionAccessToken&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.SessionAccessToken)
@@ -502,10 +502,10 @@ void SessionAccessToken::MergeImpl(::google::protobuf_inworld::Message& to_msg, 
     _this->_internal_set_session_id(from._internal_session_id());
   }
   if ((from._impl_._has_bits_[0] & 0x00000001u) != 0) {
-    _this->_internal_mutable_expiration_time()->::google::protobuf_inworld::Timestamp::MergeFrom(
+    _this->_internal_mutable_expiration_time()->::google::protobuf::Timestamp::MergeFrom(
         from._internal_expiration_time());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void SessionAccessToken::CopyFrom(const SessionAccessToken& from) {
@@ -534,7 +534,7 @@ void SessionAccessToken::InternalSwap(SessionAccessToken* PROTOBUF_RESTRICT othe
   swap(_impl_.expiration_time_, other->_impl_.expiration_time_);
 }
 
-::google::protobuf_inworld::Metadata SessionAccessToken::GetMetadata() const {
+::google::protobuf::Metadata SessionAccessToken::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2ftokens_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2ftokens_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2ftokens_2eproto[0]);
@@ -545,32 +545,32 @@ class GenerateSessionTokenRequest::_Internal {
  public:
 };
 
-GenerateSessionTokenRequest::GenerateSessionTokenRequest(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+GenerateSessionTokenRequest::GenerateSessionTokenRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.GenerateSessionTokenRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE GenerateSessionTokenRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : key_(arena, from.key_),
         _cached_size_{0} {}
 
 GenerateSessionTokenRequest::GenerateSessionTokenRequest(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const GenerateSessionTokenRequest& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   GenerateSessionTokenRequest* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.GenerateSessionTokenRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE GenerateSessionTokenRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : key_(arena),
         _cached_size_{0} {}
 
@@ -579,7 +579,7 @@ inline void GenerateSessionTokenRequest::SharedCtor(::_pb::Arena* arena) {
 }
 GenerateSessionTokenRequest::~GenerateSessionTokenRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.GenerateSessionTokenRequest)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void GenerateSessionTokenRequest::SharedDtor() {
@@ -596,7 +596,7 @@ PROTOBUF_NOINLINE void GenerateSessionTokenRequest::Clear() {
   (void) cached_has_bits;
 
   _impl_.key_.ClearToEmpty();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* GenerateSessionTokenRequest::_InternalParse(
@@ -641,7 +641,7 @@ const ::_pbi::TcParseTable<0, 1, 0, 65, 2> GenerateSessionTokenRequest::_table_ 
 
 ::uint8_t* GenerateSessionTokenRequest::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.GenerateSessionTokenRequest)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -649,15 +649,15 @@ const ::_pbi::TcParseTable<0, 1, 0, 65, 2> GenerateSessionTokenRequest::_table_ 
   // string key = 1 [(.google.api.field_behavior) = REQUIRED, (.ai.inworld.options.examples) = {
   if (!this->_internal_key().empty()) {
     const std::string& _s = this->_internal_key();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.GenerateSessionTokenRequest.key");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.GenerateSessionTokenRequest.key");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.GenerateSessionTokenRequest)
   return target;
@@ -673,22 +673,22 @@ const ::_pbi::TcParseTable<0, 1, 0, 65, 2> GenerateSessionTokenRequest::_table_ 
 
   // string key = 1 [(.google.api.field_behavior) = REQUIRED, (.ai.inworld.options.examples) = {
   if (!this->_internal_key().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_key());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData GenerateSessionTokenRequest::_class_data_ = {
+const ::google::protobuf::Message::ClassData GenerateSessionTokenRequest::_class_data_ = {
     GenerateSessionTokenRequest::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* GenerateSessionTokenRequest::GetClassData() const {
+const ::google::protobuf::Message::ClassData* GenerateSessionTokenRequest::GetClassData() const {
   return &_class_data_;
 }
 
-void GenerateSessionTokenRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void GenerateSessionTokenRequest::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<GenerateSessionTokenRequest*>(&to_msg);
   auto& from = static_cast<const GenerateSessionTokenRequest&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.GenerateSessionTokenRequest)
@@ -699,7 +699,7 @@ void GenerateSessionTokenRequest::MergeImpl(::google::protobuf_inworld::Message&
   if (!from._internal_key().empty()) {
     _this->_internal_set_key(from._internal_key());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void GenerateSessionTokenRequest::CopyFrom(const GenerateSessionTokenRequest& from) {
@@ -724,7 +724,7 @@ void GenerateSessionTokenRequest::InternalSwap(GenerateSessionTokenRequest* PROT
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.key_, &other->_impl_.key_, arena);
 }
 
-::google::protobuf_inworld::Metadata GenerateSessionTokenRequest::GetMetadata() const {
+::google::protobuf::Metadata GenerateSessionTokenRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2ftokens_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2ftokens_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2ftokens_2eproto[1]);
@@ -735,32 +735,32 @@ class GenerateDefaultSessionTokenRequest::_Internal {
  public:
 };
 
-GenerateDefaultSessionTokenRequest::GenerateDefaultSessionTokenRequest(::google::protobuf_inworld::Arena* arena)
-    : ::google::protobuf_inworld::Message(arena) {
+GenerateDefaultSessionTokenRequest::GenerateDefaultSessionTokenRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.GenerateDefaultSessionTokenRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE GenerateDefaultSessionTokenRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : parent_(arena, from.parent_),
         _cached_size_{0} {}
 
 GenerateDefaultSessionTokenRequest::GenerateDefaultSessionTokenRequest(
-    ::google::protobuf_inworld::Arena* arena,
+    ::google::protobuf::Arena* arena,
     const GenerateDefaultSessionTokenRequest& from)
-    : ::google::protobuf_inworld::Message(arena) {
+    : ::google::protobuf::Message(arena) {
   GenerateDefaultSessionTokenRequest* const _this = this;
   (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
 
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.GenerateDefaultSessionTokenRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE GenerateDefaultSessionTokenRequest::Impl_::Impl_(
-    ::google::protobuf_inworld::internal::InternalVisibility visibility,
-    ::google::protobuf_inworld::Arena* arena)
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
       : parent_(arena),
         _cached_size_{0} {}
 
@@ -769,7 +769,7 @@ inline void GenerateDefaultSessionTokenRequest::SharedCtor(::_pb::Arena* arena) 
 }
 GenerateDefaultSessionTokenRequest::~GenerateDefaultSessionTokenRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.GenerateDefaultSessionTokenRequest)
-  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
 inline void GenerateDefaultSessionTokenRequest::SharedDtor() {
@@ -786,7 +786,7 @@ PROTOBUF_NOINLINE void GenerateDefaultSessionTokenRequest::Clear() {
   (void) cached_has_bits;
 
   _impl_.parent_.ClearToEmpty();
-  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 const char* GenerateDefaultSessionTokenRequest::_InternalParse(
@@ -831,7 +831,7 @@ const ::_pbi::TcParseTable<0, 1, 0, 75, 2> GenerateDefaultSessionTokenRequest::_
 
 ::uint8_t* GenerateDefaultSessionTokenRequest::_InternalSerialize(
     ::uint8_t* target,
-    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.GenerateDefaultSessionTokenRequest)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -839,15 +839,15 @@ const ::_pbi::TcParseTable<0, 1, 0, 75, 2> GenerateDefaultSessionTokenRequest::_
   // string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.ai.inworld.options.examples) = {
   if (!this->_internal_parent().empty()) {
     const std::string& _s = this->_internal_parent();
-    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.GenerateDefaultSessionTokenRequest.parent");
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.GenerateDefaultSessionTokenRequest.parent");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.GenerateDefaultSessionTokenRequest)
   return target;
@@ -863,22 +863,22 @@ const ::_pbi::TcParseTable<0, 1, 0, 75, 2> GenerateDefaultSessionTokenRequest::_
 
   // string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.ai.inworld.options.examples) = {
   if (!this->_internal_parent().empty()) {
-    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_parent());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf_inworld::Message::ClassData GenerateDefaultSessionTokenRequest::_class_data_ = {
+const ::google::protobuf::Message::ClassData GenerateDefaultSessionTokenRequest::_class_data_ = {
     GenerateDefaultSessionTokenRequest::MergeImpl,
     nullptr,  // OnDemandRegisterArenaDtor
 };
-const ::google::protobuf_inworld::Message::ClassData* GenerateDefaultSessionTokenRequest::GetClassData() const {
+const ::google::protobuf::Message::ClassData* GenerateDefaultSessionTokenRequest::GetClassData() const {
   return &_class_data_;
 }
 
-void GenerateDefaultSessionTokenRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+void GenerateDefaultSessionTokenRequest::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
   auto* const _this = static_cast<GenerateDefaultSessionTokenRequest*>(&to_msg);
   auto& from = static_cast<const GenerateDefaultSessionTokenRequest&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.GenerateDefaultSessionTokenRequest)
@@ -889,7 +889,7 @@ void GenerateDefaultSessionTokenRequest::MergeImpl(::google::protobuf_inworld::M
   if (!from._internal_parent().empty()) {
     _this->_internal_set_parent(from._internal_parent());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void GenerateDefaultSessionTokenRequest::CopyFrom(const GenerateDefaultSessionTokenRequest& from) {
@@ -914,7 +914,7 @@ void GenerateDefaultSessionTokenRequest::InternalSwap(GenerateDefaultSessionToke
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.parent_, &other->_impl_.parent_, arena);
 }
 
-::google::protobuf_inworld::Metadata GenerateDefaultSessionTokenRequest::GetMetadata() const {
+::google::protobuf::Metadata GenerateDefaultSessionTokenRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2ftokens_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2ftokens_2eproto_once,
       file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2ftokens_2eproto[2]);

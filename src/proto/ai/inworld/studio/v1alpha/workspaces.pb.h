@@ -65,7 +65,7 @@ class AnyMetadata;
 struct TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto {
   static const ::uint32_t offsets[];
 };
-extern const ::google::protobuf_inworld::internal::DescriptorTable
+extern const ::google::protobuf::internal::DescriptorTable
     descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto;
 namespace ai {
 namespace inworld {
@@ -171,7 +171,7 @@ extern const uint32_t Workspace_RuntimeAccess_internal_data_[];
 constexpr Workspace_RuntimeAccess Workspace_RuntimeAccess_RuntimeAccess_MIN = static_cast<Workspace_RuntimeAccess>(0);
 constexpr Workspace_RuntimeAccess Workspace_RuntimeAccess_RuntimeAccess_MAX = static_cast<Workspace_RuntimeAccess>(2);
 constexpr int Workspace_RuntimeAccess_RuntimeAccess_ARRAYSIZE = 2 + 1;
-const ::google::protobuf_inworld::EnumDescriptor*
+const ::google::protobuf::EnumDescriptor*
 Workspace_RuntimeAccess_descriptor();
 template <typename T>
 const std::string& Workspace_RuntimeAccess_Name(T value) {
@@ -182,12 +182,12 @@ const std::string& Workspace_RuntimeAccess_Name(T value) {
 }
 template <>
 inline const std::string& Workspace_RuntimeAccess_Name(Workspace_RuntimeAccess value) {
-  return ::google::protobuf_inworld::internal::NameOfDenseEnum<Workspace_RuntimeAccess_descriptor,
+  return ::google::protobuf::internal::NameOfDenseEnum<Workspace_RuntimeAccess_descriptor,
                                                  0, 2>(
       static_cast<int>(value));
 }
 inline bool Workspace_RuntimeAccess_Parse(absl::string_view name, Workspace_RuntimeAccess* value) {
-  return ::google::protobuf_inworld::internal::ParseNamedEnum<Workspace_RuntimeAccess>(
+  return ::google::protobuf::internal::ParseNamedEnum<Workspace_RuntimeAccess>(
       Workspace_RuntimeAccess_descriptor(), name, value);
 }
 enum GenerateResourceNameRequest_ResourceType : int {
@@ -206,7 +206,7 @@ extern const uint32_t GenerateResourceNameRequest_ResourceType_internal_data_[];
 constexpr GenerateResourceNameRequest_ResourceType GenerateResourceNameRequest_ResourceType_ResourceType_MIN = static_cast<GenerateResourceNameRequest_ResourceType>(0);
 constexpr GenerateResourceNameRequest_ResourceType GenerateResourceNameRequest_ResourceType_ResourceType_MAX = static_cast<GenerateResourceNameRequest_ResourceType>(3);
 constexpr int GenerateResourceNameRequest_ResourceType_ResourceType_ARRAYSIZE = 3 + 1;
-const ::google::protobuf_inworld::EnumDescriptor*
+const ::google::protobuf::EnumDescriptor*
 GenerateResourceNameRequest_ResourceType_descriptor();
 template <typename T>
 const std::string& GenerateResourceNameRequest_ResourceType_Name(T value) {
@@ -217,12 +217,12 @@ const std::string& GenerateResourceNameRequest_ResourceType_Name(T value) {
 }
 template <>
 inline const std::string& GenerateResourceNameRequest_ResourceType_Name(GenerateResourceNameRequest_ResourceType value) {
-  return ::google::protobuf_inworld::internal::NameOfDenseEnum<GenerateResourceNameRequest_ResourceType_descriptor,
+  return ::google::protobuf::internal::NameOfDenseEnum<GenerateResourceNameRequest_ResourceType_descriptor,
                                                  0, 3>(
       static_cast<int>(value));
 }
 inline bool GenerateResourceNameRequest_ResourceType_Parse(absl::string_view name, GenerateResourceNameRequest_ResourceType* value) {
-  return ::google::protobuf_inworld::internal::ParseNamedEnum<GenerateResourceNameRequest_ResourceType>(
+  return ::google::protobuf::internal::ParseNamedEnum<GenerateResourceNameRequest_ResourceType>(
       GenerateResourceNameRequest_ResourceType_descriptor(), name, value);
 }
 enum WorkspaceItemView : int {
@@ -240,7 +240,7 @@ extern const uint32_t WorkspaceItemView_internal_data_[];
 constexpr WorkspaceItemView WorkspaceItemView_MIN = static_cast<WorkspaceItemView>(0);
 constexpr WorkspaceItemView WorkspaceItemView_MAX = static_cast<WorkspaceItemView>(2);
 constexpr int WorkspaceItemView_ARRAYSIZE = 2 + 1;
-const ::google::protobuf_inworld::EnumDescriptor*
+const ::google::protobuf::EnumDescriptor*
 WorkspaceItemView_descriptor();
 template <typename T>
 const std::string& WorkspaceItemView_Name(T value) {
@@ -251,12 +251,12 @@ const std::string& WorkspaceItemView_Name(T value) {
 }
 template <>
 inline const std::string& WorkspaceItemView_Name(WorkspaceItemView value) {
-  return ::google::protobuf_inworld::internal::NameOfDenseEnum<WorkspaceItemView_descriptor,
+  return ::google::protobuf::internal::NameOfDenseEnum<WorkspaceItemView_descriptor,
                                                  0, 2>(
       static_cast<int>(value));
 }
 inline bool WorkspaceItemView_Parse(absl::string_view name, WorkspaceItemView* value) {
-  return ::google::protobuf_inworld::internal::ParseNamedEnum<WorkspaceItemView>(
+  return ::google::protobuf::internal::ParseNamedEnum<WorkspaceItemView>(
       WorkspaceItemView_descriptor(), name, value);
 }
 
@@ -266,12 +266,12 @@ inline bool WorkspaceItemView_Parse(absl::string_view name, WorkspaceItemView* v
 // -------------------------------------------------------------------
 
 class WorkspaceShareInfo final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.WorkspaceShareInfo) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.WorkspaceShareInfo) */ {
  public:
   inline WorkspaceShareInfo() : WorkspaceShareInfo(nullptr) {}
   ~WorkspaceShareInfo() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR WorkspaceShareInfo(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR WorkspaceShareInfo(::google::protobuf::internal::ConstantInitialized);
 
   inline WorkspaceShareInfo(const WorkspaceShareInfo& from)
       : WorkspaceShareInfo(nullptr, from) {}
@@ -298,22 +298,22 @@ class WorkspaceShareInfo final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const WorkspaceShareInfo& default_instance() {
@@ -339,7 +339,7 @@ class WorkspaceShareInfo final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(WorkspaceShareInfo* other) {
@@ -350,47 +350,47 @@ class WorkspaceShareInfo final :
 
   // implements Message ----------------------------------------------
 
-  WorkspaceShareInfo* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  WorkspaceShareInfo* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<WorkspaceShareInfo>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const WorkspaceShareInfo& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const WorkspaceShareInfo& from) {
     WorkspaceShareInfo::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(WorkspaceShareInfo* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.WorkspaceShareInfo";
   }
   protected:
-  explicit WorkspaceShareInfo(::google::protobuf_inworld::Arena* arena);
-  WorkspaceShareInfo(::google::protobuf_inworld::Arena* arena, const WorkspaceShareInfo& from);
+  explicit WorkspaceShareInfo(::google::protobuf::Arena* arena);
+  WorkspaceShareInfo(::google::protobuf::Arena* arena, const WorkspaceShareInfo& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -419,39 +419,39 @@ class WorkspaceShareInfo final :
   void add_emails(const char* value);
   void add_emails(const char* value, std::size_t size);
   void add_emails(absl::string_view value);
-  const ::google::protobuf_inworld::RepeatedPtrField<std::string>& emails() const;
-  ::google::protobuf_inworld::RepeatedPtrField<std::string>* mutable_emails();
+  const ::google::protobuf::RepeatedPtrField<std::string>& emails() const;
+  ::google::protobuf::RepeatedPtrField<std::string>* mutable_emails();
 
   private:
-  const ::google::protobuf_inworld::RepeatedPtrField<std::string>& _internal_emails() const;
-  ::google::protobuf_inworld::RepeatedPtrField<std::string>* _internal_mutable_emails();
+  const ::google::protobuf::RepeatedPtrField<std::string>& _internal_emails() const;
+  ::google::protobuf::RepeatedPtrField<std::string>* _internal_mutable_emails();
 
   public:
   // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.WorkspaceShareInfo)
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       0, 1, 0,
       59, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::RepeatedPtrField<std::string> emails_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::RepeatedPtrField<std::string> emails_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -459,12 +459,12 @@ class WorkspaceShareInfo final :
 };// -------------------------------------------------------------------
 
 class WorkspaceLimitInfo_WorkspaceLimit final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.WorkspaceLimit) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.WorkspaceLimit) */ {
  public:
   inline WorkspaceLimitInfo_WorkspaceLimit() : WorkspaceLimitInfo_WorkspaceLimit(nullptr) {}
   ~WorkspaceLimitInfo_WorkspaceLimit() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR WorkspaceLimitInfo_WorkspaceLimit(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR WorkspaceLimitInfo_WorkspaceLimit(::google::protobuf::internal::ConstantInitialized);
 
   inline WorkspaceLimitInfo_WorkspaceLimit(const WorkspaceLimitInfo_WorkspaceLimit& from)
       : WorkspaceLimitInfo_WorkspaceLimit(nullptr, from) {}
@@ -491,22 +491,22 @@ class WorkspaceLimitInfo_WorkspaceLimit final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const WorkspaceLimitInfo_WorkspaceLimit& default_instance() {
@@ -532,7 +532,7 @@ class WorkspaceLimitInfo_WorkspaceLimit final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(WorkspaceLimitInfo_WorkspaceLimit* other) {
@@ -543,47 +543,47 @@ class WorkspaceLimitInfo_WorkspaceLimit final :
 
   // implements Message ----------------------------------------------
 
-  WorkspaceLimitInfo_WorkspaceLimit* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  WorkspaceLimitInfo_WorkspaceLimit* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<WorkspaceLimitInfo_WorkspaceLimit>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const WorkspaceLimitInfo_WorkspaceLimit& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const WorkspaceLimitInfo_WorkspaceLimit& from) {
     WorkspaceLimitInfo_WorkspaceLimit::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(WorkspaceLimitInfo_WorkspaceLimit* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.WorkspaceLimitInfo.WorkspaceLimit";
   }
   protected:
-  explicit WorkspaceLimitInfo_WorkspaceLimit(::google::protobuf_inworld::Arena* arena);
-  WorkspaceLimitInfo_WorkspaceLimit(::google::protobuf_inworld::Arena* arena, const WorkspaceLimitInfo_WorkspaceLimit& from);
+  explicit WorkspaceLimitInfo_WorkspaceLimit(::google::protobuf::Arena* arena);
+  WorkspaceLimitInfo_WorkspaceLimit(::google::protobuf::Arena* arena, const WorkspaceLimitInfo_WorkspaceLimit& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -661,32 +661,32 @@ class WorkspaceLimitInfo_WorkspaceLimit final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       3, 6, 0,
       0, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
     ::int32_t display_name_max_length_;
     ::int32_t total_characters_;
     ::int32_t total_scenes_;
     ::int32_t total_triggers_;
     ::int32_t total_voices_;
     ::int32_t total_common_knowledge_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -694,12 +694,12 @@ class WorkspaceLimitInfo_WorkspaceLimit final :
 };// -------------------------------------------------------------------
 
 class WorkspaceLimitInfo_TextListLimit final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.TextListLimit) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.TextListLimit) */ {
  public:
   inline WorkspaceLimitInfo_TextListLimit() : WorkspaceLimitInfo_TextListLimit(nullptr) {}
   ~WorkspaceLimitInfo_TextListLimit() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR WorkspaceLimitInfo_TextListLimit(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR WorkspaceLimitInfo_TextListLimit(::google::protobuf::internal::ConstantInitialized);
 
   inline WorkspaceLimitInfo_TextListLimit(const WorkspaceLimitInfo_TextListLimit& from)
       : WorkspaceLimitInfo_TextListLimit(nullptr, from) {}
@@ -726,22 +726,22 @@ class WorkspaceLimitInfo_TextListLimit final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const WorkspaceLimitInfo_TextListLimit& default_instance() {
@@ -767,7 +767,7 @@ class WorkspaceLimitInfo_TextListLimit final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(WorkspaceLimitInfo_TextListLimit* other) {
@@ -778,47 +778,47 @@ class WorkspaceLimitInfo_TextListLimit final :
 
   // implements Message ----------------------------------------------
 
-  WorkspaceLimitInfo_TextListLimit* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  WorkspaceLimitInfo_TextListLimit* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<WorkspaceLimitInfo_TextListLimit>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const WorkspaceLimitInfo_TextListLimit& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const WorkspaceLimitInfo_TextListLimit& from) {
     WorkspaceLimitInfo_TextListLimit::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(WorkspaceLimitInfo_TextListLimit* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.WorkspaceLimitInfo.TextListLimit";
   }
   protected:
-  explicit WorkspaceLimitInfo_TextListLimit(::google::protobuf_inworld::Arena* arena);
-  WorkspaceLimitInfo_TextListLimit(::google::protobuf_inworld::Arena* arena, const WorkspaceLimitInfo_TextListLimit& from);
+  explicit WorkspaceLimitInfo_TextListLimit(::google::protobuf::Arena* arena);
+  WorkspaceLimitInfo_TextListLimit(::google::protobuf::Arena* arena, const WorkspaceLimitInfo_TextListLimit& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -852,28 +852,28 @@ class WorkspaceLimitInfo_TextListLimit final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       1, 2, 0,
       0, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
     ::int32_t item_max_length_;
     ::int32_t total_items_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -881,12 +881,12 @@ class WorkspaceLimitInfo_TextListLimit final :
 };// -------------------------------------------------------------------
 
 class WorkspaceLimitInfo_SceneLimit final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.SceneLimit) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.SceneLimit) */ {
  public:
   inline WorkspaceLimitInfo_SceneLimit() : WorkspaceLimitInfo_SceneLimit(nullptr) {}
   ~WorkspaceLimitInfo_SceneLimit() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR WorkspaceLimitInfo_SceneLimit(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR WorkspaceLimitInfo_SceneLimit(::google::protobuf::internal::ConstantInitialized);
 
   inline WorkspaceLimitInfo_SceneLimit(const WorkspaceLimitInfo_SceneLimit& from)
       : WorkspaceLimitInfo_SceneLimit(nullptr, from) {}
@@ -913,22 +913,22 @@ class WorkspaceLimitInfo_SceneLimit final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const WorkspaceLimitInfo_SceneLimit& default_instance() {
@@ -954,7 +954,7 @@ class WorkspaceLimitInfo_SceneLimit final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(WorkspaceLimitInfo_SceneLimit* other) {
@@ -965,47 +965,47 @@ class WorkspaceLimitInfo_SceneLimit final :
 
   // implements Message ----------------------------------------------
 
-  WorkspaceLimitInfo_SceneLimit* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  WorkspaceLimitInfo_SceneLimit* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<WorkspaceLimitInfo_SceneLimit>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const WorkspaceLimitInfo_SceneLimit& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const WorkspaceLimitInfo_SceneLimit& from) {
     WorkspaceLimitInfo_SceneLimit::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(WorkspaceLimitInfo_SceneLimit* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.WorkspaceLimitInfo.SceneLimit";
   }
   protected:
-  explicit WorkspaceLimitInfo_SceneLimit(::google::protobuf_inworld::Arena* arena);
-  WorkspaceLimitInfo_SceneLimit(::google::protobuf_inworld::Arena* arena, const WorkspaceLimitInfo_SceneLimit& from);
+  explicit WorkspaceLimitInfo_SceneLimit(::google::protobuf::Arena* arena);
+  WorkspaceLimitInfo_SceneLimit(::google::protobuf::Arena* arena, const WorkspaceLimitInfo_SceneLimit& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -1083,32 +1083,32 @@ class WorkspaceLimitInfo_SceneLimit final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       3, 6, 0,
       0, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
     ::int32_t description_max_length_;
     ::int32_t total_characters_;
     ::int32_t total_triggers_;
     ::int32_t display_name_max_length_;
     ::int32_t total_common_knowledge_;
     ::int32_t scene_trigger_description_max_length_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -1116,12 +1116,12 @@ class WorkspaceLimitInfo_SceneLimit final :
 };// -------------------------------------------------------------------
 
 class WorkspaceLimitInfo_BillingAccountLimit final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.BillingAccountLimit) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.BillingAccountLimit) */ {
  public:
   inline WorkspaceLimitInfo_BillingAccountLimit() : WorkspaceLimitInfo_BillingAccountLimit(nullptr) {}
   ~WorkspaceLimitInfo_BillingAccountLimit() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR WorkspaceLimitInfo_BillingAccountLimit(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR WorkspaceLimitInfo_BillingAccountLimit(::google::protobuf::internal::ConstantInitialized);
 
   inline WorkspaceLimitInfo_BillingAccountLimit(const WorkspaceLimitInfo_BillingAccountLimit& from)
       : WorkspaceLimitInfo_BillingAccountLimit(nullptr, from) {}
@@ -1148,22 +1148,22 @@ class WorkspaceLimitInfo_BillingAccountLimit final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const WorkspaceLimitInfo_BillingAccountLimit& default_instance() {
@@ -1189,7 +1189,7 @@ class WorkspaceLimitInfo_BillingAccountLimit final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(WorkspaceLimitInfo_BillingAccountLimit* other) {
@@ -1200,47 +1200,47 @@ class WorkspaceLimitInfo_BillingAccountLimit final :
 
   // implements Message ----------------------------------------------
 
-  WorkspaceLimitInfo_BillingAccountLimit* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  WorkspaceLimitInfo_BillingAccountLimit* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<WorkspaceLimitInfo_BillingAccountLimit>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const WorkspaceLimitInfo_BillingAccountLimit& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const WorkspaceLimitInfo_BillingAccountLimit& from) {
     WorkspaceLimitInfo_BillingAccountLimit::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(WorkspaceLimitInfo_BillingAccountLimit* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.WorkspaceLimitInfo.BillingAccountLimit";
   }
   protected:
-  explicit WorkspaceLimitInfo_BillingAccountLimit(::google::protobuf_inworld::Arena* arena);
-  WorkspaceLimitInfo_BillingAccountLimit(::google::protobuf_inworld::Arena* arena, const WorkspaceLimitInfo_BillingAccountLimit& from);
+  explicit WorkspaceLimitInfo_BillingAccountLimit(::google::protobuf::Arena* arena);
+  WorkspaceLimitInfo_BillingAccountLimit(::google::protobuf::Arena* arena, const WorkspaceLimitInfo_BillingAccountLimit& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -1263,27 +1263,27 @@ class WorkspaceLimitInfo_BillingAccountLimit final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       0, 1, 0,
       0, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
     ::int32_t total_workspaces_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -1291,12 +1291,12 @@ class WorkspaceLimitInfo_BillingAccountLimit final :
 };// -------------------------------------------------------------------
 
 class Workspace_Meta final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.Workspace.Meta) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.Workspace.Meta) */ {
  public:
   inline Workspace_Meta() : Workspace_Meta(nullptr) {}
   ~Workspace_Meta() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR Workspace_Meta(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR Workspace_Meta(::google::protobuf::internal::ConstantInitialized);
 
   inline Workspace_Meta(const Workspace_Meta& from)
       : Workspace_Meta(nullptr, from) {}
@@ -1323,22 +1323,22 @@ class Workspace_Meta final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const Workspace_Meta& default_instance() {
@@ -1364,7 +1364,7 @@ class Workspace_Meta final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(Workspace_Meta* other) {
@@ -1375,47 +1375,47 @@ class Workspace_Meta final :
 
   // implements Message ----------------------------------------------
 
-  Workspace_Meta* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  Workspace_Meta* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<Workspace_Meta>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const Workspace_Meta& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const Workspace_Meta& from) {
     Workspace_Meta::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(Workspace_Meta* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.Workspace.Meta";
   }
   protected:
-  explicit Workspace_Meta(::google::protobuf_inworld::Arena* arena);
-  Workspace_Meta(::google::protobuf_inworld::Arena* arena, const Workspace_Meta& from);
+  explicit Workspace_Meta(::google::protobuf::Arena* arena);
+  Workspace_Meta(::google::protobuf::Arena* arena, const Workspace_Meta& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -1471,30 +1471,30 @@ class Workspace_Meta final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       2, 4, 0,
       0, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
     ::int32_t total_characters_;
     ::int32_t total_scenes_;
     ::int32_t total_triggers_;
     ::int32_t total_common_knowledge_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -1502,12 +1502,12 @@ class Workspace_Meta final :
 };// -------------------------------------------------------------------
 
 class ShareWorkspaceRequest final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.ShareWorkspaceRequest) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.ShareWorkspaceRequest) */ {
  public:
   inline ShareWorkspaceRequest() : ShareWorkspaceRequest(nullptr) {}
   ~ShareWorkspaceRequest() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR ShareWorkspaceRequest(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR ShareWorkspaceRequest(::google::protobuf::internal::ConstantInitialized);
 
   inline ShareWorkspaceRequest(const ShareWorkspaceRequest& from)
       : ShareWorkspaceRequest(nullptr, from) {}
@@ -1534,22 +1534,22 @@ class ShareWorkspaceRequest final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const ShareWorkspaceRequest& default_instance() {
@@ -1575,7 +1575,7 @@ class ShareWorkspaceRequest final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(ShareWorkspaceRequest* other) {
@@ -1586,47 +1586,47 @@ class ShareWorkspaceRequest final :
 
   // implements Message ----------------------------------------------
 
-  ShareWorkspaceRequest* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  ShareWorkspaceRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<ShareWorkspaceRequest>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const ShareWorkspaceRequest& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const ShareWorkspaceRequest& from) {
     ShareWorkspaceRequest::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(ShareWorkspaceRequest* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.ShareWorkspaceRequest";
   }
   protected:
-  explicit ShareWorkspaceRequest(::google::protobuf_inworld::Arena* arena);
-  ShareWorkspaceRequest(::google::protobuf_inworld::Arena* arena, const ShareWorkspaceRequest& from);
+  explicit ShareWorkspaceRequest(::google::protobuf::Arena* arena);
+  ShareWorkspaceRequest(::google::protobuf::Arena* arena, const ShareWorkspaceRequest& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -1656,12 +1656,12 @@ class ShareWorkspaceRequest final :
   void add_emails(const char* value);
   void add_emails(const char* value, std::size_t size);
   void add_emails(absl::string_view value);
-  const ::google::protobuf_inworld::RepeatedPtrField<std::string>& emails() const;
-  ::google::protobuf_inworld::RepeatedPtrField<std::string>* mutable_emails();
+  const ::google::protobuf::RepeatedPtrField<std::string>& emails() const;
+  ::google::protobuf::RepeatedPtrField<std::string>* mutable_emails();
 
   private:
-  const ::google::protobuf_inworld::RepeatedPtrField<std::string>& _internal_emails() const;
-  ::google::protobuf_inworld::RepeatedPtrField<std::string>* _internal_mutable_emails();
+  const ::google::protobuf::RepeatedPtrField<std::string>& _internal_emails() const;
+  ::google::protobuf::RepeatedPtrField<std::string>* _internal_mutable_emails();
 
   public:
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
@@ -1684,28 +1684,28 @@ class ShareWorkspaceRequest final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       1, 2, 0,
       66, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::RepeatedPtrField<std::string> emails_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr name_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::RepeatedPtrField<std::string> emails_;
+    ::google::protobuf::internal::ArenaStringPtr name_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -1713,12 +1713,12 @@ class ShareWorkspaceRequest final :
 };// -------------------------------------------------------------------
 
 class ListWorkspacesRequest final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.ListWorkspacesRequest) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.ListWorkspacesRequest) */ {
  public:
   inline ListWorkspacesRequest() : ListWorkspacesRequest(nullptr) {}
   ~ListWorkspacesRequest() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR ListWorkspacesRequest(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR ListWorkspacesRequest(::google::protobuf::internal::ConstantInitialized);
 
   inline ListWorkspacesRequest(const ListWorkspacesRequest& from)
       : ListWorkspacesRequest(nullptr, from) {}
@@ -1745,22 +1745,22 @@ class ListWorkspacesRequest final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const ListWorkspacesRequest& default_instance() {
@@ -1786,7 +1786,7 @@ class ListWorkspacesRequest final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(ListWorkspacesRequest* other) {
@@ -1797,47 +1797,47 @@ class ListWorkspacesRequest final :
 
   // implements Message ----------------------------------------------
 
-  ListWorkspacesRequest* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  ListWorkspacesRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<ListWorkspacesRequest>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const ListWorkspacesRequest& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const ListWorkspacesRequest& from) {
     ListWorkspacesRequest::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(ListWorkspacesRequest* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.ListWorkspacesRequest";
   }
   protected:
-  explicit ListWorkspacesRequest(::google::protobuf_inworld::Arena* arena);
-  ListWorkspacesRequest(::google::protobuf_inworld::Arena* arena, const ListWorkspacesRequest& from);
+  explicit ListWorkspacesRequest(::google::protobuf::Arena* arena);
+  ListWorkspacesRequest(::google::protobuf::Arena* arena, const ListWorkspacesRequest& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -1877,28 +1877,28 @@ class ListWorkspacesRequest final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       1, 2, 0,
       66, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::ArenaStringPtr page_token_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr page_token_;
     ::int32_t page_size_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -1906,12 +1906,12 @@ class ListWorkspacesRequest final :
 };// -------------------------------------------------------------------
 
 class GetWorkspaceShareInfoRequest final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.GetWorkspaceShareInfoRequest) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.GetWorkspaceShareInfoRequest) */ {
  public:
   inline GetWorkspaceShareInfoRequest() : GetWorkspaceShareInfoRequest(nullptr) {}
   ~GetWorkspaceShareInfoRequest() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR GetWorkspaceShareInfoRequest(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR GetWorkspaceShareInfoRequest(::google::protobuf::internal::ConstantInitialized);
 
   inline GetWorkspaceShareInfoRequest(const GetWorkspaceShareInfoRequest& from)
       : GetWorkspaceShareInfoRequest(nullptr, from) {}
@@ -1938,22 +1938,22 @@ class GetWorkspaceShareInfoRequest final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const GetWorkspaceShareInfoRequest& default_instance() {
@@ -1979,7 +1979,7 @@ class GetWorkspaceShareInfoRequest final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(GetWorkspaceShareInfoRequest* other) {
@@ -1990,47 +1990,47 @@ class GetWorkspaceShareInfoRequest final :
 
   // implements Message ----------------------------------------------
 
-  GetWorkspaceShareInfoRequest* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  GetWorkspaceShareInfoRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<GetWorkspaceShareInfoRequest>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const GetWorkspaceShareInfoRequest& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const GetWorkspaceShareInfoRequest& from) {
     GetWorkspaceShareInfoRequest::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(GetWorkspaceShareInfoRequest* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.GetWorkspaceShareInfoRequest";
   }
   protected:
-  explicit GetWorkspaceShareInfoRequest(::google::protobuf_inworld::Arena* arena);
-  GetWorkspaceShareInfoRequest(::google::protobuf_inworld::Arena* arena, const GetWorkspaceShareInfoRequest& from);
+  explicit GetWorkspaceShareInfoRequest(::google::protobuf::Arena* arena);
+  GetWorkspaceShareInfoRequest(::google::protobuf::Arena* arena, const GetWorkspaceShareInfoRequest& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -2059,27 +2059,27 @@ class GetWorkspaceShareInfoRequest final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       0, 1, 0,
       67, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::ArenaStringPtr name_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr name_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -2087,12 +2087,12 @@ class GetWorkspaceShareInfoRequest final :
 };// -------------------------------------------------------------------
 
 class GetWorkspaceRequest final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.GetWorkspaceRequest) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.GetWorkspaceRequest) */ {
  public:
   inline GetWorkspaceRequest() : GetWorkspaceRequest(nullptr) {}
   ~GetWorkspaceRequest() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR GetWorkspaceRequest(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR GetWorkspaceRequest(::google::protobuf::internal::ConstantInitialized);
 
   inline GetWorkspaceRequest(const GetWorkspaceRequest& from)
       : GetWorkspaceRequest(nullptr, from) {}
@@ -2119,22 +2119,22 @@ class GetWorkspaceRequest final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const GetWorkspaceRequest& default_instance() {
@@ -2160,7 +2160,7 @@ class GetWorkspaceRequest final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(GetWorkspaceRequest* other) {
@@ -2171,47 +2171,47 @@ class GetWorkspaceRequest final :
 
   // implements Message ----------------------------------------------
 
-  GetWorkspaceRequest* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  GetWorkspaceRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<GetWorkspaceRequest>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const GetWorkspaceRequest& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const GetWorkspaceRequest& from) {
     GetWorkspaceRequest::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(GetWorkspaceRequest* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.GetWorkspaceRequest";
   }
   protected:
-  explicit GetWorkspaceRequest(::google::protobuf_inworld::Arena* arena);
-  GetWorkspaceRequest(::google::protobuf_inworld::Arena* arena, const GetWorkspaceRequest& from);
+  explicit GetWorkspaceRequest(::google::protobuf::Arena* arena);
+  GetWorkspaceRequest(::google::protobuf::Arena* arena, const GetWorkspaceRequest& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -2251,28 +2251,28 @@ class GetWorkspaceRequest final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       1, 2, 0,
       58, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::ArenaStringPtr name_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr name_;
     int view_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -2280,12 +2280,12 @@ class GetWorkspaceRequest final :
 };// -------------------------------------------------------------------
 
 class GetWorkspaceLimitInfoRequest final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.GetWorkspaceLimitInfoRequest) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.GetWorkspaceLimitInfoRequest) */ {
  public:
   inline GetWorkspaceLimitInfoRequest() : GetWorkspaceLimitInfoRequest(nullptr) {}
   ~GetWorkspaceLimitInfoRequest() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR GetWorkspaceLimitInfoRequest(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR GetWorkspaceLimitInfoRequest(::google::protobuf::internal::ConstantInitialized);
 
   inline GetWorkspaceLimitInfoRequest(const GetWorkspaceLimitInfoRequest& from)
       : GetWorkspaceLimitInfoRequest(nullptr, from) {}
@@ -2312,22 +2312,22 @@ class GetWorkspaceLimitInfoRequest final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const GetWorkspaceLimitInfoRequest& default_instance() {
@@ -2353,7 +2353,7 @@ class GetWorkspaceLimitInfoRequest final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(GetWorkspaceLimitInfoRequest* other) {
@@ -2364,47 +2364,47 @@ class GetWorkspaceLimitInfoRequest final :
 
   // implements Message ----------------------------------------------
 
-  GetWorkspaceLimitInfoRequest* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  GetWorkspaceLimitInfoRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<GetWorkspaceLimitInfoRequest>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const GetWorkspaceLimitInfoRequest& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const GetWorkspaceLimitInfoRequest& from) {
     GetWorkspaceLimitInfoRequest::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(GetWorkspaceLimitInfoRequest* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.GetWorkspaceLimitInfoRequest";
   }
   protected:
-  explicit GetWorkspaceLimitInfoRequest(::google::protobuf_inworld::Arena* arena);
-  GetWorkspaceLimitInfoRequest(::google::protobuf_inworld::Arena* arena, const GetWorkspaceLimitInfoRequest& from);
+  explicit GetWorkspaceLimitInfoRequest(::google::protobuf::Arena* arena);
+  GetWorkspaceLimitInfoRequest(::google::protobuf::Arena* arena, const GetWorkspaceLimitInfoRequest& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -2433,27 +2433,27 @@ class GetWorkspaceLimitInfoRequest final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       0, 1, 0,
       67, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::ArenaStringPtr name_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr name_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -2461,12 +2461,12 @@ class GetWorkspaceLimitInfoRequest final :
 };// -------------------------------------------------------------------
 
 class GenerateResourceNameResponse final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.GenerateResourceNameResponse) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.GenerateResourceNameResponse) */ {
  public:
   inline GenerateResourceNameResponse() : GenerateResourceNameResponse(nullptr) {}
   ~GenerateResourceNameResponse() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR GenerateResourceNameResponse(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR GenerateResourceNameResponse(::google::protobuf::internal::ConstantInitialized);
 
   inline GenerateResourceNameResponse(const GenerateResourceNameResponse& from)
       : GenerateResourceNameResponse(nullptr, from) {}
@@ -2493,22 +2493,22 @@ class GenerateResourceNameResponse final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const GenerateResourceNameResponse& default_instance() {
@@ -2534,7 +2534,7 @@ class GenerateResourceNameResponse final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(GenerateResourceNameResponse* other) {
@@ -2545,47 +2545,47 @@ class GenerateResourceNameResponse final :
 
   // implements Message ----------------------------------------------
 
-  GenerateResourceNameResponse* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  GenerateResourceNameResponse* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<GenerateResourceNameResponse>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const GenerateResourceNameResponse& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const GenerateResourceNameResponse& from) {
     GenerateResourceNameResponse::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(GenerateResourceNameResponse* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.GenerateResourceNameResponse";
   }
   protected:
-  explicit GenerateResourceNameResponse(::google::protobuf_inworld::Arena* arena);
-  GenerateResourceNameResponse(::google::protobuf_inworld::Arena* arena, const GenerateResourceNameResponse& from);
+  explicit GenerateResourceNameResponse(::google::protobuf::Arena* arena);
+  GenerateResourceNameResponse(::google::protobuf::Arena* arena, const GenerateResourceNameResponse& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -2614,27 +2614,27 @@ class GenerateResourceNameResponse final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       0, 1, 0,
       71, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::ArenaStringPtr resource_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr resource_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -2642,12 +2642,12 @@ class GenerateResourceNameResponse final :
 };// -------------------------------------------------------------------
 
 class GenerateResourceNameRequest final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.GenerateResourceNameRequest) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.GenerateResourceNameRequest) */ {
  public:
   inline GenerateResourceNameRequest() : GenerateResourceNameRequest(nullptr) {}
   ~GenerateResourceNameRequest() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR GenerateResourceNameRequest(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR GenerateResourceNameRequest(::google::protobuf::internal::ConstantInitialized);
 
   inline GenerateResourceNameRequest(const GenerateResourceNameRequest& from)
       : GenerateResourceNameRequest(nullptr, from) {}
@@ -2674,22 +2674,22 @@ class GenerateResourceNameRequest final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const GenerateResourceNameRequest& default_instance() {
@@ -2715,7 +2715,7 @@ class GenerateResourceNameRequest final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(GenerateResourceNameRequest* other) {
@@ -2726,47 +2726,47 @@ class GenerateResourceNameRequest final :
 
   // implements Message ----------------------------------------------
 
-  GenerateResourceNameRequest* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  GenerateResourceNameRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<GenerateResourceNameRequest>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const GenerateResourceNameRequest& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const GenerateResourceNameRequest& from) {
     GenerateResourceNameRequest::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(GenerateResourceNameRequest* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.GenerateResourceNameRequest";
   }
   protected:
-  explicit GenerateResourceNameRequest(::google::protobuf_inworld::Arena* arena);
-  GenerateResourceNameRequest(::google::protobuf_inworld::Arena* arena, const GenerateResourceNameRequest& from);
+  explicit GenerateResourceNameRequest(::google::protobuf::Arena* arena);
+  GenerateResourceNameRequest(::google::protobuf::Arena* arena, const GenerateResourceNameRequest& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -2781,7 +2781,7 @@ class GenerateResourceNameRequest final :
   static constexpr ResourceType ResourceType_MIN = GenerateResourceNameRequest_ResourceType_ResourceType_MIN;
   static constexpr ResourceType ResourceType_MAX = GenerateResourceNameRequest_ResourceType_ResourceType_MAX;
   static constexpr int ResourceType_ARRAYSIZE = GenerateResourceNameRequest_ResourceType_ResourceType_ARRAYSIZE;
-  static inline const ::google::protobuf_inworld::EnumDescriptor* ResourceType_descriptor() {
+  static inline const ::google::protobuf::EnumDescriptor* ResourceType_descriptor() {
     return GenerateResourceNameRequest_ResourceType_descriptor();
   }
   template <typename T>
@@ -2845,29 +2845,29 @@ class GenerateResourceNameRequest final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       2, 3, 0,
       83, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::ArenaStringPtr workspace_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr display_name_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr workspace_;
+    ::google::protobuf::internal::ArenaStringPtr display_name_;
     int resource_type_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -2875,12 +2875,12 @@ class GenerateResourceNameRequest final :
 };// -------------------------------------------------------------------
 
 class DeleteWorkspaceRequest final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.DeleteWorkspaceRequest) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.DeleteWorkspaceRequest) */ {
  public:
   inline DeleteWorkspaceRequest() : DeleteWorkspaceRequest(nullptr) {}
   ~DeleteWorkspaceRequest() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR DeleteWorkspaceRequest(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR DeleteWorkspaceRequest(::google::protobuf::internal::ConstantInitialized);
 
   inline DeleteWorkspaceRequest(const DeleteWorkspaceRequest& from)
       : DeleteWorkspaceRequest(nullptr, from) {}
@@ -2907,22 +2907,22 @@ class DeleteWorkspaceRequest final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const DeleteWorkspaceRequest& default_instance() {
@@ -2948,7 +2948,7 @@ class DeleteWorkspaceRequest final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(DeleteWorkspaceRequest* other) {
@@ -2959,47 +2959,47 @@ class DeleteWorkspaceRequest final :
 
   // implements Message ----------------------------------------------
 
-  DeleteWorkspaceRequest* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  DeleteWorkspaceRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<DeleteWorkspaceRequest>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const DeleteWorkspaceRequest& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const DeleteWorkspaceRequest& from) {
     DeleteWorkspaceRequest::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(DeleteWorkspaceRequest* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.DeleteWorkspaceRequest";
   }
   protected:
-  explicit DeleteWorkspaceRequest(::google::protobuf_inworld::Arena* arena);
-  DeleteWorkspaceRequest(::google::protobuf_inworld::Arena* arena, const DeleteWorkspaceRequest& from);
+  explicit DeleteWorkspaceRequest(::google::protobuf::Arena* arena);
+  DeleteWorkspaceRequest(::google::protobuf::Arena* arena, const DeleteWorkspaceRequest& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -3039,28 +3039,28 @@ class DeleteWorkspaceRequest final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       1, 2, 0,
       61, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::ArenaStringPtr name_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr name_;
     bool force_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -3068,12 +3068,12 @@ class DeleteWorkspaceRequest final :
 };// -------------------------------------------------------------------
 
 class CloneWorkspaceRequest final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.CloneWorkspaceRequest) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.CloneWorkspaceRequest) */ {
  public:
   inline CloneWorkspaceRequest() : CloneWorkspaceRequest(nullptr) {}
   ~CloneWorkspaceRequest() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR CloneWorkspaceRequest(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR CloneWorkspaceRequest(::google::protobuf::internal::ConstantInitialized);
 
   inline CloneWorkspaceRequest(const CloneWorkspaceRequest& from)
       : CloneWorkspaceRequest(nullptr, from) {}
@@ -3100,22 +3100,22 @@ class CloneWorkspaceRequest final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const CloneWorkspaceRequest& default_instance() {
@@ -3141,7 +3141,7 @@ class CloneWorkspaceRequest final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(CloneWorkspaceRequest* other) {
@@ -3152,47 +3152,47 @@ class CloneWorkspaceRequest final :
 
   // implements Message ----------------------------------------------
 
-  CloneWorkspaceRequest* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  CloneWorkspaceRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<CloneWorkspaceRequest>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const CloneWorkspaceRequest& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const CloneWorkspaceRequest& from) {
     CloneWorkspaceRequest::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(CloneWorkspaceRequest* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.CloneWorkspaceRequest";
   }
   protected:
-  explicit CloneWorkspaceRequest(::google::protobuf_inworld::Arena* arena);
-  CloneWorkspaceRequest(::google::protobuf_inworld::Arena* arena, const CloneWorkspaceRequest& from);
+  explicit CloneWorkspaceRequest(::google::protobuf::Arena* arena);
+  CloneWorkspaceRequest(::google::protobuf::Arena* arena, const CloneWorkspaceRequest& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -3238,28 +3238,28 @@ class CloneWorkspaceRequest final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       1, 2, 0,
       76, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::ArenaStringPtr name_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr target_workspace_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr name_;
+    ::google::protobuf::internal::ArenaStringPtr target_workspace_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -3267,12 +3267,12 @@ class CloneWorkspaceRequest final :
 };// -------------------------------------------------------------------
 
 class WorkspaceLimitInfo_CommonKnowledgeLimit final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.CommonKnowledgeLimit) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.CommonKnowledgeLimit) */ {
  public:
   inline WorkspaceLimitInfo_CommonKnowledgeLimit() : WorkspaceLimitInfo_CommonKnowledgeLimit(nullptr) {}
   ~WorkspaceLimitInfo_CommonKnowledgeLimit() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR WorkspaceLimitInfo_CommonKnowledgeLimit(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR WorkspaceLimitInfo_CommonKnowledgeLimit(::google::protobuf::internal::ConstantInitialized);
 
   inline WorkspaceLimitInfo_CommonKnowledgeLimit(const WorkspaceLimitInfo_CommonKnowledgeLimit& from)
       : WorkspaceLimitInfo_CommonKnowledgeLimit(nullptr, from) {}
@@ -3299,22 +3299,22 @@ class WorkspaceLimitInfo_CommonKnowledgeLimit final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const WorkspaceLimitInfo_CommonKnowledgeLimit& default_instance() {
@@ -3340,7 +3340,7 @@ class WorkspaceLimitInfo_CommonKnowledgeLimit final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(WorkspaceLimitInfo_CommonKnowledgeLimit* other) {
@@ -3351,47 +3351,47 @@ class WorkspaceLimitInfo_CommonKnowledgeLimit final :
 
   // implements Message ----------------------------------------------
 
-  WorkspaceLimitInfo_CommonKnowledgeLimit* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  WorkspaceLimitInfo_CommonKnowledgeLimit* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<WorkspaceLimitInfo_CommonKnowledgeLimit>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const WorkspaceLimitInfo_CommonKnowledgeLimit& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const WorkspaceLimitInfo_CommonKnowledgeLimit& from) {
     WorkspaceLimitInfo_CommonKnowledgeLimit::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(WorkspaceLimitInfo_CommonKnowledgeLimit* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.WorkspaceLimitInfo.CommonKnowledgeLimit";
   }
   protected:
-  explicit WorkspaceLimitInfo_CommonKnowledgeLimit(::google::protobuf_inworld::Arena* arena);
-  WorkspaceLimitInfo_CommonKnowledgeLimit(::google::protobuf_inworld::Arena* arena, const WorkspaceLimitInfo_CommonKnowledgeLimit& from);
+  explicit WorkspaceLimitInfo_CommonKnowledgeLimit(::google::protobuf::Arena* arena);
+  WorkspaceLimitInfo_CommonKnowledgeLimit(::google::protobuf::Arena* arena, const WorkspaceLimitInfo_CommonKnowledgeLimit& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -3441,27 +3441,27 @@ class WorkspaceLimitInfo_CommonKnowledgeLimit final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       2, 3, 1,
       0, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::HasBits<1> _has_bits_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* memory_records_;
     ::int32_t display_name_max_length_;
     ::int32_t description_max_length_;
@@ -3472,12 +3472,12 @@ class WorkspaceLimitInfo_CommonKnowledgeLimit final :
 };// -------------------------------------------------------------------
 
 class WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.CharacterLimit.CharacterDescriptionLimit) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.CharacterLimit.CharacterDescriptionLimit) */ {
  public:
   inline WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit() : WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit(nullptr) {}
   ~WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit(::google::protobuf::internal::ConstantInitialized);
 
   inline WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit(const WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit& from)
       : WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit(nullptr, from) {}
@@ -3504,22 +3504,22 @@ class WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit& default_instance() {
@@ -3545,7 +3545,7 @@ class WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit* other) {
@@ -3556,47 +3556,47 @@ class WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit final :
 
   // implements Message ----------------------------------------------
 
-  WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit& from) {
     WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.WorkspaceLimitInfo.CharacterLimit.CharacterDescriptionLimit";
   }
   protected:
-  explicit WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit(::google::protobuf_inworld::Arena* arena);
-  WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit(::google::protobuf_inworld::Arena* arena, const WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit& from);
+  explicit WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit(::google::protobuf::Arena* arena);
+  WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit(::google::protobuf::Arena* arena, const WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -3711,27 +3711,27 @@ class WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       3, 8, 3,
       0, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::HasBits<1> _has_bits_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* hobby_or_interests_;
     ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* nicknames_;
     ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* personality_adjectives_;
@@ -3747,12 +3747,12 @@ class WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit final :
 };// -------------------------------------------------------------------
 
 class Workspace final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.Workspace) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.Workspace) */ {
  public:
   inline Workspace() : Workspace(nullptr) {}
   ~Workspace() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR Workspace(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR Workspace(::google::protobuf::internal::ConstantInitialized);
 
   inline Workspace(const Workspace& from)
       : Workspace(nullptr, from) {}
@@ -3779,22 +3779,22 @@ class Workspace final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const Workspace& default_instance() {
@@ -3820,7 +3820,7 @@ class Workspace final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(Workspace* other) {
@@ -3831,47 +3831,47 @@ class Workspace final :
 
   // implements Message ----------------------------------------------
 
-  Workspace* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  Workspace* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<Workspace>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const Workspace& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const Workspace& from) {
     Workspace::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(Workspace* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.Workspace";
   }
   protected:
-  explicit Workspace(::google::protobuf_inworld::Arena* arena);
-  Workspace(::google::protobuf_inworld::Arena* arena, const Workspace& from);
+  explicit Workspace(::google::protobuf::Arena* arena);
+  Workspace(::google::protobuf::Arena* arena, const Workspace& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -3887,7 +3887,7 @@ class Workspace final :
   static constexpr RuntimeAccess RuntimeAccess_MIN = Workspace_RuntimeAccess_RuntimeAccess_MIN;
   static constexpr RuntimeAccess RuntimeAccess_MAX = Workspace_RuntimeAccess_RuntimeAccess_MAX;
   static constexpr int RuntimeAccess_ARRAYSIZE = Workspace_RuntimeAccess_RuntimeAccess_ARRAYSIZE;
-  static inline const ::google::protobuf_inworld::EnumDescriptor* RuntimeAccess_descriptor() {
+  static inline const ::google::protobuf::EnumDescriptor* RuntimeAccess_descriptor() {
     return Workspace_RuntimeAccess_descriptor();
   }
   template <typename T>
@@ -3930,12 +3930,12 @@ class Workspace final :
   void add_experimental_features(const char* value);
   void add_experimental_features(const char* value, std::size_t size);
   void add_experimental_features(absl::string_view value);
-  const ::google::protobuf_inworld::RepeatedPtrField<std::string>& experimental_features() const;
-  ::google::protobuf_inworld::RepeatedPtrField<std::string>* mutable_experimental_features();
+  const ::google::protobuf::RepeatedPtrField<std::string>& experimental_features() const;
+  ::google::protobuf::RepeatedPtrField<std::string>* mutable_experimental_features();
 
   private:
-  const ::google::protobuf_inworld::RepeatedPtrField<std::string>& _internal_experimental_features() const;
-  ::google::protobuf_inworld::RepeatedPtrField<std::string>* _internal_mutable_experimental_features();
+  const ::google::protobuf::RepeatedPtrField<std::string>& _internal_experimental_features() const;
+  ::google::protobuf::RepeatedPtrField<std::string>* _internal_mutable_experimental_features();
 
   public:
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.ai.inworld.options.examples) = {
@@ -4035,31 +4035,31 @@ class Workspace final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       3, 8, 1,
       104, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::HasBits<1> _has_bits_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
-    ::google::protobuf_inworld::RepeatedPtrField<std::string> experimental_features_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr name_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr display_name_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr billing_account_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedPtrField<std::string> experimental_features_;
+    ::google::protobuf::internal::ArenaStringPtr name_;
+    ::google::protobuf::internal::ArenaStringPtr display_name_;
+    ::google::protobuf::internal::ArenaStringPtr billing_account_;
     ::ai::inworld::studio::v1alpha::Workspace_Meta* meta_;
     int runtime_access_;
     int primary_language_code_;
@@ -4071,12 +4071,12 @@ class Workspace final :
 };// -------------------------------------------------------------------
 
 class WorkspaceLimitInfo_CharacterLimit final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.CharacterLimit) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.CharacterLimit) */ {
  public:
   inline WorkspaceLimitInfo_CharacterLimit() : WorkspaceLimitInfo_CharacterLimit(nullptr) {}
   ~WorkspaceLimitInfo_CharacterLimit() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR WorkspaceLimitInfo_CharacterLimit(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR WorkspaceLimitInfo_CharacterLimit(::google::protobuf::internal::ConstantInitialized);
 
   inline WorkspaceLimitInfo_CharacterLimit(const WorkspaceLimitInfo_CharacterLimit& from)
       : WorkspaceLimitInfo_CharacterLimit(nullptr, from) {}
@@ -4103,22 +4103,22 @@ class WorkspaceLimitInfo_CharacterLimit final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const WorkspaceLimitInfo_CharacterLimit& default_instance() {
@@ -4144,7 +4144,7 @@ class WorkspaceLimitInfo_CharacterLimit final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(WorkspaceLimitInfo_CharacterLimit* other) {
@@ -4155,47 +4155,47 @@ class WorkspaceLimitInfo_CharacterLimit final :
 
   // implements Message ----------------------------------------------
 
-  WorkspaceLimitInfo_CharacterLimit* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  WorkspaceLimitInfo_CharacterLimit* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<WorkspaceLimitInfo_CharacterLimit>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const WorkspaceLimitInfo_CharacterLimit& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const WorkspaceLimitInfo_CharacterLimit& from) {
     WorkspaceLimitInfo_CharacterLimit::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(WorkspaceLimitInfo_CharacterLimit* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.WorkspaceLimitInfo.CharacterLimit";
   }
   protected:
-  explicit WorkspaceLimitInfo_CharacterLimit(::google::protobuf_inworld::Arena* arena);
-  WorkspaceLimitInfo_CharacterLimit(::google::protobuf_inworld::Arena* arena, const WorkspaceLimitInfo_CharacterLimit& from);
+  explicit WorkspaceLimitInfo_CharacterLimit(::google::protobuf::Arena* arena);
+  WorkspaceLimitInfo_CharacterLimit(::google::protobuf::Arena* arena, const WorkspaceLimitInfo_CharacterLimit& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -4258,27 +4258,27 @@ class WorkspaceLimitInfo_CharacterLimit final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       2, 4, 1,
       0, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::HasBits<1> _has_bits_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit* character_description_;
     ::int32_t name_max_length_;
     ::int32_t total_triggers_;
@@ -4290,12 +4290,12 @@ class WorkspaceLimitInfo_CharacterLimit final :
 };// -------------------------------------------------------------------
 
 class UpdateWorkspaceRequest final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.UpdateWorkspaceRequest) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.UpdateWorkspaceRequest) */ {
  public:
   inline UpdateWorkspaceRequest() : UpdateWorkspaceRequest(nullptr) {}
   ~UpdateWorkspaceRequest() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR UpdateWorkspaceRequest(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR UpdateWorkspaceRequest(::google::protobuf::internal::ConstantInitialized);
 
   inline UpdateWorkspaceRequest(const UpdateWorkspaceRequest& from)
       : UpdateWorkspaceRequest(nullptr, from) {}
@@ -4322,22 +4322,22 @@ class UpdateWorkspaceRequest final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const UpdateWorkspaceRequest& default_instance() {
@@ -4363,7 +4363,7 @@ class UpdateWorkspaceRequest final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(UpdateWorkspaceRequest* other) {
@@ -4374,47 +4374,47 @@ class UpdateWorkspaceRequest final :
 
   // implements Message ----------------------------------------------
 
-  UpdateWorkspaceRequest* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  UpdateWorkspaceRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<UpdateWorkspaceRequest>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const UpdateWorkspaceRequest& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const UpdateWorkspaceRequest& from) {
     UpdateWorkspaceRequest::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(UpdateWorkspaceRequest* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.UpdateWorkspaceRequest";
   }
   protected:
-  explicit UpdateWorkspaceRequest(::google::protobuf_inworld::Arena* arena);
-  UpdateWorkspaceRequest(::google::protobuf_inworld::Arena* arena, const UpdateWorkspaceRequest& from);
+  explicit UpdateWorkspaceRequest(::google::protobuf::Arena* arena);
+  UpdateWorkspaceRequest(::google::protobuf::Arena* arena, const UpdateWorkspaceRequest& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -4442,45 +4442,45 @@ class UpdateWorkspaceRequest final :
   // .google.protobuf.FieldMask update_mask = 2 [(.google.api.field_behavior) = REQUIRED];
   bool has_update_mask() const;
   void clear_update_mask() ;
-  const ::google::protobuf_inworld::FieldMask& update_mask() const;
-  PROTOBUF_NODISCARD ::google::protobuf_inworld::FieldMask* release_update_mask();
-  ::google::protobuf_inworld::FieldMask* mutable_update_mask();
-  void set_allocated_update_mask(::google::protobuf_inworld::FieldMask* value);
-  void unsafe_arena_set_allocated_update_mask(::google::protobuf_inworld::FieldMask* value);
-  ::google::protobuf_inworld::FieldMask* unsafe_arena_release_update_mask();
+  const ::google::protobuf::FieldMask& update_mask() const;
+  PROTOBUF_NODISCARD ::google::protobuf::FieldMask* release_update_mask();
+  ::google::protobuf::FieldMask* mutable_update_mask();
+  void set_allocated_update_mask(::google::protobuf::FieldMask* value);
+  void unsafe_arena_set_allocated_update_mask(::google::protobuf::FieldMask* value);
+  ::google::protobuf::FieldMask* unsafe_arena_release_update_mask();
 
   private:
-  const ::google::protobuf_inworld::FieldMask& _internal_update_mask() const;
-  ::google::protobuf_inworld::FieldMask* _internal_mutable_update_mask();
+  const ::google::protobuf::FieldMask& _internal_update_mask() const;
+  ::google::protobuf::FieldMask* _internal_mutable_update_mask();
 
   public:
   // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.UpdateWorkspaceRequest)
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       1, 2, 2,
       0, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::HasBits<1> _has_bits_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     ::ai::inworld::studio::v1alpha::Workspace* workspace_;
-    ::google::protobuf_inworld::FieldMask* update_mask_;
+    ::google::protobuf::FieldMask* update_mask_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -4488,12 +4488,12 @@ class UpdateWorkspaceRequest final :
 };// -------------------------------------------------------------------
 
 class ListWorkspacesResponse final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.ListWorkspacesResponse) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.ListWorkspacesResponse) */ {
  public:
   inline ListWorkspacesResponse() : ListWorkspacesResponse(nullptr) {}
   ~ListWorkspacesResponse() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR ListWorkspacesResponse(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR ListWorkspacesResponse(::google::protobuf::internal::ConstantInitialized);
 
   inline ListWorkspacesResponse(const ListWorkspacesResponse& from)
       : ListWorkspacesResponse(nullptr, from) {}
@@ -4520,22 +4520,22 @@ class ListWorkspacesResponse final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const ListWorkspacesResponse& default_instance() {
@@ -4561,7 +4561,7 @@ class ListWorkspacesResponse final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(ListWorkspacesResponse* other) {
@@ -4572,47 +4572,47 @@ class ListWorkspacesResponse final :
 
   // implements Message ----------------------------------------------
 
-  ListWorkspacesResponse* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  ListWorkspacesResponse* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<ListWorkspacesResponse>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const ListWorkspacesResponse& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const ListWorkspacesResponse& from) {
     ListWorkspacesResponse::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(ListWorkspacesResponse* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.ListWorkspacesResponse";
   }
   protected:
-  explicit ListWorkspacesResponse(::google::protobuf_inworld::Arena* arena);
-  ListWorkspacesResponse(::google::protobuf_inworld::Arena* arena, const ListWorkspacesResponse& from);
+  explicit ListWorkspacesResponse(::google::protobuf::Arena* arena);
+  ListWorkspacesResponse(::google::protobuf::Arena* arena, const ListWorkspacesResponse& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -4630,15 +4630,15 @@ class ListWorkspacesResponse final :
   public:
   void clear_workspaces() ;
   ::ai::inworld::studio::v1alpha::Workspace* mutable_workspaces(int index);
-  ::google::protobuf_inworld::RepeatedPtrField< ::ai::inworld::studio::v1alpha::Workspace >*
+  ::google::protobuf::RepeatedPtrField< ::ai::inworld::studio::v1alpha::Workspace >*
       mutable_workspaces();
   private:
-  const ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::Workspace>& _internal_workspaces() const;
-  ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::Workspace>* _internal_mutable_workspaces();
+  const ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::Workspace>& _internal_workspaces() const;
+  ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::Workspace>* _internal_mutable_workspaces();
   public:
   const ::ai::inworld::studio::v1alpha::Workspace& workspaces(int index) const;
   ::ai::inworld::studio::v1alpha::Workspace* add_workspaces();
-  const ::google::protobuf_inworld::RepeatedPtrField< ::ai::inworld::studio::v1alpha::Workspace >&
+  const ::google::protobuf::RepeatedPtrField< ::ai::inworld::studio::v1alpha::Workspace >&
       workspaces() const;
   // string next_page_token = 2;
   void clear_next_page_token() ;
@@ -4660,28 +4660,28 @@ class ListWorkspacesResponse final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       1, 2, 1,
       72, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::RepeatedPtrField< ::ai::inworld::studio::v1alpha::Workspace > workspaces_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr next_page_token_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::RepeatedPtrField< ::ai::inworld::studio::v1alpha::Workspace > workspaces_;
+    ::google::protobuf::internal::ArenaStringPtr next_page_token_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -4689,12 +4689,12 @@ class ListWorkspacesResponse final :
 };// -------------------------------------------------------------------
 
 class ImpressionEventRequest final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.ImpressionEventRequest) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.ImpressionEventRequest) */ {
  public:
   inline ImpressionEventRequest() : ImpressionEventRequest(nullptr) {}
   ~ImpressionEventRequest() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR ImpressionEventRequest(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR ImpressionEventRequest(::google::protobuf::internal::ConstantInitialized);
 
   inline ImpressionEventRequest(const ImpressionEventRequest& from)
       : ImpressionEventRequest(nullptr, from) {}
@@ -4721,22 +4721,22 @@ class ImpressionEventRequest final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const ImpressionEventRequest& default_instance() {
@@ -4762,7 +4762,7 @@ class ImpressionEventRequest final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(ImpressionEventRequest* other) {
@@ -4773,47 +4773,47 @@ class ImpressionEventRequest final :
 
   // implements Message ----------------------------------------------
 
-  ImpressionEventRequest* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  ImpressionEventRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<ImpressionEventRequest>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const ImpressionEventRequest& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const ImpressionEventRequest& from) {
     ImpressionEventRequest::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(ImpressionEventRequest* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.ImpressionEventRequest";
   }
   protected:
-  explicit ImpressionEventRequest(::google::protobuf_inworld::Arena* arena);
-  ImpressionEventRequest(::google::protobuf_inworld::Arena* arena, const ImpressionEventRequest& from);
+  explicit ImpressionEventRequest(::google::protobuf::Arena* arena);
+  ImpressionEventRequest(::google::protobuf::Arena* arena, const ImpressionEventRequest& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -4831,15 +4831,15 @@ class ImpressionEventRequest final :
   public:
   void clear_data() ;
   ::ai::inworld::studio::v1alpha::ImpressionEventData* mutable_data(int index);
-  ::google::protobuf_inworld::RepeatedPtrField< ::ai::inworld::studio::v1alpha::ImpressionEventData >*
+  ::google::protobuf::RepeatedPtrField< ::ai::inworld::studio::v1alpha::ImpressionEventData >*
       mutable_data();
   private:
-  const ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::ImpressionEventData>& _internal_data() const;
-  ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::ImpressionEventData>* _internal_mutable_data();
+  const ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::ImpressionEventData>& _internal_data() const;
+  ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::ImpressionEventData>* _internal_mutable_data();
   public:
   const ::ai::inworld::studio::v1alpha::ImpressionEventData& data(int index) const;
   ::ai::inworld::studio::v1alpha::ImpressionEventData* add_data();
-  const ::google::protobuf_inworld::RepeatedPtrField< ::ai::inworld::studio::v1alpha::ImpressionEventData >&
+  const ::google::protobuf::RepeatedPtrField< ::ai::inworld::studio::v1alpha::ImpressionEventData >&
       data() const;
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   void clear_name() ;
@@ -4861,28 +4861,28 @@ class ImpressionEventRequest final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       1, 2, 1,
       61, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::RepeatedPtrField< ::ai::inworld::studio::v1alpha::ImpressionEventData > data_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr name_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::RepeatedPtrField< ::ai::inworld::studio::v1alpha::ImpressionEventData > data_;
+    ::google::protobuf::internal::ArenaStringPtr name_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -4890,12 +4890,12 @@ class ImpressionEventRequest final :
 };// -------------------------------------------------------------------
 
 class CreateWorkspaceRequest final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.CreateWorkspaceRequest) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.CreateWorkspaceRequest) */ {
  public:
   inline CreateWorkspaceRequest() : CreateWorkspaceRequest(nullptr) {}
   ~CreateWorkspaceRequest() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR CreateWorkspaceRequest(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR CreateWorkspaceRequest(::google::protobuf::internal::ConstantInitialized);
 
   inline CreateWorkspaceRequest(const CreateWorkspaceRequest& from)
       : CreateWorkspaceRequest(nullptr, from) {}
@@ -4922,22 +4922,22 @@ class CreateWorkspaceRequest final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const CreateWorkspaceRequest& default_instance() {
@@ -4963,7 +4963,7 @@ class CreateWorkspaceRequest final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(CreateWorkspaceRequest* other) {
@@ -4974,47 +4974,47 @@ class CreateWorkspaceRequest final :
 
   // implements Message ----------------------------------------------
 
-  CreateWorkspaceRequest* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  CreateWorkspaceRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<CreateWorkspaceRequest>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const CreateWorkspaceRequest& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const CreateWorkspaceRequest& from) {
     CreateWorkspaceRequest::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(CreateWorkspaceRequest* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.CreateWorkspaceRequest";
   }
   protected:
-  explicit CreateWorkspaceRequest(::google::protobuf_inworld::Arena* arena);
-  CreateWorkspaceRequest(::google::protobuf_inworld::Arena* arena, const CreateWorkspaceRequest& from);
+  explicit CreateWorkspaceRequest(::google::protobuf::Arena* arena);
+  CreateWorkspaceRequest(::google::protobuf::Arena* arena, const CreateWorkspaceRequest& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -5042,27 +5042,27 @@ class CreateWorkspaceRequest final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       0, 1, 1,
       0, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::HasBits<1> _has_bits_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     ::ai::inworld::studio::v1alpha::Workspace* workspace_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -5071,12 +5071,12 @@ class CreateWorkspaceRequest final :
 };// -------------------------------------------------------------------
 
 class WorkspaceLimitInfo final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.WorkspaceLimitInfo) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.WorkspaceLimitInfo) */ {
  public:
   inline WorkspaceLimitInfo() : WorkspaceLimitInfo(nullptr) {}
   ~WorkspaceLimitInfo() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR WorkspaceLimitInfo(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR WorkspaceLimitInfo(::google::protobuf::internal::ConstantInitialized);
 
   inline WorkspaceLimitInfo(const WorkspaceLimitInfo& from)
       : WorkspaceLimitInfo(nullptr, from) {}
@@ -5103,22 +5103,22 @@ class WorkspaceLimitInfo final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const WorkspaceLimitInfo& default_instance() {
@@ -5144,7 +5144,7 @@ class WorkspaceLimitInfo final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(WorkspaceLimitInfo* other) {
@@ -5155,47 +5155,47 @@ class WorkspaceLimitInfo final :
 
   // implements Message ----------------------------------------------
 
-  WorkspaceLimitInfo* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  WorkspaceLimitInfo* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<WorkspaceLimitInfo>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const WorkspaceLimitInfo& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const WorkspaceLimitInfo& from) {
     WorkspaceLimitInfo::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(WorkspaceLimitInfo* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.WorkspaceLimitInfo";
   }
   protected:
-  explicit WorkspaceLimitInfo(::google::protobuf_inworld::Arena* arena);
-  WorkspaceLimitInfo(::google::protobuf_inworld::Arena* arena, const WorkspaceLimitInfo& from);
+  explicit WorkspaceLimitInfo(::google::protobuf::Arena* arena);
+  WorkspaceLimitInfo(::google::protobuf::Arena* arena, const WorkspaceLimitInfo& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -5294,27 +5294,27 @@ class WorkspaceLimitInfo final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       3, 5, 5,
       0, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::HasBits<1> _has_bits_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit* character_;
     ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit* scene_;
     ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_WorkspaceLimit* workspace_;
@@ -5525,7 +5525,7 @@ inline const ::ai::inworld::studio::v1alpha::Workspace& CreateWorkspaceRequest::
 inline void CreateWorkspaceRequest::unsafe_arena_set_allocated_workspace(::ai::inworld::studio::v1alpha::Workspace* value) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf_inworld::MessageLite*>(_impl_.workspace_);
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.workspace_);
   }
   _impl_.workspace_ = reinterpret_cast<::ai::inworld::studio::v1alpha::Workspace*>(value);
   if (value != nullptr) {
@@ -5542,14 +5542,14 @@ inline ::ai::inworld::studio::v1alpha::Workspace* CreateWorkspaceRequest::releas
   ::ai::inworld::studio::v1alpha::Workspace* released = _impl_.workspace_;
   _impl_.workspace_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf_inworld::MessageLite*>(released);
-  released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   if (GetArena() == nullptr) {
     delete old;
   }
 #else   // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArena() != nullptr) {
-    released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   }
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return released;
@@ -5578,16 +5578,16 @@ inline ::ai::inworld::studio::v1alpha::Workspace* CreateWorkspaceRequest::mutabl
   return _msg;
 }
 inline void CreateWorkspaceRequest::set_allocated_workspace(::ai::inworld::studio::v1alpha::Workspace* value) {
-  ::google::protobuf_inworld::Arena* message_arena = GetArena();
+  ::google::protobuf::Arena* message_arena = GetArena();
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (message_arena == nullptr) {
     delete reinterpret_cast<::ai::inworld::studio::v1alpha::Workspace*>(_impl_.workspace_);
   }
 
   if (value != nullptr) {
-    ::google::protobuf_inworld::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::Workspace*>(value)->GetArena();
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::Workspace*>(value)->GetArena();
     if (message_arena != submessage_arena) {
-      value = ::google::protobuf_inworld::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
@@ -5625,7 +5625,7 @@ inline const ::ai::inworld::studio::v1alpha::Workspace& UpdateWorkspaceRequest::
 inline void UpdateWorkspaceRequest::unsafe_arena_set_allocated_workspace(::ai::inworld::studio::v1alpha::Workspace* value) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf_inworld::MessageLite*>(_impl_.workspace_);
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.workspace_);
   }
   _impl_.workspace_ = reinterpret_cast<::ai::inworld::studio::v1alpha::Workspace*>(value);
   if (value != nullptr) {
@@ -5642,14 +5642,14 @@ inline ::ai::inworld::studio::v1alpha::Workspace* UpdateWorkspaceRequest::releas
   ::ai::inworld::studio::v1alpha::Workspace* released = _impl_.workspace_;
   _impl_.workspace_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf_inworld::MessageLite*>(released);
-  released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   if (GetArena() == nullptr) {
     delete old;
   }
 #else   // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArena() != nullptr) {
-    released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   }
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return released;
@@ -5678,16 +5678,16 @@ inline ::ai::inworld::studio::v1alpha::Workspace* UpdateWorkspaceRequest::mutabl
   return _msg;
 }
 inline void UpdateWorkspaceRequest::set_allocated_workspace(::ai::inworld::studio::v1alpha::Workspace* value) {
-  ::google::protobuf_inworld::Arena* message_arena = GetArena();
+  ::google::protobuf::Arena* message_arena = GetArena();
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (message_arena == nullptr) {
     delete reinterpret_cast<::ai::inworld::studio::v1alpha::Workspace*>(_impl_.workspace_);
   }
 
   if (value != nullptr) {
-    ::google::protobuf_inworld::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::Workspace*>(value)->GetArena();
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::Workspace*>(value)->GetArena();
     if (message_arena != submessage_arena) {
-      value = ::google::protobuf_inworld::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
@@ -5704,21 +5704,21 @@ inline bool UpdateWorkspaceRequest::has_update_mask() const {
   PROTOBUF_ASSUME(!value || _impl_.update_mask_ != nullptr);
   return value;
 }
-inline const ::google::protobuf_inworld::FieldMask& UpdateWorkspaceRequest::_internal_update_mask() const {
+inline const ::google::protobuf::FieldMask& UpdateWorkspaceRequest::_internal_update_mask() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
-  const ::google::protobuf_inworld::FieldMask* p = _impl_.update_mask_;
-  return p != nullptr ? *p : reinterpret_cast<const ::google::protobuf_inworld::FieldMask&>(::google::protobuf_inworld::_FieldMask_default_instance_);
+  const ::google::protobuf::FieldMask* p = _impl_.update_mask_;
+  return p != nullptr ? *p : reinterpret_cast<const ::google::protobuf::FieldMask&>(::google::protobuf::_FieldMask_default_instance_);
 }
-inline const ::google::protobuf_inworld::FieldMask& UpdateWorkspaceRequest::update_mask() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+inline const ::google::protobuf::FieldMask& UpdateWorkspaceRequest::update_mask() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.UpdateWorkspaceRequest.update_mask)
   return _internal_update_mask();
 }
-inline void UpdateWorkspaceRequest::unsafe_arena_set_allocated_update_mask(::google::protobuf_inworld::FieldMask* value) {
+inline void UpdateWorkspaceRequest::unsafe_arena_set_allocated_update_mask(::google::protobuf::FieldMask* value) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf_inworld::MessageLite*>(_impl_.update_mask_);
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.update_mask_);
   }
-  _impl_.update_mask_ = reinterpret_cast<::google::protobuf_inworld::FieldMask*>(value);
+  _impl_.update_mask_ = reinterpret_cast<::google::protobuf::FieldMask*>(value);
   if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000002u;
   } else {
@@ -5726,66 +5726,66 @@ inline void UpdateWorkspaceRequest::unsafe_arena_set_allocated_update_mask(::goo
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.studio.v1alpha.UpdateWorkspaceRequest.update_mask)
 }
-inline ::google::protobuf_inworld::FieldMask* UpdateWorkspaceRequest::release_update_mask() {
+inline ::google::protobuf::FieldMask* UpdateWorkspaceRequest::release_update_mask() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
 
   _impl_._has_bits_[0] &= ~0x00000002u;
-  ::google::protobuf_inworld::FieldMask* released = _impl_.update_mask_;
+  ::google::protobuf::FieldMask* released = _impl_.update_mask_;
   _impl_.update_mask_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf_inworld::MessageLite*>(released);
-  released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   if (GetArena() == nullptr) {
     delete old;
   }
 #else   // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArena() != nullptr) {
-    released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   }
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return released;
 }
-inline ::google::protobuf_inworld::FieldMask* UpdateWorkspaceRequest::unsafe_arena_release_update_mask() {
+inline ::google::protobuf::FieldMask* UpdateWorkspaceRequest::unsafe_arena_release_update_mask() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.UpdateWorkspaceRequest.update_mask)
 
   _impl_._has_bits_[0] &= ~0x00000002u;
-  ::google::protobuf_inworld::FieldMask* temp = _impl_.update_mask_;
+  ::google::protobuf::FieldMask* temp = _impl_.update_mask_;
   _impl_.update_mask_ = nullptr;
   return temp;
 }
-inline ::google::protobuf_inworld::FieldMask* UpdateWorkspaceRequest::_internal_mutable_update_mask() {
+inline ::google::protobuf::FieldMask* UpdateWorkspaceRequest::_internal_mutable_update_mask() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   _impl_._has_bits_[0] |= 0x00000002u;
   if (_impl_.update_mask_ == nullptr) {
-    auto* p = CreateMaybeMessage<::google::protobuf_inworld::FieldMask>(GetArena());
-    _impl_.update_mask_ = reinterpret_cast<::google::protobuf_inworld::FieldMask*>(p);
+    auto* p = CreateMaybeMessage<::google::protobuf::FieldMask>(GetArena());
+    _impl_.update_mask_ = reinterpret_cast<::google::protobuf::FieldMask*>(p);
   }
   return _impl_.update_mask_;
 }
-inline ::google::protobuf_inworld::FieldMask* UpdateWorkspaceRequest::mutable_update_mask() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::google::protobuf_inworld::FieldMask* _msg = _internal_mutable_update_mask();
+inline ::google::protobuf::FieldMask* UpdateWorkspaceRequest::mutable_update_mask() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::FieldMask* _msg = _internal_mutable_update_mask();
   // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.UpdateWorkspaceRequest.update_mask)
   return _msg;
 }
-inline void UpdateWorkspaceRequest::set_allocated_update_mask(::google::protobuf_inworld::FieldMask* value) {
-  ::google::protobuf_inworld::Arena* message_arena = GetArena();
+inline void UpdateWorkspaceRequest::set_allocated_update_mask(::google::protobuf::FieldMask* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (message_arena == nullptr) {
-    delete reinterpret_cast<::google::protobuf_inworld::MessageLite*>(_impl_.update_mask_);
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.update_mask_);
   }
 
   if (value != nullptr) {
-    ::google::protobuf_inworld::Arena* submessage_arena = reinterpret_cast<::google::protobuf_inworld::MessageLite*>(value)->GetArena();
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
     if (message_arena != submessage_arena) {
-      value = ::google::protobuf_inworld::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
     _impl_._has_bits_[0] |= 0x00000002u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000002u;
   }
 
-  _impl_.update_mask_ = reinterpret_cast<::google::protobuf_inworld::FieldMask*>(value);
+  _impl_.update_mask_ = reinterpret_cast<::google::protobuf::FieldMask*>(value);
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.UpdateWorkspaceRequest.update_mask)
 }
 
@@ -6048,7 +6048,7 @@ inline ::ai::inworld::studio::v1alpha::ImpressionEventData* ImpressionEventReque
   // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.ImpressionEventRequest.data)
   return _internal_mutable_data()->Mutable(index);
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::ImpressionEventData>* ImpressionEventRequest::mutable_data()
+inline ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::ImpressionEventData>* ImpressionEventRequest::mutable_data()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_mutable_list:ai.inworld.studio.v1alpha.ImpressionEventRequest.data)
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
@@ -6065,17 +6065,17 @@ inline ::ai::inworld::studio::v1alpha::ImpressionEventData* ImpressionEventReque
   // @@protoc_insertion_point(field_add:ai.inworld.studio.v1alpha.ImpressionEventRequest.data)
   return _add;
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::ImpressionEventData>& ImpressionEventRequest::data() const
+inline const ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::ImpressionEventData>& ImpressionEventRequest::data() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_list:ai.inworld.studio.v1alpha.ImpressionEventRequest.data)
   return _internal_data();
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::ImpressionEventData>&
+inline const ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::ImpressionEventData>&
 ImpressionEventRequest::_internal_data() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return _impl_.data_;
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::ImpressionEventData>*
+inline ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::ImpressionEventData>*
 ImpressionEventRequest::_internal_mutable_data() {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return &_impl_.data_;
@@ -6366,23 +6366,23 @@ inline void Workspace::add_experimental_features(absl::string_view value) {
   _internal_mutable_experimental_features()->Add()->assign(value.data(), value.size());
   // @@protoc_insertion_point(field_add_string_piece:ai.inworld.studio.v1alpha.Workspace.experimental_features)
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<std::string>&
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
 Workspace::experimental_features() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_list:ai.inworld.studio.v1alpha.Workspace.experimental_features)
   return _internal_experimental_features();
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<std::string>*
+inline ::google::protobuf::RepeatedPtrField<std::string>*
 Workspace::mutable_experimental_features() ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_mutable_list:ai.inworld.studio.v1alpha.Workspace.experimental_features)
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   return _internal_mutable_experimental_features();
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<std::string>&
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
 Workspace::_internal_experimental_features() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return _impl_.experimental_features_;
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<std::string>*
+inline ::google::protobuf::RepeatedPtrField<std::string>*
 Workspace::_internal_mutable_experimental_features() {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return &_impl_.experimental_features_;
@@ -6464,7 +6464,7 @@ inline const ::ai::inworld::studio::v1alpha::Workspace_Meta& Workspace::meta() c
 inline void Workspace::unsafe_arena_set_allocated_meta(::ai::inworld::studio::v1alpha::Workspace_Meta* value) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf_inworld::MessageLite*>(_impl_.meta_);
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.meta_);
   }
   _impl_.meta_ = reinterpret_cast<::ai::inworld::studio::v1alpha::Workspace_Meta*>(value);
   if (value != nullptr) {
@@ -6481,14 +6481,14 @@ inline ::ai::inworld::studio::v1alpha::Workspace_Meta* Workspace::release_meta()
   ::ai::inworld::studio::v1alpha::Workspace_Meta* released = _impl_.meta_;
   _impl_.meta_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf_inworld::MessageLite*>(released);
-  released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   if (GetArena() == nullptr) {
     delete old;
   }
 #else   // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArena() != nullptr) {
-    released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   }
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return released;
@@ -6517,16 +6517,16 @@ inline ::ai::inworld::studio::v1alpha::Workspace_Meta* Workspace::mutable_meta()
   return _msg;
 }
 inline void Workspace::set_allocated_meta(::ai::inworld::studio::v1alpha::Workspace_Meta* value) {
-  ::google::protobuf_inworld::Arena* message_arena = GetArena();
+  ::google::protobuf::Arena* message_arena = GetArena();
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (message_arena == nullptr) {
     delete reinterpret_cast<::ai::inworld::studio::v1alpha::Workspace_Meta*>(_impl_.meta_);
   }
 
   if (value != nullptr) {
-    ::google::protobuf_inworld::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::Workspace_Meta*>(value)->GetArena();
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::Workspace_Meta*>(value)->GetArena();
     if (message_arena != submessage_arena) {
-      value = ::google::protobuf_inworld::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
@@ -6626,7 +6626,7 @@ inline ::ai::inworld::studio::v1alpha::Workspace* ListWorkspacesResponse::mutabl
   // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.ListWorkspacesResponse.workspaces)
   return _internal_mutable_workspaces()->Mutable(index);
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::Workspace>* ListWorkspacesResponse::mutable_workspaces()
+inline ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::Workspace>* ListWorkspacesResponse::mutable_workspaces()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_mutable_list:ai.inworld.studio.v1alpha.ListWorkspacesResponse.workspaces)
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
@@ -6643,17 +6643,17 @@ inline ::ai::inworld::studio::v1alpha::Workspace* ListWorkspacesResponse::add_wo
   // @@protoc_insertion_point(field_add:ai.inworld.studio.v1alpha.ListWorkspacesResponse.workspaces)
   return _add;
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::Workspace>& ListWorkspacesResponse::workspaces() const
+inline const ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::Workspace>& ListWorkspacesResponse::workspaces() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_list:ai.inworld.studio.v1alpha.ListWorkspacesResponse.workspaces)
   return _internal_workspaces();
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::Workspace>&
+inline const ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::Workspace>&
 ListWorkspacesResponse::_internal_workspaces() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return _impl_.workspaces_;
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::Workspace>*
+inline ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::Workspace>*
 ListWorkspacesResponse::_internal_mutable_workspaces() {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return &_impl_.workspaces_;
@@ -6848,23 +6848,23 @@ inline void ShareWorkspaceRequest::add_emails(absl::string_view value) {
   _internal_mutable_emails()->Add()->assign(value.data(), value.size());
   // @@protoc_insertion_point(field_add_string_piece:ai.inworld.studio.v1alpha.ShareWorkspaceRequest.emails)
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<std::string>&
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
 ShareWorkspaceRequest::emails() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_list:ai.inworld.studio.v1alpha.ShareWorkspaceRequest.emails)
   return _internal_emails();
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<std::string>*
+inline ::google::protobuf::RepeatedPtrField<std::string>*
 ShareWorkspaceRequest::mutable_emails() ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_mutable_list:ai.inworld.studio.v1alpha.ShareWorkspaceRequest.emails)
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   return _internal_mutable_emails();
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<std::string>&
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
 ShareWorkspaceRequest::_internal_emails() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return _impl_.emails_;
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<std::string>*
+inline ::google::protobuf::RepeatedPtrField<std::string>*
 ShareWorkspaceRequest::_internal_mutable_emails() {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return &_impl_.emails_;
@@ -7200,23 +7200,23 @@ inline void WorkspaceShareInfo::add_emails(absl::string_view value) {
   _internal_mutable_emails()->Add()->assign(value.data(), value.size());
   // @@protoc_insertion_point(field_add_string_piece:ai.inworld.studio.v1alpha.WorkspaceShareInfo.emails)
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<std::string>&
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
 WorkspaceShareInfo::emails() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_list:ai.inworld.studio.v1alpha.WorkspaceShareInfo.emails)
   return _internal_emails();
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<std::string>*
+inline ::google::protobuf::RepeatedPtrField<std::string>*
 WorkspaceShareInfo::mutable_emails() ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_mutable_list:ai.inworld.studio.v1alpha.WorkspaceShareInfo.emails)
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   return _internal_mutable_emails();
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<std::string>&
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
 WorkspaceShareInfo::_internal_emails() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return _impl_.emails_;
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<std::string>*
+inline ::google::protobuf::RepeatedPtrField<std::string>*
 WorkspaceShareInfo::_internal_mutable_emails() {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return &_impl_.emails_;
@@ -7448,7 +7448,7 @@ inline const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit& W
 inline void WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::unsafe_arena_set_allocated_hobby_or_interests(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* value) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf_inworld::MessageLite*>(_impl_.hobby_or_interests_);
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.hobby_or_interests_);
   }
   _impl_.hobby_or_interests_ = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit*>(value);
   if (value != nullptr) {
@@ -7465,14 +7465,14 @@ inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* Workspa
   ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* released = _impl_.hobby_or_interests_;
   _impl_.hobby_or_interests_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf_inworld::MessageLite*>(released);
-  released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   if (GetArena() == nullptr) {
     delete old;
   }
 #else   // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArena() != nullptr) {
-    released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   }
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return released;
@@ -7501,16 +7501,16 @@ inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* Workspa
   return _msg;
 }
 inline void WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::set_allocated_hobby_or_interests(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* value) {
-  ::google::protobuf_inworld::Arena* message_arena = GetArena();
+  ::google::protobuf::Arena* message_arena = GetArena();
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (message_arena == nullptr) {
     delete reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit*>(_impl_.hobby_or_interests_);
   }
 
   if (value != nullptr) {
-    ::google::protobuf_inworld::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit*>(value)->GetArena();
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit*>(value)->GetArena();
     if (message_arena != submessage_arena) {
-      value = ::google::protobuf_inworld::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
@@ -7544,7 +7544,7 @@ inline const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit& W
 inline void WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::unsafe_arena_set_allocated_nicknames(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* value) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf_inworld::MessageLite*>(_impl_.nicknames_);
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.nicknames_);
   }
   _impl_.nicknames_ = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit*>(value);
   if (value != nullptr) {
@@ -7561,14 +7561,14 @@ inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* Workspa
   ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* released = _impl_.nicknames_;
   _impl_.nicknames_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf_inworld::MessageLite*>(released);
-  released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   if (GetArena() == nullptr) {
     delete old;
   }
 #else   // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArena() != nullptr) {
-    released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   }
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return released;
@@ -7597,16 +7597,16 @@ inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* Workspa
   return _msg;
 }
 inline void WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::set_allocated_nicknames(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* value) {
-  ::google::protobuf_inworld::Arena* message_arena = GetArena();
+  ::google::protobuf::Arena* message_arena = GetArena();
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (message_arena == nullptr) {
     delete reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit*>(_impl_.nicknames_);
   }
 
   if (value != nullptr) {
-    ::google::protobuf_inworld::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit*>(value)->GetArena();
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit*>(value)->GetArena();
     if (message_arena != submessage_arena) {
-      value = ::google::protobuf_inworld::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
     _impl_._has_bits_[0] |= 0x00000002u;
   } else {
@@ -7640,7 +7640,7 @@ inline const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit& W
 inline void WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::unsafe_arena_set_allocated_personality_adjectives(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* value) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf_inworld::MessageLite*>(_impl_.personality_adjectives_);
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.personality_adjectives_);
   }
   _impl_.personality_adjectives_ = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit*>(value);
   if (value != nullptr) {
@@ -7657,14 +7657,14 @@ inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* Workspa
   ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* released = _impl_.personality_adjectives_;
   _impl_.personality_adjectives_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf_inworld::MessageLite*>(released);
-  released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   if (GetArena() == nullptr) {
     delete old;
   }
 #else   // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArena() != nullptr) {
-    released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   }
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return released;
@@ -7693,16 +7693,16 @@ inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* Workspa
   return _msg;
 }
 inline void WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::set_allocated_personality_adjectives(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* value) {
-  ::google::protobuf_inworld::Arena* message_arena = GetArena();
+  ::google::protobuf::Arena* message_arena = GetArena();
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (message_arena == nullptr) {
     delete reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit*>(_impl_.personality_adjectives_);
   }
 
   if (value != nullptr) {
-    ::google::protobuf_inworld::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit*>(value)->GetArena();
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit*>(value)->GetArena();
     if (message_arena != submessage_arena) {
-      value = ::google::protobuf_inworld::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
     _impl_._has_bits_[0] |= 0x00000004u;
   } else {
@@ -7832,7 +7832,7 @@ inline const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_C
 inline void WorkspaceLimitInfo_CharacterLimit::unsafe_arena_set_allocated_character_description(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit* value) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf_inworld::MessageLite*>(_impl_.character_description_);
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.character_description_);
   }
   _impl_.character_description_ = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit*>(value);
   if (value != nullptr) {
@@ -7849,14 +7849,14 @@ inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_Charact
   ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit* released = _impl_.character_description_;
   _impl_.character_description_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf_inworld::MessageLite*>(released);
-  released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   if (GetArena() == nullptr) {
     delete old;
   }
 #else   // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArena() != nullptr) {
-    released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   }
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return released;
@@ -7885,16 +7885,16 @@ inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_Charact
   return _msg;
 }
 inline void WorkspaceLimitInfo_CharacterLimit::set_allocated_character_description(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit* value) {
-  ::google::protobuf_inworld::Arena* message_arena = GetArena();
+  ::google::protobuf::Arena* message_arena = GetArena();
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (message_arena == nullptr) {
     delete reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit*>(_impl_.character_description_);
   }
 
   if (value != nullptr) {
-    ::google::protobuf_inworld::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit*>(value)->GetArena();
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit*>(value)->GetArena();
     if (message_arena != submessage_arena) {
-      value = ::google::protobuf_inworld::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
@@ -8289,7 +8289,7 @@ inline const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit& W
 inline void WorkspaceLimitInfo_CommonKnowledgeLimit::unsafe_arena_set_allocated_memory_records(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* value) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf_inworld::MessageLite*>(_impl_.memory_records_);
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.memory_records_);
   }
   _impl_.memory_records_ = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit*>(value);
   if (value != nullptr) {
@@ -8306,14 +8306,14 @@ inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* Workspa
   ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* released = _impl_.memory_records_;
   _impl_.memory_records_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf_inworld::MessageLite*>(released);
-  released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   if (GetArena() == nullptr) {
     delete old;
   }
 #else   // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArena() != nullptr) {
-    released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   }
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return released;
@@ -8342,16 +8342,16 @@ inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* Workspa
   return _msg;
 }
 inline void WorkspaceLimitInfo_CommonKnowledgeLimit::set_allocated_memory_records(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* value) {
-  ::google::protobuf_inworld::Arena* message_arena = GetArena();
+  ::google::protobuf::Arena* message_arena = GetArena();
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (message_arena == nullptr) {
     delete reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit*>(_impl_.memory_records_);
   }
 
   if (value != nullptr) {
-    ::google::protobuf_inworld::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit*>(value)->GetArena();
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit*>(value)->GetArena();
     if (message_arena != submessage_arena) {
-      value = ::google::protobuf_inworld::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
@@ -8389,7 +8389,7 @@ inline const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit& 
 inline void WorkspaceLimitInfo::unsafe_arena_set_allocated_character(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit* value) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf_inworld::MessageLite*>(_impl_.character_);
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.character_);
   }
   _impl_.character_ = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit*>(value);
   if (value != nullptr) {
@@ -8406,14 +8406,14 @@ inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit* Worksp
   ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit* released = _impl_.character_;
   _impl_.character_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf_inworld::MessageLite*>(released);
-  released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   if (GetArena() == nullptr) {
     delete old;
   }
 #else   // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArena() != nullptr) {
-    released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   }
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return released;
@@ -8442,16 +8442,16 @@ inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit* Worksp
   return _msg;
 }
 inline void WorkspaceLimitInfo::set_allocated_character(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit* value) {
-  ::google::protobuf_inworld::Arena* message_arena = GetArena();
+  ::google::protobuf::Arena* message_arena = GetArena();
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (message_arena == nullptr) {
     delete reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit*>(_impl_.character_);
   }
 
   if (value != nullptr) {
-    ::google::protobuf_inworld::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit*>(value)->GetArena();
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit*>(value)->GetArena();
     if (message_arena != submessage_arena) {
-      value = ::google::protobuf_inworld::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
@@ -8485,7 +8485,7 @@ inline const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit& Work
 inline void WorkspaceLimitInfo::unsafe_arena_set_allocated_scene(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit* value) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf_inworld::MessageLite*>(_impl_.scene_);
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.scene_);
   }
   _impl_.scene_ = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit*>(value);
   if (value != nullptr) {
@@ -8502,14 +8502,14 @@ inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit* WorkspaceL
   ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit* released = _impl_.scene_;
   _impl_.scene_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf_inworld::MessageLite*>(released);
-  released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   if (GetArena() == nullptr) {
     delete old;
   }
 #else   // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArena() != nullptr) {
-    released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   }
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return released;
@@ -8538,16 +8538,16 @@ inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit* WorkspaceL
   return _msg;
 }
 inline void WorkspaceLimitInfo::set_allocated_scene(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit* value) {
-  ::google::protobuf_inworld::Arena* message_arena = GetArena();
+  ::google::protobuf::Arena* message_arena = GetArena();
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (message_arena == nullptr) {
     delete reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit*>(_impl_.scene_);
   }
 
   if (value != nullptr) {
-    ::google::protobuf_inworld::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit*>(value)->GetArena();
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit*>(value)->GetArena();
     if (message_arena != submessage_arena) {
-      value = ::google::protobuf_inworld::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
     _impl_._has_bits_[0] |= 0x00000002u;
   } else {
@@ -8581,7 +8581,7 @@ inline const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_WorkspaceLimit& 
 inline void WorkspaceLimitInfo::unsafe_arena_set_allocated_workspace(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_WorkspaceLimit* value) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf_inworld::MessageLite*>(_impl_.workspace_);
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.workspace_);
   }
   _impl_.workspace_ = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_WorkspaceLimit*>(value);
   if (value != nullptr) {
@@ -8598,14 +8598,14 @@ inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_WorkspaceLimit* Worksp
   ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_WorkspaceLimit* released = _impl_.workspace_;
   _impl_.workspace_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf_inworld::MessageLite*>(released);
-  released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   if (GetArena() == nullptr) {
     delete old;
   }
 #else   // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArena() != nullptr) {
-    released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   }
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return released;
@@ -8634,16 +8634,16 @@ inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_WorkspaceLimit* Worksp
   return _msg;
 }
 inline void WorkspaceLimitInfo::set_allocated_workspace(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_WorkspaceLimit* value) {
-  ::google::protobuf_inworld::Arena* message_arena = GetArena();
+  ::google::protobuf::Arena* message_arena = GetArena();
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (message_arena == nullptr) {
     delete reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_WorkspaceLimit*>(_impl_.workspace_);
   }
 
   if (value != nullptr) {
-    ::google::protobuf_inworld::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_WorkspaceLimit*>(value)->GetArena();
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_WorkspaceLimit*>(value)->GetArena();
     if (message_arena != submessage_arena) {
-      value = ::google::protobuf_inworld::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
     _impl_._has_bits_[0] |= 0x00000004u;
   } else {
@@ -8677,7 +8677,7 @@ inline const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_BillingAccountLi
 inline void WorkspaceLimitInfo::unsafe_arena_set_allocated_billing_account(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_BillingAccountLimit* value) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf_inworld::MessageLite*>(_impl_.billing_account_);
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.billing_account_);
   }
   _impl_.billing_account_ = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_BillingAccountLimit*>(value);
   if (value != nullptr) {
@@ -8694,14 +8694,14 @@ inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_BillingAccountLimit* W
   ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_BillingAccountLimit* released = _impl_.billing_account_;
   _impl_.billing_account_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf_inworld::MessageLite*>(released);
-  released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   if (GetArena() == nullptr) {
     delete old;
   }
 #else   // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArena() != nullptr) {
-    released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   }
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return released;
@@ -8730,16 +8730,16 @@ inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_BillingAccountLimit* W
   return _msg;
 }
 inline void WorkspaceLimitInfo::set_allocated_billing_account(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_BillingAccountLimit* value) {
-  ::google::protobuf_inworld::Arena* message_arena = GetArena();
+  ::google::protobuf::Arena* message_arena = GetArena();
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (message_arena == nullptr) {
     delete reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_BillingAccountLimit*>(_impl_.billing_account_);
   }
 
   if (value != nullptr) {
-    ::google::protobuf_inworld::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_BillingAccountLimit*>(value)->GetArena();
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_BillingAccountLimit*>(value)->GetArena();
     if (message_arena != submessage_arena) {
-      value = ::google::protobuf_inworld::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
     _impl_._has_bits_[0] |= 0x00000008u;
   } else {
@@ -8773,7 +8773,7 @@ inline const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CommonKnowledgeL
 inline void WorkspaceLimitInfo::unsafe_arena_set_allocated_common_knowledge(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CommonKnowledgeLimit* value) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf_inworld::MessageLite*>(_impl_.common_knowledge_);
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.common_knowledge_);
   }
   _impl_.common_knowledge_ = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CommonKnowledgeLimit*>(value);
   if (value != nullptr) {
@@ -8790,14 +8790,14 @@ inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CommonKnowledgeLimit* 
   ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CommonKnowledgeLimit* released = _impl_.common_knowledge_;
   _impl_.common_knowledge_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf_inworld::MessageLite*>(released);
-  released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   if (GetArena() == nullptr) {
     delete old;
   }
 #else   // PROTOBUF_FORCE_COPY_IN_RELEASE
   if (GetArena() != nullptr) {
-    released = ::google::protobuf_inworld::internal::DuplicateIfNonNull(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
   }
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return released;
@@ -8826,16 +8826,16 @@ inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CommonKnowledgeLimit* 
   return _msg;
 }
 inline void WorkspaceLimitInfo::set_allocated_common_knowledge(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CommonKnowledgeLimit* value) {
-  ::google::protobuf_inworld::Arena* message_arena = GetArena();
+  ::google::protobuf::Arena* message_arena = GetArena();
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (message_arena == nullptr) {
     delete reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CommonKnowledgeLimit*>(_impl_.common_knowledge_);
   }
 
   if (value != nullptr) {
-    ::google::protobuf_inworld::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CommonKnowledgeLimit*>(value)->GetArena();
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CommonKnowledgeLimit*>(value)->GetArena();
     if (message_arena != submessage_arena) {
-      value = ::google::protobuf_inworld::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
     _impl_._has_bits_[0] |= 0x00000010u;
   } else {

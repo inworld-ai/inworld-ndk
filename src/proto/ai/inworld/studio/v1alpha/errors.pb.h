@@ -56,7 +56,7 @@ class AnyMetadata;
 struct TableStruct_ai_2finworld_2fstudio_2fv1alpha_2ferrors_2eproto {
   static const ::uint32_t offsets[];
 };
-extern const ::google::protobuf_inworld::internal::DescriptorTable
+extern const ::google::protobuf::internal::DescriptorTable
     descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2ferrors_2eproto;
 namespace ai {
 namespace inworld {
@@ -91,42 +91,42 @@ namespace v1alpha {
 // -------------------------------------------------------------------
 
 class BadRequest_FieldViolation_MetadataEntry_DoNotUse final
-    : public ::google::protobuf_inworld::internal::MapEntry<
+    : public ::google::protobuf::internal::MapEntry<
           BadRequest_FieldViolation_MetadataEntry_DoNotUse, std::string, std::string,
-          ::google::protobuf_inworld::internal::WireFormatLite::TYPE_STRING,
-          ::google::protobuf_inworld::internal::WireFormatLite::TYPE_STRING> {
+          ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+          ::google::protobuf::internal::WireFormatLite::TYPE_STRING> {
  public:
-  using SuperType = ::google::protobuf_inworld::internal::MapEntry<
+  using SuperType = ::google::protobuf::internal::MapEntry<
       BadRequest_FieldViolation_MetadataEntry_DoNotUse, std::string, std::string,
-      ::google::protobuf_inworld::internal::WireFormatLite::TYPE_STRING,
-      ::google::protobuf_inworld::internal::WireFormatLite::TYPE_STRING>;
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING>;
   BadRequest_FieldViolation_MetadataEntry_DoNotUse();
   template <typename = void>
   explicit PROTOBUF_CONSTEXPR BadRequest_FieldViolation_MetadataEntry_DoNotUse(
-      ::google::protobuf_inworld::internal::ConstantInitialized);
-  explicit BadRequest_FieldViolation_MetadataEntry_DoNotUse(::google::protobuf_inworld::Arena* arena);
+      ::google::protobuf::internal::ConstantInitialized);
+  explicit BadRequest_FieldViolation_MetadataEntry_DoNotUse(::google::protobuf::Arena* arena);
   static const BadRequest_FieldViolation_MetadataEntry_DoNotUse* internal_default_instance() {
     return reinterpret_cast<const BadRequest_FieldViolation_MetadataEntry_DoNotUse*>(
         &_BadRequest_FieldViolation_MetadataEntry_DoNotUse_default_instance_);
   }
   static bool ValidateKey(std::string* s) {
-    return ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::google::protobuf_inworld::internal::WireFormatLite::PARSE, "ai.inworld.studio.v1alpha.BadRequest.FieldViolation.MetadataEntry.key");
+    return ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::google::protobuf::internal::WireFormatLite::PARSE, "ai.inworld.studio.v1alpha.BadRequest.FieldViolation.MetadataEntry.key");
  }
   static bool ValidateValue(std::string* s) {
-    return ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::google::protobuf_inworld::internal::WireFormatLite::PARSE, "ai.inworld.studio.v1alpha.BadRequest.FieldViolation.MetadataEntry.value");
+    return ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::google::protobuf::internal::WireFormatLite::PARSE, "ai.inworld.studio.v1alpha.BadRequest.FieldViolation.MetadataEntry.value");
  }
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
   friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2ferrors_2eproto;
 };
 // -------------------------------------------------------------------
 
 class BadRequest_FieldViolation final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.BadRequest.FieldViolation) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.BadRequest.FieldViolation) */ {
  public:
   inline BadRequest_FieldViolation() : BadRequest_FieldViolation(nullptr) {}
   ~BadRequest_FieldViolation() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR BadRequest_FieldViolation(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR BadRequest_FieldViolation(::google::protobuf::internal::ConstantInitialized);
 
   inline BadRequest_FieldViolation(const BadRequest_FieldViolation& from)
       : BadRequest_FieldViolation(nullptr, from) {}
@@ -153,22 +153,22 @@ class BadRequest_FieldViolation final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const BadRequest_FieldViolation& default_instance() {
@@ -194,7 +194,7 @@ class BadRequest_FieldViolation final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(BadRequest_FieldViolation* other) {
@@ -205,47 +205,47 @@ class BadRequest_FieldViolation final :
 
   // implements Message ----------------------------------------------
 
-  BadRequest_FieldViolation* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  BadRequest_FieldViolation* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<BadRequest_FieldViolation>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const BadRequest_FieldViolation& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const BadRequest_FieldViolation& from) {
     BadRequest_FieldViolation::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(BadRequest_FieldViolation* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.BadRequest.FieldViolation";
   }
   protected:
-  explicit BadRequest_FieldViolation(::google::protobuf_inworld::Arena* arena);
-  BadRequest_FieldViolation(::google::protobuf_inworld::Arena* arena, const BadRequest_FieldViolation& from);
+  explicit BadRequest_FieldViolation(::google::protobuf::Arena* arena);
+  BadRequest_FieldViolation(::google::protobuf::Arena* arena, const BadRequest_FieldViolation& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -264,12 +264,12 @@ class BadRequest_FieldViolation final :
 
   public:
   void clear_metadata() ;
-  const ::google::protobuf_inworld::Map<std::string, std::string>& metadata() const;
-  ::google::protobuf_inworld::Map<std::string, std::string>* mutable_metadata();
+  const ::google::protobuf::Map<std::string, std::string>& metadata() const;
+  ::google::protobuf::Map<std::string, std::string>* mutable_metadata();
 
   private:
-  const ::google::protobuf_inworld::Map<std::string, std::string>& _internal_metadata() const;
-  ::google::protobuf_inworld::Map<std::string, std::string>* _internal_mutable_metadata();
+  const ::google::protobuf::Map<std::string, std::string>& _internal_metadata() const;
+  ::google::protobuf::Map<std::string, std::string>* _internal_mutable_metadata();
 
   public:
   // string field = 1;
@@ -308,32 +308,32 @@ class BadRequest_FieldViolation final :
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       1, 3, 1,
       84, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::internal::MapField<BadRequest_FieldViolation_MetadataEntry_DoNotUse, std::string, std::string,
-                      ::google::protobuf_inworld::internal::WireFormatLite::TYPE_STRING,
-                      ::google::protobuf_inworld::internal::WireFormatLite::TYPE_STRING>
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::MapField<BadRequest_FieldViolation_MetadataEntry_DoNotUse, std::string, std::string,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING>
         metadata_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr field_;
-    ::google::protobuf_inworld::internal::ArenaStringPtr description_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+    ::google::protobuf::internal::ArenaStringPtr field_;
+    ::google::protobuf::internal::ArenaStringPtr description_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -341,12 +341,12 @@ class BadRequest_FieldViolation final :
 };// -------------------------------------------------------------------
 
 class BadRequest final :
-    public ::google::protobuf_inworld::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.BadRequest) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.BadRequest) */ {
  public:
   inline BadRequest() : BadRequest(nullptr) {}
   ~BadRequest() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR BadRequest(::google::protobuf_inworld::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR BadRequest(::google::protobuf::internal::ConstantInitialized);
 
   inline BadRequest(const BadRequest& from)
       : BadRequest(nullptr, from) {}
@@ -373,22 +373,22 @@ class BadRequest final :
     return *this;
   }
 
-  inline const ::google::protobuf_inworld::UnknownFieldSet& unknown_fields() const
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance);
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
   }
-  inline ::google::protobuf_inworld::UnknownFieldSet* mutable_unknown_fields()
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
       ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf_inworld::UnknownFieldSet>();
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
   }
 
-  static const ::google::protobuf_inworld::Descriptor* descriptor() {
+  static const ::google::protobuf::Descriptor* descriptor() {
     return GetDescriptor();
   }
-  static const ::google::protobuf_inworld::Descriptor* GetDescriptor() {
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
     return default_instance().GetMetadata().descriptor;
   }
-  static const ::google::protobuf_inworld::Reflection* GetReflection() {
+  static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
   static const BadRequest& default_instance() {
@@ -414,7 +414,7 @@ class BadRequest final :
   #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
       InternalSwap(other);
     } else {
-      ::google::protobuf_inworld::internal::GenericSwap(this, other);
+      ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
   void UnsafeArenaSwap(BadRequest* other) {
@@ -425,47 +425,47 @@ class BadRequest final :
 
   // implements Message ----------------------------------------------
 
-  BadRequest* New(::google::protobuf_inworld::Arena* arena = nullptr) const final {
+  BadRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<BadRequest>(arena);
   }
-  using ::google::protobuf_inworld::Message::CopyFrom;
+  using ::google::protobuf::Message::CopyFrom;
   void CopyFrom(const BadRequest& from);
-  using ::google::protobuf_inworld::Message::MergeFrom;
+  using ::google::protobuf::Message::MergeFrom;
   void MergeFrom( const BadRequest& from) {
     BadRequest::MergeImpl(*this, from);
   }
   private:
-  static void MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg);
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
   public:
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
   ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf_inworld::internal::ParseContext* ctx) final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
   ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const final;
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
   int GetCachedSize() const { return _impl_._cached_size_.Get(); }
 
   private:
-  ::google::protobuf_inworld::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf_inworld::Arena* arena);
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
   void InternalSwap(BadRequest* other);
 
   private:
-  friend class ::google::protobuf_inworld::internal::AnyMetadata;
+  friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
     return "ai.inworld.studio.v1alpha.BadRequest";
   }
   protected:
-  explicit BadRequest(::google::protobuf_inworld::Arena* arena);
-  BadRequest(::google::protobuf_inworld::Arena* arena, const BadRequest& from);
+  explicit BadRequest(::google::protobuf::Arena* arena);
+  BadRequest(::google::protobuf::Arena* arena, const BadRequest& from);
   public:
 
   static const ClassData _class_data_;
-  const ::google::protobuf_inworld::Message::ClassData*GetClassData() const final;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
 
-  ::google::protobuf_inworld::Metadata GetMetadata() const final;
+  ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -484,41 +484,41 @@ class BadRequest final :
   public:
   void clear_field_violations() ;
   ::ai::inworld::studio::v1alpha::BadRequest_FieldViolation* mutable_field_violations(int index);
-  ::google::protobuf_inworld::RepeatedPtrField< ::ai::inworld::studio::v1alpha::BadRequest_FieldViolation >*
+  ::google::protobuf::RepeatedPtrField< ::ai::inworld::studio::v1alpha::BadRequest_FieldViolation >*
       mutable_field_violations();
   private:
-  const ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::BadRequest_FieldViolation>& _internal_field_violations() const;
-  ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::BadRequest_FieldViolation>* _internal_mutable_field_violations();
+  const ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::BadRequest_FieldViolation>& _internal_field_violations() const;
+  ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::BadRequest_FieldViolation>* _internal_mutable_field_violations();
   public:
   const ::ai::inworld::studio::v1alpha::BadRequest_FieldViolation& field_violations(int index) const;
   ::ai::inworld::studio::v1alpha::BadRequest_FieldViolation* add_field_violations();
-  const ::google::protobuf_inworld::RepeatedPtrField< ::ai::inworld::studio::v1alpha::BadRequest_FieldViolation >&
+  const ::google::protobuf::RepeatedPtrField< ::ai::inworld::studio::v1alpha::BadRequest_FieldViolation >&
       field_violations() const;
   // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.BadRequest)
  private:
   class _Internal;
 
-  friend class ::google::protobuf_inworld::internal::TcParser;
-  static const ::google::protobuf_inworld::internal::TcParseTable<
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
       0, 1, 1,
       0, 2>
       _table_;
-  friend class ::google::protobuf_inworld::MessageLite;
-  friend class ::google::protobuf_inworld::Arena;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
   template <typename T>
-  friend class ::google::protobuf_inworld::Arena::InternalHelper;
+  friend class ::google::protobuf::Arena::InternalHelper;
   using InternalArenaConstructable_ = void;
   using DestructorSkippable_ = void;
   struct Impl_ {
 
         inline explicit constexpr Impl_(
-            ::google::protobuf_inworld::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena);
-        inline explicit Impl_(::google::protobuf_inworld::internal::InternalVisibility visibility,
-                              ::google::protobuf_inworld::Arena* arena, const Impl_& from);
-    ::google::protobuf_inworld::RepeatedPtrField< ::ai::inworld::studio::v1alpha::BadRequest_FieldViolation > field_violations_;
-    mutable ::google::protobuf_inworld::internal::CachedSize _cached_size_;
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::RepeatedPtrField< ::ai::inworld::studio::v1alpha::BadRequest_FieldViolation > field_violations_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -660,19 +660,19 @@ inline void BadRequest_FieldViolation::clear_metadata() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   _impl_.metadata_.Clear();
 }
-inline const ::google::protobuf_inworld::Map<std::string, std::string>& BadRequest_FieldViolation::_internal_metadata() const {
+inline const ::google::protobuf::Map<std::string, std::string>& BadRequest_FieldViolation::_internal_metadata() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return _impl_.metadata_.GetMap();
 }
-inline const ::google::protobuf_inworld::Map<std::string, std::string>& BadRequest_FieldViolation::metadata() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+inline const ::google::protobuf::Map<std::string, std::string>& BadRequest_FieldViolation::metadata() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_map:ai.inworld.studio.v1alpha.BadRequest.FieldViolation.metadata)
   return _internal_metadata();
 }
-inline ::google::protobuf_inworld::Map<std::string, std::string>* BadRequest_FieldViolation::_internal_mutable_metadata() {
+inline ::google::protobuf::Map<std::string, std::string>* BadRequest_FieldViolation::_internal_mutable_metadata() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   return _impl_.metadata_.MutableMap();
 }
-inline ::google::protobuf_inworld::Map<std::string, std::string>* BadRequest_FieldViolation::mutable_metadata() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+inline ::google::protobuf::Map<std::string, std::string>* BadRequest_FieldViolation::mutable_metadata() ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_mutable_map:ai.inworld.studio.v1alpha.BadRequest.FieldViolation.metadata)
   return _internal_mutable_metadata();
 }
@@ -697,7 +697,7 @@ inline ::ai::inworld::studio::v1alpha::BadRequest_FieldViolation* BadRequest::mu
   // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.BadRequest.field_violations)
   return _internal_mutable_field_violations()->Mutable(index);
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::BadRequest_FieldViolation>* BadRequest::mutable_field_violations()
+inline ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::BadRequest_FieldViolation>* BadRequest::mutable_field_violations()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_mutable_list:ai.inworld.studio.v1alpha.BadRequest.field_violations)
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
@@ -714,17 +714,17 @@ inline ::ai::inworld::studio::v1alpha::BadRequest_FieldViolation* BadRequest::ad
   // @@protoc_insertion_point(field_add:ai.inworld.studio.v1alpha.BadRequest.field_violations)
   return _add;
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::BadRequest_FieldViolation>& BadRequest::field_violations() const
+inline const ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::BadRequest_FieldViolation>& BadRequest::field_violations() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_list:ai.inworld.studio.v1alpha.BadRequest.field_violations)
   return _internal_field_violations();
 }
-inline const ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::BadRequest_FieldViolation>&
+inline const ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::BadRequest_FieldViolation>&
 BadRequest::_internal_field_violations() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return _impl_.field_violations_;
 }
-inline ::google::protobuf_inworld::RepeatedPtrField<::ai::inworld::studio::v1alpha::BadRequest_FieldViolation>*
+inline ::google::protobuf::RepeatedPtrField<::ai::inworld::studio::v1alpha::BadRequest_FieldViolation>*
 BadRequest::_internal_mutable_field_violations() {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
   return &_impl_.field_violations_;
