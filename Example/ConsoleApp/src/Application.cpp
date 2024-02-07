@@ -60,11 +60,7 @@ void NDKApp::App::Run()
 					return;
 				}
 
-				const std::string Content = std::accumulate(Args.begin(), Args.end(), std::string(),
-					[](const std::string& acc, const std::string& s) {
-						return acc.empty() ? s : acc + ' ' + s;
-					});
-				_Client.SendNarrationEvent(_AgentInfos[_CurrentAgentIdx].AgentId, Content);
+				_Client.SendNarrationEvent(_AgentInfos[_CurrentAgentIdx].AgentId, Args[0]);
 				Inworld::Log("Narration sent.");
 			}
 		},
