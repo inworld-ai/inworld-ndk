@@ -7,24 +7,23 @@
 #include "ai/inworld/studio/v1alpha/workspaces.pb.h"
 
 #include <functional>
-#include <grpc/impl/codegen/port_platform.h>
-#include <grpcpp/impl/codegen/async_generic_service.h>
-#include <grpcpp/impl/codegen/async_stream.h>
-#include <grpcpp/impl/codegen/async_unary_call.h>
-#include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/client_context.h>
-#include <grpcpp/impl/codegen/completion_queue.h>
-#include <grpcpp/impl/codegen/message_allocator.h>
-#include <grpcpp/impl/codegen/method_handler.h>
-#include <grpcpp/impl/codegen/proto_utils.h>
-#include <grpcpp/impl/codegen/rpc_method.h>
-#include <grpcpp/impl/codegen/server_callback.h>
-#include <grpcpp/impl/codegen/server_callback_handlers.h>
-#include <grpcpp/impl/codegen/server_context.h>
-#include <grpcpp/impl/codegen/service_type.h>
-#include <grpcpp/impl/codegen/status.h>
-#include <grpcpp/impl/codegen/stub_options.h>
-#include <grpcpp/impl/codegen/sync_stream.h>
+#include <grpcpp/generic/async_generic_service.h>
+#include <grpcpp/support/async_stream.h>
+#include <grpcpp/support/async_unary_call.h>
+#include <grpcpp/support/client_callback.h>
+#include <grpcpp/client_context.h>
+#include <grpcpp/completion_queue.h>
+#include <grpcpp/support/message_allocator.h>
+#include <grpcpp/support/method_handler.h>
+#include <grpcpp/impl/proto_utils.h>
+#include <grpcpp/impl/rpc_method.h>
+#include <grpcpp/support/server_callback.h>
+#include <grpcpp/impl/server_callback_handlers.h>
+#include <grpcpp/server_context.h>
+#include <grpcpp/impl/service_type.h>
+#include <grpcpp/support/status.h>
+#include <grpcpp/support/stub_options.h>
+#include <grpcpp/support/sync_stream.h>
 
 namespace ai {
 namespace inworld {
@@ -130,96 +129,48 @@ class Workspaces final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> PrepareAsyncSendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(PrepareAsyncSendImpressionEventRaw(context, request, cq));
     }
-    class experimental_async_interface {
+    class async_interface {
      public:
-      virtual ~experimental_async_interface() {}
+      virtual ~async_interface() {}
       // Returns one workspace
       virtual void GetWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void GetWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void GetWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // Returns list of the workspaces.
       virtual void ListWorkspaces(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListWorkspacesRequest* request, ::ai::inworld::studio::v1alpha::ListWorkspacesResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void ListWorkspaces(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListWorkspacesRequest* request, ::ai::inworld::studio::v1alpha::ListWorkspacesResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void ListWorkspaces(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListWorkspacesRequest* request, ::ai::inworld::studio::v1alpha::ListWorkspacesResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // Updates a workspace.
       virtual void UpdateWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void UpdateWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void UpdateWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // Creates a workspace.
       virtual void CreateWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void CreateWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void CreateWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // Deletes a workspace.
       virtual void DeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void DeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void DeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // Clone workspace in same account
       virtual void CloneWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void CloneWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void CloneWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to share the workspace
       virtual void ShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void ShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void ShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to generate unique resource name from display name for the given
       // workspace resource.
       virtual void generateResourceName(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest* request, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void generateResourceName(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest* request, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void generateResourceName(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest* request, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to get actual sharing info on the workspace.
       virtual void GetWorkspaceShareInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void GetWorkspaceShareInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void GetWorkspaceShareInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to get actual limit info on the workspace.
       virtual void GetWorkspaceLimitInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void GetWorkspaceLimitInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void GetWorkspaceLimitInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to publish impression event for workspace
       virtual void SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
     };
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    typedef class experimental_async_interface async_interface;
-    #endif
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    async_interface* async() { return experimental_async(); }
-    #endif
-    virtual class experimental_async_interface* experimental_async() { return nullptr; }
-  private:
+    typedef class async_interface experimental_async_interface;
+    virtual class async_interface* async() { return nullptr; }
+    class async_interface* experimental_async() { return async(); }
+   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Workspace>* AsyncGetWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Workspace>* PrepareAsyncGetWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::ListWorkspacesResponse>* AsyncListWorkspacesRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListWorkspacesRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -245,7 +196,7 @@ class Workspaces final {
   };
   class Stub final : public StubInterface {
    public:
-    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
+    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
     ::grpc::Status GetWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceRequest& request, ::ai::inworld::studio::v1alpha::Workspace* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Workspace>> AsyncGetWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Workspace>>(AsyncGetWorkspaceRaw(context, request, cq));
@@ -323,86 +274,42 @@ class Workspaces final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> PrepareAsyncSendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(PrepareAsyncSendImpressionEventRaw(context, request, cq));
     }
-    class experimental_async final :
-      public StubInterface::experimental_async_interface {
+    class async final :
+      public StubInterface::async_interface {
      public:
       void GetWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void GetWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void GetWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void ListWorkspaces(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListWorkspacesRequest* request, ::ai::inworld::studio::v1alpha::ListWorkspacesResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void ListWorkspaces(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListWorkspacesRequest* request, ::ai::inworld::studio::v1alpha::ListWorkspacesResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void ListWorkspaces(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListWorkspacesRequest* request, ::ai::inworld::studio::v1alpha::ListWorkspacesResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void UpdateWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void UpdateWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void UpdateWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void CreateWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void CreateWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void CreateWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void DeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void DeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void DeleteWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void CloneWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void CloneWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void CloneWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void ShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void ShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void ShareWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void generateResourceName(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest* request, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void generateResourceName(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest* request, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void generateResourceName(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest* request, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void GetWorkspaceShareInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void GetWorkspaceShareInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void GetWorkspaceShareInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void GetWorkspaceLimitInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void GetWorkspaceLimitInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void GetWorkspaceLimitInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
      private:
       friend class Stub;
-      explicit experimental_async(Stub* stub): stub_(stub) { }
+      explicit async(Stub* stub): stub_(stub) { }
       Stub* stub() { return stub_; }
       Stub* stub_;
     };
-    class experimental_async_interface* experimental_async() override { return &async_stub_; }
+    class async* async() override { return &async_stub_; }
 
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
-    class experimental_async async_stub_{this};
+    class async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Workspace>* AsyncGetWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Workspace>* PrepareAsyncGetWorkspaceRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ListWorkspacesResponse>* AsyncListWorkspacesRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListWorkspacesRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -689,36 +596,22 @@ class Workspaces final {
   };
   typedef WithAsyncMethod_GetWorkspace<WithAsyncMethod_ListWorkspaces<WithAsyncMethod_UpdateWorkspace<WithAsyncMethod_CreateWorkspace<WithAsyncMethod_DeleteWorkspace<WithAsyncMethod_CloneWorkspace<WithAsyncMethod_ShareWorkspace<WithAsyncMethod_generateResourceName<WithAsyncMethod_GetWorkspaceShareInfo<WithAsyncMethod_GetWorkspaceLimitInfo<WithAsyncMethod_SendImpressionEvent<Service > > > > > > > > > > > AsyncService;
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_GetWorkspace : public BaseClass {
+  class WithCallbackMethod_GetWorkspace : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_GetWorkspace() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(0,
+    WithCallbackMethod_GetWorkspace() {
+      ::grpc::Service::MarkMethodCallback(0,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::GetWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response) { return this->GetWorkspace(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response) { return this->GetWorkspace(context, request, response); }));}
     void SetMessageAllocatorFor_GetWorkspace(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::GetWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::GetWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_GetWorkspace() override {
+    ~WithCallbackMethod_GetWorkspace() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -726,46 +619,26 @@ class Workspaces final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetWorkspace(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetWorkspaceRequest* /*request*/, ::ai::inworld::studio::v1alpha::Workspace* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GetWorkspace(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetWorkspaceRequest* /*request*/, ::ai::inworld::studio::v1alpha::Workspace* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetWorkspaceRequest* /*request*/, ::ai::inworld::studio::v1alpha::Workspace* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_ListWorkspaces : public BaseClass {
+  class WithCallbackMethod_ListWorkspaces : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_ListWorkspaces() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(1,
+    WithCallbackMethod_ListWorkspaces() {
+      ::grpc::Service::MarkMethodCallback(1,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ListWorkspacesRequest, ::ai::inworld::studio::v1alpha::ListWorkspacesResponse>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::ListWorkspacesRequest* request, ::ai::inworld::studio::v1alpha::ListWorkspacesResponse* response) { return this->ListWorkspaces(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::ListWorkspacesRequest* request, ::ai::inworld::studio::v1alpha::ListWorkspacesResponse* response) { return this->ListWorkspaces(context, request, response); }));}
     void SetMessageAllocatorFor_ListWorkspaces(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::ListWorkspacesRequest, ::ai::inworld::studio::v1alpha::ListWorkspacesResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::ListWorkspacesRequest, ::ai::inworld::studio::v1alpha::ListWorkspacesResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ListWorkspacesRequest, ::ai::inworld::studio::v1alpha::ListWorkspacesResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_ListWorkspaces() override {
+    ~WithCallbackMethod_ListWorkspaces() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -773,46 +646,26 @@ class Workspaces final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* ListWorkspaces(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ListWorkspacesRequest* /*request*/, ::ai::inworld::studio::v1alpha::ListWorkspacesResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* ListWorkspaces(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ListWorkspacesRequest* /*request*/, ::ai::inworld::studio::v1alpha::ListWorkspacesResponse* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ListWorkspacesRequest* /*request*/, ::ai::inworld::studio::v1alpha::ListWorkspacesResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_UpdateWorkspace : public BaseClass {
+  class WithCallbackMethod_UpdateWorkspace : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_UpdateWorkspace() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(2,
+    WithCallbackMethod_UpdateWorkspace() {
+      ::grpc::Service::MarkMethodCallback(2,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response) { return this->UpdateWorkspace(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response) { return this->UpdateWorkspace(context, request, response); }));}
     void SetMessageAllocatorFor_UpdateWorkspace(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(2);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_UpdateWorkspace() override {
+    ~WithCallbackMethod_UpdateWorkspace() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -820,46 +673,26 @@ class Workspaces final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* UpdateWorkspace(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest* /*request*/, ::ai::inworld::studio::v1alpha::Workspace* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* UpdateWorkspace(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest* /*request*/, ::ai::inworld::studio::v1alpha::Workspace* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UpdateWorkspaceRequest* /*request*/, ::ai::inworld::studio::v1alpha::Workspace* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_CreateWorkspace : public BaseClass {
+  class WithCallbackMethod_CreateWorkspace : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_CreateWorkspace() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(3,
+    WithCallbackMethod_CreateWorkspace() {
+      ::grpc::Service::MarkMethodCallback(3,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response) { return this->CreateWorkspace(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response) { return this->CreateWorkspace(context, request, response); }));}
     void SetMessageAllocatorFor_CreateWorkspace(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(3);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_CreateWorkspace() override {
+    ~WithCallbackMethod_CreateWorkspace() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -867,46 +700,26 @@ class Workspaces final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* CreateWorkspace(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest* /*request*/, ::ai::inworld::studio::v1alpha::Workspace* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* CreateWorkspace(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest* /*request*/, ::ai::inworld::studio::v1alpha::Workspace* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CreateWorkspaceRequest* /*request*/, ::ai::inworld::studio::v1alpha::Workspace* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_DeleteWorkspace : public BaseClass {
+  class WithCallbackMethod_DeleteWorkspace : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_DeleteWorkspace() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(4,
+    WithCallbackMethod_DeleteWorkspace() {
+      ::grpc::Service::MarkMethodCallback(4,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest, ::google::protobuf_inworld::Empty>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response) { return this->DeleteWorkspace(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response) { return this->DeleteWorkspace(context, request, response); }));}
     void SetMessageAllocatorFor_DeleteWorkspace(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest, ::google::protobuf_inworld::Empty>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest, ::google::protobuf_inworld::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(4);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest, ::google::protobuf_inworld::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_DeleteWorkspace() override {
+    ~WithCallbackMethod_DeleteWorkspace() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -914,46 +727,26 @@ class Workspaces final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* DeleteWorkspace(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* DeleteWorkspace(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteWorkspaceRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_CloneWorkspace : public BaseClass {
+  class WithCallbackMethod_CloneWorkspace : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_CloneWorkspace() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(5,
+    WithCallbackMethod_CloneWorkspace() {
+      ::grpc::Service::MarkMethodCallback(5,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response) { return this->CloneWorkspace(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest* request, ::ai::inworld::studio::v1alpha::Workspace* response) { return this->CloneWorkspace(context, request, response); }));}
     void SetMessageAllocatorFor_CloneWorkspace(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(5);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest, ::ai::inworld::studio::v1alpha::Workspace>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_CloneWorkspace() override {
+    ~WithCallbackMethod_CloneWorkspace() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -961,46 +754,26 @@ class Workspaces final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* CloneWorkspace(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest* /*request*/, ::ai::inworld::studio::v1alpha::Workspace* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* CloneWorkspace(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest* /*request*/, ::ai::inworld::studio::v1alpha::Workspace* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CloneWorkspaceRequest* /*request*/, ::ai::inworld::studio::v1alpha::Workspace* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_ShareWorkspace : public BaseClass {
+  class WithCallbackMethod_ShareWorkspace : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_ShareWorkspace() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(6,
+    WithCallbackMethod_ShareWorkspace() {
+      ::grpc::Service::MarkMethodCallback(6,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest, ::google::protobuf_inworld::Empty>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response) { return this->ShareWorkspace(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* request, ::google::protobuf_inworld::Empty* response) { return this->ShareWorkspace(context, request, response); }));}
     void SetMessageAllocatorFor_ShareWorkspace(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest, ::google::protobuf_inworld::Empty>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest, ::google::protobuf_inworld::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(6);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest, ::google::protobuf_inworld::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_ShareWorkspace() override {
+    ~WithCallbackMethod_ShareWorkspace() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1008,46 +781,26 @@ class Workspaces final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* ShareWorkspace(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* ShareWorkspace(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareWorkspaceRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_generateResourceName : public BaseClass {
+  class WithCallbackMethod_generateResourceName : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_generateResourceName() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(7,
+    WithCallbackMethod_generateResourceName() {
+      ::grpc::Service::MarkMethodCallback(7,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest* request, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse* response) { return this->generateResourceName(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest* request, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse* response) { return this->generateResourceName(context, request, response); }));}
     void SetMessageAllocatorFor_generateResourceName(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(7);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(7);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_generateResourceName() override {
+    ~WithCallbackMethod_generateResourceName() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1055,46 +808,26 @@ class Workspaces final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* generateResourceName(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest* /*request*/, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* generateResourceName(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest* /*request*/, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GenerateResourceNameRequest* /*request*/, ::ai::inworld::studio::v1alpha::GenerateResourceNameResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_GetWorkspaceShareInfo : public BaseClass {
+  class WithCallbackMethod_GetWorkspaceShareInfo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_GetWorkspaceShareInfo() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(8,
+    WithCallbackMethod_GetWorkspaceShareInfo() {
+      ::grpc::Service::MarkMethodCallback(8,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo* response) { return this->GetWorkspaceShareInfo(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo* response) { return this->GetWorkspaceShareInfo(context, request, response); }));}
     void SetMessageAllocatorFor_GetWorkspaceShareInfo(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(8);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(8);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_GetWorkspaceShareInfo() override {
+    ~WithCallbackMethod_GetWorkspaceShareInfo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1102,46 +835,26 @@ class Workspaces final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetWorkspaceShareInfo(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest* /*request*/, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GetWorkspaceShareInfo(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest* /*request*/, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetWorkspaceShareInfoRequest* /*request*/, ::ai::inworld::studio::v1alpha::WorkspaceShareInfo* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_GetWorkspaceLimitInfo : public BaseClass {
+  class WithCallbackMethod_GetWorkspaceLimitInfo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_GetWorkspaceLimitInfo() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(9,
+    WithCallbackMethod_GetWorkspaceLimitInfo() {
+      ::grpc::Service::MarkMethodCallback(9,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* response) { return this->GetWorkspaceLimitInfo(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* response) { return this->GetWorkspaceLimitInfo(context, request, response); }));}
     void SetMessageAllocatorFor_GetWorkspaceLimitInfo(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(9);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(9);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_GetWorkspaceLimitInfo() override {
+    ~WithCallbackMethod_GetWorkspaceLimitInfo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1149,46 +862,26 @@ class Workspaces final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetWorkspaceLimitInfo(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest* /*request*/, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GetWorkspaceLimitInfo(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest* /*request*/, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest* /*request*/, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_SendImpressionEvent : public BaseClass {
+  class WithCallbackMethod_SendImpressionEvent : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_SendImpressionEvent() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(10,
+    WithCallbackMethod_SendImpressionEvent() {
+      ::grpc::Service::MarkMethodCallback(10,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf_inworld::Empty>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf_inworld::Empty* response) { return this->SendImpressionEvent(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* request, ::google::protobuf_inworld::Empty* response) { return this->SendImpressionEvent(context, request, response); }));}
     void SetMessageAllocatorFor_SendImpressionEvent(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf_inworld::Empty>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf_inworld::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(10);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(10);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf_inworld::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_SendImpressionEvent() override {
+    ~WithCallbackMethod_SendImpressionEvent() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1196,20 +889,11 @@ class Workspaces final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* SendImpressionEvent(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* SendImpressionEvent(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)  { return nullptr; }
   };
-  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_GetWorkspace<ExperimentalWithCallbackMethod_ListWorkspaces<ExperimentalWithCallbackMethod_UpdateWorkspace<ExperimentalWithCallbackMethod_CreateWorkspace<ExperimentalWithCallbackMethod_DeleteWorkspace<ExperimentalWithCallbackMethod_CloneWorkspace<ExperimentalWithCallbackMethod_ShareWorkspace<ExperimentalWithCallbackMethod_generateResourceName<ExperimentalWithCallbackMethod_GetWorkspaceShareInfo<ExperimentalWithCallbackMethod_GetWorkspaceLimitInfo<ExperimentalWithCallbackMethod_SendImpressionEvent<Service > > > > > > > > > > > CallbackService;
-  #endif
-
-  typedef ExperimentalWithCallbackMethod_GetWorkspace<ExperimentalWithCallbackMethod_ListWorkspaces<ExperimentalWithCallbackMethod_UpdateWorkspace<ExperimentalWithCallbackMethod_CreateWorkspace<ExperimentalWithCallbackMethod_DeleteWorkspace<ExperimentalWithCallbackMethod_CloneWorkspace<ExperimentalWithCallbackMethod_ShareWorkspace<ExperimentalWithCallbackMethod_generateResourceName<ExperimentalWithCallbackMethod_GetWorkspaceShareInfo<ExperimentalWithCallbackMethod_GetWorkspaceLimitInfo<ExperimentalWithCallbackMethod_SendImpressionEvent<Service > > > > > > > > > > > ExperimentalCallbackService;
+  typedef WithCallbackMethod_GetWorkspace<WithCallbackMethod_ListWorkspaces<WithCallbackMethod_UpdateWorkspace<WithCallbackMethod_CreateWorkspace<WithCallbackMethod_DeleteWorkspace<WithCallbackMethod_CloneWorkspace<WithCallbackMethod_ShareWorkspace<WithCallbackMethod_generateResourceName<WithCallbackMethod_GetWorkspaceShareInfo<WithCallbackMethod_GetWorkspaceLimitInfo<WithCallbackMethod_SendImpressionEvent<Service > > > > > > > > > > > CallbackService;
+  typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_GetWorkspace : public BaseClass {
    private:
@@ -1618,27 +1302,17 @@ class Workspaces final {
     }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_GetWorkspace : public BaseClass {
+  class WithRawCallbackMethod_GetWorkspace : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_GetWorkspace() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(0,
+    WithRawCallbackMethod_GetWorkspace() {
+      ::grpc::Service::MarkMethodRawCallback(0,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetWorkspace(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetWorkspace(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_GetWorkspace() override {
+    ~WithRawCallbackMethod_GetWorkspace() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1646,37 +1320,21 @@ class Workspaces final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetWorkspace(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GetWorkspace(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_ListWorkspaces : public BaseClass {
+  class WithRawCallbackMethod_ListWorkspaces : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_ListWorkspaces() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(1,
+    WithRawCallbackMethod_ListWorkspaces() {
+      ::grpc::Service::MarkMethodRawCallback(1,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ListWorkspaces(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ListWorkspaces(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_ListWorkspaces() override {
+    ~WithRawCallbackMethod_ListWorkspaces() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1684,37 +1342,21 @@ class Workspaces final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* ListWorkspaces(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* ListWorkspaces(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_UpdateWorkspace : public BaseClass {
+  class WithRawCallbackMethod_UpdateWorkspace : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_UpdateWorkspace() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(2,
+    WithRawCallbackMethod_UpdateWorkspace() {
+      ::grpc::Service::MarkMethodRawCallback(2,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UpdateWorkspace(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UpdateWorkspace(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_UpdateWorkspace() override {
+    ~WithRawCallbackMethod_UpdateWorkspace() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1722,37 +1364,21 @@ class Workspaces final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* UpdateWorkspace(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* UpdateWorkspace(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_CreateWorkspace : public BaseClass {
+  class WithRawCallbackMethod_CreateWorkspace : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_CreateWorkspace() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(3,
+    WithRawCallbackMethod_CreateWorkspace() {
+      ::grpc::Service::MarkMethodRawCallback(3,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->CreateWorkspace(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->CreateWorkspace(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_CreateWorkspace() override {
+    ~WithRawCallbackMethod_CreateWorkspace() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1760,37 +1386,21 @@ class Workspaces final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* CreateWorkspace(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* CreateWorkspace(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_DeleteWorkspace : public BaseClass {
+  class WithRawCallbackMethod_DeleteWorkspace : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_DeleteWorkspace() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(4,
+    WithRawCallbackMethod_DeleteWorkspace() {
+      ::grpc::Service::MarkMethodRawCallback(4,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeleteWorkspace(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeleteWorkspace(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_DeleteWorkspace() override {
+    ~WithRawCallbackMethod_DeleteWorkspace() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1798,37 +1408,21 @@ class Workspaces final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* DeleteWorkspace(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* DeleteWorkspace(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_CloneWorkspace : public BaseClass {
+  class WithRawCallbackMethod_CloneWorkspace : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_CloneWorkspace() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(5,
+    WithRawCallbackMethod_CloneWorkspace() {
+      ::grpc::Service::MarkMethodRawCallback(5,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->CloneWorkspace(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->CloneWorkspace(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_CloneWorkspace() override {
+    ~WithRawCallbackMethod_CloneWorkspace() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1836,37 +1430,21 @@ class Workspaces final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* CloneWorkspace(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* CloneWorkspace(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_ShareWorkspace : public BaseClass {
+  class WithRawCallbackMethod_ShareWorkspace : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_ShareWorkspace() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(6,
+    WithRawCallbackMethod_ShareWorkspace() {
+      ::grpc::Service::MarkMethodRawCallback(6,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ShareWorkspace(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ShareWorkspace(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_ShareWorkspace() override {
+    ~WithRawCallbackMethod_ShareWorkspace() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1874,37 +1452,21 @@ class Workspaces final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* ShareWorkspace(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* ShareWorkspace(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_generateResourceName : public BaseClass {
+  class WithRawCallbackMethod_generateResourceName : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_generateResourceName() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(7,
+    WithRawCallbackMethod_generateResourceName() {
+      ::grpc::Service::MarkMethodRawCallback(7,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->generateResourceName(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->generateResourceName(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_generateResourceName() override {
+    ~WithRawCallbackMethod_generateResourceName() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1912,37 +1474,21 @@ class Workspaces final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* generateResourceName(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* generateResourceName(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_GetWorkspaceShareInfo : public BaseClass {
+  class WithRawCallbackMethod_GetWorkspaceShareInfo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_GetWorkspaceShareInfo() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(8,
+    WithRawCallbackMethod_GetWorkspaceShareInfo() {
+      ::grpc::Service::MarkMethodRawCallback(8,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetWorkspaceShareInfo(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetWorkspaceShareInfo(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_GetWorkspaceShareInfo() override {
+    ~WithRawCallbackMethod_GetWorkspaceShareInfo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1950,37 +1496,21 @@ class Workspaces final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetWorkspaceShareInfo(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GetWorkspaceShareInfo(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_GetWorkspaceLimitInfo : public BaseClass {
+  class WithRawCallbackMethod_GetWorkspaceLimitInfo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_GetWorkspaceLimitInfo() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(9,
+    WithRawCallbackMethod_GetWorkspaceLimitInfo() {
+      ::grpc::Service::MarkMethodRawCallback(9,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetWorkspaceLimitInfo(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetWorkspaceLimitInfo(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_GetWorkspaceLimitInfo() override {
+    ~WithRawCallbackMethod_GetWorkspaceLimitInfo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1988,37 +1518,21 @@ class Workspaces final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetWorkspaceLimitInfo(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GetWorkspaceLimitInfo(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_SendImpressionEvent : public BaseClass {
+  class WithRawCallbackMethod_SendImpressionEvent : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_SendImpressionEvent() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(10,
+    WithRawCallbackMethod_SendImpressionEvent() {
+      ::grpc::Service::MarkMethodRawCallback(10,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SendImpressionEvent(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SendImpressionEvent(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_SendImpressionEvent() override {
+    ~WithRawCallbackMethod_SendImpressionEvent() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -2026,14 +1540,8 @@ class Workspaces final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* SendImpressionEvent(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* SendImpressionEvent(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_GetWorkspace : public BaseClass {

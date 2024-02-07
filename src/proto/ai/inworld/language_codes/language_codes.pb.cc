@@ -5,96 +5,118 @@
 #include "ai/inworld/language_codes/language_codes.pb.h"
 
 #include <algorithm>
-
-#include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/extension_set.h>
-#include <google/protobuf/wire_format_lite.h>
-#include <google/protobuf/descriptor.h>
-#include <google/protobuf/generated_message_reflection.h>
-#include <google/protobuf/reflection_ops.h>
-#include <google/protobuf/wire_format.h>
+#include "google/protobuf/io/coded_stream.h"
+#include "google/protobuf/extension_set.h"
+#include "google/protobuf/wire_format_lite.h"
+#include "google/protobuf/descriptor.h"
+#include "google/protobuf/generated_message_reflection.h"
+#include "google/protobuf/reflection_ops.h"
+#include "google/protobuf/wire_format.h"
+#include "google/protobuf/generated_message_tctable_impl.h"
 // @@protoc_insertion_point(includes)
-#include <google/protobuf/port_def.inc>
+
+// Must be included last.
+#include "google/protobuf/port_def.inc"
+PROTOBUF_PRAGMA_INIT_SEG
+namespace _pb = ::google::protobuf;
+namespace _pbi = ::google::protobuf_inworld::internal;
+namespace _fl = ::google::protobuf_inworld::internal::field_layout;
 namespace ai {
 namespace inworld {
 namespace language_codes {
 }  // namespace language_codes
 }  // namespace inworld
 }  // namespace ai
-static constexpr ::PROTOBUF_NAMESPACE_ID::Metadata* file_level_metadata_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto = nullptr;
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto[1];
-static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto = nullptr;
-const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto::offsets[1] = {};
-static constexpr ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema* schemas = nullptr;
-static constexpr ::PROTOBUF_NAMESPACE_ID::Message* const* file_default_instances = nullptr;
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto[1];
+static constexpr const ::_pb::ServiceDescriptor**
+    file_level_service_descriptors_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto = nullptr;
+const ::uint32_t TableStruct_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto::offsets[1] = {};
+static constexpr ::_pbi::MigrationSchema* schemas = nullptr;
+static constexpr ::_pb::Message* const* file_default_instances = nullptr;
+const char descriptor_table_protodef_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+    "\n.ai/inworld/language_codes/language_cod"
+    "es.proto\022\031ai.inworld.language_codes\032 goo"
+    "gle/protobuf/descriptor.proto*\261\001\n\014Langua"
+    "geCode\022\035\n\031LANGUAGE_CODE_UNSPECIFIED\020\000\022\037\n"
+    "\005EN_US\020\001\032\024\212\3520\005en-US\222\3520\007English\022\037\n\005ZH_CN\020"
+    "\002\032\024\212\3520\005zh-CN\222\3520\007Chinese\022\036\n\005KO_KR\020\003\032\023\212\3520\005"
+    "ko-KR\222\3520\006Korean\022 \n\005JA_JP\020\004\032\025\212\3520\005ja-JP\222\3520"
+    "\010Japanese:D\n\024language_code_string\022!.goog"
+    "le.protobuf.EnumValueOptions\030\241\215\006 \001(\t\210\001\001:"
+    "=\n\rlanguage_name\022!.google.protobuf.EnumV"
+    "alueOptions\030\242\215\006 \001(\t\210\001\001B\200\001\n\031ai.inworld.la"
+    "nguage_codesB\022LanguageCodesProtoP\001ZMgith"
+    "ub.com/inworld-ai/inworld/serving/grpc-g"
+    "ateway/build/proto/engine/v1alphab\006proto"
+    "3"
+};
+static const ::_pbi::DescriptorTable* const descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto_deps[1] =
+    {
+        &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
+};
+static ::absl::once_flag descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto = {
+    false,
+    false,
+    561,
+    descriptor_table_protodef_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto,
+    "ai/inworld/language_codes/language_codes.proto",
+    &descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto_once,
+    descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto_deps,
+    1,
+    0,
+    schemas,
+    file_default_instances,
+    TableStruct_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto::offsets,
+    nullptr,
+    file_level_enum_descriptors_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto,
+    file_level_service_descriptors_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto,
+};
 
-const char descriptor_table_protodef_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n.ai/inworld/language_codes/language_cod"
-  "es.proto\022\031ai.inworld.language_codes\032 goo"
-  "gle/protobuf/descriptor.proto*\261\001\n\014Langua"
-  "geCode\022\035\n\031LANGUAGE_CODE_UNSPECIFIED\020\000\022\037\n"
-  "\005EN_US\020\001\032\024\212\3520\005en-US\222\3520\007English\022\037\n\005ZH_CN\020"
-  "\002\032\024\212\3520\005zh-CN\222\3520\007Chinese\022\036\n\005KO_KR\020\003\032\023\212\3520\005"
-  "ko-KR\222\3520\006Korean\022 \n\005JA_JP\020\004\032\025\212\3520\005ja-JP\222\3520"
-  "\010Japanese:D\n\024language_code_string\022!.goog"
-  "le.protobuf.EnumValueOptions\030\241\215\006 \001(\t\210\001\001:"
-  "=\n\rlanguage_name\022!.google.protobuf.EnumV"
-  "alueOptions\030\242\215\006 \001(\t\210\001\001B\200\001\n\031ai.inworld.la"
-  "nguage_codesB\022LanguageCodesProtoP\001ZMgith"
-  "ub.com/inworld-ai/inworld/serving/grpc-g"
-  "ateway/build/proto/engine/v1alphab\006proto"
-  "3"
-  ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto_deps[1] = {
-  &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
-};
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto_sccs[1] = {
-};
-static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto_once;
-const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto, "ai/inworld/language_codes/language_codes.proto", 561,
-  &descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto_once, descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto_sccs, descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto_deps, 0, 1,
-  schemas, file_default_instances, TableStruct_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto::offsets,
-  file_level_metadata_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto, 0, file_level_enum_descriptors_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto, file_level_service_descriptors_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto,
-};
-
+// This function exists to be marked as weak.
+// It can significantly speed up compilation by breaking up LLVM's SCC
+// in the .pb.cc translation units. Large translation units see a
+// reduction of more than 35% of walltime for optimized builds. Without
+// the weak attribute all the messages in the file, including all the
+// vtables and everything they use become part of the same SCC through
+// a cycle like:
+// GetMetadata -> descriptor table -> default instances ->
+//   vtables -> GetMetadata
+// By adding a weak function here we break the connection from the
+// individual vtables back into the descriptor table.
+PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto_getter() {
+  return &descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto;
+}
 // Force running AddDescriptors() at dynamic initialization time.
-static bool dynamic_init_dummy_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto)), true);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2
+static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto(&descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto);
 namespace ai {
 namespace inworld {
 namespace language_codes {
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* LanguageCode_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto);
+const ::google::protobuf_inworld::EnumDescriptor* LanguageCode_descriptor() {
+  ::google::protobuf_inworld::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto);
   return file_level_enum_descriptors_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto[0];
 }
+PROTOBUF_CONSTINIT const uint32_t LanguageCode_internal_data_[] = {
+    327680u, 0u, };
 bool LanguageCode_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-      return true;
-    default:
-      return false;
-  }
+  return 0 <= value && value <= 4;
 }
-
 const std::string language_code_string_default("");
-::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf_inworld::EnumValueOptions,
-    ::PROTOBUF_NAMESPACE_ID::internal::StringTypeTraits, 9, false >
-  language_code_string(kLanguageCodeStringFieldNumber, language_code_string_default);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::EnumValueOptions,
+    ::google::protobuf_inworld::internal::StringTypeTraits, 9, false>
+  language_code_string(kLanguageCodeStringFieldNumber, language_code_string_default, nullptr);
 const std::string language_name_default("");
-::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf_inworld::EnumValueOptions,
-    ::PROTOBUF_NAMESPACE_ID::internal::StringTypeTraits, 9, false >
-  language_name(kLanguageNameFieldNumber, language_name_default);
-
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::EnumValueOptions,
+    ::google::protobuf_inworld::internal::StringTypeTraits, 9, false>
+  language_name(kLanguageNameFieldNumber, language_name_default, nullptr);
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace language_codes
 }  // namespace inworld
 }  // namespace ai
-PROTOBUF_NAMESPACE_OPEN
-PROTOBUF_NAMESPACE_CLOSE
-
+namespace google {
+namespace protobuf {
+}  // namespace protobuf
+}  // namespace google
 // @@protoc_insertion_point(global_scope)
-#include <google/protobuf/port_undef.inc>
+#include "google/protobuf/port_undef.inc"

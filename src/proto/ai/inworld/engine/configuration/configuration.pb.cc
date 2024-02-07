@@ -5,765 +5,831 @@
 #include "ai/inworld/engine/configuration/configuration.pb.h"
 
 #include <algorithm>
-
-#include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/extension_set.h>
-#include <google/protobuf/wire_format_lite.h>
-#include <google/protobuf/descriptor.h>
-#include <google/protobuf/generated_message_reflection.h>
-#include <google/protobuf/reflection_ops.h>
-#include <google/protobuf/wire_format.h>
+#include "google/protobuf/io/coded_stream.h"
+#include "google/protobuf/extension_set.h"
+#include "google/protobuf/wire_format_lite.h"
+#include "google/protobuf/descriptor.h"
+#include "google/protobuf/generated_message_reflection.h"
+#include "google/protobuf/reflection_ops.h"
+#include "google/protobuf/wire_format.h"
+#include "google/protobuf/generated_message_tctable_impl.h"
 // @@protoc_insertion_point(includes)
-#include <google/protobuf/port_def.inc>
-extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_UserConfiguration_UserSettings_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_UserConfiguration_UserSettings_PlayerProfile_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_UserConfiguration_UserSettings_PlayerProfile_PlayerField_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto;
+
+// Must be included last.
+#include "google/protobuf/port_def.inc"
+PROTOBUF_PRAGMA_INIT_SEG
+namespace _pb = ::google::protobuf;
+namespace _pbi = ::google::protobuf_inworld::internal;
+namespace _fl = ::google::protobuf_inworld::internal::field_layout;
 namespace ai {
 namespace inworld {
 namespace engine {
 namespace configuration {
-class CapabilitiesConfigurationDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<CapabilitiesConfiguration> _instance;
-} _CapabilitiesConfiguration_default_instance_;
-class UserConfiguration_UserSettings_PlayerProfile_PlayerFieldDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<UserConfiguration_UserSettings_PlayerProfile_PlayerField> _instance;
-} _UserConfiguration_UserSettings_PlayerProfile_PlayerField_default_instance_;
-class UserConfiguration_UserSettings_PlayerProfileDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<UserConfiguration_UserSettings_PlayerProfile> _instance;
-} _UserConfiguration_UserSettings_PlayerProfile_default_instance_;
-class UserConfiguration_UserSettingsDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<UserConfiguration_UserSettings> _instance;
-} _UserConfiguration_UserSettings_default_instance_;
-class UserConfigurationDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<UserConfiguration> _instance;
-} _UserConfiguration_default_instance_;
-class ClientConfigurationDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ClientConfiguration> _instance;
-} _ClientConfiguration_default_instance_;
-class SessionConfigurationDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<SessionConfiguration> _instance;
-} _SessionConfiguration_default_instance_;
+
+inline constexpr UserConfiguration_UserSettings_PlayerProfile_PlayerField::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : field_id_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        field_value_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR UserConfiguration_UserSettings_PlayerProfile_PlayerField::UserConfiguration_UserSettings_PlayerProfile_PlayerField(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct UserConfiguration_UserSettings_PlayerProfile_PlayerFieldDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR UserConfiguration_UserSettings_PlayerProfile_PlayerFieldDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~UserConfiguration_UserSettings_PlayerProfile_PlayerFieldDefaultTypeInternal() {}
+  union {
+    UserConfiguration_UserSettings_PlayerProfile_PlayerField _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 UserConfiguration_UserSettings_PlayerProfile_PlayerFieldDefaultTypeInternal _UserConfiguration_UserSettings_PlayerProfile_PlayerField_default_instance_;
+
+inline constexpr SessionConfiguration::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : game_session_id_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR SessionConfiguration::SessionConfiguration(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct SessionConfigurationDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR SessionConfigurationDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~SessionConfigurationDefaultTypeInternal() {}
+  union {
+    SessionConfiguration _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SessionConfigurationDefaultTypeInternal _SessionConfiguration_default_instance_;
+
+inline constexpr ClientConfiguration::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : id_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        version_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        description_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ClientConfiguration::ClientConfiguration(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct ClientConfigurationDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ClientConfigurationDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ClientConfigurationDefaultTypeInternal() {}
+  union {
+    ClientConfiguration _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ClientConfigurationDefaultTypeInternal _ClientConfiguration_default_instance_;
+
+inline constexpr CapabilitiesConfiguration::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : audio_{false},
+        interruptions_{false},
+        emotions_{false},
+        turn_based_stt_{false},
+        emotion_streaming_{false},
+        silence_events_{false},
+        phoneme_info_{false},
+        continuation_{false},
+        session_cancellation_{false},
+        narrated_actions_{false},
+        regenerate_response_{false},
+        relations_{false},
+        debug_info_{false},
+        tts_mp3_{false},
+        multi_agent_{false},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR CapabilitiesConfiguration::CapabilitiesConfiguration(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct CapabilitiesConfigurationDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CapabilitiesConfigurationDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CapabilitiesConfigurationDefaultTypeInternal() {}
+  union {
+    CapabilitiesConfiguration _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CapabilitiesConfigurationDefaultTypeInternal _CapabilitiesConfiguration_default_instance_;
+
+inline constexpr UserConfiguration_UserSettings_PlayerProfile::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : fields_{},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR UserConfiguration_UserSettings_PlayerProfile::UserConfiguration_UserSettings_PlayerProfile(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct UserConfiguration_UserSettings_PlayerProfileDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR UserConfiguration_UserSettings_PlayerProfileDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~UserConfiguration_UserSettings_PlayerProfileDefaultTypeInternal() {}
+  union {
+    UserConfiguration_UserSettings_PlayerProfile _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 UserConfiguration_UserSettings_PlayerProfileDefaultTypeInternal _UserConfiguration_UserSettings_PlayerProfile_default_instance_;
+
+inline constexpr UserConfiguration_UserSettings::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        player_profile_{nullptr},
+        view_transcript_consent_{false} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR UserConfiguration_UserSettings::UserConfiguration_UserSettings(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct UserConfiguration_UserSettingsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR UserConfiguration_UserSettingsDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~UserConfiguration_UserSettingsDefaultTypeInternal() {}
+  union {
+    UserConfiguration_UserSettings _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 UserConfiguration_UserSettingsDefaultTypeInternal _UserConfiguration_UserSettings_default_instance_;
+
+inline constexpr UserConfiguration::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        name_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        id_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        user_settings_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR UserConfiguration::UserConfiguration(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct UserConfigurationDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR UserConfigurationDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~UserConfigurationDefaultTypeInternal() {}
+  union {
+    UserConfiguration _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 UserConfigurationDefaultTypeInternal _UserConfiguration_default_instance_;
 }  // namespace configuration
 }  // namespace engine
 }  // namespace inworld
 }  // namespace ai
-static void InitDefaultsscc_info_CapabilitiesConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::ai::inworld::engine::configuration::_CapabilitiesConfiguration_default_instance_;
-    new (ptr) ::ai::inworld::engine::configuration::CapabilitiesConfiguration();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_CapabilitiesConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_CapabilitiesConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto}, {}};
-
-static void InitDefaultsscc_info_ClientConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::ai::inworld::engine::configuration::_ClientConfiguration_default_instance_;
-    new (ptr) ::ai::inworld::engine::configuration::ClientConfiguration();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ClientConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ClientConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto}, {}};
-
-static void InitDefaultsscc_info_SessionConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::ai::inworld::engine::configuration::_SessionConfiguration_default_instance_;
-    new (ptr) ::ai::inworld::engine::configuration::SessionConfiguration();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_SessionConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_SessionConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto}, {}};
-
-static void InitDefaultsscc_info_UserConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::ai::inworld::engine::configuration::_UserConfiguration_default_instance_;
-    new (ptr) ::ai::inworld::engine::configuration::UserConfiguration();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_UserConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_UserConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto}, {
-      &scc_info_UserConfiguration_UserSettings_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base,}};
-
-static void InitDefaultsscc_info_UserConfiguration_UserSettings_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::ai::inworld::engine::configuration::_UserConfiguration_UserSettings_default_instance_;
-    new (ptr) ::ai::inworld::engine::configuration::UserConfiguration_UserSettings();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_UserConfiguration_UserSettings_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_UserConfiguration_UserSettings_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto}, {
-      &scc_info_UserConfiguration_UserSettings_PlayerProfile_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base,}};
-
-static void InitDefaultsscc_info_UserConfiguration_UserSettings_PlayerProfile_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::ai::inworld::engine::configuration::_UserConfiguration_UserSettings_PlayerProfile_default_instance_;
-    new (ptr) ::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_UserConfiguration_UserSettings_PlayerProfile_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_UserConfiguration_UserSettings_PlayerProfile_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto}, {
-      &scc_info_UserConfiguration_UserSettings_PlayerProfile_PlayerField_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base,}};
-
-static void InitDefaultsscc_info_UserConfiguration_UserSettings_PlayerProfile_PlayerField_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::ai::inworld::engine::configuration::_UserConfiguration_UserSettings_PlayerProfile_PlayerField_default_instance_;
-    new (ptr) ::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile_PlayerField();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_UserConfiguration_UserSettings_PlayerProfile_PlayerField_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_UserConfiguration_UserSettings_PlayerProfile_PlayerField_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto}, {}};
-
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto[7];
-static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto = nullptr;
-static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto = nullptr;
-
-const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, audio_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, interruptions_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, emotions_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, turn_based_stt_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, emotion_streaming_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, silence_events_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, phoneme_info_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, continuation_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, session_cancellation_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, narrated_actions_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, regenerate_response_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, relations_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, debug_info_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, tts_mp3_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, multi_agent_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile_PlayerField, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile_PlayerField, field_id_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile_PlayerField, field_value_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile, fields_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration_UserSettings, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration_UserSettings, view_transcript_consent_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration_UserSettings, player_profile_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration, name_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration, id_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration, user_settings_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::ClientConfiguration, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::ClientConfiguration, id_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::ClientConfiguration, version_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::ClientConfiguration, description_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::SessionConfiguration, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::SessionConfiguration, game_session_id_),
-};
-static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::ai::inworld::engine::configuration::CapabilitiesConfiguration)},
-  { 20, -1, sizeof(::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile_PlayerField)},
-  { 27, -1, sizeof(::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile)},
-  { 33, -1, sizeof(::ai::inworld::engine::configuration::UserConfiguration_UserSettings)},
-  { 40, -1, sizeof(::ai::inworld::engine::configuration::UserConfiguration)},
-  { 48, -1, sizeof(::ai::inworld::engine::configuration::ClientConfiguration)},
-  { 56, -1, sizeof(::ai::inworld::engine::configuration::SessionConfiguration)},
+static ::_pb::Metadata file_level_metadata_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto[7];
+static constexpr const ::_pb::EnumDescriptor**
+    file_level_enum_descriptors_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto = nullptr;
+static constexpr const ::_pb::ServiceDescriptor**
+    file_level_service_descriptors_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto = nullptr;
+const ::uint32_t TableStruct_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
+    protodesc_cold) = {
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, _impl_.audio_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, _impl_.interruptions_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, _impl_.emotions_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, _impl_.turn_based_stt_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, _impl_.emotion_streaming_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, _impl_.silence_events_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, _impl_.phoneme_info_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, _impl_.continuation_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, _impl_.session_cancellation_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, _impl_.narrated_actions_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, _impl_.regenerate_response_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, _impl_.relations_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, _impl_.debug_info_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, _impl_.tts_mp3_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, _impl_.multi_agent_),
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile_PlayerField, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile_PlayerField, _impl_.field_id_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile_PlayerField, _impl_.field_value_),
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile, _impl_.fields_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration_UserSettings, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration_UserSettings, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration_UserSettings, _impl_.view_transcript_consent_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration_UserSettings, _impl_.player_profile_),
+    ~0u,
+    0,
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration, _impl_.name_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration, _impl_.id_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration, _impl_.user_settings_),
+    ~0u,
+    ~0u,
+    0,
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::ClientConfiguration, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::ClientConfiguration, _impl_.id_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::ClientConfiguration, _impl_.version_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::ClientConfiguration, _impl_.description_),
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::SessionConfiguration, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::SessionConfiguration, _impl_.game_session_id_),
 };
 
-static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::engine::configuration::_CapabilitiesConfiguration_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::engine::configuration::_UserConfiguration_UserSettings_PlayerProfile_PlayerField_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::engine::configuration::_UserConfiguration_UserSettings_PlayerProfile_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::engine::configuration::_UserConfiguration_UserSettings_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::engine::configuration::_UserConfiguration_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::engine::configuration::_ClientConfiguration_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::engine::configuration::_SessionConfiguration_default_instance_),
+static const ::_pbi::MigrationSchema
+    schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+        {0, -1, -1, sizeof(::ai::inworld::engine::configuration::CapabilitiesConfiguration)},
+        {23, -1, -1, sizeof(::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile_PlayerField)},
+        {33, -1, -1, sizeof(::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile)},
+        {42, 52, -1, sizeof(::ai::inworld::engine::configuration::UserConfiguration_UserSettings)},
+        {54, 65, -1, sizeof(::ai::inworld::engine::configuration::UserConfiguration)},
+        {68, -1, -1, sizeof(::ai::inworld::engine::configuration::ClientConfiguration)},
+        {79, -1, -1, sizeof(::ai::inworld::engine::configuration::SessionConfiguration)},
 };
 
-const char descriptor_table_protodef_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n3ai/inworld/engine/configuration/config"
-  "uration.proto\022\037ai.inworld.engine.configu"
-  "ration\"\364\002\n\031CapabilitiesConfiguration\022\r\n\005"
-  "audio\030\001 \001(\010\022\025\n\rinterruptions\030\003 \001(\010\022\020\n\010em"
-  "otions\030\004 \001(\010\022\032\n\016turn_based_stt\030\005 \001(\010B\002\030\001"
-  "\022\031\n\021emotion_streaming\030\006 \001(\010\022\032\n\016silence_e"
-  "vents\030\007 \001(\010B\002\030\001\022\024\n\014phoneme_info\030\010 \001(\010\022\024\n"
-  "\014continuation\030\t \001(\010\022\034\n\024session_cancellat"
-  "ion\030\n \001(\010\022\030\n\020narrated_actions\030\013 \001(\010\022\033\n\023r"
-  "egenerate_response\030\014 \001(\010\022\021\n\trelations\030\r "
-  "\001(\010\022\022\n\ndebug_info\030\016 \001(\010\022\017\n\007tts_mp3\030\017 \001(\010"
-  "\022\023\n\013multi_agent\030\024 \001(\010\"\321\003\n\021UserConfigurat"
-  "ion\022\014\n\004name\030\001 \001(\t\022\n\n\002id\030\002 \001(\t\022V\n\ruser_se"
-  "ttings\030\003 \001(\0132\?.ai.inworld.engine.configu"
-  "ration.UserConfiguration.UserSettings\032\311\002"
-  "\n\014UserSettings\022\037\n\027view_transcript_consen"
-  "t\030\001 \001(\010\022e\n\016player_profile\030\002 \001(\0132M.ai.inw"
-  "orld.engine.configuration.UserConfigurat"
-  "ion.UserSettings.PlayerProfile\032\260\001\n\rPlaye"
-  "rProfile\022i\n\006fields\030\003 \003(\0132Y.ai.inworld.en"
-  "gine.configuration.UserConfiguration.Use"
-  "rSettings.PlayerProfile.PlayerField\0324\n\013P"
-  "layerField\022\020\n\010field_id\030\001 \001(\t\022\023\n\013field_va"
-  "lue\030\002 \001(\t\"G\n\023ClientConfiguration\022\n\n\002id\030\001"
-  " \001(\t\022\017\n\007version\030\002 \001(\t\022\023\n\013description\030\003 \001"
-  "(\t\"5\n\024SessionConfiguration\022\027\n\017game_sessi"
-  "on_id\030\002 \001(\tJ\004\010\001\020\002B\251\001\n\037ai.inworld.engine."
-  "configurationB\030EngineConfigurationProtoP"
-  "\001ZMgithub.com/inworld-ai/inworld/serving"
-  "/grpc-gateway/build/proto/engine/v1alpha"
-  "\252\002\032Inworld.Grpc.Configurationb\006proto3"
-  ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_deps[1] = {
+static const ::_pb::Message* const file_default_instances[] = {
+    &::ai::inworld::engine::configuration::_CapabilitiesConfiguration_default_instance_._instance,
+    &::ai::inworld::engine::configuration::_UserConfiguration_UserSettings_PlayerProfile_PlayerField_default_instance_._instance,
+    &::ai::inworld::engine::configuration::_UserConfiguration_UserSettings_PlayerProfile_default_instance_._instance,
+    &::ai::inworld::engine::configuration::_UserConfiguration_UserSettings_default_instance_._instance,
+    &::ai::inworld::engine::configuration::_UserConfiguration_default_instance_._instance,
+    &::ai::inworld::engine::configuration::_ClientConfiguration_default_instance_._instance,
+    &::ai::inworld::engine::configuration::_SessionConfiguration_default_instance_._instance,
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_sccs[7] = {
-  &scc_info_CapabilitiesConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base,
-  &scc_info_ClientConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base,
-  &scc_info_SessionConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base,
-  &scc_info_UserConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base,
-  &scc_info_UserConfiguration_UserSettings_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base,
-  &scc_info_UserConfiguration_UserSettings_PlayerProfile_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base,
-  &scc_info_UserConfiguration_UserSettings_PlayerProfile_PlayerField_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base,
+const char descriptor_table_protodef_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+    "\n3ai/inworld/engine/configuration/config"
+    "uration.proto\022\037ai.inworld.engine.configu"
+    "ration\"\364\002\n\031CapabilitiesConfiguration\022\r\n\005"
+    "audio\030\001 \001(\010\022\025\n\rinterruptions\030\003 \001(\010\022\020\n\010em"
+    "otions\030\004 \001(\010\022\032\n\016turn_based_stt\030\005 \001(\010B\002\030\001"
+    "\022\031\n\021emotion_streaming\030\006 \001(\010\022\032\n\016silence_e"
+    "vents\030\007 \001(\010B\002\030\001\022\024\n\014phoneme_info\030\010 \001(\010\022\024\n"
+    "\014continuation\030\t \001(\010\022\034\n\024session_cancellat"
+    "ion\030\n \001(\010\022\030\n\020narrated_actions\030\013 \001(\010\022\033\n\023r"
+    "egenerate_response\030\014 \001(\010\022\021\n\trelations\030\r "
+    "\001(\010\022\022\n\ndebug_info\030\016 \001(\010\022\017\n\007tts_mp3\030\017 \001(\010"
+    "\022\023\n\013multi_agent\030\024 \001(\010\"\321\003\n\021UserConfigurat"
+    "ion\022\014\n\004name\030\001 \001(\t\022\n\n\002id\030\002 \001(\t\022V\n\ruser_se"
+    "ttings\030\003 \001(\0132\?.ai.inworld.engine.configu"
+    "ration.UserConfiguration.UserSettings\032\311\002"
+    "\n\014UserSettings\022\037\n\027view_transcript_consen"
+    "t\030\001 \001(\010\022e\n\016player_profile\030\002 \001(\0132M.ai.inw"
+    "orld.engine.configuration.UserConfigurat"
+    "ion.UserSettings.PlayerProfile\032\260\001\n\rPlaye"
+    "rProfile\022i\n\006fields\030\003 \003(\0132Y.ai.inworld.en"
+    "gine.configuration.UserConfiguration.Use"
+    "rSettings.PlayerProfile.PlayerField\0324\n\013P"
+    "layerField\022\020\n\010field_id\030\001 \001(\t\022\023\n\013field_va"
+    "lue\030\002 \001(\t\"G\n\023ClientConfiguration\022\n\n\002id\030\001"
+    " \001(\t\022\017\n\007version\030\002 \001(\t\022\023\n\013description\030\003 \001"
+    "(\t\"5\n\024SessionConfiguration\022\027\n\017game_sessi"
+    "on_id\030\002 \001(\tJ\004\010\001\020\002B\251\001\n\037ai.inworld.engine."
+    "configurationB\030EngineConfigurationProtoP"
+    "\001ZMgithub.com/inworld-ai/inworld/serving"
+    "/grpc-gateway/build/proto/engine/v1alpha"
+    "\252\002\032Inworld.Grpc.Configurationb\006proto3"
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_once;
-const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto, "ai/inworld/engine/configuration/configuration.proto", 1237,
-  &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_once, descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_sccs, descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_deps, 7, 0,
-  schemas, file_default_instances, TableStruct_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto::offsets,
-  file_level_metadata_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto, 7, file_level_enum_descriptors_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto, file_level_service_descriptors_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto,
+static ::absl::once_flag descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto = {
+    false,
+    false,
+    1237,
+    descriptor_table_protodef_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto,
+    "ai/inworld/engine/configuration/configuration.proto",
+    &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_once,
+    nullptr,
+    0,
+    7,
+    schemas,
+    file_default_instances,
+    TableStruct_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto::offsets,
+    file_level_metadata_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto,
+    file_level_enum_descriptors_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto,
+    file_level_service_descriptors_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto,
 };
 
+// This function exists to be marked as weak.
+// It can significantly speed up compilation by breaking up LLVM's SCC
+// in the .pb.cc translation units. Large translation units see a
+// reduction of more than 35% of walltime for optimized builds. Without
+// the weak attribute all the messages in the file, including all the
+// vtables and everything they use become part of the same SCC through
+// a cycle like:
+// GetMetadata -> descriptor table -> default instances ->
+//   vtables -> GetMetadata
+// By adding a weak function here we break the connection from the
+// individual vtables back into the descriptor table.
+PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_getter() {
+  return &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto;
+}
 // Force running AddDescriptors() at dynamic initialization time.
-static bool dynamic_init_dummy_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto)), true);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2
+static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto(&descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto);
 namespace ai {
 namespace inworld {
 namespace engine {
 namespace configuration {
-
 // ===================================================================
 
 class CapabilitiesConfiguration::_Internal {
  public:
 };
 
-CapabilitiesConfiguration::CapabilitiesConfiguration(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+CapabilitiesConfiguration::CapabilitiesConfiguration(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.engine.configuration.CapabilitiesConfiguration)
 }
-CapabilitiesConfiguration::CapabilitiesConfiguration(const CapabilitiesConfiguration& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&audio_, &from.audio_,
-    static_cast<size_t>(reinterpret_cast<char*>(&multi_agent_) -
-    reinterpret_cast<char*>(&audio_)) + sizeof(multi_agent_));
-  // @@protoc_insertion_point(copy_constructor:ai.inworld.engine.configuration.CapabilitiesConfiguration)
+CapabilitiesConfiguration::CapabilitiesConfiguration(
+    ::google::protobuf_inworld::Arena* arena, const CapabilitiesConfiguration& from)
+    : CapabilitiesConfiguration(arena) {
+  MergeFrom(from);
 }
+inline PROTOBUF_NDEBUG_INLINE CapabilitiesConfiguration::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : _cached_size_{0} {}
 
-void CapabilitiesConfiguration::SharedCtor() {
-  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&audio_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&multi_agent_) -
-      reinterpret_cast<char*>(&audio_)) + sizeof(multi_agent_));
+inline void CapabilitiesConfiguration::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, audio_),
+           0,
+           offsetof(Impl_, multi_agent_) -
+               offsetof(Impl_, audio_) +
+               sizeof(Impl_::multi_agent_));
 }
-
 CapabilitiesConfiguration::~CapabilitiesConfiguration() {
   // @@protoc_insertion_point(destructor:ai.inworld.engine.configuration.CapabilitiesConfiguration)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+inline void CapabilitiesConfiguration::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.~Impl_();
 }
 
-void CapabilitiesConfiguration::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void CapabilitiesConfiguration::ArenaDtor(void* object) {
-  CapabilitiesConfiguration* _this = reinterpret_cast< CapabilitiesConfiguration* >(object);
-  (void)_this;
-}
-void CapabilitiesConfiguration::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CapabilitiesConfiguration::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const CapabilitiesConfiguration& CapabilitiesConfiguration::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_CapabilitiesConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void CapabilitiesConfiguration::Clear() {
+PROTOBUF_NOINLINE void CapabilitiesConfiguration::Clear() {
 // @@protoc_insertion_point(message_clear_start:ai.inworld.engine.configuration.CapabilitiesConfiguration)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&audio_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&multi_agent_) -
-      reinterpret_cast<char*>(&audio_)) + sizeof(multi_agent_));
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  ::memset(&_impl_.audio_, 0, static_cast<::size_t>(
+      reinterpret_cast<char*>(&_impl_.multi_agent_) -
+      reinterpret_cast<char*>(&_impl_.audio_)) + sizeof(_impl_.multi_agent_));
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* CapabilitiesConfiguration::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // bool audio = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          audio_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool interruptions = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          interruptions_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool emotions = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
-          emotions_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool turn_based_stt = 5 [deprecated = true];
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
-          turn_based_stt_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool emotion_streaming = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
-          emotion_streaming_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool silence_events = 7 [deprecated = true];
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
-          silence_events_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool phoneme_info = 8;
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
-          phoneme_info_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool continuation = 9;
-      case 9:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
-          continuation_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool session_cancellation = 10;
-      case 10:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
-          session_cancellation_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool narrated_actions = 11;
-      case 11:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
-          narrated_actions_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool regenerate_response = 12;
-      case 12:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
-          regenerate_response_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool relations = 13;
-      case 13:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 104)) {
-          relations_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool debug_info = 14;
-      case 14:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 112)) {
-          debug_info_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool tts_mp3 = 15;
-      case 15:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 120)) {
-          tts_mp3_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool multi_agent = 20;
-      case 20:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 160)) {
-          multi_agent_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* CapabilitiesConfiguration::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* CapabilitiesConfiguration::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<4, 15, 0, 0, 2> CapabilitiesConfiguration::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    20, 120,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294410242,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    15,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_CapabilitiesConfiguration_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // bool audio = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(CapabilitiesConfiguration, _impl_.audio_), 63>(),
+     {8, 63, 0, PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.audio_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    // bool interruptions = 3;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(CapabilitiesConfiguration, _impl_.interruptions_), 63>(),
+     {24, 63, 0, PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.interruptions_)}},
+    // bool emotions = 4;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(CapabilitiesConfiguration, _impl_.emotions_), 63>(),
+     {32, 63, 0, PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.emotions_)}},
+    // bool turn_based_stt = 5 [deprecated = true];
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(CapabilitiesConfiguration, _impl_.turn_based_stt_), 63>(),
+     {40, 63, 0, PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.turn_based_stt_)}},
+    // bool emotion_streaming = 6;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(CapabilitiesConfiguration, _impl_.emotion_streaming_), 63>(),
+     {48, 63, 0, PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.emotion_streaming_)}},
+    // bool silence_events = 7 [deprecated = true];
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(CapabilitiesConfiguration, _impl_.silence_events_), 63>(),
+     {56, 63, 0, PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.silence_events_)}},
+    // bool phoneme_info = 8;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(CapabilitiesConfiguration, _impl_.phoneme_info_), 63>(),
+     {64, 63, 0, PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.phoneme_info_)}},
+    // bool continuation = 9;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(CapabilitiesConfiguration, _impl_.continuation_), 63>(),
+     {72, 63, 0, PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.continuation_)}},
+    // bool session_cancellation = 10;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(CapabilitiesConfiguration, _impl_.session_cancellation_), 63>(),
+     {80, 63, 0, PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.session_cancellation_)}},
+    // bool narrated_actions = 11;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(CapabilitiesConfiguration, _impl_.narrated_actions_), 63>(),
+     {88, 63, 0, PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.narrated_actions_)}},
+    // bool regenerate_response = 12;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(CapabilitiesConfiguration, _impl_.regenerate_response_), 63>(),
+     {96, 63, 0, PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.regenerate_response_)}},
+    // bool relations = 13;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(CapabilitiesConfiguration, _impl_.relations_), 63>(),
+     {104, 63, 0, PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.relations_)}},
+    // bool debug_info = 14;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(CapabilitiesConfiguration, _impl_.debug_info_), 63>(),
+     {112, 63, 0, PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.debug_info_)}},
+    // bool tts_mp3 = 15;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(CapabilitiesConfiguration, _impl_.tts_mp3_), 63>(),
+     {120, 63, 0, PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.tts_mp3_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // bool audio = 1;
+    {PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.audio_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+    // bool interruptions = 3;
+    {PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.interruptions_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+    // bool emotions = 4;
+    {PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.emotions_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+    // bool turn_based_stt = 5 [deprecated = true];
+    {PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.turn_based_stt_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+    // bool emotion_streaming = 6;
+    {PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.emotion_streaming_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+    // bool silence_events = 7 [deprecated = true];
+    {PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.silence_events_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+    // bool phoneme_info = 8;
+    {PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.phoneme_info_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+    // bool continuation = 9;
+    {PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.continuation_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+    // bool session_cancellation = 10;
+    {PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.session_cancellation_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+    // bool narrated_actions = 11;
+    {PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.narrated_actions_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+    // bool regenerate_response = 12;
+    {PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.regenerate_response_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+    // bool relations = 13;
+    {PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.relations_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+    // bool debug_info = 14;
+    {PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.debug_info_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+    // bool tts_mp3 = 15;
+    {PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.tts_mp3_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+    // bool multi_agent = 20;
+    {PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.multi_agent_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+  }},
+  // no aux_entries
+  {{
+  }},
+};
+
+::uint8_t* CapabilitiesConfiguration::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.engine.configuration.CapabilitiesConfiguration)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // bool audio = 1;
-  if (this->audio() != 0) {
+  if (this->_internal_audio() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_audio(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(
+        1, this->_internal_audio(), target);
   }
 
   // bool interruptions = 3;
-  if (this->interruptions() != 0) {
+  if (this->_internal_interruptions() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_interruptions(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(
+        3, this->_internal_interruptions(), target);
   }
 
   // bool emotions = 4;
-  if (this->emotions() != 0) {
+  if (this->_internal_emotions() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_emotions(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(
+        4, this->_internal_emotions(), target);
   }
 
   // bool turn_based_stt = 5 [deprecated = true];
-  if (this->turn_based_stt() != 0) {
+  if (this->_internal_turn_based_stt() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_turn_based_stt(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(
+        5, this->_internal_turn_based_stt(), target);
   }
 
   // bool emotion_streaming = 6;
-  if (this->emotion_streaming() != 0) {
+  if (this->_internal_emotion_streaming() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_emotion_streaming(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(
+        6, this->_internal_emotion_streaming(), target);
   }
 
   // bool silence_events = 7 [deprecated = true];
-  if (this->silence_events() != 0) {
+  if (this->_internal_silence_events() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(7, this->_internal_silence_events(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(
+        7, this->_internal_silence_events(), target);
   }
 
   // bool phoneme_info = 8;
-  if (this->phoneme_info() != 0) {
+  if (this->_internal_phoneme_info() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(8, this->_internal_phoneme_info(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(
+        8, this->_internal_phoneme_info(), target);
   }
 
   // bool continuation = 9;
-  if (this->continuation() != 0) {
+  if (this->_internal_continuation() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(9, this->_internal_continuation(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(
+        9, this->_internal_continuation(), target);
   }
 
   // bool session_cancellation = 10;
-  if (this->session_cancellation() != 0) {
+  if (this->_internal_session_cancellation() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(10, this->_internal_session_cancellation(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(
+        10, this->_internal_session_cancellation(), target);
   }
 
   // bool narrated_actions = 11;
-  if (this->narrated_actions() != 0) {
+  if (this->_internal_narrated_actions() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(11, this->_internal_narrated_actions(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(
+        11, this->_internal_narrated_actions(), target);
   }
 
   // bool regenerate_response = 12;
-  if (this->regenerate_response() != 0) {
+  if (this->_internal_regenerate_response() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(12, this->_internal_regenerate_response(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(
+        12, this->_internal_regenerate_response(), target);
   }
 
   // bool relations = 13;
-  if (this->relations() != 0) {
+  if (this->_internal_relations() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(13, this->_internal_relations(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(
+        13, this->_internal_relations(), target);
   }
 
   // bool debug_info = 14;
-  if (this->debug_info() != 0) {
+  if (this->_internal_debug_info() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(14, this->_internal_debug_info(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(
+        14, this->_internal_debug_info(), target);
   }
 
   // bool tts_mp3 = 15;
-  if (this->tts_mp3() != 0) {
+  if (this->_internal_tts_mp3() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(15, this->_internal_tts_mp3(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(
+        15, this->_internal_tts_mp3(), target);
   }
 
   // bool multi_agent = 20;
-  if (this->multi_agent() != 0) {
+  if (this->_internal_multi_agent() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(20, this->_internal_multi_agent(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(
+        20, this->_internal_multi_agent(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.engine.configuration.CapabilitiesConfiguration)
   return target;
 }
 
-size_t CapabilitiesConfiguration::ByteSizeLong() const {
+::size_t CapabilitiesConfiguration::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:ai.inworld.engine.configuration.CapabilitiesConfiguration)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // bool audio = 1;
-  if (this->audio() != 0) {
-    total_size += 1 + 1;
+  if (this->_internal_audio() != 0) {
+    total_size += 2;
   }
 
   // bool interruptions = 3;
-  if (this->interruptions() != 0) {
-    total_size += 1 + 1;
+  if (this->_internal_interruptions() != 0) {
+    total_size += 2;
   }
 
   // bool emotions = 4;
-  if (this->emotions() != 0) {
-    total_size += 1 + 1;
+  if (this->_internal_emotions() != 0) {
+    total_size += 2;
   }
 
   // bool turn_based_stt = 5 [deprecated = true];
-  if (this->turn_based_stt() != 0) {
-    total_size += 1 + 1;
+  if (this->_internal_turn_based_stt() != 0) {
+    total_size += 2;
   }
 
   // bool emotion_streaming = 6;
-  if (this->emotion_streaming() != 0) {
-    total_size += 1 + 1;
+  if (this->_internal_emotion_streaming() != 0) {
+    total_size += 2;
   }
 
   // bool silence_events = 7 [deprecated = true];
-  if (this->silence_events() != 0) {
-    total_size += 1 + 1;
+  if (this->_internal_silence_events() != 0) {
+    total_size += 2;
   }
 
   // bool phoneme_info = 8;
-  if (this->phoneme_info() != 0) {
-    total_size += 1 + 1;
+  if (this->_internal_phoneme_info() != 0) {
+    total_size += 2;
   }
 
   // bool continuation = 9;
-  if (this->continuation() != 0) {
-    total_size += 1 + 1;
+  if (this->_internal_continuation() != 0) {
+    total_size += 2;
   }
 
   // bool session_cancellation = 10;
-  if (this->session_cancellation() != 0) {
-    total_size += 1 + 1;
+  if (this->_internal_session_cancellation() != 0) {
+    total_size += 2;
   }
 
   // bool narrated_actions = 11;
-  if (this->narrated_actions() != 0) {
-    total_size += 1 + 1;
+  if (this->_internal_narrated_actions() != 0) {
+    total_size += 2;
   }
 
   // bool regenerate_response = 12;
-  if (this->regenerate_response() != 0) {
-    total_size += 1 + 1;
+  if (this->_internal_regenerate_response() != 0) {
+    total_size += 2;
   }
 
   // bool relations = 13;
-  if (this->relations() != 0) {
-    total_size += 1 + 1;
+  if (this->_internal_relations() != 0) {
+    total_size += 2;
   }
 
   // bool debug_info = 14;
-  if (this->debug_info() != 0) {
-    total_size += 1 + 1;
+  if (this->_internal_debug_info() != 0) {
+    total_size += 2;
   }
 
   // bool tts_mp3 = 15;
-  if (this->tts_mp3() != 0) {
-    total_size += 1 + 1;
+  if (this->_internal_tts_mp3() != 0) {
+    total_size += 2;
   }
 
   // bool multi_agent = 20;
-  if (this->multi_agent() != 0) {
-    total_size += 2 + 1;
+  if (this->_internal_multi_agent() != 0) {
+    total_size += 3;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void CapabilitiesConfiguration::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.engine.configuration.CapabilitiesConfiguration)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CapabilitiesConfiguration* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CapabilitiesConfiguration>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.engine.configuration.CapabilitiesConfiguration)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.engine.configuration.CapabilitiesConfiguration)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData CapabilitiesConfiguration::_class_data_ = {
+    CapabilitiesConfiguration::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* CapabilitiesConfiguration::GetClassData() const {
+  return &_class_data_;
 }
 
-void CapabilitiesConfiguration::MergeFrom(const CapabilitiesConfiguration& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.engine.configuration.CapabilitiesConfiguration)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void CapabilitiesConfiguration::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<CapabilitiesConfiguration*>(&to_msg);
+  auto& from = static_cast<const CapabilitiesConfiguration&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.engine.configuration.CapabilitiesConfiguration)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.audio() != 0) {
-    _internal_set_audio(from._internal_audio());
+  if (from._internal_audio() != 0) {
+    _this->_internal_set_audio(from._internal_audio());
   }
-  if (from.interruptions() != 0) {
-    _internal_set_interruptions(from._internal_interruptions());
+  if (from._internal_interruptions() != 0) {
+    _this->_internal_set_interruptions(from._internal_interruptions());
   }
-  if (from.emotions() != 0) {
-    _internal_set_emotions(from._internal_emotions());
+  if (from._internal_emotions() != 0) {
+    _this->_internal_set_emotions(from._internal_emotions());
   }
-  if (from.turn_based_stt() != 0) {
-    _internal_set_turn_based_stt(from._internal_turn_based_stt());
+  if (from._internal_turn_based_stt() != 0) {
+    _this->_internal_set_turn_based_stt(from._internal_turn_based_stt());
   }
-  if (from.emotion_streaming() != 0) {
-    _internal_set_emotion_streaming(from._internal_emotion_streaming());
+  if (from._internal_emotion_streaming() != 0) {
+    _this->_internal_set_emotion_streaming(from._internal_emotion_streaming());
   }
-  if (from.silence_events() != 0) {
-    _internal_set_silence_events(from._internal_silence_events());
+  if (from._internal_silence_events() != 0) {
+    _this->_internal_set_silence_events(from._internal_silence_events());
   }
-  if (from.phoneme_info() != 0) {
-    _internal_set_phoneme_info(from._internal_phoneme_info());
+  if (from._internal_phoneme_info() != 0) {
+    _this->_internal_set_phoneme_info(from._internal_phoneme_info());
   }
-  if (from.continuation() != 0) {
-    _internal_set_continuation(from._internal_continuation());
+  if (from._internal_continuation() != 0) {
+    _this->_internal_set_continuation(from._internal_continuation());
   }
-  if (from.session_cancellation() != 0) {
-    _internal_set_session_cancellation(from._internal_session_cancellation());
+  if (from._internal_session_cancellation() != 0) {
+    _this->_internal_set_session_cancellation(from._internal_session_cancellation());
   }
-  if (from.narrated_actions() != 0) {
-    _internal_set_narrated_actions(from._internal_narrated_actions());
+  if (from._internal_narrated_actions() != 0) {
+    _this->_internal_set_narrated_actions(from._internal_narrated_actions());
   }
-  if (from.regenerate_response() != 0) {
-    _internal_set_regenerate_response(from._internal_regenerate_response());
+  if (from._internal_regenerate_response() != 0) {
+    _this->_internal_set_regenerate_response(from._internal_regenerate_response());
   }
-  if (from.relations() != 0) {
-    _internal_set_relations(from._internal_relations());
+  if (from._internal_relations() != 0) {
+    _this->_internal_set_relations(from._internal_relations());
   }
-  if (from.debug_info() != 0) {
-    _internal_set_debug_info(from._internal_debug_info());
+  if (from._internal_debug_info() != 0) {
+    _this->_internal_set_debug_info(from._internal_debug_info());
   }
-  if (from.tts_mp3() != 0) {
-    _internal_set_tts_mp3(from._internal_tts_mp3());
+  if (from._internal_tts_mp3() != 0) {
+    _this->_internal_set_tts_mp3(from._internal_tts_mp3());
   }
-  if (from.multi_agent() != 0) {
-    _internal_set_multi_agent(from._internal_multi_agent());
+  if (from._internal_multi_agent() != 0) {
+    _this->_internal_set_multi_agent(from._internal_multi_agent());
   }
-}
-
-void CapabilitiesConfiguration::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.engine.configuration.CapabilitiesConfiguration)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void CapabilitiesConfiguration::CopyFrom(const CapabilitiesConfiguration& from) {
@@ -773,245 +839,218 @@ void CapabilitiesConfiguration::CopyFrom(const CapabilitiesConfiguration& from) 
   MergeFrom(from);
 }
 
-bool CapabilitiesConfiguration::IsInitialized() const {
+PROTOBUF_NOINLINE bool CapabilitiesConfiguration::IsInitialized() const {
   return true;
 }
 
-void CapabilitiesConfiguration::InternalSwap(CapabilitiesConfiguration* other) {
+::_pbi::CachedSize* CapabilitiesConfiguration::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void CapabilitiesConfiguration::InternalSwap(CapabilitiesConfiguration* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, multi_agent_)
-      + sizeof(CapabilitiesConfiguration::multi_agent_)
-      - PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, audio_)>(
-          reinterpret_cast<char*>(&audio_),
-          reinterpret_cast<char*>(&other->audio_));
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::google::protobuf_inworld::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.multi_agent_)
+      + sizeof(CapabilitiesConfiguration::_impl_.multi_agent_)
+      - PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, _impl_.audio_)>(
+          reinterpret_cast<char*>(&_impl_.audio_),
+          reinterpret_cast<char*>(&other->_impl_.audio_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata CapabilitiesConfiguration::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata CapabilitiesConfiguration::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_getter, &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_once,
+      file_level_metadata_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto[0]);
 }
-
-
 // ===================================================================
 
 class UserConfiguration_UserSettings_PlayerProfile_PlayerField::_Internal {
  public:
 };
 
-UserConfiguration_UserSettings_PlayerProfile_PlayerField::UserConfiguration_UserSettings_PlayerProfile_PlayerField(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+UserConfiguration_UserSettings_PlayerProfile_PlayerField::UserConfiguration_UserSettings_PlayerProfile_PlayerField(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField)
 }
-UserConfiguration_UserSettings_PlayerProfile_PlayerField::UserConfiguration_UserSettings_PlayerProfile_PlayerField(const UserConfiguration_UserSettings_PlayerProfile_PlayerField& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  field_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_field_id().empty()) {
-    field_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_field_id(), 
-      GetArena());
-  }
-  field_value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_field_value().empty()) {
-    field_value_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_field_value(), 
-      GetArena());
-  }
+inline PROTOBUF_NDEBUG_INLINE UserConfiguration_UserSettings_PlayerProfile_PlayerField::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    const Impl_& from)
+      : field_id_(arena, from.field_id_),
+        field_value_(arena, from.field_value_),
+        _cached_size_{0} {}
+
+UserConfiguration_UserSettings_PlayerProfile_PlayerField::UserConfiguration_UserSettings_PlayerProfile_PlayerField(
+    ::google::protobuf_inworld::Arena* arena,
+    const UserConfiguration_UserSettings_PlayerProfile_PlayerField& from)
+    : ::google::protobuf_inworld::Message(arena) {
+  UserConfiguration_UserSettings_PlayerProfile_PlayerField* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+
   // @@protoc_insertion_point(copy_constructor:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField)
 }
+inline PROTOBUF_NDEBUG_INLINE UserConfiguration_UserSettings_PlayerProfile_PlayerField::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : field_id_(arena),
+        field_value_(arena),
+        _cached_size_{0} {}
 
-void UserConfiguration_UserSettings_PlayerProfile_PlayerField::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_UserConfiguration_UserSettings_PlayerProfile_PlayerField_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base);
-  field_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  field_value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void UserConfiguration_UserSettings_PlayerProfile_PlayerField::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
 }
-
 UserConfiguration_UserSettings_PlayerProfile_PlayerField::~UserConfiguration_UserSettings_PlayerProfile_PlayerField() {
   // @@protoc_insertion_point(destructor:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+inline void UserConfiguration_UserSettings_PlayerProfile_PlayerField::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.field_id_.Destroy();
+  _impl_.field_value_.Destroy();
+  _impl_.~Impl_();
 }
 
-void UserConfiguration_UserSettings_PlayerProfile_PlayerField::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  field_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  field_value_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void UserConfiguration_UserSettings_PlayerProfile_PlayerField::ArenaDtor(void* object) {
-  UserConfiguration_UserSettings_PlayerProfile_PlayerField* _this = reinterpret_cast< UserConfiguration_UserSettings_PlayerProfile_PlayerField* >(object);
-  (void)_this;
-}
-void UserConfiguration_UserSettings_PlayerProfile_PlayerField::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void UserConfiguration_UserSettings_PlayerProfile_PlayerField::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const UserConfiguration_UserSettings_PlayerProfile_PlayerField& UserConfiguration_UserSettings_PlayerProfile_PlayerField::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_UserConfiguration_UserSettings_PlayerProfile_PlayerField_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void UserConfiguration_UserSettings_PlayerProfile_PlayerField::Clear() {
+PROTOBUF_NOINLINE void UserConfiguration_UserSettings_PlayerProfile_PlayerField::Clear() {
 // @@protoc_insertion_point(message_clear_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  field_id_.ClearToEmpty();
-  field_value_.ClearToEmpty();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _impl_.field_id_.ClearToEmpty();
+  _impl_.field_value_.ClearToEmpty();
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* UserConfiguration_UserSettings_PlayerProfile_PlayerField::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string field_id = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_field_id();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField.field_id"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // string field_value = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          auto str = _internal_mutable_field_value();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField.field_value"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* UserConfiguration_UserSettings_PlayerProfile_PlayerField::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* UserConfiguration_UserSettings_PlayerProfile_PlayerField::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 0, 116, 2> UserConfiguration_UserSettings_PlayerProfile_PlayerField::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_UserConfiguration_UserSettings_PlayerProfile_PlayerField_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // string field_value = 2;
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(UserConfiguration_UserSettings_PlayerProfile_PlayerField, _impl_.field_value_)}},
+    // string field_id = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(UserConfiguration_UserSettings_PlayerProfile_PlayerField, _impl_.field_id_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string field_id = 1;
+    {PROTOBUF_FIELD_OFFSET(UserConfiguration_UserSettings_PlayerProfile_PlayerField, _impl_.field_id_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string field_value = 2;
+    {PROTOBUF_FIELD_OFFSET(UserConfiguration_UserSettings_PlayerProfile_PlayerField, _impl_.field_value_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\130\10\13\0\0\0\0\0"
+    "ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField"
+    "field_id"
+    "field_value"
+  }},
+};
+
+::uint8_t* UserConfiguration_UserSettings_PlayerProfile_PlayerField::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // string field_id = 1;
-  if (this->field_id().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_field_id().data(), static_cast<int>(this->_internal_field_id().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField.field_id");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_field_id(), target);
+  if (!this->_internal_field_id().empty()) {
+    const std::string& _s = this->_internal_field_id();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField.field_id");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // string field_value = 2;
-  if (this->field_value().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_field_value().data(), static_cast<int>(this->_internal_field_value().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField.field_value");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_field_value(), target);
+  if (!this->_internal_field_value().empty()) {
+    const std::string& _s = this->_internal_field_value();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField.field_value");
+    target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField)
   return target;
 }
 
-size_t UserConfiguration_UserSettings_PlayerProfile_PlayerField::ByteSizeLong() const {
+::size_t UserConfiguration_UserSettings_PlayerProfile_PlayerField::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string field_id = 1;
-  if (this->field_id().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_field_id());
+  if (!this->_internal_field_id().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_field_id());
   }
 
   // string field_value = 2;
-  if (this->field_value().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_field_value());
+  if (!this->_internal_field_value().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_field_value());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void UserConfiguration_UserSettings_PlayerProfile_PlayerField::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField)
-  GOOGLE_DCHECK_NE(&from, this);
-  const UserConfiguration_UserSettings_PlayerProfile_PlayerField* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<UserConfiguration_UserSettings_PlayerProfile_PlayerField>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData UserConfiguration_UserSettings_PlayerProfile_PlayerField::_class_data_ = {
+    UserConfiguration_UserSettings_PlayerProfile_PlayerField::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* UserConfiguration_UserSettings_PlayerProfile_PlayerField::GetClassData() const {
+  return &_class_data_;
 }
 
-void UserConfiguration_UserSettings_PlayerProfile_PlayerField::MergeFrom(const UserConfiguration_UserSettings_PlayerProfile_PlayerField& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void UserConfiguration_UserSettings_PlayerProfile_PlayerField::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<UserConfiguration_UserSettings_PlayerProfile_PlayerField*>(&to_msg);
+  auto& from = static_cast<const UserConfiguration_UserSettings_PlayerProfile_PlayerField&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.field_id().size() > 0) {
-    _internal_set_field_id(from._internal_field_id());
+  if (!from._internal_field_id().empty()) {
+    _this->_internal_set_field_id(from._internal_field_id());
   }
-  if (from.field_value().size() > 0) {
-    _internal_set_field_value(from._internal_field_value());
+  if (!from._internal_field_value().empty()) {
+    _this->_internal_set_field_value(from._internal_field_value());
   }
-}
-
-void UserConfiguration_UserSettings_PlayerProfile_PlayerField::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void UserConfiguration_UserSettings_PlayerProfile_PlayerField::CopyFrom(const UserConfiguration_UserSettings_PlayerProfile_PlayerField& from) {
@@ -1021,198 +1060,183 @@ void UserConfiguration_UserSettings_PlayerProfile_PlayerField::CopyFrom(const Us
   MergeFrom(from);
 }
 
-bool UserConfiguration_UserSettings_PlayerProfile_PlayerField::IsInitialized() const {
+PROTOBUF_NOINLINE bool UserConfiguration_UserSettings_PlayerProfile_PlayerField::IsInitialized() const {
   return true;
 }
 
-void UserConfiguration_UserSettings_PlayerProfile_PlayerField::InternalSwap(UserConfiguration_UserSettings_PlayerProfile_PlayerField* other) {
+::_pbi::CachedSize* UserConfiguration_UserSettings_PlayerProfile_PlayerField::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void UserConfiguration_UserSettings_PlayerProfile_PlayerField::InternalSwap(UserConfiguration_UserSettings_PlayerProfile_PlayerField* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  field_id_.Swap(&other->field_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  field_value_.Swap(&other->field_value_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.field_id_, &other->_impl_.field_id_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.field_value_, &other->_impl_.field_value_, arena);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata UserConfiguration_UserSettings_PlayerProfile_PlayerField::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata UserConfiguration_UserSettings_PlayerProfile_PlayerField::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_getter, &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_once,
+      file_level_metadata_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto[1]);
 }
-
-
 // ===================================================================
 
 class UserConfiguration_UserSettings_PlayerProfile::_Internal {
  public:
 };
 
-UserConfiguration_UserSettings_PlayerProfile::UserConfiguration_UserSettings_PlayerProfile(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  fields_(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+UserConfiguration_UserSettings_PlayerProfile::UserConfiguration_UserSettings_PlayerProfile(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile)
 }
-UserConfiguration_UserSettings_PlayerProfile::UserConfiguration_UserSettings_PlayerProfile(const UserConfiguration_UserSettings_PlayerProfile& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      fields_(from.fields_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+inline PROTOBUF_NDEBUG_INLINE UserConfiguration_UserSettings_PlayerProfile::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    const Impl_& from)
+      : fields_{visibility, arena, from.fields_},
+        _cached_size_{0} {}
+
+UserConfiguration_UserSettings_PlayerProfile::UserConfiguration_UserSettings_PlayerProfile(
+    ::google::protobuf_inworld::Arena* arena,
+    const UserConfiguration_UserSettings_PlayerProfile& from)
+    : ::google::protobuf_inworld::Message(arena) {
+  UserConfiguration_UserSettings_PlayerProfile* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+
   // @@protoc_insertion_point(copy_constructor:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile)
 }
+inline PROTOBUF_NDEBUG_INLINE UserConfiguration_UserSettings_PlayerProfile::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : fields_{visibility, arena},
+        _cached_size_{0} {}
 
-void UserConfiguration_UserSettings_PlayerProfile::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_UserConfiguration_UserSettings_PlayerProfile_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base);
+inline void UserConfiguration_UserSettings_PlayerProfile::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
 }
-
 UserConfiguration_UserSettings_PlayerProfile::~UserConfiguration_UserSettings_PlayerProfile() {
   // @@protoc_insertion_point(destructor:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+inline void UserConfiguration_UserSettings_PlayerProfile::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.~Impl_();
 }
 
-void UserConfiguration_UserSettings_PlayerProfile::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void UserConfiguration_UserSettings_PlayerProfile::ArenaDtor(void* object) {
-  UserConfiguration_UserSettings_PlayerProfile* _this = reinterpret_cast< UserConfiguration_UserSettings_PlayerProfile* >(object);
-  (void)_this;
-}
-void UserConfiguration_UserSettings_PlayerProfile::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void UserConfiguration_UserSettings_PlayerProfile::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const UserConfiguration_UserSettings_PlayerProfile& UserConfiguration_UserSettings_PlayerProfile::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_UserConfiguration_UserSettings_PlayerProfile_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void UserConfiguration_UserSettings_PlayerProfile::Clear() {
+PROTOBUF_NOINLINE void UserConfiguration_UserSettings_PlayerProfile::Clear() {
 // @@protoc_insertion_point(message_clear_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  fields_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _impl_.fields_.Clear();
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* UserConfiguration_UserSettings_PlayerProfile::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // repeated .ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField fields = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_fields(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* UserConfiguration_UserSettings_PlayerProfile::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* UserConfiguration_UserSettings_PlayerProfile::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 1, 0, 2> UserConfiguration_UserSettings_PlayerProfile::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    3, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967291,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    &_UserConfiguration_UserSettings_PlayerProfile_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // repeated .ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField fields = 3;
+    {::_pbi::TcParser::FastMtR1,
+     {26, 63, 0, PROTOBUF_FIELD_OFFSET(UserConfiguration_UserSettings_PlayerProfile, _impl_.fields_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // repeated .ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField fields = 3;
+    {PROTOBUF_FIELD_OFFSET(UserConfiguration_UserSettings_PlayerProfile, _impl_.fields_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile_PlayerField>()},
+  }}, {{
+  }},
+};
+
+::uint8_t* UserConfiguration_UserSettings_PlayerProfile::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // repeated .ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField fields = 3;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_fields_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(3, this->_internal_fields(i), target, stream);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_fields_size()); i < n; i++) {
+    const auto& repfield = this->_internal_fields().Get(i);
+    target = ::google::protobuf_inworld::internal::WireFormatLite::
+        InternalWriteMessage(3, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile)
   return target;
 }
 
-size_t UserConfiguration_UserSettings_PlayerProfile::ByteSizeLong() const {
+::size_t UserConfiguration_UserSettings_PlayerProfile::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // repeated .ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile.PlayerField fields = 3;
   total_size += 1UL * this->_internal_fields_size();
-  for (const auto& msg : this->fields_) {
+  for (const auto& msg : this->_internal_fields()) {
     total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+      ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(msg);
   }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void UserConfiguration_UserSettings_PlayerProfile::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile)
-  GOOGLE_DCHECK_NE(&from, this);
-  const UserConfiguration_UserSettings_PlayerProfile* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<UserConfiguration_UserSettings_PlayerProfile>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData UserConfiguration_UserSettings_PlayerProfile::_class_data_ = {
+    UserConfiguration_UserSettings_PlayerProfile::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* UserConfiguration_UserSettings_PlayerProfile::GetClassData() const {
+  return &_class_data_;
 }
 
-void UserConfiguration_UserSettings_PlayerProfile::MergeFrom(const UserConfiguration_UserSettings_PlayerProfile& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void UserConfiguration_UserSettings_PlayerProfile::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<UserConfiguration_UserSettings_PlayerProfile*>(&to_msg);
+  auto& from = static_cast<const UserConfiguration_UserSettings_PlayerProfile&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  fields_.MergeFrom(from.fields_);
-}
-
-void UserConfiguration_UserSettings_PlayerProfile::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_mutable_fields()->MergeFrom(
+      from._internal_fields());
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void UserConfiguration_UserSettings_PlayerProfile::CopyFrom(const UserConfiguration_UserSettings_PlayerProfile& from) {
@@ -1222,233 +1246,231 @@ void UserConfiguration_UserSettings_PlayerProfile::CopyFrom(const UserConfigurat
   MergeFrom(from);
 }
 
-bool UserConfiguration_UserSettings_PlayerProfile::IsInitialized() const {
+PROTOBUF_NOINLINE bool UserConfiguration_UserSettings_PlayerProfile::IsInitialized() const {
   return true;
 }
 
-void UserConfiguration_UserSettings_PlayerProfile::InternalSwap(UserConfiguration_UserSettings_PlayerProfile* other) {
+::_pbi::CachedSize* UserConfiguration_UserSettings_PlayerProfile::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void UserConfiguration_UserSettings_PlayerProfile::InternalSwap(UserConfiguration_UserSettings_PlayerProfile* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  fields_.InternalSwap(&other->fields_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.fields_.InternalSwap(&other->_impl_.fields_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata UserConfiguration_UserSettings_PlayerProfile::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata UserConfiguration_UserSettings_PlayerProfile::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_getter, &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_once,
+      file_level_metadata_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto[2]);
 }
-
-
 // ===================================================================
 
 class UserConfiguration_UserSettings::_Internal {
  public:
+  using HasBits = decltype(std::declval<UserConfiguration_UserSettings>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+    8 * PROTOBUF_FIELD_OFFSET(UserConfiguration_UserSettings, _impl_._has_bits_);
   static const ::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile& player_profile(const UserConfiguration_UserSettings* msg);
+  static void set_has_player_profile(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
 };
 
-const ::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile&
-UserConfiguration_UserSettings::_Internal::player_profile(const UserConfiguration_UserSettings* msg) {
-  return *msg->player_profile_;
+const ::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile& UserConfiguration_UserSettings::_Internal::player_profile(const UserConfiguration_UserSettings* msg) {
+  return *msg->_impl_.player_profile_;
 }
-UserConfiguration_UserSettings::UserConfiguration_UserSettings(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+UserConfiguration_UserSettings::UserConfiguration_UserSettings(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.engine.configuration.UserConfiguration.UserSettings)
 }
-UserConfiguration_UserSettings::UserConfiguration_UserSettings(const UserConfiguration_UserSettings& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_player_profile()) {
-    player_profile_ = new ::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile(*from.player_profile_);
-  } else {
-    player_profile_ = nullptr;
-  }
-  view_transcript_consent_ = from.view_transcript_consent_;
+inline PROTOBUF_NDEBUG_INLINE UserConfiguration_UserSettings::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    const Impl_& from)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0} {}
+
+UserConfiguration_UserSettings::UserConfiguration_UserSettings(
+    ::google::protobuf_inworld::Arena* arena,
+    const UserConfiguration_UserSettings& from)
+    : ::google::protobuf_inworld::Message(arena) {
+  UserConfiguration_UserSettings* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.player_profile_ = (cached_has_bits & 0x00000001u)
+                ? CreateMaybeMessage<::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile>(arena, *from._impl_.player_profile_)
+                : nullptr;
+  _impl_.view_transcript_consent_ = from._impl_.view_transcript_consent_;
+
   // @@protoc_insertion_point(copy_constructor:ai.inworld.engine.configuration.UserConfiguration.UserSettings)
 }
+inline PROTOBUF_NDEBUG_INLINE UserConfiguration_UserSettings::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : _cached_size_{0} {}
 
-void UserConfiguration_UserSettings::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_UserConfiguration_UserSettings_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base);
-  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&player_profile_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&view_transcript_consent_) -
-      reinterpret_cast<char*>(&player_profile_)) + sizeof(view_transcript_consent_));
+inline void UserConfiguration_UserSettings::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, player_profile_),
+           0,
+           offsetof(Impl_, view_transcript_consent_) -
+               offsetof(Impl_, player_profile_) +
+               sizeof(Impl_::view_transcript_consent_));
 }
-
 UserConfiguration_UserSettings::~UserConfiguration_UserSettings() {
   // @@protoc_insertion_point(destructor:ai.inworld.engine.configuration.UserConfiguration.UserSettings)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+inline void UserConfiguration_UserSettings::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  delete _impl_.player_profile_;
+  _impl_.~Impl_();
 }
 
-void UserConfiguration_UserSettings::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  if (this != internal_default_instance()) delete player_profile_;
-}
-
-void UserConfiguration_UserSettings::ArenaDtor(void* object) {
-  UserConfiguration_UserSettings* _this = reinterpret_cast< UserConfiguration_UserSettings* >(object);
-  (void)_this;
-}
-void UserConfiguration_UserSettings::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void UserConfiguration_UserSettings::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const UserConfiguration_UserSettings& UserConfiguration_UserSettings::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_UserConfiguration_UserSettings_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void UserConfiguration_UserSettings::Clear() {
+PROTOBUF_NOINLINE void UserConfiguration_UserSettings::Clear() {
 // @@protoc_insertion_point(message_clear_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArena() == nullptr && player_profile_ != nullptr) {
-    delete player_profile_;
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(_impl_.player_profile_ != nullptr);
+    _impl_.player_profile_->Clear();
   }
-  player_profile_ = nullptr;
-  view_transcript_consent_ = false;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _impl_.view_transcript_consent_ = false;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* UserConfiguration_UserSettings::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // bool view_transcript_consent = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          view_transcript_consent_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile player_profile = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_player_profile(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* UserConfiguration_UserSettings::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* UserConfiguration_UserSettings::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 1, 0, 2> UserConfiguration_UserSettings::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(UserConfiguration_UserSettings, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    &_UserConfiguration_UserSettings_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // .ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile player_profile = 2;
+    {::_pbi::TcParser::FastMtS1,
+     {18, 0, 0, PROTOBUF_FIELD_OFFSET(UserConfiguration_UserSettings, _impl_.player_profile_)}},
+    // bool view_transcript_consent = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(UserConfiguration_UserSettings, _impl_.view_transcript_consent_), 63>(),
+     {8, 63, 0, PROTOBUF_FIELD_OFFSET(UserConfiguration_UserSettings, _impl_.view_transcript_consent_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // bool view_transcript_consent = 1;
+    {PROTOBUF_FIELD_OFFSET(UserConfiguration_UserSettings, _impl_.view_transcript_consent_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+    // .ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile player_profile = 2;
+    {PROTOBUF_FIELD_OFFSET(UserConfiguration_UserSettings, _impl_.player_profile_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile>()},
+  }}, {{
+  }},
+};
+
+::uint8_t* UserConfiguration_UserSettings::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // bool view_transcript_consent = 1;
-  if (this->view_transcript_consent() != 0) {
+  if (this->_internal_view_transcript_consent() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_view_transcript_consent(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(
+        1, this->_internal_view_transcript_consent(), target);
   }
 
+  cached_has_bits = _impl_._has_bits_[0];
   // .ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile player_profile = 2;
-  if (this->has_player_profile()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::player_profile(this), target, stream);
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+        2, _Internal::player_profile(this),
+        _Internal::player_profile(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.engine.configuration.UserConfiguration.UserSettings)
   return target;
 }
 
-size_t UserConfiguration_UserSettings::ByteSizeLong() const {
+::size_t UserConfiguration_UserSettings::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // .ai.inworld.engine.configuration.UserConfiguration.UserSettings.PlayerProfile player_profile = 2;
-  if (this->has_player_profile()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *player_profile_);
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size +=
+        1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.player_profile_);
   }
 
   // bool view_transcript_consent = 1;
-  if (this->view_transcript_consent() != 0) {
-    total_size += 1 + 1;
+  if (this->_internal_view_transcript_consent() != 0) {
+    total_size += 2;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void UserConfiguration_UserSettings::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings)
-  GOOGLE_DCHECK_NE(&from, this);
-  const UserConfiguration_UserSettings* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<UserConfiguration_UserSettings>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.engine.configuration.UserConfiguration.UserSettings)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.engine.configuration.UserConfiguration.UserSettings)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData UserConfiguration_UserSettings::_class_data_ = {
+    UserConfiguration_UserSettings::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* UserConfiguration_UserSettings::GetClassData() const {
+  return &_class_data_;
 }
 
-void UserConfiguration_UserSettings::MergeFrom(const UserConfiguration_UserSettings& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void UserConfiguration_UserSettings::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<UserConfiguration_UserSettings*>(&to_msg);
+  auto& from = static_cast<const UserConfiguration_UserSettings&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_player_profile()) {
-    _internal_mutable_player_profile()->::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile::MergeFrom(from._internal_player_profile());
+  if ((from._impl_._has_bits_[0] & 0x00000001u) != 0) {
+    _this->_internal_mutable_player_profile()->::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile::MergeFrom(
+        from._internal_player_profile());
   }
-  if (from.view_transcript_consent() != 0) {
-    _internal_set_view_transcript_consent(from._internal_view_transcript_consent());
+  if (from._internal_view_transcript_consent() != 0) {
+    _this->_internal_set_view_transcript_consent(from._internal_view_transcript_consent());
   }
-}
-
-void UserConfiguration_UserSettings::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.engine.configuration.UserConfiguration.UserSettings)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void UserConfiguration_UserSettings::CopyFrom(const UserConfiguration_UserSettings& from) {
@@ -1458,286 +1480,268 @@ void UserConfiguration_UserSettings::CopyFrom(const UserConfiguration_UserSettin
   MergeFrom(from);
 }
 
-bool UserConfiguration_UserSettings::IsInitialized() const {
+PROTOBUF_NOINLINE bool UserConfiguration_UserSettings::IsInitialized() const {
   return true;
 }
 
-void UserConfiguration_UserSettings::InternalSwap(UserConfiguration_UserSettings* other) {
+::_pbi::CachedSize* UserConfiguration_UserSettings::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void UserConfiguration_UserSettings::InternalSwap(UserConfiguration_UserSettings* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(UserConfiguration_UserSettings, view_transcript_consent_)
-      + sizeof(UserConfiguration_UserSettings::view_transcript_consent_)
-      - PROTOBUF_FIELD_OFFSET(UserConfiguration_UserSettings, player_profile_)>(
-          reinterpret_cast<char*>(&player_profile_),
-          reinterpret_cast<char*>(&other->player_profile_));
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::google::protobuf_inworld::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(UserConfiguration_UserSettings, _impl_.view_transcript_consent_)
+      + sizeof(UserConfiguration_UserSettings::_impl_.view_transcript_consent_)
+      - PROTOBUF_FIELD_OFFSET(UserConfiguration_UserSettings, _impl_.player_profile_)>(
+          reinterpret_cast<char*>(&_impl_.player_profile_),
+          reinterpret_cast<char*>(&other->_impl_.player_profile_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata UserConfiguration_UserSettings::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata UserConfiguration_UserSettings::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_getter, &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_once,
+      file_level_metadata_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto[3]);
 }
-
-
 // ===================================================================
 
 class UserConfiguration::_Internal {
  public:
+  using HasBits = decltype(std::declval<UserConfiguration>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+    8 * PROTOBUF_FIELD_OFFSET(UserConfiguration, _impl_._has_bits_);
   static const ::ai::inworld::engine::configuration::UserConfiguration_UserSettings& user_settings(const UserConfiguration* msg);
+  static void set_has_user_settings(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
 };
 
-const ::ai::inworld::engine::configuration::UserConfiguration_UserSettings&
-UserConfiguration::_Internal::user_settings(const UserConfiguration* msg) {
-  return *msg->user_settings_;
+const ::ai::inworld::engine::configuration::UserConfiguration_UserSettings& UserConfiguration::_Internal::user_settings(const UserConfiguration* msg) {
+  return *msg->_impl_.user_settings_;
 }
-UserConfiguration::UserConfiguration(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+UserConfiguration::UserConfiguration(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.engine.configuration.UserConfiguration)
 }
-UserConfiguration::UserConfiguration(const UserConfiguration& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_name().empty()) {
-    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
-      GetArena());
-  }
-  id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_id().empty()) {
-    id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_id(), 
-      GetArena());
-  }
-  if (from._internal_has_user_settings()) {
-    user_settings_ = new ::ai::inworld::engine::configuration::UserConfiguration_UserSettings(*from.user_settings_);
-  } else {
-    user_settings_ = nullptr;
-  }
+inline PROTOBUF_NDEBUG_INLINE UserConfiguration::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    const Impl_& from)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        name_(arena, from.name_),
+        id_(arena, from.id_) {}
+
+UserConfiguration::UserConfiguration(
+    ::google::protobuf_inworld::Arena* arena,
+    const UserConfiguration& from)
+    : ::google::protobuf_inworld::Message(arena) {
+  UserConfiguration* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.user_settings_ = (cached_has_bits & 0x00000001u)
+                ? CreateMaybeMessage<::ai::inworld::engine::configuration::UserConfiguration_UserSettings>(arena, *from._impl_.user_settings_)
+                : nullptr;
+
   // @@protoc_insertion_point(copy_constructor:ai.inworld.engine.configuration.UserConfiguration)
 }
+inline PROTOBUF_NDEBUG_INLINE UserConfiguration::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : _cached_size_{0},
+        name_(arena),
+        id_(arena) {}
 
-void UserConfiguration::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_UserConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  user_settings_ = nullptr;
+inline void UserConfiguration::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.user_settings_ = {};
 }
-
 UserConfiguration::~UserConfiguration() {
   // @@protoc_insertion_point(destructor:ai.inworld.engine.configuration.UserConfiguration)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+inline void UserConfiguration::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.name_.Destroy();
+  _impl_.id_.Destroy();
+  delete _impl_.user_settings_;
+  _impl_.~Impl_();
 }
 
-void UserConfiguration::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete user_settings_;
-}
-
-void UserConfiguration::ArenaDtor(void* object) {
-  UserConfiguration* _this = reinterpret_cast< UserConfiguration* >(object);
-  (void)_this;
-}
-void UserConfiguration::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void UserConfiguration::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const UserConfiguration& UserConfiguration::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_UserConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void UserConfiguration::Clear() {
+PROTOBUF_NOINLINE void UserConfiguration::Clear() {
 // @@protoc_insertion_point(message_clear_start:ai.inworld.engine.configuration.UserConfiguration)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty();
-  id_.ClearToEmpty();
-  if (GetArena() == nullptr && user_settings_ != nullptr) {
-    delete user_settings_;
+  _impl_.name_.ClearToEmpty();
+  _impl_.id_.ClearToEmpty();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(_impl_.user_settings_ != nullptr);
+    _impl_.user_settings_->Clear();
   }
-  user_settings_ = nullptr;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* UserConfiguration::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string name = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.engine.configuration.UserConfiguration.name"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // string id = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          auto str = _internal_mutable_id();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.engine.configuration.UserConfiguration.id"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .ai.inworld.engine.configuration.UserConfiguration.UserSettings user_settings = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          ptr = ctx->ParseMessage(_internal_mutable_user_settings(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* UserConfiguration::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* UserConfiguration::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 3, 1, 64, 2> UserConfiguration::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(UserConfiguration, _impl_._has_bits_),
+    0, // no _extensions_
+    3, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967288,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    3,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    &_UserConfiguration_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // string name = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(UserConfiguration, _impl_.name_)}},
+    // string id = 2;
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(UserConfiguration, _impl_.id_)}},
+    // .ai.inworld.engine.configuration.UserConfiguration.UserSettings user_settings = 3;
+    {::_pbi::TcParser::FastMtS1,
+     {26, 0, 0, PROTOBUF_FIELD_OFFSET(UserConfiguration, _impl_.user_settings_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string name = 1;
+    {PROTOBUF_FIELD_OFFSET(UserConfiguration, _impl_.name_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string id = 2;
+    {PROTOBUF_FIELD_OFFSET(UserConfiguration, _impl_.id_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .ai.inworld.engine.configuration.UserConfiguration.UserSettings user_settings = 3;
+    {PROTOBUF_FIELD_OFFSET(UserConfiguration, _impl_.user_settings_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::ai::inworld::engine::configuration::UserConfiguration_UserSettings>()},
+  }}, {{
+    "\61\4\2\0\0\0\0\0"
+    "ai.inworld.engine.configuration.UserConfiguration"
+    "name"
+    "id"
+  }},
+};
+
+::uint8_t* UserConfiguration::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.engine.configuration.UserConfiguration)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.engine.configuration.UserConfiguration.name");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_name(), target);
+  if (!this->_internal_name().empty()) {
+    const std::string& _s = this->_internal_name();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.engine.configuration.UserConfiguration.name");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // string id = 2;
-  if (this->id().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_id().data(), static_cast<int>(this->_internal_id().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.engine.configuration.UserConfiguration.id");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_id(), target);
+  if (!this->_internal_id().empty()) {
+    const std::string& _s = this->_internal_id();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.engine.configuration.UserConfiguration.id");
+    target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
+  cached_has_bits = _impl_._has_bits_[0];
   // .ai.inworld.engine.configuration.UserConfiguration.UserSettings user_settings = 3;
-  if (this->has_user_settings()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        3, _Internal::user_settings(this), target, stream);
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+        3, _Internal::user_settings(this),
+        _Internal::user_settings(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.engine.configuration.UserConfiguration)
   return target;
 }
 
-size_t UserConfiguration::ByteSizeLong() const {
+::size_t UserConfiguration::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:ai.inworld.engine.configuration.UserConfiguration)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_name());
+  if (!this->_internal_name().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_name());
   }
 
   // string id = 2;
-  if (this->id().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_id());
+  if (!this->_internal_id().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_id());
   }
 
   // .ai.inworld.engine.configuration.UserConfiguration.UserSettings user_settings = 3;
-  if (this->has_user_settings()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *user_settings_);
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size +=
+        1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.user_settings_);
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void UserConfiguration::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.engine.configuration.UserConfiguration)
-  GOOGLE_DCHECK_NE(&from, this);
-  const UserConfiguration* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<UserConfiguration>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.engine.configuration.UserConfiguration)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.engine.configuration.UserConfiguration)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData UserConfiguration::_class_data_ = {
+    UserConfiguration::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* UserConfiguration::GetClassData() const {
+  return &_class_data_;
 }
 
-void UserConfiguration::MergeFrom(const UserConfiguration& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.engine.configuration.UserConfiguration)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void UserConfiguration::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<UserConfiguration*>(&to_msg);
+  auto& from = static_cast<const UserConfiguration&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.engine.configuration.UserConfiguration)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.name().size() > 0) {
-    _internal_set_name(from._internal_name());
+  if (!from._internal_name().empty()) {
+    _this->_internal_set_name(from._internal_name());
   }
-  if (from.id().size() > 0) {
-    _internal_set_id(from._internal_id());
+  if (!from._internal_id().empty()) {
+    _this->_internal_set_id(from._internal_id());
   }
-  if (from.has_user_settings()) {
-    _internal_mutable_user_settings()->::ai::inworld::engine::configuration::UserConfiguration_UserSettings::MergeFrom(from._internal_user_settings());
+  if ((from._impl_._has_bits_[0] & 0x00000001u) != 0) {
+    _this->_internal_mutable_user_settings()->::ai::inworld::engine::configuration::UserConfiguration_UserSettings::MergeFrom(
+        from._internal_user_settings());
   }
-}
-
-void UserConfiguration::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.engine.configuration.UserConfiguration)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void UserConfiguration::CopyFrom(const UserConfiguration& from) {
@@ -1747,279 +1751,247 @@ void UserConfiguration::CopyFrom(const UserConfiguration& from) {
   MergeFrom(from);
 }
 
-bool UserConfiguration::IsInitialized() const {
+PROTOBUF_NOINLINE bool UserConfiguration::IsInitialized() const {
   return true;
 }
 
-void UserConfiguration::InternalSwap(UserConfiguration* other) {
+::_pbi::CachedSize* UserConfiguration::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void UserConfiguration::InternalSwap(UserConfiguration* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  id_.Swap(&other->id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  swap(user_settings_, other->user_settings_);
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.id_, &other->_impl_.id_, arena);
+  swap(_impl_.user_settings_, other->_impl_.user_settings_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata UserConfiguration::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata UserConfiguration::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_getter, &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_once,
+      file_level_metadata_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto[4]);
 }
-
-
 // ===================================================================
 
 class ClientConfiguration::_Internal {
  public:
 };
 
-ClientConfiguration::ClientConfiguration(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+ClientConfiguration::ClientConfiguration(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.engine.configuration.ClientConfiguration)
 }
-ClientConfiguration::ClientConfiguration(const ClientConfiguration& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_id().empty()) {
-    id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_id(), 
-      GetArena());
-  }
-  version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_version().empty()) {
-    version_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_version(), 
-      GetArena());
-  }
-  description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_description().empty()) {
-    description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_description(), 
-      GetArena());
-  }
+inline PROTOBUF_NDEBUG_INLINE ClientConfiguration::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    const Impl_& from)
+      : id_(arena, from.id_),
+        version_(arena, from.version_),
+        description_(arena, from.description_),
+        _cached_size_{0} {}
+
+ClientConfiguration::ClientConfiguration(
+    ::google::protobuf_inworld::Arena* arena,
+    const ClientConfiguration& from)
+    : ::google::protobuf_inworld::Message(arena) {
+  ClientConfiguration* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+
   // @@protoc_insertion_point(copy_constructor:ai.inworld.engine.configuration.ClientConfiguration)
 }
+inline PROTOBUF_NDEBUG_INLINE ClientConfiguration::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : id_(arena),
+        version_(arena),
+        description_(arena),
+        _cached_size_{0} {}
 
-void ClientConfiguration::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ClientConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base);
-  id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ClientConfiguration::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
 }
-
 ClientConfiguration::~ClientConfiguration() {
   // @@protoc_insertion_point(destructor:ai.inworld.engine.configuration.ClientConfiguration)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+inline void ClientConfiguration::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.id_.Destroy();
+  _impl_.version_.Destroy();
+  _impl_.description_.Destroy();
+  _impl_.~Impl_();
 }
 
-void ClientConfiguration::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  version_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  description_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void ClientConfiguration::ArenaDtor(void* object) {
-  ClientConfiguration* _this = reinterpret_cast< ClientConfiguration* >(object);
-  (void)_this;
-}
-void ClientConfiguration::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void ClientConfiguration::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ClientConfiguration& ClientConfiguration::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ClientConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void ClientConfiguration::Clear() {
+PROTOBUF_NOINLINE void ClientConfiguration::Clear() {
 // @@protoc_insertion_point(message_clear_start:ai.inworld.engine.configuration.ClientConfiguration)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  id_.ClearToEmpty();
-  version_.ClearToEmpty();
-  description_.ClearToEmpty();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _impl_.id_.ClearToEmpty();
+  _impl_.version_.ClearToEmpty();
+  _impl_.description_.ClearToEmpty();
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* ClientConfiguration::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string id = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_id();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.engine.configuration.ClientConfiguration.id"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // string version = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          auto str = _internal_mutable_version();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.engine.configuration.ClientConfiguration.version"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // string description = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          auto str = _internal_mutable_description();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.engine.configuration.ClientConfiguration.description"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* ClientConfiguration::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ClientConfiguration::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 3, 0, 80, 2> ClientConfiguration::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    3, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967288,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    3,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_ClientConfiguration_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // string id = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(ClientConfiguration, _impl_.id_)}},
+    // string version = 2;
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(ClientConfiguration, _impl_.version_)}},
+    // string description = 3;
+    {::_pbi::TcParser::FastUS1,
+     {26, 63, 0, PROTOBUF_FIELD_OFFSET(ClientConfiguration, _impl_.description_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string id = 1;
+    {PROTOBUF_FIELD_OFFSET(ClientConfiguration, _impl_.id_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string version = 2;
+    {PROTOBUF_FIELD_OFFSET(ClientConfiguration, _impl_.version_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string description = 3;
+    {PROTOBUF_FIELD_OFFSET(ClientConfiguration, _impl_.description_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\63\2\7\13\0\0\0\0"
+    "ai.inworld.engine.configuration.ClientConfiguration"
+    "id"
+    "version"
+    "description"
+  }},
+};
+
+::uint8_t* ClientConfiguration::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.engine.configuration.ClientConfiguration)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // string id = 1;
-  if (this->id().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_id().data(), static_cast<int>(this->_internal_id().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.engine.configuration.ClientConfiguration.id");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_id(), target);
+  if (!this->_internal_id().empty()) {
+    const std::string& _s = this->_internal_id();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.engine.configuration.ClientConfiguration.id");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // string version = 2;
-  if (this->version().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_version().data(), static_cast<int>(this->_internal_version().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.engine.configuration.ClientConfiguration.version");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_version(), target);
+  if (!this->_internal_version().empty()) {
+    const std::string& _s = this->_internal_version();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.engine.configuration.ClientConfiguration.version");
+    target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
   // string description = 3;
-  if (this->description().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_description().data(), static_cast<int>(this->_internal_description().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.engine.configuration.ClientConfiguration.description");
-    target = stream->WriteStringMaybeAliased(
-        3, this->_internal_description(), target);
+  if (!this->_internal_description().empty()) {
+    const std::string& _s = this->_internal_description();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.engine.configuration.ClientConfiguration.description");
+    target = stream->WriteStringMaybeAliased(3, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.engine.configuration.ClientConfiguration)
   return target;
 }
 
-size_t ClientConfiguration::ByteSizeLong() const {
+::size_t ClientConfiguration::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:ai.inworld.engine.configuration.ClientConfiguration)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string id = 1;
-  if (this->id().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_id());
+  if (!this->_internal_id().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_id());
   }
 
   // string version = 2;
-  if (this->version().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_version());
+  if (!this->_internal_version().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_version());
   }
 
   // string description = 3;
-  if (this->description().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_description());
+  if (!this->_internal_description().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_description());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void ClientConfiguration::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.engine.configuration.ClientConfiguration)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ClientConfiguration* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ClientConfiguration>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.engine.configuration.ClientConfiguration)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.engine.configuration.ClientConfiguration)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData ClientConfiguration::_class_data_ = {
+    ClientConfiguration::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* ClientConfiguration::GetClassData() const {
+  return &_class_data_;
 }
 
-void ClientConfiguration::MergeFrom(const ClientConfiguration& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.engine.configuration.ClientConfiguration)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void ClientConfiguration::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<ClientConfiguration*>(&to_msg);
+  auto& from = static_cast<const ClientConfiguration&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.engine.configuration.ClientConfiguration)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.id().size() > 0) {
-    _internal_set_id(from._internal_id());
+  if (!from._internal_id().empty()) {
+    _this->_internal_set_id(from._internal_id());
   }
-  if (from.version().size() > 0) {
-    _internal_set_version(from._internal_version());
+  if (!from._internal_version().empty()) {
+    _this->_internal_set_version(from._internal_version());
   }
-  if (from.description().size() > 0) {
-    _internal_set_description(from._internal_description());
+  if (!from._internal_description().empty()) {
+    _this->_internal_set_description(from._internal_description());
   }
-}
-
-void ClientConfiguration::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.engine.configuration.ClientConfiguration)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ClientConfiguration::CopyFrom(const ClientConfiguration& from) {
@@ -2029,205 +2001,189 @@ void ClientConfiguration::CopyFrom(const ClientConfiguration& from) {
   MergeFrom(from);
 }
 
-bool ClientConfiguration::IsInitialized() const {
+PROTOBUF_NOINLINE bool ClientConfiguration::IsInitialized() const {
   return true;
 }
 
-void ClientConfiguration::InternalSwap(ClientConfiguration* other) {
+::_pbi::CachedSize* ClientConfiguration::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void ClientConfiguration::InternalSwap(ClientConfiguration* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  id_.Swap(&other->id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  version_.Swap(&other->version_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  description_.Swap(&other->description_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.id_, &other->_impl_.id_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.version_, &other->_impl_.version_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.description_, &other->_impl_.description_, arena);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata ClientConfiguration::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata ClientConfiguration::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_getter, &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_once,
+      file_level_metadata_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto[5]);
 }
-
-
 // ===================================================================
 
 class SessionConfiguration::_Internal {
  public:
 };
 
-SessionConfiguration::SessionConfiguration(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+SessionConfiguration::SessionConfiguration(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.engine.configuration.SessionConfiguration)
 }
-SessionConfiguration::SessionConfiguration(const SessionConfiguration& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  game_session_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_game_session_id().empty()) {
-    game_session_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_game_session_id(), 
-      GetArena());
-  }
+inline PROTOBUF_NDEBUG_INLINE SessionConfiguration::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    const Impl_& from)
+      : game_session_id_(arena, from.game_session_id_),
+        _cached_size_{0} {}
+
+SessionConfiguration::SessionConfiguration(
+    ::google::protobuf_inworld::Arena* arena,
+    const SessionConfiguration& from)
+    : ::google::protobuf_inworld::Message(arena) {
+  SessionConfiguration* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+
   // @@protoc_insertion_point(copy_constructor:ai.inworld.engine.configuration.SessionConfiguration)
 }
+inline PROTOBUF_NDEBUG_INLINE SessionConfiguration::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : game_session_id_(arena),
+        _cached_size_{0} {}
 
-void SessionConfiguration::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_SessionConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base);
-  game_session_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void SessionConfiguration::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
 }
-
 SessionConfiguration::~SessionConfiguration() {
   // @@protoc_insertion_point(destructor:ai.inworld.engine.configuration.SessionConfiguration)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+inline void SessionConfiguration::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.game_session_id_.Destroy();
+  _impl_.~Impl_();
 }
 
-void SessionConfiguration::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  game_session_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void SessionConfiguration::ArenaDtor(void* object) {
-  SessionConfiguration* _this = reinterpret_cast< SessionConfiguration* >(object);
-  (void)_this;
-}
-void SessionConfiguration::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void SessionConfiguration::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const SessionConfiguration& SessionConfiguration::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_SessionConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void SessionConfiguration::Clear() {
+PROTOBUF_NOINLINE void SessionConfiguration::Clear() {
 // @@protoc_insertion_point(message_clear_start:ai.inworld.engine.configuration.SessionConfiguration)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  game_session_id_.ClearToEmpty();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _impl_.game_session_id_.ClearToEmpty();
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* SessionConfiguration::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string game_session_id = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          auto str = _internal_mutable_game_session_id();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.engine.configuration.SessionConfiguration.game_session_id"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* SessionConfiguration::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SessionConfiguration::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 76, 2> SessionConfiguration::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    2, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967293,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_SessionConfiguration_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // string game_session_id = 2;
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(SessionConfiguration, _impl_.game_session_id_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string game_session_id = 2;
+    {PROTOBUF_FIELD_OFFSET(SessionConfiguration, _impl_.game_session_id_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\64\17\0\0\0\0\0\0"
+    "ai.inworld.engine.configuration.SessionConfiguration"
+    "game_session_id"
+  }},
+};
+
+::uint8_t* SessionConfiguration::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.engine.configuration.SessionConfiguration)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // string game_session_id = 2;
-  if (this->game_session_id().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_game_session_id().data(), static_cast<int>(this->_internal_game_session_id().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.engine.configuration.SessionConfiguration.game_session_id");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_game_session_id(), target);
+  if (!this->_internal_game_session_id().empty()) {
+    const std::string& _s = this->_internal_game_session_id();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.engine.configuration.SessionConfiguration.game_session_id");
+    target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.engine.configuration.SessionConfiguration)
   return target;
 }
 
-size_t SessionConfiguration::ByteSizeLong() const {
+::size_t SessionConfiguration::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:ai.inworld.engine.configuration.SessionConfiguration)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string game_session_id = 2;
-  if (this->game_session_id().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_game_session_id());
+  if (!this->_internal_game_session_id().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_game_session_id());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void SessionConfiguration::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.engine.configuration.SessionConfiguration)
-  GOOGLE_DCHECK_NE(&from, this);
-  const SessionConfiguration* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SessionConfiguration>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.engine.configuration.SessionConfiguration)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.engine.configuration.SessionConfiguration)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData SessionConfiguration::_class_data_ = {
+    SessionConfiguration::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* SessionConfiguration::GetClassData() const {
+  return &_class_data_;
 }
 
-void SessionConfiguration::MergeFrom(const SessionConfiguration& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.engine.configuration.SessionConfiguration)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void SessionConfiguration::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<SessionConfiguration*>(&to_msg);
+  auto& from = static_cast<const SessionConfiguration&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.engine.configuration.SessionConfiguration)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.game_session_id().size() > 0) {
-    _internal_set_game_session_id(from._internal_game_session_id());
+  if (!from._internal_game_session_id().empty()) {
+    _this->_internal_set_game_session_id(from._internal_game_session_id());
   }
-}
-
-void SessionConfiguration::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.engine.configuration.SessionConfiguration)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void SessionConfiguration::CopyFrom(const SessionConfiguration& from) {
@@ -2237,49 +2193,34 @@ void SessionConfiguration::CopyFrom(const SessionConfiguration& from) {
   MergeFrom(from);
 }
 
-bool SessionConfiguration::IsInitialized() const {
+PROTOBUF_NOINLINE bool SessionConfiguration::IsInitialized() const {
   return true;
 }
 
-void SessionConfiguration::InternalSwap(SessionConfiguration* other) {
+::_pbi::CachedSize* SessionConfiguration::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void SessionConfiguration::InternalSwap(SessionConfiguration* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  game_session_id_.Swap(&other->game_session_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.game_session_id_, &other->_impl_.game_session_id_, arena);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata SessionConfiguration::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata SessionConfiguration::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_getter, &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_once,
+      file_level_metadata_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto[6]);
 }
-
-
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace configuration
 }  // namespace engine
 }  // namespace inworld
 }  // namespace ai
-PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::ai::inworld::engine::configuration::CapabilitiesConfiguration* Arena::CreateMaybeMessage< ::ai::inworld::engine::configuration::CapabilitiesConfiguration >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ai::inworld::engine::configuration::CapabilitiesConfiguration >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile_PlayerField* Arena::CreateMaybeMessage< ::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile_PlayerField >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile_PlayerField >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile* Arena::CreateMaybeMessage< ::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ai::inworld::engine::configuration::UserConfiguration_UserSettings* Arena::CreateMaybeMessage< ::ai::inworld::engine::configuration::UserConfiguration_UserSettings >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ai::inworld::engine::configuration::UserConfiguration_UserSettings >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ai::inworld::engine::configuration::UserConfiguration* Arena::CreateMaybeMessage< ::ai::inworld::engine::configuration::UserConfiguration >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ai::inworld::engine::configuration::UserConfiguration >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ai::inworld::engine::configuration::ClientConfiguration* Arena::CreateMaybeMessage< ::ai::inworld::engine::configuration::ClientConfiguration >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ai::inworld::engine::configuration::ClientConfiguration >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ai::inworld::engine::configuration::SessionConfiguration* Arena::CreateMaybeMessage< ::ai::inworld::engine::configuration::SessionConfiguration >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ai::inworld::engine::configuration::SessionConfiguration >(arena);
-}
-PROTOBUF_NAMESPACE_CLOSE
-
+namespace google {
+namespace protobuf {
+}  // namespace protobuf
+}  // namespace google
 // @@protoc_insertion_point(global_scope)
-#include <google/protobuf/port_undef.inc>
+#include "google/protobuf/port_undef.inc"

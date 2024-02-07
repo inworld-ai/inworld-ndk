@@ -5,483 +5,490 @@
 #include "ai/inworld/studio/v1alpha/impression_event_data.pb.h"
 
 #include <algorithm>
-
-#include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/extension_set.h>
-#include <google/protobuf/wire_format_lite.h>
-#include <google/protobuf/descriptor.h>
-#include <google/protobuf/generated_message_reflection.h>
-#include <google/protobuf/reflection_ops.h>
-#include <google/protobuf/wire_format.h>
+#include "google/protobuf/io/coded_stream.h"
+#include "google/protobuf/extension_set.h"
+#include "google/protobuf/wire_format_lite.h"
+#include "google/protobuf/descriptor.h"
+#include "google/protobuf/generated_message_reflection.h"
+#include "google/protobuf/reflection_ops.h"
+#include "google/protobuf/wire_format.h"
+#include "google/protobuf/generated_message_tctable_impl.h"
 // @@protoc_insertion_point(includes)
-#include <google/protobuf/port_def.inc>
-extern PROTOBUF_INTERNAL_EXPORT_google_2fprotobuf_2ftimestamp_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Timestamp_google_2fprotobuf_2ftimestamp_2eproto;
+
+// Must be included last.
+#include "google/protobuf/port_def.inc"
+PROTOBUF_PRAGMA_INIT_SEG
+namespace _pb = ::google::protobuf;
+namespace _pbi = ::google::protobuf_inworld::internal;
+namespace _fl = ::google::protobuf_inworld::internal::field_layout;
 namespace ai {
 namespace inworld {
 namespace studio {
 namespace v1alpha {
-class ImpressionEventDataDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ImpressionEventData> _instance;
-} _ImpressionEventData_default_instance_;
+
+inline constexpr ImpressionEventData::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        feature_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        variant_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        payload_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        stickiness_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        workspace_id_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        event_time_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ImpressionEventData::ImpressionEventData(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct ImpressionEventDataDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ImpressionEventDataDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ImpressionEventDataDefaultTypeInternal() {}
+  union {
+    ImpressionEventData _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ImpressionEventDataDefaultTypeInternal _ImpressionEventData_default_instance_;
 }  // namespace v1alpha
 }  // namespace studio
 }  // namespace inworld
 }  // namespace ai
-static void InitDefaultsscc_info_ImpressionEventData_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+static ::_pb::Metadata file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto[1];
+static constexpr const ::_pb::EnumDescriptor**
+    file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto = nullptr;
+static constexpr const ::_pb::ServiceDescriptor**
+    file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto = nullptr;
+const ::uint32_t TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
+    protodesc_cold) = {
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ImpressionEventData, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ImpressionEventData, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ImpressionEventData, _impl_.feature_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ImpressionEventData, _impl_.variant_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ImpressionEventData, _impl_.payload_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ImpressionEventData, _impl_.stickiness_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ImpressionEventData, _impl_.event_time_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ImpressionEventData, _impl_.workspace_id_),
+    ~0u,
+    ~0u,
+    ~0u,
+    ~0u,
+    0,
+    ~0u,
+};
 
-  {
-    void* ptr = &::ai::inworld::studio::v1alpha::_ImpressionEventData_default_instance_;
-    new (ptr) ::ai::inworld::studio::v1alpha::ImpressionEventData();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
+static const ::_pbi::MigrationSchema
+    schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+        {0, 14, -1, sizeof(::ai::inworld::studio::v1alpha::ImpressionEventData)},
+};
+
+static const ::_pb::Message* const file_default_instances[] = {
+    &::ai::inworld::studio::v1alpha::_ImpressionEventData_default_instance_._instance,
+};
+const char descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+    "\n5ai/inworld/studio/v1alpha/impression_e"
+    "vent_data.proto\022\031ai.inworld.studio.v1alp"
+    "ha\032\037google/protobuf/timestamp.proto\032\034goo"
+    "gle/api/annotations.proto\032\031google/api/re"
+    "source.proto\"\242\001\n\023ImpressionEventData\022\017\n\007"
+    "feature\030\001 \001(\t\022\017\n\007variant\030\002 \001(\t\022\017\n\007payloa"
+    "d\030\003 \001(\t\022\022\n\nstickiness\030\004 \001(\t\022.\n\nevent_tim"
+    "e\030\005 \001(\0132\032.google.protobuf.Timestamp\022\024\n\014w"
+    "orkspace_id\030\006 \001(\tB\242\001\n\031ai.inworld.studio."
+    "v1alphaB\030ImpressionEventDataProtoP\001ZMgit"
+    "hub.com/inworld-ai/inworld/serving/grpc-"
+    "gateway/build/proto/studio/v1alpha\252\002\031Ai."
+    "Inworld.Studio.V1Alphab\006proto3"
+};
+static const ::_pbi::DescriptorTable* const descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto_deps[3] =
+    {
+        &::descriptor_table_google_2fapi_2fannotations_2eproto,
+        &::descriptor_table_google_2fapi_2fresource_2eproto,
+        &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto,
+};
+static ::absl::once_flag descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto = {
+    false,
+    false,
+    510,
+    descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto,
+    "ai/inworld/studio/v1alpha/impression_event_data.proto",
+    &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto_once,
+    descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto_deps,
+    3,
+    1,
+    schemas,
+    file_default_instances,
+    TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto::offsets,
+    file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto,
+    file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto,
+    file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto,
+};
+
+// This function exists to be marked as weak.
+// It can significantly speed up compilation by breaking up LLVM's SCC
+// in the .pb.cc translation units. Large translation units see a
+// reduction of more than 35% of walltime for optimized builds. Without
+// the weak attribute all the messages in the file, including all the
+// vtables and everything they use become part of the same SCC through
+// a cycle like:
+// GetMetadata -> descriptor table -> default instances ->
+//   vtables -> GetMetadata
+// By adding a weak function here we break the connection from the
+// individual vtables back into the descriptor table.
+PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto_getter() {
+  return &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto;
 }
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ImpressionEventData_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ImpressionEventData_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto}, {
-      &scc_info_Timestamp_google_2fprotobuf_2ftimestamp_2eproto.base,}};
-
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto[1];
-static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto = nullptr;
-static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto = nullptr;
-
-const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ImpressionEventData, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ImpressionEventData, feature_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ImpressionEventData, variant_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ImpressionEventData, payload_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ImpressionEventData, stickiness_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ImpressionEventData, event_time_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ImpressionEventData, workspace_id_),
-};
-static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::ai::inworld::studio::v1alpha::ImpressionEventData)},
-};
-
-static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::studio::v1alpha::_ImpressionEventData_default_instance_),
-};
-
-const char descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n5ai/inworld/studio/v1alpha/impression_e"
-  "vent_data.proto\022\031ai.inworld.studio.v1alp"
-  "ha\032\037google/protobuf/timestamp.proto\032\034goo"
-  "gle/api/annotations.proto\032\031google/api/re"
-  "source.proto\"\242\001\n\023ImpressionEventData\022\017\n\007"
-  "feature\030\001 \001(\t\022\017\n\007variant\030\002 \001(\t\022\017\n\007payloa"
-  "d\030\003 \001(\t\022\022\n\nstickiness\030\004 \001(\t\022.\n\nevent_tim"
-  "e\030\005 \001(\0132\032.google.protobuf.Timestamp\022\024\n\014w"
-  "orkspace_id\030\006 \001(\tB\242\001\n\031ai.inworld.studio."
-  "v1alphaB\030ImpressionEventDataProtoP\001ZMgit"
-  "hub.com/inworld-ai/inworld/serving/grpc-"
-  "gateway/build/proto/studio/v1alpha\252\002\031Ai."
-  "Inworld.Studio.V1Alphab\006proto3"
-  ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto_deps[3] = {
-  &::descriptor_table_google_2fapi_2fannotations_2eproto,
-  &::descriptor_table_google_2fapi_2fresource_2eproto,
-  &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto,
-};
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto_sccs[1] = {
-  &scc_info_ImpressionEventData_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto.base,
-};
-static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto_once;
-const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto, "ai/inworld/studio/v1alpha/impression_event_data.proto", 510,
-  &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto_once, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto_sccs, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto_deps, 1, 3,
-  schemas, file_default_instances, TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto::offsets,
-  file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto, 1, file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto, file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto,
-};
-
 // Force running AddDescriptors() at dynamic initialization time.
-static bool dynamic_init_dummy_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto)), true);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2
+static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto);
 namespace ai {
 namespace inworld {
 namespace studio {
 namespace v1alpha {
-
 // ===================================================================
 
 class ImpressionEventData::_Internal {
  public:
-  static const PROTOBUF_NAMESPACE_ID::Timestamp& event_time(const ImpressionEventData* msg);
+  using HasBits = decltype(std::declval<ImpressionEventData>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+    8 * PROTOBUF_FIELD_OFFSET(ImpressionEventData, _impl_._has_bits_);
+  static const ::google::protobuf_inworld::Timestamp& event_time(const ImpressionEventData* msg);
+  static void set_has_event_time(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
 };
 
-const PROTOBUF_NAMESPACE_ID::Timestamp&
-ImpressionEventData::_Internal::event_time(const ImpressionEventData* msg) {
-  return *msg->event_time_;
+const ::google::protobuf_inworld::Timestamp& ImpressionEventData::_Internal::event_time(const ImpressionEventData* msg) {
+  return *msg->_impl_.event_time_;
 }
 void ImpressionEventData::clear_event_time() {
-  if (GetArena() == nullptr && event_time_ != nullptr) {
-    delete event_time_;
-  }
-  event_time_ = nullptr;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (_impl_.event_time_ != nullptr) _impl_.event_time_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-ImpressionEventData::ImpressionEventData(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+ImpressionEventData::ImpressionEventData(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.ImpressionEventData)
 }
-ImpressionEventData::ImpressionEventData(const ImpressionEventData& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  feature_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_feature().empty()) {
-    feature_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_feature(), 
-      GetArena());
-  }
-  variant_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_variant().empty()) {
-    variant_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_variant(), 
-      GetArena());
-  }
-  payload_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_payload().empty()) {
-    payload_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_payload(), 
-      GetArena());
-  }
-  stickiness_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_stickiness().empty()) {
-    stickiness_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_stickiness(), 
-      GetArena());
-  }
-  workspace_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_workspace_id().empty()) {
-    workspace_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_workspace_id(), 
-      GetArena());
-  }
-  if (from._internal_has_event_time()) {
-    event_time_ = new PROTOBUF_NAMESPACE_ID::Timestamp(*from.event_time_);
-  } else {
-    event_time_ = nullptr;
-  }
+inline PROTOBUF_NDEBUG_INLINE ImpressionEventData::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    const Impl_& from)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        feature_(arena, from.feature_),
+        variant_(arena, from.variant_),
+        payload_(arena, from.payload_),
+        stickiness_(arena, from.stickiness_),
+        workspace_id_(arena, from.workspace_id_) {}
+
+ImpressionEventData::ImpressionEventData(
+    ::google::protobuf_inworld::Arena* arena,
+    const ImpressionEventData& from)
+    : ::google::protobuf_inworld::Message(arena) {
+  ImpressionEventData* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.event_time_ = (cached_has_bits & 0x00000001u)
+                ? CreateMaybeMessage<::google::protobuf_inworld::Timestamp>(arena, *from._impl_.event_time_)
+                : nullptr;
+
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.ImpressionEventData)
 }
+inline PROTOBUF_NDEBUG_INLINE ImpressionEventData::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : _cached_size_{0},
+        feature_(arena),
+        variant_(arena),
+        payload_(arena),
+        stickiness_(arena),
+        workspace_id_(arena) {}
 
-void ImpressionEventData::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ImpressionEventData_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto.base);
-  feature_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  variant_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  payload_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  stickiness_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  workspace_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  event_time_ = nullptr;
+inline void ImpressionEventData::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.event_time_ = {};
 }
-
 ImpressionEventData::~ImpressionEventData() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.ImpressionEventData)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+inline void ImpressionEventData::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.feature_.Destroy();
+  _impl_.variant_.Destroy();
+  _impl_.payload_.Destroy();
+  _impl_.stickiness_.Destroy();
+  _impl_.workspace_id_.Destroy();
+  delete _impl_.event_time_;
+  _impl_.~Impl_();
 }
 
-void ImpressionEventData::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  feature_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  variant_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  payload_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  stickiness_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  workspace_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete event_time_;
-}
-
-void ImpressionEventData::ArenaDtor(void* object) {
-  ImpressionEventData* _this = reinterpret_cast< ImpressionEventData* >(object);
-  (void)_this;
-}
-void ImpressionEventData::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void ImpressionEventData::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ImpressionEventData& ImpressionEventData::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ImpressionEventData_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void ImpressionEventData::Clear() {
+PROTOBUF_NOINLINE void ImpressionEventData::Clear() {
 // @@protoc_insertion_point(message_clear_start:ai.inworld.studio.v1alpha.ImpressionEventData)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  feature_.ClearToEmpty();
-  variant_.ClearToEmpty();
-  payload_.ClearToEmpty();
-  stickiness_.ClearToEmpty();
-  workspace_id_.ClearToEmpty();
-  if (GetArena() == nullptr && event_time_ != nullptr) {
-    delete event_time_;
+  _impl_.feature_.ClearToEmpty();
+  _impl_.variant_.ClearToEmpty();
+  _impl_.payload_.ClearToEmpty();
+  _impl_.stickiness_.ClearToEmpty();
+  _impl_.workspace_id_.ClearToEmpty();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(_impl_.event_time_ != nullptr);
+    _impl_.event_time_->Clear();
   }
-  event_time_ = nullptr;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* ImpressionEventData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string feature = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_feature();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.ImpressionEventData.feature"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // string variant = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          auto str = _internal_mutable_variant();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.ImpressionEventData.variant"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // string payload = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          auto str = _internal_mutable_payload();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.ImpressionEventData.payload"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // string stickiness = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
-          auto str = _internal_mutable_stickiness();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.ImpressionEventData.stickiness"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .google.protobuf.Timestamp event_time = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
-          ptr = ctx->ParseMessage(_internal_mutable_event_time(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // string workspace_id = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
-          auto str = _internal_mutable_workspace_id();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.ImpressionEventData.workspace_id"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* ImpressionEventData::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ImpressionEventData::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 6, 1, 97, 2> ImpressionEventData::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(ImpressionEventData, _impl_._has_bits_),
+    0, // no _extensions_
+    6, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967232,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    6,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    &_ImpressionEventData_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // string feature = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(ImpressionEventData, _impl_.feature_)}},
+    // string variant = 2;
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(ImpressionEventData, _impl_.variant_)}},
+    // string payload = 3;
+    {::_pbi::TcParser::FastUS1,
+     {26, 63, 0, PROTOBUF_FIELD_OFFSET(ImpressionEventData, _impl_.payload_)}},
+    // string stickiness = 4;
+    {::_pbi::TcParser::FastUS1,
+     {34, 63, 0, PROTOBUF_FIELD_OFFSET(ImpressionEventData, _impl_.stickiness_)}},
+    // .google.protobuf.Timestamp event_time = 5;
+    {::_pbi::TcParser::FastMtS1,
+     {42, 0, 0, PROTOBUF_FIELD_OFFSET(ImpressionEventData, _impl_.event_time_)}},
+    // string workspace_id = 6;
+    {::_pbi::TcParser::FastUS1,
+     {50, 63, 0, PROTOBUF_FIELD_OFFSET(ImpressionEventData, _impl_.workspace_id_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string feature = 1;
+    {PROTOBUF_FIELD_OFFSET(ImpressionEventData, _impl_.feature_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string variant = 2;
+    {PROTOBUF_FIELD_OFFSET(ImpressionEventData, _impl_.variant_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string payload = 3;
+    {PROTOBUF_FIELD_OFFSET(ImpressionEventData, _impl_.payload_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string stickiness = 4;
+    {PROTOBUF_FIELD_OFFSET(ImpressionEventData, _impl_.stickiness_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .google.protobuf.Timestamp event_time = 5;
+    {PROTOBUF_FIELD_OFFSET(ImpressionEventData, _impl_.event_time_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // string workspace_id = 6;
+    {PROTOBUF_FIELD_OFFSET(ImpressionEventData, _impl_.workspace_id_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::google::protobuf_inworld::Timestamp>()},
+  }}, {{
+    "\55\7\7\7\12\0\14\0"
+    "ai.inworld.studio.v1alpha.ImpressionEventData"
+    "feature"
+    "variant"
+    "payload"
+    "stickiness"
+    "workspace_id"
+  }},
+};
+
+::uint8_t* ImpressionEventData::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.ImpressionEventData)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // string feature = 1;
-  if (this->feature().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_feature().data(), static_cast<int>(this->_internal_feature().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.studio.v1alpha.ImpressionEventData.feature");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_feature(), target);
+  if (!this->_internal_feature().empty()) {
+    const std::string& _s = this->_internal_feature();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ImpressionEventData.feature");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // string variant = 2;
-  if (this->variant().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_variant().data(), static_cast<int>(this->_internal_variant().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.studio.v1alpha.ImpressionEventData.variant");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_variant(), target);
+  if (!this->_internal_variant().empty()) {
+    const std::string& _s = this->_internal_variant();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ImpressionEventData.variant");
+    target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
   // string payload = 3;
-  if (this->payload().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_payload().data(), static_cast<int>(this->_internal_payload().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.studio.v1alpha.ImpressionEventData.payload");
-    target = stream->WriteStringMaybeAliased(
-        3, this->_internal_payload(), target);
+  if (!this->_internal_payload().empty()) {
+    const std::string& _s = this->_internal_payload();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ImpressionEventData.payload");
+    target = stream->WriteStringMaybeAliased(3, _s, target);
   }
 
   // string stickiness = 4;
-  if (this->stickiness().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_stickiness().data(), static_cast<int>(this->_internal_stickiness().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.studio.v1alpha.ImpressionEventData.stickiness");
-    target = stream->WriteStringMaybeAliased(
-        4, this->_internal_stickiness(), target);
+  if (!this->_internal_stickiness().empty()) {
+    const std::string& _s = this->_internal_stickiness();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ImpressionEventData.stickiness");
+    target = stream->WriteStringMaybeAliased(4, _s, target);
   }
 
+  cached_has_bits = _impl_._has_bits_[0];
   // .google.protobuf.Timestamp event_time = 5;
-  if (this->has_event_time()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        5, _Internal::event_time(this), target, stream);
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+        5, _Internal::event_time(this),
+        _Internal::event_time(this).GetCachedSize(), target, stream);
   }
 
   // string workspace_id = 6;
-  if (this->workspace_id().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_workspace_id().data(), static_cast<int>(this->_internal_workspace_id().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.studio.v1alpha.ImpressionEventData.workspace_id");
-    target = stream->WriteStringMaybeAliased(
-        6, this->_internal_workspace_id(), target);
+  if (!this->_internal_workspace_id().empty()) {
+    const std::string& _s = this->_internal_workspace_id();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ImpressionEventData.workspace_id");
+    target = stream->WriteStringMaybeAliased(6, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.ImpressionEventData)
   return target;
 }
 
-size_t ImpressionEventData::ByteSizeLong() const {
+::size_t ImpressionEventData::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:ai.inworld.studio.v1alpha.ImpressionEventData)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string feature = 1;
-  if (this->feature().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_feature());
+  if (!this->_internal_feature().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_feature());
   }
 
   // string variant = 2;
-  if (this->variant().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_variant());
+  if (!this->_internal_variant().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_variant());
   }
 
   // string payload = 3;
-  if (this->payload().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_payload());
+  if (!this->_internal_payload().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_payload());
   }
 
   // string stickiness = 4;
-  if (this->stickiness().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_stickiness());
+  if (!this->_internal_stickiness().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_stickiness());
   }
 
   // string workspace_id = 6;
-  if (this->workspace_id().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_workspace_id());
+  if (!this->_internal_workspace_id().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_workspace_id());
   }
 
   // .google.protobuf.Timestamp event_time = 5;
-  if (this->has_event_time()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *event_time_);
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size +=
+        1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.event_time_);
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void ImpressionEventData::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.studio.v1alpha.ImpressionEventData)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ImpressionEventData* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ImpressionEventData>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.studio.v1alpha.ImpressionEventData)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.studio.v1alpha.ImpressionEventData)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData ImpressionEventData::_class_data_ = {
+    ImpressionEventData::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* ImpressionEventData::GetClassData() const {
+  return &_class_data_;
 }
 
-void ImpressionEventData::MergeFrom(const ImpressionEventData& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.ImpressionEventData)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void ImpressionEventData::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<ImpressionEventData*>(&to_msg);
+  auto& from = static_cast<const ImpressionEventData&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.ImpressionEventData)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.feature().size() > 0) {
-    _internal_set_feature(from._internal_feature());
+  if (!from._internal_feature().empty()) {
+    _this->_internal_set_feature(from._internal_feature());
   }
-  if (from.variant().size() > 0) {
-    _internal_set_variant(from._internal_variant());
+  if (!from._internal_variant().empty()) {
+    _this->_internal_set_variant(from._internal_variant());
   }
-  if (from.payload().size() > 0) {
-    _internal_set_payload(from._internal_payload());
+  if (!from._internal_payload().empty()) {
+    _this->_internal_set_payload(from._internal_payload());
   }
-  if (from.stickiness().size() > 0) {
-    _internal_set_stickiness(from._internal_stickiness());
+  if (!from._internal_stickiness().empty()) {
+    _this->_internal_set_stickiness(from._internal_stickiness());
   }
-  if (from.workspace_id().size() > 0) {
-    _internal_set_workspace_id(from._internal_workspace_id());
+  if (!from._internal_workspace_id().empty()) {
+    _this->_internal_set_workspace_id(from._internal_workspace_id());
   }
-  if (from.has_event_time()) {
-    _internal_mutable_event_time()->PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(from._internal_event_time());
+  if ((from._impl_._has_bits_[0] & 0x00000001u) != 0) {
+    _this->_internal_mutable_event_time()->::google::protobuf_inworld::Timestamp::MergeFrom(
+        from._internal_event_time());
   }
-}
-
-void ImpressionEventData::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.studio.v1alpha.ImpressionEventData)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ImpressionEventData::CopyFrom(const ImpressionEventData& from) {
@@ -491,36 +498,40 @@ void ImpressionEventData::CopyFrom(const ImpressionEventData& from) {
   MergeFrom(from);
 }
 
-bool ImpressionEventData::IsInitialized() const {
+PROTOBUF_NOINLINE bool ImpressionEventData::IsInitialized() const {
   return true;
 }
 
-void ImpressionEventData::InternalSwap(ImpressionEventData* other) {
+::_pbi::CachedSize* ImpressionEventData::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void ImpressionEventData::InternalSwap(ImpressionEventData* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  feature_.Swap(&other->feature_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  variant_.Swap(&other->variant_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  payload_.Swap(&other->payload_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  stickiness_.Swap(&other->stickiness_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  workspace_id_.Swap(&other->workspace_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  swap(event_time_, other->event_time_);
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.feature_, &other->_impl_.feature_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.variant_, &other->_impl_.variant_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.payload_, &other->_impl_.payload_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.stickiness_, &other->_impl_.stickiness_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.workspace_id_, &other->_impl_.workspace_id_, arena);
+  swap(_impl_.event_time_, other->_impl_.event_time_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata ImpressionEventData::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata ImpressionEventData::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto_once,
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto[0]);
 }
-
-
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace v1alpha
 }  // namespace studio
 }  // namespace inworld
 }  // namespace ai
-PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::ImpressionEventData* Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::ImpressionEventData >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::ImpressionEventData >(arena);
-}
-PROTOBUF_NAMESPACE_CLOSE
-
+namespace google {
+namespace protobuf {
+}  // namespace protobuf
+}  // namespace google
 // @@protoc_insertion_point(global_scope)
-#include <google/protobuf/port_undef.inc>
+#include "google/protobuf/port_undef.inc"

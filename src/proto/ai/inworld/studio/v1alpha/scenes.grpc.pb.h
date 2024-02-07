@@ -7,24 +7,23 @@
 #include "ai/inworld/studio/v1alpha/scenes.pb.h"
 
 #include <functional>
-#include <grpc/impl/codegen/port_platform.h>
-#include <grpcpp/impl/codegen/async_generic_service.h>
-#include <grpcpp/impl/codegen/async_stream.h>
-#include <grpcpp/impl/codegen/async_unary_call.h>
-#include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/client_context.h>
-#include <grpcpp/impl/codegen/completion_queue.h>
-#include <grpcpp/impl/codegen/message_allocator.h>
-#include <grpcpp/impl/codegen/method_handler.h>
-#include <grpcpp/impl/codegen/proto_utils.h>
-#include <grpcpp/impl/codegen/rpc_method.h>
-#include <grpcpp/impl/codegen/server_callback.h>
-#include <grpcpp/impl/codegen/server_callback_handlers.h>
-#include <grpcpp/impl/codegen/server_context.h>
-#include <grpcpp/impl/codegen/service_type.h>
-#include <grpcpp/impl/codegen/status.h>
-#include <grpcpp/impl/codegen/stub_options.h>
-#include <grpcpp/impl/codegen/sync_stream.h>
+#include <grpcpp/generic/async_generic_service.h>
+#include <grpcpp/support/async_stream.h>
+#include <grpcpp/support/async_unary_call.h>
+#include <grpcpp/support/client_callback.h>
+#include <grpcpp/client_context.h>
+#include <grpcpp/completion_queue.h>
+#include <grpcpp/support/message_allocator.h>
+#include <grpcpp/support/method_handler.h>
+#include <grpcpp/impl/proto_utils.h>
+#include <grpcpp/impl/rpc_method.h>
+#include <grpcpp/support/server_callback.h>
+#include <grpcpp/impl/server_callback_handlers.h>
+#include <grpcpp/server_context.h>
+#include <grpcpp/impl/service_type.h>
+#include <grpcpp/support/status.h>
+#include <grpcpp/support/stub_options.h>
+#include <grpcpp/support/sync_stream.h>
 
 namespace ai {
 namespace inworld {
@@ -98,69 +97,37 @@ class Scenes final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> PrepareAsyncDeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(PrepareAsyncDeleteSceneRaw(context, request, cq));
     }
-    class experimental_async_interface {
+    class async_interface {
      public:
-      virtual ~experimental_async_interface() {}
+      virtual ~async_interface() {}
       // RPC to deploy the scene: store scene character composition with
       // character overloads and related information (triggers etc) in an
       // storage(GSC).
       virtual void DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // Async version of DeployScene. Returns a long running operation object
       virtual void DeploySceneAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::longrunning::Operation* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void DeploySceneAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::longrunning::Operation* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void DeploySceneAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::longrunning::Operation* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to get one scene
       virtual void GetScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void GetScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void GetScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to get list of scenes
       virtual void ListScenes(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListScenesRequest* request, ::ai::inworld::studio::v1alpha::ListScenesResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void ListScenes(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListScenesRequest* request, ::ai::inworld::studio::v1alpha::ListScenesResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void ListScenes(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListScenesRequest* request, ::ai::inworld::studio::v1alpha::ListScenesResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to update a scene
       virtual void UpdateScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void UpdateScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void UpdateScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to create a scene
       virtual void CreateScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void CreateScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void CreateScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to delete a scene
       virtual void DeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void DeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void DeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
     };
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    typedef class experimental_async_interface async_interface;
-    #endif
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    async_interface* async() { return experimental_async(); }
-    #endif
-    virtual class experimental_async_interface* experimental_async() { return nullptr; }
-  private:
+    typedef class async_interface experimental_async_interface;
+    virtual class async_interface* async() { return nullptr; }
+    class async_interface* experimental_async() { return async(); }
+   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* AsyncDeploySceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* PrepareAsyncDeploySceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::longrunning::Operation>* AsyncDeploySceneAsynchronouslyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -178,7 +145,7 @@ class Scenes final {
   };
   class Stub final : public StubInterface {
    public:
-    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
+    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
     ::grpc::Status DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::google::protobuf_inworld::Empty* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> AsyncDeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(AsyncDeploySceneRaw(context, request, cq));
@@ -228,62 +195,34 @@ class Scenes final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> PrepareAsyncDeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(PrepareAsyncDeleteSceneRaw(context, request, cq));
     }
-    class experimental_async final :
-      public StubInterface::experimental_async_interface {
+    class async final :
+      public StubInterface::async_interface {
      public:
       void DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void DeployScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void DeploySceneAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::longrunning::Operation* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void DeploySceneAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::longrunning::Operation* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void DeploySceneAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::longrunning::Operation* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void GetScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void GetScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void GetScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void ListScenes(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListScenesRequest* request, ::ai::inworld::studio::v1alpha::ListScenesResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void ListScenes(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListScenesRequest* request, ::ai::inworld::studio::v1alpha::ListScenesResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void ListScenes(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListScenesRequest* request, ::ai::inworld::studio::v1alpha::ListScenesResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void UpdateScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void UpdateScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void UpdateScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void CreateScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void CreateScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void CreateScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void DeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void DeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void DeleteScene(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
      private:
       friend class Stub;
-      explicit experimental_async(Stub* stub): stub_(stub) { }
+      explicit async(Stub* stub): stub_(stub) { }
       Stub* stub() { return stub_; }
       Stub* stub_;
     };
-    class experimental_async_interface* experimental_async() override { return &async_stub_; }
+    class async* async() override { return &async_stub_; }
 
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
-    class experimental_async async_stub_{this};
+    class async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* AsyncDeploySceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* PrepareAsyncDeploySceneRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::google::longrunning::Operation>* AsyncDeploySceneAsynchronouslyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -471,36 +410,22 @@ class Scenes final {
   };
   typedef WithAsyncMethod_DeployScene<WithAsyncMethod_DeploySceneAsynchronously<WithAsyncMethod_GetScene<WithAsyncMethod_ListScenes<WithAsyncMethod_UpdateScene<WithAsyncMethod_CreateScene<WithAsyncMethod_DeleteScene<Service > > > > > > > AsyncService;
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_DeployScene : public BaseClass {
+  class WithCallbackMethod_DeployScene : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_DeployScene() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(0,
+    WithCallbackMethod_DeployScene() {
+      ::grpc::Service::MarkMethodCallback(0,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeploySceneRequest, ::google::protobuf_inworld::Empty>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf_inworld::Empty* response) { return this->DeployScene(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::protobuf_inworld::Empty* response) { return this->DeployScene(context, request, response); }));}
     void SetMessageAllocatorFor_DeployScene(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::DeploySceneRequest, ::google::protobuf_inworld::Empty>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::DeploySceneRequest, ::google::protobuf_inworld::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeploySceneRequest, ::google::protobuf_inworld::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_DeployScene() override {
+    ~WithCallbackMethod_DeployScene() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -508,46 +433,26 @@ class Scenes final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* DeployScene(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* DeployScene(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_DeploySceneAsynchronously : public BaseClass {
+  class WithCallbackMethod_DeploySceneAsynchronously : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_DeploySceneAsynchronously() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(1,
+    WithCallbackMethod_DeploySceneAsynchronously() {
+      ::grpc::Service::MarkMethodCallback(1,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeploySceneRequest, ::google::longrunning::Operation>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::longrunning::Operation* response) { return this->DeploySceneAsynchronously(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* request, ::google::longrunning::Operation* response) { return this->DeploySceneAsynchronously(context, request, response); }));}
     void SetMessageAllocatorFor_DeploySceneAsynchronously(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::DeploySceneRequest, ::google::longrunning::Operation>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::DeploySceneRequest, ::google::longrunning::Operation>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeploySceneRequest, ::google::longrunning::Operation>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_DeploySceneAsynchronously() override {
+    ~WithCallbackMethod_DeploySceneAsynchronously() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -555,46 +460,26 @@ class Scenes final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* DeploySceneAsynchronously(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::longrunning::Operation* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* DeploySceneAsynchronously(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::longrunning::Operation* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeploySceneRequest* /*request*/, ::google::longrunning::Operation* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_GetScene : public BaseClass {
+  class WithCallbackMethod_GetScene : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_GetScene() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(2,
+    WithCallbackMethod_GetScene() {
+      ::grpc::Service::MarkMethodCallback(2,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetSceneRequest, ::ai::inworld::studio::v1alpha::Scene>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::GetSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response) { return this->GetScene(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::GetSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response) { return this->GetScene(context, request, response); }));}
     void SetMessageAllocatorFor_GetScene(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::GetSceneRequest, ::ai::inworld::studio::v1alpha::Scene>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::GetSceneRequest, ::ai::inworld::studio::v1alpha::Scene>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(2);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetSceneRequest, ::ai::inworld::studio::v1alpha::Scene>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_GetScene() override {
+    ~WithCallbackMethod_GetScene() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -602,46 +487,26 @@ class Scenes final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetScene(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetSceneRequest* /*request*/, ::ai::inworld::studio::v1alpha::Scene* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GetScene(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetSceneRequest* /*request*/, ::ai::inworld::studio::v1alpha::Scene* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetSceneRequest* /*request*/, ::ai::inworld::studio::v1alpha::Scene* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_ListScenes : public BaseClass {
+  class WithCallbackMethod_ListScenes : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_ListScenes() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(3,
+    WithCallbackMethod_ListScenes() {
+      ::grpc::Service::MarkMethodCallback(3,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ListScenesRequest, ::ai::inworld::studio::v1alpha::ListScenesResponse>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::ListScenesRequest* request, ::ai::inworld::studio::v1alpha::ListScenesResponse* response) { return this->ListScenes(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::ListScenesRequest* request, ::ai::inworld::studio::v1alpha::ListScenesResponse* response) { return this->ListScenes(context, request, response); }));}
     void SetMessageAllocatorFor_ListScenes(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::ListScenesRequest, ::ai::inworld::studio::v1alpha::ListScenesResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::ListScenesRequest, ::ai::inworld::studio::v1alpha::ListScenesResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(3);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ListScenesRequest, ::ai::inworld::studio::v1alpha::ListScenesResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_ListScenes() override {
+    ~WithCallbackMethod_ListScenes() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -649,46 +514,26 @@ class Scenes final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* ListScenes(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ListScenesRequest* /*request*/, ::ai::inworld::studio::v1alpha::ListScenesResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* ListScenes(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ListScenesRequest* /*request*/, ::ai::inworld::studio::v1alpha::ListScenesResponse* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ListScenesRequest* /*request*/, ::ai::inworld::studio::v1alpha::ListScenesResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_UpdateScene : public BaseClass {
+  class WithCallbackMethod_UpdateScene : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_UpdateScene() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(4,
+    WithCallbackMethod_UpdateScene() {
+      ::grpc::Service::MarkMethodCallback(4,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UpdateSceneRequest, ::ai::inworld::studio::v1alpha::Scene>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::UpdateSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response) { return this->UpdateScene(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::UpdateSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response) { return this->UpdateScene(context, request, response); }));}
     void SetMessageAllocatorFor_UpdateScene(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::UpdateSceneRequest, ::ai::inworld::studio::v1alpha::Scene>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::UpdateSceneRequest, ::ai::inworld::studio::v1alpha::Scene>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(4);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UpdateSceneRequest, ::ai::inworld::studio::v1alpha::Scene>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_UpdateScene() override {
+    ~WithCallbackMethod_UpdateScene() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -696,46 +541,26 @@ class Scenes final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* UpdateScene(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UpdateSceneRequest* /*request*/, ::ai::inworld::studio::v1alpha::Scene* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* UpdateScene(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UpdateSceneRequest* /*request*/, ::ai::inworld::studio::v1alpha::Scene* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UpdateSceneRequest* /*request*/, ::ai::inworld::studio::v1alpha::Scene* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_CreateScene : public BaseClass {
+  class WithCallbackMethod_CreateScene : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_CreateScene() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(5,
+    WithCallbackMethod_CreateScene() {
+      ::grpc::Service::MarkMethodCallback(5,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::CreateSceneRequest, ::ai::inworld::studio::v1alpha::Scene>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::CreateSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response) { return this->CreateScene(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::CreateSceneRequest* request, ::ai::inworld::studio::v1alpha::Scene* response) { return this->CreateScene(context, request, response); }));}
     void SetMessageAllocatorFor_CreateScene(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::CreateSceneRequest, ::ai::inworld::studio::v1alpha::Scene>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::CreateSceneRequest, ::ai::inworld::studio::v1alpha::Scene>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(5);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::CreateSceneRequest, ::ai::inworld::studio::v1alpha::Scene>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_CreateScene() override {
+    ~WithCallbackMethod_CreateScene() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -743,46 +568,26 @@ class Scenes final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* CreateScene(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CreateSceneRequest* /*request*/, ::ai::inworld::studio::v1alpha::Scene* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* CreateScene(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CreateSceneRequest* /*request*/, ::ai::inworld::studio::v1alpha::Scene* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CreateSceneRequest* /*request*/, ::ai::inworld::studio::v1alpha::Scene* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_DeleteScene : public BaseClass {
+  class WithCallbackMethod_DeleteScene : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_DeleteScene() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(6,
+    WithCallbackMethod_DeleteScene() {
+      ::grpc::Service::MarkMethodCallback(6,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteSceneRequest, ::google::protobuf_inworld::Empty>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::google::protobuf_inworld::Empty* response) { return this->DeleteScene(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* request, ::google::protobuf_inworld::Empty* response) { return this->DeleteScene(context, request, response); }));}
     void SetMessageAllocatorFor_DeleteScene(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::DeleteSceneRequest, ::google::protobuf_inworld::Empty>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::DeleteSceneRequest, ::google::protobuf_inworld::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(6);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteSceneRequest, ::google::protobuf_inworld::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_DeleteScene() override {
+    ~WithCallbackMethod_DeleteScene() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -790,20 +595,11 @@ class Scenes final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* DeleteScene(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* DeleteScene(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteSceneRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)  { return nullptr; }
   };
-  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_DeployScene<ExperimentalWithCallbackMethod_DeploySceneAsynchronously<ExperimentalWithCallbackMethod_GetScene<ExperimentalWithCallbackMethod_ListScenes<ExperimentalWithCallbackMethod_UpdateScene<ExperimentalWithCallbackMethod_CreateScene<ExperimentalWithCallbackMethod_DeleteScene<Service > > > > > > > CallbackService;
-  #endif
-
-  typedef ExperimentalWithCallbackMethod_DeployScene<ExperimentalWithCallbackMethod_DeploySceneAsynchronously<ExperimentalWithCallbackMethod_GetScene<ExperimentalWithCallbackMethod_ListScenes<ExperimentalWithCallbackMethod_UpdateScene<ExperimentalWithCallbackMethod_CreateScene<ExperimentalWithCallbackMethod_DeleteScene<Service > > > > > > > ExperimentalCallbackService;
+  typedef WithCallbackMethod_DeployScene<WithCallbackMethod_DeploySceneAsynchronously<WithCallbackMethod_GetScene<WithCallbackMethod_ListScenes<WithCallbackMethod_UpdateScene<WithCallbackMethod_CreateScene<WithCallbackMethod_DeleteScene<Service > > > > > > > CallbackService;
+  typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_DeployScene : public BaseClass {
    private:
@@ -1064,27 +860,17 @@ class Scenes final {
     }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_DeployScene : public BaseClass {
+  class WithRawCallbackMethod_DeployScene : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_DeployScene() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(0,
+    WithRawCallbackMethod_DeployScene() {
+      ::grpc::Service::MarkMethodRawCallback(0,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeployScene(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeployScene(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_DeployScene() override {
+    ~WithRawCallbackMethod_DeployScene() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1092,37 +878,21 @@ class Scenes final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* DeployScene(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* DeployScene(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_DeploySceneAsynchronously : public BaseClass {
+  class WithRawCallbackMethod_DeploySceneAsynchronously : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_DeploySceneAsynchronously() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(1,
+    WithRawCallbackMethod_DeploySceneAsynchronously() {
+      ::grpc::Service::MarkMethodRawCallback(1,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeploySceneAsynchronously(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeploySceneAsynchronously(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_DeploySceneAsynchronously() override {
+    ~WithRawCallbackMethod_DeploySceneAsynchronously() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1130,37 +900,21 @@ class Scenes final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* DeploySceneAsynchronously(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* DeploySceneAsynchronously(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_GetScene : public BaseClass {
+  class WithRawCallbackMethod_GetScene : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_GetScene() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(2,
+    WithRawCallbackMethod_GetScene() {
+      ::grpc::Service::MarkMethodRawCallback(2,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetScene(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetScene(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_GetScene() override {
+    ~WithRawCallbackMethod_GetScene() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1168,37 +922,21 @@ class Scenes final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetScene(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GetScene(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_ListScenes : public BaseClass {
+  class WithRawCallbackMethod_ListScenes : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_ListScenes() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(3,
+    WithRawCallbackMethod_ListScenes() {
+      ::grpc::Service::MarkMethodRawCallback(3,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ListScenes(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ListScenes(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_ListScenes() override {
+    ~WithRawCallbackMethod_ListScenes() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1206,37 +944,21 @@ class Scenes final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* ListScenes(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* ListScenes(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_UpdateScene : public BaseClass {
+  class WithRawCallbackMethod_UpdateScene : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_UpdateScene() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(4,
+    WithRawCallbackMethod_UpdateScene() {
+      ::grpc::Service::MarkMethodRawCallback(4,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UpdateScene(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UpdateScene(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_UpdateScene() override {
+    ~WithRawCallbackMethod_UpdateScene() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1244,37 +966,21 @@ class Scenes final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* UpdateScene(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* UpdateScene(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_CreateScene : public BaseClass {
+  class WithRawCallbackMethod_CreateScene : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_CreateScene() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(5,
+    WithRawCallbackMethod_CreateScene() {
+      ::grpc::Service::MarkMethodRawCallback(5,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->CreateScene(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->CreateScene(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_CreateScene() override {
+    ~WithRawCallbackMethod_CreateScene() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1282,37 +988,21 @@ class Scenes final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* CreateScene(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* CreateScene(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_DeleteScene : public BaseClass {
+  class WithRawCallbackMethod_DeleteScene : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_DeleteScene() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(6,
+    WithRawCallbackMethod_DeleteScene() {
+      ::grpc::Service::MarkMethodRawCallback(6,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeleteScene(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeleteScene(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_DeleteScene() override {
+    ~WithRawCallbackMethod_DeleteScene() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1320,14 +1010,8 @@ class Scenes final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* DeleteScene(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* DeleteScene(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_DeployScene : public BaseClass {

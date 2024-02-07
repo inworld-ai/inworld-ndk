@@ -7,24 +7,23 @@
 #include "ai/inworld/studio/v1alpha/apikeys.pb.h"
 
 #include <functional>
-#include <grpc/impl/codegen/port_platform.h>
-#include <grpcpp/impl/codegen/async_generic_service.h>
-#include <grpcpp/impl/codegen/async_stream.h>
-#include <grpcpp/impl/codegen/async_unary_call.h>
-#include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/client_context.h>
-#include <grpcpp/impl/codegen/completion_queue.h>
-#include <grpcpp/impl/codegen/message_allocator.h>
-#include <grpcpp/impl/codegen/method_handler.h>
-#include <grpcpp/impl/codegen/proto_utils.h>
-#include <grpcpp/impl/codegen/rpc_method.h>
-#include <grpcpp/impl/codegen/server_callback.h>
-#include <grpcpp/impl/codegen/server_callback_handlers.h>
-#include <grpcpp/impl/codegen/server_context.h>
-#include <grpcpp/impl/codegen/service_type.h>
-#include <grpcpp/impl/codegen/status.h>
-#include <grpcpp/impl/codegen/stub_options.h>
-#include <grpcpp/impl/codegen/sync_stream.h>
+#include <grpcpp/generic/async_generic_service.h>
+#include <grpcpp/support/async_stream.h>
+#include <grpcpp/support/async_unary_call.h>
+#include <grpcpp/support/client_callback.h>
+#include <grpcpp/client_context.h>
+#include <grpcpp/completion_queue.h>
+#include <grpcpp/support/message_allocator.h>
+#include <grpcpp/support/method_handler.h>
+#include <grpcpp/impl/proto_utils.h>
+#include <grpcpp/impl/rpc_method.h>
+#include <grpcpp/support/server_callback.h>
+#include <grpcpp/impl/server_callback_handlers.h>
+#include <grpcpp/server_context.h>
+#include <grpcpp/impl/service_type.h>
+#include <grpcpp/support/status.h>
+#include <grpcpp/support/stub_options.h>
+#include <grpcpp/support/sync_stream.h>
 
 namespace ai {
 namespace inworld {
@@ -86,59 +85,35 @@ class ApiKeys final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::ApiKey>> PrepareAsyncGenerateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::ApiKey>>(PrepareAsyncGenerateApiKeyRaw(context, request, cq));
     }
-    class experimental_async_interface {
+    class async_interface {
      public:
-      virtual ~experimental_async_interface() {}
+      virtual ~async_interface() {}
       // Return list of API keys.
       virtual void ListApiKeys(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListApiKeysRequest* request, ::ai::inworld::studio::v1alpha::ListApiKeysResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void ListApiKeys(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListApiKeysRequest* request, ::ai::inworld::studio::v1alpha::ListApiKeysResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void ListApiKeys(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListApiKeysRequest* request, ::ai::inworld::studio::v1alpha::ListApiKeysResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // Suspends one specified API key.
       // (-- api-linter: core::0136::http-name-variable=disabled
       //     aip.dev/not-precedent: Linter false detects a violation here --)
       virtual void SuspendApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void SuspendApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void SuspendApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // Activates one specified API key.
       // (-- api-linter: core::0136::http-name-variable=disabled
       //     aip.dev/not-precedent: Linter false detects a violation here --)
       virtual void ActivateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void ActivateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void ActivateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // Deletes one specified API key.
       virtual void DeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void DeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void DeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // Generates an new API key with random secret and default parameters.
       // (-- api-linter: core::0136::http-parent-variable=disabled
       //     aip.dev/not-precedent: Linter false detects a violation here --)
       virtual void GenerateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void GenerateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void GenerateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
     };
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    typedef class experimental_async_interface async_interface;
-    #endif
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    async_interface* async() { return experimental_async(); }
-    #endif
-    virtual class experimental_async_interface* experimental_async() { return nullptr; }
-  private:
+    typedef class async_interface experimental_async_interface;
+    virtual class async_interface* async() { return nullptr; }
+    class async_interface* experimental_async() { return async(); }
+   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::ListApiKeysResponse>* AsyncListApiKeysRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListApiKeysRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::ListApiKeysResponse>* PrepareAsyncListApiKeysRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListApiKeysRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::ApiKey>* AsyncSuspendApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -152,7 +127,7 @@ class ApiKeys final {
   };
   class Stub final : public StubInterface {
    public:
-    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
+    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
     ::grpc::Status ListApiKeys(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListApiKeysRequest& request, ::ai::inworld::studio::v1alpha::ListApiKeysResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ListApiKeysResponse>> AsyncListApiKeys(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListApiKeysRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ListApiKeysResponse>>(AsyncListApiKeysRaw(context, request, cq));
@@ -188,50 +163,30 @@ class ApiKeys final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ApiKey>> PrepareAsyncGenerateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ApiKey>>(PrepareAsyncGenerateApiKeyRaw(context, request, cq));
     }
-    class experimental_async final :
-      public StubInterface::experimental_async_interface {
+    class async final :
+      public StubInterface::async_interface {
      public:
       void ListApiKeys(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListApiKeysRequest* request, ::ai::inworld::studio::v1alpha::ListApiKeysResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void ListApiKeys(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListApiKeysRequest* request, ::ai::inworld::studio::v1alpha::ListApiKeysResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void ListApiKeys(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListApiKeysRequest* request, ::ai::inworld::studio::v1alpha::ListApiKeysResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void SuspendApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void SuspendApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void SuspendApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void ActivateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void ActivateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void ActivateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void DeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void DeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void DeleteApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void GenerateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void GenerateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void GenerateApiKey(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
      private:
       friend class Stub;
-      explicit experimental_async(Stub* stub): stub_(stub) { }
+      explicit async(Stub* stub): stub_(stub) { }
       Stub* stub() { return stub_; }
       Stub* stub_;
     };
-    class experimental_async_interface* experimental_async() override { return &async_stub_; }
+    class async* async() override { return &async_stub_; }
 
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
-    class experimental_async async_stub_{this};
+    class async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ListApiKeysResponse>* AsyncListApiKeysRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListApiKeysRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ListApiKeysResponse>* PrepareAsyncListApiKeysRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListApiKeysRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::ApiKey>* AsyncSuspendApiKeyRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -373,36 +328,22 @@ class ApiKeys final {
   };
   typedef WithAsyncMethod_ListApiKeys<WithAsyncMethod_SuspendApiKey<WithAsyncMethod_ActivateApiKey<WithAsyncMethod_DeleteApiKey<WithAsyncMethod_GenerateApiKey<Service > > > > > AsyncService;
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_ListApiKeys : public BaseClass {
+  class WithCallbackMethod_ListApiKeys : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_ListApiKeys() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(0,
+    WithCallbackMethod_ListApiKeys() {
+      ::grpc::Service::MarkMethodCallback(0,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ListApiKeysRequest, ::ai::inworld::studio::v1alpha::ListApiKeysResponse>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::ListApiKeysRequest* request, ::ai::inworld::studio::v1alpha::ListApiKeysResponse* response) { return this->ListApiKeys(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::ListApiKeysRequest* request, ::ai::inworld::studio::v1alpha::ListApiKeysResponse* response) { return this->ListApiKeys(context, request, response); }));}
     void SetMessageAllocatorFor_ListApiKeys(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::ListApiKeysRequest, ::ai::inworld::studio::v1alpha::ListApiKeysResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::ListApiKeysRequest, ::ai::inworld::studio::v1alpha::ListApiKeysResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ListApiKeysRequest, ::ai::inworld::studio::v1alpha::ListApiKeysResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_ListApiKeys() override {
+    ~WithCallbackMethod_ListApiKeys() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -410,46 +351,26 @@ class ApiKeys final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* ListApiKeys(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ListApiKeysRequest* /*request*/, ::ai::inworld::studio::v1alpha::ListApiKeysResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* ListApiKeys(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ListApiKeysRequest* /*request*/, ::ai::inworld::studio::v1alpha::ListApiKeysResponse* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ListApiKeysRequest* /*request*/, ::ai::inworld::studio::v1alpha::ListApiKeysResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_SuspendApiKey : public BaseClass {
+  class WithCallbackMethod_SuspendApiKey : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_SuspendApiKey() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(1,
+    WithCallbackMethod_SuspendApiKey() {
+      ::grpc::Service::MarkMethodCallback(1,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response) { return this->SuspendApiKey(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response) { return this->SuspendApiKey(context, request, response); }));}
     void SetMessageAllocatorFor_SuspendApiKey(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_SuspendApiKey() override {
+    ~WithCallbackMethod_SuspendApiKey() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -457,46 +378,26 @@ class ApiKeys final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* SuspendApiKey(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest* /*request*/, ::ai::inworld::studio::v1alpha::ApiKey* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* SuspendApiKey(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest* /*request*/, ::ai::inworld::studio::v1alpha::ApiKey* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest* /*request*/, ::ai::inworld::studio::v1alpha::ApiKey* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_ActivateApiKey : public BaseClass {
+  class WithCallbackMethod_ActivateApiKey : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_ActivateApiKey() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(2,
+    WithCallbackMethod_ActivateApiKey() {
+      ::grpc::Service::MarkMethodCallback(2,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response) { return this->ActivateApiKey(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response) { return this->ActivateApiKey(context, request, response); }));}
     void SetMessageAllocatorFor_ActivateApiKey(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(2);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_ActivateApiKey() override {
+    ~WithCallbackMethod_ActivateApiKey() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -504,46 +405,26 @@ class ApiKeys final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* ActivateApiKey(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest* /*request*/, ::ai::inworld::studio::v1alpha::ApiKey* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* ActivateApiKey(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest* /*request*/, ::ai::inworld::studio::v1alpha::ApiKey* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest* /*request*/, ::ai::inworld::studio::v1alpha::ApiKey* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_DeleteApiKey : public BaseClass {
+  class WithCallbackMethod_DeleteApiKey : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_DeleteApiKey() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(3,
+    WithCallbackMethod_DeleteApiKey() {
+      ::grpc::Service::MarkMethodCallback(3,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest, ::google::protobuf_inworld::Empty>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::google::protobuf_inworld::Empty* response) { return this->DeleteApiKey(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* request, ::google::protobuf_inworld::Empty* response) { return this->DeleteApiKey(context, request, response); }));}
     void SetMessageAllocatorFor_DeleteApiKey(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest, ::google::protobuf_inworld::Empty>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest, ::google::protobuf_inworld::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(3);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest, ::google::protobuf_inworld::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_DeleteApiKey() override {
+    ~WithCallbackMethod_DeleteApiKey() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -551,46 +432,26 @@ class ApiKeys final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* DeleteApiKey(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* DeleteApiKey(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_GenerateApiKey : public BaseClass {
+  class WithCallbackMethod_GenerateApiKey : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_GenerateApiKey() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(4,
+    WithCallbackMethod_GenerateApiKey() {
+      ::grpc::Service::MarkMethodCallback(4,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response) { return this->GenerateApiKey(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest* request, ::ai::inworld::studio::v1alpha::ApiKey* response) { return this->GenerateApiKey(context, request, response); }));}
     void SetMessageAllocatorFor_GenerateApiKey(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(4);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest, ::ai::inworld::studio::v1alpha::ApiKey>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_GenerateApiKey() override {
+    ~WithCallbackMethod_GenerateApiKey() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -598,20 +459,11 @@ class ApiKeys final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GenerateApiKey(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest* /*request*/, ::ai::inworld::studio::v1alpha::ApiKey* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GenerateApiKey(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest* /*request*/, ::ai::inworld::studio::v1alpha::ApiKey* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest* /*request*/, ::ai::inworld::studio::v1alpha::ApiKey* /*response*/)  { return nullptr; }
   };
-  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_ListApiKeys<ExperimentalWithCallbackMethod_SuspendApiKey<ExperimentalWithCallbackMethod_ActivateApiKey<ExperimentalWithCallbackMethod_DeleteApiKey<ExperimentalWithCallbackMethod_GenerateApiKey<Service > > > > > CallbackService;
-  #endif
-
-  typedef ExperimentalWithCallbackMethod_ListApiKeys<ExperimentalWithCallbackMethod_SuspendApiKey<ExperimentalWithCallbackMethod_ActivateApiKey<ExperimentalWithCallbackMethod_DeleteApiKey<ExperimentalWithCallbackMethod_GenerateApiKey<Service > > > > > ExperimentalCallbackService;
+  typedef WithCallbackMethod_ListApiKeys<WithCallbackMethod_SuspendApiKey<WithCallbackMethod_ActivateApiKey<WithCallbackMethod_DeleteApiKey<WithCallbackMethod_GenerateApiKey<Service > > > > > CallbackService;
+  typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_ListApiKeys : public BaseClass {
    private:
@@ -798,27 +650,17 @@ class ApiKeys final {
     }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_ListApiKeys : public BaseClass {
+  class WithRawCallbackMethod_ListApiKeys : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_ListApiKeys() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(0,
+    WithRawCallbackMethod_ListApiKeys() {
+      ::grpc::Service::MarkMethodRawCallback(0,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ListApiKeys(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ListApiKeys(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_ListApiKeys() override {
+    ~WithRawCallbackMethod_ListApiKeys() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -826,37 +668,21 @@ class ApiKeys final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* ListApiKeys(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* ListApiKeys(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_SuspendApiKey : public BaseClass {
+  class WithRawCallbackMethod_SuspendApiKey : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_SuspendApiKey() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(1,
+    WithRawCallbackMethod_SuspendApiKey() {
+      ::grpc::Service::MarkMethodRawCallback(1,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SuspendApiKey(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SuspendApiKey(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_SuspendApiKey() override {
+    ~WithRawCallbackMethod_SuspendApiKey() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -864,37 +690,21 @@ class ApiKeys final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* SuspendApiKey(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* SuspendApiKey(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_ActivateApiKey : public BaseClass {
+  class WithRawCallbackMethod_ActivateApiKey : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_ActivateApiKey() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(2,
+    WithRawCallbackMethod_ActivateApiKey() {
+      ::grpc::Service::MarkMethodRawCallback(2,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ActivateApiKey(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ActivateApiKey(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_ActivateApiKey() override {
+    ~WithRawCallbackMethod_ActivateApiKey() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -902,37 +712,21 @@ class ApiKeys final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* ActivateApiKey(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* ActivateApiKey(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_DeleteApiKey : public BaseClass {
+  class WithRawCallbackMethod_DeleteApiKey : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_DeleteApiKey() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(3,
+    WithRawCallbackMethod_DeleteApiKey() {
+      ::grpc::Service::MarkMethodRawCallback(3,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeleteApiKey(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeleteApiKey(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_DeleteApiKey() override {
+    ~WithRawCallbackMethod_DeleteApiKey() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -940,37 +734,21 @@ class ApiKeys final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* DeleteApiKey(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* DeleteApiKey(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_GenerateApiKey : public BaseClass {
+  class WithRawCallbackMethod_GenerateApiKey : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_GenerateApiKey() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(4,
+    WithRawCallbackMethod_GenerateApiKey() {
+      ::grpc::Service::MarkMethodRawCallback(4,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GenerateApiKey(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GenerateApiKey(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_GenerateApiKey() override {
+    ~WithRawCallbackMethod_GenerateApiKey() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -978,14 +756,8 @@ class ApiKeys final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GenerateApiKey(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GenerateApiKey(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_ListApiKeys : public BaseClass {

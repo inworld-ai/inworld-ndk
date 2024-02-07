@@ -5,318 +5,343 @@
 #include "ai/inworld/engine/v1/state_serialization.pb.h"
 
 #include <algorithm>
-
-#include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/extension_set.h>
-#include <google/protobuf/wire_format_lite.h>
-#include <google/protobuf/descriptor.h>
-#include <google/protobuf/generated_message_reflection.h>
-#include <google/protobuf/reflection_ops.h>
-#include <google/protobuf/wire_format.h>
+#include "google/protobuf/io/coded_stream.h"
+#include "google/protobuf/extension_set.h"
+#include "google/protobuf/wire_format_lite.h"
+#include "google/protobuf/descriptor.h"
+#include "google/protobuf/generated_message_reflection.h"
+#include "google/protobuf/reflection_ops.h"
+#include "google/protobuf/wire_format.h"
+#include "google/protobuf/generated_message_tctable_impl.h"
 // @@protoc_insertion_point(includes)
-#include <google/protobuf/port_def.inc>
-extern PROTOBUF_INTERNAL_EXPORT_google_2fprotobuf_2ftimestamp_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Timestamp_google_2fprotobuf_2ftimestamp_2eproto;
+
+// Must be included last.
+#include "google/protobuf/port_def.inc"
+PROTOBUF_PRAGMA_INIT_SEG
+namespace _pb = ::google::protobuf;
+namespace _pbi = ::google::protobuf_inworld::internal;
+namespace _fl = ::google::protobuf_inworld::internal::field_layout;
 namespace ai {
 namespace inworld {
 namespace engine {
 namespace v1 {
-class GetSessionStateRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<GetSessionStateRequest> _instance;
-} _GetSessionStateRequest_default_instance_;
-class SessionStateDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<SessionState> _instance;
-} _SessionState_default_instance_;
+
+inline constexpr GetSessionStateRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : name_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR GetSessionStateRequest::GetSessionStateRequest(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct GetSessionStateRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GetSessionStateRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GetSessionStateRequestDefaultTypeInternal() {}
+  union {
+    GetSessionStateRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GetSessionStateRequestDefaultTypeInternal _GetSessionStateRequest_default_instance_;
+
+inline constexpr SessionState::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        state_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        creation_time_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR SessionState::SessionState(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct SessionStateDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR SessionStateDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~SessionStateDefaultTypeInternal() {}
+  union {
+    SessionState _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SessionStateDefaultTypeInternal _SessionState_default_instance_;
 }  // namespace v1
 }  // namespace engine
 }  // namespace inworld
 }  // namespace ai
-static void InitDefaultsscc_info_GetSessionStateRequest_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+static ::_pb::Metadata file_level_metadata_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto[2];
+static constexpr const ::_pb::EnumDescriptor**
+    file_level_enum_descriptors_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto = nullptr;
+static constexpr const ::_pb::ServiceDescriptor**
+    file_level_service_descriptors_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto = nullptr;
+const ::uint32_t TableStruct_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
+    protodesc_cold) = {
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::v1::GetSessionStateRequest, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::v1::GetSessionStateRequest, _impl_.name_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::v1::SessionState, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::v1::SessionState, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::v1::SessionState, _impl_.state_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::v1::SessionState, _impl_.creation_time_),
+    ~0u,
+    0,
+};
 
-  {
-    void* ptr = &::ai::inworld::engine::v1::_GetSessionStateRequest_default_instance_;
-    new (ptr) ::ai::inworld::engine::v1::GetSessionStateRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
+static const ::_pbi::MigrationSchema
+    schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+        {0, -1, -1, sizeof(::ai::inworld::engine::v1::GetSessionStateRequest)},
+        {9, 19, -1, sizeof(::ai::inworld::engine::v1::SessionState)},
+};
+
+static const ::_pb::Message* const file_default_instances[] = {
+    &::ai::inworld::engine::v1::_GetSessionStateRequest_default_instance_._instance,
+    &::ai::inworld::engine::v1::_SessionState_default_instance_._instance,
+};
+const char descriptor_table_protodef_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+    "\n.ai/inworld/engine/v1/state_serializati"
+    "on.proto\022\024ai.inworld.engine.v1\032\034google/a"
+    "pi/annotations.proto\032\027google/api/client."
+    "proto\032\037google/api/field_behavior.proto\032\031"
+    "google/api/resource.proto\032\037google/protob"
+    "uf/timestamp.proto\"R\n\026GetSessionStateReq"
+    "uest\0228\n\004name\030\001 \001(\tB*\342A\001\002\372A#\n!ai.inworld."
+    "engine.v1/SessionState\"P\n\014SessionState\022\r"
+    "\n\005state\030\001 \001(\014\0221\n\rcreation_time\030\002 \001(\0132\032.g"
+    "oogle.protobuf.Timestamp2\263\001\n\022StateSerial"
+    "ization\022\234\001\n\017GetSessionState\022,.ai.inworld"
+    ".engine.v1.GetSessionStateRequest\032\".ai.i"
+    "nworld.engine.v1.SessionState\"7\332A\004name\202\323"
+    "\344\223\002*\022(/v1/{name=workspaces/*/sessions/*}"
+    "/stateB\222\001\n\024ai.inworld.engine.v1B\027StateSe"
+    "rializationProtoP\001ZHgithub.com/inworld-a"
+    "i/inworld/serving/grpc-gateway/build/pro"
+    "to/engine/v1\252\002\024Ai.Inworld.Engine.V1b\006pro"
+    "to3"
+};
+static const ::_pbi::DescriptorTable* const descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto_deps[5] =
+    {
+        &::descriptor_table_google_2fapi_2fannotations_2eproto,
+        &::descriptor_table_google_2fapi_2fclient_2eproto,
+        &::descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto,
+        &::descriptor_table_google_2fapi_2fresource_2eproto,
+        &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto,
+};
+static ::absl::once_flag descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto = {
+    false,
+    false,
+    723,
+    descriptor_table_protodef_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto,
+    "ai/inworld/engine/v1/state_serialization.proto",
+    &descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto_once,
+    descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto_deps,
+    5,
+    2,
+    schemas,
+    file_default_instances,
+    TableStruct_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto::offsets,
+    file_level_metadata_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto,
+    file_level_enum_descriptors_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto,
+    file_level_service_descriptors_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto,
+};
+
+// This function exists to be marked as weak.
+// It can significantly speed up compilation by breaking up LLVM's SCC
+// in the .pb.cc translation units. Large translation units see a
+// reduction of more than 35% of walltime for optimized builds. Without
+// the weak attribute all the messages in the file, including all the
+// vtables and everything they use become part of the same SCC through
+// a cycle like:
+// GetMetadata -> descriptor table -> default instances ->
+//   vtables -> GetMetadata
+// By adding a weak function here we break the connection from the
+// individual vtables back into the descriptor table.
+PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto_getter() {
+  return &descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto;
 }
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GetSessionStateRequest_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_GetSessionStateRequest_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto}, {}};
-
-static void InitDefaultsscc_info_SessionState_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::ai::inworld::engine::v1::_SessionState_default_instance_;
-    new (ptr) ::ai::inworld::engine::v1::SessionState();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_SessionState_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_SessionState_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto}, {
-      &scc_info_Timestamp_google_2fprotobuf_2ftimestamp_2eproto.base,}};
-
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto[2];
-static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto = nullptr;
-static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto = nullptr;
-
-const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::v1::GetSessionStateRequest, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::v1::GetSessionStateRequest, name_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::v1::SessionState, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::v1::SessionState, state_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::v1::SessionState, creation_time_),
-};
-static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::ai::inworld::engine::v1::GetSessionStateRequest)},
-  { 6, -1, sizeof(::ai::inworld::engine::v1::SessionState)},
-};
-
-static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::engine::v1::_GetSessionStateRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::engine::v1::_SessionState_default_instance_),
-};
-
-const char descriptor_table_protodef_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n.ai/inworld/engine/v1/state_serializati"
-  "on.proto\022\024ai.inworld.engine.v1\032\034google/a"
-  "pi/annotations.proto\032\027google/api/client."
-  "proto\032\037google/api/field_behavior.proto\032\031"
-  "google/api/resource.proto\032\037google/protob"
-  "uf/timestamp.proto\"Q\n\026GetSessionStateReq"
-  "uest\0227\n\004name\030\001 \001(\tB)\340A\002\372A#\n!ai.inworld.e"
-  "ngine.v1/SessionState\"P\n\014SessionState\022\r\n"
-  "\005state\030\001 \001(\014\0221\n\rcreation_time\030\002 \001(\0132\032.go"
-  "ogle.protobuf.Timestamp2\263\001\n\022StateSeriali"
-  "zation\022\234\001\n\017GetSessionState\022,.ai.inworld."
-  "engine.v1.GetSessionStateRequest\032\".ai.in"
-  "world.engine.v1.SessionState\"7\202\323\344\223\002*\022(/v"
-  "1/{name=workspaces/*/sessions/*}/state\332A"
-  "\004nameB\222\001\n\024ai.inworld.engine.v1B\027StateSer"
-  "ializationProtoP\001ZHgithub.com/inworld-ai"
-  "/inworld/serving/grpc-gateway/build/prot"
-  "o/engine/v1\252\002\024Ai.Inworld.Engine.V1b\006prot"
-  "o3"
-  ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto_deps[5] = {
-  &::descriptor_table_google_2fapi_2fannotations_2eproto,
-  &::descriptor_table_google_2fapi_2fclient_2eproto,
-  &::descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto,
-  &::descriptor_table_google_2fapi_2fresource_2eproto,
-  &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto,
-};
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto_sccs[2] = {
-  &scc_info_GetSessionStateRequest_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto.base,
-  &scc_info_SessionState_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto.base,
-};
-static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto_once;
-const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto, "ai/inworld/engine/v1/state_serialization.proto", 722,
-  &descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto_once, descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto_sccs, descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto_deps, 2, 5,
-  schemas, file_default_instances, TableStruct_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto::offsets,
-  file_level_metadata_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto, 2, file_level_enum_descriptors_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto, file_level_service_descriptors_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto,
-};
-
 // Force running AddDescriptors() at dynamic initialization time.
-static bool dynamic_init_dummy_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto)), true);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2
+static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto(&descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto);
 namespace ai {
 namespace inworld {
 namespace engine {
 namespace v1 {
-
 // ===================================================================
 
 class GetSessionStateRequest::_Internal {
  public:
 };
 
-GetSessionStateRequest::GetSessionStateRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+GetSessionStateRequest::GetSessionStateRequest(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.engine.v1.GetSessionStateRequest)
 }
-GetSessionStateRequest::GetSessionStateRequest(const GetSessionStateRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_name().empty()) {
-    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
-      GetArena());
-  }
+inline PROTOBUF_NDEBUG_INLINE GetSessionStateRequest::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    const Impl_& from)
+      : name_(arena, from.name_),
+        _cached_size_{0} {}
+
+GetSessionStateRequest::GetSessionStateRequest(
+    ::google::protobuf_inworld::Arena* arena,
+    const GetSessionStateRequest& from)
+    : ::google::protobuf_inworld::Message(arena) {
+  GetSessionStateRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+
   // @@protoc_insertion_point(copy_constructor:ai.inworld.engine.v1.GetSessionStateRequest)
 }
+inline PROTOBUF_NDEBUG_INLINE GetSessionStateRequest::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : name_(arena),
+        _cached_size_{0} {}
 
-void GetSessionStateRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_GetSessionStateRequest_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void GetSessionStateRequest::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
 }
-
 GetSessionStateRequest::~GetSessionStateRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.engine.v1.GetSessionStateRequest)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+inline void GetSessionStateRequest::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.name_.Destroy();
+  _impl_.~Impl_();
 }
 
-void GetSessionStateRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void GetSessionStateRequest::ArenaDtor(void* object) {
-  GetSessionStateRequest* _this = reinterpret_cast< GetSessionStateRequest* >(object);
-  (void)_this;
-}
-void GetSessionStateRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void GetSessionStateRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const GetSessionStateRequest& GetSessionStateRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_GetSessionStateRequest_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void GetSessionStateRequest::Clear() {
+PROTOBUF_NOINLINE void GetSessionStateRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:ai.inworld.engine.v1.GetSessionStateRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _impl_.name_.ClearToEmpty();
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* GetSessionStateRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.engine.v1.GetSessionStateRequest.name"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* GetSessionStateRequest::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* GetSessionStateRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 56, 2> GetSessionStateRequest::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_GetSessionStateRequest_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(GetSessionStateRequest, _impl_.name_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
+    {PROTOBUF_FIELD_OFFSET(GetSessionStateRequest, _impl_.name_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\53\4\0\0\0\0\0\0"
+    "ai.inworld.engine.v1.GetSessionStateRequest"
+    "name"
+  }},
+};
+
+::uint8_t* GetSessionStateRequest::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.engine.v1.GetSessionStateRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-  if (this->name().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.engine.v1.GetSessionStateRequest.name");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_name(), target);
+  if (!this->_internal_name().empty()) {
+    const std::string& _s = this->_internal_name();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.engine.v1.GetSessionStateRequest.name");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.engine.v1.GetSessionStateRequest)
   return target;
 }
 
-size_t GetSessionStateRequest::ByteSizeLong() const {
+::size_t GetSessionStateRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:ai.inworld.engine.v1.GetSessionStateRequest)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-  if (this->name().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_name());
+  if (!this->_internal_name().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_name());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void GetSessionStateRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.engine.v1.GetSessionStateRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const GetSessionStateRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<GetSessionStateRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.engine.v1.GetSessionStateRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.engine.v1.GetSessionStateRequest)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData GetSessionStateRequest::_class_data_ = {
+    GetSessionStateRequest::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* GetSessionStateRequest::GetClassData() const {
+  return &_class_data_;
 }
 
-void GetSessionStateRequest::MergeFrom(const GetSessionStateRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.engine.v1.GetSessionStateRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void GetSessionStateRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<GetSessionStateRequest*>(&to_msg);
+  auto& from = static_cast<const GetSessionStateRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.engine.v1.GetSessionStateRequest)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.name().size() > 0) {
-    _internal_set_name(from._internal_name());
+  if (!from._internal_name().empty()) {
+    _this->_internal_set_name(from._internal_name());
   }
-}
-
-void GetSessionStateRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.engine.v1.GetSessionStateRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void GetSessionStateRequest::CopyFrom(const GetSessionStateRequest& from) {
@@ -326,245 +351,235 @@ void GetSessionStateRequest::CopyFrom(const GetSessionStateRequest& from) {
   MergeFrom(from);
 }
 
-bool GetSessionStateRequest::IsInitialized() const {
+PROTOBUF_NOINLINE bool GetSessionStateRequest::IsInitialized() const {
   return true;
 }
 
-void GetSessionStateRequest::InternalSwap(GetSessionStateRequest* other) {
+::_pbi::CachedSize* GetSessionStateRequest::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void GetSessionStateRequest::InternalSwap(GetSessionStateRequest* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata GetSessionStateRequest::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata GetSessionStateRequest::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto_getter, &descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto_once,
+      file_level_metadata_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto[0]);
 }
-
-
 // ===================================================================
 
 class SessionState::_Internal {
  public:
-  static const PROTOBUF_NAMESPACE_ID::Timestamp& creation_time(const SessionState* msg);
+  using HasBits = decltype(std::declval<SessionState>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+    8 * PROTOBUF_FIELD_OFFSET(SessionState, _impl_._has_bits_);
+  static const ::google::protobuf_inworld::Timestamp& creation_time(const SessionState* msg);
+  static void set_has_creation_time(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
 };
 
-const PROTOBUF_NAMESPACE_ID::Timestamp&
-SessionState::_Internal::creation_time(const SessionState* msg) {
-  return *msg->creation_time_;
+const ::google::protobuf_inworld::Timestamp& SessionState::_Internal::creation_time(const SessionState* msg) {
+  return *msg->_impl_.creation_time_;
 }
 void SessionState::clear_creation_time() {
-  if (GetArena() == nullptr && creation_time_ != nullptr) {
-    delete creation_time_;
-  }
-  creation_time_ = nullptr;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (_impl_.creation_time_ != nullptr) _impl_.creation_time_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-SessionState::SessionState(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+SessionState::SessionState(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.engine.v1.SessionState)
 }
-SessionState::SessionState(const SessionState& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  state_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_state().empty()) {
-    state_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_state(), 
-      GetArena());
-  }
-  if (from._internal_has_creation_time()) {
-    creation_time_ = new PROTOBUF_NAMESPACE_ID::Timestamp(*from.creation_time_);
-  } else {
-    creation_time_ = nullptr;
-  }
+inline PROTOBUF_NDEBUG_INLINE SessionState::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    const Impl_& from)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        state_(arena, from.state_) {}
+
+SessionState::SessionState(
+    ::google::protobuf_inworld::Arena* arena,
+    const SessionState& from)
+    : ::google::protobuf_inworld::Message(arena) {
+  SessionState* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.creation_time_ = (cached_has_bits & 0x00000001u)
+                ? CreateMaybeMessage<::google::protobuf_inworld::Timestamp>(arena, *from._impl_.creation_time_)
+                : nullptr;
+
   // @@protoc_insertion_point(copy_constructor:ai.inworld.engine.v1.SessionState)
 }
+inline PROTOBUF_NDEBUG_INLINE SessionState::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : _cached_size_{0},
+        state_(arena) {}
 
-void SessionState::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_SessionState_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto.base);
-  state_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  creation_time_ = nullptr;
+inline void SessionState::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.creation_time_ = {};
 }
-
 SessionState::~SessionState() {
   // @@protoc_insertion_point(destructor:ai.inworld.engine.v1.SessionState)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+inline void SessionState::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.state_.Destroy();
+  delete _impl_.creation_time_;
+  _impl_.~Impl_();
 }
 
-void SessionState::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  state_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete creation_time_;
-}
-
-void SessionState::ArenaDtor(void* object) {
-  SessionState* _this = reinterpret_cast< SessionState* >(object);
-  (void)_this;
-}
-void SessionState::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void SessionState::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const SessionState& SessionState::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_SessionState_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void SessionState::Clear() {
+PROTOBUF_NOINLINE void SessionState::Clear() {
 // @@protoc_insertion_point(message_clear_start:ai.inworld.engine.v1.SessionState)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  state_.ClearToEmpty();
-  if (GetArena() == nullptr && creation_time_ != nullptr) {
-    delete creation_time_;
+  _impl_.state_.ClearToEmpty();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(_impl_.creation_time_ != nullptr);
+    _impl_.creation_time_->Clear();
   }
-  creation_time_ = nullptr;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* SessionState::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // bytes state = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_state();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .google.protobuf.Timestamp creation_time = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_creation_time(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* SessionState::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SessionState::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 1, 0, 2> SessionState::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(SessionState, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    &_SessionState_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // .google.protobuf.Timestamp creation_time = 2;
+    {::_pbi::TcParser::FastMtS1,
+     {18, 0, 0, PROTOBUF_FIELD_OFFSET(SessionState, _impl_.creation_time_)}},
+    // bytes state = 1;
+    {::_pbi::TcParser::FastBS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(SessionState, _impl_.state_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // bytes state = 1;
+    {PROTOBUF_FIELD_OFFSET(SessionState, _impl_.state_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBytes | ::_fl::kRepAString)},
+    // .google.protobuf.Timestamp creation_time = 2;
+    {PROTOBUF_FIELD_OFFSET(SessionState, _impl_.creation_time_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::google::protobuf_inworld::Timestamp>()},
+  }}, {{
+  }},
+};
+
+::uint8_t* SessionState::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.engine.v1.SessionState)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // bytes state = 1;
-  if (this->state().size() > 0) {
-    target = stream->WriteBytesMaybeAliased(
-        1, this->_internal_state(), target);
+  if (!this->_internal_state().empty()) {
+    const std::string& _s = this->_internal_state();
+    target = stream->WriteBytesMaybeAliased(1, _s, target);
   }
 
+  cached_has_bits = _impl_._has_bits_[0];
   // .google.protobuf.Timestamp creation_time = 2;
-  if (this->has_creation_time()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::creation_time(this), target, stream);
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+        2, _Internal::creation_time(this),
+        _Internal::creation_time(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.engine.v1.SessionState)
   return target;
 }
 
-size_t SessionState::ByteSizeLong() const {
+::size_t SessionState::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:ai.inworld.engine.v1.SessionState)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // bytes state = 1;
-  if (this->state().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_state());
+  if (!this->_internal_state().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::BytesSize(
+                                    this->_internal_state());
   }
 
   // .google.protobuf.Timestamp creation_time = 2;
-  if (this->has_creation_time()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *creation_time_);
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size +=
+        1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.creation_time_);
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void SessionState::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.engine.v1.SessionState)
-  GOOGLE_DCHECK_NE(&from, this);
-  const SessionState* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SessionState>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.engine.v1.SessionState)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.engine.v1.SessionState)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData SessionState::_class_data_ = {
+    SessionState::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* SessionState::GetClassData() const {
+  return &_class_data_;
 }
 
-void SessionState::MergeFrom(const SessionState& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.engine.v1.SessionState)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void SessionState::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<SessionState*>(&to_msg);
+  auto& from = static_cast<const SessionState&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.engine.v1.SessionState)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.state().size() > 0) {
-    _internal_set_state(from._internal_state());
+  if (!from._internal_state().empty()) {
+    _this->_internal_set_state(from._internal_state());
   }
-  if (from.has_creation_time()) {
-    _internal_mutable_creation_time()->PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(from._internal_creation_time());
+  if ((from._impl_._has_bits_[0] & 0x00000001u) != 0) {
+    _this->_internal_mutable_creation_time()->::google::protobuf_inworld::Timestamp::MergeFrom(
+        from._internal_creation_time());
   }
-}
-
-void SessionState::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.engine.v1.SessionState)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void SessionState::CopyFrom(const SessionState& from) {
@@ -574,35 +589,36 @@ void SessionState::CopyFrom(const SessionState& from) {
   MergeFrom(from);
 }
 
-bool SessionState::IsInitialized() const {
+PROTOBUF_NOINLINE bool SessionState::IsInitialized() const {
   return true;
 }
 
-void SessionState::InternalSwap(SessionState* other) {
+::_pbi::CachedSize* SessionState::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void SessionState::InternalSwap(SessionState* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  state_.Swap(&other->state_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  swap(creation_time_, other->creation_time_);
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.state_, &other->_impl_.state_, arena);
+  swap(_impl_.creation_time_, other->_impl_.creation_time_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata SessionState::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata SessionState::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto_getter, &descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto_once,
+      file_level_metadata_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto[1]);
 }
-
-
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace v1
 }  // namespace engine
 }  // namespace inworld
 }  // namespace ai
-PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::ai::inworld::engine::v1::GetSessionStateRequest* Arena::CreateMaybeMessage< ::ai::inworld::engine::v1::GetSessionStateRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ai::inworld::engine::v1::GetSessionStateRequest >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ai::inworld::engine::v1::SessionState* Arena::CreateMaybeMessage< ::ai::inworld::engine::v1::SessionState >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ai::inworld::engine::v1::SessionState >(arena);
-}
-PROTOBUF_NAMESPACE_CLOSE
-
+namespace google {
+namespace protobuf {
+}  // namespace protobuf
+}  // namespace google
 // @@protoc_insertion_point(global_scope)
-#include <google/protobuf/port_undef.inc>
+#include "google/protobuf/port_undef.inc"

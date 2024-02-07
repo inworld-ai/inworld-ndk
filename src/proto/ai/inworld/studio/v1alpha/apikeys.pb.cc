@@ -5,369 +5,462 @@
 #include "ai/inworld/studio/v1alpha/apikeys.pb.h"
 
 #include <algorithm>
-
-#include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/extension_set.h>
-#include <google/protobuf/wire_format_lite.h>
-#include <google/protobuf/descriptor.h>
-#include <google/protobuf/generated_message_reflection.h>
-#include <google/protobuf/reflection_ops.h>
-#include <google/protobuf/wire_format.h>
+#include "google/protobuf/io/coded_stream.h"
+#include "google/protobuf/extension_set.h"
+#include "google/protobuf/wire_format_lite.h"
+#include "google/protobuf/descriptor.h"
+#include "google/protobuf/generated_message_reflection.h"
+#include "google/protobuf/reflection_ops.h"
+#include "google/protobuf/wire_format.h"
+#include "google/protobuf/generated_message_tctable_impl.h"
 // @@protoc_insertion_point(includes)
-#include <google/protobuf/port_def.inc>
-extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ApiKey_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ApiKey_UsageLimits_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_google_2fprotobuf_2ftimestamp_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Timestamp_google_2fprotobuf_2ftimestamp_2eproto;
+
+// Must be included last.
+#include "google/protobuf/port_def.inc"
+PROTOBUF_PRAGMA_INIT_SEG
+namespace _pb = ::google::protobuf;
+namespace _pbi = ::google::protobuf_inworld::internal;
+namespace _fl = ::google::protobuf_inworld::internal::field_layout;
 namespace ai {
 namespace inworld {
 namespace studio {
 namespace v1alpha {
-class ApiKey_UsageLimitsDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ApiKey_UsageLimits> _instance;
-} _ApiKey_UsageLimits_default_instance_;
-class ApiKeyDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ApiKey> _instance;
-} _ApiKey_default_instance_;
-class GenerateApiKeyRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<GenerateApiKeyRequest> _instance;
-} _GenerateApiKeyRequest_default_instance_;
-class ListApiKeysRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ListApiKeysRequest> _instance;
-} _ListApiKeysRequest_default_instance_;
-class SuspendApiKeyRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<SuspendApiKeyRequest> _instance;
-} _SuspendApiKeyRequest_default_instance_;
-class ActivateApiKeyRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ActivateApiKeyRequest> _instance;
-} _ActivateApiKeyRequest_default_instance_;
-class DeleteApiKeyRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<DeleteApiKeyRequest> _instance;
-} _DeleteApiKeyRequest_default_instance_;
-class ListApiKeysResponseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ListApiKeysResponse> _instance;
-} _ListApiKeysResponse_default_instance_;
+
+inline constexpr SuspendApiKeyRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : name_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR SuspendApiKeyRequest::SuspendApiKeyRequest(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct SuspendApiKeyRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR SuspendApiKeyRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~SuspendApiKeyRequestDefaultTypeInternal() {}
+  union {
+    SuspendApiKeyRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SuspendApiKeyRequestDefaultTypeInternal _SuspendApiKeyRequest_default_instance_;
+
+inline constexpr ListApiKeysRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : parent_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        page_token_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        page_size_{0},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ListApiKeysRequest::ListApiKeysRequest(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct ListApiKeysRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ListApiKeysRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ListApiKeysRequestDefaultTypeInternal() {}
+  union {
+    ListApiKeysRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ListApiKeysRequestDefaultTypeInternal _ListApiKeysRequest_default_instance_;
+
+inline constexpr GenerateApiKeyRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : parent_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR GenerateApiKeyRequest::GenerateApiKeyRequest(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct GenerateApiKeyRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GenerateApiKeyRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GenerateApiKeyRequestDefaultTypeInternal() {}
+  union {
+    GenerateApiKeyRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GenerateApiKeyRequestDefaultTypeInternal _GenerateApiKeyRequest_default_instance_;
+
+inline constexpr DeleteApiKeyRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : name_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR DeleteApiKeyRequest::DeleteApiKeyRequest(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct DeleteApiKeyRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR DeleteApiKeyRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~DeleteApiKeyRequestDefaultTypeInternal() {}
+  union {
+    DeleteApiKeyRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DeleteApiKeyRequestDefaultTypeInternal _DeleteApiKeyRequest_default_instance_;
+
+inline constexpr ActivateApiKeyRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : name_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ActivateApiKeyRequest::ActivateApiKeyRequest(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct ActivateApiKeyRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ActivateApiKeyRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ActivateApiKeyRequestDefaultTypeInternal() {}
+  union {
+    ActivateApiKeyRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ActivateApiKeyRequestDefaultTypeInternal _ActivateApiKeyRequest_default_instance_;
+
+inline constexpr ApiKey_UsageLimits::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        expiration_time_{nullptr},
+        daily_limit_seconds_amount_{::int64_t{0}},
+        total_limit_seconds_amount_{::int64_t{0}},
+        max_concurrent_sessions_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ApiKey_UsageLimits::ApiKey_UsageLimits(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct ApiKey_UsageLimitsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ApiKey_UsageLimitsDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ApiKey_UsageLimitsDefaultTypeInternal() {}
+  union {
+    ApiKey_UsageLimits _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ApiKey_UsageLimitsDefaultTypeInternal _ApiKey_UsageLimits_default_instance_;
+
+inline constexpr ApiKey::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        name_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        key_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        secret_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        usage_limits_{nullptr},
+        state_{static_cast< ::ai::inworld::studio::v1alpha::ApiKey_State >(0)} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ApiKey::ApiKey(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct ApiKeyDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ApiKeyDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ApiKeyDefaultTypeInternal() {}
+  union {
+    ApiKey _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ApiKeyDefaultTypeInternal _ApiKey_default_instance_;
+
+inline constexpr ListApiKeysResponse::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : api_keys_{},
+        next_page_token_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ListApiKeysResponse::ListApiKeysResponse(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct ListApiKeysResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ListApiKeysResponseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ListApiKeysResponseDefaultTypeInternal() {}
+  union {
+    ListApiKeysResponse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ListApiKeysResponseDefaultTypeInternal _ListApiKeysResponse_default_instance_;
 }  // namespace v1alpha
 }  // namespace studio
 }  // namespace inworld
 }  // namespace ai
-static void InitDefaultsscc_info_ActivateApiKeyRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::ai::inworld::studio::v1alpha::_ActivateApiKeyRequest_default_instance_;
-    new (ptr) ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ActivateApiKeyRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ActivateApiKeyRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto}, {}};
-
-static void InitDefaultsscc_info_ApiKey_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::ai::inworld::studio::v1alpha::_ApiKey_default_instance_;
-    new (ptr) ::ai::inworld::studio::v1alpha::ApiKey();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ApiKey_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ApiKey_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto}, {
-      &scc_info_ApiKey_UsageLimits_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base,}};
-
-static void InitDefaultsscc_info_ApiKey_UsageLimits_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::ai::inworld::studio::v1alpha::_ApiKey_UsageLimits_default_instance_;
-    new (ptr) ::ai::inworld::studio::v1alpha::ApiKey_UsageLimits();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ApiKey_UsageLimits_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ApiKey_UsageLimits_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto}, {
-      &scc_info_Timestamp_google_2fprotobuf_2ftimestamp_2eproto.base,}};
-
-static void InitDefaultsscc_info_DeleteApiKeyRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::ai::inworld::studio::v1alpha::_DeleteApiKeyRequest_default_instance_;
-    new (ptr) ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_DeleteApiKeyRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_DeleteApiKeyRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto}, {}};
-
-static void InitDefaultsscc_info_GenerateApiKeyRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::ai::inworld::studio::v1alpha::_GenerateApiKeyRequest_default_instance_;
-    new (ptr) ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GenerateApiKeyRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_GenerateApiKeyRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto}, {}};
-
-static void InitDefaultsscc_info_ListApiKeysRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::ai::inworld::studio::v1alpha::_ListApiKeysRequest_default_instance_;
-    new (ptr) ::ai::inworld::studio::v1alpha::ListApiKeysRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ListApiKeysRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ListApiKeysRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto}, {}};
-
-static void InitDefaultsscc_info_ListApiKeysResponse_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::ai::inworld::studio::v1alpha::_ListApiKeysResponse_default_instance_;
-    new (ptr) ::ai::inworld::studio::v1alpha::ListApiKeysResponse();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ListApiKeysResponse_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ListApiKeysResponse_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto}, {
-      &scc_info_ApiKey_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base,}};
-
-static void InitDefaultsscc_info_SuspendApiKeyRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::ai::inworld::studio::v1alpha::_SuspendApiKeyRequest_default_instance_;
-    new (ptr) ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_SuspendApiKeyRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_SuspendApiKeyRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto}, {}};
-
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto[8];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto[1];
-static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto = nullptr;
-
-const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey_UsageLimits, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey_UsageLimits, max_concurrent_sessions_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey_UsageLimits, daily_limit_seconds_amount_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey_UsageLimits, total_limit_seconds_amount_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey_UsageLimits, expiration_time_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey, name_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey, key_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey, secret_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey, state_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey, usage_limits_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::GenerateApiKeyRequest, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::GenerateApiKeyRequest, parent_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ListApiKeysRequest, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ListApiKeysRequest, parent_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ListApiKeysRequest, page_size_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ListApiKeysRequest, page_token_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::SuspendApiKeyRequest, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::SuspendApiKeyRequest, name_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ActivateApiKeyRequest, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ActivateApiKeyRequest, name_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::DeleteApiKeyRequest, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::DeleteApiKeyRequest, name_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ListApiKeysResponse, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ListApiKeysResponse, api_keys_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ListApiKeysResponse, next_page_token_),
-};
-static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::ai::inworld::studio::v1alpha::ApiKey_UsageLimits)},
-  { 9, -1, sizeof(::ai::inworld::studio::v1alpha::ApiKey)},
-  { 19, -1, sizeof(::ai::inworld::studio::v1alpha::GenerateApiKeyRequest)},
-  { 25, -1, sizeof(::ai::inworld::studio::v1alpha::ListApiKeysRequest)},
-  { 33, -1, sizeof(::ai::inworld::studio::v1alpha::SuspendApiKeyRequest)},
-  { 39, -1, sizeof(::ai::inworld::studio::v1alpha::ActivateApiKeyRequest)},
-  { 45, -1, sizeof(::ai::inworld::studio::v1alpha::DeleteApiKeyRequest)},
-  { 51, -1, sizeof(::ai::inworld::studio::v1alpha::ListApiKeysResponse)},
+static ::_pb::Metadata file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto[8];
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto[1];
+static constexpr const ::_pb::ServiceDescriptor**
+    file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto = nullptr;
+const ::uint32_t TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
+    protodesc_cold) = {
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey_UsageLimits, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey_UsageLimits, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey_UsageLimits, _impl_.max_concurrent_sessions_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey_UsageLimits, _impl_.daily_limit_seconds_amount_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey_UsageLimits, _impl_.total_limit_seconds_amount_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey_UsageLimits, _impl_.expiration_time_),
+    ~0u,
+    ~0u,
+    ~0u,
+    0,
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey, _impl_.name_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey, _impl_.key_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey, _impl_.secret_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey, _impl_.state_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey, _impl_.usage_limits_),
+    ~0u,
+    ~0u,
+    ~0u,
+    ~0u,
+    0,
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::GenerateApiKeyRequest, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::GenerateApiKeyRequest, _impl_.parent_),
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ListApiKeysRequest, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ListApiKeysRequest, _impl_.parent_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ListApiKeysRequest, _impl_.page_size_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ListApiKeysRequest, _impl_.page_token_),
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::SuspendApiKeyRequest, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::SuspendApiKeyRequest, _impl_.name_),
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ActivateApiKeyRequest, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ActivateApiKeyRequest, _impl_.name_),
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::DeleteApiKeyRequest, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::DeleteApiKeyRequest, _impl_.name_),
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ListApiKeysResponse, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ListApiKeysResponse, _impl_.api_keys_),
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ListApiKeysResponse, _impl_.next_page_token_),
 };
 
-static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::studio::v1alpha::_ApiKey_UsageLimits_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::studio::v1alpha::_ApiKey_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::studio::v1alpha::_GenerateApiKeyRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::studio::v1alpha::_ListApiKeysRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::studio::v1alpha::_SuspendApiKeyRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::studio::v1alpha::_ActivateApiKeyRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::studio::v1alpha::_DeleteApiKeyRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::studio::v1alpha::_ListApiKeysResponse_default_instance_),
+static const ::_pbi::MigrationSchema
+    schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+        {0, 12, -1, sizeof(::ai::inworld::studio::v1alpha::ApiKey_UsageLimits)},
+        {16, 29, -1, sizeof(::ai::inworld::studio::v1alpha::ApiKey)},
+        {34, -1, -1, sizeof(::ai::inworld::studio::v1alpha::GenerateApiKeyRequest)},
+        {43, -1, -1, sizeof(::ai::inworld::studio::v1alpha::ListApiKeysRequest)},
+        {54, -1, -1, sizeof(::ai::inworld::studio::v1alpha::SuspendApiKeyRequest)},
+        {63, -1, -1, sizeof(::ai::inworld::studio::v1alpha::ActivateApiKeyRequest)},
+        {72, -1, -1, sizeof(::ai::inworld::studio::v1alpha::DeleteApiKeyRequest)},
+        {81, -1, -1, sizeof(::ai::inworld::studio::v1alpha::ListApiKeysResponse)},
 };
 
-const char descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\'ai/inworld/studio/v1alpha/apikeys.prot"
-  "o\022\031ai.inworld.studio.v1alpha\032\034google/api"
-  "/annotations.proto\032\027google/api/client.pr"
-  "oto\032\037google/api/field_behavior.proto\032\031go"
-  "ogle/api/resource.proto\032\033google/protobuf"
-  "/empty.proto\032\037google/protobuf/timestamp."
-  "proto\032 ai/inworld/options/options.proto\""
-  "\377\003\n\006ApiKey\022\014\n\004name\030\001 \001(\t\022\013\n\003key\030\002 \001(\t\022\016\n"
-  "\006secret\030\003 \001(\t\0226\n\005state\030\004 \001(\0162\'.ai.inworl"
-  "d.studio.v1alpha.ApiKey.State\022C\n\014usage_l"
-  "imits\030\005 \001(\0132-.ai.inworld.studio.v1alpha."
-  "ApiKey.UsageLimits\032\277\001\n\013UsageLimits\022$\n\027ma"
-  "x_concurrent_sessions\030\001 \001(\005B\003\340A\001\022\'\n\032dail"
-  "y_limit_seconds_amount\030\002 \001(\003B\003\340A\001\022\'\n\032tot"
-  "al_limit_seconds_amount\030\003 \001(\003B\003\340A\001\0228\n\017ex"
-  "piration_time\030\004 \001(\0132\032.google.protobuf.Ti"
-  "mestampB\003\340A\001\"F\n\005State\022\025\n\021STATE_UNSPECIFI"
-  "ED\020\000\022\n\n\006ACTIVE\020\001\022\r\n\tSUSPENDED\020\002\022\013\n\007DELET"
-  "ED\020\003:C\352A@\n\025api.inworld.ai/ApiKey\022\'worksp"
-  "aces/{workspace}/apikeys/{apikey}\"d\n\025Gen"
-  "erateApiKeyRequest\022K\n\006parent\030\001 \001(\tB;\340A\002\372"
-  "A\027\022\025api.inworld.ai/ApiKey\242\317\"\032\n\030\032\026workspa"
-  "ces/workspace-1\"\210\001\n\022ListApiKeysRequest\022K"
-  "\n\006parent\030\001 \001(\tB;\340A\002\372A\027\022\025api.inworld.ai/A"
-  "piKey\242\317\"\032\n\030\032\026workspaces/workspace-1\022\021\n\tp"
-  "age_size\030\002 \001(\005\022\022\n\npage_token\030\003 \001(\t\"\217\001\n\024S"
-  "uspendApiKeyRequest\022w\n\004name\030\001 \001(\tBi\340A\002\372A"
-  "\027\n\025api.inworld.ai/ApiKey\242\317\"H\nF\032Dworkspac"
-  "es/workspace-1/apikeys/00000000-0000-000"
-  "0-0000-1000000000000\"\220\001\n\025ActivateApiKeyR"
-  "equest\022w\n\004name\030\001 \001(\tBi\340A\002\372A\027\n\025api.inworl"
-  "d.ai/ApiKey\242\317\"H\nF\032Dworkspaces/workspace-"
-  "1/apikeys/00000000-0000-0000-0000-100000"
-  "0000000\"\216\001\n\023DeleteApiKeyRequest\022w\n\004name\030"
-  "\001 \001(\tBi\340A\002\372A\027\n\025api.inworld.ai/ApiKey\242\317\"H"
-  "\nF\032Dworkspaces/workspace-1/apikeys/00000"
-  "000-0000-0000-0000-1000000000000\"c\n\023List"
-  "ApiKeysResponse\0223\n\010api_keys\030\001 \003(\0132!.ai.i"
-  "nworld.studio.v1alpha.ApiKey\022\027\n\017next_pag"
-  "e_token\030\002 \001(\t2\300\006\n\007ApiKeys\022\245\001\n\013ListApiKey"
-  "s\022-.ai.inworld.studio.v1alpha.ListApiKey"
-  "sRequest\032..ai.inworld.studio.v1alpha.Lis"
-  "tApiKeysResponse\"7\202\323\344\223\002(\022&/v1alpha/{pare"
-  "nt=workspaces/*}/apikeys\332A\006parent\022\245\001\n\rSu"
-  "spendApiKey\022/.ai.inworld.studio.v1alpha."
-  "SuspendApiKeyRequest\032!.ai.inworld.studio"
-  ".v1alpha.ApiKey\"@\202\323\344\223\0023\"./v1alpha/{name="
-  "workspaces/*/apikeys/*}:suspend:\001*\332A\004nam"
-  "e\022\250\001\n\016ActivateApiKey\0220.ai.inworld.studio"
-  ".v1alpha.ActivateApiKeyRequest\032!.ai.inwo"
-  "rld.studio.v1alpha.ApiKey\"A\202\323\344\223\0024\"//v1al"
-  "pha/{name=workspaces/*/apikeys/*}:activa"
-  "te:\001*\332A\004name\022\215\001\n\014DeleteApiKey\022..ai.inwor"
-  "ld.studio.v1alpha.DeleteApiKeyRequest\032\026."
-  "google.protobuf.Empty\"5\202\323\344\223\002(*&/v1alpha/"
-  "{name=workspaces/*/apikeys/*}\332A\004name\022\251\001\n"
-  "\016GenerateApiKey\0220.ai.inworld.studio.v1al"
-  "pha.GenerateApiKeyRequest\032!.ai.inworld.s"
-  "tudio.v1alpha.ApiKey\"B\202\323\344\223\0023\"./v1alpha/{"
-  "parent=workspaces/*}/apikey:generate:\001*\332"
-  "A\006parentB\226\001\n\031ai.inworld.studio.v1alphaB\014"
-  "ApiKeysProtoP\001ZMgithub.com/inworld-ai/in"
-  "world/serving/grpc-gateway/build/proto/s"
-  "tudio/v1alpha\252\002\031Ai.Inworld.Studio.V1Alph"
-  "ab\006proto3"
-  ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_deps[7] = {
-  &::descriptor_table_ai_2finworld_2foptions_2foptions_2eproto,
-  &::descriptor_table_google_2fapi_2fannotations_2eproto,
-  &::descriptor_table_google_2fapi_2fclient_2eproto,
-  &::descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto,
-  &::descriptor_table_google_2fapi_2fresource_2eproto,
-  &::descriptor_table_google_2fprotobuf_2fempty_2eproto,
-  &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto,
+static const ::_pb::Message* const file_default_instances[] = {
+    &::ai::inworld::studio::v1alpha::_ApiKey_UsageLimits_default_instance_._instance,
+    &::ai::inworld::studio::v1alpha::_ApiKey_default_instance_._instance,
+    &::ai::inworld::studio::v1alpha::_GenerateApiKeyRequest_default_instance_._instance,
+    &::ai::inworld::studio::v1alpha::_ListApiKeysRequest_default_instance_._instance,
+    &::ai::inworld::studio::v1alpha::_SuspendApiKeyRequest_default_instance_._instance,
+    &::ai::inworld::studio::v1alpha::_ActivateApiKeyRequest_default_instance_._instance,
+    &::ai::inworld::studio::v1alpha::_DeleteApiKeyRequest_default_instance_._instance,
+    &::ai::inworld::studio::v1alpha::_ListApiKeysResponse_default_instance_._instance,
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_sccs[8] = {
-  &scc_info_ActivateApiKeyRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base,
-  &scc_info_ApiKey_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base,
-  &scc_info_ApiKey_UsageLimits_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base,
-  &scc_info_DeleteApiKeyRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base,
-  &scc_info_GenerateApiKeyRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base,
-  &scc_info_ListApiKeysRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base,
-  &scc_info_ListApiKeysResponse_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base,
-  &scc_info_SuspendApiKeyRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base,
+const char descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+    "\n\'ai/inworld/studio/v1alpha/apikeys.prot"
+    "o\022\031ai.inworld.studio.v1alpha\032\034google/api"
+    "/annotations.proto\032\027google/api/client.pr"
+    "oto\032\037google/api/field_behavior.proto\032\031go"
+    "ogle/api/resource.proto\032\033google/protobuf"
+    "/empty.proto\032\037google/protobuf/timestamp."
+    "proto\032 ai/inworld/options/options.proto\""
+    "\203\004\n\006ApiKey\022\014\n\004name\030\001 \001(\t\022\013\n\003key\030\002 \001(\t\022\016\n"
+    "\006secret\030\003 \001(\t\0226\n\005state\030\004 \001(\0162\'.ai.inworl"
+    "d.studio.v1alpha.ApiKey.State\022C\n\014usage_l"
+    "imits\030\005 \001(\0132-.ai.inworld.studio.v1alpha."
+    "ApiKey.UsageLimits\032\303\001\n\013UsageLimits\022%\n\027ma"
+    "x_concurrent_sessions\030\001 \001(\005B\004\342A\001\001\022(\n\032dai"
+    "ly_limit_seconds_amount\030\002 \001(\003B\004\342A\001\001\022(\n\032t"
+    "otal_limit_seconds_amount\030\003 \001(\003B\004\342A\001\001\0229\n"
+    "\017expiration_time\030\004 \001(\0132\032.google.protobuf"
+    ".TimestampB\004\342A\001\001\"F\n\005State\022\025\n\021STATE_UNSPE"
+    "CIFIED\020\000\022\n\n\006ACTIVE\020\001\022\r\n\tSUSPENDED\020\002\022\013\n\007D"
+    "ELETED\020\003:C\352A@\n\025api.inworld.ai/ApiKey\022\'wo"
+    "rkspaces/{workspace}/apikeys/{apikey}\"e\n"
+    "\025GenerateApiKeyRequest\022L\n\006parent\030\001 \001(\tB<"
+    "\342A\001\002\372A\027\022\025api.inworld.ai/ApiKey\242\317\"\032\n\030\032\026wo"
+    "rkspaces/workspace-1\"\211\001\n\022ListApiKeysRequ"
+    "est\022L\n\006parent\030\001 \001(\tB<\342A\001\002\372A\027\022\025api.inworl"
+    "d.ai/ApiKey\242\317\"\032\n\030\032\026workspaces/workspace-"
+    "1\022\021\n\tpage_size\030\002 \001(\005\022\022\n\npage_token\030\003 \001(\t"
+    "\"\220\001\n\024SuspendApiKeyRequest\022x\n\004name\030\001 \001(\tB"
+    "j\342A\001\002\372A\027\n\025api.inworld.ai/ApiKey\242\317\"H\nF\032Dw"
+    "orkspaces/workspace-1/apikeys/00000000-0"
+    "000-0000-0000-1000000000000\"\221\001\n\025Activate"
+    "ApiKeyRequest\022x\n\004name\030\001 \001(\tBj\342A\001\002\372A\027\n\025ap"
+    "i.inworld.ai/ApiKey\242\317\"H\nF\032Dworkspaces/wo"
+    "rkspace-1/apikeys/00000000-0000-0000-000"
+    "0-1000000000000\"\217\001\n\023DeleteApiKeyRequest\022"
+    "x\n\004name\030\001 \001(\tBj\342A\001\002\372A\027\n\025api.inworld.ai/A"
+    "piKey\242\317\"H\nF\032Dworkspaces/workspace-1/apik"
+    "eys/00000000-0000-0000-0000-100000000000"
+    "0\"c\n\023ListApiKeysResponse\0223\n\010api_keys\030\001 \003"
+    "(\0132!.ai.inworld.studio.v1alpha.ApiKey\022\027\n"
+    "\017next_page_token\030\002 \001(\t2\300\006\n\007ApiKeys\022\245\001\n\013L"
+    "istApiKeys\022-.ai.inworld.studio.v1alpha.L"
+    "istApiKeysRequest\032..ai.inworld.studio.v1"
+    "alpha.ListApiKeysResponse\"7\332A\006parent\202\323\344\223"
+    "\002(\022&/v1alpha/{parent=workspaces/*}/apike"
+    "ys\022\245\001\n\rSuspendApiKey\022/.ai.inworld.studio"
+    ".v1alpha.SuspendApiKeyRequest\032!.ai.inwor"
+    "ld.studio.v1alpha.ApiKey\"@\332A\004name\202\323\344\223\0023\""
+    "./v1alpha/{name=workspaces/*/apikeys/*}:"
+    "suspend:\001*\022\250\001\n\016ActivateApiKey\0220.ai.inwor"
+    "ld.studio.v1alpha.ActivateApiKeyRequest\032"
+    "!.ai.inworld.studio.v1alpha.ApiKey\"A\332A\004n"
+    "ame\202\323\344\223\0024\"//v1alpha/{name=workspaces/*/a"
+    "pikeys/*}:activate:\001*\022\215\001\n\014DeleteApiKey\022."
+    ".ai.inworld.studio.v1alpha.DeleteApiKeyR"
+    "equest\032\026.google.protobuf.Empty\"5\332A\004name\202"
+    "\323\344\223\002(*&/v1alpha/{name=workspaces/*/apike"
+    "ys/*}\022\251\001\n\016GenerateApiKey\0220.ai.inworld.st"
+    "udio.v1alpha.GenerateApiKeyRequest\032!.ai."
+    "inworld.studio.v1alpha.ApiKey\"B\332A\006parent"
+    "\202\323\344\223\0023\"./v1alpha/{parent=workspaces/*}/a"
+    "pikey:generate:\001*B\226\001\n\031ai.inworld.studio."
+    "v1alphaB\014ApiKeysProtoP\001ZMgithub.com/inwo"
+    "rld-ai/inworld/serving/grpc-gateway/buil"
+    "d/proto/studio/v1alpha\252\002\031Ai.Inworld.Stud"
+    "io.V1Alphab\006proto3"
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_once;
-const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto, "ai/inworld/studio/v1alpha/apikeys.proto", 2569,
-  &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_once, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_sccs, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_deps, 8, 7,
-  schemas, file_default_instances, TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto::offsets,
-  file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto, 8, file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto, file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto,
+static const ::_pbi::DescriptorTable* const descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_deps[7] =
+    {
+        &::descriptor_table_ai_2finworld_2foptions_2foptions_2eproto,
+        &::descriptor_table_google_2fapi_2fannotations_2eproto,
+        &::descriptor_table_google_2fapi_2fclient_2eproto,
+        &::descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto,
+        &::descriptor_table_google_2fapi_2fresource_2eproto,
+        &::descriptor_table_google_2fprotobuf_2fempty_2eproto,
+        &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto,
+};
+static ::absl::once_flag descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto = {
+    false,
+    false,
+    2578,
+    descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto,
+    "ai/inworld/studio/v1alpha/apikeys.proto",
+    &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_once,
+    descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_deps,
+    7,
+    8,
+    schemas,
+    file_default_instances,
+    TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto::offsets,
+    file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto,
+    file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto,
+    file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto,
 };
 
+// This function exists to be marked as weak.
+// It can significantly speed up compilation by breaking up LLVM's SCC
+// in the .pb.cc translation units. Large translation units see a
+// reduction of more than 35% of walltime for optimized builds. Without
+// the weak attribute all the messages in the file, including all the
+// vtables and everything they use become part of the same SCC through
+// a cycle like:
+// GetMetadata -> descriptor table -> default instances ->
+//   vtables -> GetMetadata
+// By adding a weak function here we break the connection from the
+// individual vtables back into the descriptor table.
+PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_getter() {
+  return &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto;
+}
 // Force running AddDescriptors() at dynamic initialization time.
-static bool dynamic_init_dummy_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto)), true);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2
+static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto);
 namespace ai {
 namespace inworld {
 namespace studio {
 namespace v1alpha {
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ApiKey_State_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto);
+const ::google::protobuf_inworld::EnumDescriptor* ApiKey_State_descriptor() {
+  ::google::protobuf_inworld::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto);
   return file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto[0];
 }
+PROTOBUF_CONSTINIT const uint32_t ApiKey_State_internal_data_[] = {
+    262144u, 0u, };
 bool ApiKey_State_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-      return true;
-    default:
-      return false;
-  }
+  return 0 <= value && value <= 3;
 }
+#if (__cplusplus < 201703) && \
+  (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 
-#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
 constexpr ApiKey_State ApiKey::STATE_UNSPECIFIED;
 constexpr ApiKey_State ApiKey::ACTIVE;
 constexpr ApiKey_State ApiKey::SUSPENDED;
@@ -375,278 +468,274 @@ constexpr ApiKey_State ApiKey::DELETED;
 constexpr ApiKey_State ApiKey::State_MIN;
 constexpr ApiKey_State ApiKey::State_MAX;
 constexpr int ApiKey::State_ARRAYSIZE;
-#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
 
+#endif  // (__cplusplus < 201703) &&
+        // (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 // ===================================================================
 
 class ApiKey_UsageLimits::_Internal {
  public:
-  static const PROTOBUF_NAMESPACE_ID::Timestamp& expiration_time(const ApiKey_UsageLimits* msg);
+  using HasBits = decltype(std::declval<ApiKey_UsageLimits>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+    8 * PROTOBUF_FIELD_OFFSET(ApiKey_UsageLimits, _impl_._has_bits_);
+  static const ::google::protobuf_inworld::Timestamp& expiration_time(const ApiKey_UsageLimits* msg);
+  static void set_has_expiration_time(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
 };
 
-const PROTOBUF_NAMESPACE_ID::Timestamp&
-ApiKey_UsageLimits::_Internal::expiration_time(const ApiKey_UsageLimits* msg) {
-  return *msg->expiration_time_;
+const ::google::protobuf_inworld::Timestamp& ApiKey_UsageLimits::_Internal::expiration_time(const ApiKey_UsageLimits* msg) {
+  return *msg->_impl_.expiration_time_;
 }
 void ApiKey_UsageLimits::clear_expiration_time() {
-  if (GetArena() == nullptr && expiration_time_ != nullptr) {
-    delete expiration_time_;
-  }
-  expiration_time_ = nullptr;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (_impl_.expiration_time_ != nullptr) _impl_.expiration_time_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-ApiKey_UsageLimits::ApiKey_UsageLimits(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+ApiKey_UsageLimits::ApiKey_UsageLimits(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.ApiKey.UsageLimits)
 }
-ApiKey_UsageLimits::ApiKey_UsageLimits(const ApiKey_UsageLimits& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_expiration_time()) {
-    expiration_time_ = new PROTOBUF_NAMESPACE_ID::Timestamp(*from.expiration_time_);
-  } else {
-    expiration_time_ = nullptr;
-  }
-  ::memcpy(&daily_limit_seconds_amount_, &from.daily_limit_seconds_amount_,
-    static_cast<size_t>(reinterpret_cast<char*>(&max_concurrent_sessions_) -
-    reinterpret_cast<char*>(&daily_limit_seconds_amount_)) + sizeof(max_concurrent_sessions_));
+inline PROTOBUF_NDEBUG_INLINE ApiKey_UsageLimits::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    const Impl_& from)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0} {}
+
+ApiKey_UsageLimits::ApiKey_UsageLimits(
+    ::google::protobuf_inworld::Arena* arena,
+    const ApiKey_UsageLimits& from)
+    : ::google::protobuf_inworld::Message(arena) {
+  ApiKey_UsageLimits* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.expiration_time_ = (cached_has_bits & 0x00000001u)
+                ? CreateMaybeMessage<::google::protobuf_inworld::Timestamp>(arena, *from._impl_.expiration_time_)
+                : nullptr;
+  ::memcpy(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, daily_limit_seconds_amount_),
+           reinterpret_cast<const char *>(&from._impl_) +
+               offsetof(Impl_, daily_limit_seconds_amount_),
+           offsetof(Impl_, max_concurrent_sessions_) -
+               offsetof(Impl_, daily_limit_seconds_amount_) +
+               sizeof(Impl_::max_concurrent_sessions_));
+
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.ApiKey.UsageLimits)
 }
+inline PROTOBUF_NDEBUG_INLINE ApiKey_UsageLimits::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : _cached_size_{0} {}
 
-void ApiKey_UsageLimits::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ApiKey_UsageLimits_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base);
-  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&expiration_time_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&max_concurrent_sessions_) -
-      reinterpret_cast<char*>(&expiration_time_)) + sizeof(max_concurrent_sessions_));
+inline void ApiKey_UsageLimits::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, expiration_time_),
+           0,
+           offsetof(Impl_, max_concurrent_sessions_) -
+               offsetof(Impl_, expiration_time_) +
+               sizeof(Impl_::max_concurrent_sessions_));
 }
-
 ApiKey_UsageLimits::~ApiKey_UsageLimits() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.ApiKey.UsageLimits)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+inline void ApiKey_UsageLimits::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  delete _impl_.expiration_time_;
+  _impl_.~Impl_();
 }
 
-void ApiKey_UsageLimits::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  if (this != internal_default_instance()) delete expiration_time_;
-}
-
-void ApiKey_UsageLimits::ArenaDtor(void* object) {
-  ApiKey_UsageLimits* _this = reinterpret_cast< ApiKey_UsageLimits* >(object);
-  (void)_this;
-}
-void ApiKey_UsageLimits::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void ApiKey_UsageLimits::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ApiKey_UsageLimits& ApiKey_UsageLimits::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ApiKey_UsageLimits_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void ApiKey_UsageLimits::Clear() {
+PROTOBUF_NOINLINE void ApiKey_UsageLimits::Clear() {
 // @@protoc_insertion_point(message_clear_start:ai.inworld.studio.v1alpha.ApiKey.UsageLimits)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArena() == nullptr && expiration_time_ != nullptr) {
-    delete expiration_time_;
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(_impl_.expiration_time_ != nullptr);
+    _impl_.expiration_time_->Clear();
   }
-  expiration_time_ = nullptr;
-  ::memset(&daily_limit_seconds_amount_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&max_concurrent_sessions_) -
-      reinterpret_cast<char*>(&daily_limit_seconds_amount_)) + sizeof(max_concurrent_sessions_));
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  ::memset(&_impl_.daily_limit_seconds_amount_, 0, static_cast<::size_t>(
+      reinterpret_cast<char*>(&_impl_.max_concurrent_sessions_) -
+      reinterpret_cast<char*>(&_impl_.daily_limit_seconds_amount_)) + sizeof(_impl_.max_concurrent_sessions_));
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* ApiKey_UsageLimits::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // int32 max_concurrent_sessions = 1 [(.google.api.field_behavior) = OPTIONAL];
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          max_concurrent_sessions_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // int64 daily_limit_seconds_amount = 2 [(.google.api.field_behavior) = OPTIONAL];
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          daily_limit_seconds_amount_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // int64 total_limit_seconds_amount = 3 [(.google.api.field_behavior) = OPTIONAL];
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          total_limit_seconds_amount_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .google.protobuf.Timestamp expiration_time = 4 [(.google.api.field_behavior) = OPTIONAL];
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
-          ptr = ctx->ParseMessage(_internal_mutable_expiration_time(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* ApiKey_UsageLimits::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ApiKey_UsageLimits::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 4, 1, 0, 2> ApiKey_UsageLimits::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(ApiKey_UsageLimits, _impl_._has_bits_),
+    0, // no _extensions_
+    4, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967280,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    4,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    &_ApiKey_UsageLimits_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // .google.protobuf.Timestamp expiration_time = 4 [(.google.api.field_behavior) = OPTIONAL];
+    {::_pbi::TcParser::FastMtS1,
+     {34, 0, 0, PROTOBUF_FIELD_OFFSET(ApiKey_UsageLimits, _impl_.expiration_time_)}},
+    // int32 max_concurrent_sessions = 1 [(.google.api.field_behavior) = OPTIONAL];
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ApiKey_UsageLimits, _impl_.max_concurrent_sessions_), 63>(),
+     {8, 63, 0, PROTOBUF_FIELD_OFFSET(ApiKey_UsageLimits, _impl_.max_concurrent_sessions_)}},
+    // int64 daily_limit_seconds_amount = 2 [(.google.api.field_behavior) = OPTIONAL];
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(ApiKey_UsageLimits, _impl_.daily_limit_seconds_amount_), 63>(),
+     {16, 63, 0, PROTOBUF_FIELD_OFFSET(ApiKey_UsageLimits, _impl_.daily_limit_seconds_amount_)}},
+    // int64 total_limit_seconds_amount = 3 [(.google.api.field_behavior) = OPTIONAL];
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(ApiKey_UsageLimits, _impl_.total_limit_seconds_amount_), 63>(),
+     {24, 63, 0, PROTOBUF_FIELD_OFFSET(ApiKey_UsageLimits, _impl_.total_limit_seconds_amount_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // int32 max_concurrent_sessions = 1 [(.google.api.field_behavior) = OPTIONAL];
+    {PROTOBUF_FIELD_OFFSET(ApiKey_UsageLimits, _impl_.max_concurrent_sessions_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
+    // int64 daily_limit_seconds_amount = 2 [(.google.api.field_behavior) = OPTIONAL];
+    {PROTOBUF_FIELD_OFFSET(ApiKey_UsageLimits, _impl_.daily_limit_seconds_amount_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt64)},
+    // int64 total_limit_seconds_amount = 3 [(.google.api.field_behavior) = OPTIONAL];
+    {PROTOBUF_FIELD_OFFSET(ApiKey_UsageLimits, _impl_.total_limit_seconds_amount_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt64)},
+    // .google.protobuf.Timestamp expiration_time = 4 [(.google.api.field_behavior) = OPTIONAL];
+    {PROTOBUF_FIELD_OFFSET(ApiKey_UsageLimits, _impl_.expiration_time_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::google::protobuf_inworld::Timestamp>()},
+  }}, {{
+  }},
+};
+
+::uint8_t* ApiKey_UsageLimits::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.ApiKey.UsageLimits)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // int32 max_concurrent_sessions = 1 [(.google.api.field_behavior) = OPTIONAL];
-  if (this->max_concurrent_sessions() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_max_concurrent_sessions(), target);
+  if (this->_internal_max_concurrent_sessions() != 0) {
+    target = ::google::protobuf_inworld::internal::WireFormatLite::
+        WriteInt32ToArrayWithField<1>(
+            stream, this->_internal_max_concurrent_sessions(), target);
   }
 
   // int64 daily_limit_seconds_amount = 2 [(.google.api.field_behavior) = OPTIONAL];
-  if (this->daily_limit_seconds_amount() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_daily_limit_seconds_amount(), target);
+  if (this->_internal_daily_limit_seconds_amount() != 0) {
+    target = ::google::protobuf_inworld::internal::WireFormatLite::
+        WriteInt64ToArrayWithField<2>(
+            stream, this->_internal_daily_limit_seconds_amount(), target);
   }
 
   // int64 total_limit_seconds_amount = 3 [(.google.api.field_behavior) = OPTIONAL];
-  if (this->total_limit_seconds_amount() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(3, this->_internal_total_limit_seconds_amount(), target);
+  if (this->_internal_total_limit_seconds_amount() != 0) {
+    target = ::google::protobuf_inworld::internal::WireFormatLite::
+        WriteInt64ToArrayWithField<3>(
+            stream, this->_internal_total_limit_seconds_amount(), target);
   }
 
+  cached_has_bits = _impl_._has_bits_[0];
   // .google.protobuf.Timestamp expiration_time = 4 [(.google.api.field_behavior) = OPTIONAL];
-  if (this->has_expiration_time()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        4, _Internal::expiration_time(this), target, stream);
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+        4, _Internal::expiration_time(this),
+        _Internal::expiration_time(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.ApiKey.UsageLimits)
   return target;
 }
 
-size_t ApiKey_UsageLimits::ByteSizeLong() const {
+::size_t ApiKey_UsageLimits::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:ai.inworld.studio.v1alpha.ApiKey.UsageLimits)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // .google.protobuf.Timestamp expiration_time = 4 [(.google.api.field_behavior) = OPTIONAL];
-  if (this->has_expiration_time()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *expiration_time_);
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size +=
+        1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.expiration_time_);
   }
 
   // int64 daily_limit_seconds_amount = 2 [(.google.api.field_behavior) = OPTIONAL];
-  if (this->daily_limit_seconds_amount() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+  if (this->_internal_daily_limit_seconds_amount() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(
         this->_internal_daily_limit_seconds_amount());
   }
 
   // int64 total_limit_seconds_amount = 3 [(.google.api.field_behavior) = OPTIONAL];
-  if (this->total_limit_seconds_amount() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+  if (this->_internal_total_limit_seconds_amount() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(
         this->_internal_total_limit_seconds_amount());
   }
 
   // int32 max_concurrent_sessions = 1 [(.google.api.field_behavior) = OPTIONAL];
-  if (this->max_concurrent_sessions() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+  if (this->_internal_max_concurrent_sessions() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
         this->_internal_max_concurrent_sessions());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void ApiKey_UsageLimits::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.studio.v1alpha.ApiKey.UsageLimits)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ApiKey_UsageLimits* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ApiKey_UsageLimits>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.studio.v1alpha.ApiKey.UsageLimits)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.studio.v1alpha.ApiKey.UsageLimits)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData ApiKey_UsageLimits::_class_data_ = {
+    ApiKey_UsageLimits::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* ApiKey_UsageLimits::GetClassData() const {
+  return &_class_data_;
 }
 
-void ApiKey_UsageLimits::MergeFrom(const ApiKey_UsageLimits& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.ApiKey.UsageLimits)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void ApiKey_UsageLimits::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<ApiKey_UsageLimits*>(&to_msg);
+  auto& from = static_cast<const ApiKey_UsageLimits&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.ApiKey.UsageLimits)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_expiration_time()) {
-    _internal_mutable_expiration_time()->PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(from._internal_expiration_time());
+  if ((from._impl_._has_bits_[0] & 0x00000001u) != 0) {
+    _this->_internal_mutable_expiration_time()->::google::protobuf_inworld::Timestamp::MergeFrom(
+        from._internal_expiration_time());
   }
-  if (from.daily_limit_seconds_amount() != 0) {
-    _internal_set_daily_limit_seconds_amount(from._internal_daily_limit_seconds_amount());
+  if (from._internal_daily_limit_seconds_amount() != 0) {
+    _this->_internal_set_daily_limit_seconds_amount(from._internal_daily_limit_seconds_amount());
   }
-  if (from.total_limit_seconds_amount() != 0) {
-    _internal_set_total_limit_seconds_amount(from._internal_total_limit_seconds_amount());
+  if (from._internal_total_limit_seconds_amount() != 0) {
+    _this->_internal_set_total_limit_seconds_amount(from._internal_total_limit_seconds_amount());
   }
-  if (from.max_concurrent_sessions() != 0) {
-    _internal_set_max_concurrent_sessions(from._internal_max_concurrent_sessions());
+  if (from._internal_max_concurrent_sessions() != 0) {
+    _this->_internal_set_max_concurrent_sessions(from._internal_max_concurrent_sessions());
   }
-}
-
-void ApiKey_UsageLimits::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.studio.v1alpha.ApiKey.UsageLimits)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ApiKey_UsageLimits::CopyFrom(const ApiKey_UsageLimits& from) {
@@ -656,352 +745,327 @@ void ApiKey_UsageLimits::CopyFrom(const ApiKey_UsageLimits& from) {
   MergeFrom(from);
 }
 
-bool ApiKey_UsageLimits::IsInitialized() const {
+PROTOBUF_NOINLINE bool ApiKey_UsageLimits::IsInitialized() const {
   return true;
 }
 
-void ApiKey_UsageLimits::InternalSwap(ApiKey_UsageLimits* other) {
+::_pbi::CachedSize* ApiKey_UsageLimits::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void ApiKey_UsageLimits::InternalSwap(ApiKey_UsageLimits* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(ApiKey_UsageLimits, max_concurrent_sessions_)
-      + sizeof(ApiKey_UsageLimits::max_concurrent_sessions_)
-      - PROTOBUF_FIELD_OFFSET(ApiKey_UsageLimits, expiration_time_)>(
-          reinterpret_cast<char*>(&expiration_time_),
-          reinterpret_cast<char*>(&other->expiration_time_));
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::google::protobuf_inworld::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ApiKey_UsageLimits, _impl_.max_concurrent_sessions_)
+      + sizeof(ApiKey_UsageLimits::_impl_.max_concurrent_sessions_)
+      - PROTOBUF_FIELD_OFFSET(ApiKey_UsageLimits, _impl_.expiration_time_)>(
+          reinterpret_cast<char*>(&_impl_.expiration_time_),
+          reinterpret_cast<char*>(&other->_impl_.expiration_time_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata ApiKey_UsageLimits::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata ApiKey_UsageLimits::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_once,
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto[0]);
 }
-
-
 // ===================================================================
 
 class ApiKey::_Internal {
  public:
+  using HasBits = decltype(std::declval<ApiKey>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+    8 * PROTOBUF_FIELD_OFFSET(ApiKey, _impl_._has_bits_);
   static const ::ai::inworld::studio::v1alpha::ApiKey_UsageLimits& usage_limits(const ApiKey* msg);
+  static void set_has_usage_limits(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
 };
 
-const ::ai::inworld::studio::v1alpha::ApiKey_UsageLimits&
-ApiKey::_Internal::usage_limits(const ApiKey* msg) {
-  return *msg->usage_limits_;
+const ::ai::inworld::studio::v1alpha::ApiKey_UsageLimits& ApiKey::_Internal::usage_limits(const ApiKey* msg) {
+  return *msg->_impl_.usage_limits_;
 }
-ApiKey::ApiKey(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+ApiKey::ApiKey(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.ApiKey)
 }
-ApiKey::ApiKey(const ApiKey& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_name().empty()) {
-    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
-      GetArena());
-  }
-  key_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_key().empty()) {
-    key_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_key(), 
-      GetArena());
-  }
-  secret_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_secret().empty()) {
-    secret_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_secret(), 
-      GetArena());
-  }
-  if (from._internal_has_usage_limits()) {
-    usage_limits_ = new ::ai::inworld::studio::v1alpha::ApiKey_UsageLimits(*from.usage_limits_);
-  } else {
-    usage_limits_ = nullptr;
-  }
-  state_ = from.state_;
+inline PROTOBUF_NDEBUG_INLINE ApiKey::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    const Impl_& from)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        name_(arena, from.name_),
+        key_(arena, from.key_),
+        secret_(arena, from.secret_) {}
+
+ApiKey::ApiKey(
+    ::google::protobuf_inworld::Arena* arena,
+    const ApiKey& from)
+    : ::google::protobuf_inworld::Message(arena) {
+  ApiKey* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.usage_limits_ = (cached_has_bits & 0x00000001u)
+                ? CreateMaybeMessage<::ai::inworld::studio::v1alpha::ApiKey_UsageLimits>(arena, *from._impl_.usage_limits_)
+                : nullptr;
+  _impl_.state_ = from._impl_.state_;
+
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.ApiKey)
 }
+inline PROTOBUF_NDEBUG_INLINE ApiKey::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : _cached_size_{0},
+        name_(arena),
+        key_(arena),
+        secret_(arena) {}
 
-void ApiKey::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ApiKey_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  key_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  secret_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&usage_limits_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&state_) -
-      reinterpret_cast<char*>(&usage_limits_)) + sizeof(state_));
+inline void ApiKey::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, usage_limits_),
+           0,
+           offsetof(Impl_, state_) -
+               offsetof(Impl_, usage_limits_) +
+               sizeof(Impl_::state_));
 }
-
 ApiKey::~ApiKey() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.ApiKey)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+inline void ApiKey::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.name_.Destroy();
+  _impl_.key_.Destroy();
+  _impl_.secret_.Destroy();
+  delete _impl_.usage_limits_;
+  _impl_.~Impl_();
 }
 
-void ApiKey::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  key_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  secret_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete usage_limits_;
-}
-
-void ApiKey::ArenaDtor(void* object) {
-  ApiKey* _this = reinterpret_cast< ApiKey* >(object);
-  (void)_this;
-}
-void ApiKey::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void ApiKey::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ApiKey& ApiKey::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ApiKey_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void ApiKey::Clear() {
+PROTOBUF_NOINLINE void ApiKey::Clear() {
 // @@protoc_insertion_point(message_clear_start:ai.inworld.studio.v1alpha.ApiKey)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty();
-  key_.ClearToEmpty();
-  secret_.ClearToEmpty();
-  if (GetArena() == nullptr && usage_limits_ != nullptr) {
-    delete usage_limits_;
+  _impl_.name_.ClearToEmpty();
+  _impl_.key_.ClearToEmpty();
+  _impl_.secret_.ClearToEmpty();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(_impl_.usage_limits_ != nullptr);
+    _impl_.usage_limits_->Clear();
   }
-  usage_limits_ = nullptr;
-  state_ = 0;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _impl_.state_ = 0;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* ApiKey::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string name = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.ApiKey.name"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // string key = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          auto str = _internal_mutable_key();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.ApiKey.key"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // string secret = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          auto str = _internal_mutable_secret();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.ApiKey.secret"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .ai.inworld.studio.v1alpha.ApiKey.State state = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-          _internal_set_state(static_cast<::ai::inworld::studio::v1alpha::ApiKey_State>(val));
-        } else goto handle_unusual;
-        continue;
-      // .ai.inworld.studio.v1alpha.ApiKey.UsageLimits usage_limits = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
-          ptr = ctx->ParseMessage(_internal_mutable_usage_limits(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* ApiKey::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ApiKey::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 5, 1, 54, 2> ApiKey::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(ApiKey, _impl_._has_bits_),
+    0, // no _extensions_
+    5, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967264,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    5,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    &_ApiKey_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // string name = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(ApiKey, _impl_.name_)}},
+    // string key = 2;
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(ApiKey, _impl_.key_)}},
+    // string secret = 3;
+    {::_pbi::TcParser::FastUS1,
+     {26, 63, 0, PROTOBUF_FIELD_OFFSET(ApiKey, _impl_.secret_)}},
+    // .ai.inworld.studio.v1alpha.ApiKey.State state = 4;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ApiKey, _impl_.state_), 63>(),
+     {32, 63, 0, PROTOBUF_FIELD_OFFSET(ApiKey, _impl_.state_)}},
+    // .ai.inworld.studio.v1alpha.ApiKey.UsageLimits usage_limits = 5;
+    {::_pbi::TcParser::FastMtS1,
+     {42, 0, 0, PROTOBUF_FIELD_OFFSET(ApiKey, _impl_.usage_limits_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string name = 1;
+    {PROTOBUF_FIELD_OFFSET(ApiKey, _impl_.name_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string key = 2;
+    {PROTOBUF_FIELD_OFFSET(ApiKey, _impl_.key_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string secret = 3;
+    {PROTOBUF_FIELD_OFFSET(ApiKey, _impl_.secret_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .ai.inworld.studio.v1alpha.ApiKey.State state = 4;
+    {PROTOBUF_FIELD_OFFSET(ApiKey, _impl_.state_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
+    // .ai.inworld.studio.v1alpha.ApiKey.UsageLimits usage_limits = 5;
+    {PROTOBUF_FIELD_OFFSET(ApiKey, _impl_.usage_limits_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::ai::inworld::studio::v1alpha::ApiKey_UsageLimits>()},
+  }}, {{
+    "\40\4\3\6\0\0\0\0"
+    "ai.inworld.studio.v1alpha.ApiKey"
+    "name"
+    "key"
+    "secret"
+  }},
+};
+
+::uint8_t* ApiKey::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.ApiKey)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.studio.v1alpha.ApiKey.name");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_name(), target);
+  if (!this->_internal_name().empty()) {
+    const std::string& _s = this->_internal_name();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ApiKey.name");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // string key = 2;
-  if (this->key().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_key().data(), static_cast<int>(this->_internal_key().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.studio.v1alpha.ApiKey.key");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_key(), target);
+  if (!this->_internal_key().empty()) {
+    const std::string& _s = this->_internal_key();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ApiKey.key");
+    target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
   // string secret = 3;
-  if (this->secret().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_secret().data(), static_cast<int>(this->_internal_secret().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.studio.v1alpha.ApiKey.secret");
-    target = stream->WriteStringMaybeAliased(
-        3, this->_internal_secret(), target);
+  if (!this->_internal_secret().empty()) {
+    const std::string& _s = this->_internal_secret();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ApiKey.secret");
+    target = stream->WriteStringMaybeAliased(3, _s, target);
   }
 
   // .ai.inworld.studio.v1alpha.ApiKey.State state = 4;
-  if (this->state() != 0) {
+  if (this->_internal_state() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
-      4, this->_internal_state(), target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+        4, this->_internal_state(), target);
   }
 
+  cached_has_bits = _impl_._has_bits_[0];
   // .ai.inworld.studio.v1alpha.ApiKey.UsageLimits usage_limits = 5;
-  if (this->has_usage_limits()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        5, _Internal::usage_limits(this), target, stream);
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+        5, _Internal::usage_limits(this),
+        _Internal::usage_limits(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.ApiKey)
   return target;
 }
 
-size_t ApiKey::ByteSizeLong() const {
+::size_t ApiKey::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:ai.inworld.studio.v1alpha.ApiKey)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_name());
+  if (!this->_internal_name().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_name());
   }
 
   // string key = 2;
-  if (this->key().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_key());
+  if (!this->_internal_key().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_key());
   }
 
   // string secret = 3;
-  if (this->secret().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_secret());
+  if (!this->_internal_secret().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_secret());
   }
 
   // .ai.inworld.studio.v1alpha.ApiKey.UsageLimits usage_limits = 5;
-  if (this->has_usage_limits()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *usage_limits_);
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size +=
+        1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.usage_limits_);
   }
 
   // .ai.inworld.studio.v1alpha.ApiKey.State state = 4;
-  if (this->state() != 0) {
+  if (this->_internal_state() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_state());
+                  ::_pbi::WireFormatLite::EnumSize(this->_internal_state());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void ApiKey::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.studio.v1alpha.ApiKey)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ApiKey* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ApiKey>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.studio.v1alpha.ApiKey)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.studio.v1alpha.ApiKey)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData ApiKey::_class_data_ = {
+    ApiKey::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* ApiKey::GetClassData() const {
+  return &_class_data_;
 }
 
-void ApiKey::MergeFrom(const ApiKey& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.ApiKey)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void ApiKey::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<ApiKey*>(&to_msg);
+  auto& from = static_cast<const ApiKey&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.ApiKey)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.name().size() > 0) {
-    _internal_set_name(from._internal_name());
+  if (!from._internal_name().empty()) {
+    _this->_internal_set_name(from._internal_name());
   }
-  if (from.key().size() > 0) {
-    _internal_set_key(from._internal_key());
+  if (!from._internal_key().empty()) {
+    _this->_internal_set_key(from._internal_key());
   }
-  if (from.secret().size() > 0) {
-    _internal_set_secret(from._internal_secret());
+  if (!from._internal_secret().empty()) {
+    _this->_internal_set_secret(from._internal_secret());
   }
-  if (from.has_usage_limits()) {
-    _internal_mutable_usage_limits()->::ai::inworld::studio::v1alpha::ApiKey_UsageLimits::MergeFrom(from._internal_usage_limits());
+  if ((from._impl_._has_bits_[0] & 0x00000001u) != 0) {
+    _this->_internal_mutable_usage_limits()->::ai::inworld::studio::v1alpha::ApiKey_UsageLimits::MergeFrom(
+        from._internal_usage_limits());
   }
-  if (from.state() != 0) {
-    _internal_set_state(from._internal_state());
+  if (from._internal_state() != 0) {
+    _this->_internal_set_state(from._internal_state());
   }
-}
-
-void ApiKey::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.studio.v1alpha.ApiKey)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ApiKey::CopyFrom(const ApiKey& from) {
@@ -1011,211 +1075,196 @@ void ApiKey::CopyFrom(const ApiKey& from) {
   MergeFrom(from);
 }
 
-bool ApiKey::IsInitialized() const {
+PROTOBUF_NOINLINE bool ApiKey::IsInitialized() const {
   return true;
 }
 
-void ApiKey::InternalSwap(ApiKey* other) {
+::_pbi::CachedSize* ApiKey::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void ApiKey::InternalSwap(ApiKey* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  key_.Swap(&other->key_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  secret_.Swap(&other->secret_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(ApiKey, state_)
-      + sizeof(ApiKey::state_)
-      - PROTOBUF_FIELD_OFFSET(ApiKey, usage_limits_)>(
-          reinterpret_cast<char*>(&usage_limits_),
-          reinterpret_cast<char*>(&other->usage_limits_));
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.key_, &other->_impl_.key_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.secret_, &other->_impl_.secret_, arena);
+  ::google::protobuf_inworld::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ApiKey, _impl_.state_)
+      + sizeof(ApiKey::_impl_.state_)
+      - PROTOBUF_FIELD_OFFSET(ApiKey, _impl_.usage_limits_)>(
+          reinterpret_cast<char*>(&_impl_.usage_limits_),
+          reinterpret_cast<char*>(&other->_impl_.usage_limits_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata ApiKey::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata ApiKey::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_once,
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto[1]);
 }
-
-
 // ===================================================================
 
 class GenerateApiKeyRequest::_Internal {
  public:
 };
 
-GenerateApiKeyRequest::GenerateApiKeyRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+GenerateApiKeyRequest::GenerateApiKeyRequest(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.GenerateApiKeyRequest)
 }
-GenerateApiKeyRequest::GenerateApiKeyRequest(const GenerateApiKeyRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  parent_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_parent().empty()) {
-    parent_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_parent(), 
-      GetArena());
-  }
+inline PROTOBUF_NDEBUG_INLINE GenerateApiKeyRequest::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    const Impl_& from)
+      : parent_(arena, from.parent_),
+        _cached_size_{0} {}
+
+GenerateApiKeyRequest::GenerateApiKeyRequest(
+    ::google::protobuf_inworld::Arena* arena,
+    const GenerateApiKeyRequest& from)
+    : ::google::protobuf_inworld::Message(arena) {
+  GenerateApiKeyRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.GenerateApiKeyRequest)
 }
+inline PROTOBUF_NDEBUG_INLINE GenerateApiKeyRequest::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : parent_(arena),
+        _cached_size_{0} {}
 
-void GenerateApiKeyRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_GenerateApiKeyRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base);
-  parent_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void GenerateApiKeyRequest::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
 }
-
 GenerateApiKeyRequest::~GenerateApiKeyRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.GenerateApiKeyRequest)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+inline void GenerateApiKeyRequest::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.parent_.Destroy();
+  _impl_.~Impl_();
 }
 
-void GenerateApiKeyRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  parent_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void GenerateApiKeyRequest::ArenaDtor(void* object) {
-  GenerateApiKeyRequest* _this = reinterpret_cast< GenerateApiKeyRequest* >(object);
-  (void)_this;
-}
-void GenerateApiKeyRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void GenerateApiKeyRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const GenerateApiKeyRequest& GenerateApiKeyRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_GenerateApiKeyRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void GenerateApiKeyRequest::Clear() {
+PROTOBUF_NOINLINE void GenerateApiKeyRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:ai.inworld.studio.v1alpha.GenerateApiKeyRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  parent_.ClearToEmpty();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _impl_.parent_.ClearToEmpty();
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* GenerateApiKeyRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_parent();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.GenerateApiKeyRequest.parent"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* GenerateApiKeyRequest::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* GenerateApiKeyRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 62, 2> GenerateApiKeyRequest::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_GenerateApiKeyRequest_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(GenerateApiKeyRequest, _impl_.parent_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
+    {PROTOBUF_FIELD_OFFSET(GenerateApiKeyRequest, _impl_.parent_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\57\6\0\0\0\0\0\0"
+    "ai.inworld.studio.v1alpha.GenerateApiKeyRequest"
+    "parent"
+  }},
+};
+
+::uint8_t* GenerateApiKeyRequest::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.GenerateApiKeyRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-  if (this->parent().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_parent().data(), static_cast<int>(this->_internal_parent().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.studio.v1alpha.GenerateApiKeyRequest.parent");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_parent(), target);
+  if (!this->_internal_parent().empty()) {
+    const std::string& _s = this->_internal_parent();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.GenerateApiKeyRequest.parent");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.GenerateApiKeyRequest)
   return target;
 }
 
-size_t GenerateApiKeyRequest::ByteSizeLong() const {
+::size_t GenerateApiKeyRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:ai.inworld.studio.v1alpha.GenerateApiKeyRequest)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-  if (this->parent().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_parent());
+  if (!this->_internal_parent().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_parent());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void GenerateApiKeyRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.studio.v1alpha.GenerateApiKeyRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const GenerateApiKeyRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<GenerateApiKeyRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.studio.v1alpha.GenerateApiKeyRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.studio.v1alpha.GenerateApiKeyRequest)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData GenerateApiKeyRequest::_class_data_ = {
+    GenerateApiKeyRequest::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* GenerateApiKeyRequest::GetClassData() const {
+  return &_class_data_;
 }
 
-void GenerateApiKeyRequest::MergeFrom(const GenerateApiKeyRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.GenerateApiKeyRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void GenerateApiKeyRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<GenerateApiKeyRequest*>(&to_msg);
+  auto& from = static_cast<const GenerateApiKeyRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.GenerateApiKeyRequest)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.parent().size() > 0) {
-    _internal_set_parent(from._internal_parent());
+  if (!from._internal_parent().empty()) {
+    _this->_internal_set_parent(from._internal_parent());
   }
-}
-
-void GenerateApiKeyRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.studio.v1alpha.GenerateApiKeyRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void GenerateApiKeyRequest::CopyFrom(const GenerateApiKeyRequest& from) {
@@ -1225,266 +1274,241 @@ void GenerateApiKeyRequest::CopyFrom(const GenerateApiKeyRequest& from) {
   MergeFrom(from);
 }
 
-bool GenerateApiKeyRequest::IsInitialized() const {
+PROTOBUF_NOINLINE bool GenerateApiKeyRequest::IsInitialized() const {
   return true;
 }
 
-void GenerateApiKeyRequest::InternalSwap(GenerateApiKeyRequest* other) {
+::_pbi::CachedSize* GenerateApiKeyRequest::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void GenerateApiKeyRequest::InternalSwap(GenerateApiKeyRequest* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  parent_.Swap(&other->parent_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.parent_, &other->_impl_.parent_, arena);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata GenerateApiKeyRequest::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata GenerateApiKeyRequest::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_once,
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto[2]);
 }
-
-
 // ===================================================================
 
 class ListApiKeysRequest::_Internal {
  public:
 };
 
-ListApiKeysRequest::ListApiKeysRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+ListApiKeysRequest::ListApiKeysRequest(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.ListApiKeysRequest)
 }
-ListApiKeysRequest::ListApiKeysRequest(const ListApiKeysRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  parent_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_parent().empty()) {
-    parent_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_parent(), 
-      GetArena());
-  }
-  page_token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_page_token().empty()) {
-    page_token_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_page_token(), 
-      GetArena());
-  }
-  page_size_ = from.page_size_;
+inline PROTOBUF_NDEBUG_INLINE ListApiKeysRequest::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    const Impl_& from)
+      : parent_(arena, from.parent_),
+        page_token_(arena, from.page_token_),
+        _cached_size_{0} {}
+
+ListApiKeysRequest::ListApiKeysRequest(
+    ::google::protobuf_inworld::Arena* arena,
+    const ListApiKeysRequest& from)
+    : ::google::protobuf_inworld::Message(arena) {
+  ListApiKeysRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+  _impl_.page_size_ = from._impl_.page_size_;
+
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.ListApiKeysRequest)
 }
+inline PROTOBUF_NDEBUG_INLINE ListApiKeysRequest::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : parent_(arena),
+        page_token_(arena),
+        _cached_size_{0} {}
 
-void ListApiKeysRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ListApiKeysRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base);
-  parent_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  page_token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  page_size_ = 0;
+inline void ListApiKeysRequest::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.page_size_ = {};
 }
-
 ListApiKeysRequest::~ListApiKeysRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.ListApiKeysRequest)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+inline void ListApiKeysRequest::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.parent_.Destroy();
+  _impl_.page_token_.Destroy();
+  _impl_.~Impl_();
 }
 
-void ListApiKeysRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  parent_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  page_token_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void ListApiKeysRequest::ArenaDtor(void* object) {
-  ListApiKeysRequest* _this = reinterpret_cast< ListApiKeysRequest* >(object);
-  (void)_this;
-}
-void ListApiKeysRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void ListApiKeysRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ListApiKeysRequest& ListApiKeysRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ListApiKeysRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void ListApiKeysRequest::Clear() {
+PROTOBUF_NOINLINE void ListApiKeysRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:ai.inworld.studio.v1alpha.ListApiKeysRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  parent_.ClearToEmpty();
-  page_token_.ClearToEmpty();
-  page_size_ = 0;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _impl_.parent_.ClearToEmpty();
+  _impl_.page_token_.ClearToEmpty();
+  _impl_.page_size_ = 0;
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* ListApiKeysRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_parent();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.ListApiKeysRequest.parent"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // int32 page_size = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          page_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // string page_token = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          auto str = _internal_mutable_page_token();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.ListApiKeysRequest.page_token"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* ListApiKeysRequest::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ListApiKeysRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 3, 0, 69, 2> ListApiKeysRequest::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    3, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967288,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    3,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_ListApiKeysRequest_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(ListApiKeysRequest, _impl_.parent_)}},
+    // int32 page_size = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ListApiKeysRequest, _impl_.page_size_), 63>(),
+     {16, 63, 0, PROTOBUF_FIELD_OFFSET(ListApiKeysRequest, _impl_.page_size_)}},
+    // string page_token = 3;
+    {::_pbi::TcParser::FastUS1,
+     {26, 63, 0, PROTOBUF_FIELD_OFFSET(ListApiKeysRequest, _impl_.page_token_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
+    {PROTOBUF_FIELD_OFFSET(ListApiKeysRequest, _impl_.parent_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // int32 page_size = 2;
+    {PROTOBUF_FIELD_OFFSET(ListApiKeysRequest, _impl_.page_size_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
+    // string page_token = 3;
+    {PROTOBUF_FIELD_OFFSET(ListApiKeysRequest, _impl_.page_token_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\54\6\0\12\0\0\0\0"
+    "ai.inworld.studio.v1alpha.ListApiKeysRequest"
+    "parent"
+    "page_token"
+  }},
+};
+
+::uint8_t* ListApiKeysRequest::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.ListApiKeysRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-  if (this->parent().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_parent().data(), static_cast<int>(this->_internal_parent().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.studio.v1alpha.ListApiKeysRequest.parent");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_parent(), target);
+  if (!this->_internal_parent().empty()) {
+    const std::string& _s = this->_internal_parent();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ListApiKeysRequest.parent");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // int32 page_size = 2;
-  if (this->page_size() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_page_size(), target);
+  if (this->_internal_page_size() != 0) {
+    target = ::google::protobuf_inworld::internal::WireFormatLite::
+        WriteInt32ToArrayWithField<2>(
+            stream, this->_internal_page_size(), target);
   }
 
   // string page_token = 3;
-  if (this->page_token().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_page_token().data(), static_cast<int>(this->_internal_page_token().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.studio.v1alpha.ListApiKeysRequest.page_token");
-    target = stream->WriteStringMaybeAliased(
-        3, this->_internal_page_token(), target);
+  if (!this->_internal_page_token().empty()) {
+    const std::string& _s = this->_internal_page_token();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ListApiKeysRequest.page_token");
+    target = stream->WriteStringMaybeAliased(3, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.ListApiKeysRequest)
   return target;
 }
 
-size_t ListApiKeysRequest::ByteSizeLong() const {
+::size_t ListApiKeysRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:ai.inworld.studio.v1alpha.ListApiKeysRequest)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-  if (this->parent().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_parent());
+  if (!this->_internal_parent().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_parent());
   }
 
   // string page_token = 3;
-  if (this->page_token().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_page_token());
+  if (!this->_internal_page_token().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_page_token());
   }
 
   // int32 page_size = 2;
-  if (this->page_size() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+  if (this->_internal_page_size() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
         this->_internal_page_size());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void ListApiKeysRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.studio.v1alpha.ListApiKeysRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ListApiKeysRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ListApiKeysRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.studio.v1alpha.ListApiKeysRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.studio.v1alpha.ListApiKeysRequest)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData ListApiKeysRequest::_class_data_ = {
+    ListApiKeysRequest::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* ListApiKeysRequest::GetClassData() const {
+  return &_class_data_;
 }
 
-void ListApiKeysRequest::MergeFrom(const ListApiKeysRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.ListApiKeysRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void ListApiKeysRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<ListApiKeysRequest*>(&to_msg);
+  auto& from = static_cast<const ListApiKeysRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.ListApiKeysRequest)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.parent().size() > 0) {
-    _internal_set_parent(from._internal_parent());
+  if (!from._internal_parent().empty()) {
+    _this->_internal_set_parent(from._internal_parent());
   }
-  if (from.page_token().size() > 0) {
-    _internal_set_page_token(from._internal_page_token());
+  if (!from._internal_page_token().empty()) {
+    _this->_internal_set_page_token(from._internal_page_token());
   }
-  if (from.page_size() != 0) {
-    _internal_set_page_size(from._internal_page_size());
+  if (from._internal_page_size() != 0) {
+    _this->_internal_set_page_size(from._internal_page_size());
   }
-}
-
-void ListApiKeysRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.studio.v1alpha.ListApiKeysRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ListApiKeysRequest::CopyFrom(const ListApiKeysRequest& from) {
@@ -1494,205 +1518,189 @@ void ListApiKeysRequest::CopyFrom(const ListApiKeysRequest& from) {
   MergeFrom(from);
 }
 
-bool ListApiKeysRequest::IsInitialized() const {
+PROTOBUF_NOINLINE bool ListApiKeysRequest::IsInitialized() const {
   return true;
 }
 
-void ListApiKeysRequest::InternalSwap(ListApiKeysRequest* other) {
+::_pbi::CachedSize* ListApiKeysRequest::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void ListApiKeysRequest::InternalSwap(ListApiKeysRequest* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  parent_.Swap(&other->parent_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  page_token_.Swap(&other->page_token_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  swap(page_size_, other->page_size_);
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.parent_, &other->_impl_.parent_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.page_token_, &other->_impl_.page_token_, arena);
+        swap(_impl_.page_size_, other->_impl_.page_size_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata ListApiKeysRequest::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata ListApiKeysRequest::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_once,
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto[3]);
 }
-
-
 // ===================================================================
 
 class SuspendApiKeyRequest::_Internal {
  public:
 };
 
-SuspendApiKeyRequest::SuspendApiKeyRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+SuspendApiKeyRequest::SuspendApiKeyRequest(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.SuspendApiKeyRequest)
 }
-SuspendApiKeyRequest::SuspendApiKeyRequest(const SuspendApiKeyRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_name().empty()) {
-    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
-      GetArena());
-  }
+inline PROTOBUF_NDEBUG_INLINE SuspendApiKeyRequest::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    const Impl_& from)
+      : name_(arena, from.name_),
+        _cached_size_{0} {}
+
+SuspendApiKeyRequest::SuspendApiKeyRequest(
+    ::google::protobuf_inworld::Arena* arena,
+    const SuspendApiKeyRequest& from)
+    : ::google::protobuf_inworld::Message(arena) {
+  SuspendApiKeyRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.SuspendApiKeyRequest)
 }
+inline PROTOBUF_NDEBUG_INLINE SuspendApiKeyRequest::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : name_(arena),
+        _cached_size_{0} {}
 
-void SuspendApiKeyRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_SuspendApiKeyRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void SuspendApiKeyRequest::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
 }
-
 SuspendApiKeyRequest::~SuspendApiKeyRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.SuspendApiKeyRequest)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+inline void SuspendApiKeyRequest::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.name_.Destroy();
+  _impl_.~Impl_();
 }
 
-void SuspendApiKeyRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void SuspendApiKeyRequest::ArenaDtor(void* object) {
-  SuspendApiKeyRequest* _this = reinterpret_cast< SuspendApiKeyRequest* >(object);
-  (void)_this;
-}
-void SuspendApiKeyRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void SuspendApiKeyRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const SuspendApiKeyRequest& SuspendApiKeyRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_SuspendApiKeyRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void SuspendApiKeyRequest::Clear() {
+PROTOBUF_NOINLINE void SuspendApiKeyRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:ai.inworld.studio.v1alpha.SuspendApiKeyRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _impl_.name_.ClearToEmpty();
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* SuspendApiKeyRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.SuspendApiKeyRequest.name"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* SuspendApiKeyRequest::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SuspendApiKeyRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 59, 2> SuspendApiKeyRequest::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_SuspendApiKeyRequest_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(SuspendApiKeyRequest, _impl_.name_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
+    {PROTOBUF_FIELD_OFFSET(SuspendApiKeyRequest, _impl_.name_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\56\4\0\0\0\0\0\0"
+    "ai.inworld.studio.v1alpha.SuspendApiKeyRequest"
+    "name"
+  }},
+};
+
+::uint8_t* SuspendApiKeyRequest::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.SuspendApiKeyRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-  if (this->name().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.studio.v1alpha.SuspendApiKeyRequest.name");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_name(), target);
+  if (!this->_internal_name().empty()) {
+    const std::string& _s = this->_internal_name();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.SuspendApiKeyRequest.name");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.SuspendApiKeyRequest)
   return target;
 }
 
-size_t SuspendApiKeyRequest::ByteSizeLong() const {
+::size_t SuspendApiKeyRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:ai.inworld.studio.v1alpha.SuspendApiKeyRequest)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-  if (this->name().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_name());
+  if (!this->_internal_name().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_name());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void SuspendApiKeyRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.studio.v1alpha.SuspendApiKeyRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const SuspendApiKeyRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SuspendApiKeyRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.studio.v1alpha.SuspendApiKeyRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.studio.v1alpha.SuspendApiKeyRequest)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData SuspendApiKeyRequest::_class_data_ = {
+    SuspendApiKeyRequest::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* SuspendApiKeyRequest::GetClassData() const {
+  return &_class_data_;
 }
 
-void SuspendApiKeyRequest::MergeFrom(const SuspendApiKeyRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.SuspendApiKeyRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void SuspendApiKeyRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<SuspendApiKeyRequest*>(&to_msg);
+  auto& from = static_cast<const SuspendApiKeyRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.SuspendApiKeyRequest)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.name().size() > 0) {
-    _internal_set_name(from._internal_name());
+  if (!from._internal_name().empty()) {
+    _this->_internal_set_name(from._internal_name());
   }
-}
-
-void SuspendApiKeyRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.studio.v1alpha.SuspendApiKeyRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void SuspendApiKeyRequest::CopyFrom(const SuspendApiKeyRequest& from) {
@@ -1702,203 +1710,187 @@ void SuspendApiKeyRequest::CopyFrom(const SuspendApiKeyRequest& from) {
   MergeFrom(from);
 }
 
-bool SuspendApiKeyRequest::IsInitialized() const {
+PROTOBUF_NOINLINE bool SuspendApiKeyRequest::IsInitialized() const {
   return true;
 }
 
-void SuspendApiKeyRequest::InternalSwap(SuspendApiKeyRequest* other) {
+::_pbi::CachedSize* SuspendApiKeyRequest::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void SuspendApiKeyRequest::InternalSwap(SuspendApiKeyRequest* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata SuspendApiKeyRequest::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata SuspendApiKeyRequest::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_once,
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto[4]);
 }
-
-
 // ===================================================================
 
 class ActivateApiKeyRequest::_Internal {
  public:
 };
 
-ActivateApiKeyRequest::ActivateApiKeyRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+ActivateApiKeyRequest::ActivateApiKeyRequest(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.ActivateApiKeyRequest)
 }
-ActivateApiKeyRequest::ActivateApiKeyRequest(const ActivateApiKeyRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_name().empty()) {
-    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
-      GetArena());
-  }
+inline PROTOBUF_NDEBUG_INLINE ActivateApiKeyRequest::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    const Impl_& from)
+      : name_(arena, from.name_),
+        _cached_size_{0} {}
+
+ActivateApiKeyRequest::ActivateApiKeyRequest(
+    ::google::protobuf_inworld::Arena* arena,
+    const ActivateApiKeyRequest& from)
+    : ::google::protobuf_inworld::Message(arena) {
+  ActivateApiKeyRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.ActivateApiKeyRequest)
 }
+inline PROTOBUF_NDEBUG_INLINE ActivateApiKeyRequest::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : name_(arena),
+        _cached_size_{0} {}
 
-void ActivateApiKeyRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ActivateApiKeyRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ActivateApiKeyRequest::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
 }
-
 ActivateApiKeyRequest::~ActivateApiKeyRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.ActivateApiKeyRequest)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+inline void ActivateApiKeyRequest::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.name_.Destroy();
+  _impl_.~Impl_();
 }
 
-void ActivateApiKeyRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void ActivateApiKeyRequest::ArenaDtor(void* object) {
-  ActivateApiKeyRequest* _this = reinterpret_cast< ActivateApiKeyRequest* >(object);
-  (void)_this;
-}
-void ActivateApiKeyRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void ActivateApiKeyRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ActivateApiKeyRequest& ActivateApiKeyRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ActivateApiKeyRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void ActivateApiKeyRequest::Clear() {
+PROTOBUF_NOINLINE void ActivateApiKeyRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:ai.inworld.studio.v1alpha.ActivateApiKeyRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _impl_.name_.ClearToEmpty();
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* ActivateApiKeyRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.ActivateApiKeyRequest.name"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* ActivateApiKeyRequest::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ActivateApiKeyRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 60, 2> ActivateApiKeyRequest::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_ActivateApiKeyRequest_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(ActivateApiKeyRequest, _impl_.name_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
+    {PROTOBUF_FIELD_OFFSET(ActivateApiKeyRequest, _impl_.name_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\57\4\0\0\0\0\0\0"
+    "ai.inworld.studio.v1alpha.ActivateApiKeyRequest"
+    "name"
+  }},
+};
+
+::uint8_t* ActivateApiKeyRequest::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.ActivateApiKeyRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-  if (this->name().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.studio.v1alpha.ActivateApiKeyRequest.name");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_name(), target);
+  if (!this->_internal_name().empty()) {
+    const std::string& _s = this->_internal_name();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ActivateApiKeyRequest.name");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.ActivateApiKeyRequest)
   return target;
 }
 
-size_t ActivateApiKeyRequest::ByteSizeLong() const {
+::size_t ActivateApiKeyRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:ai.inworld.studio.v1alpha.ActivateApiKeyRequest)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-  if (this->name().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_name());
+  if (!this->_internal_name().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_name());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void ActivateApiKeyRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.studio.v1alpha.ActivateApiKeyRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ActivateApiKeyRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ActivateApiKeyRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.studio.v1alpha.ActivateApiKeyRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.studio.v1alpha.ActivateApiKeyRequest)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData ActivateApiKeyRequest::_class_data_ = {
+    ActivateApiKeyRequest::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* ActivateApiKeyRequest::GetClassData() const {
+  return &_class_data_;
 }
 
-void ActivateApiKeyRequest::MergeFrom(const ActivateApiKeyRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.ActivateApiKeyRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void ActivateApiKeyRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<ActivateApiKeyRequest*>(&to_msg);
+  auto& from = static_cast<const ActivateApiKeyRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.ActivateApiKeyRequest)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.name().size() > 0) {
-    _internal_set_name(from._internal_name());
+  if (!from._internal_name().empty()) {
+    _this->_internal_set_name(from._internal_name());
   }
-}
-
-void ActivateApiKeyRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.studio.v1alpha.ActivateApiKeyRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ActivateApiKeyRequest::CopyFrom(const ActivateApiKeyRequest& from) {
@@ -1908,203 +1900,187 @@ void ActivateApiKeyRequest::CopyFrom(const ActivateApiKeyRequest& from) {
   MergeFrom(from);
 }
 
-bool ActivateApiKeyRequest::IsInitialized() const {
+PROTOBUF_NOINLINE bool ActivateApiKeyRequest::IsInitialized() const {
   return true;
 }
 
-void ActivateApiKeyRequest::InternalSwap(ActivateApiKeyRequest* other) {
+::_pbi::CachedSize* ActivateApiKeyRequest::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void ActivateApiKeyRequest::InternalSwap(ActivateApiKeyRequest* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata ActivateApiKeyRequest::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata ActivateApiKeyRequest::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_once,
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto[5]);
 }
-
-
 // ===================================================================
 
 class DeleteApiKeyRequest::_Internal {
  public:
 };
 
-DeleteApiKeyRequest::DeleteApiKeyRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+DeleteApiKeyRequest::DeleteApiKeyRequest(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.DeleteApiKeyRequest)
 }
-DeleteApiKeyRequest::DeleteApiKeyRequest(const DeleteApiKeyRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_name().empty()) {
-    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
-      GetArena());
-  }
+inline PROTOBUF_NDEBUG_INLINE DeleteApiKeyRequest::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    const Impl_& from)
+      : name_(arena, from.name_),
+        _cached_size_{0} {}
+
+DeleteApiKeyRequest::DeleteApiKeyRequest(
+    ::google::protobuf_inworld::Arena* arena,
+    const DeleteApiKeyRequest& from)
+    : ::google::protobuf_inworld::Message(arena) {
+  DeleteApiKeyRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.DeleteApiKeyRequest)
 }
+inline PROTOBUF_NDEBUG_INLINE DeleteApiKeyRequest::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : name_(arena),
+        _cached_size_{0} {}
 
-void DeleteApiKeyRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_DeleteApiKeyRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void DeleteApiKeyRequest::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
 }
-
 DeleteApiKeyRequest::~DeleteApiKeyRequest() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.DeleteApiKeyRequest)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+inline void DeleteApiKeyRequest::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.name_.Destroy();
+  _impl_.~Impl_();
 }
 
-void DeleteApiKeyRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void DeleteApiKeyRequest::ArenaDtor(void* object) {
-  DeleteApiKeyRequest* _this = reinterpret_cast< DeleteApiKeyRequest* >(object);
-  (void)_this;
-}
-void DeleteApiKeyRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void DeleteApiKeyRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const DeleteApiKeyRequest& DeleteApiKeyRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_DeleteApiKeyRequest_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void DeleteApiKeyRequest::Clear() {
+PROTOBUF_NOINLINE void DeleteApiKeyRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:ai.inworld.studio.v1alpha.DeleteApiKeyRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _impl_.name_.ClearToEmpty();
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* DeleteApiKeyRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.DeleteApiKeyRequest.name"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* DeleteApiKeyRequest::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* DeleteApiKeyRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 58, 2> DeleteApiKeyRequest::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_DeleteApiKeyRequest_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(DeleteApiKeyRequest, _impl_.name_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
+    {PROTOBUF_FIELD_OFFSET(DeleteApiKeyRequest, _impl_.name_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\55\4\0\0\0\0\0\0"
+    "ai.inworld.studio.v1alpha.DeleteApiKeyRequest"
+    "name"
+  }},
+};
+
+::uint8_t* DeleteApiKeyRequest::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.DeleteApiKeyRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-  if (this->name().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.studio.v1alpha.DeleteApiKeyRequest.name");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_name(), target);
+  if (!this->_internal_name().empty()) {
+    const std::string& _s = this->_internal_name();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.DeleteApiKeyRequest.name");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.DeleteApiKeyRequest)
   return target;
 }
 
-size_t DeleteApiKeyRequest::ByteSizeLong() const {
+::size_t DeleteApiKeyRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:ai.inworld.studio.v1alpha.DeleteApiKeyRequest)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
-  if (this->name().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_name());
+  if (!this->_internal_name().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_name());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void DeleteApiKeyRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.studio.v1alpha.DeleteApiKeyRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const DeleteApiKeyRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<DeleteApiKeyRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.studio.v1alpha.DeleteApiKeyRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.studio.v1alpha.DeleteApiKeyRequest)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData DeleteApiKeyRequest::_class_data_ = {
+    DeleteApiKeyRequest::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* DeleteApiKeyRequest::GetClassData() const {
+  return &_class_data_;
 }
 
-void DeleteApiKeyRequest::MergeFrom(const DeleteApiKeyRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.DeleteApiKeyRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void DeleteApiKeyRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<DeleteApiKeyRequest*>(&to_msg);
+  auto& from = static_cast<const DeleteApiKeyRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.DeleteApiKeyRequest)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.name().size() > 0) {
-    _internal_set_name(from._internal_name());
+  if (!from._internal_name().empty()) {
+    _this->_internal_set_name(from._internal_name());
   }
-}
-
-void DeleteApiKeyRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.studio.v1alpha.DeleteApiKeyRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void DeleteApiKeyRequest::CopyFrom(const DeleteApiKeyRequest& from) {
@@ -2114,234 +2090,212 @@ void DeleteApiKeyRequest::CopyFrom(const DeleteApiKeyRequest& from) {
   MergeFrom(from);
 }
 
-bool DeleteApiKeyRequest::IsInitialized() const {
+PROTOBUF_NOINLINE bool DeleteApiKeyRequest::IsInitialized() const {
   return true;
 }
 
-void DeleteApiKeyRequest::InternalSwap(DeleteApiKeyRequest* other) {
+::_pbi::CachedSize* DeleteApiKeyRequest::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void DeleteApiKeyRequest::InternalSwap(DeleteApiKeyRequest* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata DeleteApiKeyRequest::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata DeleteApiKeyRequest::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_once,
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto[6]);
 }
-
-
 // ===================================================================
 
 class ListApiKeysResponse::_Internal {
  public:
 };
 
-ListApiKeysResponse::ListApiKeysResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  api_keys_(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+ListApiKeysResponse::ListApiKeysResponse(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.ListApiKeysResponse)
 }
-ListApiKeysResponse::ListApiKeysResponse(const ListApiKeysResponse& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      api_keys_(from.api_keys_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  next_page_token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_next_page_token().empty()) {
-    next_page_token_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_next_page_token(), 
-      GetArena());
-  }
+inline PROTOBUF_NDEBUG_INLINE ListApiKeysResponse::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    const Impl_& from)
+      : api_keys_{visibility, arena, from.api_keys_},
+        next_page_token_(arena, from.next_page_token_),
+        _cached_size_{0} {}
+
+ListApiKeysResponse::ListApiKeysResponse(
+    ::google::protobuf_inworld::Arena* arena,
+    const ListApiKeysResponse& from)
+    : ::google::protobuf_inworld::Message(arena) {
+  ListApiKeysResponse* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.ListApiKeysResponse)
 }
+inline PROTOBUF_NDEBUG_INLINE ListApiKeysResponse::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : api_keys_{visibility, arena},
+        next_page_token_(arena),
+        _cached_size_{0} {}
 
-void ListApiKeysResponse::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ListApiKeysResponse_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base);
-  next_page_token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ListApiKeysResponse::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
 }
-
 ListApiKeysResponse::~ListApiKeysResponse() {
   // @@protoc_insertion_point(destructor:ai.inworld.studio.v1alpha.ListApiKeysResponse)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+inline void ListApiKeysResponse::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.next_page_token_.Destroy();
+  _impl_.~Impl_();
 }
 
-void ListApiKeysResponse::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  next_page_token_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void ListApiKeysResponse::ArenaDtor(void* object) {
-  ListApiKeysResponse* _this = reinterpret_cast< ListApiKeysResponse* >(object);
-  (void)_this;
-}
-void ListApiKeysResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void ListApiKeysResponse::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ListApiKeysResponse& ListApiKeysResponse::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ListApiKeysResponse_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void ListApiKeysResponse::Clear() {
+PROTOBUF_NOINLINE void ListApiKeysResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:ai.inworld.studio.v1alpha.ListApiKeysResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  api_keys_.Clear();
-  next_page_token_.ClearToEmpty();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _impl_.api_keys_.Clear();
+  _impl_.next_page_token_.ClearToEmpty();
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* ListApiKeysResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // repeated .ai.inworld.studio.v1alpha.ApiKey api_keys = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_api_keys(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
-        } else goto handle_unusual;
-        continue;
-      // string next_page_token = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          auto str = _internal_mutable_next_page_token();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.ListApiKeysResponse.next_page_token"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* ListApiKeysResponse::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ListApiKeysResponse::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 1, 69, 2> ListApiKeysResponse::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    &_ListApiKeysResponse_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // string next_page_token = 2;
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(ListApiKeysResponse, _impl_.next_page_token_)}},
+    // repeated .ai.inworld.studio.v1alpha.ApiKey api_keys = 1;
+    {::_pbi::TcParser::FastMtR1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(ListApiKeysResponse, _impl_.api_keys_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // repeated .ai.inworld.studio.v1alpha.ApiKey api_keys = 1;
+    {PROTOBUF_FIELD_OFFSET(ListApiKeysResponse, _impl_.api_keys_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // string next_page_token = 2;
+    {PROTOBUF_FIELD_OFFSET(ListApiKeysResponse, _impl_.next_page_token_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::ai::inworld::studio::v1alpha::ApiKey>()},
+  }}, {{
+    "\55\0\17\0\0\0\0\0"
+    "ai.inworld.studio.v1alpha.ListApiKeysResponse"
+    "next_page_token"
+  }},
+};
+
+::uint8_t* ListApiKeysResponse::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.studio.v1alpha.ListApiKeysResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // repeated .ai.inworld.studio.v1alpha.ApiKey api_keys = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_api_keys_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_api_keys(i), target, stream);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_api_keys_size()); i < n; i++) {
+    const auto& repfield = this->_internal_api_keys().Get(i);
+    target = ::google::protobuf_inworld::internal::WireFormatLite::
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   // string next_page_token = 2;
-  if (this->next_page_token().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_next_page_token().data(), static_cast<int>(this->_internal_next_page_token().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ai.inworld.studio.v1alpha.ListApiKeysResponse.next_page_token");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_next_page_token(), target);
+  if (!this->_internal_next_page_token().empty()) {
+    const std::string& _s = this->_internal_next_page_token();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "ai.inworld.studio.v1alpha.ListApiKeysResponse.next_page_token");
+    target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.studio.v1alpha.ListApiKeysResponse)
   return target;
 }
 
-size_t ListApiKeysResponse::ByteSizeLong() const {
+::size_t ListApiKeysResponse::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:ai.inworld.studio.v1alpha.ListApiKeysResponse)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // repeated .ai.inworld.studio.v1alpha.ApiKey api_keys = 1;
   total_size += 1UL * this->_internal_api_keys_size();
-  for (const auto& msg : this->api_keys_) {
+  for (const auto& msg : this->_internal_api_keys()) {
     total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+      ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(msg);
   }
-
   // string next_page_token = 2;
-  if (this->next_page_token().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_next_page_token());
+  if (!this->_internal_next_page_token().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_next_page_token());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void ListApiKeysResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.studio.v1alpha.ListApiKeysResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ListApiKeysResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ListApiKeysResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.studio.v1alpha.ListApiKeysResponse)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.studio.v1alpha.ListApiKeysResponse)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData ListApiKeysResponse::_class_data_ = {
+    ListApiKeysResponse::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* ListApiKeysResponse::GetClassData() const {
+  return &_class_data_;
 }
 
-void ListApiKeysResponse::MergeFrom(const ListApiKeysResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.ListApiKeysResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void ListApiKeysResponse::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<ListApiKeysResponse*>(&to_msg);
+  auto& from = static_cast<const ListApiKeysResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.studio.v1alpha.ListApiKeysResponse)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  api_keys_.MergeFrom(from.api_keys_);
-  if (from.next_page_token().size() > 0) {
-    _internal_set_next_page_token(from._internal_next_page_token());
+  _this->_internal_mutable_api_keys()->MergeFrom(
+      from._internal_api_keys());
+  if (!from._internal_next_page_token().empty()) {
+    _this->_internal_set_next_page_token(from._internal_next_page_token());
   }
-}
-
-void ListApiKeysResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.studio.v1alpha.ListApiKeysResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ListApiKeysResponse::CopyFrom(const ListApiKeysResponse& from) {
@@ -2351,53 +2305,35 @@ void ListApiKeysResponse::CopyFrom(const ListApiKeysResponse& from) {
   MergeFrom(from);
 }
 
-bool ListApiKeysResponse::IsInitialized() const {
+PROTOBUF_NOINLINE bool ListApiKeysResponse::IsInitialized() const {
   return true;
 }
 
-void ListApiKeysResponse::InternalSwap(ListApiKeysResponse* other) {
+::_pbi::CachedSize* ListApiKeysResponse::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void ListApiKeysResponse::InternalSwap(ListApiKeysResponse* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  api_keys_.InternalSwap(&other->api_keys_);
-  next_page_token_.Swap(&other->next_page_token_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.api_keys_.InternalSwap(&other->_impl_.api_keys_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.next_page_token_, &other->_impl_.next_page_token_, arena);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata ListApiKeysResponse::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata ListApiKeysResponse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_getter, &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_once,
+      file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto[7]);
 }
-
-
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace v1alpha
 }  // namespace studio
 }  // namespace inworld
 }  // namespace ai
-PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::ApiKey_UsageLimits* Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::ApiKey_UsageLimits >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::ApiKey_UsageLimits >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::ApiKey* Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::ApiKey >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::ApiKey >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest* Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::GenerateApiKeyRequest >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::ListApiKeysRequest* Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::ListApiKeysRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::ListApiKeysRequest >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest* Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::SuspendApiKeyRequest >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest* Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::ActivateApiKeyRequest >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest* Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::DeleteApiKeyRequest >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ai::inworld::studio::v1alpha::ListApiKeysResponse* Arena::CreateMaybeMessage< ::ai::inworld::studio::v1alpha::ListApiKeysResponse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ai::inworld::studio::v1alpha::ListApiKeysResponse >(arena);
-}
-PROTOBUF_NAMESPACE_CLOSE
-
+namespace google {
+namespace protobuf {
+}  // namespace protobuf
+}  // namespace google
 // @@protoc_insertion_point(global_scope)
-#include <google/protobuf/port_undef.inc>
+#include "google/protobuf/port_undef.inc"

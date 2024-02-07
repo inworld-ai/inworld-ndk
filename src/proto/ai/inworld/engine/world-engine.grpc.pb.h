@@ -7,24 +7,23 @@
 #include "ai/inworld/engine/world-engine.pb.h"
 
 #include <functional>
-#include <grpc/impl/codegen/port_platform.h>
-#include <grpcpp/impl/codegen/async_generic_service.h>
-#include <grpcpp/impl/codegen/async_stream.h>
-#include <grpcpp/impl/codegen/async_unary_call.h>
-#include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/client_context.h>
-#include <grpcpp/impl/codegen/completion_queue.h>
-#include <grpcpp/impl/codegen/message_allocator.h>
-#include <grpcpp/impl/codegen/method_handler.h>
-#include <grpcpp/impl/codegen/proto_utils.h>
-#include <grpcpp/impl/codegen/rpc_method.h>
-#include <grpcpp/impl/codegen/server_callback.h>
-#include <grpcpp/impl/codegen/server_callback_handlers.h>
-#include <grpcpp/impl/codegen/server_context.h>
-#include <grpcpp/impl/codegen/service_type.h>
-#include <grpcpp/impl/codegen/status.h>
-#include <grpcpp/impl/codegen/stub_options.h>
-#include <grpcpp/impl/codegen/sync_stream.h>
+#include <grpcpp/generic/async_generic_service.h>
+#include <grpcpp/support/async_stream.h>
+#include <grpcpp/support/async_unary_call.h>
+#include <grpcpp/support/client_callback.h>
+#include <grpcpp/client_context.h>
+#include <grpcpp/completion_queue.h>
+#include <grpcpp/support/message_allocator.h>
+#include <grpcpp/support/method_handler.h>
+#include <grpcpp/impl/proto_utils.h>
+#include <grpcpp/impl/rpc_method.h>
+#include <grpcpp/support/server_callback.h>
+#include <grpcpp/impl/server_callback_handlers.h>
+#include <grpcpp/server_context.h>
+#include <grpcpp/impl/service_type.h>
+#include <grpcpp/support/status.h>
+#include <grpcpp/support/stub_options.h>
+#include <grpcpp/support/sync_stream.h>
 
 namespace ai {
 namespace inworld {
@@ -107,72 +106,40 @@ class WorldEngine final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::engine::AccessToken>> PrepareAsyncGenerateToken(::grpc::ClientContext* context, const ::ai::inworld::engine::GenerateTokenRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::engine::AccessToken>>(PrepareAsyncGenerateTokenRaw(context, request, cq));
     }
-    class experimental_async_interface {
+    class async_interface {
      public:
-      virtual ~experimental_async_interface() {}
+      virtual ~async_interface() {}
       // Bidirectional events based Session.
       // Requires LoadScene RPC to be called before.
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void Session(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::ai::inworld::packets::InworldPacket,::ai::inworld::packets::InworldPacket>* reactor) = 0;
-      #else
-      virtual void Session(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::ai::inworld::packets::InworldPacket,::ai::inworld::packets::InworldPacket>* reactor) = 0;
-      #endif
       // Bidirectional events based Session.
       // Allows to open session with one rpc call.
       // All necessary configuration should be passed before data packets.
       // Configuration provided by SessionControlEvent and MutationEvent.
       // The Client capabilities, user settings, client settings and scene are required to start session.
       // Packets processed in the order of input.
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void OpenSession(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::ai::inworld::packets::InworldPacket,::ai::inworld::packets::InworldPacket>* reactor) = 0;
-      #else
-      virtual void OpenSession(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::ai::inworld::packets::InworldPacket,::ai::inworld::packets::InworldPacket>* reactor) = 0;
-      #endif
       // RPC to load world for the interaction session.
       virtual void LoadScene(::grpc::ClientContext* context, const ::ai::inworld::engine::LoadSceneRequest* request, ::ai::inworld::engine::LoadSceneResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void LoadScene(::grpc::ClientContext* context, const ::ai::inworld::engine::LoadSceneRequest* request, ::ai::inworld::engine::LoadSceneResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void LoadScene(::grpc::ClientContext* context, const ::ai::inworld::engine::LoadSceneRequest* request, ::ai::inworld::engine::LoadSceneResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to log errors for the interaction session.
       virtual void LogError(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void LogError(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void LogError(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to get voice preview
       virtual void VoicePreview(::grpc::ClientContext* context, const ::ai::inworld::engine::VoicePreviewRequest* request, ::ai::inworld::engine::VoicePreviewResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void VoicePreview(::grpc::ClientContext* context, const ::ai::inworld::engine::VoicePreviewRequest* request, ::ai::inworld::engine::VoicePreviewResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void VoicePreview(::grpc::ClientContext* context, const ::ai::inworld::engine::VoicePreviewRequest* request, ::ai::inworld::engine::VoicePreviewResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to load list of base voices.
       virtual void ListBaseVoices(::grpc::ClientContext* context, const ::ai::inworld::engine::ListBaseVoicesRequest* request, ::ai::inworld::engine::ListBaseVoicesResponce* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void ListBaseVoices(::grpc::ClientContext* context, const ::ai::inworld::engine::ListBaseVoicesRequest* request, ::ai::inworld::engine::ListBaseVoicesResponce* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void ListBaseVoices(::grpc::ClientContext* context, const ::ai::inworld::engine::ListBaseVoicesRequest* request, ::ai::inworld::engine::ListBaseVoicesResponce* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // Generates a JWT to access the world engine API with a given API key
       // A valid HMAC-SHA signature matching the API key in the request should be provided as authorization
       virtual void GenerateToken(::grpc::ClientContext* context, const ::ai::inworld::engine::GenerateTokenRequest* request, ::ai::inworld::engine::AccessToken* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void GenerateToken(::grpc::ClientContext* context, const ::ai::inworld::engine::GenerateTokenRequest* request, ::ai::inworld::engine::AccessToken* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void GenerateToken(::grpc::ClientContext* context, const ::ai::inworld::engine::GenerateTokenRequest* request, ::ai::inworld::engine::AccessToken* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
     };
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    typedef class experimental_async_interface async_interface;
-    #endif
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    async_interface* async() { return experimental_async(); }
-    #endif
-    virtual class experimental_async_interface* experimental_async() { return nullptr; }
-  private:
+    typedef class async_interface experimental_async_interface;
+    virtual class async_interface* async() { return nullptr; }
+    class async_interface* experimental_async() { return async(); }
+   private:
     virtual ::grpc::ClientReaderWriterInterface< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* SessionRaw(::grpc::ClientContext* context) = 0;
     virtual ::grpc::ClientAsyncReaderWriterInterface< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* AsyncSessionRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) = 0;
     virtual ::grpc::ClientAsyncReaderWriterInterface< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* PrepareAsyncSessionRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) = 0;
@@ -192,7 +159,7 @@ class WorldEngine final {
   };
   class Stub final : public StubInterface {
    public:
-    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
+    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
     std::unique_ptr< ::grpc::ClientReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>> Session(::grpc::ClientContext* context) {
       return std::unique_ptr< ::grpc::ClientReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>>(SessionRaw(context));
     }
@@ -246,60 +213,32 @@ class WorldEngine final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::engine::AccessToken>> PrepareAsyncGenerateToken(::grpc::ClientContext* context, const ::ai::inworld::engine::GenerateTokenRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::engine::AccessToken>>(PrepareAsyncGenerateTokenRaw(context, request, cq));
     }
-    class experimental_async final :
-      public StubInterface::experimental_async_interface {
+    class async final :
+      public StubInterface::async_interface {
      public:
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void Session(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::ai::inworld::packets::InworldPacket,::ai::inworld::packets::InworldPacket>* reactor) override;
-      #else
-      void Session(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::ai::inworld::packets::InworldPacket,::ai::inworld::packets::InworldPacket>* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void OpenSession(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::ai::inworld::packets::InworldPacket,::ai::inworld::packets::InworldPacket>* reactor) override;
-      #else
-      void OpenSession(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::ai::inworld::packets::InworldPacket,::ai::inworld::packets::InworldPacket>* reactor) override;
-      #endif
       void LoadScene(::grpc::ClientContext* context, const ::ai::inworld::engine::LoadSceneRequest* request, ::ai::inworld::engine::LoadSceneResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void LoadScene(::grpc::ClientContext* context, const ::ai::inworld::engine::LoadSceneRequest* request, ::ai::inworld::engine::LoadSceneResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void LoadScene(::grpc::ClientContext* context, const ::ai::inworld::engine::LoadSceneRequest* request, ::ai::inworld::engine::LoadSceneResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void LogError(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void LogError(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void LogError(::grpc::ClientContext* context, const ::ai::inworld::engine::LogErrorRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void VoicePreview(::grpc::ClientContext* context, const ::ai::inworld::engine::VoicePreviewRequest* request, ::ai::inworld::engine::VoicePreviewResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void VoicePreview(::grpc::ClientContext* context, const ::ai::inworld::engine::VoicePreviewRequest* request, ::ai::inworld::engine::VoicePreviewResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void VoicePreview(::grpc::ClientContext* context, const ::ai::inworld::engine::VoicePreviewRequest* request, ::ai::inworld::engine::VoicePreviewResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void ListBaseVoices(::grpc::ClientContext* context, const ::ai::inworld::engine::ListBaseVoicesRequest* request, ::ai::inworld::engine::ListBaseVoicesResponce* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void ListBaseVoices(::grpc::ClientContext* context, const ::ai::inworld::engine::ListBaseVoicesRequest* request, ::ai::inworld::engine::ListBaseVoicesResponce* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void ListBaseVoices(::grpc::ClientContext* context, const ::ai::inworld::engine::ListBaseVoicesRequest* request, ::ai::inworld::engine::ListBaseVoicesResponce* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void GenerateToken(::grpc::ClientContext* context, const ::ai::inworld::engine::GenerateTokenRequest* request, ::ai::inworld::engine::AccessToken* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void GenerateToken(::grpc::ClientContext* context, const ::ai::inworld::engine::GenerateTokenRequest* request, ::ai::inworld::engine::AccessToken* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void GenerateToken(::grpc::ClientContext* context, const ::ai::inworld::engine::GenerateTokenRequest* request, ::ai::inworld::engine::AccessToken* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
      private:
       friend class Stub;
-      explicit experimental_async(Stub* stub): stub_(stub) { }
+      explicit async(Stub* stub): stub_(stub) { }
       Stub* stub() { return stub_; }
       Stub* stub_;
     };
-    class experimental_async_interface* experimental_async() override { return &async_stub_; }
+    class async* async() override { return &async_stub_; }
 
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
-    class experimental_async async_stub_{this};
+    class async async_stub_{this};
     ::grpc::ClientReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* SessionRaw(::grpc::ClientContext* context) override;
     ::grpc::ClientAsyncReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* AsyncSessionRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) override;
     ::grpc::ClientAsyncReaderWriter< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* PrepareAsyncSessionRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
@@ -494,27 +433,17 @@ class WorldEngine final {
   };
   typedef WithAsyncMethod_Session<WithAsyncMethod_OpenSession<WithAsyncMethod_LoadScene<WithAsyncMethod_LogError<WithAsyncMethod_VoicePreview<WithAsyncMethod_ListBaseVoices<WithAsyncMethod_GenerateToken<Service > > > > > > > AsyncService;
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_Session : public BaseClass {
+  class WithCallbackMethod_Session : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_Session() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(0,
+    WithCallbackMethod_Session() {
+      ::grpc::Service::MarkMethodCallback(0,
           new ::grpc::internal::CallbackBidiHandler< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context) { return this->Session(context); }));
+                   ::grpc::CallbackServerContext* context) { return this->Session(context); }));
     }
-    ~ExperimentalWithCallbackMethod_Session() override {
+    ~WithCallbackMethod_Session() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -522,37 +451,22 @@ class WorldEngine final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerBidiReactor< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* Session(
       ::grpc::CallbackServerContext* /*context*/)
-    #else
-    virtual ::grpc::experimental::ServerBidiReactor< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* Session(
-      ::grpc::experimental::CallbackServerContext* /*context*/)
-    #endif
       { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_OpenSession : public BaseClass {
+  class WithCallbackMethod_OpenSession : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_OpenSession() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(1,
+    WithCallbackMethod_OpenSession() {
+      ::grpc::Service::MarkMethodCallback(1,
           new ::grpc::internal::CallbackBidiHandler< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context) { return this->OpenSession(context); }));
+                   ::grpc::CallbackServerContext* context) { return this->OpenSession(context); }));
     }
-    ~ExperimentalWithCallbackMethod_OpenSession() override {
+    ~WithCallbackMethod_OpenSession() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -560,46 +474,27 @@ class WorldEngine final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerBidiReactor< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* OpenSession(
       ::grpc::CallbackServerContext* /*context*/)
-    #else
-    virtual ::grpc::experimental::ServerBidiReactor< ::ai::inworld::packets::InworldPacket, ::ai::inworld::packets::InworldPacket>* OpenSession(
-      ::grpc::experimental::CallbackServerContext* /*context*/)
-    #endif
       { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_LoadScene : public BaseClass {
+  class WithCallbackMethod_LoadScene : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_LoadScene() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(2,
+    WithCallbackMethod_LoadScene() {
+      ::grpc::Service::MarkMethodCallback(2,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::engine::LoadSceneRequest, ::ai::inworld::engine::LoadSceneResponse>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::engine::LoadSceneRequest* request, ::ai::inworld::engine::LoadSceneResponse* response) { return this->LoadScene(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::engine::LoadSceneRequest* request, ::ai::inworld::engine::LoadSceneResponse* response) { return this->LoadScene(context, request, response); }));}
     void SetMessageAllocatorFor_LoadScene(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::engine::LoadSceneRequest, ::ai::inworld::engine::LoadSceneResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::engine::LoadSceneRequest, ::ai::inworld::engine::LoadSceneResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(2);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::engine::LoadSceneRequest, ::ai::inworld::engine::LoadSceneResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_LoadScene() override {
+    ~WithCallbackMethod_LoadScene() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -607,46 +502,26 @@ class WorldEngine final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* LoadScene(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::engine::LoadSceneRequest* /*request*/, ::ai::inworld::engine::LoadSceneResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* LoadScene(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::engine::LoadSceneRequest* /*request*/, ::ai::inworld::engine::LoadSceneResponse* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::engine::LoadSceneRequest* /*request*/, ::ai::inworld::engine::LoadSceneResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_LogError : public BaseClass {
+  class WithCallbackMethod_LogError : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_LogError() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(3,
+    WithCallbackMethod_LogError() {
+      ::grpc::Service::MarkMethodCallback(3,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::engine::LogErrorRequest, ::google::protobuf_inworld::Empty>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::engine::LogErrorRequest* request, ::google::protobuf_inworld::Empty* response) { return this->LogError(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::engine::LogErrorRequest* request, ::google::protobuf_inworld::Empty* response) { return this->LogError(context, request, response); }));}
     void SetMessageAllocatorFor_LogError(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::engine::LogErrorRequest, ::google::protobuf_inworld::Empty>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::engine::LogErrorRequest, ::google::protobuf_inworld::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(3);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::engine::LogErrorRequest, ::google::protobuf_inworld::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_LogError() override {
+    ~WithCallbackMethod_LogError() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -654,46 +529,26 @@ class WorldEngine final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* LogError(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::engine::LogErrorRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* LogError(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::engine::LogErrorRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::engine::LogErrorRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_VoicePreview : public BaseClass {
+  class WithCallbackMethod_VoicePreview : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_VoicePreview() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(4,
+    WithCallbackMethod_VoicePreview() {
+      ::grpc::Service::MarkMethodCallback(4,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::engine::VoicePreviewRequest, ::ai::inworld::engine::VoicePreviewResponse>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::engine::VoicePreviewRequest* request, ::ai::inworld::engine::VoicePreviewResponse* response) { return this->VoicePreview(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::engine::VoicePreviewRequest* request, ::ai::inworld::engine::VoicePreviewResponse* response) { return this->VoicePreview(context, request, response); }));}
     void SetMessageAllocatorFor_VoicePreview(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::engine::VoicePreviewRequest, ::ai::inworld::engine::VoicePreviewResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::engine::VoicePreviewRequest, ::ai::inworld::engine::VoicePreviewResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(4);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::engine::VoicePreviewRequest, ::ai::inworld::engine::VoicePreviewResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_VoicePreview() override {
+    ~WithCallbackMethod_VoicePreview() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -701,46 +556,26 @@ class WorldEngine final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* VoicePreview(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::engine::VoicePreviewRequest* /*request*/, ::ai::inworld::engine::VoicePreviewResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* VoicePreview(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::engine::VoicePreviewRequest* /*request*/, ::ai::inworld::engine::VoicePreviewResponse* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::engine::VoicePreviewRequest* /*request*/, ::ai::inworld::engine::VoicePreviewResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_ListBaseVoices : public BaseClass {
+  class WithCallbackMethod_ListBaseVoices : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_ListBaseVoices() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(5,
+    WithCallbackMethod_ListBaseVoices() {
+      ::grpc::Service::MarkMethodCallback(5,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::engine::ListBaseVoicesRequest, ::ai::inworld::engine::ListBaseVoicesResponce>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::engine::ListBaseVoicesRequest* request, ::ai::inworld::engine::ListBaseVoicesResponce* response) { return this->ListBaseVoices(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::engine::ListBaseVoicesRequest* request, ::ai::inworld::engine::ListBaseVoicesResponce* response) { return this->ListBaseVoices(context, request, response); }));}
     void SetMessageAllocatorFor_ListBaseVoices(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::engine::ListBaseVoicesRequest, ::ai::inworld::engine::ListBaseVoicesResponce>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::engine::ListBaseVoicesRequest, ::ai::inworld::engine::ListBaseVoicesResponce>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(5);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::engine::ListBaseVoicesRequest, ::ai::inworld::engine::ListBaseVoicesResponce>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_ListBaseVoices() override {
+    ~WithCallbackMethod_ListBaseVoices() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -748,46 +583,26 @@ class WorldEngine final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* ListBaseVoices(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::engine::ListBaseVoicesRequest* /*request*/, ::ai::inworld::engine::ListBaseVoicesResponce* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* ListBaseVoices(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::engine::ListBaseVoicesRequest* /*request*/, ::ai::inworld::engine::ListBaseVoicesResponce* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::engine::ListBaseVoicesRequest* /*request*/, ::ai::inworld::engine::ListBaseVoicesResponce* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_GenerateToken : public BaseClass {
+  class WithCallbackMethod_GenerateToken : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_GenerateToken() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(6,
+    WithCallbackMethod_GenerateToken() {
+      ::grpc::Service::MarkMethodCallback(6,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::engine::GenerateTokenRequest, ::ai::inworld::engine::AccessToken>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::engine::GenerateTokenRequest* request, ::ai::inworld::engine::AccessToken* response) { return this->GenerateToken(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::engine::GenerateTokenRequest* request, ::ai::inworld::engine::AccessToken* response) { return this->GenerateToken(context, request, response); }));}
     void SetMessageAllocatorFor_GenerateToken(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::engine::GenerateTokenRequest, ::ai::inworld::engine::AccessToken>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::engine::GenerateTokenRequest, ::ai::inworld::engine::AccessToken>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(6);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::engine::GenerateTokenRequest, ::ai::inworld::engine::AccessToken>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_GenerateToken() override {
+    ~WithCallbackMethod_GenerateToken() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -795,20 +610,11 @@ class WorldEngine final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GenerateToken(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::engine::GenerateTokenRequest* /*request*/, ::ai::inworld::engine::AccessToken* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GenerateToken(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::engine::GenerateTokenRequest* /*request*/, ::ai::inworld::engine::AccessToken* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::engine::GenerateTokenRequest* /*request*/, ::ai::inworld::engine::AccessToken* /*response*/)  { return nullptr; }
   };
-  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_Session<ExperimentalWithCallbackMethod_OpenSession<ExperimentalWithCallbackMethod_LoadScene<ExperimentalWithCallbackMethod_LogError<ExperimentalWithCallbackMethod_VoicePreview<ExperimentalWithCallbackMethod_ListBaseVoices<ExperimentalWithCallbackMethod_GenerateToken<Service > > > > > > > CallbackService;
-  #endif
-
-  typedef ExperimentalWithCallbackMethod_Session<ExperimentalWithCallbackMethod_OpenSession<ExperimentalWithCallbackMethod_LoadScene<ExperimentalWithCallbackMethod_LogError<ExperimentalWithCallbackMethod_VoicePreview<ExperimentalWithCallbackMethod_ListBaseVoices<ExperimentalWithCallbackMethod_GenerateToken<Service > > > > > > > ExperimentalCallbackService;
+  typedef WithCallbackMethod_Session<WithCallbackMethod_OpenSession<WithCallbackMethod_LoadScene<WithCallbackMethod_LogError<WithCallbackMethod_VoicePreview<WithCallbackMethod_ListBaseVoices<WithCallbackMethod_GenerateToken<Service > > > > > > > CallbackService;
+  typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_Session : public BaseClass {
    private:
@@ -1069,27 +875,17 @@ class WorldEngine final {
     }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_Session : public BaseClass {
+  class WithRawCallbackMethod_Session : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_Session() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(0,
+    WithRawCallbackMethod_Session() {
+      ::grpc::Service::MarkMethodRawCallback(0,
           new ::grpc::internal::CallbackBidiHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context) { return this->Session(context); }));
+                   ::grpc::CallbackServerContext* context) { return this->Session(context); }));
     }
-    ~ExperimentalWithRawCallbackMethod_Session() override {
+    ~WithRawCallbackMethod_Session() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1097,37 +893,22 @@ class WorldEngine final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* Session(
       ::grpc::CallbackServerContext* /*context*/)
-    #else
-    virtual ::grpc::experimental::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* Session(
-      ::grpc::experimental::CallbackServerContext* /*context*/)
-    #endif
       { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_OpenSession : public BaseClass {
+  class WithRawCallbackMethod_OpenSession : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_OpenSession() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(1,
+    WithRawCallbackMethod_OpenSession() {
+      ::grpc::Service::MarkMethodRawCallback(1,
           new ::grpc::internal::CallbackBidiHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context) { return this->OpenSession(context); }));
+                   ::grpc::CallbackServerContext* context) { return this->OpenSession(context); }));
     }
-    ~ExperimentalWithRawCallbackMethod_OpenSession() override {
+    ~WithRawCallbackMethod_OpenSession() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1135,37 +916,22 @@ class WorldEngine final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* OpenSession(
       ::grpc::CallbackServerContext* /*context*/)
-    #else
-    virtual ::grpc::experimental::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* OpenSession(
-      ::grpc::experimental::CallbackServerContext* /*context*/)
-    #endif
       { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_LoadScene : public BaseClass {
+  class WithRawCallbackMethod_LoadScene : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_LoadScene() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(2,
+    WithRawCallbackMethod_LoadScene() {
+      ::grpc::Service::MarkMethodRawCallback(2,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->LoadScene(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->LoadScene(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_LoadScene() override {
+    ~WithRawCallbackMethod_LoadScene() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1173,37 +939,21 @@ class WorldEngine final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* LoadScene(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* LoadScene(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_LogError : public BaseClass {
+  class WithRawCallbackMethod_LogError : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_LogError() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(3,
+    WithRawCallbackMethod_LogError() {
+      ::grpc::Service::MarkMethodRawCallback(3,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->LogError(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->LogError(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_LogError() override {
+    ~WithRawCallbackMethod_LogError() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1211,37 +961,21 @@ class WorldEngine final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* LogError(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* LogError(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_VoicePreview : public BaseClass {
+  class WithRawCallbackMethod_VoicePreview : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_VoicePreview() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(4,
+    WithRawCallbackMethod_VoicePreview() {
+      ::grpc::Service::MarkMethodRawCallback(4,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->VoicePreview(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->VoicePreview(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_VoicePreview() override {
+    ~WithRawCallbackMethod_VoicePreview() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1249,37 +983,21 @@ class WorldEngine final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* VoicePreview(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* VoicePreview(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_ListBaseVoices : public BaseClass {
+  class WithRawCallbackMethod_ListBaseVoices : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_ListBaseVoices() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(5,
+    WithRawCallbackMethod_ListBaseVoices() {
+      ::grpc::Service::MarkMethodRawCallback(5,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ListBaseVoices(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ListBaseVoices(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_ListBaseVoices() override {
+    ~WithRawCallbackMethod_ListBaseVoices() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1287,37 +1005,21 @@ class WorldEngine final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* ListBaseVoices(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* ListBaseVoices(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_GenerateToken : public BaseClass {
+  class WithRawCallbackMethod_GenerateToken : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_GenerateToken() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(6,
+    WithRawCallbackMethod_GenerateToken() {
+      ::grpc::Service::MarkMethodRawCallback(6,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GenerateToken(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GenerateToken(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_GenerateToken() override {
+    ~WithRawCallbackMethod_GenerateToken() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1325,14 +1027,8 @@ class WorldEngine final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GenerateToken(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GenerateToken(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_LoadScene : public BaseClass {

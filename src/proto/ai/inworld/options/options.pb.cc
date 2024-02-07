@@ -5,113 +5,141 @@
 #include "ai/inworld/options/options.pb.h"
 
 #include <algorithm>
-
-#include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/extension_set.h>
-#include <google/protobuf/wire_format_lite.h>
-#include <google/protobuf/descriptor.h>
-#include <google/protobuf/generated_message_reflection.h>
-#include <google/protobuf/reflection_ops.h>
-#include <google/protobuf/wire_format.h>
+#include "google/protobuf/io/coded_stream.h"
+#include "google/protobuf/extension_set.h"
+#include "google/protobuf/wire_format_lite.h"
+#include "google/protobuf/descriptor.h"
+#include "google/protobuf/generated_message_reflection.h"
+#include "google/protobuf/reflection_ops.h"
+#include "google/protobuf/wire_format.h"
+#include "google/protobuf/generated_message_tctable_impl.h"
 // @@protoc_insertion_point(includes)
-#include <google/protobuf/port_def.inc>
-extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2foptions_2foptions_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ExampleValue_ai_2finworld_2foptions_2foptions_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_google_2fprotobuf_2fstruct_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ListValue_google_2fprotobuf_2fstruct_2eproto;
+
+// Must be included last.
+#include "google/protobuf/port_def.inc"
+PROTOBUF_PRAGMA_INIT_SEG
+namespace _pb = ::google::protobuf;
+namespace _pbi = ::google::protobuf_inworld::internal;
+namespace _fl = ::google::protobuf_inworld::internal::field_layout;
 namespace ai {
 namespace inworld {
 namespace options {
-class ExampleValueDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ExampleValue> _instance;
-} _ExampleValue_default_instance_;
+
+inline constexpr ExampleValue::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : example_{},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ExampleValue::ExampleValue(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct ExampleValueDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ExampleValueDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ExampleValueDefaultTypeInternal() {}
+  union {
+    ExampleValue _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ExampleValueDefaultTypeInternal _ExampleValue_default_instance_;
 }  // namespace options
 }  // namespace inworld
 }  // namespace ai
-static void InitDefaultsscc_info_ExampleValue_ai_2finworld_2foptions_2foptions_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+static ::_pb::Metadata file_level_metadata_ai_2finworld_2foptions_2foptions_2eproto[1];
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_ai_2finworld_2foptions_2foptions_2eproto[1];
+static constexpr const ::_pb::ServiceDescriptor**
+    file_level_service_descriptors_ai_2finworld_2foptions_2foptions_2eproto = nullptr;
+const ::uint32_t TableStruct_ai_2finworld_2foptions_2foptions_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
+    protodesc_cold) = {
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::options::ExampleValue, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::ai::inworld::options::ExampleValue, _impl_.example_),
+};
 
-  {
-    void* ptr = &::ai::inworld::options::_ExampleValue_default_instance_;
-    new (ptr) ::ai::inworld::options::ExampleValue();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
+static const ::_pbi::MigrationSchema
+    schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+        {0, -1, -1, sizeof(::ai::inworld::options::ExampleValue)},
+};
+
+static const ::_pb::Message* const file_default_instances[] = {
+    &::ai::inworld::options::_ExampleValue_default_instance_._instance,
+};
+const char descriptor_table_protodef_ai_2finworld_2foptions_2foptions_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+    "\n ai/inworld/options/options.proto\022\022ai.i"
+    "nworld.options\032 google/protobuf/descript"
+    "or.proto\032\034google/protobuf/struct.proto\"7"
+    "\n\014ExampleValue\022\'\n\007example\030\001 \003(\0132\026.google"
+    ".protobuf.Value*3\n\tFieldMode\022\032\n\026FIELD_MO"
+    "DE_UNSPECIFIED\020\000\022\n\n\006HIDDEN\020\001:V\n\010examples"
+    "\022\035.google.protobuf.FieldOptions\030\364\251\004 \001(\0132"
+    " .ai.inworld.options.ExampleValue\210\001\001:R\n\n"
+    "field_mode\022\035.google.protobuf.FieldOption"
+    "s\030\201\361\004 \003(\0162\035.ai.inworld.options.FieldMode"
+    "Bt\n\022ai.inworld.optionsB\017OptionsProtocolZ"
+    "Mgithub.com/inworld-ai/inworld/serving/g"
+    "rpc-gateway/build/proto/engine/v1alphab\006"
+    "proto3"
+};
+static const ::_pbi::DescriptorTable* const descriptor_table_ai_2finworld_2foptions_2foptions_2eproto_deps[2] =
+    {
+        &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
+        &::descriptor_table_google_2fprotobuf_2fstruct_2eproto,
+};
+static ::absl::once_flag descriptor_table_ai_2finworld_2foptions_2foptions_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_ai_2finworld_2foptions_2foptions_2eproto = {
+    false,
+    false,
+    526,
+    descriptor_table_protodef_ai_2finworld_2foptions_2foptions_2eproto,
+    "ai/inworld/options/options.proto",
+    &descriptor_table_ai_2finworld_2foptions_2foptions_2eproto_once,
+    descriptor_table_ai_2finworld_2foptions_2foptions_2eproto_deps,
+    2,
+    1,
+    schemas,
+    file_default_instances,
+    TableStruct_ai_2finworld_2foptions_2foptions_2eproto::offsets,
+    file_level_metadata_ai_2finworld_2foptions_2foptions_2eproto,
+    file_level_enum_descriptors_ai_2finworld_2foptions_2foptions_2eproto,
+    file_level_service_descriptors_ai_2finworld_2foptions_2foptions_2eproto,
+};
+
+// This function exists to be marked as weak.
+// It can significantly speed up compilation by breaking up LLVM's SCC
+// in the .pb.cc translation units. Large translation units see a
+// reduction of more than 35% of walltime for optimized builds. Without
+// the weak attribute all the messages in the file, including all the
+// vtables and everything they use become part of the same SCC through
+// a cycle like:
+// GetMetadata -> descriptor table -> default instances ->
+//   vtables -> GetMetadata
+// By adding a weak function here we break the connection from the
+// individual vtables back into the descriptor table.
+PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_ai_2finworld_2foptions_2foptions_2eproto_getter() {
+  return &descriptor_table_ai_2finworld_2foptions_2foptions_2eproto;
 }
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ExampleValue_ai_2finworld_2foptions_2foptions_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ExampleValue_ai_2finworld_2foptions_2foptions_2eproto}, {
-      &scc_info_ListValue_google_2fprotobuf_2fstruct_2eproto.base,}};
-
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_ai_2finworld_2foptions_2foptions_2eproto[1];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_ai_2finworld_2foptions_2foptions_2eproto[1];
-static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_ai_2finworld_2foptions_2foptions_2eproto = nullptr;
-
-const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2foptions_2foptions_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::options::ExampleValue, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::options::ExampleValue, example_),
-};
-static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::ai::inworld::options::ExampleValue)},
-};
-
-static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::options::_ExampleValue_default_instance_),
-};
-
-const char descriptor_table_protodef_ai_2finworld_2foptions_2foptions_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n ai/inworld/options/options.proto\022\022ai.i"
-  "nworld.options\032 google/protobuf/descript"
-  "or.proto\032\034google/protobuf/struct.proto\"7"
-  "\n\014ExampleValue\022\'\n\007example\030\001 \003(\0132\026.google"
-  ".protobuf.Value*3\n\tFieldMode\022\032\n\026FIELD_MO"
-  "DE_UNSPECIFIED\020\000\022\n\n\006HIDDEN\020\001:V\n\010examples"
-  "\022\035.google.protobuf.FieldOptions\030\364\251\004 \001(\0132"
-  " .ai.inworld.options.ExampleValue\210\001\001:R\n\n"
-  "field_mode\022\035.google.protobuf.FieldOption"
-  "s\030\201\361\004 \003(\0162\035.ai.inworld.options.FieldMode"
-  "Bt\n\022ai.inworld.optionsB\017OptionsProtocolZ"
-  "Mgithub.com/inworld-ai/inworld/serving/g"
-  "rpc-gateway/build/proto/engine/v1alphab\006"
-  "proto3"
-  ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2foptions_2foptions_2eproto_deps[2] = {
-  &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
-  &::descriptor_table_google_2fprotobuf_2fstruct_2eproto,
-};
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_2finworld_2foptions_2foptions_2eproto_sccs[1] = {
-  &scc_info_ExampleValue_ai_2finworld_2foptions_2foptions_2eproto.base,
-};
-static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2foptions_2foptions_2eproto_once;
-const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2foptions_2foptions_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2foptions_2foptions_2eproto, "ai/inworld/options/options.proto", 526,
-  &descriptor_table_ai_2finworld_2foptions_2foptions_2eproto_once, descriptor_table_ai_2finworld_2foptions_2foptions_2eproto_sccs, descriptor_table_ai_2finworld_2foptions_2foptions_2eproto_deps, 1, 2,
-  schemas, file_default_instances, TableStruct_ai_2finworld_2foptions_2foptions_2eproto::offsets,
-  file_level_metadata_ai_2finworld_2foptions_2foptions_2eproto, 1, file_level_enum_descriptors_ai_2finworld_2foptions_2foptions_2eproto, file_level_service_descriptors_ai_2finworld_2foptions_2foptions_2eproto,
-};
-
 // Force running AddDescriptors() at dynamic initialization time.
-static bool dynamic_init_dummy_ai_2finworld_2foptions_2foptions_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_ai_2finworld_2foptions_2foptions_2eproto)), true);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2
+static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_ai_2finworld_2foptions_2foptions_2eproto(&descriptor_table_ai_2finworld_2foptions_2foptions_2eproto);
 namespace ai {
 namespace inworld {
 namespace options {
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* FieldMode_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2foptions_2foptions_2eproto);
+const ::google::protobuf_inworld::EnumDescriptor* FieldMode_descriptor() {
+  ::google::protobuf_inworld::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2foptions_2foptions_2eproto);
   return file_level_enum_descriptors_ai_2finworld_2foptions_2foptions_2eproto[0];
 }
+PROTOBUF_CONSTINIT const uint32_t FieldMode_internal_data_[] = {
+    131072u, 0u, };
 bool FieldMode_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-      return true;
-    default:
-      return false;
-  }
+  return 0 <= value && value <= 1;
 }
-
-
 // ===================================================================
 
 class ExampleValue::_Internal {
@@ -119,178 +147,159 @@ class ExampleValue::_Internal {
 };
 
 void ExampleValue::clear_example() {
-  example_.Clear();
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.example_.Clear();
 }
-ExampleValue::ExampleValue(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  example_(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+ExampleValue::ExampleValue(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.options.ExampleValue)
 }
-ExampleValue::ExampleValue(const ExampleValue& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      example_(from.example_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+inline PROTOBUF_NDEBUG_INLINE ExampleValue::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    const Impl_& from)
+      : example_{visibility, arena, from.example_},
+        _cached_size_{0} {}
+
+ExampleValue::ExampleValue(
+    ::google::protobuf_inworld::Arena* arena,
+    const ExampleValue& from)
+    : ::google::protobuf_inworld::Message(arena) {
+  ExampleValue* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+
   // @@protoc_insertion_point(copy_constructor:ai.inworld.options.ExampleValue)
 }
+inline PROTOBUF_NDEBUG_INLINE ExampleValue::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : example_{visibility, arena},
+        _cached_size_{0} {}
 
-void ExampleValue::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ExampleValue_ai_2finworld_2foptions_2foptions_2eproto.base);
+inline void ExampleValue::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
 }
-
 ExampleValue::~ExampleValue() {
   // @@protoc_insertion_point(destructor:ai.inworld.options.ExampleValue)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+inline void ExampleValue::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.~Impl_();
 }
 
-void ExampleValue::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void ExampleValue::ArenaDtor(void* object) {
-  ExampleValue* _this = reinterpret_cast< ExampleValue* >(object);
-  (void)_this;
-}
-void ExampleValue::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void ExampleValue::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ExampleValue& ExampleValue::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ExampleValue_ai_2finworld_2foptions_2foptions_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void ExampleValue::Clear() {
+PROTOBUF_NOINLINE void ExampleValue::Clear() {
 // @@protoc_insertion_point(message_clear_start:ai.inworld.options.ExampleValue)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  example_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _impl_.example_.Clear();
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* ExampleValue::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // repeated .google.protobuf.Value example = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_example(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* ExampleValue::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ExampleValue::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 1, 0, 2> ExampleValue::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    &_ExampleValue_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // repeated .google.protobuf.Value example = 1;
+    {::_pbi::TcParser::FastMtR1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(ExampleValue, _impl_.example_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // repeated .google.protobuf.Value example = 1;
+    {PROTOBUF_FIELD_OFFSET(ExampleValue, _impl_.example_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::google::protobuf_inworld::Value>()},
+  }}, {{
+  }},
+};
+
+::uint8_t* ExampleValue::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.options.ExampleValue)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // repeated .google.protobuf.Value example = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_example_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_example(i), target, stream);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_example_size()); i < n; i++) {
+    const auto& repfield = this->_internal_example().Get(i);
+    target = ::google::protobuf_inworld::internal::WireFormatLite::
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.options.ExampleValue)
   return target;
 }
 
-size_t ExampleValue::ByteSizeLong() const {
+::size_t ExampleValue::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:ai.inworld.options.ExampleValue)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // repeated .google.protobuf.Value example = 1;
   total_size += 1UL * this->_internal_example_size();
-  for (const auto& msg : this->example_) {
+  for (const auto& msg : this->_internal_example()) {
     total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+      ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(msg);
   }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void ExampleValue::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.options.ExampleValue)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ExampleValue* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ExampleValue>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.options.ExampleValue)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.options.ExampleValue)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData ExampleValue::_class_data_ = {
+    ExampleValue::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* ExampleValue::GetClassData() const {
+  return &_class_data_;
 }
 
-void ExampleValue::MergeFrom(const ExampleValue& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.options.ExampleValue)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void ExampleValue::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<ExampleValue*>(&to_msg);
+  auto& from = static_cast<const ExampleValue&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.options.ExampleValue)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  example_.MergeFrom(from.example_);
-}
-
-void ExampleValue::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.options.ExampleValue)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_mutable_example()->MergeFrom(
+      from._internal_example());
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ExampleValue::CopyFrom(const ExampleValue& from) {
@@ -300,36 +309,37 @@ void ExampleValue::CopyFrom(const ExampleValue& from) {
   MergeFrom(from);
 }
 
-bool ExampleValue::IsInitialized() const {
+PROTOBUF_NOINLINE bool ExampleValue::IsInitialized() const {
   return true;
 }
 
-void ExampleValue::InternalSwap(ExampleValue* other) {
+::_pbi::CachedSize* ExampleValue::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void ExampleValue::InternalSwap(ExampleValue* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  example_.InternalSwap(&other->example_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.example_.InternalSwap(&other->_impl_.example_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata ExampleValue::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata ExampleValue::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_ai_2finworld_2foptions_2foptions_2eproto_getter, &descriptor_table_ai_2finworld_2foptions_2foptions_2eproto_once,
+      file_level_metadata_ai_2finworld_2foptions_2foptions_2eproto[0]);
 }
-
-::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf_inworld::FieldOptions,
-    ::PROTOBUF_NAMESPACE_ID::internal::MessageTypeTraits< ::ai::inworld::options::ExampleValue >, 11, false >
-  examples(kExamplesFieldNumber, ::ai::inworld::options::ExampleValue::default_instance());
-::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf_inworld::FieldOptions,
-    ::PROTOBUF_NAMESPACE_ID::internal::RepeatedEnumTypeTraits< ::ai::inworld::options::FieldMode, ::ai::inworld::options::FieldMode_IsValid>, 14, true >
-  field_mode(kFieldModeFieldNumber, static_cast< ::ai::inworld::options::FieldMode >(0));
-
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::FieldOptions,
+    ::google::protobuf_inworld::internal::MessageTypeTraits< ::ai::inworld::options::ExampleValue >, 11, false>
+  examples(kExamplesFieldNumber, ::ai::inworld::options::ExampleValue::default_instance(), nullptr);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::FieldOptions,
+    ::google::protobuf_inworld::internal::RepeatedEnumTypeTraits< ::ai::inworld::options::FieldMode, ::ai::inworld::options::FieldMode_IsValid>, 14, true>
+  field_mode(kFieldModeFieldNumber, static_cast< ::ai::inworld::options::FieldMode >(0), nullptr);
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace options
 }  // namespace inworld
 }  // namespace ai
-PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::ai::inworld::options::ExampleValue* Arena::CreateMaybeMessage< ::ai::inworld::options::ExampleValue >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ai::inworld::options::ExampleValue >(arena);
-}
-PROTOBUF_NAMESPACE_CLOSE
-
+namespace google {
+namespace protobuf {
+}  // namespace protobuf
+}  // namespace google
 // @@protoc_insertion_point(global_scope)
-#include <google/protobuf/port_undef.inc>
+#include "google/protobuf/port_undef.inc"

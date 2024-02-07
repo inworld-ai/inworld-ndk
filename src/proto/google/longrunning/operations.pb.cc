@@ -5,494 +5,588 @@
 #include "google/longrunning/operations.pb.h"
 
 #include <algorithm>
-
-#include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/extension_set.h>
-#include <google/protobuf/wire_format_lite.h>
-#include <google/protobuf/descriptor.h>
-#include <google/protobuf/generated_message_reflection.h>
-#include <google/protobuf/reflection_ops.h>
-#include <google/protobuf/wire_format.h>
+#include "google/protobuf/io/coded_stream.h"
+#include "google/protobuf/extension_set.h"
+#include "google/protobuf/wire_format_lite.h"
+#include "google/protobuf/descriptor.h"
+#include "google/protobuf/generated_message_reflection.h"
+#include "google/protobuf/reflection_ops.h"
+#include "google/protobuf/wire_format.h"
+#include "google/protobuf/generated_message_tctable_impl.h"
 // @@protoc_insertion_point(includes)
-#include <google/protobuf/port_def.inc>
-extern PROTOBUF_INTERNAL_EXPORT_google_2flongrunning_2foperations_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_Operation_google_2flongrunning_2foperations_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_google_2flongrunning_2foperations_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_OperationInfo_google_2flongrunning_2foperations_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_google_2fprotobuf_2fany_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Any_google_2fprotobuf_2fany_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_google_2fprotobuf_2fduration_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Duration_google_2fprotobuf_2fduration_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_google_2frpc_2fstatus_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Status_google_2frpc_2fstatus_2eproto;
+
+// Must be included last.
+#include "google/protobuf/port_def.inc"
+PROTOBUF_PRAGMA_INIT_SEG
+namespace _pb = ::google::protobuf;
+namespace _pbi = ::google::protobuf_inworld::internal;
+namespace _fl = ::google::protobuf_inworld::internal::field_layout;
 namespace google {
 namespace longrunning {
-class OperationDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Operation> _instance;
-} _Operation_default_instance_;
-class GetOperationRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<GetOperationRequest> _instance;
-} _GetOperationRequest_default_instance_;
-class ListOperationsRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ListOperationsRequest> _instance;
-} _ListOperationsRequest_default_instance_;
-class ListOperationsResponseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ListOperationsResponse> _instance;
-} _ListOperationsResponse_default_instance_;
-class CancelOperationRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<CancelOperationRequest> _instance;
-} _CancelOperationRequest_default_instance_;
-class DeleteOperationRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<DeleteOperationRequest> _instance;
-} _DeleteOperationRequest_default_instance_;
-class WaitOperationRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<WaitOperationRequest> _instance;
-} _WaitOperationRequest_default_instance_;
-class OperationInfoDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<OperationInfo> _instance;
-} _OperationInfo_default_instance_;
+
+inline constexpr OperationInfo::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : response_type_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        metadata_type_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR OperationInfo::OperationInfo(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct OperationInfoDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR OperationInfoDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~OperationInfoDefaultTypeInternal() {}
+  union {
+    OperationInfo _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OperationInfoDefaultTypeInternal _OperationInfo_default_instance_;
+
+inline constexpr ListOperationsRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : filter_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        page_token_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        name_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        page_size_{0},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ListOperationsRequest::ListOperationsRequest(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct ListOperationsRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ListOperationsRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ListOperationsRequestDefaultTypeInternal() {}
+  union {
+    ListOperationsRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ListOperationsRequestDefaultTypeInternal _ListOperationsRequest_default_instance_;
+
+inline constexpr GetOperationRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : name_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR GetOperationRequest::GetOperationRequest(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct GetOperationRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GetOperationRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GetOperationRequestDefaultTypeInternal() {}
+  union {
+    GetOperationRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GetOperationRequestDefaultTypeInternal _GetOperationRequest_default_instance_;
+
+inline constexpr DeleteOperationRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : name_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR DeleteOperationRequest::DeleteOperationRequest(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct DeleteOperationRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR DeleteOperationRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~DeleteOperationRequestDefaultTypeInternal() {}
+  union {
+    DeleteOperationRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DeleteOperationRequestDefaultTypeInternal _DeleteOperationRequest_default_instance_;
+
+inline constexpr CancelOperationRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : name_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR CancelOperationRequest::CancelOperationRequest(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct CancelOperationRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CancelOperationRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CancelOperationRequestDefaultTypeInternal() {}
+  union {
+    CancelOperationRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CancelOperationRequestDefaultTypeInternal _CancelOperationRequest_default_instance_;
+
+inline constexpr WaitOperationRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        name_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        timeout_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR WaitOperationRequest::WaitOperationRequest(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct WaitOperationRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR WaitOperationRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~WaitOperationRequestDefaultTypeInternal() {}
+  union {
+    WaitOperationRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WaitOperationRequestDefaultTypeInternal _WaitOperationRequest_default_instance_;
+
+inline constexpr Operation::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        name_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        metadata_{nullptr},
+        done_{false},
+        result_{},
+        _oneof_case_{} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR Operation::Operation(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct OperationDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR OperationDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~OperationDefaultTypeInternal() {}
+  union {
+    Operation _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OperationDefaultTypeInternal _Operation_default_instance_;
+
+inline constexpr ListOperationsResponse::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : operations_{},
+        next_page_token_(
+            &::google::protobuf_inworld::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ListOperationsResponse::ListOperationsResponse(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct ListOperationsResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ListOperationsResponseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ListOperationsResponseDefaultTypeInternal() {}
+  union {
+    ListOperationsResponse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ListOperationsResponseDefaultTypeInternal _ListOperationsResponse_default_instance_;
 }  // namespace longrunning
 }  // namespace google
-static void InitDefaultsscc_info_CancelOperationRequest_google_2flongrunning_2foperations_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::google::longrunning::_CancelOperationRequest_default_instance_;
-    new (ptr) ::google::longrunning::CancelOperationRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_CancelOperationRequest_google_2flongrunning_2foperations_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_CancelOperationRequest_google_2flongrunning_2foperations_2eproto}, {}};
-
-static void InitDefaultsscc_info_DeleteOperationRequest_google_2flongrunning_2foperations_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::google::longrunning::_DeleteOperationRequest_default_instance_;
-    new (ptr) ::google::longrunning::DeleteOperationRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_DeleteOperationRequest_google_2flongrunning_2foperations_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_DeleteOperationRequest_google_2flongrunning_2foperations_2eproto}, {}};
-
-static void InitDefaultsscc_info_GetOperationRequest_google_2flongrunning_2foperations_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::google::longrunning::_GetOperationRequest_default_instance_;
-    new (ptr) ::google::longrunning::GetOperationRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GetOperationRequest_google_2flongrunning_2foperations_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_GetOperationRequest_google_2flongrunning_2foperations_2eproto}, {}};
-
-static void InitDefaultsscc_info_ListOperationsRequest_google_2flongrunning_2foperations_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::google::longrunning::_ListOperationsRequest_default_instance_;
-    new (ptr) ::google::longrunning::ListOperationsRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ListOperationsRequest_google_2flongrunning_2foperations_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ListOperationsRequest_google_2flongrunning_2foperations_2eproto}, {}};
-
-static void InitDefaultsscc_info_ListOperationsResponse_google_2flongrunning_2foperations_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::google::longrunning::_ListOperationsResponse_default_instance_;
-    new (ptr) ::google::longrunning::ListOperationsResponse();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ListOperationsResponse_google_2flongrunning_2foperations_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ListOperationsResponse_google_2flongrunning_2foperations_2eproto}, {
-      &scc_info_Operation_google_2flongrunning_2foperations_2eproto.base,}};
-
-static void InitDefaultsscc_info_Operation_google_2flongrunning_2foperations_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::google::longrunning::_Operation_default_instance_;
-    new (ptr) ::google::longrunning::Operation();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_Operation_google_2flongrunning_2foperations_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_Operation_google_2flongrunning_2foperations_2eproto}, {
-      &scc_info_Any_google_2fprotobuf_2fany_2eproto.base,
-      &scc_info_Status_google_2frpc_2fstatus_2eproto.base,}};
-
-static void InitDefaultsscc_info_OperationInfo_google_2flongrunning_2foperations_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::google::longrunning::_OperationInfo_default_instance_;
-    new (ptr) ::google::longrunning::OperationInfo();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_OperationInfo_google_2flongrunning_2foperations_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_OperationInfo_google_2flongrunning_2foperations_2eproto}, {}};
-
-static void InitDefaultsscc_info_WaitOperationRequest_google_2flongrunning_2foperations_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::google::longrunning::_WaitOperationRequest_default_instance_;
-    new (ptr) ::google::longrunning::WaitOperationRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_WaitOperationRequest_google_2flongrunning_2foperations_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_WaitOperationRequest_google_2flongrunning_2foperations_2eproto}, {
-      &scc_info_Duration_google_2fprotobuf_2fduration_2eproto.base,}};
-
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_google_2flongrunning_2foperations_2eproto[8];
-static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_google_2flongrunning_2foperations_2eproto = nullptr;
-static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_google_2flongrunning_2foperations_2eproto = nullptr;
-
-const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_google_2flongrunning_2foperations_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::google::longrunning::Operation, _internal_metadata_),
-  ~0u,  // no _extensions_
-  PROTOBUF_FIELD_OFFSET(::google::longrunning::Operation, _oneof_case_[0]),
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::google::longrunning::Operation, name_),
-  PROTOBUF_FIELD_OFFSET(::google::longrunning::Operation, metadata_),
-  PROTOBUF_FIELD_OFFSET(::google::longrunning::Operation, done_),
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  PROTOBUF_FIELD_OFFSET(::google::longrunning::Operation, result_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::google::longrunning::GetOperationRequest, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::google::longrunning::GetOperationRequest, name_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::google::longrunning::ListOperationsRequest, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::google::longrunning::ListOperationsRequest, name_),
-  PROTOBUF_FIELD_OFFSET(::google::longrunning::ListOperationsRequest, filter_),
-  PROTOBUF_FIELD_OFFSET(::google::longrunning::ListOperationsRequest, page_size_),
-  PROTOBUF_FIELD_OFFSET(::google::longrunning::ListOperationsRequest, page_token_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::google::longrunning::ListOperationsResponse, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::google::longrunning::ListOperationsResponse, operations_),
-  PROTOBUF_FIELD_OFFSET(::google::longrunning::ListOperationsResponse, next_page_token_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::google::longrunning::CancelOperationRequest, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::google::longrunning::CancelOperationRequest, name_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::google::longrunning::DeleteOperationRequest, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::google::longrunning::DeleteOperationRequest, name_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::google::longrunning::WaitOperationRequest, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::google::longrunning::WaitOperationRequest, name_),
-  PROTOBUF_FIELD_OFFSET(::google::longrunning::WaitOperationRequest, timeout_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::google::longrunning::OperationInfo, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::google::longrunning::OperationInfo, response_type_),
-  PROTOBUF_FIELD_OFFSET(::google::longrunning::OperationInfo, metadata_type_),
-};
-static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::google::longrunning::Operation)},
-  { 11, -1, sizeof(::google::longrunning::GetOperationRequest)},
-  { 17, -1, sizeof(::google::longrunning::ListOperationsRequest)},
-  { 26, -1, sizeof(::google::longrunning::ListOperationsResponse)},
-  { 33, -1, sizeof(::google::longrunning::CancelOperationRequest)},
-  { 39, -1, sizeof(::google::longrunning::DeleteOperationRequest)},
-  { 45, -1, sizeof(::google::longrunning::WaitOperationRequest)},
-  { 52, -1, sizeof(::google::longrunning::OperationInfo)},
+static ::_pb::Metadata file_level_metadata_google_2flongrunning_2foperations_2eproto[8];
+static constexpr const ::_pb::EnumDescriptor**
+    file_level_enum_descriptors_google_2flongrunning_2foperations_2eproto = nullptr;
+static constexpr const ::_pb::ServiceDescriptor**
+    file_level_service_descriptors_google_2flongrunning_2foperations_2eproto = nullptr;
+const ::uint32_t TableStruct_google_2flongrunning_2foperations_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
+    protodesc_cold) = {
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::Operation, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::Operation, _internal_metadata_),
+    ~0u,  // no _extensions_
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::Operation, _impl_._oneof_case_[0]),
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::Operation, _impl_.name_),
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::Operation, _impl_.metadata_),
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::Operation, _impl_.done_),
+    ::_pbi::kInvalidFieldOffsetTag,
+    ::_pbi::kInvalidFieldOffsetTag,
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::Operation, _impl_.result_),
+    ~0u,
+    0,
+    ~0u,
+    ~0u,
+    ~0u,
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::GetOperationRequest, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::GetOperationRequest, _impl_.name_),
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::ListOperationsRequest, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::ListOperationsRequest, _impl_.name_),
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::ListOperationsRequest, _impl_.filter_),
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::ListOperationsRequest, _impl_.page_size_),
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::ListOperationsRequest, _impl_.page_token_),
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::ListOperationsResponse, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::ListOperationsResponse, _impl_.operations_),
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::ListOperationsResponse, _impl_.next_page_token_),
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::CancelOperationRequest, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::CancelOperationRequest, _impl_.name_),
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::DeleteOperationRequest, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::DeleteOperationRequest, _impl_.name_),
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::WaitOperationRequest, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::WaitOperationRequest, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::WaitOperationRequest, _impl_.name_),
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::WaitOperationRequest, _impl_.timeout_),
+    ~0u,
+    0,
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::OperationInfo, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::OperationInfo, _impl_.response_type_),
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::OperationInfo, _impl_.metadata_type_),
 };
 
-static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::google::longrunning::_Operation_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::google::longrunning::_GetOperationRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::google::longrunning::_ListOperationsRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::google::longrunning::_ListOperationsResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::google::longrunning::_CancelOperationRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::google::longrunning::_DeleteOperationRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::google::longrunning::_WaitOperationRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::google::longrunning::_OperationInfo_default_instance_),
+static const ::_pbi::MigrationSchema
+    schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+        {0, 14, -1, sizeof(::google::longrunning::Operation)},
+        {19, -1, -1, sizeof(::google::longrunning::GetOperationRequest)},
+        {28, -1, -1, sizeof(::google::longrunning::ListOperationsRequest)},
+        {40, -1, -1, sizeof(::google::longrunning::ListOperationsResponse)},
+        {50, -1, -1, sizeof(::google::longrunning::CancelOperationRequest)},
+        {59, -1, -1, sizeof(::google::longrunning::DeleteOperationRequest)},
+        {68, 78, -1, sizeof(::google::longrunning::WaitOperationRequest)},
+        {80, -1, -1, sizeof(::google::longrunning::OperationInfo)},
 };
 
-const char descriptor_table_protodef_google_2flongrunning_2foperations_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n#google/longrunning/operations.proto\022\022g"
-  "oogle.longrunning\032\034google/api/annotation"
-  "s.proto\032\027google/api/client.proto\032\031google"
-  "/protobuf/any.proto\032\036google/protobuf/dur"
-  "ation.proto\032\033google/protobuf/empty.proto"
-  "\032\027google/rpc/status.proto\032 google/protob"
-  "uf/descriptor.proto\"\250\001\n\tOperation\022\014\n\004nam"
-  "e\030\001 \001(\t\022&\n\010metadata\030\002 \001(\0132\024.google.proto"
-  "buf.Any\022\014\n\004done\030\003 \001(\010\022#\n\005error\030\004 \001(\0132\022.g"
-  "oogle.rpc.StatusH\000\022(\n\010response\030\005 \001(\0132\024.g"
-  "oogle.protobuf.AnyH\000B\010\n\006result\"#\n\023GetOpe"
-  "rationRequest\022\014\n\004name\030\001 \001(\t\"\\\n\025ListOpera"
-  "tionsRequest\022\014\n\004name\030\004 \001(\t\022\016\n\006filter\030\001 \001"
-  "(\t\022\021\n\tpage_size\030\002 \001(\005\022\022\n\npage_token\030\003 \001("
-  "\t\"d\n\026ListOperationsResponse\0221\n\noperation"
-  "s\030\001 \003(\0132\035.google.longrunning.Operation\022\027"
-  "\n\017next_page_token\030\002 \001(\t\"&\n\026CancelOperati"
-  "onRequest\022\014\n\004name\030\001 \001(\t\"&\n\026DeleteOperati"
-  "onRequest\022\014\n\004name\030\001 \001(\t\"P\n\024WaitOperation"
-  "Request\022\014\n\004name\030\001 \001(\t\022*\n\007timeout\030\002 \001(\0132\031"
-  ".google.protobuf.Duration\"=\n\rOperationIn"
-  "fo\022\025\n\rresponse_type\030\001 \001(\t\022\025\n\rmetadata_ty"
-  "pe\030\002 \001(\t2\252\005\n\nOperations\022\224\001\n\016ListOperatio"
-  "ns\022).google.longrunning.ListOperationsRe"
-  "quest\032*.google.longrunning.ListOperation"
-  "sResponse\"+\202\323\344\223\002\027\022\025/v1/{name=operations}"
-  "\332A\013name,filter\022\177\n\014GetOperation\022\'.google."
-  "longrunning.GetOperationRequest\032\035.google"
-  ".longrunning.Operation\"\'\202\323\344\223\002\032\022\030/v1/{nam"
-  "e=operations/**}\332A\004name\022~\n\017DeleteOperati"
-  "on\022*.google.longrunning.DeleteOperationR"
-  "equest\032\026.google.protobuf.Empty\"\'\202\323\344\223\002\032*\030"
-  "/v1/{name=operations/**}\332A\004name\022\210\001\n\017Canc"
-  "elOperation\022*.google.longrunning.CancelO"
-  "perationRequest\032\026.google.protobuf.Empty\""
-  "1\202\323\344\223\002$\"\037/v1/{name=operations/**}:cancel"
-  ":\001*\332A\004name\022Z\n\rWaitOperation\022(.google.lon"
-  "grunning.WaitOperationRequest\032\035.google.l"
-  "ongrunning.Operation\"\000\032\035\312A\032longrunning.g"
-  "oogleapis.com:Z\n\016operation_info\022\036.google"
-  ".protobuf.MethodOptions\030\231\010 \001(\0132!.google."
-  "longrunning.OperationInfoB\227\001\n\026com.google"
-  ".longrunningB\017OperationsProtoP\001Z=google."
-  "golang.org/genproto/googleapis/longrunni"
-  "ng;longrunning\370\001\001\252\002\022Google.LongRunning\312\002"
-  "\022Google\\LongRunningb\006proto3"
-  ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_google_2flongrunning_2foperations_2eproto_deps[7] = {
-  &::descriptor_table_google_2fapi_2fannotations_2eproto,
-  &::descriptor_table_google_2fapi_2fclient_2eproto,
-  &::descriptor_table_google_2fprotobuf_2fany_2eproto,
-  &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
-  &::descriptor_table_google_2fprotobuf_2fduration_2eproto,
-  &::descriptor_table_google_2fprotobuf_2fempty_2eproto,
-  &::descriptor_table_google_2frpc_2fstatus_2eproto,
+static const ::_pb::Message* const file_default_instances[] = {
+    &::google::longrunning::_Operation_default_instance_._instance,
+    &::google::longrunning::_GetOperationRequest_default_instance_._instance,
+    &::google::longrunning::_ListOperationsRequest_default_instance_._instance,
+    &::google::longrunning::_ListOperationsResponse_default_instance_._instance,
+    &::google::longrunning::_CancelOperationRequest_default_instance_._instance,
+    &::google::longrunning::_DeleteOperationRequest_default_instance_._instance,
+    &::google::longrunning::_WaitOperationRequest_default_instance_._instance,
+    &::google::longrunning::_OperationInfo_default_instance_._instance,
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_google_2flongrunning_2foperations_2eproto_sccs[8] = {
-  &scc_info_CancelOperationRequest_google_2flongrunning_2foperations_2eproto.base,
-  &scc_info_DeleteOperationRequest_google_2flongrunning_2foperations_2eproto.base,
-  &scc_info_GetOperationRequest_google_2flongrunning_2foperations_2eproto.base,
-  &scc_info_ListOperationsRequest_google_2flongrunning_2foperations_2eproto.base,
-  &scc_info_ListOperationsResponse_google_2flongrunning_2foperations_2eproto.base,
-  &scc_info_Operation_google_2flongrunning_2foperations_2eproto.base,
-  &scc_info_OperationInfo_google_2flongrunning_2foperations_2eproto.base,
-  &scc_info_WaitOperationRequest_google_2flongrunning_2foperations_2eproto.base,
+const char descriptor_table_protodef_google_2flongrunning_2foperations_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+    "\n#google/longrunning/operations.proto\022\022g"
+    "oogle.longrunning\032\034google/api/annotation"
+    "s.proto\032\027google/api/client.proto\032\031google"
+    "/protobuf/any.proto\032\036google/protobuf/dur"
+    "ation.proto\032\033google/protobuf/empty.proto"
+    "\032\027google/rpc/status.proto\032 google/protob"
+    "uf/descriptor.proto\"\250\001\n\tOperation\022\014\n\004nam"
+    "e\030\001 \001(\t\022&\n\010metadata\030\002 \001(\0132\024.google.proto"
+    "buf.Any\022\014\n\004done\030\003 \001(\010\022#\n\005error\030\004 \001(\0132\022.g"
+    "oogle.rpc.StatusH\000\022(\n\010response\030\005 \001(\0132\024.g"
+    "oogle.protobuf.AnyH\000B\010\n\006result\"#\n\023GetOpe"
+    "rationRequest\022\014\n\004name\030\001 \001(\t\"\\\n\025ListOpera"
+    "tionsRequest\022\014\n\004name\030\004 \001(\t\022\016\n\006filter\030\001 \001"
+    "(\t\022\021\n\tpage_size\030\002 \001(\005\022\022\n\npage_token\030\003 \001("
+    "\t\"d\n\026ListOperationsResponse\0221\n\noperation"
+    "s\030\001 \003(\0132\035.google.longrunning.Operation\022\027"
+    "\n\017next_page_token\030\002 \001(\t\"&\n\026CancelOperati"
+    "onRequest\022\014\n\004name\030\001 \001(\t\"&\n\026DeleteOperati"
+    "onRequest\022\014\n\004name\030\001 \001(\t\"P\n\024WaitOperation"
+    "Request\022\014\n\004name\030\001 \001(\t\022*\n\007timeout\030\002 \001(\0132\031"
+    ".google.protobuf.Duration\"=\n\rOperationIn"
+    "fo\022\025\n\rresponse_type\030\001 \001(\t\022\025\n\rmetadata_ty"
+    "pe\030\002 \001(\t2\252\005\n\nOperations\022\224\001\n\016ListOperatio"
+    "ns\022).google.longrunning.ListOperationsRe"
+    "quest\032*.google.longrunning.ListOperation"
+    "sResponse\"+\332A\013name,filter\202\323\344\223\002\027\022\025/v1/{na"
+    "me=operations}\022\177\n\014GetOperation\022\'.google."
+    "longrunning.GetOperationRequest\032\035.google"
+    ".longrunning.Operation\"\'\332A\004name\202\323\344\223\002\032\022\030/"
+    "v1/{name=operations/**}\022~\n\017DeleteOperati"
+    "on\022*.google.longrunning.DeleteOperationR"
+    "equest\032\026.google.protobuf.Empty\"\'\332A\004name\202"
+    "\323\344\223\002\032*\030/v1/{name=operations/**}\022\210\001\n\017Canc"
+    "elOperation\022*.google.longrunning.CancelO"
+    "perationRequest\032\026.google.protobuf.Empty\""
+    "1\332A\004name\202\323\344\223\002$\"\037/v1/{name=operations/**}"
+    ":cancel:\001*\022Z\n\rWaitOperation\022(.google.lon"
+    "grunning.WaitOperationRequest\032\035.google.l"
+    "ongrunning.Operation\"\000\032\035\312A\032longrunning.g"
+    "oogleapis.com:Z\n\016operation_info\022\036.google"
+    ".protobuf.MethodOptions\030\231\010 \001(\0132!.google."
+    "longrunning.OperationInfoB\227\001\n\026com.google"
+    ".longrunningB\017OperationsProtoP\001Z=google."
+    "golang.org/genproto/googleapis/longrunni"
+    "ng;longrunning\370\001\001\252\002\022Google.LongRunning\312\002"
+    "\022Google\\LongRunningb\006proto3"
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_google_2flongrunning_2foperations_2eproto_once;
-const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_google_2flongrunning_2foperations_2eproto = {
-  false, false, descriptor_table_protodef_google_2flongrunning_2foperations_2eproto, "google/longrunning/operations.proto", 1827,
-  &descriptor_table_google_2flongrunning_2foperations_2eproto_once, descriptor_table_google_2flongrunning_2foperations_2eproto_sccs, descriptor_table_google_2flongrunning_2foperations_2eproto_deps, 8, 7,
-  schemas, file_default_instances, TableStruct_google_2flongrunning_2foperations_2eproto::offsets,
-  file_level_metadata_google_2flongrunning_2foperations_2eproto, 8, file_level_enum_descriptors_google_2flongrunning_2foperations_2eproto, file_level_service_descriptors_google_2flongrunning_2foperations_2eproto,
+static const ::_pbi::DescriptorTable* const descriptor_table_google_2flongrunning_2foperations_2eproto_deps[7] =
+    {
+        &::descriptor_table_google_2fapi_2fannotations_2eproto,
+        &::descriptor_table_google_2fapi_2fclient_2eproto,
+        &::descriptor_table_google_2fprotobuf_2fany_2eproto,
+        &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
+        &::descriptor_table_google_2fprotobuf_2fduration_2eproto,
+        &::descriptor_table_google_2fprotobuf_2fempty_2eproto,
+        &::descriptor_table_google_2frpc_2fstatus_2eproto,
+};
+static ::absl::once_flag descriptor_table_google_2flongrunning_2foperations_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_google_2flongrunning_2foperations_2eproto = {
+    false,
+    false,
+    1827,
+    descriptor_table_protodef_google_2flongrunning_2foperations_2eproto,
+    "google/longrunning/operations.proto",
+    &descriptor_table_google_2flongrunning_2foperations_2eproto_once,
+    descriptor_table_google_2flongrunning_2foperations_2eproto_deps,
+    7,
+    8,
+    schemas,
+    file_default_instances,
+    TableStruct_google_2flongrunning_2foperations_2eproto::offsets,
+    file_level_metadata_google_2flongrunning_2foperations_2eproto,
+    file_level_enum_descriptors_google_2flongrunning_2foperations_2eproto,
+    file_level_service_descriptors_google_2flongrunning_2foperations_2eproto,
 };
 
+// This function exists to be marked as weak.
+// It can significantly speed up compilation by breaking up LLVM's SCC
+// in the .pb.cc translation units. Large translation units see a
+// reduction of more than 35% of walltime for optimized builds. Without
+// the weak attribute all the messages in the file, including all the
+// vtables and everything they use become part of the same SCC through
+// a cycle like:
+// GetMetadata -> descriptor table -> default instances ->
+//   vtables -> GetMetadata
+// By adding a weak function here we break the connection from the
+// individual vtables back into the descriptor table.
+PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_google_2flongrunning_2foperations_2eproto_getter() {
+  return &descriptor_table_google_2flongrunning_2foperations_2eproto;
+}
 // Force running AddDescriptors() at dynamic initialization time.
-static bool dynamic_init_dummy_google_2flongrunning_2foperations_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_google_2flongrunning_2foperations_2eproto)), true);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2
+static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_google_2flongrunning_2foperations_2eproto(&descriptor_table_google_2flongrunning_2foperations_2eproto);
 namespace google {
 namespace longrunning {
-
 // ===================================================================
 
 class Operation::_Internal {
  public:
-  static const PROTOBUF_NAMESPACE_ID::Any& metadata(const Operation* msg);
+  using HasBits = decltype(std::declval<Operation>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+    8 * PROTOBUF_FIELD_OFFSET(Operation, _impl_._has_bits_);
+  static constexpr ::int32_t kOneofCaseOffset =
+    PROTOBUF_FIELD_OFFSET(::google::longrunning::Operation, _impl_._oneof_case_);
+  static const ::google::protobuf_inworld::Any& metadata(const Operation* msg);
+  static void set_has_metadata(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
   static const ::google::rpc::Status& error(const Operation* msg);
-  static const PROTOBUF_NAMESPACE_ID::Any& response(const Operation* msg);
+  static const ::google::protobuf_inworld::Any& response(const Operation* msg);
 };
 
-const PROTOBUF_NAMESPACE_ID::Any&
-Operation::_Internal::metadata(const Operation* msg) {
-  return *msg->metadata_;
+const ::google::protobuf_inworld::Any& Operation::_Internal::metadata(const Operation* msg) {
+  return *msg->_impl_.metadata_;
 }
-const ::google::rpc::Status&
-Operation::_Internal::error(const Operation* msg) {
-  return *msg->result_.error_;
+const ::google::rpc::Status& Operation::_Internal::error(const Operation* msg) {
+  return *msg->_impl_.result_.error_;
 }
-const PROTOBUF_NAMESPACE_ID::Any&
-Operation::_Internal::response(const Operation* msg) {
-  return *msg->result_.response_;
+const ::google::protobuf_inworld::Any& Operation::_Internal::response(const Operation* msg) {
+  return *msg->_impl_.result_.response_;
 }
 void Operation::clear_metadata() {
-  if (GetArena() == nullptr && metadata_ != nullptr) {
-    delete metadata_;
-  }
-  metadata_ = nullptr;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (_impl_.metadata_ != nullptr) _impl_.metadata_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 void Operation::set_allocated_error(::google::rpc::Status* error) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  ::google::protobuf_inworld::Arena* message_arena = GetArena();
   clear_result();
   if (error) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(error)->GetArena();
+    ::google::protobuf_inworld::Arena* submessage_arena = reinterpret_cast<::google::protobuf_inworld::MessageLite*>(error)->GetArena();
     if (message_arena != submessage_arena) {
-      error = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, error, submessage_arena);
+      error = ::google::protobuf_inworld::internal::GetOwnedMessage(message_arena, error, submessage_arena);
     }
     set_has_error();
-    result_.error_ = error;
+    _impl_.result_.error_ = error;
   }
   // @@protoc_insertion_point(field_set_allocated:google.longrunning.Operation.error)
 }
 void Operation::clear_error() {
-  if (_internal_has_error()) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (result_case() == kError) {
     if (GetArena() == nullptr) {
-      delete result_.error_;
+      delete _impl_.result_.error_;
     }
     clear_has_result();
   }
 }
-void Operation::set_allocated_response(PROTOBUF_NAMESPACE_ID::Any* response) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+void Operation::set_allocated_response(::google::protobuf_inworld::Any* response) {
+  ::google::protobuf_inworld::Arena* message_arena = GetArena();
   clear_result();
   if (response) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(response)->GetArena();
+    ::google::protobuf_inworld::Arena* submessage_arena = reinterpret_cast<::google::protobuf_inworld::MessageLite*>(response)->GetArena();
     if (message_arena != submessage_arena) {
-      response = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, response, submessage_arena);
+      response = ::google::protobuf_inworld::internal::GetOwnedMessage(message_arena, response, submessage_arena);
     }
     set_has_response();
-    result_.response_ = response;
+    _impl_.result_.response_ = response;
   }
   // @@protoc_insertion_point(field_set_allocated:google.longrunning.Operation.response)
 }
 void Operation::clear_response() {
-  if (_internal_has_response()) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (result_case() == kResponse) {
     if (GetArena() == nullptr) {
-      delete result_.response_;
+      delete _impl_.result_.response_;
     }
     clear_has_result();
   }
 }
-Operation::Operation(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+Operation::Operation(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:google.longrunning.Operation)
 }
-Operation::Operation(const Operation& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_name().empty()) {
-    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
-      GetArena());
-  }
-  if (from._internal_has_metadata()) {
-    metadata_ = new PROTOBUF_NAMESPACE_ID::Any(*from.metadata_);
-  } else {
-    metadata_ = nullptr;
-  }
-  done_ = from.done_;
-  clear_has_result();
-  switch (from.result_case()) {
-    case kError: {
-      _internal_mutable_error()->::google::rpc::Status::MergeFrom(from._internal_error());
+inline PROTOBUF_NDEBUG_INLINE Operation::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    const Impl_& from)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        name_(arena, from.name_),
+        result_{},
+        _oneof_case_{from._oneof_case_[0]} {}
+
+Operation::Operation(
+    ::google::protobuf_inworld::Arena* arena,
+    const Operation& from)
+    : ::google::protobuf_inworld::Message(arena) {
+  Operation* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.metadata_ = (cached_has_bits & 0x00000001u)
+                ? CreateMaybeMessage<::google::protobuf_inworld::Any>(arena, *from._impl_.metadata_)
+                : nullptr;
+  _impl_.done_ = from._impl_.done_;
+  switch (result_case()) {
+    case RESULT_NOT_SET:
       break;
-    }
-    case kResponse: {
-      _internal_mutable_response()->PROTOBUF_NAMESPACE_ID::Any::MergeFrom(from._internal_response());
-      break;
-    }
-    case RESULT_NOT_SET: {
-      break;
-    }
+      case kError:
+        _impl_.result_.error_ = CreateMaybeMessage<::google::rpc::Status>(arena, *from._impl_.result_.error_);
+        break;
+      case kResponse:
+        _impl_.result_.response_ = CreateMaybeMessage<::google::protobuf_inworld::Any>(arena, *from._impl_.result_.response_);
+        break;
   }
+
   // @@protoc_insertion_point(copy_constructor:google.longrunning.Operation)
 }
+inline PROTOBUF_NDEBUG_INLINE Operation::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : _cached_size_{0},
+        name_(arena),
+        result_{},
+        _oneof_case_{} {}
 
-void Operation::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Operation_google_2flongrunning_2foperations_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&metadata_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&done_) -
-      reinterpret_cast<char*>(&metadata_)) + sizeof(done_));
-  clear_has_result();
+inline void Operation::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, metadata_),
+           0,
+           offsetof(Impl_, done_) -
+               offsetof(Impl_, metadata_) +
+               sizeof(Impl_::done_));
 }
-
 Operation::~Operation() {
   // @@protoc_insertion_point(destructor:google.longrunning.Operation)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
-
-void Operation::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete metadata_;
+inline void Operation::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.name_.Destroy();
+  delete _impl_.metadata_;
   if (has_result()) {
     clear_result();
   }
+  _impl_.~Impl_();
 }
-
-void Operation::ArenaDtor(void* object) {
-  Operation* _this = reinterpret_cast< Operation* >(object);
-  (void)_this;
-}
-void Operation::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void Operation::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const Operation& Operation::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Operation_google_2flongrunning_2foperations_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void Operation::clear_result() {
 // @@protoc_insertion_point(one_of_clear_start:google.longrunning.Operation)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   switch (result_case()) {
     case kError: {
       if (GetArena() == nullptr) {
-        delete result_.error_;
+        delete _impl_.result_.error_;
       }
       break;
     }
     case kResponse: {
       if (GetArena() == nullptr) {
-        delete result_.response_;
+        delete _impl_.result_.response_;
       }
       break;
     }
@@ -500,252 +594,233 @@ void Operation::clear_result() {
       break;
     }
   }
-  _oneof_case_[0] = RESULT_NOT_SET;
+  _impl_._oneof_case_[0] = RESULT_NOT_SET;
 }
 
 
-void Operation::Clear() {
+PROTOBUF_NOINLINE void Operation::Clear() {
 // @@protoc_insertion_point(message_clear_start:google.longrunning.Operation)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty();
-  if (GetArena() == nullptr && metadata_ != nullptr) {
-    delete metadata_;
+  _impl_.name_.ClearToEmpty();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(_impl_.metadata_ != nullptr);
+    _impl_.metadata_->Clear();
   }
-  metadata_ = nullptr;
-  done_ = false;
+  _impl_.done_ = false;
   clear_result();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* Operation::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string name = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "google.longrunning.Operation.name"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .google.protobuf.Any metadata = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_metadata(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool done = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          done_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .google.rpc.Status error = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
-          ptr = ctx->ParseMessage(_internal_mutable_error(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .google.protobuf.Any response = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
-          ptr = ctx->ParseMessage(_internal_mutable_response(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* Operation::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Operation::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 5, 3, 41, 2> Operation::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(Operation, _impl_._has_bits_),
+    0, // no _extensions_
+    5, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967264,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    5,  // num_field_entries
+    3,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    &_Operation_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // string name = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(Operation, _impl_.name_)}},
+    // .google.protobuf.Any metadata = 2;
+    {::_pbi::TcParser::FastMtS1,
+     {18, 0, 0, PROTOBUF_FIELD_OFFSET(Operation, _impl_.metadata_)}},
+    // bool done = 3;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(Operation, _impl_.done_), 63>(),
+     {24, 63, 0, PROTOBUF_FIELD_OFFSET(Operation, _impl_.done_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string name = 1;
+    {PROTOBUF_FIELD_OFFSET(Operation, _impl_.name_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .google.protobuf.Any metadata = 2;
+    {PROTOBUF_FIELD_OFFSET(Operation, _impl_.metadata_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // bool done = 3;
+    {PROTOBUF_FIELD_OFFSET(Operation, _impl_.done_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+    // .google.rpc.Status error = 4;
+    {PROTOBUF_FIELD_OFFSET(Operation, _impl_.result_.error_), _Internal::kOneofCaseOffset + 0, 1,
+    (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .google.protobuf.Any response = 5;
+    {PROTOBUF_FIELD_OFFSET(Operation, _impl_.result_.response_), _Internal::kOneofCaseOffset + 0, 2,
+    (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::google::protobuf_inworld::Any>()},
+    {::_pbi::TcParser::GetTable<::google::rpc::Status>()},
+    {::_pbi::TcParser::GetTable<::google::protobuf_inworld::Any>()},
+  }}, {{
+    "\34\4\0\0\0\0\0\0"
+    "google.longrunning.Operation"
+    "name"
+  }},
+};
+
+::uint8_t* Operation::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:google.longrunning.Operation)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "google.longrunning.Operation.name");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_name(), target);
+  if (!this->_internal_name().empty()) {
+    const std::string& _s = this->_internal_name();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "google.longrunning.Operation.name");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
+  cached_has_bits = _impl_._has_bits_[0];
   // .google.protobuf.Any metadata = 2;
-  if (this->has_metadata()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::metadata(this), target, stream);
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+        2, _Internal::metadata(this),
+        _Internal::metadata(this).GetCachedSize(), target, stream);
   }
 
   // bool done = 3;
-  if (this->done() != 0) {
+  if (this->_internal_done() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_done(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(
+        3, this->_internal_done(), target);
   }
 
-  // .google.rpc.Status error = 4;
-  if (_internal_has_error()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        4, _Internal::error(this), target, stream);
+  switch (result_case()) {
+    case kError: {
+      target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+          4, _Internal::error(this),
+          _Internal::error(this).GetCachedSize(), target, stream);
+      break;
+    }
+    case kResponse: {
+      target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+          5, _Internal::response(this),
+          _Internal::response(this).GetCachedSize(), target, stream);
+      break;
+    }
+    default:
+      break;
   }
-
-  // .google.protobuf.Any response = 5;
-  if (_internal_has_response()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        5, _Internal::response(this), target, stream);
-  }
-
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:google.longrunning.Operation)
   return target;
 }
 
-size_t Operation::ByteSizeLong() const {
+::size_t Operation::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:google.longrunning.Operation)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_name());
+  if (!this->_internal_name().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_name());
   }
 
   // .google.protobuf.Any metadata = 2;
-  if (this->has_metadata()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *metadata_);
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size +=
+        1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.metadata_);
   }
 
   // bool done = 3;
-  if (this->done() != 0) {
-    total_size += 1 + 1;
+  if (this->_internal_done() != 0) {
+    total_size += 2;
   }
 
   switch (result_case()) {
     // .google.rpc.Status error = 4;
     case kError: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *result_.error_);
+      total_size +=
+          1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.result_.error_);
       break;
     }
     // .google.protobuf.Any response = 5;
     case kResponse: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *result_.response_);
+      total_size +=
+          1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.result_.response_);
       break;
     }
     case RESULT_NOT_SET: {
       break;
     }
   }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void Operation::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:google.longrunning.Operation)
-  GOOGLE_DCHECK_NE(&from, this);
-  const Operation* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Operation>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:google.longrunning.Operation)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:google.longrunning.Operation)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData Operation::_class_data_ = {
+    Operation::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* Operation::GetClassData() const {
+  return &_class_data_;
 }
 
-void Operation::MergeFrom(const Operation& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:google.longrunning.Operation)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void Operation::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<Operation*>(&to_msg);
+  auto& from = static_cast<const Operation&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:google.longrunning.Operation)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.name().size() > 0) {
-    _internal_set_name(from._internal_name());
+  if (!from._internal_name().empty()) {
+    _this->_internal_set_name(from._internal_name());
   }
-  if (from.has_metadata()) {
-    _internal_mutable_metadata()->PROTOBUF_NAMESPACE_ID::Any::MergeFrom(from._internal_metadata());
+  if ((from._impl_._has_bits_[0] & 0x00000001u) != 0) {
+    _this->_internal_mutable_metadata()->::google::protobuf_inworld::Any::MergeFrom(
+        from._internal_metadata());
   }
-  if (from.done() != 0) {
-    _internal_set_done(from._internal_done());
+  if (from._internal_done() != 0) {
+    _this->_internal_set_done(from._internal_done());
   }
   switch (from.result_case()) {
     case kError: {
-      _internal_mutable_error()->::google::rpc::Status::MergeFrom(from._internal_error());
+      _this->_internal_mutable_error()->::google::rpc::Status::MergeFrom(
+          from._internal_error());
       break;
     }
     case kResponse: {
-      _internal_mutable_response()->PROTOBUF_NAMESPACE_ID::Any::MergeFrom(from._internal_response());
+      _this->_internal_mutable_response()->::google::protobuf_inworld::Any::MergeFrom(
+          from._internal_response());
       break;
     }
     case RESULT_NOT_SET: {
       break;
     }
   }
-}
-
-void Operation::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:google.longrunning.Operation)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Operation::CopyFrom(const Operation& from) {
@@ -755,211 +830,196 @@ void Operation::CopyFrom(const Operation& from) {
   MergeFrom(from);
 }
 
-bool Operation::IsInitialized() const {
+PROTOBUF_NOINLINE bool Operation::IsInitialized() const {
   return true;
 }
 
-void Operation::InternalSwap(Operation* other) {
+::_pbi::CachedSize* Operation::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void Operation::InternalSwap(Operation* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Operation, done_)
-      + sizeof(Operation::done_)
-      - PROTOBUF_FIELD_OFFSET(Operation, metadata_)>(
-          reinterpret_cast<char*>(&metadata_),
-          reinterpret_cast<char*>(&other->metadata_));
-  swap(result_, other->result_);
-  swap(_oneof_case_[0], other->_oneof_case_[0]);
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
+  ::google::protobuf_inworld::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Operation, _impl_.done_)
+      + sizeof(Operation::_impl_.done_)
+      - PROTOBUF_FIELD_OFFSET(Operation, _impl_.metadata_)>(
+          reinterpret_cast<char*>(&_impl_.metadata_),
+          reinterpret_cast<char*>(&other->_impl_.metadata_));
+  swap(_impl_.result_, other->_impl_.result_);
+  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata Operation::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata Operation::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_google_2flongrunning_2foperations_2eproto_getter, &descriptor_table_google_2flongrunning_2foperations_2eproto_once,
+      file_level_metadata_google_2flongrunning_2foperations_2eproto[0]);
 }
-
-
 // ===================================================================
 
 class GetOperationRequest::_Internal {
  public:
 };
 
-GetOperationRequest::GetOperationRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+GetOperationRequest::GetOperationRequest(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:google.longrunning.GetOperationRequest)
 }
-GetOperationRequest::GetOperationRequest(const GetOperationRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_name().empty()) {
-    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
-      GetArena());
-  }
+inline PROTOBUF_NDEBUG_INLINE GetOperationRequest::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    const Impl_& from)
+      : name_(arena, from.name_),
+        _cached_size_{0} {}
+
+GetOperationRequest::GetOperationRequest(
+    ::google::protobuf_inworld::Arena* arena,
+    const GetOperationRequest& from)
+    : ::google::protobuf_inworld::Message(arena) {
+  GetOperationRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+
   // @@protoc_insertion_point(copy_constructor:google.longrunning.GetOperationRequest)
 }
+inline PROTOBUF_NDEBUG_INLINE GetOperationRequest::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : name_(arena),
+        _cached_size_{0} {}
 
-void GetOperationRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_GetOperationRequest_google_2flongrunning_2foperations_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void GetOperationRequest::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
 }
-
 GetOperationRequest::~GetOperationRequest() {
   // @@protoc_insertion_point(destructor:google.longrunning.GetOperationRequest)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+inline void GetOperationRequest::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.name_.Destroy();
+  _impl_.~Impl_();
 }
 
-void GetOperationRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void GetOperationRequest::ArenaDtor(void* object) {
-  GetOperationRequest* _this = reinterpret_cast< GetOperationRequest* >(object);
-  (void)_this;
-}
-void GetOperationRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void GetOperationRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const GetOperationRequest& GetOperationRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_GetOperationRequest_google_2flongrunning_2foperations_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void GetOperationRequest::Clear() {
+PROTOBUF_NOINLINE void GetOperationRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:google.longrunning.GetOperationRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _impl_.name_.ClearToEmpty();
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* GetOperationRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string name = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "google.longrunning.GetOperationRequest.name"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* GetOperationRequest::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* GetOperationRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 51, 2> GetOperationRequest::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_GetOperationRequest_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // string name = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(GetOperationRequest, _impl_.name_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string name = 1;
+    {PROTOBUF_FIELD_OFFSET(GetOperationRequest, _impl_.name_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\46\4\0\0\0\0\0\0"
+    "google.longrunning.GetOperationRequest"
+    "name"
+  }},
+};
+
+::uint8_t* GetOperationRequest::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:google.longrunning.GetOperationRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "google.longrunning.GetOperationRequest.name");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_name(), target);
+  if (!this->_internal_name().empty()) {
+    const std::string& _s = this->_internal_name();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "google.longrunning.GetOperationRequest.name");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:google.longrunning.GetOperationRequest)
   return target;
 }
 
-size_t GetOperationRequest::ByteSizeLong() const {
+::size_t GetOperationRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:google.longrunning.GetOperationRequest)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_name());
+  if (!this->_internal_name().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_name());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void GetOperationRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:google.longrunning.GetOperationRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const GetOperationRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<GetOperationRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:google.longrunning.GetOperationRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:google.longrunning.GetOperationRequest)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData GetOperationRequest::_class_data_ = {
+    GetOperationRequest::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* GetOperationRequest::GetClassData() const {
+  return &_class_data_;
 }
 
-void GetOperationRequest::MergeFrom(const GetOperationRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:google.longrunning.GetOperationRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void GetOperationRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<GetOperationRequest*>(&to_msg);
+  auto& from = static_cast<const GetOperationRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:google.longrunning.GetOperationRequest)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.name().size() > 0) {
-    _internal_set_name(from._internal_name());
+  if (!from._internal_name().empty()) {
+    _this->_internal_set_name(from._internal_name());
   }
-}
-
-void GetOperationRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:google.longrunning.GetOperationRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void GetOperationRequest::CopyFrom(const GetOperationRequest& from) {
@@ -969,303 +1029,268 @@ void GetOperationRequest::CopyFrom(const GetOperationRequest& from) {
   MergeFrom(from);
 }
 
-bool GetOperationRequest::IsInitialized() const {
+PROTOBUF_NOINLINE bool GetOperationRequest::IsInitialized() const {
   return true;
 }
 
-void GetOperationRequest::InternalSwap(GetOperationRequest* other) {
+::_pbi::CachedSize* GetOperationRequest::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void GetOperationRequest::InternalSwap(GetOperationRequest* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata GetOperationRequest::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata GetOperationRequest::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_google_2flongrunning_2foperations_2eproto_getter, &descriptor_table_google_2flongrunning_2foperations_2eproto_once,
+      file_level_metadata_google_2flongrunning_2foperations_2eproto[1]);
 }
-
-
 // ===================================================================
 
 class ListOperationsRequest::_Internal {
  public:
 };
 
-ListOperationsRequest::ListOperationsRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+ListOperationsRequest::ListOperationsRequest(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:google.longrunning.ListOperationsRequest)
 }
-ListOperationsRequest::ListOperationsRequest(const ListOperationsRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  filter_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_filter().empty()) {
-    filter_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_filter(), 
-      GetArena());
-  }
-  page_token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_page_token().empty()) {
-    page_token_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_page_token(), 
-      GetArena());
-  }
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_name().empty()) {
-    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
-      GetArena());
-  }
-  page_size_ = from.page_size_;
+inline PROTOBUF_NDEBUG_INLINE ListOperationsRequest::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    const Impl_& from)
+      : filter_(arena, from.filter_),
+        page_token_(arena, from.page_token_),
+        name_(arena, from.name_),
+        _cached_size_{0} {}
+
+ListOperationsRequest::ListOperationsRequest(
+    ::google::protobuf_inworld::Arena* arena,
+    const ListOperationsRequest& from)
+    : ::google::protobuf_inworld::Message(arena) {
+  ListOperationsRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+  _impl_.page_size_ = from._impl_.page_size_;
+
   // @@protoc_insertion_point(copy_constructor:google.longrunning.ListOperationsRequest)
 }
+inline PROTOBUF_NDEBUG_INLINE ListOperationsRequest::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : filter_(arena),
+        page_token_(arena),
+        name_(arena),
+        _cached_size_{0} {}
 
-void ListOperationsRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ListOperationsRequest_google_2flongrunning_2foperations_2eproto.base);
-  filter_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  page_token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  page_size_ = 0;
+inline void ListOperationsRequest::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.page_size_ = {};
 }
-
 ListOperationsRequest::~ListOperationsRequest() {
   // @@protoc_insertion_point(destructor:google.longrunning.ListOperationsRequest)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+inline void ListOperationsRequest::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.filter_.Destroy();
+  _impl_.page_token_.Destroy();
+  _impl_.name_.Destroy();
+  _impl_.~Impl_();
 }
 
-void ListOperationsRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  filter_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  page_token_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void ListOperationsRequest::ArenaDtor(void* object) {
-  ListOperationsRequest* _this = reinterpret_cast< ListOperationsRequest* >(object);
-  (void)_this;
-}
-void ListOperationsRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void ListOperationsRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ListOperationsRequest& ListOperationsRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ListOperationsRequest_google_2flongrunning_2foperations_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void ListOperationsRequest::Clear() {
+PROTOBUF_NOINLINE void ListOperationsRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:google.longrunning.ListOperationsRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  filter_.ClearToEmpty();
-  page_token_.ClearToEmpty();
-  name_.ClearToEmpty();
-  page_size_ = 0;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _impl_.filter_.ClearToEmpty();
+  _impl_.page_token_.ClearToEmpty();
+  _impl_.name_.ClearToEmpty();
+  _impl_.page_size_ = 0;
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* ListOperationsRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string filter = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_filter();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "google.longrunning.ListOperationsRequest.filter"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // int32 page_size = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          page_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // string page_token = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          auto str = _internal_mutable_page_token();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "google.longrunning.ListOperationsRequest.page_token"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // string name = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
-          auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "google.longrunning.ListOperationsRequest.name"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* ListOperationsRequest::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ListOperationsRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 4, 0, 69, 2> ListOperationsRequest::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    4, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967280,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    4,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_ListOperationsRequest_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // string name = 4;
+    {::_pbi::TcParser::FastUS1,
+     {34, 63, 0, PROTOBUF_FIELD_OFFSET(ListOperationsRequest, _impl_.name_)}},
+    // string filter = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(ListOperationsRequest, _impl_.filter_)}},
+    // int32 page_size = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ListOperationsRequest, _impl_.page_size_), 63>(),
+     {16, 63, 0, PROTOBUF_FIELD_OFFSET(ListOperationsRequest, _impl_.page_size_)}},
+    // string page_token = 3;
+    {::_pbi::TcParser::FastUS1,
+     {26, 63, 0, PROTOBUF_FIELD_OFFSET(ListOperationsRequest, _impl_.page_token_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string filter = 1;
+    {PROTOBUF_FIELD_OFFSET(ListOperationsRequest, _impl_.filter_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // int32 page_size = 2;
+    {PROTOBUF_FIELD_OFFSET(ListOperationsRequest, _impl_.page_size_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
+    // string page_token = 3;
+    {PROTOBUF_FIELD_OFFSET(ListOperationsRequest, _impl_.page_token_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string name = 4;
+    {PROTOBUF_FIELD_OFFSET(ListOperationsRequest, _impl_.name_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\50\6\0\12\4\0\0\0"
+    "google.longrunning.ListOperationsRequest"
+    "filter"
+    "page_token"
+    "name"
+  }},
+};
+
+::uint8_t* ListOperationsRequest::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:google.longrunning.ListOperationsRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // string filter = 1;
-  if (this->filter().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_filter().data(), static_cast<int>(this->_internal_filter().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "google.longrunning.ListOperationsRequest.filter");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_filter(), target);
+  if (!this->_internal_filter().empty()) {
+    const std::string& _s = this->_internal_filter();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "google.longrunning.ListOperationsRequest.filter");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // int32 page_size = 2;
-  if (this->page_size() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_page_size(), target);
+  if (this->_internal_page_size() != 0) {
+    target = ::google::protobuf_inworld::internal::WireFormatLite::
+        WriteInt32ToArrayWithField<2>(
+            stream, this->_internal_page_size(), target);
   }
 
   // string page_token = 3;
-  if (this->page_token().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_page_token().data(), static_cast<int>(this->_internal_page_token().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "google.longrunning.ListOperationsRequest.page_token");
-    target = stream->WriteStringMaybeAliased(
-        3, this->_internal_page_token(), target);
+  if (!this->_internal_page_token().empty()) {
+    const std::string& _s = this->_internal_page_token();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "google.longrunning.ListOperationsRequest.page_token");
+    target = stream->WriteStringMaybeAliased(3, _s, target);
   }
 
   // string name = 4;
-  if (this->name().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "google.longrunning.ListOperationsRequest.name");
-    target = stream->WriteStringMaybeAliased(
-        4, this->_internal_name(), target);
+  if (!this->_internal_name().empty()) {
+    const std::string& _s = this->_internal_name();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "google.longrunning.ListOperationsRequest.name");
+    target = stream->WriteStringMaybeAliased(4, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:google.longrunning.ListOperationsRequest)
   return target;
 }
 
-size_t ListOperationsRequest::ByteSizeLong() const {
+::size_t ListOperationsRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:google.longrunning.ListOperationsRequest)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string filter = 1;
-  if (this->filter().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_filter());
+  if (!this->_internal_filter().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_filter());
   }
 
   // string page_token = 3;
-  if (this->page_token().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_page_token());
+  if (!this->_internal_page_token().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_page_token());
   }
 
   // string name = 4;
-  if (this->name().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_name());
+  if (!this->_internal_name().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_name());
   }
 
   // int32 page_size = 2;
-  if (this->page_size() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+  if (this->_internal_page_size() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
         this->_internal_page_size());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void ListOperationsRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:google.longrunning.ListOperationsRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ListOperationsRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ListOperationsRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:google.longrunning.ListOperationsRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:google.longrunning.ListOperationsRequest)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData ListOperationsRequest::_class_data_ = {
+    ListOperationsRequest::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* ListOperationsRequest::GetClassData() const {
+  return &_class_data_;
 }
 
-void ListOperationsRequest::MergeFrom(const ListOperationsRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:google.longrunning.ListOperationsRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void ListOperationsRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<ListOperationsRequest*>(&to_msg);
+  auto& from = static_cast<const ListOperationsRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:google.longrunning.ListOperationsRequest)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.filter().size() > 0) {
-    _internal_set_filter(from._internal_filter());
+  if (!from._internal_filter().empty()) {
+    _this->_internal_set_filter(from._internal_filter());
   }
-  if (from.page_token().size() > 0) {
-    _internal_set_page_token(from._internal_page_token());
+  if (!from._internal_page_token().empty()) {
+    _this->_internal_set_page_token(from._internal_page_token());
   }
-  if (from.name().size() > 0) {
-    _internal_set_name(from._internal_name());
+  if (!from._internal_name().empty()) {
+    _this->_internal_set_name(from._internal_name());
   }
-  if (from.page_size() != 0) {
-    _internal_set_page_size(from._internal_page_size());
+  if (from._internal_page_size() != 0) {
+    _this->_internal_set_page_size(from._internal_page_size());
   }
-}
-
-void ListOperationsRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:google.longrunning.ListOperationsRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ListOperationsRequest::CopyFrom(const ListOperationsRequest& from) {
@@ -1275,237 +1300,215 @@ void ListOperationsRequest::CopyFrom(const ListOperationsRequest& from) {
   MergeFrom(from);
 }
 
-bool ListOperationsRequest::IsInitialized() const {
+PROTOBUF_NOINLINE bool ListOperationsRequest::IsInitialized() const {
   return true;
 }
 
-void ListOperationsRequest::InternalSwap(ListOperationsRequest* other) {
+::_pbi::CachedSize* ListOperationsRequest::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void ListOperationsRequest::InternalSwap(ListOperationsRequest* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  filter_.Swap(&other->filter_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  page_token_.Swap(&other->page_token_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  swap(page_size_, other->page_size_);
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.filter_, &other->_impl_.filter_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.page_token_, &other->_impl_.page_token_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
+        swap(_impl_.page_size_, other->_impl_.page_size_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata ListOperationsRequest::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata ListOperationsRequest::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_google_2flongrunning_2foperations_2eproto_getter, &descriptor_table_google_2flongrunning_2foperations_2eproto_once,
+      file_level_metadata_google_2flongrunning_2foperations_2eproto[2]);
 }
-
-
 // ===================================================================
 
 class ListOperationsResponse::_Internal {
  public:
 };
 
-ListOperationsResponse::ListOperationsResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  operations_(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+ListOperationsResponse::ListOperationsResponse(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:google.longrunning.ListOperationsResponse)
 }
-ListOperationsResponse::ListOperationsResponse(const ListOperationsResponse& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      operations_(from.operations_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  next_page_token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_next_page_token().empty()) {
-    next_page_token_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_next_page_token(), 
-      GetArena());
-  }
+inline PROTOBUF_NDEBUG_INLINE ListOperationsResponse::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    const Impl_& from)
+      : operations_{visibility, arena, from.operations_},
+        next_page_token_(arena, from.next_page_token_),
+        _cached_size_{0} {}
+
+ListOperationsResponse::ListOperationsResponse(
+    ::google::protobuf_inworld::Arena* arena,
+    const ListOperationsResponse& from)
+    : ::google::protobuf_inworld::Message(arena) {
+  ListOperationsResponse* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+
   // @@protoc_insertion_point(copy_constructor:google.longrunning.ListOperationsResponse)
 }
+inline PROTOBUF_NDEBUG_INLINE ListOperationsResponse::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : operations_{visibility, arena},
+        next_page_token_(arena),
+        _cached_size_{0} {}
 
-void ListOperationsResponse::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ListOperationsResponse_google_2flongrunning_2foperations_2eproto.base);
-  next_page_token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ListOperationsResponse::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
 }
-
 ListOperationsResponse::~ListOperationsResponse() {
   // @@protoc_insertion_point(destructor:google.longrunning.ListOperationsResponse)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+inline void ListOperationsResponse::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.next_page_token_.Destroy();
+  _impl_.~Impl_();
 }
 
-void ListOperationsResponse::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  next_page_token_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void ListOperationsResponse::ArenaDtor(void* object) {
-  ListOperationsResponse* _this = reinterpret_cast< ListOperationsResponse* >(object);
-  (void)_this;
-}
-void ListOperationsResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void ListOperationsResponse::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ListOperationsResponse& ListOperationsResponse::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ListOperationsResponse_google_2flongrunning_2foperations_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void ListOperationsResponse::Clear() {
+PROTOBUF_NOINLINE void ListOperationsResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:google.longrunning.ListOperationsResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  operations_.Clear();
-  next_page_token_.ClearToEmpty();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _impl_.operations_.Clear();
+  _impl_.next_page_token_.ClearToEmpty();
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* ListOperationsResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // repeated .google.longrunning.Operation operations = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_operations(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
-        } else goto handle_unusual;
-        continue;
-      // string next_page_token = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          auto str = _internal_mutable_next_page_token();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "google.longrunning.ListOperationsResponse.next_page_token"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* ListOperationsResponse::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ListOperationsResponse::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 1, 65, 2> ListOperationsResponse::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    &_ListOperationsResponse_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // string next_page_token = 2;
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(ListOperationsResponse, _impl_.next_page_token_)}},
+    // repeated .google.longrunning.Operation operations = 1;
+    {::_pbi::TcParser::FastMtR1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(ListOperationsResponse, _impl_.operations_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // repeated .google.longrunning.Operation operations = 1;
+    {PROTOBUF_FIELD_OFFSET(ListOperationsResponse, _impl_.operations_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // string next_page_token = 2;
+    {PROTOBUF_FIELD_OFFSET(ListOperationsResponse, _impl_.next_page_token_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::google::longrunning::Operation>()},
+  }}, {{
+    "\51\0\17\0\0\0\0\0"
+    "google.longrunning.ListOperationsResponse"
+    "next_page_token"
+  }},
+};
+
+::uint8_t* ListOperationsResponse::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:google.longrunning.ListOperationsResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // repeated .google.longrunning.Operation operations = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_operations_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_operations(i), target, stream);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_operations_size()); i < n; i++) {
+    const auto& repfield = this->_internal_operations().Get(i);
+    target = ::google::protobuf_inworld::internal::WireFormatLite::
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   // string next_page_token = 2;
-  if (this->next_page_token().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_next_page_token().data(), static_cast<int>(this->_internal_next_page_token().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "google.longrunning.ListOperationsResponse.next_page_token");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_next_page_token(), target);
+  if (!this->_internal_next_page_token().empty()) {
+    const std::string& _s = this->_internal_next_page_token();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "google.longrunning.ListOperationsResponse.next_page_token");
+    target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:google.longrunning.ListOperationsResponse)
   return target;
 }
 
-size_t ListOperationsResponse::ByteSizeLong() const {
+::size_t ListOperationsResponse::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:google.longrunning.ListOperationsResponse)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // repeated .google.longrunning.Operation operations = 1;
   total_size += 1UL * this->_internal_operations_size();
-  for (const auto& msg : this->operations_) {
+  for (const auto& msg : this->_internal_operations()) {
     total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+      ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(msg);
   }
-
   // string next_page_token = 2;
-  if (this->next_page_token().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_next_page_token());
+  if (!this->_internal_next_page_token().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_next_page_token());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void ListOperationsResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:google.longrunning.ListOperationsResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ListOperationsResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ListOperationsResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:google.longrunning.ListOperationsResponse)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:google.longrunning.ListOperationsResponse)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData ListOperationsResponse::_class_data_ = {
+    ListOperationsResponse::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* ListOperationsResponse::GetClassData() const {
+  return &_class_data_;
 }
 
-void ListOperationsResponse::MergeFrom(const ListOperationsResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:google.longrunning.ListOperationsResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void ListOperationsResponse::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<ListOperationsResponse*>(&to_msg);
+  auto& from = static_cast<const ListOperationsResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:google.longrunning.ListOperationsResponse)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  operations_.MergeFrom(from.operations_);
-  if (from.next_page_token().size() > 0) {
-    _internal_set_next_page_token(from._internal_next_page_token());
+  _this->_internal_mutable_operations()->MergeFrom(
+      from._internal_operations());
+  if (!from._internal_next_page_token().empty()) {
+    _this->_internal_set_next_page_token(from._internal_next_page_token());
   }
-}
-
-void ListOperationsResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:google.longrunning.ListOperationsResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ListOperationsResponse::CopyFrom(const ListOperationsResponse& from) {
@@ -1515,204 +1518,188 @@ void ListOperationsResponse::CopyFrom(const ListOperationsResponse& from) {
   MergeFrom(from);
 }
 
-bool ListOperationsResponse::IsInitialized() const {
+PROTOBUF_NOINLINE bool ListOperationsResponse::IsInitialized() const {
   return true;
 }
 
-void ListOperationsResponse::InternalSwap(ListOperationsResponse* other) {
+::_pbi::CachedSize* ListOperationsResponse::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void ListOperationsResponse::InternalSwap(ListOperationsResponse* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  operations_.InternalSwap(&other->operations_);
-  next_page_token_.Swap(&other->next_page_token_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.operations_.InternalSwap(&other->_impl_.operations_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.next_page_token_, &other->_impl_.next_page_token_, arena);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata ListOperationsResponse::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata ListOperationsResponse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_google_2flongrunning_2foperations_2eproto_getter, &descriptor_table_google_2flongrunning_2foperations_2eproto_once,
+      file_level_metadata_google_2flongrunning_2foperations_2eproto[3]);
 }
-
-
 // ===================================================================
 
 class CancelOperationRequest::_Internal {
  public:
 };
 
-CancelOperationRequest::CancelOperationRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+CancelOperationRequest::CancelOperationRequest(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:google.longrunning.CancelOperationRequest)
 }
-CancelOperationRequest::CancelOperationRequest(const CancelOperationRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_name().empty()) {
-    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
-      GetArena());
-  }
+inline PROTOBUF_NDEBUG_INLINE CancelOperationRequest::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    const Impl_& from)
+      : name_(arena, from.name_),
+        _cached_size_{0} {}
+
+CancelOperationRequest::CancelOperationRequest(
+    ::google::protobuf_inworld::Arena* arena,
+    const CancelOperationRequest& from)
+    : ::google::protobuf_inworld::Message(arena) {
+  CancelOperationRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+
   // @@protoc_insertion_point(copy_constructor:google.longrunning.CancelOperationRequest)
 }
+inline PROTOBUF_NDEBUG_INLINE CancelOperationRequest::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : name_(arena),
+        _cached_size_{0} {}
 
-void CancelOperationRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_CancelOperationRequest_google_2flongrunning_2foperations_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void CancelOperationRequest::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
 }
-
 CancelOperationRequest::~CancelOperationRequest() {
   // @@protoc_insertion_point(destructor:google.longrunning.CancelOperationRequest)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+inline void CancelOperationRequest::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.name_.Destroy();
+  _impl_.~Impl_();
 }
 
-void CancelOperationRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void CancelOperationRequest::ArenaDtor(void* object) {
-  CancelOperationRequest* _this = reinterpret_cast< CancelOperationRequest* >(object);
-  (void)_this;
-}
-void CancelOperationRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CancelOperationRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const CancelOperationRequest& CancelOperationRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_CancelOperationRequest_google_2flongrunning_2foperations_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void CancelOperationRequest::Clear() {
+PROTOBUF_NOINLINE void CancelOperationRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:google.longrunning.CancelOperationRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _impl_.name_.ClearToEmpty();
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* CancelOperationRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string name = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "google.longrunning.CancelOperationRequest.name"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* CancelOperationRequest::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* CancelOperationRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 54, 2> CancelOperationRequest::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_CancelOperationRequest_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // string name = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(CancelOperationRequest, _impl_.name_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string name = 1;
+    {PROTOBUF_FIELD_OFFSET(CancelOperationRequest, _impl_.name_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\51\4\0\0\0\0\0\0"
+    "google.longrunning.CancelOperationRequest"
+    "name"
+  }},
+};
+
+::uint8_t* CancelOperationRequest::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:google.longrunning.CancelOperationRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "google.longrunning.CancelOperationRequest.name");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_name(), target);
+  if (!this->_internal_name().empty()) {
+    const std::string& _s = this->_internal_name();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "google.longrunning.CancelOperationRequest.name");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:google.longrunning.CancelOperationRequest)
   return target;
 }
 
-size_t CancelOperationRequest::ByteSizeLong() const {
+::size_t CancelOperationRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:google.longrunning.CancelOperationRequest)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_name());
+  if (!this->_internal_name().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_name());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void CancelOperationRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:google.longrunning.CancelOperationRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CancelOperationRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CancelOperationRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:google.longrunning.CancelOperationRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:google.longrunning.CancelOperationRequest)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData CancelOperationRequest::_class_data_ = {
+    CancelOperationRequest::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* CancelOperationRequest::GetClassData() const {
+  return &_class_data_;
 }
 
-void CancelOperationRequest::MergeFrom(const CancelOperationRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:google.longrunning.CancelOperationRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void CancelOperationRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<CancelOperationRequest*>(&to_msg);
+  auto& from = static_cast<const CancelOperationRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:google.longrunning.CancelOperationRequest)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.name().size() > 0) {
-    _internal_set_name(from._internal_name());
+  if (!from._internal_name().empty()) {
+    _this->_internal_set_name(from._internal_name());
   }
-}
-
-void CancelOperationRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:google.longrunning.CancelOperationRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void CancelOperationRequest::CopyFrom(const CancelOperationRequest& from) {
@@ -1722,203 +1709,187 @@ void CancelOperationRequest::CopyFrom(const CancelOperationRequest& from) {
   MergeFrom(from);
 }
 
-bool CancelOperationRequest::IsInitialized() const {
+PROTOBUF_NOINLINE bool CancelOperationRequest::IsInitialized() const {
   return true;
 }
 
-void CancelOperationRequest::InternalSwap(CancelOperationRequest* other) {
+::_pbi::CachedSize* CancelOperationRequest::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void CancelOperationRequest::InternalSwap(CancelOperationRequest* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata CancelOperationRequest::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata CancelOperationRequest::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_google_2flongrunning_2foperations_2eproto_getter, &descriptor_table_google_2flongrunning_2foperations_2eproto_once,
+      file_level_metadata_google_2flongrunning_2foperations_2eproto[4]);
 }
-
-
 // ===================================================================
 
 class DeleteOperationRequest::_Internal {
  public:
 };
 
-DeleteOperationRequest::DeleteOperationRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+DeleteOperationRequest::DeleteOperationRequest(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:google.longrunning.DeleteOperationRequest)
 }
-DeleteOperationRequest::DeleteOperationRequest(const DeleteOperationRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_name().empty()) {
-    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
-      GetArena());
-  }
+inline PROTOBUF_NDEBUG_INLINE DeleteOperationRequest::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    const Impl_& from)
+      : name_(arena, from.name_),
+        _cached_size_{0} {}
+
+DeleteOperationRequest::DeleteOperationRequest(
+    ::google::protobuf_inworld::Arena* arena,
+    const DeleteOperationRequest& from)
+    : ::google::protobuf_inworld::Message(arena) {
+  DeleteOperationRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+
   // @@protoc_insertion_point(copy_constructor:google.longrunning.DeleteOperationRequest)
 }
+inline PROTOBUF_NDEBUG_INLINE DeleteOperationRequest::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : name_(arena),
+        _cached_size_{0} {}
 
-void DeleteOperationRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_DeleteOperationRequest_google_2flongrunning_2foperations_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void DeleteOperationRequest::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
 }
-
 DeleteOperationRequest::~DeleteOperationRequest() {
   // @@protoc_insertion_point(destructor:google.longrunning.DeleteOperationRequest)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+inline void DeleteOperationRequest::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.name_.Destroy();
+  _impl_.~Impl_();
 }
 
-void DeleteOperationRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void DeleteOperationRequest::ArenaDtor(void* object) {
-  DeleteOperationRequest* _this = reinterpret_cast< DeleteOperationRequest* >(object);
-  (void)_this;
-}
-void DeleteOperationRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void DeleteOperationRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const DeleteOperationRequest& DeleteOperationRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_DeleteOperationRequest_google_2flongrunning_2foperations_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void DeleteOperationRequest::Clear() {
+PROTOBUF_NOINLINE void DeleteOperationRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:google.longrunning.DeleteOperationRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _impl_.name_.ClearToEmpty();
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* DeleteOperationRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string name = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "google.longrunning.DeleteOperationRequest.name"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* DeleteOperationRequest::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* DeleteOperationRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 54, 2> DeleteOperationRequest::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_DeleteOperationRequest_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // string name = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(DeleteOperationRequest, _impl_.name_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string name = 1;
+    {PROTOBUF_FIELD_OFFSET(DeleteOperationRequest, _impl_.name_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\51\4\0\0\0\0\0\0"
+    "google.longrunning.DeleteOperationRequest"
+    "name"
+  }},
+};
+
+::uint8_t* DeleteOperationRequest::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:google.longrunning.DeleteOperationRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "google.longrunning.DeleteOperationRequest.name");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_name(), target);
+  if (!this->_internal_name().empty()) {
+    const std::string& _s = this->_internal_name();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "google.longrunning.DeleteOperationRequest.name");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:google.longrunning.DeleteOperationRequest)
   return target;
 }
 
-size_t DeleteOperationRequest::ByteSizeLong() const {
+::size_t DeleteOperationRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:google.longrunning.DeleteOperationRequest)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_name());
+  if (!this->_internal_name().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_name());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void DeleteOperationRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:google.longrunning.DeleteOperationRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const DeleteOperationRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<DeleteOperationRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:google.longrunning.DeleteOperationRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:google.longrunning.DeleteOperationRequest)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData DeleteOperationRequest::_class_data_ = {
+    DeleteOperationRequest::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* DeleteOperationRequest::GetClassData() const {
+  return &_class_data_;
 }
 
-void DeleteOperationRequest::MergeFrom(const DeleteOperationRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:google.longrunning.DeleteOperationRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void DeleteOperationRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<DeleteOperationRequest*>(&to_msg);
+  auto& from = static_cast<const DeleteOperationRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:google.longrunning.DeleteOperationRequest)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.name().size() > 0) {
-    _internal_set_name(from._internal_name());
+  if (!from._internal_name().empty()) {
+    _this->_internal_set_name(from._internal_name());
   }
-}
-
-void DeleteOperationRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:google.longrunning.DeleteOperationRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void DeleteOperationRequest::CopyFrom(const DeleteOperationRequest& from) {
@@ -1928,250 +1899,240 @@ void DeleteOperationRequest::CopyFrom(const DeleteOperationRequest& from) {
   MergeFrom(from);
 }
 
-bool DeleteOperationRequest::IsInitialized() const {
+PROTOBUF_NOINLINE bool DeleteOperationRequest::IsInitialized() const {
   return true;
 }
 
-void DeleteOperationRequest::InternalSwap(DeleteOperationRequest* other) {
+::_pbi::CachedSize* DeleteOperationRequest::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void DeleteOperationRequest::InternalSwap(DeleteOperationRequest* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata DeleteOperationRequest::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata DeleteOperationRequest::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_google_2flongrunning_2foperations_2eproto_getter, &descriptor_table_google_2flongrunning_2foperations_2eproto_once,
+      file_level_metadata_google_2flongrunning_2foperations_2eproto[5]);
 }
-
-
 // ===================================================================
 
 class WaitOperationRequest::_Internal {
  public:
-  static const PROTOBUF_NAMESPACE_ID::Duration& timeout(const WaitOperationRequest* msg);
+  using HasBits = decltype(std::declval<WaitOperationRequest>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+    8 * PROTOBUF_FIELD_OFFSET(WaitOperationRequest, _impl_._has_bits_);
+  static const ::google::protobuf_inworld::Duration& timeout(const WaitOperationRequest* msg);
+  static void set_has_timeout(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
 };
 
-const PROTOBUF_NAMESPACE_ID::Duration&
-WaitOperationRequest::_Internal::timeout(const WaitOperationRequest* msg) {
-  return *msg->timeout_;
+const ::google::protobuf_inworld::Duration& WaitOperationRequest::_Internal::timeout(const WaitOperationRequest* msg) {
+  return *msg->_impl_.timeout_;
 }
 void WaitOperationRequest::clear_timeout() {
-  if (GetArena() == nullptr && timeout_ != nullptr) {
-    delete timeout_;
-  }
-  timeout_ = nullptr;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (_impl_.timeout_ != nullptr) _impl_.timeout_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-WaitOperationRequest::WaitOperationRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+WaitOperationRequest::WaitOperationRequest(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:google.longrunning.WaitOperationRequest)
 }
-WaitOperationRequest::WaitOperationRequest(const WaitOperationRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_name().empty()) {
-    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
-      GetArena());
-  }
-  if (from._internal_has_timeout()) {
-    timeout_ = new PROTOBUF_NAMESPACE_ID::Duration(*from.timeout_);
-  } else {
-    timeout_ = nullptr;
-  }
+inline PROTOBUF_NDEBUG_INLINE WaitOperationRequest::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    const Impl_& from)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        name_(arena, from.name_) {}
+
+WaitOperationRequest::WaitOperationRequest(
+    ::google::protobuf_inworld::Arena* arena,
+    const WaitOperationRequest& from)
+    : ::google::protobuf_inworld::Message(arena) {
+  WaitOperationRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.timeout_ = (cached_has_bits & 0x00000001u)
+                ? CreateMaybeMessage<::google::protobuf_inworld::Duration>(arena, *from._impl_.timeout_)
+                : nullptr;
+
   // @@protoc_insertion_point(copy_constructor:google.longrunning.WaitOperationRequest)
 }
+inline PROTOBUF_NDEBUG_INLINE WaitOperationRequest::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : _cached_size_{0},
+        name_(arena) {}
 
-void WaitOperationRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_WaitOperationRequest_google_2flongrunning_2foperations_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  timeout_ = nullptr;
+inline void WaitOperationRequest::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.timeout_ = {};
 }
-
 WaitOperationRequest::~WaitOperationRequest() {
   // @@protoc_insertion_point(destructor:google.longrunning.WaitOperationRequest)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+inline void WaitOperationRequest::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.name_.Destroy();
+  delete _impl_.timeout_;
+  _impl_.~Impl_();
 }
 
-void WaitOperationRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete timeout_;
-}
-
-void WaitOperationRequest::ArenaDtor(void* object) {
-  WaitOperationRequest* _this = reinterpret_cast< WaitOperationRequest* >(object);
-  (void)_this;
-}
-void WaitOperationRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void WaitOperationRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const WaitOperationRequest& WaitOperationRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_WaitOperationRequest_google_2flongrunning_2foperations_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void WaitOperationRequest::Clear() {
+PROTOBUF_NOINLINE void WaitOperationRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:google.longrunning.WaitOperationRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty();
-  if (GetArena() == nullptr && timeout_ != nullptr) {
-    delete timeout_;
+  _impl_.name_.ClearToEmpty();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(_impl_.timeout_ != nullptr);
+    _impl_.timeout_->Clear();
   }
-  timeout_ = nullptr;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* WaitOperationRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string name = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "google.longrunning.WaitOperationRequest.name"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .google.protobuf.Duration timeout = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_timeout(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* WaitOperationRequest::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* WaitOperationRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 1, 52, 2> WaitOperationRequest::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(WaitOperationRequest, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    &_WaitOperationRequest_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // .google.protobuf.Duration timeout = 2;
+    {::_pbi::TcParser::FastMtS1,
+     {18, 0, 0, PROTOBUF_FIELD_OFFSET(WaitOperationRequest, _impl_.timeout_)}},
+    // string name = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(WaitOperationRequest, _impl_.name_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string name = 1;
+    {PROTOBUF_FIELD_OFFSET(WaitOperationRequest, _impl_.name_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .google.protobuf.Duration timeout = 2;
+    {PROTOBUF_FIELD_OFFSET(WaitOperationRequest, _impl_.timeout_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::google::protobuf_inworld::Duration>()},
+  }}, {{
+    "\47\4\0\0\0\0\0\0"
+    "google.longrunning.WaitOperationRequest"
+    "name"
+  }},
+};
+
+::uint8_t* WaitOperationRequest::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:google.longrunning.WaitOperationRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "google.longrunning.WaitOperationRequest.name");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_name(), target);
+  if (!this->_internal_name().empty()) {
+    const std::string& _s = this->_internal_name();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "google.longrunning.WaitOperationRequest.name");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
+  cached_has_bits = _impl_._has_bits_[0];
   // .google.protobuf.Duration timeout = 2;
-  if (this->has_timeout()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::timeout(this), target, stream);
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf_inworld::internal::WireFormatLite::InternalWriteMessage(
+        2, _Internal::timeout(this),
+        _Internal::timeout(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:google.longrunning.WaitOperationRequest)
   return target;
 }
 
-size_t WaitOperationRequest::ByteSizeLong() const {
+::size_t WaitOperationRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:google.longrunning.WaitOperationRequest)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_name());
+  if (!this->_internal_name().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_name());
   }
 
   // .google.protobuf.Duration timeout = 2;
-  if (this->has_timeout()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *timeout_);
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size +=
+        1 + ::google::protobuf_inworld::internal::WireFormatLite::MessageSize(*_impl_.timeout_);
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void WaitOperationRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:google.longrunning.WaitOperationRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const WaitOperationRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<WaitOperationRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:google.longrunning.WaitOperationRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:google.longrunning.WaitOperationRequest)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData WaitOperationRequest::_class_data_ = {
+    WaitOperationRequest::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* WaitOperationRequest::GetClassData() const {
+  return &_class_data_;
 }
 
-void WaitOperationRequest::MergeFrom(const WaitOperationRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:google.longrunning.WaitOperationRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void WaitOperationRequest::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<WaitOperationRequest*>(&to_msg);
+  auto& from = static_cast<const WaitOperationRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:google.longrunning.WaitOperationRequest)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.name().size() > 0) {
-    _internal_set_name(from._internal_name());
+  if (!from._internal_name().empty()) {
+    _this->_internal_set_name(from._internal_name());
   }
-  if (from.has_timeout()) {
-    _internal_mutable_timeout()->PROTOBUF_NAMESPACE_ID::Duration::MergeFrom(from._internal_timeout());
+  if ((from._impl_._has_bits_[0] & 0x00000001u) != 0) {
+    _this->_internal_mutable_timeout()->::google::protobuf_inworld::Duration::MergeFrom(
+        from._internal_timeout());
   }
-}
-
-void WaitOperationRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:google.longrunning.WaitOperationRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void WaitOperationRequest::CopyFrom(const WaitOperationRequest& from) {
@@ -2181,241 +2142,217 @@ void WaitOperationRequest::CopyFrom(const WaitOperationRequest& from) {
   MergeFrom(from);
 }
 
-bool WaitOperationRequest::IsInitialized() const {
+PROTOBUF_NOINLINE bool WaitOperationRequest::IsInitialized() const {
   return true;
 }
 
-void WaitOperationRequest::InternalSwap(WaitOperationRequest* other) {
+::_pbi::CachedSize* WaitOperationRequest::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void WaitOperationRequest::InternalSwap(WaitOperationRequest* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  swap(timeout_, other->timeout_);
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
+  swap(_impl_.timeout_, other->_impl_.timeout_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata WaitOperationRequest::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata WaitOperationRequest::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_google_2flongrunning_2foperations_2eproto_getter, &descriptor_table_google_2flongrunning_2foperations_2eproto_once,
+      file_level_metadata_google_2flongrunning_2foperations_2eproto[6]);
 }
-
-
 // ===================================================================
 
 class OperationInfo::_Internal {
  public:
 };
 
-OperationInfo::OperationInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+OperationInfo::OperationInfo(::google::protobuf_inworld::Arena* arena)
+    : ::google::protobuf_inworld::Message(arena) {
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:google.longrunning.OperationInfo)
 }
-OperationInfo::OperationInfo(const OperationInfo& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  response_type_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_response_type().empty()) {
-    response_type_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_response_type(), 
-      GetArena());
-  }
-  metadata_type_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_metadata_type().empty()) {
-    metadata_type_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_metadata_type(), 
-      GetArena());
-  }
+inline PROTOBUF_NDEBUG_INLINE OperationInfo::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility, ::google::protobuf_inworld::Arena* arena,
+    const Impl_& from)
+      : response_type_(arena, from.response_type_),
+        metadata_type_(arena, from.metadata_type_),
+        _cached_size_{0} {}
+
+OperationInfo::OperationInfo(
+    ::google::protobuf_inworld::Arena* arena,
+    const OperationInfo& from)
+    : ::google::protobuf_inworld::Message(arena) {
+  OperationInfo* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+
   // @@protoc_insertion_point(copy_constructor:google.longrunning.OperationInfo)
 }
+inline PROTOBUF_NDEBUG_INLINE OperationInfo::Impl_::Impl_(
+    ::google::protobuf_inworld::internal::InternalVisibility visibility,
+    ::google::protobuf_inworld::Arena* arena)
+      : response_type_(arena),
+        metadata_type_(arena),
+        _cached_size_{0} {}
 
-void OperationInfo::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_OperationInfo_google_2flongrunning_2foperations_2eproto.base);
-  response_type_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  metadata_type_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void OperationInfo::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
 }
-
 OperationInfo::~OperationInfo() {
   // @@protoc_insertion_point(destructor:google.longrunning.OperationInfo)
+  _internal_metadata_.Delete<::google::protobuf_inworld::UnknownFieldSet>();
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+inline void OperationInfo::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.response_type_.Destroy();
+  _impl_.metadata_type_.Destroy();
+  _impl_.~Impl_();
 }
 
-void OperationInfo::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  response_type_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  metadata_type_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void OperationInfo::ArenaDtor(void* object) {
-  OperationInfo* _this = reinterpret_cast< OperationInfo* >(object);
-  (void)_this;
-}
-void OperationInfo::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void OperationInfo::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const OperationInfo& OperationInfo::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_OperationInfo_google_2flongrunning_2foperations_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void OperationInfo::Clear() {
+PROTOBUF_NOINLINE void OperationInfo::Clear() {
 // @@protoc_insertion_point(message_clear_start:google.longrunning.OperationInfo)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  response_type_.ClearToEmpty();
-  metadata_type_.ClearToEmpty();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _impl_.response_type_.ClearToEmpty();
+  _impl_.metadata_type_.ClearToEmpty();
+  _internal_metadata_.Clear<::google::protobuf_inworld::UnknownFieldSet>();
 }
 
-const char* OperationInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string response_type = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_response_type();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "google.longrunning.OperationInfo.response_type"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // string metadata_type = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          auto str = _internal_mutable_metadata_type();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "google.longrunning.OperationInfo.metadata_type"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
+const char* OperationInfo::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
   return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* OperationInfo::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 0, 67, 2> OperationInfo::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_OperationInfo_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // string metadata_type = 2;
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(OperationInfo, _impl_.metadata_type_)}},
+    // string response_type = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(OperationInfo, _impl_.response_type_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string response_type = 1;
+    {PROTOBUF_FIELD_OFFSET(OperationInfo, _impl_.response_type_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string metadata_type = 2;
+    {PROTOBUF_FIELD_OFFSET(OperationInfo, _impl_.metadata_type_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\40\15\15\0\0\0\0\0"
+    "google.longrunning.OperationInfo"
+    "response_type"
+    "metadata_type"
+  }},
+};
+
+::uint8_t* OperationInfo::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf_inworld::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:google.longrunning.OperationInfo)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
 
   // string response_type = 1;
-  if (this->response_type().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_response_type().data(), static_cast<int>(this->_internal_response_type().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "google.longrunning.OperationInfo.response_type");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_response_type(), target);
+  if (!this->_internal_response_type().empty()) {
+    const std::string& _s = this->_internal_response_type();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "google.longrunning.OperationInfo.response_type");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
   // string metadata_type = 2;
-  if (this->metadata_type().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_metadata_type().data(), static_cast<int>(this->_internal_metadata_type().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "google.longrunning.OperationInfo.metadata_type");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_metadata_type(), target);
+  if (!this->_internal_metadata_type().empty()) {
+    const std::string& _s = this->_internal_metadata_type();
+    ::google::protobuf_inworld::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf_inworld::internal::WireFormatLite::SERIALIZE, "google.longrunning.OperationInfo.metadata_type");
+    target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf_inworld::UnknownFieldSet>(::google::protobuf_inworld::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:google.longrunning.OperationInfo)
   return target;
 }
 
-size_t OperationInfo::ByteSizeLong() const {
+::size_t OperationInfo::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:google.longrunning.OperationInfo)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string response_type = 1;
-  if (this->response_type().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_response_type());
+  if (!this->_internal_response_type().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_response_type());
   }
 
   // string metadata_type = 2;
-  if (this->metadata_type().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_metadata_type());
+  if (!this->_internal_metadata_type().empty()) {
+    total_size += 1 + ::google::protobuf_inworld::internal::WireFormatLite::StringSize(
+                                    this->_internal_metadata_type());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void OperationInfo::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:google.longrunning.OperationInfo)
-  GOOGLE_DCHECK_NE(&from, this);
-  const OperationInfo* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<OperationInfo>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:google.longrunning.OperationInfo)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:google.longrunning.OperationInfo)
-    MergeFrom(*source);
-  }
+const ::google::protobuf_inworld::Message::ClassData OperationInfo::_class_data_ = {
+    OperationInfo::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf_inworld::Message::ClassData* OperationInfo::GetClassData() const {
+  return &_class_data_;
 }
 
-void OperationInfo::MergeFrom(const OperationInfo& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:google.longrunning.OperationInfo)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+void OperationInfo::MergeImpl(::google::protobuf_inworld::Message& to_msg, const ::google::protobuf_inworld::Message& from_msg) {
+  auto* const _this = static_cast<OperationInfo*>(&to_msg);
+  auto& from = static_cast<const OperationInfo&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:google.longrunning.OperationInfo)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.response_type().size() > 0) {
-    _internal_set_response_type(from._internal_response_type());
+  if (!from._internal_response_type().empty()) {
+    _this->_internal_set_response_type(from._internal_response_type());
   }
-  if (from.metadata_type().size() > 0) {
-    _internal_set_metadata_type(from._internal_metadata_type());
+  if (!from._internal_metadata_type().empty()) {
+    _this->_internal_set_metadata_type(from._internal_metadata_type());
   }
-}
-
-void OperationInfo::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:google.longrunning.OperationInfo)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf_inworld::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void OperationInfo::CopyFrom(const OperationInfo& from) {
@@ -2425,54 +2362,36 @@ void OperationInfo::CopyFrom(const OperationInfo& from) {
   MergeFrom(from);
 }
 
-bool OperationInfo::IsInitialized() const {
+PROTOBUF_NOINLINE bool OperationInfo::IsInitialized() const {
   return true;
 }
 
-void OperationInfo::InternalSwap(OperationInfo* other) {
+::_pbi::CachedSize* OperationInfo::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void OperationInfo::InternalSwap(OperationInfo* PROTOBUF_RESTRICT other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  response_type_.Swap(&other->response_type_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  metadata_type_.Swap(&other->metadata_type_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.response_type_, &other->_impl_.response_type_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.metadata_type_, &other->_impl_.metadata_type_, arena);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata OperationInfo::GetMetadata() const {
-  return GetMetadataStatic();
+::google::protobuf_inworld::Metadata OperationInfo::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_google_2flongrunning_2foperations_2eproto_getter, &descriptor_table_google_2flongrunning_2foperations_2eproto_once,
+      file_level_metadata_google_2flongrunning_2foperations_2eproto[7]);
 }
-
-::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf_inworld::MethodOptions,
-    ::PROTOBUF_NAMESPACE_ID::internal::MessageTypeTraits< ::google::longrunning::OperationInfo >, 11, false >
-  operation_info(kOperationInfoFieldNumber, ::google::longrunning::OperationInfo::default_instance());
-
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::google::protobuf_inworld::internal::ExtensionIdentifier< ::google::protobuf_inworld::MethodOptions,
+    ::google::protobuf_inworld::internal::MessageTypeTraits< ::google::longrunning::OperationInfo >, 11, false>
+  operation_info(kOperationInfoFieldNumber, ::google::longrunning::OperationInfo::default_instance(), nullptr);
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace longrunning
 }  // namespace google
-PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::google::longrunning::Operation* Arena::CreateMaybeMessage< ::google::longrunning::Operation >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::google::longrunning::Operation >(arena);
-}
-template<> PROTOBUF_NOINLINE ::google::longrunning::GetOperationRequest* Arena::CreateMaybeMessage< ::google::longrunning::GetOperationRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::google::longrunning::GetOperationRequest >(arena);
-}
-template<> PROTOBUF_NOINLINE ::google::longrunning::ListOperationsRequest* Arena::CreateMaybeMessage< ::google::longrunning::ListOperationsRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::google::longrunning::ListOperationsRequest >(arena);
-}
-template<> PROTOBUF_NOINLINE ::google::longrunning::ListOperationsResponse* Arena::CreateMaybeMessage< ::google::longrunning::ListOperationsResponse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::google::longrunning::ListOperationsResponse >(arena);
-}
-template<> PROTOBUF_NOINLINE ::google::longrunning::CancelOperationRequest* Arena::CreateMaybeMessage< ::google::longrunning::CancelOperationRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::google::longrunning::CancelOperationRequest >(arena);
-}
-template<> PROTOBUF_NOINLINE ::google::longrunning::DeleteOperationRequest* Arena::CreateMaybeMessage< ::google::longrunning::DeleteOperationRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::google::longrunning::DeleteOperationRequest >(arena);
-}
-template<> PROTOBUF_NOINLINE ::google::longrunning::WaitOperationRequest* Arena::CreateMaybeMessage< ::google::longrunning::WaitOperationRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::google::longrunning::WaitOperationRequest >(arena);
-}
-template<> PROTOBUF_NOINLINE ::google::longrunning::OperationInfo* Arena::CreateMaybeMessage< ::google::longrunning::OperationInfo >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::google::longrunning::OperationInfo >(arena);
-}
-PROTOBUF_NAMESPACE_CLOSE
-
+namespace google {
+namespace protobuf {
+}  // namespace protobuf
+}  // namespace google
 // @@protoc_insertion_point(global_scope)
-#include <google/protobuf/port_undef.inc>
+#include "google/protobuf/port_undef.inc"

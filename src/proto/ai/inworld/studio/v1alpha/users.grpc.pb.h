@@ -7,24 +7,23 @@
 #include "ai/inworld/studio/v1alpha/users.pb.h"
 
 #include <functional>
-#include <grpc/impl/codegen/port_platform.h>
-#include <grpcpp/impl/codegen/async_generic_service.h>
-#include <grpcpp/impl/codegen/async_stream.h>
-#include <grpcpp/impl/codegen/async_unary_call.h>
-#include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/client_context.h>
-#include <grpcpp/impl/codegen/completion_queue.h>
-#include <grpcpp/impl/codegen/message_allocator.h>
-#include <grpcpp/impl/codegen/method_handler.h>
-#include <grpcpp/impl/codegen/proto_utils.h>
-#include <grpcpp/impl/codegen/rpc_method.h>
-#include <grpcpp/impl/codegen/server_callback.h>
-#include <grpcpp/impl/codegen/server_callback_handlers.h>
-#include <grpcpp/impl/codegen/server_context.h>
-#include <grpcpp/impl/codegen/service_type.h>
-#include <grpcpp/impl/codegen/status.h>
-#include <grpcpp/impl/codegen/stub_options.h>
-#include <grpcpp/impl/codegen/sync_stream.h>
+#include <grpcpp/generic/async_generic_service.h>
+#include <grpcpp/support/async_stream.h>
+#include <grpcpp/support/async_unary_call.h>
+#include <grpcpp/support/client_callback.h>
+#include <grpcpp/client_context.h>
+#include <grpcpp/completion_queue.h>
+#include <grpcpp/support/message_allocator.h>
+#include <grpcpp/support/method_handler.h>
+#include <grpcpp/impl/proto_utils.h>
+#include <grpcpp/impl/rpc_method.h>
+#include <grpcpp/support/server_callback.h>
+#include <grpcpp/impl/server_callback_handlers.h>
+#include <grpcpp/server_context.h>
+#include <grpcpp/impl/service_type.h>
+#include <grpcpp/support/status.h>
+#include <grpcpp/support/stub_options.h>
+#include <grpcpp/support/sync_stream.h>
 
 namespace ai {
 namespace inworld {
@@ -94,65 +93,37 @@ class Users final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>> PrepareAsyncDeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>>(PrepareAsyncDeleteUserRaw(context, request, cq));
     }
-    class experimental_async_interface {
+    class async_interface {
      public:
-      virtual ~experimental_async_interface() {}
+      virtual ~async_interface() {}
       // RPC to exchange 3rd-party token for inworld internal
       // token. In the response Inworld JWT token will be
       // provided
       virtual void GenerateTokenUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest* request, ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void GenerateTokenUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest* request, ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void GenerateTokenUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest* request, ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to link oculus account to current one
       virtual void LinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void LinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void LinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // User's CRUD.
       // RPC to get one user by name.
       virtual void GetUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetUserRequest* request, ::ai::inworld::studio::v1alpha::User* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void GetUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetUserRequest* request, ::ai::inworld::studio::v1alpha::User* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void GetUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetUserRequest* request, ::ai::inworld::studio::v1alpha::User* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to update user information. Currently only updatable field is marketing
       // consent.
       virtual void UpdateUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateUserRequest* request, ::ai::inworld::studio::v1alpha::User* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void UpdateUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateUserRequest* request, ::ai::inworld::studio::v1alpha::User* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void UpdateUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateUserRequest* request, ::ai::inworld::studio::v1alpha::User* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to accept new / updated terms of service.
       virtual void AcceptTos(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest* request, ::ai::inworld::studio::v1alpha::User* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void AcceptTos(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest* request, ::ai::inworld::studio::v1alpha::User* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void AcceptTos(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest* request, ::ai::inworld::studio::v1alpha::User* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to permanently delete a user. All delete requests push log info and delete success to slack room
       // #delete-account-logs
       virtual void DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
     };
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    typedef class experimental_async_interface async_interface;
-    #endif
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    async_interface* async() { return experimental_async(); }
-    #endif
-    virtual class experimental_async_interface* experimental_async() { return nullptr; }
-  private:
+    typedef class async_interface experimental_async_interface;
+    virtual class async_interface* async() { return nullptr; }
+    class async_interface* experimental_async() { return async(); }
+   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse>* AsyncGenerateTokenUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse>* PrepareAsyncGenerateTokenUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* AsyncLinkAccountUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -168,7 +139,7 @@ class Users final {
   };
   class Stub final : public StubInterface {
    public:
-    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
+    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
     ::grpc::Status GenerateTokenUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest& request, ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse>> AsyncGenerateTokenUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse>>(AsyncGenerateTokenUserRaw(context, request, cq));
@@ -211,56 +182,32 @@ class Users final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> PrepareAsyncDeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(PrepareAsyncDeleteUserRaw(context, request, cq));
     }
-    class experimental_async final :
-      public StubInterface::experimental_async_interface {
+    class async final :
+      public StubInterface::async_interface {
      public:
       void GenerateTokenUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest* request, ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void GenerateTokenUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest* request, ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void GenerateTokenUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest* request, ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void LinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void LinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void LinkAccountUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void GetUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetUserRequest* request, ::ai::inworld::studio::v1alpha::User* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void GetUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetUserRequest* request, ::ai::inworld::studio::v1alpha::User* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void GetUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetUserRequest* request, ::ai::inworld::studio::v1alpha::User* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void UpdateUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateUserRequest* request, ::ai::inworld::studio::v1alpha::User* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void UpdateUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateUserRequest* request, ::ai::inworld::studio::v1alpha::User* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void UpdateUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateUserRequest* request, ::ai::inworld::studio::v1alpha::User* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void AcceptTos(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest* request, ::ai::inworld::studio::v1alpha::User* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void AcceptTos(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest* request, ::ai::inworld::studio::v1alpha::User* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void AcceptTos(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest* request, ::ai::inworld::studio::v1alpha::User* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void DeleteUser(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
      private:
       friend class Stub;
-      explicit experimental_async(Stub* stub): stub_(stub) { }
+      explicit async(Stub* stub): stub_(stub) { }
       Stub* stub() { return stub_; }
       Stub* stub_;
     };
-    class experimental_async_interface* experimental_async() override { return &async_stub_; }
+    class async* async() override { return &async_stub_; }
 
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
-    class experimental_async async_stub_{this};
+    class async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse>* AsyncGenerateTokenUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse>* PrepareAsyncGenerateTokenUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* AsyncLinkAccountUserRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -426,36 +373,22 @@ class Users final {
   };
   typedef WithAsyncMethod_GenerateTokenUser<WithAsyncMethod_LinkAccountUser<WithAsyncMethod_GetUser<WithAsyncMethod_UpdateUser<WithAsyncMethod_AcceptTos<WithAsyncMethod_DeleteUser<Service > > > > > > AsyncService;
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_GenerateTokenUser : public BaseClass {
+  class WithCallbackMethod_GenerateTokenUser : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_GenerateTokenUser() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(0,
+    WithCallbackMethod_GenerateTokenUser() {
+      ::grpc::Service::MarkMethodCallback(0,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest, ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest* request, ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse* response) { return this->GenerateTokenUser(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest* request, ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse* response) { return this->GenerateTokenUser(context, request, response); }));}
     void SetMessageAllocatorFor_GenerateTokenUser(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest, ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest, ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest, ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_GenerateTokenUser() override {
+    ~WithCallbackMethod_GenerateTokenUser() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -463,46 +396,26 @@ class Users final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GenerateTokenUser(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest* /*request*/, ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GenerateTokenUser(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest* /*request*/, ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GenerateTokenUserRequest* /*request*/, ::ai::inworld::studio::v1alpha::GenerateTokenUserResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_LinkAccountUser : public BaseClass {
+  class WithCallbackMethod_LinkAccountUser : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_LinkAccountUser() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(1,
+    WithCallbackMethod_LinkAccountUser() {
+      ::grpc::Service::MarkMethodCallback(1,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::LinkAccountRequest, ::google::protobuf_inworld::Empty>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* request, ::google::protobuf_inworld::Empty* response) { return this->LinkAccountUser(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* request, ::google::protobuf_inworld::Empty* response) { return this->LinkAccountUser(context, request, response); }));}
     void SetMessageAllocatorFor_LinkAccountUser(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::LinkAccountRequest, ::google::protobuf_inworld::Empty>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::LinkAccountRequest, ::google::protobuf_inworld::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::LinkAccountRequest, ::google::protobuf_inworld::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_LinkAccountUser() override {
+    ~WithCallbackMethod_LinkAccountUser() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -510,46 +423,26 @@ class Users final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* LinkAccountUser(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* LinkAccountUser(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::LinkAccountRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_GetUser : public BaseClass {
+  class WithCallbackMethod_GetUser : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_GetUser() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(2,
+    WithCallbackMethod_GetUser() {
+      ::grpc::Service::MarkMethodCallback(2,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetUserRequest, ::ai::inworld::studio::v1alpha::User>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::GetUserRequest* request, ::ai::inworld::studio::v1alpha::User* response) { return this->GetUser(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::GetUserRequest* request, ::ai::inworld::studio::v1alpha::User* response) { return this->GetUser(context, request, response); }));}
     void SetMessageAllocatorFor_GetUser(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::GetUserRequest, ::ai::inworld::studio::v1alpha::User>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::GetUserRequest, ::ai::inworld::studio::v1alpha::User>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(2);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetUserRequest, ::ai::inworld::studio::v1alpha::User>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_GetUser() override {
+    ~WithCallbackMethod_GetUser() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -557,46 +450,26 @@ class Users final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetUser(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetUserRequest* /*request*/, ::ai::inworld::studio::v1alpha::User* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GetUser(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetUserRequest* /*request*/, ::ai::inworld::studio::v1alpha::User* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetUserRequest* /*request*/, ::ai::inworld::studio::v1alpha::User* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_UpdateUser : public BaseClass {
+  class WithCallbackMethod_UpdateUser : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_UpdateUser() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(3,
+    WithCallbackMethod_UpdateUser() {
+      ::grpc::Service::MarkMethodCallback(3,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UpdateUserRequest, ::ai::inworld::studio::v1alpha::User>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::UpdateUserRequest* request, ::ai::inworld::studio::v1alpha::User* response) { return this->UpdateUser(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::UpdateUserRequest* request, ::ai::inworld::studio::v1alpha::User* response) { return this->UpdateUser(context, request, response); }));}
     void SetMessageAllocatorFor_UpdateUser(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::UpdateUserRequest, ::ai::inworld::studio::v1alpha::User>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::UpdateUserRequest, ::ai::inworld::studio::v1alpha::User>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(3);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UpdateUserRequest, ::ai::inworld::studio::v1alpha::User>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_UpdateUser() override {
+    ~WithCallbackMethod_UpdateUser() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -604,46 +477,26 @@ class Users final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* UpdateUser(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UpdateUserRequest* /*request*/, ::ai::inworld::studio::v1alpha::User* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* UpdateUser(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UpdateUserRequest* /*request*/, ::ai::inworld::studio::v1alpha::User* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UpdateUserRequest* /*request*/, ::ai::inworld::studio::v1alpha::User* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_AcceptTos : public BaseClass {
+  class WithCallbackMethod_AcceptTos : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_AcceptTos() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(4,
+    WithCallbackMethod_AcceptTos() {
+      ::grpc::Service::MarkMethodCallback(4,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::AcceptTosRequest, ::ai::inworld::studio::v1alpha::User>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest* request, ::ai::inworld::studio::v1alpha::User* response) { return this->AcceptTos(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::AcceptTosRequest* request, ::ai::inworld::studio::v1alpha::User* response) { return this->AcceptTos(context, request, response); }));}
     void SetMessageAllocatorFor_AcceptTos(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::AcceptTosRequest, ::ai::inworld::studio::v1alpha::User>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::AcceptTosRequest, ::ai::inworld::studio::v1alpha::User>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(4);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::AcceptTosRequest, ::ai::inworld::studio::v1alpha::User>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_AcceptTos() override {
+    ~WithCallbackMethod_AcceptTos() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -651,46 +504,26 @@ class Users final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* AcceptTos(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::AcceptTosRequest* /*request*/, ::ai::inworld::studio::v1alpha::User* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* AcceptTos(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::AcceptTosRequest* /*request*/, ::ai::inworld::studio::v1alpha::User* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::AcceptTosRequest* /*request*/, ::ai::inworld::studio::v1alpha::User* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_DeleteUser : public BaseClass {
+  class WithCallbackMethod_DeleteUser : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_DeleteUser() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(5,
+    WithCallbackMethod_DeleteUser() {
+      ::grpc::Service::MarkMethodCallback(5,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteUserRequest, ::google::protobuf_inworld::Empty>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf_inworld::Empty* response) { return this->DeleteUser(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* request, ::google::protobuf_inworld::Empty* response) { return this->DeleteUser(context, request, response); }));}
     void SetMessageAllocatorFor_DeleteUser(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::DeleteUserRequest, ::google::protobuf_inworld::Empty>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::DeleteUserRequest, ::google::protobuf_inworld::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(5);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteUserRequest, ::google::protobuf_inworld::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_DeleteUser() override {
+    ~WithCallbackMethod_DeleteUser() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -698,20 +531,11 @@ class Users final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* DeleteUser(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* DeleteUser(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteUserRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)  { return nullptr; }
   };
-  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_GenerateTokenUser<ExperimentalWithCallbackMethod_LinkAccountUser<ExperimentalWithCallbackMethod_GetUser<ExperimentalWithCallbackMethod_UpdateUser<ExperimentalWithCallbackMethod_AcceptTos<ExperimentalWithCallbackMethod_DeleteUser<Service > > > > > > CallbackService;
-  #endif
-
-  typedef ExperimentalWithCallbackMethod_GenerateTokenUser<ExperimentalWithCallbackMethod_LinkAccountUser<ExperimentalWithCallbackMethod_GetUser<ExperimentalWithCallbackMethod_UpdateUser<ExperimentalWithCallbackMethod_AcceptTos<ExperimentalWithCallbackMethod_DeleteUser<Service > > > > > > ExperimentalCallbackService;
+  typedef WithCallbackMethod_GenerateTokenUser<WithCallbackMethod_LinkAccountUser<WithCallbackMethod_GetUser<WithCallbackMethod_UpdateUser<WithCallbackMethod_AcceptTos<WithCallbackMethod_DeleteUser<Service > > > > > > CallbackService;
+  typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_GenerateTokenUser : public BaseClass {
    private:
@@ -935,27 +759,17 @@ class Users final {
     }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_GenerateTokenUser : public BaseClass {
+  class WithRawCallbackMethod_GenerateTokenUser : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_GenerateTokenUser() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(0,
+    WithRawCallbackMethod_GenerateTokenUser() {
+      ::grpc::Service::MarkMethodRawCallback(0,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GenerateTokenUser(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GenerateTokenUser(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_GenerateTokenUser() override {
+    ~WithRawCallbackMethod_GenerateTokenUser() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -963,37 +777,21 @@ class Users final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GenerateTokenUser(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GenerateTokenUser(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_LinkAccountUser : public BaseClass {
+  class WithRawCallbackMethod_LinkAccountUser : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_LinkAccountUser() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(1,
+    WithRawCallbackMethod_LinkAccountUser() {
+      ::grpc::Service::MarkMethodRawCallback(1,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->LinkAccountUser(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->LinkAccountUser(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_LinkAccountUser() override {
+    ~WithRawCallbackMethod_LinkAccountUser() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1001,37 +799,21 @@ class Users final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* LinkAccountUser(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* LinkAccountUser(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_GetUser : public BaseClass {
+  class WithRawCallbackMethod_GetUser : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_GetUser() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(2,
+    WithRawCallbackMethod_GetUser() {
+      ::grpc::Service::MarkMethodRawCallback(2,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetUser(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetUser(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_GetUser() override {
+    ~WithRawCallbackMethod_GetUser() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1039,37 +821,21 @@ class Users final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetUser(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GetUser(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_UpdateUser : public BaseClass {
+  class WithRawCallbackMethod_UpdateUser : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_UpdateUser() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(3,
+    WithRawCallbackMethod_UpdateUser() {
+      ::grpc::Service::MarkMethodRawCallback(3,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UpdateUser(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UpdateUser(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_UpdateUser() override {
+    ~WithRawCallbackMethod_UpdateUser() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1077,37 +843,21 @@ class Users final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* UpdateUser(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* UpdateUser(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_AcceptTos : public BaseClass {
+  class WithRawCallbackMethod_AcceptTos : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_AcceptTos() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(4,
+    WithRawCallbackMethod_AcceptTos() {
+      ::grpc::Service::MarkMethodRawCallback(4,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->AcceptTos(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->AcceptTos(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_AcceptTos() override {
+    ~WithRawCallbackMethod_AcceptTos() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1115,37 +865,21 @@ class Users final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* AcceptTos(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* AcceptTos(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_DeleteUser : public BaseClass {
+  class WithRawCallbackMethod_DeleteUser : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_DeleteUser() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(5,
+    WithRawCallbackMethod_DeleteUser() {
+      ::grpc::Service::MarkMethodRawCallback(5,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeleteUser(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeleteUser(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_DeleteUser() override {
+    ~WithRawCallbackMethod_DeleteUser() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1153,14 +887,8 @@ class Users final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* DeleteUser(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* DeleteUser(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_GenerateTokenUser : public BaseClass {

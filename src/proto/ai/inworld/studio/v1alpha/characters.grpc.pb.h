@@ -7,24 +7,23 @@
 #include "ai/inworld/studio/v1alpha/characters.pb.h"
 
 #include <functional>
-#include <grpc/impl/codegen/port_platform.h>
-#include <grpcpp/impl/codegen/async_generic_service.h>
-#include <grpcpp/impl/codegen/async_stream.h>
-#include <grpcpp/impl/codegen/async_unary_call.h>
-#include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/client_context.h>
-#include <grpcpp/impl/codegen/completion_queue.h>
-#include <grpcpp/impl/codegen/message_allocator.h>
-#include <grpcpp/impl/codegen/method_handler.h>
-#include <grpcpp/impl/codegen/proto_utils.h>
-#include <grpcpp/impl/codegen/rpc_method.h>
-#include <grpcpp/impl/codegen/server_callback.h>
-#include <grpcpp/impl/codegen/server_callback_handlers.h>
-#include <grpcpp/impl/codegen/server_context.h>
-#include <grpcpp/impl/codegen/service_type.h>
-#include <grpcpp/impl/codegen/status.h>
-#include <grpcpp/impl/codegen/stub_options.h>
-#include <grpcpp/impl/codegen/sync_stream.h>
+#include <grpcpp/generic/async_generic_service.h>
+#include <grpcpp/support/async_stream.h>
+#include <grpcpp/support/async_unary_call.h>
+#include <grpcpp/support/client_callback.h>
+#include <grpcpp/client_context.h>
+#include <grpcpp/completion_queue.h>
+#include <grpcpp/support/message_allocator.h>
+#include <grpcpp/support/method_handler.h>
+#include <grpcpp/impl/proto_utils.h>
+#include <grpcpp/impl/rpc_method.h>
+#include <grpcpp/support/server_callback.h>
+#include <grpcpp/impl/server_callback_handlers.h>
+#include <grpcpp/server_context.h>
+#include <grpcpp/impl/service_type.h>
+#include <grpcpp/support/status.h>
+#include <grpcpp/support/stub_options.h>
+#include <grpcpp/support/sync_stream.h>
 
 namespace ai {
 namespace inworld {
@@ -214,9 +213,9 @@ class Characters final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::CharacterShareInfo>> PrepareAsyncGetCharacterShareInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::CharacterShareInfo>>(PrepareAsyncGetCharacterShareInfoRaw(context, request, cq));
     }
-    class experimental_async_interface {
+    class async_interface {
      public:
-      virtual ~experimental_async_interface() {}
+      virtual ~async_interface() {}
       // RPC to deploy the brain for the character.
       // Available list for now:
       //   defaultCharacterDescription.givenName
@@ -236,151 +235,71 @@ class Characters final {
       //   behavioralContexts.<INDEX1>.behavioralContextInteraction.<INDEX2>.actions.<INDEX3>.tellInstructed.speechInstruction
       //   behavioralContexts.<INDEX1>.behavioralContextInteraction.<INDEX2>.actions.<INDEX3>.sendCustomEvent.customEvent
       virtual void DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // Clone one character into another one in the same workspace for now
       virtual void CloneCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void CloneCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void CloneCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // Async version of DeployCharacter. Returns a long running operation object
       // We append "Asynchronously" instead of "Async" to avoid conflicting with generated csharp methods (protoc csharp plugin appends
       // "Async" to every method name, so DeployCharacterAsync would conflict with the method generated for DeployCharacter)
       virtual void DeployCharacterAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::longrunning::Operation* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void DeployCharacterAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::longrunning::Operation* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void DeployCharacterAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::longrunning::Operation* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // Character's CRUD.
       // RPC to get one character by name.
       virtual void GetCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void GetCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void GetCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to get list of characters.
       virtual void ListCharacters(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListCharactersResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void ListCharacters(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListCharactersResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void ListCharacters(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListCharactersResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to update a character.
       virtual void UpdateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void UpdateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void UpdateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to create character.
       virtual void CreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::google::longrunning::Operation* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void CreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::google::longrunning::Operation* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void CreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::google::longrunning::Operation* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to delete a character.
       virtual void DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to update RPM model for the character.
       virtual void ReplaceCharacterRpmModel(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void ReplaceCharacterRpmModel(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void ReplaceCharacterRpmModel(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to update image for the character.
       virtual void ReplaceCharacterImage(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void ReplaceCharacterImage(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void ReplaceCharacterImage(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // Returns some meaningful preview of the prompt template.
       virtual void PreviewPromptTemplate(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest* request, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void PreviewPromptTemplate(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest* request, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void PreviewPromptTemplate(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest* request, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // Returns deployment information about character. For now
       // only is fresh or not
       virtual void CheckDeployInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest* request, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void CheckDeployInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest* request, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void CheckDeployInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest* request, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to create character.
       virtual void GetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void GetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void GetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to update a character advanced settings.
       virtual void UpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void UpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void UpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to share the character with listed of external ids
       virtual void ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to share the character with portal users
       virtual void ShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void ShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void ShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to un share the character with portal users
       virtual void UnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void UnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void UnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // Returns characters which were shared with the current user
       // (-- api-linter: core::0136::http-uri-suffix=disabled --)
       virtual void ListSharedCharacters(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void ListSharedCharacters(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void ListSharedCharacters(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // RPC to get actual sharing info on the character.
       virtual void GetCharacterShareInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest* request, ::ai::inworld::studio::v1alpha::CharacterShareInfo* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void GetCharacterShareInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest* request, ::ai::inworld::studio::v1alpha::CharacterShareInfo* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void GetCharacterShareInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest* request, ::ai::inworld::studio::v1alpha::CharacterShareInfo* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
     };
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    typedef class experimental_async_interface async_interface;
-    #endif
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    async_interface* async() { return experimental_async(); }
-    #endif
-    virtual class experimental_async_interface* experimental_async() { return nullptr; }
-  private:
+    typedef class async_interface experimental_async_interface;
+    virtual class async_interface* async() { return nullptr; }
+    class async_interface* experimental_async() { return async(); }
+   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* AsyncDeployCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* PrepareAsyncDeployCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::Character>* AsyncCloneCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -422,7 +341,7 @@ class Characters final {
   };
   class Stub final : public StubInterface {
    public:
-    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
+    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
     ::grpc::Status DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::google::protobuf_inworld::Empty* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> AsyncDeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>>(AsyncDeployCharacterRaw(context, request, cq));
@@ -556,134 +475,58 @@ class Characters final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterShareInfo>> PrepareAsyncGetCharacterShareInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterShareInfo>>(PrepareAsyncGetCharacterShareInfoRaw(context, request, cq));
     }
-    class experimental_async final :
-      public StubInterface::experimental_async_interface {
+    class async final :
+      public StubInterface::async_interface {
      public:
       void DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void CloneCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void CloneCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void CloneCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void DeployCharacterAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::longrunning::Operation* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void DeployCharacterAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::longrunning::Operation* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void DeployCharacterAsynchronously(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::longrunning::Operation* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void GetCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void GetCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void GetCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void ListCharacters(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListCharactersResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void ListCharacters(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListCharactersResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void ListCharacters(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListCharactersResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void UpdateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void UpdateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void UpdateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void CreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::google::longrunning::Operation* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void CreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::google::longrunning::Operation* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void CreateCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::google::longrunning::Operation* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void DeleteCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void ReplaceCharacterRpmModel(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void ReplaceCharacterRpmModel(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void ReplaceCharacterRpmModel(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void ReplaceCharacterImage(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* request, ::ai::inworld::studio::v1alpha::Character* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void ReplaceCharacterImage(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void ReplaceCharacterImage(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* request, ::ai::inworld::studio::v1alpha::Character* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void PreviewPromptTemplate(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest* request, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void PreviewPromptTemplate(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest* request, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void PreviewPromptTemplate(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest* request, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void CheckDeployInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest* request, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void CheckDeployInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest* request, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void CheckDeployInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest* request, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void GetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void GetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void GetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void UpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void UpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void UpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void ShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void ShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void ShareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void UnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void UnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void UnshareCharacterPortal(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void ListSharedCharacters(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void ListSharedCharacters(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void ListSharedCharacters(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void GetCharacterShareInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest* request, ::ai::inworld::studio::v1alpha::CharacterShareInfo* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void GetCharacterShareInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest* request, ::ai::inworld::studio::v1alpha::CharacterShareInfo* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void GetCharacterShareInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest* request, ::ai::inworld::studio::v1alpha::CharacterShareInfo* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
      private:
       friend class Stub;
-      explicit experimental_async(Stub* stub): stub_(stub) { }
+      explicit async(Stub* stub): stub_(stub) { }
       Stub* stub() { return stub_; }
       Stub* stub_;
     };
-    class experimental_async_interface* experimental_async() override { return &async_stub_; }
+    class async* async() override { return &async_stub_; }
 
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
-    class experimental_async async_stub_{this};
+    class async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* AsyncDeployCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* PrepareAsyncDeployCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::Character>* AsyncCloneCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -1191,36 +1034,22 @@ class Characters final {
   };
   typedef WithAsyncMethod_DeployCharacter<WithAsyncMethod_CloneCharacter<WithAsyncMethod_DeployCharacterAsynchronously<WithAsyncMethod_GetCharacter<WithAsyncMethod_ListCharacters<WithAsyncMethod_UpdateCharacter<WithAsyncMethod_CreateCharacter<WithAsyncMethod_DeleteCharacter<WithAsyncMethod_ReplaceCharacterRpmModel<WithAsyncMethod_ReplaceCharacterImage<WithAsyncMethod_PreviewPromptTemplate<WithAsyncMethod_CheckDeployInfo<WithAsyncMethod_GetCharacterAdvancedSettings<WithAsyncMethod_UpdateCharacterAdvancedSettings<WithAsyncMethod_ShareCharacter<WithAsyncMethod_ShareCharacterPortal<WithAsyncMethod_UnshareCharacterPortal<WithAsyncMethod_ListSharedCharacters<WithAsyncMethod_GetCharacterShareInfo<Service > > > > > > > > > > > > > > > > > > > AsyncService;
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_DeployCharacter : public BaseClass {
+  class WithCallbackMethod_DeployCharacter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_DeployCharacter() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(0,
+    WithCallbackMethod_DeployCharacter() {
+      ::grpc::Service::MarkMethodCallback(0,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::protobuf_inworld::Empty>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf_inworld::Empty* response) { return this->DeployCharacter(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::protobuf_inworld::Empty* response) { return this->DeployCharacter(context, request, response); }));}
     void SetMessageAllocatorFor_DeployCharacter(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::protobuf_inworld::Empty>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::protobuf_inworld::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::protobuf_inworld::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_DeployCharacter() override {
+    ~WithCallbackMethod_DeployCharacter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1228,46 +1057,26 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* DeployCharacter(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* DeployCharacter(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_CloneCharacter : public BaseClass {
+  class WithCallbackMethod_CloneCharacter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_CloneCharacter() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(1,
+    WithCallbackMethod_CloneCharacter() {
+      ::grpc::Service::MarkMethodCallback(1,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::CloneCharacterRequest, ::ai::inworld::studio::v1alpha::Character>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response) { return this->CloneCharacter(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response) { return this->CloneCharacter(context, request, response); }));}
     void SetMessageAllocatorFor_CloneCharacter(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::CloneCharacterRequest, ::ai::inworld::studio::v1alpha::Character>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::CloneCharacterRequest, ::ai::inworld::studio::v1alpha::Character>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::CloneCharacterRequest, ::ai::inworld::studio::v1alpha::Character>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_CloneCharacter() override {
+    ~WithCallbackMethod_CloneCharacter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1275,46 +1084,26 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* CloneCharacter(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* CloneCharacter(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CloneCharacterRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_DeployCharacterAsynchronously : public BaseClass {
+  class WithCallbackMethod_DeployCharacterAsynchronously : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_DeployCharacterAsynchronously() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(2,
+    WithCallbackMethod_DeployCharacterAsynchronously() {
+      ::grpc::Service::MarkMethodCallback(2,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::longrunning::Operation>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::longrunning::Operation* response) { return this->DeployCharacterAsynchronously(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* request, ::google::longrunning::Operation* response) { return this->DeployCharacterAsynchronously(context, request, response); }));}
     void SetMessageAllocatorFor_DeployCharacterAsynchronously(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::longrunning::Operation>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::longrunning::Operation>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(2);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeployCharacterRequest, ::google::longrunning::Operation>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_DeployCharacterAsynchronously() override {
+    ~WithCallbackMethod_DeployCharacterAsynchronously() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1322,46 +1111,26 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* DeployCharacterAsynchronously(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::longrunning::Operation* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* DeployCharacterAsynchronously(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::longrunning::Operation* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest* /*request*/, ::google::longrunning::Operation* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_GetCharacter : public BaseClass {
+  class WithCallbackMethod_GetCharacter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_GetCharacter() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(3,
+    WithCallbackMethod_GetCharacter() {
+      ::grpc::Service::MarkMethodCallback(3,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetCharacterRequest, ::ai::inworld::studio::v1alpha::Character>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::GetCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response) { return this->GetCharacter(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response) { return this->GetCharacter(context, request, response); }));}
     void SetMessageAllocatorFor_GetCharacter(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::GetCharacterRequest, ::ai::inworld::studio::v1alpha::Character>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::GetCharacterRequest, ::ai::inworld::studio::v1alpha::Character>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(3);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetCharacterRequest, ::ai::inworld::studio::v1alpha::Character>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_GetCharacter() override {
+    ~WithCallbackMethod_GetCharacter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1369,46 +1138,26 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetCharacter(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetCharacterRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GetCharacter(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetCharacterRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetCharacterRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_ListCharacters : public BaseClass {
+  class WithCallbackMethod_ListCharacters : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_ListCharacters() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(4,
+    WithCallbackMethod_ListCharacters() {
+      ::grpc::Service::MarkMethodCallback(4,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ListCharactersRequest, ::ai::inworld::studio::v1alpha::ListCharactersResponse>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::ListCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListCharactersResponse* response) { return this->ListCharacters(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::ListCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListCharactersResponse* response) { return this->ListCharacters(context, request, response); }));}
     void SetMessageAllocatorFor_ListCharacters(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::ListCharactersRequest, ::ai::inworld::studio::v1alpha::ListCharactersResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::ListCharactersRequest, ::ai::inworld::studio::v1alpha::ListCharactersResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(4);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ListCharactersRequest, ::ai::inworld::studio::v1alpha::ListCharactersResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_ListCharacters() override {
+    ~WithCallbackMethod_ListCharacters() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1416,46 +1165,26 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* ListCharacters(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ListCharactersRequest* /*request*/, ::ai::inworld::studio::v1alpha::ListCharactersResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* ListCharacters(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ListCharactersRequest* /*request*/, ::ai::inworld::studio::v1alpha::ListCharactersResponse* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ListCharactersRequest* /*request*/, ::ai::inworld::studio::v1alpha::ListCharactersResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_UpdateCharacter : public BaseClass {
+  class WithCallbackMethod_UpdateCharacter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_UpdateCharacter() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(5,
+    WithCallbackMethod_UpdateCharacter() {
+      ::grpc::Service::MarkMethodCallback(5,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UpdateCharacterRequest, ::ai::inworld::studio::v1alpha::Character>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response) { return this->UpdateCharacter(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest* request, ::ai::inworld::studio::v1alpha::Character* response) { return this->UpdateCharacter(context, request, response); }));}
     void SetMessageAllocatorFor_UpdateCharacter(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::UpdateCharacterRequest, ::ai::inworld::studio::v1alpha::Character>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::UpdateCharacterRequest, ::ai::inworld::studio::v1alpha::Character>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(5);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UpdateCharacterRequest, ::ai::inworld::studio::v1alpha::Character>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_UpdateCharacter() override {
+    ~WithCallbackMethod_UpdateCharacter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1463,46 +1192,26 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* UpdateCharacter(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* UpdateCharacter(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UpdateCharacterRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_CreateCharacter : public BaseClass {
+  class WithCallbackMethod_CreateCharacter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_CreateCharacter() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(6,
+    WithCallbackMethod_CreateCharacter() {
+      ::grpc::Service::MarkMethodCallback(6,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::CreateCharacterRequest, ::google::longrunning::Operation>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::google::longrunning::Operation* response) { return this->CreateCharacter(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* request, ::google::longrunning::Operation* response) { return this->CreateCharacter(context, request, response); }));}
     void SetMessageAllocatorFor_CreateCharacter(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::CreateCharacterRequest, ::google::longrunning::Operation>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::CreateCharacterRequest, ::google::longrunning::Operation>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(6);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::CreateCharacterRequest, ::google::longrunning::Operation>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_CreateCharacter() override {
+    ~WithCallbackMethod_CreateCharacter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1510,46 +1219,26 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* CreateCharacter(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* /*request*/, ::google::longrunning::Operation* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* CreateCharacter(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* /*request*/, ::google::longrunning::Operation* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CreateCharacterRequest* /*request*/, ::google::longrunning::Operation* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_DeleteCharacter : public BaseClass {
+  class WithCallbackMethod_DeleteCharacter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_DeleteCharacter() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(7,
+    WithCallbackMethod_DeleteCharacter() {
+      ::grpc::Service::MarkMethodCallback(7,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteCharacterRequest, ::google::protobuf_inworld::Empty>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf_inworld::Empty* response) { return this->DeleteCharacter(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* request, ::google::protobuf_inworld::Empty* response) { return this->DeleteCharacter(context, request, response); }));}
     void SetMessageAllocatorFor_DeleteCharacter(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::DeleteCharacterRequest, ::google::protobuf_inworld::Empty>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::DeleteCharacterRequest, ::google::protobuf_inworld::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(7);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(7);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::DeleteCharacterRequest, ::google::protobuf_inworld::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_DeleteCharacter() override {
+    ~WithCallbackMethod_DeleteCharacter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1557,46 +1246,26 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* DeleteCharacter(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* DeleteCharacter(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::DeleteCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_ReplaceCharacterRpmModel : public BaseClass {
+  class WithCallbackMethod_ReplaceCharacterRpmModel : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_ReplaceCharacterRpmModel() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(8,
+    WithCallbackMethod_ReplaceCharacterRpmModel() {
+      ::grpc::Service::MarkMethodCallback(8,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest, ::ai::inworld::studio::v1alpha::Character>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* request, ::ai::inworld::studio::v1alpha::Character* response) { return this->ReplaceCharacterRpmModel(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* request, ::ai::inworld::studio::v1alpha::Character* response) { return this->ReplaceCharacterRpmModel(context, request, response); }));}
     void SetMessageAllocatorFor_ReplaceCharacterRpmModel(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest, ::ai::inworld::studio::v1alpha::Character>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest, ::ai::inworld::studio::v1alpha::Character>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(8);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(8);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest, ::ai::inworld::studio::v1alpha::Character>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_ReplaceCharacterRpmModel() override {
+    ~WithCallbackMethod_ReplaceCharacterRpmModel() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1604,46 +1273,26 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* ReplaceCharacterRpmModel(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* ReplaceCharacterRpmModel(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ReplaceCharacterRpmModelRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_ReplaceCharacterImage : public BaseClass {
+  class WithCallbackMethod_ReplaceCharacterImage : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_ReplaceCharacterImage() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(9,
+    WithCallbackMethod_ReplaceCharacterImage() {
+      ::grpc::Service::MarkMethodCallback(9,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest, ::ai::inworld::studio::v1alpha::Character>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* request, ::ai::inworld::studio::v1alpha::Character* response) { return this->ReplaceCharacterImage(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* request, ::ai::inworld::studio::v1alpha::Character* response) { return this->ReplaceCharacterImage(context, request, response); }));}
     void SetMessageAllocatorFor_ReplaceCharacterImage(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest, ::ai::inworld::studio::v1alpha::Character>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest, ::ai::inworld::studio::v1alpha::Character>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(9);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(9);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest, ::ai::inworld::studio::v1alpha::Character>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_ReplaceCharacterImage() override {
+    ~WithCallbackMethod_ReplaceCharacterImage() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1651,46 +1300,26 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* ReplaceCharacterImage(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* ReplaceCharacterImage(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ReplaceCharacterImageRequest* /*request*/, ::ai::inworld::studio::v1alpha::Character* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_PreviewPromptTemplate : public BaseClass {
+  class WithCallbackMethod_PreviewPromptTemplate : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_PreviewPromptTemplate() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(10,
+    WithCallbackMethod_PreviewPromptTemplate() {
+      ::grpc::Service::MarkMethodCallback(10,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest* request, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse* response) { return this->PreviewPromptTemplate(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest* request, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse* response) { return this->PreviewPromptTemplate(context, request, response); }));}
     void SetMessageAllocatorFor_PreviewPromptTemplate(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(10);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(10);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_PreviewPromptTemplate() override {
+    ~WithCallbackMethod_PreviewPromptTemplate() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1698,46 +1327,26 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* PreviewPromptTemplate(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest* /*request*/, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* PreviewPromptTemplate(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest* /*request*/, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::PreviewPromptTemplateRequest* /*request*/, ::ai::inworld::studio::v1alpha::PreviewPromptTempalteResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_CheckDeployInfo : public BaseClass {
+  class WithCallbackMethod_CheckDeployInfo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_CheckDeployInfo() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(11,
+    WithCallbackMethod_CheckDeployInfo() {
+      ::grpc::Service::MarkMethodCallback(11,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest* request, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse* response) { return this->CheckDeployInfo(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest* request, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse* response) { return this->CheckDeployInfo(context, request, response); }));}
     void SetMessageAllocatorFor_CheckDeployInfo(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(11);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(11);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_CheckDeployInfo() override {
+    ~WithCallbackMethod_CheckDeployInfo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1745,46 +1354,26 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* CheckDeployInfo(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest* /*request*/, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* CheckDeployInfo(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest* /*request*/, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest* /*request*/, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_GetCharacterAdvancedSettings : public BaseClass {
+  class WithCallbackMethod_GetCharacterAdvancedSettings : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_GetCharacterAdvancedSettings() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(12,
+    WithCallbackMethod_GetCharacterAdvancedSettings() {
+      ::grpc::Service::MarkMethodCallback(12,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response) { return this->GetCharacterAdvancedSettings(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response) { return this->GetCharacterAdvancedSettings(context, request, response); }));}
     void SetMessageAllocatorFor_GetCharacterAdvancedSettings(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(12);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(12);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_GetCharacterAdvancedSettings() override {
+    ~WithCallbackMethod_GetCharacterAdvancedSettings() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1792,46 +1381,26 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetCharacterAdvancedSettings(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest* /*request*/, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GetCharacterAdvancedSettings(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest* /*request*/, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest* /*request*/, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_UpdateCharacterAdvancedSettings : public BaseClass {
+  class WithCallbackMethod_UpdateCharacterAdvancedSettings : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_UpdateCharacterAdvancedSettings() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(13,
+    WithCallbackMethod_UpdateCharacterAdvancedSettings() {
+      ::grpc::Service::MarkMethodCallback(13,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response) { return this->UpdateCharacterAdvancedSettings(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response) { return this->UpdateCharacterAdvancedSettings(context, request, response); }));}
     void SetMessageAllocatorFor_UpdateCharacterAdvancedSettings(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(13);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(13);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_UpdateCharacterAdvancedSettings() override {
+    ~WithCallbackMethod_UpdateCharacterAdvancedSettings() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1839,46 +1408,26 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* UpdateCharacterAdvancedSettings(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* /*request*/, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* UpdateCharacterAdvancedSettings(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* /*request*/, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* /*request*/, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_ShareCharacter : public BaseClass {
+  class WithCallbackMethod_ShareCharacter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_ShareCharacter() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(14,
+    WithCallbackMethod_ShareCharacter() {
+      ::grpc::Service::MarkMethodCallback(14,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf_inworld::Empty>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf_inworld::Empty* response) { return this->ShareCharacter(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf_inworld::Empty* response) { return this->ShareCharacter(context, request, response); }));}
     void SetMessageAllocatorFor_ShareCharacter(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf_inworld::Empty>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf_inworld::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(14);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(14);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf_inworld::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_ShareCharacter() override {
+    ~WithCallbackMethod_ShareCharacter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1886,46 +1435,26 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* ShareCharacter(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* ShareCharacter(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_ShareCharacterPortal : public BaseClass {
+  class WithCallbackMethod_ShareCharacterPortal : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_ShareCharacterPortal() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(15,
+    WithCallbackMethod_ShareCharacterPortal() {
+      ::grpc::Service::MarkMethodCallback(15,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf_inworld::Empty>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response) { return this->ShareCharacterPortal(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response) { return this->ShareCharacterPortal(context, request, response); }));}
     void SetMessageAllocatorFor_ShareCharacterPortal(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf_inworld::Empty>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf_inworld::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(15);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(15);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf_inworld::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_ShareCharacterPortal() override {
+    ~WithCallbackMethod_ShareCharacterPortal() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1933,46 +1462,26 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* ShareCharacterPortal(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* ShareCharacterPortal(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_UnshareCharacterPortal : public BaseClass {
+  class WithCallbackMethod_UnshareCharacterPortal : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_UnshareCharacterPortal() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(16,
+    WithCallbackMethod_UnshareCharacterPortal() {
+      ::grpc::Service::MarkMethodCallback(16,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf_inworld::Empty>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response) { return this->UnshareCharacterPortal(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::google::protobuf_inworld::Empty* response) { return this->UnshareCharacterPortal(context, request, response); }));}
     void SetMessageAllocatorFor_UnshareCharacterPortal(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf_inworld::Empty>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf_inworld::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(16);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(16);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf_inworld::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_UnshareCharacterPortal() override {
+    ~WithCallbackMethod_UnshareCharacterPortal() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1980,46 +1489,26 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* UnshareCharacterPortal(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* UnshareCharacterPortal(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* /*request*/, ::google::protobuf_inworld::Empty* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_ListSharedCharacters : public BaseClass {
+  class WithCallbackMethod_ListSharedCharacters : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_ListSharedCharacters() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(17,
+    WithCallbackMethod_ListSharedCharacters() {
+      ::grpc::Service::MarkMethodCallback(17,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse* response) { return this->ListSharedCharacters(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest* request, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse* response) { return this->ListSharedCharacters(context, request, response); }));}
     void SetMessageAllocatorFor_ListSharedCharacters(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(17);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(17);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_ListSharedCharacters() override {
+    ~WithCallbackMethod_ListSharedCharacters() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -2027,46 +1516,26 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* ListSharedCharacters(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest* /*request*/, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* ListSharedCharacters(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest* /*request*/, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest* /*request*/, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_GetCharacterShareInfo : public BaseClass {
+  class WithCallbackMethod_GetCharacterShareInfo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_GetCharacterShareInfo() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(18,
+    WithCallbackMethod_GetCharacterShareInfo() {
+      ::grpc::Service::MarkMethodCallback(18,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest, ::ai::inworld::studio::v1alpha::CharacterShareInfo>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest* request, ::ai::inworld::studio::v1alpha::CharacterShareInfo* response) { return this->GetCharacterShareInfo(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest* request, ::ai::inworld::studio::v1alpha::CharacterShareInfo* response) { return this->GetCharacterShareInfo(context, request, response); }));}
     void SetMessageAllocatorFor_GetCharacterShareInfo(
-        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest, ::ai::inworld::studio::v1alpha::CharacterShareInfo>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest, ::ai::inworld::studio::v1alpha::CharacterShareInfo>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(18);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(18);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest, ::ai::inworld::studio::v1alpha::CharacterShareInfo>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_GetCharacterShareInfo() override {
+    ~WithCallbackMethod_GetCharacterShareInfo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -2074,20 +1543,11 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetCharacterShareInfo(
-      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest* /*request*/, ::ai::inworld::studio::v1alpha::CharacterShareInfo* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GetCharacterShareInfo(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest* /*request*/, ::ai::inworld::studio::v1alpha::CharacterShareInfo* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest* /*request*/, ::ai::inworld::studio::v1alpha::CharacterShareInfo* /*response*/)  { return nullptr; }
   };
-  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_DeployCharacter<ExperimentalWithCallbackMethod_CloneCharacter<ExperimentalWithCallbackMethod_DeployCharacterAsynchronously<ExperimentalWithCallbackMethod_GetCharacter<ExperimentalWithCallbackMethod_ListCharacters<ExperimentalWithCallbackMethod_UpdateCharacter<ExperimentalWithCallbackMethod_CreateCharacter<ExperimentalWithCallbackMethod_DeleteCharacter<ExperimentalWithCallbackMethod_ReplaceCharacterRpmModel<ExperimentalWithCallbackMethod_ReplaceCharacterImage<ExperimentalWithCallbackMethod_PreviewPromptTemplate<ExperimentalWithCallbackMethod_CheckDeployInfo<ExperimentalWithCallbackMethod_GetCharacterAdvancedSettings<ExperimentalWithCallbackMethod_UpdateCharacterAdvancedSettings<ExperimentalWithCallbackMethod_ShareCharacter<ExperimentalWithCallbackMethod_ShareCharacterPortal<ExperimentalWithCallbackMethod_UnshareCharacterPortal<ExperimentalWithCallbackMethod_ListSharedCharacters<ExperimentalWithCallbackMethod_GetCharacterShareInfo<Service > > > > > > > > > > > > > > > > > > > CallbackService;
-  #endif
-
-  typedef ExperimentalWithCallbackMethod_DeployCharacter<ExperimentalWithCallbackMethod_CloneCharacter<ExperimentalWithCallbackMethod_DeployCharacterAsynchronously<ExperimentalWithCallbackMethod_GetCharacter<ExperimentalWithCallbackMethod_ListCharacters<ExperimentalWithCallbackMethod_UpdateCharacter<ExperimentalWithCallbackMethod_CreateCharacter<ExperimentalWithCallbackMethod_DeleteCharacter<ExperimentalWithCallbackMethod_ReplaceCharacterRpmModel<ExperimentalWithCallbackMethod_ReplaceCharacterImage<ExperimentalWithCallbackMethod_PreviewPromptTemplate<ExperimentalWithCallbackMethod_CheckDeployInfo<ExperimentalWithCallbackMethod_GetCharacterAdvancedSettings<ExperimentalWithCallbackMethod_UpdateCharacterAdvancedSettings<ExperimentalWithCallbackMethod_ShareCharacter<ExperimentalWithCallbackMethod_ShareCharacterPortal<ExperimentalWithCallbackMethod_UnshareCharacterPortal<ExperimentalWithCallbackMethod_ListSharedCharacters<ExperimentalWithCallbackMethod_GetCharacterShareInfo<Service > > > > > > > > > > > > > > > > > > > ExperimentalCallbackService;
+  typedef WithCallbackMethod_DeployCharacter<WithCallbackMethod_CloneCharacter<WithCallbackMethod_DeployCharacterAsynchronously<WithCallbackMethod_GetCharacter<WithCallbackMethod_ListCharacters<WithCallbackMethod_UpdateCharacter<WithCallbackMethod_CreateCharacter<WithCallbackMethod_DeleteCharacter<WithCallbackMethod_ReplaceCharacterRpmModel<WithCallbackMethod_ReplaceCharacterImage<WithCallbackMethod_PreviewPromptTemplate<WithCallbackMethod_CheckDeployInfo<WithCallbackMethod_GetCharacterAdvancedSettings<WithCallbackMethod_UpdateCharacterAdvancedSettings<WithCallbackMethod_ShareCharacter<WithCallbackMethod_ShareCharacterPortal<WithCallbackMethod_UnshareCharacterPortal<WithCallbackMethod_ListSharedCharacters<WithCallbackMethod_GetCharacterShareInfo<Service > > > > > > > > > > > > > > > > > > > CallbackService;
+  typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_DeployCharacter : public BaseClass {
    private:
@@ -2792,27 +2252,17 @@ class Characters final {
     }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_DeployCharacter : public BaseClass {
+  class WithRawCallbackMethod_DeployCharacter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_DeployCharacter() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(0,
+    WithRawCallbackMethod_DeployCharacter() {
+      ::grpc::Service::MarkMethodRawCallback(0,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeployCharacter(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeployCharacter(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_DeployCharacter() override {
+    ~WithRawCallbackMethod_DeployCharacter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -2820,37 +2270,21 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* DeployCharacter(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* DeployCharacter(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_CloneCharacter : public BaseClass {
+  class WithRawCallbackMethod_CloneCharacter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_CloneCharacter() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(1,
+    WithRawCallbackMethod_CloneCharacter() {
+      ::grpc::Service::MarkMethodRawCallback(1,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->CloneCharacter(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->CloneCharacter(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_CloneCharacter() override {
+    ~WithRawCallbackMethod_CloneCharacter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -2858,37 +2292,21 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* CloneCharacter(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* CloneCharacter(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_DeployCharacterAsynchronously : public BaseClass {
+  class WithRawCallbackMethod_DeployCharacterAsynchronously : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_DeployCharacterAsynchronously() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(2,
+    WithRawCallbackMethod_DeployCharacterAsynchronously() {
+      ::grpc::Service::MarkMethodRawCallback(2,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeployCharacterAsynchronously(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeployCharacterAsynchronously(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_DeployCharacterAsynchronously() override {
+    ~WithRawCallbackMethod_DeployCharacterAsynchronously() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -2896,37 +2314,21 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* DeployCharacterAsynchronously(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* DeployCharacterAsynchronously(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_GetCharacter : public BaseClass {
+  class WithRawCallbackMethod_GetCharacter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_GetCharacter() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(3,
+    WithRawCallbackMethod_GetCharacter() {
+      ::grpc::Service::MarkMethodRawCallback(3,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetCharacter(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetCharacter(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_GetCharacter() override {
+    ~WithRawCallbackMethod_GetCharacter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -2934,37 +2336,21 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetCharacter(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GetCharacter(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_ListCharacters : public BaseClass {
+  class WithRawCallbackMethod_ListCharacters : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_ListCharacters() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(4,
+    WithRawCallbackMethod_ListCharacters() {
+      ::grpc::Service::MarkMethodRawCallback(4,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ListCharacters(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ListCharacters(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_ListCharacters() override {
+    ~WithRawCallbackMethod_ListCharacters() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -2972,37 +2358,21 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* ListCharacters(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* ListCharacters(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_UpdateCharacter : public BaseClass {
+  class WithRawCallbackMethod_UpdateCharacter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_UpdateCharacter() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(5,
+    WithRawCallbackMethod_UpdateCharacter() {
+      ::grpc::Service::MarkMethodRawCallback(5,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UpdateCharacter(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UpdateCharacter(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_UpdateCharacter() override {
+    ~WithRawCallbackMethod_UpdateCharacter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -3010,37 +2380,21 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* UpdateCharacter(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* UpdateCharacter(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_CreateCharacter : public BaseClass {
+  class WithRawCallbackMethod_CreateCharacter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_CreateCharacter() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(6,
+    WithRawCallbackMethod_CreateCharacter() {
+      ::grpc::Service::MarkMethodRawCallback(6,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->CreateCharacter(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->CreateCharacter(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_CreateCharacter() override {
+    ~WithRawCallbackMethod_CreateCharacter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -3048,37 +2402,21 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* CreateCharacter(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* CreateCharacter(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_DeleteCharacter : public BaseClass {
+  class WithRawCallbackMethod_DeleteCharacter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_DeleteCharacter() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(7,
+    WithRawCallbackMethod_DeleteCharacter() {
+      ::grpc::Service::MarkMethodRawCallback(7,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeleteCharacter(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeleteCharacter(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_DeleteCharacter() override {
+    ~WithRawCallbackMethod_DeleteCharacter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -3086,37 +2424,21 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* DeleteCharacter(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* DeleteCharacter(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_ReplaceCharacterRpmModel : public BaseClass {
+  class WithRawCallbackMethod_ReplaceCharacterRpmModel : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_ReplaceCharacterRpmModel() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(8,
+    WithRawCallbackMethod_ReplaceCharacterRpmModel() {
+      ::grpc::Service::MarkMethodRawCallback(8,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ReplaceCharacterRpmModel(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ReplaceCharacterRpmModel(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_ReplaceCharacterRpmModel() override {
+    ~WithRawCallbackMethod_ReplaceCharacterRpmModel() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -3124,37 +2446,21 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* ReplaceCharacterRpmModel(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* ReplaceCharacterRpmModel(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_ReplaceCharacterImage : public BaseClass {
+  class WithRawCallbackMethod_ReplaceCharacterImage : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_ReplaceCharacterImage() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(9,
+    WithRawCallbackMethod_ReplaceCharacterImage() {
+      ::grpc::Service::MarkMethodRawCallback(9,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ReplaceCharacterImage(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ReplaceCharacterImage(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_ReplaceCharacterImage() override {
+    ~WithRawCallbackMethod_ReplaceCharacterImage() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -3162,37 +2468,21 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* ReplaceCharacterImage(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* ReplaceCharacterImage(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_PreviewPromptTemplate : public BaseClass {
+  class WithRawCallbackMethod_PreviewPromptTemplate : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_PreviewPromptTemplate() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(10,
+    WithRawCallbackMethod_PreviewPromptTemplate() {
+      ::grpc::Service::MarkMethodRawCallback(10,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->PreviewPromptTemplate(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->PreviewPromptTemplate(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_PreviewPromptTemplate() override {
+    ~WithRawCallbackMethod_PreviewPromptTemplate() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -3200,37 +2490,21 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* PreviewPromptTemplate(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* PreviewPromptTemplate(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_CheckDeployInfo : public BaseClass {
+  class WithRawCallbackMethod_CheckDeployInfo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_CheckDeployInfo() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(11,
+    WithRawCallbackMethod_CheckDeployInfo() {
+      ::grpc::Service::MarkMethodRawCallback(11,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->CheckDeployInfo(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->CheckDeployInfo(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_CheckDeployInfo() override {
+    ~WithRawCallbackMethod_CheckDeployInfo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -3238,37 +2512,21 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* CheckDeployInfo(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* CheckDeployInfo(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_GetCharacterAdvancedSettings : public BaseClass {
+  class WithRawCallbackMethod_GetCharacterAdvancedSettings : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_GetCharacterAdvancedSettings() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(12,
+    WithRawCallbackMethod_GetCharacterAdvancedSettings() {
+      ::grpc::Service::MarkMethodRawCallback(12,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetCharacterAdvancedSettings(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetCharacterAdvancedSettings(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_GetCharacterAdvancedSettings() override {
+    ~WithRawCallbackMethod_GetCharacterAdvancedSettings() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -3276,37 +2534,21 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetCharacterAdvancedSettings(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GetCharacterAdvancedSettings(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_UpdateCharacterAdvancedSettings : public BaseClass {
+  class WithRawCallbackMethod_UpdateCharacterAdvancedSettings : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_UpdateCharacterAdvancedSettings() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(13,
+    WithRawCallbackMethod_UpdateCharacterAdvancedSettings() {
+      ::grpc::Service::MarkMethodRawCallback(13,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UpdateCharacterAdvancedSettings(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UpdateCharacterAdvancedSettings(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_UpdateCharacterAdvancedSettings() override {
+    ~WithRawCallbackMethod_UpdateCharacterAdvancedSettings() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -3314,37 +2556,21 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* UpdateCharacterAdvancedSettings(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* UpdateCharacterAdvancedSettings(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_ShareCharacter : public BaseClass {
+  class WithRawCallbackMethod_ShareCharacter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_ShareCharacter() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(14,
+    WithRawCallbackMethod_ShareCharacter() {
+      ::grpc::Service::MarkMethodRawCallback(14,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ShareCharacter(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ShareCharacter(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_ShareCharacter() override {
+    ~WithRawCallbackMethod_ShareCharacter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -3352,37 +2578,21 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* ShareCharacter(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* ShareCharacter(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_ShareCharacterPortal : public BaseClass {
+  class WithRawCallbackMethod_ShareCharacterPortal : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_ShareCharacterPortal() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(15,
+    WithRawCallbackMethod_ShareCharacterPortal() {
+      ::grpc::Service::MarkMethodRawCallback(15,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ShareCharacterPortal(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ShareCharacterPortal(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_ShareCharacterPortal() override {
+    ~WithRawCallbackMethod_ShareCharacterPortal() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -3390,37 +2600,21 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* ShareCharacterPortal(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* ShareCharacterPortal(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_UnshareCharacterPortal : public BaseClass {
+  class WithRawCallbackMethod_UnshareCharacterPortal : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_UnshareCharacterPortal() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(16,
+    WithRawCallbackMethod_UnshareCharacterPortal() {
+      ::grpc::Service::MarkMethodRawCallback(16,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UnshareCharacterPortal(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UnshareCharacterPortal(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_UnshareCharacterPortal() override {
+    ~WithRawCallbackMethod_UnshareCharacterPortal() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -3428,37 +2622,21 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* UnshareCharacterPortal(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* UnshareCharacterPortal(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_ListSharedCharacters : public BaseClass {
+  class WithRawCallbackMethod_ListSharedCharacters : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_ListSharedCharacters() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(17,
+    WithRawCallbackMethod_ListSharedCharacters() {
+      ::grpc::Service::MarkMethodRawCallback(17,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ListSharedCharacters(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ListSharedCharacters(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_ListSharedCharacters() override {
+    ~WithRawCallbackMethod_ListSharedCharacters() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -3466,37 +2644,21 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* ListSharedCharacters(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* ListSharedCharacters(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_GetCharacterShareInfo : public BaseClass {
+  class WithRawCallbackMethod_GetCharacterShareInfo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_GetCharacterShareInfo() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(18,
+    WithRawCallbackMethod_GetCharacterShareInfo() {
+      ::grpc::Service::MarkMethodRawCallback(18,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetCharacterShareInfo(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetCharacterShareInfo(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_GetCharacterShareInfo() override {
+    ~WithRawCallbackMethod_GetCharacterShareInfo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -3504,14 +2666,8 @@ class Characters final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetCharacterShareInfo(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GetCharacterShareInfo(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_DeployCharacter : public BaseClass {
