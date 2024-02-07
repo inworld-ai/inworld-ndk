@@ -30,7 +30,7 @@ def generate(path, filepath):
 
     cmd_line = PROTOC_PATH
     cmd_line += f" --proto_path={COMMON_PROTO_PATH}"
-    cmd_line += f" --proto_path={os.path.join(CURRENT_DIR, 'ThirdParty/grpc/third_party/protobuf/src')}"
+    cmd_line += f" --proto_path={os.path.join(CURRENT_DIR, 'test/grpc/third_party/protobuf/src')}" #TODO remove test
     cmd_line += f" --proto_path={path}"
 
     out_path = os.path.join(CURRENT_DIR, "src/proto")
