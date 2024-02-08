@@ -7,8 +7,6 @@
 
 #include "Application.h"
 #include "Utils/Log.h"
-#include <numeric>
-#include <algorithm>
 
 // !!! Fill out this options !!!
 constexpr std::string_view g_SceneName = "";
