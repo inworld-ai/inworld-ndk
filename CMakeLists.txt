@@ -410,7 +410,7 @@ add_custom_command(TARGET InworldNDK POST_BUILD
     ${PROJECT_SOURCE_DIR}/src  ${PackageDir}/src)
 
 # setup example
-if (WIN32 OR Mac)
+if (WIN32 OR MAC)
     set(SourceDir Example/ConsoleApp/src)
 
     file(GLOB_RECURSE FilesALL
