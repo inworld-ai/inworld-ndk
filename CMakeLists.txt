@@ -355,9 +355,9 @@ set(LibFiles
     ${ZLIB_LIBRARY_RELEASE}
 )
 
-if (ANDROID AND INWORLD_LOG_SPD)
+if (INWORLD_LOG_SPD)
     list(APPEND LibFiles
-    ${CMAKE_CURRENT_SOURCE_DIR}/build/ThirdParty/spdlog/${LibPref}${LibSpglogName}.${LibExt})
+    ${CMAKE_CURRENT_SOURCE_DIR}/build/ThirdParty/spdlog${ConfigDirName}/${LibPref}${LibSpglogName}.${LibExt})
 endif()
 
 # webrtc aec setup
@@ -414,7 +414,7 @@ add_custom_command(TARGET InworldNDK POST_BUILD
     ${PROJECT_SOURCE_DIR}/src  ${PackageDir}/src)
 
 # setup example
-if (NOT IOS AND NOT ANDROID)
+if (WIN32 OR MAC)
     set(SourceDir Example/ConsoleApp/src)
 
     file(GLOB_RECURSE FilesALL
@@ -433,6 +433,6 @@ if (NOT IOS AND NOT ANDROID)
     if (AEC AND WIN32)
         add_custom_command(TARGET InworldNDKApp POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy
-            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Win64/webrtc_aec_plugin.dll  ${PackageDir}${ConfigDirName})
+            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Win64/webrtc_aec_plugin.dll  ${PROJECT_SOURCE_DIR}/build${ConfigDirName})
     endif()
 endif()

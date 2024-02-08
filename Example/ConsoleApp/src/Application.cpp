@@ -71,6 +71,21 @@ void NDKApp::App::Run()
 			}
 		},
 		{
+			"Narration",
+			"Send narration to a character (Arg0: Text)",
+			[this](std::vector<std::string> Args)
+			{
+				if (_CurrentAgentIdxs.empty())
+				{
+					Error("Invalid character");
+					return;
+				}
+
+				_Client.SendNarrationEvent(_AgentInfos[_CurrentAgentIdxs[0]].AgentId, Args[0]);
+				Inworld::Log("Narration sent.");
+			}
+		},
+		{
 			"NextChar",
 			"Next character",
 			[this](std::vector<std::string> Args)
@@ -177,6 +192,7 @@ void NDKApp::App::Run()
 	_Options.Capabilities.SilenceEvents = true;
 	_Options.Capabilities.PhonemeInfo = true;
 	_Options.Capabilities.LoadSceneInSession = true;
+	_Options.Capabilities.NarratedActions = true;
 	_Options.Capabilities.Multiagent = true;
 
 	std::vector<Inworld::AgentInfo> AgentInfos;

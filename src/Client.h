@@ -75,6 +75,8 @@ namespace Inworld
 		virtual std::shared_ptr<CustomEvent> SendCustomEvent(std::string AgentId, const std::string& Name, const std::unordered_map<std::string, std::string>& Params);
 		virtual std::shared_ptr<CustomEvent> SendCustomEvent(const std::vector<std::string>& AgentIds, const std::string& Name, const std::unordered_map<std::string, std::string>& Params);
 		
+		virtual std::shared_ptr<ActionEvent> SendNarrationEvent(std::string AgentId, const std::string& Content);
+    
 		virtual std::shared_ptr<ChangeSceneEvent> SendChangeSceneEvent(const std::string& Scene);
 
 		virtual void CancelResponse(const std::string& AgentId, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds);
