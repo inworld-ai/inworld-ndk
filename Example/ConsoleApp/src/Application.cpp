@@ -75,13 +75,13 @@ void NDKApp::App::Run()
 			"Send narration to a character (Arg0: Text)",
 			[this](std::vector<std::string> Args)
 			{
-				if (_CurrentAgentIdx == -1)
+				if (_CurrentAgentIdxs.empty())
 				{
 					Error("Invalid character");
 					return;
 				}
 
-				_Client.SendNarrationEvent(_AgentInfos[_CurrentAgentIdx].AgentId, Args[0]);
+				_Client.SendNarrationEvent(_AgentInfos[_CurrentAgentIdxs[0]].AgentId, Args[0]);
 				Inworld::Log("Narration sent.");
 			}
 		},
