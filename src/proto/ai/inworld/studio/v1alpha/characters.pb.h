@@ -42,11 +42,11 @@
 #include "google/longrunning/operations.pb.h"
 #include <google/protobuf/empty.pb.h>
 #include <google/protobuf/field_mask.pb.h>
-#include "options.pb.h"
+#include "ai/inworld/options/options.pb.h"
 #include "ai/inworld/studio/v1alpha/behavioral_contexts.pb.h"
 #include "ai/inworld/studio/v1alpha/scenes.pb.h"
-#include "language_codes.pb.h"
-#include "voices.pb.h"
+#include "ai/inworld/voices/voices.pb.h"
+#include "ai/inworld/language_codes/language_codes.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto

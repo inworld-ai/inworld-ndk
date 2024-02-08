@@ -20,5 +20,9 @@ namespace NDKApp
 		virtual void Visit(const Inworld::CancelResponseEvent& Event) override;
 		virtual void Visit(const Inworld::CustomGestureEvent& Event) override;
 		virtual void Visit(const Inworld::CustomEvent& Event) override;
+
+		std::string GetGivenName(const std::string& AgentId) const;
+
+		std::vector<Inworld::AgentInfo> _AgentInfos;
 	};
 }

@@ -23,8 +23,10 @@ namespace NDKApp
 
 		void NextCharacter();
 		void PrevCharacter();
-		void SetCharacter(int32_t Idx);
+		void SetCharacter(const std::vector<int32_t>& Idxs);
 		void NotifyCurrentCharacter();
+
+		std::vector<std::string> GetCurrentAgentBrains() const;
 
 		Inworld::Client _Client;
 		Inworld::ClientOptions _Options;
@@ -33,6 +35,6 @@ namespace NDKApp
 
 		std::string _SavedSessionState;
 		std::vector<Inworld::AgentInfo> _AgentInfos;
-		int32_t _CurrentAgentIdx = -1;
+		std::vector<int32_t> _CurrentAgentIdxs;
 	};
 }

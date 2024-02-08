@@ -38,13 +38,36 @@ void NDKApp::App::Run()
 					return;
 				}
 
-				if (_CurrentAgentIdx == -1)
+				auto CurAgents = GetCurrentAgentBrains();
+				if (CurAgents.empty())
 				{
 					Error("Invalid character");
 					return;
 				}
 
-				_Client.SendTextMessage(_AgentInfos[_CurrentAgentIdx].AgentId, Args[0]);
+				_Client.SendTextMessage(CurAgents, Args[0]);
+			}
+		},
+		{
+			"NextTurn",
+			"Next turn in conversation between multiple chars",
+			[this](std::vector<std::string> Args)
+			{
+				if (Args.size() > 0)
+				{
+					Error("Invalid args");
+					return;
+				}
+
+				auto CurAgents = GetCurrentAgentBrains();
+				if (CurAgents.size() < 2)
+				{
+					Error("Need multiple characters");
+					return;
+				}
+
+				Inworld::Log("Send inworld.conversation.next_turn");
+				_Client.SendCustomEvent(CurAgents, "inworld.conversation.next_turn", {});
 			}
 		},
 		{
@@ -83,14 +106,18 @@ void NDKApp::App::Run()
 			"Set character index (Arg0: Index)",
 			[this](std::vector<std::string> Args)
 			{
-				if (Args.size() != 1)
+				if (Args.empty())
 				{
 					Error("Invalid args");
 					return;
 				}
 
-				int32_t Idx = std::stoi(Args[0]);
-				SetCharacter(Idx);
+				std::vector<int32_t> Idxs;
+				for (std::string& Arg : Args)
+				{
+					Idxs.push_back(std::stoi(Arg));
+				}
+				SetCharacter(Idxs);
 			}
 		},
 		{
@@ -137,7 +164,8 @@ void NDKApp::App::Run()
 						_AgentInfos = AgentInfos;
 						if (!AgentInfos.empty())
 						{
-							_CurrentAgentIdx = 0;
+							_CurrentAgentIdxs.empty();
+							_CurrentAgentIdxs.push_back(0);
 							NotifyCurrentCharacter();
 						}
 					});
@@ -145,7 +173,7 @@ void NDKApp::App::Run()
 		}
 		});
 
-	_Options.ServerUrl = "api-engine.inworld.ai:443";
+		_Options.ServerUrl = "api-engine.inworld.ai:443";
 	_Options.PlayerName = "Player";
 
 	_Options.SceneName = g_SceneName;
@@ -165,6 +193,7 @@ void NDKApp::App::Run()
 	_Options.Capabilities.PhonemeInfo = true;
 	_Options.Capabilities.LoadSceneInSession = true;
 	_Options.Capabilities.NarratedActions = true;
+	_Options.Capabilities.Multiagent = true;
 
 	std::vector<Inworld::AgentInfo> AgentInfos;
 
@@ -176,7 +205,7 @@ void NDKApp::App::Run()
 			int32_t Code;
 			_Client.GetConnectionError(Error, Code);
 
-			Inworld::Log("Connection state: {0}. Error: {1}", static_cast<uint32_t>(ConnectionState), ARG_STR(Error));
+			Inworld::Log("Connection state: {0}. {1}", static_cast<uint32_t>(ConnectionState), Error.empty() ? "" : ARG_STR(std::string(" Error: ") + Error));
 
 			if (ConnectionState == Inworld::Client::ConnectionState::Disconnected)
 			{
@@ -199,9 +228,14 @@ void NDKApp::App::Run()
 		[this](std::vector<Inworld::AgentInfo> AgentInfos)
 		{
 			_AgentInfos = AgentInfos;
+			_PacketHandler._AgentInfos = _AgentInfos;
 			if (!AgentInfos.empty())
 			{
-				_CurrentAgentIdx = 0;
+				_CurrentAgentIdxs.clear();
+				_CurrentAgentIdxs.push_back(0);
+				if (_AgentInfos.size() > 1)
+					_CurrentAgentIdxs.push_back(1);
+
 				NotifyCurrentCharacter();
 			}
 		});
@@ -223,7 +257,7 @@ void NDKApp::App::Run()
 
 void NDKApp::App::Error(std::string Msg)
 {
-	Inworld::Log("{0}", ARG_STR(Msg));
+	Inworld::LogError("{0}", ARG_STR(Msg));
 }
 
 void NDKApp::App::NextCharacter()
@@ -234,9 +268,17 @@ void NDKApp::App::NextCharacter()
 		return;
 	}
 
-	if (++_CurrentAgentIdx == _AgentInfos.size())
+	if (_CurrentAgentIdxs.empty())
 	{
-		_CurrentAgentIdx = 0;
+		_CurrentAgentIdxs.push_back(0);
+	}
+	else if (_CurrentAgentIdxs.size() > 1)
+	{
+		Error("Multiple characters, use SetChar");
+	}
+	else if (++_CurrentAgentIdxs[0] == _AgentInfos.size())
+	{
+		_CurrentAgentIdxs[0] = 0;
 	}
 	NotifyCurrentCharacter();
 }
@@ -249,27 +291,61 @@ void NDKApp::App::PrevCharacter()
 		return;
 	}
 
-	if (--_CurrentAgentIdx == 0)
+	if (_CurrentAgentIdxs.empty())
 	{
-		_CurrentAgentIdx = _AgentInfos.size() - 1;
+		_CurrentAgentIdxs.push_back(0);
 	}
+	else if (_CurrentAgentIdxs.size() > 1)
+	{
+		Error("Multiple characters, use SetChar");
+	}
+	else if (--_CurrentAgentIdxs[0] == 0)
+	{
+		_CurrentAgentIdxs[0] = _AgentInfos.size() - 1;
+	}
+
 	NotifyCurrentCharacter();
 }
 
-void NDKApp::App::SetCharacter(int32_t Idx)
+void NDKApp::App::SetCharacter(const std::vector<int32_t>& Idxs)
 {
-	if (Idx >= 0 && Idx < _AgentInfos.size())
+	if (Idxs.empty())
 	{
-		_CurrentAgentIdx = Idx;
-		NotifyCurrentCharacter();
+		Error("Empty char list");
+		return;
+	}
+
+	_CurrentAgentIdxs.clear();
+	for (int32_t Idx : Idxs)
+	{
+		if (Idx >= 0 && Idx < _AgentInfos.size())
+		{
+			_CurrentAgentIdxs.push_back(Idx);
+			NotifyCurrentCharacter();
+		}
 	}
 }
 
 void NDKApp::App::NotifyCurrentCharacter()
 {
-	if (_CurrentAgentIdx != -1)
+	if (_CurrentAgentIdxs.empty())
 	{
-		auto& Info = _AgentInfos[_CurrentAgentIdx];
-		Inworld::Log("Current character: {} {}", ARG_STR(Info.GivenName), ARG_STR(Info.AgentId));
+		Inworld::Log("No current character");
 	}
+
+	for (int32_t Idx : _CurrentAgentIdxs)
+	{
+		auto& Info = _AgentInfos[Idx];
+		Inworld::Log("Current character: {} {}", Idx, ARG_STR(Info.GivenName), ARG_STR(Info.AgentId));
+	}
+}
+
+std::vector<std::string> NDKApp::App::GetCurrentAgentBrains() const
+{
+	std::vector<std::string> Brains;
+	for (int32_t i = 0; i < _CurrentAgentIdxs.size(); i++)
+	{
+		Brains.push_back(_AgentInfos[i].AgentId);
+	}
+	return Brains;
 }

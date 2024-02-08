@@ -65,6 +65,10 @@ function(GroupSourcesByFolder target)
 endfunction()
 GroupSourcesByFolder(InworldNDK)
 
+if (INWORLD_AUDIO_DUMP)
+    target_compile_definitions(InworldNDK PRIVATE INWORLD_AUDIO_DUMP=1)
+endif()
+
 # grpc setup
 if(UE_DIR)
     set(ZlibDir ${UE_DIR}/Engine/Source/ThirdParty/zlib/1.2.12)
