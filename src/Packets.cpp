@@ -9,6 +9,8 @@
 #include "proto/ProtoDisableWarning.h"
 
 #include <random>
+#include "Types.h"
+#include "Utils/Log.h"
 
 namespace Inworld {
 
@@ -235,7 +237,21 @@ namespace Inworld {
     void ActionEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
     {
         Proto.mutable_action()->mutable_narrated_action()->set_content(_Content);
-    }
+	}
+
+	SceneLoadedEvent::SceneLoadedEvent(const InworldPakets::InworldPacket& GrpcPacket)
+	{
+		auto& Scene = GrpcPacket.load_scene_output();
+        _AgentInfos.reserve(Scene.agents_size());
+		for (int32_t i = 0; i < Scene.agents_size(); i++)
+		{
+			AgentInfo Info;
+			Info.BrainName = Scene.agents(i).brain_name().c_str();
+			Info.AgentId = Scene.agents(i).agent_id().c_str();
+			Info.GivenName = Scene.agents(i).given_name().c_str();
+            _AgentInfos.push_back(Info);
+		}
+	}
 
 	void SessionControlEvent_SessionConfiguration::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
 	{
@@ -263,6 +279,10 @@ namespace Inworld {
 	{
 		Proto.mutable_session_control()->mutable_user_configuration()->set_id(_Data.Id);
 		Proto.mutable_session_control()->mutable_user_configuration()->set_name(_Data.Name);
+
+		Inworld::Log("SessionControlEvent_UserConfiguration User id: %s", ARG_STR(_Data.Id));
+		Inworld::Log("SessionControlEvent_UserConfiguration User name: %s", ARG_STR(_Data.Name));
+
 		auto* PlayerProfile = Proto.mutable_session_control()->mutable_user_configuration()->mutable_user_settings()->mutable_player_profile();
 		for (const auto& Field : _Data.Profile.Fields)
 		{
@@ -278,7 +298,11 @@ namespace Inworld {
 		auto* Config = Proto.mutable_session_control()->mutable_client_configuration();
         Config->set_id(_Data.Id);
         Config->set_version(_Data.Version);
-        Config->set_description(_Data.Description);
+		Config->set_description(_Data.Description);
+
+		Inworld::Log("SessionControlEvent_ClientConfiguration Client id: %s", ARG_STR(_Data.Id));
+		Inworld::Log("SessionControlEvent_ClientConfiguration Client version: %s", ARG_STR(_Data.Version));
+		Inworld::Log("SessionControlEvent_ClientConfiguration Client description: %s", ARG_STR(_Data.Description));
 	}
 
 	void SessionControlEvent_SessionSave::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
@@ -290,11 +314,6 @@ namespace Inworld {
 	void SessionControlEvent_LoadScene::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
 	{
         Proto.mutable_mutation()->mutable_load_scene()->set_name(_Data.Scene);
-	}
-
-	SceneLoadedEvent::SceneLoadedEvent(const InworldPakets::InworldPacket& GrpcPacket)
-	{
-
 	}
 
 }

@@ -11,6 +11,7 @@
 #include <functional>
 
 #include <future>
+#include "Service.h"
 #include "Define.h"
 #include "Types.h"
 #include "Packets.h"
@@ -20,8 +21,6 @@
 #include "Utils/PerceivedLatencyTracker.h"
 
 using PacketQueue = Inworld::SharedQueue<std::shared_ptr<Inworld::Packet>>;
-
-class ServiceSession;
 
 namespace Inworld
 {
@@ -48,9 +47,10 @@ namespace Inworld
 		std::string PlayerName;
 		std::string ProjectName;
 		std::string UserId;
+		std::string GameSessionId;
 	};
 
-	class INWORLD_EXPORT ClientBase
+	class INWORLD_EXPORT ClientBase : public PacketVisitor
 	{
 	public:
 		enum class ConnectionState : uint8_t 
@@ -113,6 +113,8 @@ namespace Inworld
 		const SessionInfo& GetSessionInfo() const;
 		void SetOptions(const ClientOptions& options);		
 
+		virtual void Visit(const SceneLoadedEvent& Event) override;
+
 	protected:
 		void PushPacket(std::shared_ptr<Inworld::Packet> Packet);
 
@@ -146,7 +148,7 @@ namespace Inworld
 		SdkInfo _SdkInfo;
 	private:
 		void LoadScene();
-		void OnSceneLoaded(const grpc::Status& Status, const InworldEngine::LoadSceneResponse& Response);		
+		void OnSceneLoaded(const SceneLoadedEvent& Event);		
 		void TryToStartReadTask();
 		void TryToStartWriteTask();
 

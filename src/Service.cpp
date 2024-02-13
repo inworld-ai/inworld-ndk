@@ -147,64 +147,6 @@ grpc::Status Inworld::RunnableGenerateSessionToken::RunProcess()
 	return CreateStub()->GenerateToken(AuthCtx.get(), AuthRequest, &_Response);
 }
 
-grpc::Status Inworld::RunnableLoadScene::RunProcess()
-{
-	InworldEngine::LoadSceneRequest LoadSceneRequest;
-	LoadSceneRequest.set_name(_SceneName);
-
-	if (!_SessionState.empty())
-	{
-		auto* SessionState = LoadSceneRequest.mutable_session_continuation();
-		SessionState->set_previous_state(_SessionState);
-	}
-
-	auto* Capabilities = LoadSceneRequest.mutable_capabilities();
-	Capabilities->set_text(_Capabilities.Text);
-	Capabilities->set_audio(_Capabilities.Audio);
-	Capabilities->set_emotions(_Capabilities.Emotions);
-	Capabilities->set_gestures(_Capabilities.Gestures);
-	Capabilities->set_interruptions(_Capabilities.Interruptions);
-	Capabilities->set_triggers(_Capabilities.Triggers);
-	Capabilities->set_emotion_streaming(_Capabilities.EmotionStreaming);
-	Capabilities->set_silence_events(_Capabilities.SilenceEvents);
-	Capabilities->set_phoneme_info(_Capabilities.PhonemeInfo);
-	Capabilities->set_load_scene_in_session(_Capabilities.LoadSceneInSession);
-	Capabilities->set_narrated_actions(_Capabilities.NarratedActions);
-	Capabilities->set_continuation(_Capabilities.Continuation);
-	Capabilities->set_turn_based_stt(_Capabilities.TurnBasedSTT);
-	Capabilities->set_relations(_Capabilities.Relations);
-	Capabilities->set_debug_info(_Capabilities.Relations); // YAN: Relations also requires debug info for now.
-	Capabilities->set_multi_agent(_Capabilities.Multiagent);
-
-	auto* User = LoadSceneRequest.mutable_user();
-	User->set_id(_UserId);
-	User->set_name(_PlayerName);
-
-	Inworld::Log("RunnableLoadScene User id: %s", ARG_STR(_UserId));
-	Inworld::Log("RunnableLoadScene User name: %s", ARG_STR(_PlayerName));
-
-	auto* Client = LoadSceneRequest.mutable_client();
-	Client->set_id(_ClientId);
-	Client->set_version(_ClientVersion);
-	Client->set_description(_ClientDescription);
-
-	Inworld::Log("RunnableLoadScene Client id: %s", ARG_STR(_ClientId));
-	Inworld::Log("RunnableLoadScene Client version: %s", ARG_STR(_ClientVersion));
-	Inworld::Log("RunnableLoadScene Client description: %s", ARG_STR(_ClientDescription));
-
-	auto* UserSettings = LoadSceneRequest.mutable_user_settings();
-	auto* PlayerProfile = UserSettings->mutable_player_profile();
-	for (const auto& Field : _UserSettings.Profile.Fields)
-	{
-		PlayerProfile->add_fields();
-		auto* PlayerField = PlayerProfile->mutable_fields(PlayerProfile->fields_size() - 1);
-		PlayerField->set_field_id(Field.Id);
-		PlayerField->set_field_value(Field.Value);
-	}
-
-	return CreateStub()->LoadScene(Context().get(), LoadSceneRequest, &_Response);
-}
-
 std::unique_ptr<Inworld::ReaderWriter> Inworld::ServiceSession::OpenSession()
 {
 	return CreateStub()->OpenSession(Context().get());

@@ -64,6 +64,11 @@ void Inworld::ClientBase::SetOptions(const ClientOptions& options)
 
 }
 
+void Inworld::ClientBase::Visit(const SceneLoadedEvent& Event)
+{
+	OnSceneLoaded(Event);
+}
+
 void Inworld::ClientBase::SendPacket(std::shared_ptr<Inworld::Packet> Packet)
 {
 	if (GetConnectionState() != ConnectionState::Connected)
@@ -528,68 +533,51 @@ void Inworld::ClientBase::LoadScene()
 		_ClientOptions.ServerUrl
 		);
 	StartReaderWriter();
+	if (!_ReaderWriter)
+	{
+		Inworld::LogError("LoadScene error, _ReaderWriter is invalid.");
+		return;
+	}
 
-	_AsyncLoadSceneTask->Start(
-		"InworldLoadScene",
-		std::make_unique<RunnableLoadScene>(
-			_SessionInfo.Token,
-			_SessionInfo.SessionId,
-			_ClientOptions.ServerUrl,
-			_ClientOptions.SceneName,
-			_ClientOptions.PlayerName,
-			_ClientOptions.UserId,
-			_ClientOptions.UserSettings,
+	// order matters
+	PushPacket(std::make_shared<SessionControlEvent_Capabilities>(_ClientOptions.Capabilities));
+	PushPacket(std::make_shared<SessionControlEvent_SessionConfiguration>(
+		SessionControlEvent_SessionConfiguration::Data{ _ClientOptions.GameSessionId }));
+	PushPacket(std::make_shared<SessionControlEvent_ClientConfiguration>(
+		SessionControlEvent_ClientConfiguration::Data{ 
 			_SdkInfo.Type,
 			_SdkInfo.Version,
 			SdkDesc,
-			_SessionInfo.SessionSavedState,
-			_ClientOptions.Capabilities,
-			[this](const grpc::Status& Status, const InworldEngine::LoadSceneResponse& Response)
-			{
-				AddTaskToMainThread([this, Status, Response]() {
-					OnSceneLoaded(Status, Response);
-				});
-			}
-		)
-	);
+		}));
+	PushPacket(std::make_shared<SessionControlEvent_UserConfiguration>(_ClientOptions.UserSettings));
+	if (!_SessionInfo.SessionSavedState.empty())
+	{
+		PushPacket(std::make_shared<SessionControlEvent_SessionSave>(
+			SessionControlEvent_SessionSave::Data{ _SessionInfo.SessionSavedState }));
+	}
+	PushPacket(std::make_shared<SessionControlEvent_LoadScene>(
+		SessionControlEvent_LoadScene::Data{ _ClientOptions.SceneName, }));
 }
 
-void Inworld::ClientBase::OnSceneLoaded(const grpc::Status& Status, const InworldEngine::LoadSceneResponse& Response)
+void Inworld::ClientBase::OnSceneLoaded(const SceneLoadedEvent& Event)
 {
 	if (!_OnLoadSceneCallback)
 	{
 		return;
 	}
 
-	if (!Status.ok())
-	{
-		_ErrorMessage = std::string(Status.error_message().c_str());
-		_ErrorCode = Status.error_code();
-		Inworld::LogError("Load scene FALURE! %s, Code: %d", ARG_STR(_ErrorMessage), _ErrorCode);
-		SetConnectionState(ConnectionState::Failed);
-		return;
-	}
-
 	Inworld::Log("Load scene SUCCESS. Session Id: %s", ARG_STR(_SessionInfo.SessionId));
 
-	std::vector<AgentInfo> AgentInfos;
-	AgentInfos.reserve(Response.agents_size());
-	for (int32_t i = 0; i < Response.agents_size(); i++)
+	std::vector<AgentInfo> AgentInfos = Event.GetAgentInfos();
+	for (const auto& Info : AgentInfos)
 	{
-		AgentInfo Info;
-		Info.BrainName = Response.agents(i).brain_name().c_str();
-		Info.AgentId = Response.agents(i).agent_id().c_str();
-		Info.GivenName = Response.agents(i).given_name().c_str();
-		AgentInfos.push_back(Info);
-
 		Inworld::Log("Character registered: %s, Id: %s, GivenName: %s", ARG_STR(Info.BrainName), ARG_STR(Info.AgentId), ARG_STR(Info.GivenName));
 	}
 
-	AgentInfo Info;
+	auto& Info = AgentInfos.emplace_back();
 	Info.BrainName = "__DUMMY__";
 	Info.AgentId = "__DUMMY__";
 	Info.GivenName = "__DUMMY__";
-	AgentInfos.push_back(Info);
 
 	_OnLoadSceneCallback(AgentInfos);
 	_OnLoadSceneCallback = nullptr;

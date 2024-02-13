@@ -237,53 +237,6 @@ namespace Inworld
 		std::string _SessionId;
 	};
 
-	class INWORLD_EXPORT RunnableLoadScene : public RunnableRequest<InworldEngine::WorldEngine, InworldEngine::LoadSceneResponse>
-	{
-	public:
-		RunnableLoadScene(const std::string& Token, const std::string& SessionId, const std::string& ServerUrl, const std::string& SceneName, const std::string& PlayerName, const std::string& UserId, const UserSettings& UserSettings, const std::string& ClientId, const std::string& ClientVersion, const std::string& ClientDescription, const std::string& SessionState, const CapabilitySet& Capabilities)
-			: RunnableRequest(ServerUrl, Callback)
-			, _Token(Token)
-			, _SessionId(SessionId)
-			, _SceneName(SceneName)
-			, _PlayerName(PlayerName)
-			, _UserId(UserId)
-			, _UserSettings(UserSettings)
-			, _ClientId(ClientId)
-			, _ClientVersion(ClientVersion)
-			, _ClientDescription(ClientDescription)
-			, _SessionState(SessionState)
-			, _Capabilities(Capabilities)
-			, _SendPacketCallback(SendPacketCallback)
-		{}
-
-		virtual ~RunnableLoadScene() = default;
-
-		virtual grpc::Status RunProcess() override;
-
-		std::unique_ptr<ReaderWriter> Session();
-
-		void SetToken(const std::string& InToken)
-		{
-			_Token = InToken;
-		}
-
-	private:
-		std::unique_ptr<ClientContext>& Context();
-
-		std::string _Token;
-		std::string _SessionId;
-		std::string _SceneName;
-		std::string _PlayerName;
-		std::string _UserId;
-		UserSettings _UserSettings;
-		std::string _ClientId;
-		std::string _ClientVersion;
-		std::string _ClientDescription;
-		std::string _SessionState;
-		CapabilitySet _Capabilities;
-		std::function<void(const Inworld::Packet&)> _SendPacketCallback;
-	};
-
 	class INWORLD_EXPORT RunnableGenerateUserTokenRequest : public RunnableRequest<InworldV1alpha::Users, InworldV1alpha::GenerateTokenUserResponse>
 	{
 	public:

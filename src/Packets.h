@@ -470,8 +470,10 @@ namespace Inworld {
 
 		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
 
-	private:
+		const std::vector<AgentInfo>& GetAgentInfos() const { return _AgentInfos; }
 
+	private:
+		std::vector<AgentInfo> _AgentInfos;
 	};
 
 	class INWORLD_EXPORT SessionControlEvent : public Packet
