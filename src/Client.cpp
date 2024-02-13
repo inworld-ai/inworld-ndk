@@ -377,7 +377,7 @@ void Inworld::ClientBase::PauseClient()
 		return;
 	}
 
-	StopReaderWriter();
+	StopClientStream();
 
 	SetConnectionState(ConnectionState::Paused);
 }
@@ -398,13 +398,13 @@ void Inworld::ClientBase::ResumeClient()
 			if (_SessionService)
 			{
 				_SessionService->SetToken(_SessionInfo.Token);
-				StartReaderWriter();
+				StartClientStream();
 			}
 		});
 	}
 	else
 	{
-		StartReaderWriter();
+		StartClientStream();
 	}
 }
 
@@ -415,7 +415,7 @@ void Inworld::ClientBase::StopClient()
 		return;
 	}
 
-	StopReaderWriter();
+	StopClientStream();
 	if (_SessionService)
 	{
 		_SessionService->Stop();
@@ -532,10 +532,10 @@ void Inworld::ClientBase::LoadScene()
 		_SessionInfo.SessionId,
 		_ClientOptions.ServerUrl
 		);
-	StartReaderWriter();
-	if (!_ReaderWriter)
+	StartClientStream();
+	if (!_ClientStream)
 	{
-		Inworld::LogError("LoadScene error, _ReaderWriter is invalid.");
+		Inworld::LogError("LoadScene error, _ClientStream is invalid.");
 		return;
 	}
 
@@ -583,10 +583,10 @@ void Inworld::ClientBase::OnSceneLoaded(const SceneLoadedEvent& Event)
 	_OnLoadSceneCallback = nullptr;
 
 	SetConnectionState(ConnectionState::Connected);
-	StartReaderWriter();
+	StartClientStream();
 }
 
-void Inworld::ClientBase::StartReaderWriter()
+void Inworld::ClientBase::StartClientStream()
 {
 	const bool bHasPendingWriteTask = _AsyncWriteTask->IsValid() && !_AsyncWriteTask->IsDone();
 	const bool bHasPendingReadTask = _AsyncReadTask->IsValid() && !_AsyncReadTask->IsDone();
@@ -594,28 +594,28 @@ void Inworld::ClientBase::StartReaderWriter()
 	{
 		_ErrorMessage = std::string();
 		_ErrorCode = grpc::StatusCode::OK;
-		_ReaderWriter = _SessionService->OpenSession();
-		_bHasReaderWriterFinished = false;
+		_ClientStream = _SessionService->OpenSession();
+		_bHasClientStreamFinished = false;
 		TryToStartReadTask();
 		TryToStartWriteTask();
 	}
 }
 
-void Inworld::ClientBase::StopReaderWriter()
+void Inworld::ClientBase::StopClientStream()
 {
-	_bHasReaderWriterFinished = true;
+	_bHasClientStreamFinished = true;
 	if (_SessionService)
 	{
 		_SessionService->Stop();
 	}
 	_AsyncReadTask->Stop();
 	_AsyncWriteTask->Stop();
-	_ReaderWriter.reset();
+	_ClientStream.reset();
 }
 
 void Inworld::ClientBase::TryToStartReadTask()
 {
-	if (!_ReaderWriter)
+	if (!_ClientStream)
 	{
 		return;
 	}
@@ -626,8 +626,8 @@ void Inworld::ClientBase::TryToStartReadTask()
 		_AsyncReadTask->Start(
 			"InworldRead",
 			std::make_unique<RunnableRead>(
-				*_ReaderWriter.get(), 
-				_bHasReaderWriterFinished, 
+				*_ClientStream.get(), 
+				_bHasClientStreamFinished, 
 				_IncomingPackets,
 				[this](const std::shared_ptr<Inworld::Packet> InPacket)
 				{
@@ -679,7 +679,7 @@ void Inworld::ClientBase::TryToStartReadTask()
 
 void Inworld::ClientBase::TryToStartWriteTask()
 {
-	if (!_ReaderWriter)
+	if (!_ClientStream)
 	{
 		return;
 	}
@@ -693,8 +693,8 @@ void Inworld::ClientBase::TryToStartWriteTask()
 			_AsyncWriteTask->Start(
 				"InworldWrite",
 				std::make_unique<RunnableWrite>(
-					*_ReaderWriter.get(),
-					_bHasReaderWriterFinished,
+					*_ClientStream.get(),
+					_bHasClientStreamFinished,
 					_OutgoingPackets,
 					[this](const std::shared_ptr<Inworld::Packet> InPacket)
 					{

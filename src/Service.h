@@ -46,13 +46,13 @@ using grpc::Status;
 
 namespace Inworld
 {
-	using ReaderWriter = ::grpc::ClientReaderWriter< InworldPackets::InworldPacket, InworldPackets::InworldPacket>;
+	using ClientStream = ::grpc::ClientReaderWriter< InworldPackets::InworldPacket, InworldPackets::InworldPacket>;
 
 	class INWORLD_EXPORT RunnableMessaging : public Runnable
 	{
 	public:
-		RunnableMessaging(ReaderWriter& ReaderWriter, std::atomic<bool>& bInHasReaderWriterFinished, SharedQueue<std::shared_ptr<Inworld::Packet>>& Packets, std::function<void(const std::shared_ptr<Inworld::Packet>)> ProcessedCallback = nullptr, std::function<void(const grpc::Status&)> InErrorCallback = nullptr)
-			: _ReaderWriter(ReaderWriter)
+		RunnableMessaging(ClientStream& ClientStream, std::atomic<bool>& bInHasReaderWriterFinished, SharedQueue<std::shared_ptr<Inworld::Packet>>& Packets, std::function<void(const std::shared_ptr<Inworld::Packet>)> ProcessedCallback = nullptr, std::function<void(const grpc::Status&)> InErrorCallback = nullptr)
+			: _ClientStream(ClientStream)
 			, _HasReaderWriterFinished(bInHasReaderWriterFinished)
 			, _Packets(Packets)
 			, _ProcessedCallback(ProcessedCallback)
@@ -61,7 +61,7 @@ namespace Inworld
 		virtual ~RunnableMessaging() = default;
 
 	protected:
-		ReaderWriter& _ReaderWriter;
+		ClientStream& _ClientStream;
 		std::atomic<bool>& _HasReaderWriterFinished;
 
 		SharedQueue<std::shared_ptr<Inworld::Packet>>& _Packets;
@@ -72,8 +72,8 @@ namespace Inworld
 	class INWORLD_EXPORT RunnableRead : public RunnableMessaging
 	{
 	public:
-		RunnableRead(ReaderWriter& ReaderWriter, std::atomic<bool>& bHasReaderWriterFinished, SharedQueue<std::shared_ptr<Inworld::Packet>>& Packets, std::function<void(const std::shared_ptr<Inworld::Packet>)> ProcessedCallback = nullptr, std::function<void(const grpc::Status&)> ErrorCallback = nullptr)
-			: RunnableMessaging(ReaderWriter, bHasReaderWriterFinished, Packets, ProcessedCallback, ErrorCallback)
+		RunnableRead(ClientStream& ClientStream, std::atomic<bool>& bHasReaderWriterFinished, SharedQueue<std::shared_ptr<Inworld::Packet>>& Packets, std::function<void(const std::shared_ptr<Inworld::Packet>)> ProcessedCallback = nullptr, std::function<void(const grpc::Status&)> ErrorCallback = nullptr)
+			: RunnableMessaging(ClientStream, bHasReaderWriterFinished, Packets, ProcessedCallback, ErrorCallback)
 		{}
 		virtual ~RunnableRead() = default;
 
@@ -83,8 +83,8 @@ namespace Inworld
 	class INWORLD_EXPORT RunnableWrite : public RunnableMessaging
 	{
 	public:
-		RunnableWrite(ReaderWriter& ReaderWriter, std::atomic<bool>& bHasReaderWriterFinished, SharedQueue<std::shared_ptr<Inworld::Packet>>& Packets, std::function<void(const std::shared_ptr<Inworld::Packet>)> ProcessedCallback = nullptr, std::function<void(const grpc::Status&)> ErrorCallback = nullptr)
-			: RunnableMessaging(ReaderWriter, bHasReaderWriterFinished, Packets, ProcessedCallback, ErrorCallback)
+		RunnableWrite(ClientStream& ClientStream, std::atomic<bool>& bHasReaderWriterFinished, SharedQueue<std::shared_ptr<Inworld::Packet>>& Packets, std::function<void(const std::shared_ptr<Inworld::Packet>)> ProcessedCallback = nullptr, std::function<void(const grpc::Status&)> ErrorCallback = nullptr)
+			: RunnableMessaging(ClientStream, bHasReaderWriterFinished, Packets, ProcessedCallback, ErrorCallback)
 		{}
 		virtual ~RunnableWrite() = default;
 
@@ -142,7 +142,7 @@ namespace Inworld
 	{
 	public:
 		RunnableRequest(const std::string& ServerUrl, std::function<void(const grpc::Status& Status, const TResponse& Response)> Callback = nullptr)
-			: Service(ServerUrl)
+			: Service<TService>(ServerUrl)
 			, _Callback(Callback)
 		{}
 		virtual ~RunnableRequest() = default;
@@ -163,7 +163,7 @@ namespace Inworld
 
 		virtual void Deinitialize() override
 		{
-			Service::Stop();
+			Service<TService>::Stop();
 		}
 
 		grpc::Status& GetStatus() { return _Status; }
@@ -226,7 +226,7 @@ namespace Inworld
 			, _SessionId(SessionId)
 		{}
 		
-		std::unique_ptr<ReaderWriter> OpenSession();
+		std::unique_ptr<ClientStream> OpenSession();
 
 		void SetToken(const std::string& Token) { _Token = Token; }
 

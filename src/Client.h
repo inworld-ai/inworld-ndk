@@ -138,8 +138,8 @@ namespace Inworld
 			_AsyncAudioDumper = std::make_unique<TAsyncRoutine>();
 #endif			
 		}
-		void StartReaderWriter();
-		void StopReaderWriter();
+		void StartClientStream();
+		void StopClientStream();
 		void SetConnectionState(ConnectionState State);
 
 		std::function<void(std::shared_ptr<Inworld::Packet>)> _OnPacketCallback;
@@ -163,8 +163,8 @@ namespace Inworld
 		std::function<void(const std::vector<AgentInfo>&)> _OnLoadSceneCallback;
 		std::function<void(ConnectionState)> _OnConnectionStateChangedCallback;
 
-		std::unique_ptr<ReaderWriter> _ReaderWriter;
-		std::atomic<bool> _bHasReaderWriterFinished = false;
+		std::unique_ptr<ClientStream> _ClientStream;
+		std::atomic<bool> _bHasClientStreamFinished = false;
 
 		std::unique_ptr<IAsyncRoutine> _AsyncReadTask;
 		std::unique_ptr<IAsyncRoutine> _AsyncWriteTask;

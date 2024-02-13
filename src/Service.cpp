@@ -17,12 +17,12 @@ void Inworld::RunnableRead::Run()
 	while (!_HasReaderWriterFinished)
 	{
 		InworldPackets::InworldPacket IncomingPacket;
-		if (!_ReaderWriter.Read(&IncomingPacket))
+		if (!_ClientStream.Read(&IncomingPacket))
 		{
 			if (!_HasReaderWriterFinished)
 			{
 				_HasReaderWriterFinished = true;
-				_ErrorCallback(_ReaderWriter.Finish());
+				_ErrorCallback(_ClientStream.Finish());
 			}
 
 			_IsDone = true;
@@ -92,12 +92,12 @@ void Inworld::RunnableWrite::Run()
 	{
 		auto Packet = _Packets.Front();
 		InworldPackets::InworldPacket Event = Packet->ToProto();
-		if (!_ReaderWriter.Write(Event))
+		if (!_ClientStream.Write(Event))
 		{
 			if (!_HasReaderWriterFinished)
 			{
 				_HasReaderWriterFinished = true;
-				_ErrorCallback(_ReaderWriter.Finish());
+				_ErrorCallback(_ClientStream.Finish());
 			}
 
 			_IsDone = true;
@@ -147,7 +147,7 @@ grpc::Status Inworld::RunnableGenerateSessionToken::RunProcess()
 	return CreateStub()->GenerateToken(AuthCtx.get(), AuthRequest, &_Response);
 }
 
-std::unique_ptr<Inworld::ReaderWriter> Inworld::ServiceSession::OpenSession()
+std::unique_ptr<Inworld::ClientStream> Inworld::ServiceSession::OpenSession()
 {
 	return CreateStub()->OpenSession(Context().get());
 }
