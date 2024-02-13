@@ -6,7 +6,7 @@
  */
 
 #include "Client.h"
-#include "RunnableCommand.h"
+#include "Service.h"
 #include "Utils/Utils.h"
 #include "Utils/Log.h"
 #include "base64/Base64.h"
@@ -65,6 +65,17 @@ void Inworld::ClientBase::SetOptions(const ClientOptions& options)
 }
 
 void Inworld::ClientBase::SendPacket(std::shared_ptr<Inworld::Packet> Packet)
+{
+	if (GetConnectionState() != ConnectionState::Connected)
+	{
+		Inworld::LogWarning("Packet skipped. Send packets only when connected. Connection state is '%d'", static_cast<int32_t>(GetConnectionState()));
+		return;
+	}
+
+	PushPacket(Packet);
+}
+
+void Inworld::ClientBase::PushPacket(std::shared_ptr<Inworld::Packet> Packet)
 {
 	_OutgoingPackets.PushBack(Packet);
 
@@ -379,9 +390,11 @@ void Inworld::ClientBase::ResumeClient()
 	{
 		GenerateToken([this]()
 		{
-			auto Session = static_cast<RunnableLoadScene*>(_AsyncLoadSceneTask->GetRunnable());
-			Session->SetToken(_SessionInfo.Token);
-			StartReaderWriter();
+			if (_SessionService)
+			{
+				_SessionService->SetToken(_SessionInfo.Token);
+				StartReaderWriter();
+			}
 		});
 	}
 	else
@@ -398,7 +411,10 @@ void Inworld::ClientBase::StopClient()
 	}
 
 	StopReaderWriter();
-	_AsyncLoadSceneTask->Stop();
+	if (_SessionService)
+	{
+		_SessionService->Stop();
+	}
 	_AsyncGenerateTokenTask->Stop();
 	_AsyncGetSessionState->Stop();
 #ifdef INWORLD_AUDIO_DUMP
@@ -506,6 +522,13 @@ void Inworld::ClientBase::LoadScene()
 		SdkDesc += _ClientOptions.ProjectName;
 	}
 
+	_SessionService = std::make_unique<ServiceSession>(
+		_SessionInfo.Token,
+		_SessionInfo.SessionId,
+		_ClientOptions.ServerUrl
+		);
+	StartReaderWriter();
+
 	_AsyncLoadSceneTask->Start(
 		"InworldLoadScene",
 		std::make_unique<RunnableLoadScene>(
@@ -579,11 +602,11 @@ void Inworld::ClientBase::StartReaderWriter()
 {
 	const bool bHasPendingWriteTask = _AsyncWriteTask->IsValid() && !_AsyncWriteTask->IsDone();
 	const bool bHasPendingReadTask = _AsyncReadTask->IsValid() && !_AsyncReadTask->IsDone();
-	if (!bHasPendingWriteTask && !bHasPendingReadTask)
+	if (!bHasPendingWriteTask && !bHasPendingReadTask && _SessionService)
 	{
 		_ErrorMessage = std::string();
 		_ErrorCode = grpc::StatusCode::OK;
-		_ReaderWriter = static_cast<RunnableLoadScene*>(_AsyncLoadSceneTask->GetRunnable())->Session();
+		_ReaderWriter = _SessionService->OpenSession();
 		_bHasReaderWriterFinished = false;
 		TryToStartReadTask();
 		TryToStartWriteTask();
@@ -593,14 +616,9 @@ void Inworld::ClientBase::StartReaderWriter()
 void Inworld::ClientBase::StopReaderWriter()
 {
 	_bHasReaderWriterFinished = true;
-	auto* Task = static_cast<RunnableLoadScene*>(_AsyncLoadSceneTask->GetRunnable());
-	if (Task)
+	if (_SessionService)
 	{
-		auto& Context = Task->GetContext();
-		if (Context)
-		{
-			Context->TryCancel();
-		}
+		_SessionService->Stop();
 	}
 	_AsyncReadTask->Stop();
 	_AsyncWriteTask->Stop();

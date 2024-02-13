@@ -5,20 +5,12 @@
  * that can be found in the LICENSE.md file or at https://www.inworld.ai/sdk-license
  */
 
-#include "RunnableCommand.h"
-#include "Packets.h"
-#include "Utils/Utils.h"
+#include "Service.h"
 #include "Utils/Log.h"
 
 #include <iomanip>
 #include <random>
 #include <sstream>
-
-void Inworld::Runnable::Stop()
-{
-	_IsDone = true;
-	Deinitialize();
-}
 
 void Inworld::RunnableRead::Run()
 {
@@ -206,21 +198,20 @@ grpc::Status Inworld::RunnableLoadScene::RunProcess()
 		PlayerField->set_field_value(Field.Value);
 	}
 
-	auto& Ctx = UpdateContext({
-		{ "authorization", std::string("Bearer ") + _Token },
-		{ "session-id", _SessionId }
-		});
-
-	return CreateStub()->LoadScene(Ctx.get(), LoadSceneRequest, &_Response);
+	return CreateStub()->LoadScene(Context().get(), LoadSceneRequest, &_Response);
 }
 
-std::unique_ptr<Inworld::ReaderWriter> Inworld::RunnableLoadScene::Session()
+std::unique_ptr<Inworld::ReaderWriter> Inworld::ServiceSession::OpenSession()
 {
-	auto& Ctx = UpdateContext({
-			{ "authorization", std::string("Bearer ") + _Token },
-			{ "session-id", _SessionId }
+	return CreateStub()->OpenSession(Context().get());
+}
+
+std::unique_ptr<ClientContext>& Inworld::ServiceSession::Context()
+{
+	return UpdateContext({
+				{ "authorization", std::string("Bearer ") + _Token },
+				{ "session-id", _SessionId }
 		});
-	return _Stub->Session(Ctx.get());
 }
 
 std::string Inworld::RunnableGenerateSessionToken::GenerateHeader() const

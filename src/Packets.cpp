@@ -236,4 +236,60 @@ namespace Inworld {
     {
         Proto.mutable_action()->mutable_narrated_action()->set_content(_Content);
     }
+
+	void SessionControlEvent_SessionConfiguration::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+	{
+		Proto.mutable_session_control()->mutable_session_configuration()->set_game_session_id(_Data.Id);
+	}
+
+	void SessionControlEvent_Capabilities::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+	{
+		auto* Capabilities = Proto.mutable_session_control()->mutable_capabilities_configuration();
+		Capabilities->set_audio(_Data.Audio);
+		Capabilities->set_emotions(_Data.Emotions);
+		Capabilities->set_interruptions(_Data.Interruptions);
+		Capabilities->set_emotion_streaming(_Data.EmotionStreaming);
+		Capabilities->set_silence_events(_Data.SilenceEvents);
+		Capabilities->set_phoneme_info(_Data.PhonemeInfo);
+		Capabilities->set_narrated_actions(_Data.NarratedActions);
+		Capabilities->set_continuation(_Data.Continuation);
+		Capabilities->set_turn_based_stt(_Data.TurnBasedSTT);
+		Capabilities->set_relations(_Data.Relations);
+		Capabilities->set_debug_info(_Data.Relations);
+		Capabilities->set_multi_agent(_Data.Multiagent);
+	}
+
+	void SessionControlEvent_UserConfiguration::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+	{
+		Proto.mutable_session_control()->mutable_user_configuration()->set_id(_Data.Id);
+		Proto.mutable_session_control()->mutable_user_configuration()->set_name(_Data.Name);
+		auto* PlayerProfile = Proto.mutable_session_control()->mutable_user_configuration()->mutable_user_settings()->mutable_player_profile();
+		for (const auto& Field : _Data.Profile.Fields)
+		{
+			PlayerProfile->add_fields();
+			auto* PlayerField = PlayerProfile->mutable_fields(PlayerProfile->fields_size() - 1);
+			PlayerField->set_field_id(Field.Id);
+			PlayerField->set_field_value(Field.Value);
+		}
+	}
+
+	void SessionControlEvent_ClientConfiguration::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+	{
+		auto* Config = Proto.mutable_session_control()->mutable_client_configuration();
+        Config->set_id(_Data.Id);
+        Config->set_version(_Data.Version);
+        Config->set_description(_Data.Description);
+	}
+
+	void SessionControlEvent_SessionSave::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+	{
+		Proto.mutable_session_control()->mutable_continuation()->set_continuation_type(InworldPakets::Continuation_ContinuationType_CONTINUATION_TYPE_EXTERNALLY_SAVED_STATE);
+		Proto.mutable_session_control()->mutable_continuation()->set_externally_saved_state(_Data.Bytes);
+	}
+
+	void SessionControlEvent_LoadScene::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+	{
+        Proto.mutable_mutation()->mutable_load_scene()->set_name(_Data.Scene);
+	}
+
 }

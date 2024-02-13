@@ -9,7 +9,6 @@
 
 #include "proto/ProtoDisableWarning.h"
 
-#include <thread>
 #include <atomic>
 #include <memory>
 #include <functional>
@@ -30,6 +29,7 @@
 #include "Utils/SharedQueue.h"
 #include "Define.h"
 #include "Packets.h"
+#include "Runnable.h"
 
 #ifdef INWORLD_AUDIO_DUMP
 #include "Utils/AudioSessionDumper.h"
@@ -47,21 +47,6 @@ using grpc::Status;
 namespace Inworld
 {
 	using ReaderWriter = ::grpc::ClientReaderWriter< InworldPackets::InworldPacket, InworldPackets::InworldPacket>;
-
-	class INWORLD_EXPORT Runnable
-	{
-	public:
-		virtual ~Runnable() = default;
-
-		bool IsDone() const { return _IsDone; };
-		void Stop();
-
-		virtual void Run() = 0;
-		virtual void Deinitialize() {}
-
-	protected:
-		std::atomic<bool> _IsDone = false;
-	};
 
 	class INWORLD_EXPORT RunnableMessaging : public Runnable
 	{
@@ -106,12 +91,58 @@ namespace Inworld
 		virtual void Run() override;
 	};
 
+	template<typename TService>
+	class INWORLD_EXPORT Service
+	{
+	public:
+		Service(const std::string& ServerUrl)
+			: _ServerUrl(ServerUrl)
+		{}
+
+		void Stop()
+		{
+			if (_Context)
+			{
+				_Context->TryCancel();
+			}
+		}
+
+	protected:
+		struct FHeader
+		{
+			std::string Key;
+			std::string Value;
+		};
+
+		std::unique_ptr<typename TService::Stub>& CreateStub()
+		{
+			grpc::SslCredentialsOptions SslCredentialsOptions;
+			SslCredentialsOptions.pem_root_certs = Utils::GetSslRootCerts();
+			_Stub = TService::NewStub(grpc::CreateChannel(_ServerUrl, grpc::SslCredentials(SslCredentialsOptions)));
+			return _Stub;
+		}
+
+		std::unique_ptr<ClientContext>& UpdateContext(const std::vector<FHeader>& Headers)
+		{
+			_Context = std::make_unique<ClientContext>();
+			for (auto& Header : Headers)
+			{
+				_Context->AddMetadata(Header.Key, Header.Value);
+			}
+			return _Context;
+		}
+
+		std::string _ServerUrl;
+		std::unique_ptr<typename TService::Stub> _Stub;
+		std::unique_ptr<ClientContext> _Context;
+	};
+
 	template<typename TService, class TResponse>
-	class INWORLD_EXPORT RunnableRequest : public Runnable
+	class INWORLD_EXPORT RunnableRequest : public Runnable, public Service<TService>
 	{
 	public:
 		RunnableRequest(const std::string& ServerUrl, std::function<void(const grpc::Status& Status, const TResponse& Response)> Callback = nullptr)
-			: _ServerUrl(ServerUrl)
+			: Service(ServerUrl)
 			, _Callback(Callback)
 		{}
 		virtual ~RunnableRequest() = default;
@@ -132,47 +163,16 @@ namespace Inworld
 
 		virtual void Deinitialize() override
 		{
-			if (_Context)
-			{
-				_Context->TryCancel();
-			}
+			Service::Stop();
 		}
 
 		grpc::Status& GetStatus() { return _Status; }
 		TResponse& GetResponse() { return _Response; }
-		std::unique_ptr<ClientContext>& GetContext() { return _Context; }
 
 	protected:
-		struct FHeader
-		{
-			std::string Key;
-			std::string Value;
-		};
 
-		std::unique_ptr<typename TService::Stub>& CreateStub()
-		{
-            grpc::SslCredentialsOptions SslCredentialsOptions;
-            SslCredentialsOptions.pem_root_certs = Utils::GetSslRootCerts();
-			_Stub = TService::NewStub(grpc::CreateChannel(_ServerUrl, grpc::SslCredentials(SslCredentialsOptions)));
-			return _Stub;
-		}
-
-		std::unique_ptr<ClientContext>& UpdateContext(const std::vector<FHeader>& Headers)
-		{
-			_Context = std::make_unique<ClientContext>();
-			for (auto& Header : Headers)
-			{
-				_Context->AddMetadata(Header.Key, Header.Value);
-			}
-			return _Context;
-		}
-
-		std::unique_ptr<typename TService::Stub> _Stub;
 		grpc::Status _Status;
 		TResponse _Response;
-
-		std::string _ServerUrl;
-		std::unique_ptr<ClientContext> _Context;
 
 		std::function<void(const grpc::Status& Status, const TResponse& Response)> _Callback;
 	};
@@ -217,46 +217,30 @@ namespace Inworld
 		std::string _SessionName;
 	};
 
-	struct INWORLD_EXPORT CapabilitySet
+	class INWORLD_EXPORT ServiceSession : public Service<InworldEngine::WorldEngine>
 	{
-		bool Animations = false;
-		bool Text = false;
-		bool Audio = false;
-		bool Emotions = false;
-		bool Gestures = false;
-		bool Interruptions = false;
-		bool Triggers = false;
-		bool EmotionStreaming = false;
-		bool SilenceEvents = false;
-		bool PhonemeInfo = false;
-		bool LoadSceneInSession = false;
-		bool Continuation = true;
-		bool TurnBasedSTT = true;
-		bool NarratedActions = true;
-		bool Relations = true;
-		bool Multiagent = true;
-	};
+	public:
+		ServiceSession(const std::string& Token, const std::string& SessionId, const std::string& ServerUrl)
+			: Service(ServerUrl)
+			, _Token(Token)
+			, _SessionId(SessionId)
+		{}
+		
+		std::unique_ptr<ReaderWriter> OpenSession();
 
-	struct INWORLD_EXPORT UserSettings
-	{
-		struct PlayerProfile
-		{
-			struct PlayerField
-			{
-				std::string Id;
-				std::string Value;
-			};
+		void SetToken(const std::string& Token) { _Token = Token; }
 
-			std::vector<PlayerField> Fields;
-		};
-
-		PlayerProfile Profile;
+	private:
+		std::unique_ptr<ClientContext>& Context();
+		
+		std::string _Token;
+		std::string _SessionId;
 	};
 
 	class INWORLD_EXPORT RunnableLoadScene : public RunnableRequest<InworldEngine::WorldEngine, InworldEngine::LoadSceneResponse>
 	{
 	public:
-		RunnableLoadScene(const std::string& Token, const std::string& SessionId, const std::string& ServerUrl, const std::string& SceneName, const std::string& PlayerName, const std::string& UserId, const UserSettings& UserSettings, const std::string& ClientId, const std::string& ClientVersion, const std::string& ClientDescription, const std::string& SessionState, const CapabilitySet& Capabilities, std::function<void(const grpc::Status&, const InworldEngine::LoadSceneResponse&)> Callback = nullptr)
+		RunnableLoadScene(const std::string& Token, const std::string& SessionId, const std::string& ServerUrl, const std::string& SceneName, const std::string& PlayerName, const std::string& UserId, const UserSettings& UserSettings, const std::string& ClientId, const std::string& ClientVersion, const std::string& ClientDescription, const std::string& SessionState, const CapabilitySet& Capabilities)
 			: RunnableRequest(ServerUrl, Callback)
 			, _Token(Token)
 			, _SessionId(SessionId)
@@ -269,6 +253,7 @@ namespace Inworld
 			, _ClientDescription(ClientDescription)
 			, _SessionState(SessionState)
 			, _Capabilities(Capabilities)
+			, _SendPacketCallback(SendPacketCallback)
 		{}
 
 		virtual ~RunnableLoadScene() = default;
@@ -283,9 +268,10 @@ namespace Inworld
 		}
 
 	private:
+		std::unique_ptr<ClientContext>& Context();
+
 		std::string _Token;
 		std::string _SessionId;
-		std::string _LoadSceneUrl;
 		std::string _SceneName;
 		std::string _PlayerName;
 		std::string _UserId;
@@ -295,6 +281,7 @@ namespace Inworld
 		std::string _ClientDescription;
 		std::string _SessionState;
 		CapabilitySet _Capabilities;
+		std::function<void(const Inworld::Packet&)> _SendPacketCallback;
 	};
 
 	class INWORLD_EXPORT RunnableGenerateUserTokenRequest : public RunnableRequest<InworldV1alpha::Users, InworldV1alpha::GenerateTokenUserResponse>

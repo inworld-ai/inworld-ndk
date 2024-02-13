@@ -17,10 +17,11 @@
 #include "Utils/SharedQueue.h"
 #include "AsyncRoutine.h"
 #include "AECFilter.h"
-#include "RunnableCommand.h"
 #include "Utils/PerceivedLatencyTracker.h"
 
 using PacketQueue = Inworld::SharedQueue<std::shared_ptr<Inworld::Packet>>;
+
+class ServiceSession;
 
 namespace Inworld
 {
@@ -111,6 +112,8 @@ namespace Inworld
 		void SetOptions(const ClientOptions& options);		
 
 	protected:
+		void PushPacket(std::shared_ptr<Inworld::Packet> Packet);
+
 		virtual std::shared_ptr<TextEvent> SendTextMessage(const Inworld::Routing& Routing, const std::string& Text);
 		virtual std::shared_ptr<DataEvent> SendSoundMessage(const Inworld::Routing& Routing, const std::string& Data);
 		virtual std::shared_ptr<DataEvent> SendSoundMessageWithAEC(const Inworld::Routing& Routing, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
@@ -125,18 +128,17 @@ namespace Inworld
 		{
 			_AsyncReadTask = std::make_unique<TAsyncRoutine>();
 			_AsyncWriteTask = std::make_unique<TAsyncRoutine>();
-			_AsyncLoadSceneTask = std::make_unique<TAsyncRoutine>();
 			_AsyncGenerateTokenTask = std::make_unique<TAsyncRoutine>();
 			_AsyncGetSessionState = std::make_unique<TAsyncRoutine>();
 #ifdef INWORLD_AUDIO_DUMP
 			_AsyncAudioDumper = std::make_unique<TAsyncRoutine>();
 #endif			
 		}
-		std::function<void(std::shared_ptr<Inworld::Packet>)> _OnPacketCallback;
-		std::unique_ptr<IAsyncRoutine> _AsyncLoadSceneTask;
 		void StartReaderWriter();
 		void StopReaderWriter();
 		void SetConnectionState(ConnectionState State);
+
+		std::function<void(std::shared_ptr<Inworld::Packet>)> _OnPacketCallback;
 		ClientOptions _ClientOptions;
 		SessionInfo _SessionInfo;
 		SdkInfo _SdkInfo;
@@ -164,6 +166,8 @@ namespace Inworld
 		std::unique_ptr<IAsyncRoutine> _AsyncWriteTask;
 		std::unique_ptr<IAsyncRoutine> _AsyncGenerateTokenTask;		
 		std::unique_ptr<IAsyncRoutine> _AsyncGetSessionState;
+
+		std::unique_ptr<ServiceSession> _SessionService;
 
 		PacketQueue _IncomingPackets;
 		PacketQueue _OutgoingPackets;

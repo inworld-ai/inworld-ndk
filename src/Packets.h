@@ -61,6 +61,7 @@ namespace Inworld {
 
 		static Routing Player2Agent(const std::string& AgentId);
 		static Routing Player2Agents(const std::vector<std::string>& AgentIds);
+		static Routing Player2Agents(const std::vector<std::string>& AgentIds);
 
         InworldPakets::Routing ToProto() const;
         
@@ -461,7 +462,157 @@ namespace Inworld {
 		std::vector<AgentInfo> _AgentInfos;
 	};
 
+	class INWORLD_EXPORT SessionControlEvent : public Packet
+	{
+	public:
+		SessionControlEvent() : Packet(Routing{ { InworldPakets::Actor_Type_PLAYER, "" }, { InworldPakets::Actor_Type_WORLD, ""}}) {}
+	};
 
+	class INWORLD_EXPORT SessionControlEvent_SessionConfiguration : public SessionControlEvent
+	{
+	public:
+		struct INWORLD_EXPORT Data
+		{
+			std::string Id;
+		};
 
+		SessionControlEvent_SessionConfiguration(const Data& Data)
+			: SessionControlEvent()
+			, _Data(Data)
+		{}
+
+	protected:
+		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+
+	private:
+		Data _Data;
+	};
+
+	class INWORLD_EXPORT SessionControlEvent_Capabilities : public SessionControlEvent
+	{
+	public:
+		struct INWORLD_EXPORT Data
+		{
+			bool Animations = false;
+			bool Audio = false;
+			bool Emotions = false;
+			bool Interruptions = false;
+			bool EmotionStreaming = false;
+			bool SilenceEvents = false;
+			bool PhonemeInfo = false;
+			bool Continuation = true;
+			bool TurnBasedSTT = true;
+			bool NarratedActions = true;
+			bool Relations = true;
+			bool Multiagent = true;
+		};
+
+		SessionControlEvent_Capabilities(const Data& Data)
+			: SessionControlEvent()
+			, _Data(Data)
+		{}
+
+	protected:
+		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+
+	private:
+		Data _Data;
+	};
+
+	class INWORLD_EXPORT SessionControlEvent_UserConfiguration : public SessionControlEvent
+	{
+	public:
+		struct INWORLD_EXPORT Data
+		{
+			struct PlayerProfile
+			{
+				struct PlayerField
+				{
+					std::string Id;
+					std::string Value;
+				};
+
+				std::vector<PlayerField> Fields;
+			};
+
+			PlayerProfile Profile;
+
+			std::string Name;
+			std::string Id;
+		};
+
+		SessionControlEvent_UserConfiguration(const Data& Data)
+			: SessionControlEvent()
+			, _Data(Data)
+		{}
+
+	protected:
+		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+
+	private:
+		Data _Data;
+	};
+
+	class INWORLD_EXPORT SessionControlEvent_ClientConfiguration : public SessionControlEvent
+	{
+	public:
+		struct INWORLD_EXPORT Data
+		{
+			std::string Id;
+			std::string Version;
+			std::string Description;
+		};
+
+		SessionControlEvent_ClientConfiguration(const Data& Data)
+			: SessionControlEvent()
+			, _Data(Data)
+		{}
+
+	protected:
+		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+
+	private:
+		Data _Data;
+	};
+
+	class INWORLD_EXPORT SessionControlEvent_SessionSave : public SessionControlEvent
+	{
+	public:
+		struct INWORLD_EXPORT Data
+		{
+			std::string Bytes;
+		};
+
+		SessionControlEvent_SessionSave(const Data& Data)
+			: SessionControlEvent()
+			, _Data(Data)
+		{}
+
+	protected:
+		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+
+	private:
+		Data _Data;
+	};
+
+	class INWORLD_EXPORT SessionControlEvent_LoadScene : public SessionControlEvent
+	{
+	public:
+		struct INWORLD_EXPORT Data
+		{
+			std::string Scene;
+		};
+
+		SessionControlEvent_LoadScene(const Data& Data)
+			: SessionControlEvent()
+			, _Data(Data)
+		{}
+
+	protected:
+		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+
+	private:
+		Data _Data;
+	};
 }
 #pragma warning(pop)
