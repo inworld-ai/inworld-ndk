@@ -164,7 +164,7 @@ void NDKApp::App::Run()
 						_AgentInfos = AgentInfos;
 						if (!AgentInfos.empty())
 						{
-							_CurrentAgentIdxs.empty();
+							_CurrentAgentIdxs.clear();
 							_CurrentAgentIdxs.push_back(0);
 							NotifyCurrentCharacter();
 						}
@@ -182,16 +182,12 @@ void NDKApp::App::Run()
 	_Options.ApiSecret = g_ApiSecret;
 
 	_Options.Capabilities.Animations = false;
-	_Options.Capabilities.Text = true;
 	_Options.Capabilities.Audio = true;
 	_Options.Capabilities.Emotions = true;
-	_Options.Capabilities.Gestures = true;
 	_Options.Capabilities.Interruptions = true;
-	_Options.Capabilities.Triggers = true;
 	_Options.Capabilities.EmotionStreaming = true;
 	_Options.Capabilities.SilenceEvents = true;
 	_Options.Capabilities.PhonemeInfo = true;
-	_Options.Capabilities.LoadSceneInSession = true;
 	_Options.Capabilities.NarratedActions = true;
 	_Options.Capabilities.Multiagent = true;
 

@@ -541,8 +541,11 @@ void Inworld::ClientBase::LoadScene()
 
 	// order matters
 	PushPacket(std::make_shared<SessionControlEvent_Capabilities>(_ClientOptions.Capabilities));
-	PushPacket(std::make_shared<SessionControlEvent_SessionConfiguration>(
-		SessionControlEvent_SessionConfiguration::Data{ _ClientOptions.GameSessionId }));
+	if (!_ClientOptions.GameSessionId.empty())
+	{
+		PushPacket(std::make_shared<SessionControlEvent_SessionConfiguration>(
+			SessionControlEvent_SessionConfiguration::Data{ _ClientOptions.GameSessionId }));
+	}
 	PushPacket(std::make_shared<SessionControlEvent_ClientConfiguration>(
 		SessionControlEvent_ClientConfiguration::Data{ 
 			_SdkInfo.Type,
@@ -642,6 +645,7 @@ void Inworld::ClientBase::TryToStartReadTask()
 								{
 									if (Packet)
 									{
+										Packet->Accept(*this);
 										_LatencyTracker.HandlePacket(Packet);
 										if (_OnPacketCallback)
 										{
