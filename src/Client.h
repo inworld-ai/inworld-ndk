@@ -33,9 +33,11 @@ namespace Inworld
 		std::string OS;
 	};
 
+	using Capabilities = SessionControlEvent_Capabilities::Data;
+	using UserSettings = SessionControlEvent_UserConfiguration::Data;
 	struct INWORLD_EXPORT ClientOptions
 	{
-		CapabilitySet Capabilities;
+		Capabilities Capabilities;
 		UserSettings UserSettings;
 		std::string ServerUrl;
 		std::string SceneName;

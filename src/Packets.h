@@ -61,7 +61,6 @@ namespace Inworld {
 
 		static Routing Player2Agent(const std::string& AgentId);
 		static Routing Player2Agents(const std::vector<std::string>& AgentIds);
-		static Routing Player2Agents(const std::vector<std::string>& AgentIds);
 
         InworldPakets::Routing ToProto() const;
         
@@ -106,6 +105,7 @@ namespace Inworld {
     class ChangeSceneEvent;
 	class ActionEvent;
 	class RelationEvent;
+	class SceneLoadedEvent;
 
     class INWORLD_EXPORT PacketVisitor
     {
@@ -122,6 +122,7 @@ namespace Inworld {
         virtual void Visit(const ChangeSceneEvent& Event) {  }
     	virtual void Visit(const ActionEvent& Event) { }
     	virtual void Visit(const RelationEvent& Event) { }
+    	virtual void Visit(const SceneLoadedEvent& Event) { }
     };
 
 	struct EmotionalState;
@@ -141,14 +142,14 @@ namespace Inworld {
 		{}
 		virtual ~Packet() = default;
 
-		virtual void Accept(PacketVisitor& Visitor) = 0;
+		virtual void Accept(PacketVisitor& Visitor) {}
 
 		InworldPakets::InworldPacket ToProto() const;
 
 		Routing GetRouting() { return _Routing; }
 
     protected:
-        virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const = 0;
+        virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const {}
         
 	public:
         PacketId _PacketId;
@@ -460,6 +461,17 @@ namespace Inworld {
 	private:
 		std::string _SceneName;
 		std::vector<AgentInfo> _AgentInfos;
+	};
+
+	class INWORLD_EXPORT SceneLoadedEvent : public Packet
+	{
+	public:
+		SceneLoadedEvent(const InworldPakets::InworldPacket& GrpcPacket);
+
+		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
+
+	private:
+
 	};
 
 	class INWORLD_EXPORT SessionControlEvent : public Packet

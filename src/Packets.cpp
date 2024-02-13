@@ -292,4 +292,9 @@ namespace Inworld {
         Proto.mutable_mutation()->mutable_load_scene()->set_name(_Data.Scene);
 	}
 
+	SceneLoadedEvent::SceneLoadedEvent(const InworldPakets::InworldPacket& GrpcPacket)
+	{
+
+	}
+
 }
