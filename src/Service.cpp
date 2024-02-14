@@ -76,7 +76,7 @@ void Inworld::RunnableRead::Run()
 			}
 			else if (IncomingPacket.session_control_response().has_loaded_characters())
 			{
-				Packet = std::make_shared<Inworld::SessionControlResponse_LoadScene>(IncomingPacket);
+				Packet = std::make_shared<Inworld::SessionControlResponse_LoadCharacters>(IncomingPacket);
 			}
 		}
 		else

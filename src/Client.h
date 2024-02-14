@@ -79,8 +79,9 @@ namespace Inworld
 		virtual std::shared_ptr<CustomEvent> SendCustomEvent(const std::vector<std::string>& AgentIds, const std::string& Name, const std::unordered_map<std::string, std::string>& Params);
 		
 		virtual std::shared_ptr<ActionEvent> SendNarrationEvent(std::string AgentId, const std::string& Content);
-    
-		virtual std::shared_ptr<ChangeSceneEvent> SendChangeSceneEvent(const std::string& Scene);
+		
+		virtual void LoadScene(const std::string& Scene, const std::string& SavedState);
+		virtual void LoadCharacters(const std::vector<std::string>& Names, const std::string& SavedState);
 
 		virtual void CancelResponse(const std::string& AgentId, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds);
 
@@ -148,8 +149,7 @@ namespace Inworld
 		SessionInfo _SessionInfo;
 		SdkInfo _SdkInfo;
 	private:
-		void LoadScene();
-		void OnCharactersLoaded(const std::vector<AgentInfo>& AgentInfos);
+		void StartSession();
 		void TryToStartReadTask();
 		void TryToStartWriteTask();
 
