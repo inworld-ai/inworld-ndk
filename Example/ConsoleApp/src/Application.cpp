@@ -29,13 +29,13 @@ void NDKApp::App::Run()
 	_Cli.SetCommands({
 		{
 			"Text",
-			"Send text message to a character (Arg0: Text)",
+			"Send text message to a character (Arg: Text)",
 			[this](std::vector<std::string> Args)
 			{
-				if (Args.size() != 1)
+				std::string Text;
+				for (auto& A : Args)
 				{
-					Error("Invalid args");
-					return;
+					Text += A + " ";
 				}
 
 				auto CurAgents = GetCurrentAgentBrains();
@@ -45,7 +45,7 @@ void NDKApp::App::Run()
 					return;
 				}
 
-				_Client.SendTextMessage(CurAgents, Args[0]);
+				_Client.SendTextMessage(CurAgents, Text);
 			}
 		},
 		{
@@ -72,16 +72,22 @@ void NDKApp::App::Run()
 		},
 		{
 			"Narration",
-			"Send narration to a character (Arg0: Text)",
+			"Send narration to a character (Arg: Text)",
 			[this](std::vector<std::string> Args)
 			{
+				std::string Text;
+				for (auto& A : Args)
+				{
+					Text += A + " ";
+				}
+
 				if (_CurrentAgentIdxs.empty())
 				{
 					Error("Invalid character");
 					return;
 				}
 
-				_Client.SendNarrationEvent(_AgentInfos[_CurrentAgentIdxs[0]].AgentId, Args[0]);
+				_Client.SendNarrationEvent(_AgentInfos[_CurrentAgentIdxs[0]].AgentId, Text);
 				Inworld::Log("Narration sent.");
 			}
 		},
@@ -103,7 +109,7 @@ void NDKApp::App::Run()
 		},
 		{
 			"SetChar",
-			"Set character index (Arg0: Index)",
+			"Set character index (Arg: Index)",
 			[this](std::vector<std::string> Args)
 			{
 				if (Args.empty())
@@ -170,16 +176,46 @@ void NDKApp::App::Run()
 						}
 					});
 			}
+		},
+		{
+			"ReloadScene",
+			"Reload scene",
+			[this](std::vector<std::string> Args)
+			{
+				if (Args.size() != 1)
+				{
+					Error("Invalid args");
+					return;
+				}
+
+				_Client.ReloadScene(Args[0], "");
+			}
+		},
+		{
+			"LoadChars",
+			"Load characters",
+			[this](std::vector<std::string> Args)
+			{
+				if (Args.empty())
+				{
+					Error("Invalid args");
+					return;
+				}
+
+				_Client.LoadCharacters(Args, "");
+			}
 		}
 		});
 
-		_Options.ServerUrl = "api-engine.inworld.ai:443";
+	_Options.ServerUrl = "api-engine.inworld.ai:443";
 	_Options.PlayerName = "Player";
 
 	_Options.SceneName = g_SceneName;
+	//_Options.Characters = { "workspaces/artem_v_test/characters/cristiano_ronaldo" };
 	_Options.Base64 = g_Base64;
 	_Options.ApiKey = g_ApiKey;
 	_Options.ApiSecret = g_ApiSecret;
+	//_Options.GameSessionId = "ndk-test-game-session";
 
 	_Options.Capabilities.Animations = false;
 	_Options.Capabilities.Audio = true;
@@ -229,8 +265,8 @@ void NDKApp::App::Run()
 			{
 				_CurrentAgentIdxs.clear();
 				_CurrentAgentIdxs.push_back(0);
-				if (_AgentInfos.size() > 1)
-					_CurrentAgentIdxs.push_back(1);
+				//if (_AgentInfos.size() > 1)
+				//	_CurrentAgentIdxs.push_back(1);
 
 				NotifyCurrentCharacter();
 			}
