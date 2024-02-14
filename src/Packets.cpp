@@ -302,4 +302,17 @@ namespace Inworld {
         Proto.mutable_mutation()->mutable_load_scene()->set_name(_Data.Scene);
 	}
 
+    SessionControlResponse_LoadScene::SessionControlResponse_LoadScene(const InworldPakets::InworldPacket& GrpcPacket)
+	{
+		auto& Scene = GrpcPacket.session_control_response().loaded_scene();
+		_AgentInfos.reserve(Scene.agents_size());
+		for (int32_t i = 0; i < Scene.agents_size(); i++)
+		{
+			AgentInfo Info;
+			Info.BrainName = Scene.agents(i).brain_name().c_str();
+			Info.AgentId = Scene.agents(i).agent_id().c_str();
+			Info.GivenName = Scene.agents(i).given_name().c_str();
+			_AgentInfos.push_back(Info);
+		}
+	}
 }

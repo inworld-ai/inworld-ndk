@@ -113,7 +113,7 @@ namespace Inworld
 		const SessionInfo& GetSessionInfo() const;
 		void SetOptions(const ClientOptions& options);		
 
-		virtual void Visit(const ChangeSceneEvent& Event) override;
+		virtual void Visit(const SessionControlResponse_LoadScene& Event) override;
 
 	protected:
 		void PushPacket(std::shared_ptr<Inworld::Packet> Packet);
@@ -148,7 +148,7 @@ namespace Inworld
 		SdkInfo _SdkInfo;
 	private:
 		void LoadScene();
-		void OnSceneLoaded(const ChangeSceneEvent& Event);
+		void OnSceneLoaded(const SessionControlResponse_LoadScene& Event);
 		void TryToStartReadTask();
 		void TryToStartWriteTask();
 
