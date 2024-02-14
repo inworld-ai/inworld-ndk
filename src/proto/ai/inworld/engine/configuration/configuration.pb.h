@@ -225,6 +225,7 @@ class CapabilitiesConfiguration PROTOBUF_FINAL :
     kDebugInfoFieldNumber = 14,
     kTtsMp3FieldNumber = 15,
     kMultiAgentFieldNumber = 20,
+    kAudio2FaceFieldNumber = 21,
   };
   // bool audio = 1;
   void clear_audio();
@@ -361,6 +362,15 @@ class CapabilitiesConfiguration PROTOBUF_FINAL :
   void _internal_set_multi_agent(bool value);
   public:
 
+  // bool audio2face = 21;
+  void clear_audio2face();
+  bool audio2face() const;
+  void set_audio2face(bool value);
+  private:
+  bool _internal_audio2face() const;
+  void _internal_set_audio2face(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:ai.inworld.engine.configuration.CapabilitiesConfiguration)
  private:
   class _Internal;
@@ -383,6 +393,7 @@ class CapabilitiesConfiguration PROTOBUF_FINAL :
   bool debug_info_;
   bool tts_mp3_;
   bool multi_agent_;
+  bool audio2face_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto;
 };
@@ -1666,6 +1677,26 @@ inline void CapabilitiesConfiguration::_internal_set_multi_agent(bool value) {
 inline void CapabilitiesConfiguration::set_multi_agent(bool value) {
   _internal_set_multi_agent(value);
   // @@protoc_insertion_point(field_set:ai.inworld.engine.configuration.CapabilitiesConfiguration.multi_agent)
+}
+
+// bool audio2face = 21;
+inline void CapabilitiesConfiguration::clear_audio2face() {
+  audio2face_ = false;
+}
+inline bool CapabilitiesConfiguration::_internal_audio2face() const {
+  return audio2face_;
+}
+inline bool CapabilitiesConfiguration::audio2face() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.configuration.CapabilitiesConfiguration.audio2face)
+  return _internal_audio2face();
+}
+inline void CapabilitiesConfiguration::_internal_set_audio2face(bool value) {
+  
+  audio2face_ = value;
+}
+inline void CapabilitiesConfiguration::set_audio2face(bool value) {
+  _internal_set_audio2face(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.configuration.CapabilitiesConfiguration.audio2face)
 }
 
 // -------------------------------------------------------------------

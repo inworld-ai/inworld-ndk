@@ -51,7 +51,7 @@ struct TableStruct_ai_2finworld_2fvoices_2fvoices_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[3]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[4]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -61,6 +61,9 @@ extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table
 namespace ai {
 namespace inworld {
 namespace voices {
+class InworldV2Metadata;
+class InworldV2MetadataDefaultTypeInternal;
+extern InworldV2MetadataDefaultTypeInternal _InworldV2Metadata_default_instance_;
 class Voice;
 class VoiceDefaultTypeInternal;
 extern VoiceDefaultTypeInternal _Voice_default_instance_;
@@ -74,6 +77,7 @@ extern Voice_PhonemesOverridesEntry_DoNotUseDefaultTypeInternal _Voice_PhonemesO
 }  // namespace inworld
 }  // namespace ai
 PROTOBUF_NAMESPACE_OPEN
+template<> ::ai::inworld::voices::InworldV2Metadata* Arena::CreateMaybeMessage<::ai::inworld::voices::InworldV2Metadata>(Arena*);
 template<> ::ai::inworld::voices::Voice* Arena::CreateMaybeMessage<::ai::inworld::voices::Voice>(Arena*);
 template<> ::ai::inworld::voices::Voice_ElevenLabsMetadata* Arena::CreateMaybeMessage<::ai::inworld::voices::Voice_ElevenLabsMetadata>(Arena*);
 template<> ::ai::inworld::voices::Voice_PhonemesOverridesEntry_DoNotUse* Arena::CreateMaybeMessage<::ai::inworld::voices::Voice_PhonemesOverridesEntry_DoNotUse>(Arena*);
@@ -165,6 +169,149 @@ inline bool TTSType_Parse(
 }
 // ===================================================================
 
+class InworldV2Metadata PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.voices.InworldV2Metadata) */ {
+ public:
+  inline InworldV2Metadata() : InworldV2Metadata(nullptr) {}
+  virtual ~InworldV2Metadata();
+
+  InworldV2Metadata(const InworldV2Metadata& from);
+  InworldV2Metadata(InworldV2Metadata&& from) noexcept
+    : InworldV2Metadata() {
+    *this = ::std::move(from);
+  }
+
+  inline InworldV2Metadata& operator=(const InworldV2Metadata& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline InworldV2Metadata& operator=(InworldV2Metadata&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const InworldV2Metadata& default_instance();
+
+  static inline const InworldV2Metadata* internal_default_instance() {
+    return reinterpret_cast<const InworldV2Metadata*>(
+               &_InworldV2Metadata_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(InworldV2Metadata& a, InworldV2Metadata& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(InworldV2Metadata* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(InworldV2Metadata* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline InworldV2Metadata* New() const final {
+    return CreateMaybeMessage<InworldV2Metadata>(nullptr);
+  }
+
+  InworldV2Metadata* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<InworldV2Metadata>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const InworldV2Metadata& from);
+  void MergeFrom(const InworldV2Metadata& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(InworldV2Metadata* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.voices.InworldV2Metadata";
+  }
+  protected:
+  explicit InworldV2Metadata(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fvoices_2fvoices_2eproto);
+    return ::descriptor_table_ai_2finworld_2fvoices_2fvoices_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kVoiceIdFieldNumber = 1,
+  };
+  // string voice_id = 1;
+  void clear_voice_id();
+  const std::string& voice_id() const;
+  void set_voice_id(const std::string& value);
+  void set_voice_id(std::string&& value);
+  void set_voice_id(const char* value);
+  void set_voice_id(const char* value, size_t size);
+  std::string* mutable_voice_id();
+  std::string* release_voice_id();
+  void set_allocated_voice_id(std::string* voice_id);
+  private:
+  const std::string& _internal_voice_id() const;
+  void _internal_set_voice_id(const std::string& value);
+  std::string* _internal_mutable_voice_id();
+  public:
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.voices.InworldV2Metadata)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr voice_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fvoices_2fvoices_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Voice_PhonemesOverridesEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<Voice_PhonemesOverridesEntry_DoNotUse, 
     std::string, std::string,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
@@ -189,7 +336,7 @@ public:
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
     ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fvoices_2fvoices_2eproto);
-    return ::descriptor_table_ai_2finworld_2fvoices_2fvoices_2eproto.file_level_metadata[0];
+    return ::descriptor_table_ai_2finworld_2fvoices_2fvoices_2eproto.file_level_metadata[1];
   }
 
   public:
@@ -238,7 +385,7 @@ class Voice_ElevenLabsMetadata PROTOBUF_FINAL :
                &_Voice_ElevenLabsMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   friend void swap(Voice_ElevenLabsMetadata& a, Voice_ElevenLabsMetadata& b) {
     a.Swap(&b);
@@ -378,6 +525,7 @@ class Voice PROTOBUF_FINAL :
 
   enum TtsMetadataCase {
     kElevenlabsMetadata = 100,
+    kInworldV2Metadata = 101,
     TTS_METADATA_NOT_SET = 0,
   };
 
@@ -386,7 +534,7 @@ class Voice PROTOBUF_FINAL :
                &_Voice_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   friend void swap(Voice& a, Voice& b) {
     a.Swap(&b);
@@ -470,6 +618,7 @@ class Voice PROTOBUF_FINAL :
     kAgeFieldNumber = 8,
     kLanguageFieldNumber = 10,
     kElevenlabsMetadataFieldNumber = 100,
+    kInworldV2MetadataFieldNumber = 101,
   };
   // map<string, string> phonemes_overrides = 7;
   int phonemes_overrides_size() const;
@@ -601,12 +750,31 @@ class Voice PROTOBUF_FINAL :
       ::ai::inworld::voices::Voice_ElevenLabsMetadata* elevenlabs_metadata);
   ::ai::inworld::voices::Voice_ElevenLabsMetadata* unsafe_arena_release_elevenlabs_metadata();
 
+  // .ai.inworld.voices.InworldV2Metadata inworld_v2_metadata = 101;
+  bool has_inworld_v2_metadata() const;
+  private:
+  bool _internal_has_inworld_v2_metadata() const;
+  public:
+  void clear_inworld_v2_metadata();
+  const ::ai::inworld::voices::InworldV2Metadata& inworld_v2_metadata() const;
+  ::ai::inworld::voices::InworldV2Metadata* release_inworld_v2_metadata();
+  ::ai::inworld::voices::InworldV2Metadata* mutable_inworld_v2_metadata();
+  void set_allocated_inworld_v2_metadata(::ai::inworld::voices::InworldV2Metadata* inworld_v2_metadata);
+  private:
+  const ::ai::inworld::voices::InworldV2Metadata& _internal_inworld_v2_metadata() const;
+  ::ai::inworld::voices::InworldV2Metadata* _internal_mutable_inworld_v2_metadata();
+  public:
+  void unsafe_arena_set_allocated_inworld_v2_metadata(
+      ::ai::inworld::voices::InworldV2Metadata* inworld_v2_metadata);
+  ::ai::inworld::voices::InworldV2Metadata* unsafe_arena_release_inworld_v2_metadata();
+
   void clear_tts_metadata();
   TtsMetadataCase tts_metadata_case() const;
   // @@protoc_insertion_point(class_scope:ai.inworld.voices.Voice)
  private:
   class _Internal;
   void set_has_elevenlabs_metadata();
+  void set_has_inworld_v2_metadata();
 
   inline bool has_tts_metadata() const;
   inline void clear_has_tts_metadata();
@@ -631,6 +799,7 @@ class Voice PROTOBUF_FINAL :
   union TtsMetadataUnion {
     TtsMetadataUnion() {}
     ::ai::inworld::voices::Voice_ElevenLabsMetadata* elevenlabs_metadata_;
+    ::ai::inworld::voices::InworldV2Metadata* inworld_v2_metadata_;
   } tts_metadata_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
@@ -646,6 +815,71 @@ class Voice PROTOBUF_FINAL :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// InworldV2Metadata
+
+// string voice_id = 1;
+inline void InworldV2Metadata::clear_voice_id() {
+  voice_id_.ClearToEmpty();
+}
+inline const std::string& InworldV2Metadata::voice_id() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.voices.InworldV2Metadata.voice_id)
+  return _internal_voice_id();
+}
+inline void InworldV2Metadata::set_voice_id(const std::string& value) {
+  _internal_set_voice_id(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.voices.InworldV2Metadata.voice_id)
+}
+inline std::string* InworldV2Metadata::mutable_voice_id() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.voices.InworldV2Metadata.voice_id)
+  return _internal_mutable_voice_id();
+}
+inline const std::string& InworldV2Metadata::_internal_voice_id() const {
+  return voice_id_.Get();
+}
+inline void InworldV2Metadata::_internal_set_voice_id(const std::string& value) {
+  
+  voice_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void InworldV2Metadata::set_voice_id(std::string&& value) {
+  
+  voice_id_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.voices.InworldV2Metadata.voice_id)
+}
+inline void InworldV2Metadata::set_voice_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  voice_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.voices.InworldV2Metadata.voice_id)
+}
+inline void InworldV2Metadata::set_voice_id(const char* value,
+    size_t size) {
+  
+  voice_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.voices.InworldV2Metadata.voice_id)
+}
+inline std::string* InworldV2Metadata::_internal_mutable_voice_id() {
+  
+  return voice_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* InworldV2Metadata::release_voice_id() {
+  // @@protoc_insertion_point(field_release:ai.inworld.voices.InworldV2Metadata.voice_id)
+  return voice_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void InworldV2Metadata::set_allocated_voice_id(std::string* voice_id) {
+  if (voice_id != nullptr) {
+    
+  } else {
+    
+  }
+  voice_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), voice_id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.voices.InworldV2Metadata.voice_id)
+}
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // Voice_ElevenLabsMetadata
@@ -1079,6 +1313,79 @@ inline ::ai::inworld::voices::Voice_ElevenLabsMetadata* Voice::mutable_elevenlab
   return _internal_mutable_elevenlabs_metadata();
 }
 
+// .ai.inworld.voices.InworldV2Metadata inworld_v2_metadata = 101;
+inline bool Voice::_internal_has_inworld_v2_metadata() const {
+  return tts_metadata_case() == kInworldV2Metadata;
+}
+inline bool Voice::has_inworld_v2_metadata() const {
+  return _internal_has_inworld_v2_metadata();
+}
+inline void Voice::set_has_inworld_v2_metadata() {
+  _oneof_case_[0] = kInworldV2Metadata;
+}
+inline void Voice::clear_inworld_v2_metadata() {
+  if (_internal_has_inworld_v2_metadata()) {
+    if (GetArena() == nullptr) {
+      delete tts_metadata_.inworld_v2_metadata_;
+    }
+    clear_has_tts_metadata();
+  }
+}
+inline ::ai::inworld::voices::InworldV2Metadata* Voice::release_inworld_v2_metadata() {
+  // @@protoc_insertion_point(field_release:ai.inworld.voices.Voice.inworld_v2_metadata)
+  if (_internal_has_inworld_v2_metadata()) {
+    clear_has_tts_metadata();
+      ::ai::inworld::voices::InworldV2Metadata* temp = tts_metadata_.inworld_v2_metadata_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    tts_metadata_.inworld_v2_metadata_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::ai::inworld::voices::InworldV2Metadata& Voice::_internal_inworld_v2_metadata() const {
+  return _internal_has_inworld_v2_metadata()
+      ? *tts_metadata_.inworld_v2_metadata_
+      : reinterpret_cast< ::ai::inworld::voices::InworldV2Metadata&>(::ai::inworld::voices::_InworldV2Metadata_default_instance_);
+}
+inline const ::ai::inworld::voices::InworldV2Metadata& Voice::inworld_v2_metadata() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.voices.Voice.inworld_v2_metadata)
+  return _internal_inworld_v2_metadata();
+}
+inline ::ai::inworld::voices::InworldV2Metadata* Voice::unsafe_arena_release_inworld_v2_metadata() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:ai.inworld.voices.Voice.inworld_v2_metadata)
+  if (_internal_has_inworld_v2_metadata()) {
+    clear_has_tts_metadata();
+    ::ai::inworld::voices::InworldV2Metadata* temp = tts_metadata_.inworld_v2_metadata_;
+    tts_metadata_.inworld_v2_metadata_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Voice::unsafe_arena_set_allocated_inworld_v2_metadata(::ai::inworld::voices::InworldV2Metadata* inworld_v2_metadata) {
+  clear_tts_metadata();
+  if (inworld_v2_metadata) {
+    set_has_inworld_v2_metadata();
+    tts_metadata_.inworld_v2_metadata_ = inworld_v2_metadata;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.voices.Voice.inworld_v2_metadata)
+}
+inline ::ai::inworld::voices::InworldV2Metadata* Voice::_internal_mutable_inworld_v2_metadata() {
+  if (!_internal_has_inworld_v2_metadata()) {
+    clear_tts_metadata();
+    set_has_inworld_v2_metadata();
+    tts_metadata_.inworld_v2_metadata_ = CreateMaybeMessage< ::ai::inworld::voices::InworldV2Metadata >(GetArena());
+  }
+  return tts_metadata_.inworld_v2_metadata_;
+}
+inline ::ai::inworld::voices::InworldV2Metadata* Voice::mutable_inworld_v2_metadata() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.voices.Voice.inworld_v2_metadata)
+  return _internal_mutable_inworld_v2_metadata();
+}
+
 inline bool Voice::has_tts_metadata() const {
   return tts_metadata_case() != TTS_METADATA_NOT_SET;
 }
@@ -1091,6 +1398,8 @@ inline Voice::TtsMetadataCase Voice::tts_metadata_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

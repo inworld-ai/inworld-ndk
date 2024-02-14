@@ -111,6 +111,7 @@ class BaseVoice PROTOBUF_FINAL :
 
   enum TtsMetadataCase {
     kElevenlabsMetadata = 100,
+    kInworldV2Metadata = 101,
     TTS_METADATA_NOT_SET = 0,
   };
 
@@ -197,6 +198,7 @@ class BaseVoice PROTOBUF_FINAL :
     kNaturalSampleRateHertzFieldNumber = 4,
     kAgeFieldNumber = 5,
     kElevenlabsMetadataFieldNumber = 100,
+    kInworldV2MetadataFieldNumber = 101,
   };
   // repeated string language_codes = 1 [deprecated = true];
   PROTOBUF_DEPRECATED int language_codes_size() const;
@@ -300,12 +302,31 @@ class BaseVoice PROTOBUF_FINAL :
       ::ai::inworld::voices::Voice_ElevenLabsMetadata* elevenlabs_metadata);
   ::ai::inworld::voices::Voice_ElevenLabsMetadata* unsafe_arena_release_elevenlabs_metadata();
 
+  // .ai.inworld.voices.InworldV2Metadata inworld_v2_metadata = 101;
+  bool has_inworld_v2_metadata() const;
+  private:
+  bool _internal_has_inworld_v2_metadata() const;
+  public:
+  void clear_inworld_v2_metadata();
+  const ::ai::inworld::voices::InworldV2Metadata& inworld_v2_metadata() const;
+  ::ai::inworld::voices::InworldV2Metadata* release_inworld_v2_metadata();
+  ::ai::inworld::voices::InworldV2Metadata* mutable_inworld_v2_metadata();
+  void set_allocated_inworld_v2_metadata(::ai::inworld::voices::InworldV2Metadata* inworld_v2_metadata);
+  private:
+  const ::ai::inworld::voices::InworldV2Metadata& _internal_inworld_v2_metadata() const;
+  ::ai::inworld::voices::InworldV2Metadata* _internal_mutable_inworld_v2_metadata();
+  public:
+  void unsafe_arena_set_allocated_inworld_v2_metadata(
+      ::ai::inworld::voices::InworldV2Metadata* inworld_v2_metadata);
+  ::ai::inworld::voices::InworldV2Metadata* unsafe_arena_release_inworld_v2_metadata();
+
   void clear_tts_metadata();
   TtsMetadataCase tts_metadata_case() const;
   // @@protoc_insertion_point(class_scope:ai.inworld.voices.BaseVoice)
  private:
   class _Internal;
   void set_has_elevenlabs_metadata();
+  void set_has_inworld_v2_metadata();
 
   inline bool has_tts_metadata() const;
   inline void clear_has_tts_metadata();
@@ -323,6 +344,7 @@ class BaseVoice PROTOBUF_FINAL :
   union TtsMetadataUnion {
     TtsMetadataUnion() {}
     ::ai::inworld::voices::Voice_ElevenLabsMetadata* elevenlabs_metadata_;
+    ::ai::inworld::voices::InworldV2Metadata* inworld_v2_metadata_;
   } tts_metadata_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
@@ -641,6 +663,71 @@ inline ::ai::inworld::voices::Voice_ElevenLabsMetadata* BaseVoice::_internal_mut
 inline ::ai::inworld::voices::Voice_ElevenLabsMetadata* BaseVoice::mutable_elevenlabs_metadata() {
   // @@protoc_insertion_point(field_mutable:ai.inworld.voices.BaseVoice.elevenlabs_metadata)
   return _internal_mutable_elevenlabs_metadata();
+}
+
+// .ai.inworld.voices.InworldV2Metadata inworld_v2_metadata = 101;
+inline bool BaseVoice::_internal_has_inworld_v2_metadata() const {
+  return tts_metadata_case() == kInworldV2Metadata;
+}
+inline bool BaseVoice::has_inworld_v2_metadata() const {
+  return _internal_has_inworld_v2_metadata();
+}
+inline void BaseVoice::set_has_inworld_v2_metadata() {
+  _oneof_case_[0] = kInworldV2Metadata;
+}
+inline ::ai::inworld::voices::InworldV2Metadata* BaseVoice::release_inworld_v2_metadata() {
+  // @@protoc_insertion_point(field_release:ai.inworld.voices.BaseVoice.inworld_v2_metadata)
+  if (_internal_has_inworld_v2_metadata()) {
+    clear_has_tts_metadata();
+      ::ai::inworld::voices::InworldV2Metadata* temp = tts_metadata_.inworld_v2_metadata_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    tts_metadata_.inworld_v2_metadata_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::ai::inworld::voices::InworldV2Metadata& BaseVoice::_internal_inworld_v2_metadata() const {
+  return _internal_has_inworld_v2_metadata()
+      ? *tts_metadata_.inworld_v2_metadata_
+      : reinterpret_cast< ::ai::inworld::voices::InworldV2Metadata&>(::ai::inworld::voices::_InworldV2Metadata_default_instance_);
+}
+inline const ::ai::inworld::voices::InworldV2Metadata& BaseVoice::inworld_v2_metadata() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.voices.BaseVoice.inworld_v2_metadata)
+  return _internal_inworld_v2_metadata();
+}
+inline ::ai::inworld::voices::InworldV2Metadata* BaseVoice::unsafe_arena_release_inworld_v2_metadata() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:ai.inworld.voices.BaseVoice.inworld_v2_metadata)
+  if (_internal_has_inworld_v2_metadata()) {
+    clear_has_tts_metadata();
+    ::ai::inworld::voices::InworldV2Metadata* temp = tts_metadata_.inworld_v2_metadata_;
+    tts_metadata_.inworld_v2_metadata_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void BaseVoice::unsafe_arena_set_allocated_inworld_v2_metadata(::ai::inworld::voices::InworldV2Metadata* inworld_v2_metadata) {
+  clear_tts_metadata();
+  if (inworld_v2_metadata) {
+    set_has_inworld_v2_metadata();
+    tts_metadata_.inworld_v2_metadata_ = inworld_v2_metadata;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.voices.BaseVoice.inworld_v2_metadata)
+}
+inline ::ai::inworld::voices::InworldV2Metadata* BaseVoice::_internal_mutable_inworld_v2_metadata() {
+  if (!_internal_has_inworld_v2_metadata()) {
+    clear_tts_metadata();
+    set_has_inworld_v2_metadata();
+    tts_metadata_.inworld_v2_metadata_ = CreateMaybeMessage< ::ai::inworld::voices::InworldV2Metadata >(GetArena());
+  }
+  return tts_metadata_.inworld_v2_metadata_;
+}
+inline ::ai::inworld::voices::InworldV2Metadata* BaseVoice::mutable_inworld_v2_metadata() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.voices.BaseVoice.inworld_v2_metadata)
+  return _internal_mutable_inworld_v2_metadata();
 }
 
 inline bool BaseVoice::has_tts_metadata() const {
