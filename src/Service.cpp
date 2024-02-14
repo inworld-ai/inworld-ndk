@@ -68,10 +68,6 @@ void Inworld::RunnableRead::Run()
 		{
 			Packet = std::make_shared<Inworld::RelationEvent>(IncomingPacket);
 		}
-		else if (IncomingPacket.has_load_scene_output())
-		{
-			Packet = std::make_shared<Inworld::RelationEvent>(IncomingPacket);
-		}
 		else
 		{
 			// Unknown packet type

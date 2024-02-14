@@ -105,7 +105,6 @@ namespace Inworld {
     class ChangeSceneEvent;
 	class ActionEvent;
 	class RelationEvent;
-	class SceneLoadedEvent;
 
     class INWORLD_EXPORT PacketVisitor
     {
@@ -122,7 +121,6 @@ namespace Inworld {
         virtual void Visit(const ChangeSceneEvent& Event) {  }
     	virtual void Visit(const ActionEvent& Event) { }
     	virtual void Visit(const RelationEvent& Event) { }
-    	virtual void Visit(const SceneLoadedEvent& Event) { }
     };
 
 	struct EmotionalState;
@@ -460,19 +458,6 @@ namespace Inworld {
 
 	private:
 		std::string _SceneName;
-		std::vector<AgentInfo> _AgentInfos;
-	};
-
-	class INWORLD_EXPORT SceneLoadedEvent : public Packet
-	{
-	public:
-		SceneLoadedEvent(const InworldPakets::InworldPacket& GrpcPacket);
-
-		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
-
-		const std::vector<AgentInfo>& GetAgentInfos() const { return _AgentInfos; }
-
-	private:
 		std::vector<AgentInfo> _AgentInfos;
 	};
 

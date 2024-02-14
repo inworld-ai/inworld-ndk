@@ -239,20 +239,6 @@ namespace Inworld {
         Proto.mutable_action()->mutable_narrated_action()->set_content(_Content);
 	}
 
-	SceneLoadedEvent::SceneLoadedEvent(const InworldPakets::InworldPacket& GrpcPacket)
-	{
-		auto& Scene = GrpcPacket.load_scene_output();
-        _AgentInfos.reserve(Scene.agents_size());
-		for (int32_t i = 0; i < Scene.agents_size(); i++)
-		{
-			AgentInfo Info;
-			Info.BrainName = Scene.agents(i).brain_name().c_str();
-			Info.AgentId = Scene.agents(i).agent_id().c_str();
-			Info.GivenName = Scene.agents(i).given_name().c_str();
-            _AgentInfos.push_back(Info);
-		}
-	}
-
 	void SessionControlEvent_SessionConfiguration::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
 	{
 		Proto.mutable_session_control()->mutable_session_configuration()->set_game_session_id(_Data.Id);

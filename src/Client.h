@@ -113,7 +113,7 @@ namespace Inworld
 		const SessionInfo& GetSessionInfo() const;
 		void SetOptions(const ClientOptions& options);		
 
-		virtual void Visit(const SceneLoadedEvent& Event) override;
+		virtual void Visit(const ChangeSceneEvent& Event) override;
 
 	protected:
 		void PushPacket(std::shared_ptr<Inworld::Packet> Packet);
@@ -148,9 +148,15 @@ namespace Inworld
 		SdkInfo _SdkInfo;
 	private:
 		void LoadScene();
-		void OnSceneLoaded(const SceneLoadedEvent& Event);		
+		void OnSceneLoaded(const ChangeSceneEvent& Event);
 		void TryToStartReadTask();
 		void TryToStartWriteTask();
+
+		template<typename T>
+		void ControlSession(T::Data D)
+		{
+			PushPacket(std::make_shared<T>(D));
+		}
 
 #ifdef INWORLD_AUDIO_DUMP
 		std::unique_ptr<IAsyncRoutine> _AsyncAudioDumper;

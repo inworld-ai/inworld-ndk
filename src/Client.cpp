@@ -64,7 +64,7 @@ void Inworld::ClientBase::SetOptions(const ClientOptions& options)
 
 }
 
-void Inworld::ClientBase::Visit(const SceneLoadedEvent& Event)
+void Inworld::ClientBase::Visit(const ChangeSceneEvent& Event)
 {
 	OnSceneLoaded(Event);
 }
@@ -511,6 +511,7 @@ void Inworld::ClientBase::LoadScene()
 	}
 
 	Inworld::LogSetSessionId(_SessionInfo.SessionId);
+	Inworld::Log("Session Id: %s", ARG_STR(_SessionInfo.SessionId));
 
 	std::string SdkDesc = _SdkInfo.Type;
 	SdkDesc += !_SdkInfo.Subtype.empty() ? ("/" + _SdkInfo.Subtype + ";") : ";";
@@ -540,29 +541,26 @@ void Inworld::ClientBase::LoadScene()
 	}
 
 	// order matters
-	PushPacket(std::make_shared<SessionControlEvent_Capabilities>(_ClientOptions.Capabilities));
+	ControlSession<SessionControlEvent_Capabilities>(_ClientOptions.Capabilities);
 	if (!_ClientOptions.GameSessionId.empty())
 	{
-		PushPacket(std::make_shared<SessionControlEvent_SessionConfiguration>(
-			SessionControlEvent_SessionConfiguration::Data{ _ClientOptions.GameSessionId }));
+		ControlSession<SessionControlEvent_SessionConfiguration>({ _ClientOptions.GameSessionId });
 	}
-	PushPacket(std::make_shared<SessionControlEvent_ClientConfiguration>(
-		SessionControlEvent_ClientConfiguration::Data{ 
+	ControlSession<SessionControlEvent_ClientConfiguration>(
+		{ 
 			_SdkInfo.Type,
 			_SdkInfo.Version,
 			SdkDesc,
-		}));
-	PushPacket(std::make_shared<SessionControlEvent_UserConfiguration>(_ClientOptions.UserSettings));
+		});
+	ControlSession<SessionControlEvent_UserConfiguration>(_ClientOptions.UserSettings);
 	if (!_SessionInfo.SessionSavedState.empty())
 	{
-		PushPacket(std::make_shared<SessionControlEvent_SessionSave>(
-			SessionControlEvent_SessionSave::Data{ _SessionInfo.SessionSavedState }));
+		ControlSession<SessionControlEvent_SessionSave>({ _SessionInfo.SessionSavedState });
 	}
-	PushPacket(std::make_shared<SessionControlEvent_LoadScene>(
-		SessionControlEvent_LoadScene::Data{ _ClientOptions.SceneName, }));
+	ControlSession<SessionControlEvent_LoadScene>({ _ClientOptions.SceneName });
 }
 
-void Inworld::ClientBase::OnSceneLoaded(const SceneLoadedEvent& Event)
+void Inworld::ClientBase::OnSceneLoaded(const ChangeSceneEvent& Event)
 {
 	if (!_OnLoadSceneCallback)
 	{
