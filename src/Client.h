@@ -114,6 +114,7 @@ namespace Inworld
 		void SetOptions(const ClientOptions& options);		
 
 		virtual void Visit(const SessionControlResponse_LoadScene& Event) override;
+		virtual void Visit(const SessionControlResponse_LoadCharacters& Event) override;
 
 	protected:
 		void PushPacket(std::shared_ptr<Inworld::Packet> Packet);
@@ -148,12 +149,12 @@ namespace Inworld
 		SdkInfo _SdkInfo;
 	private:
 		void LoadScene();
-		void OnSceneLoaded(const SessionControlResponse_LoadScene& Event);
+		void OnCharactersLoaded(const std::vector<AgentInfo>& AgentInfos);
 		void TryToStartReadTask();
 		void TryToStartWriteTask();
 
 		template<typename T>
-		void ControlSession(T::Data D)
+		void ControlSession(typename T::Data D)
 		{
 			PushPacket(std::make_shared<T>(D));
 		}

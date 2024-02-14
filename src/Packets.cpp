@@ -302,17 +302,39 @@ namespace Inworld {
         Proto.mutable_mutation()->mutable_load_scene()->set_name(_Data.Scene);
 	}
 
+	void SessionControlEvent_LoadCharacters::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+	{
+        auto* LoadCharacters = Proto.mutable_mutation()->mutable_load_characters();
+        for (auto& Name : _Data.Names)
+        {
+            LoadCharacters->add_name()->set_name(Name);
+        }
+	}
+
     SessionControlResponse_LoadScene::SessionControlResponse_LoadScene(const InworldPakets::InworldPacket& GrpcPacket)
 	{
 		auto& Scene = GrpcPacket.session_control_response().loaded_scene();
 		_AgentInfos.reserve(Scene.agents_size());
 		for (int32_t i = 0; i < Scene.agents_size(); i++)
 		{
-			AgentInfo Info;
+			AgentInfo& Info = _AgentInfos.emplace_back();
 			Info.BrainName = Scene.agents(i).brain_name().c_str();
 			Info.AgentId = Scene.agents(i).agent_id().c_str();
 			Info.GivenName = Scene.agents(i).given_name().c_str();
-			_AgentInfos.push_back(Info);
 		}
 	}
+
+	SessionControlResponse_LoadCharacters::SessionControlResponse_LoadCharacters(const InworldPakets::InworldPacket& GrpcPacket)
+	{
+        auto& Characters = GrpcPacket.session_control_response().loaded_characters();
+		_AgentInfos.reserve(Characters.agents_size());
+		for (int32_t i = 0; i < Characters.agents_size(); i++)
+		{
+			AgentInfo& Info = _AgentInfos.emplace_back();
+			Info.BrainName = Characters.agents(i).brain_name().c_str();
+			Info.AgentId = Characters.agents(i).agent_id().c_str();
+			Info.GivenName = Characters.agents(i).given_name().c_str();
+		}
+	}
+
 }

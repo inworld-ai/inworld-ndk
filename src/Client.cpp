@@ -66,7 +66,14 @@ void Inworld::ClientBase::SetOptions(const ClientOptions& options)
 
 void Inworld::ClientBase::Visit(const SessionControlResponse_LoadScene& Event)
 {
-	OnSceneLoaded(Event);
+	Inworld::Log("Load scene SUCCESS");
+	OnCharactersLoaded(Event.GetAgentInfos());
+}
+
+void Inworld::ClientBase::Visit(const SessionControlResponse_LoadCharacters& Event)
+{
+	Inworld::Log("Load characters SUCCESS");
+	OnCharactersLoaded(Event.GetAgentInfos());
 }
 
 void Inworld::ClientBase::SendPacket(std::shared_ptr<Inworld::Packet> Packet)
@@ -560,21 +567,19 @@ void Inworld::ClientBase::LoadScene()
 	ControlSession<SessionControlEvent_LoadScene>({ _ClientOptions.SceneName });
 }
 
-void Inworld::ClientBase::OnSceneLoaded(const SessionControlResponse_LoadScene& Event)
+void Inworld::ClientBase::OnCharactersLoaded(const std::vector<AgentInfo>& AgentInfos)
 {
 	if (!_OnLoadSceneCallback)
 	{
 		return;
 	}
 
-	Inworld::Log("Load scene SUCCESS. Session Id: %s", ARG_STR(_SessionInfo.SessionId));
-
-	for (const auto& Info : Event.GetAgentInfos())
+	for (const auto& Info : AgentInfos)
 	{
 		Inworld::Log("Character registered: %s, Id: %s, GivenName: %s", ARG_STR(Info.BrainName), ARG_STR(Info.AgentId), ARG_STR(Info.GivenName));
 	}
 
-	_OnLoadSceneCallback(Event.GetAgentInfos());
+	_OnLoadSceneCallback(AgentInfos);
 	_OnLoadSceneCallback = nullptr;
 
 	SetConnectionState(ConnectionState::Connected);

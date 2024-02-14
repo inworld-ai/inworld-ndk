@@ -106,6 +106,7 @@ namespace Inworld {
 	class ActionEvent;
 	class RelationEvent;
 	class SessionControlResponse_LoadScene;
+	class SessionControlResponse_LoadCharacters;
 
     class INWORLD_EXPORT PacketVisitor
     {
@@ -123,6 +124,7 @@ namespace Inworld {
     	virtual void Visit(const ActionEvent& Event) { }
     	virtual void Visit(const RelationEvent& Event) { }
     	virtual void Visit(const SessionControlResponse_LoadScene& Event) { }
+    	virtual void Visit(const SessionControlResponse_LoadCharacters& Event) { }
     };
 
 	struct EmotionalState;
@@ -616,10 +618,43 @@ namespace Inworld {
 		Data _Data;
 	};
 
+	class INWORLD_EXPORT SessionControlEvent_LoadCharacters : public SessionControlEvent
+	{
+	public:
+		struct INWORLD_EXPORT Data
+		{
+			std::vector<std::string> Names;
+		};
+
+		SessionControlEvent_LoadCharacters(const Data& Data)
+			: SessionControlEvent()
+			, _Data(Data)
+		{}
+
+	protected:
+		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+
+	private:
+		Data _Data;
+	};
+
 	class INWORLD_EXPORT SessionControlResponse_LoadScene : public Packet
 	{
 	public:
 		SessionControlResponse_LoadScene(const InworldPakets::InworldPacket& GrpcPacket);
+
+		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
+
+		const std::vector<AgentInfo>& GetAgentInfos() const { return _AgentInfos; }
+
+	private:
+		std::vector<AgentInfo> _AgentInfos;
+	};
+
+	class INWORLD_EXPORT SessionControlResponse_LoadCharacters : public Packet
+	{
+	public:
+		SessionControlResponse_LoadCharacters(const InworldPakets::InworldPacket& GrpcPacket);
 
 		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
 
