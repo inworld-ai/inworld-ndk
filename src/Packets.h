@@ -465,10 +465,10 @@ namespace Inworld {
 		std::vector<AgentInfo> _AgentInfos;
 	};
 
-	class INWORLD_EXPORT SessionControlEvent : public Packet
+	class INWORLD_EXPORT SessionControlEvent : public MutationEvent
 	{
 	public:
-		SessionControlEvent() : Packet(Routing{ { InworldPakets::Actor_Type_PLAYER, "" }, { InworldPakets::Actor_Type_WORLD, ""}}) {}
+		SessionControlEvent() : MutationEvent(Routing{ { InworldPakets::Actor_Type_PLAYER, "" }, { InworldPakets::Actor_Type_WORLD, ""}}) {}
 	};
 
 	class INWORLD_EXPORT SessionControlEvent_SessionConfiguration : public SessionControlEvent
@@ -627,6 +627,26 @@ namespace Inworld {
 		};
 
 		SessionControlEvent_LoadCharacters(const Data& Data)
+			: SessionControlEvent()
+			, _Data(Data)
+		{}
+
+	protected:
+		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+
+	private:
+		Data _Data;
+	};
+
+	class INWORLD_EXPORT SessionControlEvent_UnloadCharacters : public SessionControlEvent
+	{
+	public:
+		struct INWORLD_EXPORT Data
+		{
+			std::vector<std::string> Names;
+		};
+
+		SessionControlEvent_UnloadCharacters(const Data& Data)
 			: SessionControlEvent()
 			, _Data(Data)
 		{}
