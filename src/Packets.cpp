@@ -311,6 +311,15 @@ namespace Inworld {
         }
 	}
 
+	void SessionControlEvent_UnloadCharacters::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+	{
+		auto* UnloadCharacters = Proto.mutable_mutation()->mutable_unload_characters();
+		for (auto& Name : _Data.Names)
+		{
+            UnloadCharacters->add_agents()->set_agent_id(Name);
+		}
+	}
+
     SessionControlResponse_LoadScene::SessionControlResponse_LoadScene(const InworldPakets::InworldPacket& GrpcPacket)
 	{
 		auto& Scene = GrpcPacket.session_control_response().loaded_scene();

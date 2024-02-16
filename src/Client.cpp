@@ -89,6 +89,12 @@ void Inworld::ClientBase::Visit(const SessionControlResponse_LoadCharacters& Eve
 	{
 		Inworld::Log("Character registered: %s, Id: %s, GivenName: %s", ARG_STR(Info.BrainName), ARG_STR(Info.AgentId), ARG_STR(Info.GivenName));
 	}
+
+	if (_OnLoadCharactersCallback)
+	{
+		_OnLoadCharactersCallback(Event.GetAgentInfos());
+		_OnLoadCharactersCallback = nullptr;
+	}
 }
 
 void Inworld::ClientBase::SendPacket(std::shared_ptr<Inworld::Packet> Packet)
@@ -221,22 +227,39 @@ std::shared_ptr<Inworld::ActionEvent> Inworld::ClientBase::SendNarrationEvent(st
 	return Packet;
 }
 
-void Inworld::ClientBase::LoadScene(const std::string& Scene, const std::string& SavedState)
+void Inworld::ClientBase::LoadScene(const std::string& Scene, CharactersLoadedCb OnLoadSceneCallback)
 {
-	if (!SavedState.empty())
+	if (_OnLoadSceneCallback)
 	{
-		ControlSession<SessionControlEvent_SessionSave>({ SavedState });
+		Inworld::LogError("Skip LoadScene. Another request is in progress.");
+		return;
 	}
+	_OnLoadSceneCallback = OnLoadSceneCallback;
 	ControlSession<SessionControlEvent_LoadScene>({ Scene });
 }
 
-void Inworld::ClientBase::LoadCharacters(const std::vector<std::string>& Names, const std::string& SavedState)
+void Inworld::ClientBase::LoadCharacters(const std::vector<std::string>& Names, CharactersLoadedCb OnLoadCharactersCallback)
+{
+	if (_OnLoadCharactersCallback)
+	{
+		Inworld::LogError("Skip LoadCharacters. Another request is in progress.");
+		return;
+	}
+	_OnLoadCharactersCallback = OnLoadCharactersCallback;
+	ControlSession<SessionControlEvent_LoadCharacters>({ Names });
+}
+
+void Inworld::ClientBase::UnloadCharacters(const std::vector<std::string>& Names)
+{
+	ControlSession<SessionControlEvent_UnloadCharacters>({ Names });
+}
+
+void Inworld::ClientBase::LoadSavedState(const std::string& SavedState)
 {
 	if (!SavedState.empty())
 	{
 		ControlSession<SessionControlEvent_SessionSave>({ SavedState });
 	}
-	ControlSession<SessionControlEvent_LoadCharacters>({ Names });
 }
 
 void Inworld::ClientBase::CancelResponse(const std::string& AgentId, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds)
@@ -355,7 +378,7 @@ void Inworld::ClientBase::GenerateToken(std::function<void()> GenerateTokenCallb
 	);
 }
 
-void Inworld::ClientBase::StartClient(const ClientOptions& Options, const SessionInfo& Info, std::function<void(const std::vector<AgentInfo>&)> LoadSceneCallback)
+void Inworld::ClientBase::StartClient(const ClientOptions& Options, const SessionInfo& Info, CharactersLoadedCb LoadSceneCallback)
 {
 	if (_ConnectionState != ConnectionState::Idle && _ConnectionState != ConnectionState::Failed)
 	{
@@ -386,20 +409,18 @@ void Inworld::ClientBase::StartClient(const ClientOptions& Options, const Sessio
 
 	_LatencyTracker.TrackAudioReplies(Options.Capabilities.Audio);
 
-	_OnLoadSceneCallback = LoadSceneCallback;
-
 	SetConnectionState(ConnectionState::Connecting);
 
 	if (!_SessionInfo.IsValid())
 	{
-		GenerateToken([this]()
+		GenerateToken([this, LoadSceneCallback]()
 		{
-			StartSession();
+			StartSession(LoadSceneCallback);
 		});
 	}
 	else
 	{
-		StartSession();
+		StartSession(LoadSceneCallback);
 	}
 }
 
@@ -536,7 +557,7 @@ void Inworld::ClientBase::SetConnectionState(ConnectionState State)
 	}
 }
 
-void Inworld::ClientBase::StartSession()
+void Inworld::ClientBase::StartSession(CharactersLoadedCb LoadSceneCallback)
 {
 	if (!_SessionInfo.IsValid())
 	{
@@ -592,7 +613,8 @@ void Inworld::ClientBase::StartSession()
 			SdkDesc,
 		});
 	ControlSession<SessionControlEvent_UserConfiguration>(_ClientOptions.UserSettings);
-	LoadScene(_ClientOptions.SceneName, _SessionInfo.SessionSavedState);
+	LoadSavedState(_SessionInfo.SessionSavedState);
+	LoadScene(_ClientOptions.SceneName, LoadSceneCallback);
 }
 
 void Inworld::ClientBase::StartClientStream()

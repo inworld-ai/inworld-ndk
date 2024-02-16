@@ -9,8 +9,8 @@
 #include "Utils/Log.h"
 
 // !!! Fill out this options !!!
-constexpr std::string_view g_SceneName = "";
-constexpr std::string_view g_Base64 = "";
+constexpr std::string_view g_SceneName = "workspaces/artem_v_test/scenes/demo2";
+constexpr std::string_view g_Base64 = "TUdoSkowSTlQeVg3VDUzVWE3MFJlUHoyemJBZ29JTnA6dW9Lb0tCWEQ2emVMamdpaGJXSGRnVjNmendTNkRCMFRFWGxCVXB1VzR0czNMQ3pjV1l4eEEyVkdUNlNzQzhSUg==";
 constexpr std::string_view g_ApiKey = "";
 constexpr std::string_view g_ApiSecret = "";
 
@@ -135,6 +135,7 @@ void NDKApp::App::Run()
 				{
 					Inworld::Log("{0} {1} {2}", ARG_STR(Info.GivenName), ARG_STR(Info.AgentId), ARG_STR(Info.BrainName));
 				}
+				NotifyCurrentCharacter();
 			}
 		},
 		{
@@ -178,8 +179,8 @@ void NDKApp::App::Run()
 			}
 		},
 		{
-			"ReloadScene",
-			"Reload scene",
+			"LoadScene",
+			"Load scene",
 			[this](std::vector<std::string> Args)
 			{
 				if (Args.size() != 1)
@@ -188,7 +189,12 @@ void NDKApp::App::Run()
 					return;
 				}
 
-				_Client.ReloadScene(Args[0], "");
+				_Client.LoadScene(Args[0], [this](const std::vector<Inworld::AgentInfo>& AgentInfos) {
+					Inworld::Log("LoadScene done.");
+
+					_AgentInfos.insert(_AgentInfos.end(), AgentInfos.begin(), AgentInfos.end());
+					_PacketHandler._AgentInfos = _AgentInfos;
+				});
 			}
 		},
 		{
@@ -202,7 +208,65 @@ void NDKApp::App::Run()
 					return;
 				}
 
-				_Client.LoadCharacters(Args, "");
+				_Client.LoadCharacters(Args, [this](const std::vector<Inworld::AgentInfo>& AgentInfos) {
+					Inworld::Log("LoadCharacters done.");
+
+					_AgentInfos.insert(_AgentInfos.end(), AgentInfos.begin(), AgentInfos.end());
+					_PacketHandler._AgentInfos = _AgentInfos;
+				});
+			}
+		},
+		{
+			"UnloadChars",
+			"Unload characters",
+			[this](std::vector<std::string> Args)
+			{
+				if (Args.empty())
+				{
+					Error("Invalid args");
+					return;
+				}
+				
+				bool bDropCurrentChars = false;
+				for (auto& Id : Args)
+				{
+					auto It = std::find_if(_AgentInfos.begin(), _AgentInfos.end(), [&Id](const auto& Info) { return Info.BrainName == Id; });
+					if (It != _AgentInfos.end())
+					{
+						Inworld::Log("Unload character %s", Id);
+						int32_t Idx = _AgentInfos.begin() - It;
+						_AgentInfos.erase(It);
+						if (std::find(_CurrentAgentIdxs.begin(), _CurrentAgentIdxs.end(), Idx) != _CurrentAgentIdxs.end())
+						{
+							bDropCurrentChars = true;
+						}
+					}
+				}
+				if (bDropCurrentChars)
+				{
+					_CurrentAgentIdxs.clear();
+					if (_AgentInfos.size() > 0)
+					{
+						_CurrentAgentIdxs.push_back(0);
+						NotifyCurrentCharacter();
+					}
+				}
+
+				_Client.UnloadCharacters(Args);
+			}
+		},
+		{
+			"LoadSave",
+			"Load save",
+			[this](std::vector<std::string> Args)
+			{
+				if (Args.size() != 1)
+				{
+					Error("Invalid args");
+					return;
+				}
+
+				_Client.LoadSavedState(Args[0]);
 			}
 		}
 		});
@@ -211,7 +275,6 @@ void NDKApp::App::Run()
 	_Options.PlayerName = "Player";
 
 	_Options.SceneName = g_SceneName;
-	//_Options.Characters = { "workspaces/artem_v_test/characters/cristiano_ronaldo" };
 	_Options.Base64 = g_Base64;
 	_Options.ApiKey = g_ApiKey;
 	_Options.ApiSecret = g_ApiSecret;
@@ -353,9 +416,9 @@ void NDKApp::App::SetCharacter(const std::vector<int32_t>& Idxs)
 		if (Idx >= 0 && Idx < _AgentInfos.size())
 		{
 			_CurrentAgentIdxs.push_back(Idx);
-			NotifyCurrentCharacter();
 		}
 	}
+	NotifyCurrentCharacter();
 }
 
 void NDKApp::App::NotifyCurrentCharacter()
@@ -377,7 +440,7 @@ std::vector<std::string> NDKApp::App::GetCurrentAgentBrains() const
 	std::vector<std::string> Brains;
 	for (int32_t i = 0; i < _CurrentAgentIdxs.size(); i++)
 	{
-		Brains.push_back(_AgentInfos[i].AgentId);
+		Brains.push_back(_AgentInfos[_CurrentAgentIdxs[i]].AgentId);
 	}
 	return Brains;
 }

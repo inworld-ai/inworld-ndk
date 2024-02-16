@@ -50,6 +50,8 @@ namespace Inworld
 		std::string GameSessionId;
 	};
 
+	using CharactersLoadedCb = std::function<void(const std::vector<AgentInfo>&)>;
+
 	class INWORLD_EXPORT ClientBase : public PacketVisitor
 	{
 	public:
@@ -80,8 +82,11 @@ namespace Inworld
 		
 		virtual std::shared_ptr<ActionEvent> SendNarrationEvent(std::string AgentId, const std::string& Content);
 		
-		virtual void LoadScene(const std::string& Scene, const std::string& SavedState);
-		virtual void LoadCharacters(const std::vector<std::string>& Names, const std::string& SavedState);
+		// Unitary session (Experimental!)
+		virtual void LoadScene(const std::string& Scene, CharactersLoadedCb OnLoadSceneCallback);
+		virtual void LoadCharacters(const std::vector<std::string>& Names, CharactersLoadedCb OnLoadCharactersCallback);
+		virtual void UnloadCharacters(const std::vector<std::string>& Names);
+		virtual void LoadSavedState(const std::string& SavedState);
 
 		virtual void CancelResponse(const std::string& AgentId, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds);
 
@@ -91,7 +96,7 @@ namespace Inworld
 		virtual void StopAudioSession(const std::vector<std::string>& AgentIds);
 
 		virtual void InitClient(const SdkInfo& SdkInfo, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback);
-		virtual void StartClient(const ClientOptions& Options, const SessionInfo& Info, std::function<void(const std::vector<AgentInfo>&)> LoadSceneCallback);
+		virtual void StartClient(const ClientOptions& Options, const SessionInfo& Info, CharactersLoadedCb LoadSceneCallback);
 		virtual void PauseClient();
 		virtual void ResumeClient();
 		virtual void StopClient();
@@ -149,7 +154,7 @@ namespace Inworld
 		SessionInfo _SessionInfo;
 		SdkInfo _SdkInfo;
 	private:
-		void StartSession();
+		void StartSession(CharactersLoadedCb LoadSceneCallback);
 		void TryToStartReadTask();
 		void TryToStartWriteTask();
 
@@ -167,7 +172,8 @@ namespace Inworld
 #endif
 
 		std::function<void()> _OnGenerateTokenCallback;
-		std::function<void(const std::vector<AgentInfo>&)> _OnLoadSceneCallback;
+		CharactersLoadedCb _OnLoadSceneCallback;
+		CharactersLoadedCb _OnLoadCharactersCallback;
 		std::function<void(ConnectionState)> _OnConnectionStateChangedCallback;
 
 		std::unique_ptr<ClientStream> _ClientStream;
