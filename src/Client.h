@@ -9,8 +9,8 @@
 
 #include <string>
 #include <functional>
+#include <type_traits>
 
-#include <future>
 #include "Service.h"
 #include "Define.h"
 #include "Types.h"
@@ -82,11 +82,12 @@ namespace Inworld
 		
 		virtual std::shared_ptr<ActionEvent> SendNarrationEvent(std::string AgentId, const std::string& Content);
 		
-		// Unitary session (Experimental!)
+		// Experimental
 		virtual void LoadScene(const std::string& Scene, CharactersLoadedCb OnLoadSceneCallback);
 		virtual void LoadCharacters(const std::vector<std::string>& Names, CharactersLoadedCb OnLoadCharactersCallback);
 		virtual void UnloadCharacters(const std::vector<std::string>& Names);
 		virtual void LoadSavedState(const std::string& SavedState);
+		// ~Experimental
 
 		virtual void CancelResponse(const std::string& AgentId, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds);
 
@@ -159,6 +160,7 @@ namespace Inworld
 		void TryToStartWriteTask();
 
 		template<typename T>
+		requires std::is_base_of_v<SessionControlEvent, T>
 		void ControlSession(typename T::Data D)
 		{
 			PushPacket(std::make_shared<T>(D));
