@@ -159,10 +159,10 @@ namespace Inworld
 		void TryToStartReadTask();
 		void TryToStartWriteTask();
 
-		template<typename T>
-		requires std::is_base_of_v<SessionControlEvent, T>
+		template <typename T>
 		void ControlSession(typename T::Data D)
 		{
+			static_assert(std::is_base_of<SessionControlEvent, T>::value, "ControlSession can be used only with SessionControlEvents");
 			PushPacket(std::make_shared<T>(D));
 		}
 
