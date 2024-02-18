@@ -56,10 +56,6 @@ void Inworld::RunnableRead::Run()
 		{
 			Packet = std::make_shared<Inworld::CustomEvent>(IncomingPacket);
 		}
-		else if (IncomingPacket.has_load_scene_output())
-		{
-			Packet = std::make_shared<Inworld::ChangeSceneEvent>(IncomingPacket);
-		}
 		else if (IncomingPacket.has_action())
 		{
 			Packet = std::make_shared<Inworld::ActionEvent>(IncomingPacket);

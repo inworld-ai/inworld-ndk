@@ -102,7 +102,6 @@ namespace Inworld {
     class CancelResponseEvent;
     class CustomGestureEvent;
     class CustomEvent;
-    class ChangeSceneEvent;
 	class ActionEvent;
 	class RelationEvent;
 	class SessionControlResponse_LoadScene;
@@ -120,7 +119,6 @@ namespace Inworld {
         virtual void Visit(const CancelResponseEvent& Event) {  }
         virtual void Visit(const CustomGestureEvent& Event) {  }
         virtual void Visit(const CustomEvent& Event) {  }
-        virtual void Visit(const ChangeSceneEvent& Event) {  }
     	virtual void Visit(const ActionEvent& Event) { }
     	virtual void Visit(const RelationEvent& Event) { }
     	virtual void Visit(const SessionControlResponse_LoadScene& Event) { }
@@ -441,28 +439,6 @@ namespace Inworld {
 	private:
 		std::string _InteractionId;
 		std::vector<std::string> _UtteranceIds;
-	};
-
-	class INWORLD_EXPORT ChangeSceneEvent : public MutationEvent
-	{
-	public:
-		ChangeSceneEvent() = default;
-		ChangeSceneEvent(const InworldPakets::InworldPacket& GrpcPacket);
-		ChangeSceneEvent(const std::string& SceneName, const Routing& Routing)
-			: MutationEvent(Routing)
-			, _SceneName(SceneName)
-		{}
-
-		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
-
-		const std::vector<AgentInfo>& GetAgentInfos() const { return _AgentInfos; }
-
-	protected:
-		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
-
-	private:
-		std::string _SceneName;
-		std::vector<AgentInfo> _AgentInfos;
 	};
 
 	class INWORLD_EXPORT SessionControlEvent : public MutationEvent
