@@ -472,7 +472,7 @@ void Inworld::ClientBase::StopClient()
 	StopClientStream();
 	if (_SessionService)
 	{
-		_SessionService->Stop();
+		_SessionService->Cancel();
 	}
 	_AsyncGenerateTokenTask->Stop();
 	_AsyncGetSessionState->Stop();
@@ -637,7 +637,7 @@ void Inworld::ClientBase::StopClientStream()
 	_bHasClientStreamFinished = true;
 	if (_SessionService)
 	{
-		_SessionService->Stop();
+		_SessionService->Cancel();
 	}
 	_AsyncReadTask->Stop();
 	_AsyncWriteTask->Stop();

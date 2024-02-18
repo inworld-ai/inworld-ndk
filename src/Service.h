@@ -99,7 +99,7 @@ namespace Inworld
 			: _ServerUrl(ServerUrl)
 		{}
 
-		void Stop()
+		void Cancel()
 		{
 			if (_Context)
 			{
@@ -163,7 +163,7 @@ namespace Inworld
 
 		virtual void Deinitialize() override
 		{
-			Service<TService>::Stop();
+			Service<TService>::Cancel();
 		}
 
 		grpc::Status& GetStatus() { return _Status; }
