@@ -573,6 +573,18 @@ void Inworld::ClientBase::StartSession(CharactersLoadedCb LoadSceneCallback)
 	Inworld::LogSetSessionId(_SessionInfo.SessionId);
 	Inworld::Log("Session Id: %s", ARG_STR(_SessionInfo.SessionId));
 
+	_SessionService = std::make_unique<ServiceSession>(
+		_SessionInfo.Token,
+		_SessionInfo.SessionId,
+		_ClientOptions.ServerUrl
+		);
+	StartClientStream();
+	if (!_ClientStream)
+	{
+		Inworld::LogError("StartSession error, _ClientStream is invalid.");
+		return;
+	}
+
 	std::string SdkDesc = _SdkInfo.Type;
 	SdkDesc += !_SdkInfo.Subtype.empty() ? ("/" + _SdkInfo.Subtype + ";") : ";";
 	if (!_SdkInfo.Version.empty())
@@ -586,18 +598,6 @@ void Inworld::ClientBase::StartSession(CharactersLoadedCb LoadSceneCallback)
 	if (!_ClientOptions.ProjectName.empty())
 	{
 		SdkDesc += _ClientOptions.ProjectName;
-	}
-
-	_SessionService = std::make_unique<ServiceSession>(
-		_SessionInfo.Token,
-		_SessionInfo.SessionId,
-		_ClientOptions.ServerUrl
-		);
-	StartClientStream();
-	if (!_ClientStream)
-	{
-		Inworld::LogError("StartSession error, _ClientStream is invalid.");
-		return;
 	}
 
 	// order matters
