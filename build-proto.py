@@ -33,7 +33,7 @@ def generate(path, filepath):
     cmd_line += f" --proto_path={os.path.join(CURRENT_DIR, 'ThirdParty/grpc/third_party/protobuf/src')}"
     cmd_line += f" --proto_path={path}"
 
-    out_path = os.path.join(CURRENT_DIR, "src/proto")
+    out_path = os.path.join(CURRENT_DIR, "src-proto")
 
     cmd_line += f" --grpc_out={out_path}"
     cmd_line += f" --cpp_out={out_path}"

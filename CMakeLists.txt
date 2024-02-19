@@ -328,6 +328,7 @@ if (INWORLD_SHARED)
 elseif()
     set(LibFiles 
         ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}inworld-ndk.${LibExt}
+        ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}inworld-ndk-proto.${LibExt}
         ${AbslDir}/base${ConfigDirName}/${LibPref}absl_base.${LibExt}
         ${AbslDir}/base${ConfigDirName}/${LibPref}absl_malloc_internal.${LibExt}
         ${AbslDir}/base${ConfigDirName}/${LibPref}absl_raw_logging_internal.${LibExt}
