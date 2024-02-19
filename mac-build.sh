@@ -1,7 +1,7 @@
 mkdir build
 cd build
-cmake --build . --target InworldNDKApp --config Release
-cmake --build . --target InworldNDKUnit --config Release
+cmake --build . --target inworld-ndk-app --config Release
+cmake --build . --target inworld-ndk-unit --config Release
 
 cd Release
-./InworldNDKUnit
+./inworld-ndk-unit

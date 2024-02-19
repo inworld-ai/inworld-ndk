@@ -40,17 +40,17 @@ jobs:
           {
             exit 1
           }
-          if (Select-String -Path BuildLog.txt -Pattern "InworldNDKApp.vcxproj ->" -SimpleMatch -Quiet)
+          if (Select-String -Path BuildLog.txt -Pattern "inworld-ndk-app.vcxproj ->" -SimpleMatch -Quiet)
           {
-            "InworldNDKApp built successfully"
+            "inworld-ndk-app built successfully"
           }
           else
           {
             exit 1
           }
-          if (Select-String -Path BuildLog.txt -Pattern "InworldNDKUnit.vcxproj ->" -SimpleMatch -Quiet)
+          if (Select-String -Path BuildLog.txt -Pattern "inworld-ndk-unit.vcxproj ->" -SimpleMatch -Quiet)
           {
-            "InworldNDKUnit built successfully"
+            "inworld-ndk-unit built successfully"
           }
           else
           {
