@@ -21,12 +21,13 @@ file(GLOB_RECURSE FilesALLProto
     src-proto/*.c
 )
 
+add_library(inworld-ndk-proto STATIC ${FilesALLProto})
 if (INWORLD_SHARED)
     add_library(inworld-ndk SHARED ${FilesALL})
+    target_compile_definitions(inworld-ndk-proto PUBLIC PROTOBUF_USE_DLLS=1)
 else()
     add_library(inworld-ndk STATIC ${FilesALL})
 endif()
-add_library(inworld-ndk-proto STATIC ${FilesALLProto})
 target_link_libraries(inworld-ndk PUBLIC inworld-ndk-proto)
 
 target_compile_definitions(inworld-ndk PRIVATE
