@@ -10,14 +10,15 @@
 #include <functional>
 #include <memory>
 #include <chrono>
-#include "../Packets.h"
+#include "Packets.h"
+#include "Define.h"
 
 namespace Inworld {
 
 	using PerceivedLatencyCallback = std::function<void(const std::string& InteractionId, uint32_t LatancyMs)>;
 	using TimeStamp = std::chrono::system_clock::time_point;
 
-	class PerceivedLatencyTracker : Inworld::PacketVisitor
+	class INWORLD_EXPORT PerceivedLatencyTracker : Inworld::PacketVisitor
 	{
 	public:
 		virtual ~PerceivedLatencyTracker() = default;

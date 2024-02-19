@@ -68,7 +68,7 @@ namespace Inworld
 #endif
 	}
 	
-	void Log(const std::string& message);
+	void INWORLD_EXPORT Log(const std::string& message);
 
 	template<typename... Args>
 	void Log(std::string fmt, Args &&... args)
@@ -78,7 +78,7 @@ namespace Inworld
 #endif
 	}
 
-	void LogWarning(const std::string& message);
+	void INWORLD_EXPORT LogWarning(const std::string& message);
 
 	template<typename... Args>
 	void LogWarning(std::string fmt, Args &&... args)
@@ -88,7 +88,7 @@ namespace Inworld
 #endif
 	}
 	
-	void LogError(const std::string& message);
+	void INWORLD_EXPORT LogError(const std::string& message);
 
 	template<typename... Args>
 	void LogError(std::string fmt, Args &&... args)

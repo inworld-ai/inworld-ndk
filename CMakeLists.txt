@@ -14,12 +14,20 @@ file(GLOB_RECURSE FilesALL
     src/*.cc
     src/*.c
 )
+file(GLOB_RECURSE FilesALLProto
+    src-proto/*.h
+    src-proto/*.cpp
+    src-proto/*.cc
+    src-proto/*.c
+)
 
 if (INWORLD_SHARED)
     add_library(inworld-ndk SHARED ${FilesALL})
 else()
     add_library(inworld-ndk STATIC ${FilesALL})
 endif()
+add_library(inworld-ndk-proto STATIC ${FilesALLProto})
+target_link_libraries(inworld-ndk PUBLIC inworld-ndk-proto)
 
 target_compile_definitions(inworld-ndk PRIVATE
     NDK_VERSION_MAJOR=${PROJECT_VERSION_MAJOR}
@@ -37,37 +45,17 @@ target_include_directories(inworld-ndk PUBLIC
     ${ThirdPartyDir}/include
     ${ThirdPartyDir}/grpc/include
     src
-    src/proto
+    src-proto
     src/ThirdParty
+)
+target_include_directories(inworld-ndk-proto PUBLIC
+    ${ThirdPartyDir}/include
+    ${ThirdPartyDir}/grpc/include
+    src-proto
 )
 
 target_compile_features(inworld-ndk PUBLIC cxx_std_20)
-
-function(GroupSourcesByFolder target)
-    set(SOURCE_GROUP_DELIMITER "/")
-    set(last_dir "")
-    set(files "")
-
-    get_target_property(sources ${target} SOURCES)
-
-    foreach(file ${sources})
-    file(RELATIVE_PATH relative_file "${PROJECT_SOURCE_DIR}" ${file})
-    get_filename_component(dir "${relative_file}" PATH)
-    if(NOT "${dir}" STREQUAL "${last_dir}")
-        if(files)
-            source_group("${last_dir}" FILES ${files})
-        endif()
-        set(files "")
-    endif()
-    set(files ${files} ${file})
-    set(last_dir "${dir}")
-    endforeach()
-
-    if(files)
-        source_group("${last_dir}" FILES ${files})
-    endif()
-endfunction()
-GroupSourcesByFolder(inworld-ndk)
+target_compile_features(inworld-ndk-proto PUBLIC cxx_std_20)
 
 if (INWORLD_AUDIO_DUMP)
     target_compile_definitions(inworld-ndk PRIVATE INWORLD_AUDIO_DUMP=1)
@@ -91,27 +79,6 @@ endfunction()
 
 CheckPathValid(${ZlibDir})
 CheckPathValid(${OpenSSLDir})
-
-# Unity Setup
-option(UNITY FALSE)
-if(UNITY)
-    message("Building for Unity...")
-    target_compile_definitions(inworld-ndk PUBLIC INWORLD_UNITY)
-    file(GLOB_RECURSE UnityNDKFiles
-        Example/Unity/*.h
-        Example/Unity/*.cpp
-        Example/Unity/*.cc
-        Example/Unity/*.c
-    )        
-    list(APPEND FilesALL ${UnityNDKFiles})
-    if (IOS)
-        add_library(InworldUnityWrapper STATIC ${UnityNDKFiles})
-    else()
-        add_library(InworldUnityWrapper SHARED ${UnityNDKFiles})
-    endif()
-    target_include_directories(InworldUnityWrapper PUBLIC inworld-ndk/src)    
-    target_link_libraries(InworldUnityWrapper PRIVATE inworld-ndk)  
-endif()
 
 if (IOS OR ANDROID)
     set(CMAKE_MAKE_PROGRAM /usr/bin/make)
@@ -215,6 +182,29 @@ endif()
 
 target_link_libraries(inworld-ndk PUBLIC grpc)
 target_link_libraries(inworld-ndk PUBLIC grpc++)
+target_link_libraries(inworld-ndk-proto PUBLIC grpc)
+target_link_libraries(inworld-ndk-proto PUBLIC grpc++)
+
+# Unity Setup
+option(UNITY FALSE)
+if(UNITY)
+    message("Building for Unity...")
+    target_compile_definitions(inworld-ndk PUBLIC INWORLD_UNITY)
+    file(GLOB_RECURSE UnityNDKFiles
+        Example/Unity/*.h
+        Example/Unity/*.cpp
+        Example/Unity/*.cc
+        Example/Unity/*.c
+    )        
+    list(APPEND FilesALL ${UnityNDKFiles})
+    if (IOS)
+        add_library(InworldUnityWrapper STATIC ${UnityNDKFiles})
+    else()
+        add_library(InworldUnityWrapper SHARED ${UnityNDKFiles})
+    endif()
+    target_include_directories(InworldUnityWrapper PUBLIC inworld-ndk/src)    
+    target_link_libraries(InworldUnityWrapper PRIVATE inworld-ndk)  
+endif()
 
 # logging
 if(INWORLD_LOG_CALLBACK)
@@ -429,6 +419,33 @@ add_custom_command(TARGET inworld-ndk POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory 
     ${PROJECT_SOURCE_DIR}/src  ${PackageDir}/src)
 
+function(GroupSourcesByFolder target)
+    set(SOURCE_GROUP_DELIMITER "/")
+    set(last_dir "")
+    set(files "")
+
+    get_target_property(sources ${target} SOURCES)
+
+    foreach(file ${sources})
+        file(RELATIVE_PATH relative_file "${PROJECT_SOURCE_DIR}" ${file})
+        get_filename_component(dir "${relative_file}" PATH)
+        if(NOT "${dir}" STREQUAL "${last_dir}")
+            if(files)
+                source_group("${last_dir}" FILES ${files})
+            endif()
+            set(files "")
+        endif()
+        set(files ${files} ${file})
+        set(last_dir "${dir}")
+    endforeach()
+
+    if(files)
+        source_group("${last_dir}" FILES ${files})
+    endif()
+endfunction()
+GroupSourcesByFolder(inworld-ndk)
+GroupSourcesByFolder(inworld-ndk-proto)
+
 # setup example
 if (WIN32 OR MAC)
     set(SourceDir Example/ConsoleApp/src)
@@ -445,6 +462,8 @@ if (WIN32 OR MAC)
     target_compile_features(inworld-ndk-app PRIVATE cxx_std_20)
     target_include_directories(inworld-ndk-app PUBLIC inworld-ndk/src)
     target_link_libraries(inworld-ndk-app PRIVATE inworld-ndk)
+
+    GroupSourcesByFolder(inworld-ndk-app)
 
     if (AEC AND WIN32)
         add_custom_command(TARGET inworld-ndk-app POST_BUILD

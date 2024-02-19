@@ -6,7 +6,7 @@
  */
 
 #include "Packets.h"
-#include "proto/ProtoDisableWarning.h"
+#include "ProtoDisableWarning.h"
 
 #include <random>
 #include "Types.h"

@@ -11,10 +11,11 @@
 #include <string>
 
 #include "Runnable.h"
+#include "Define.h"
 
 namespace Inworld
 {
-	class IAsyncRoutine
+	class INWORLD_EXPORT IAsyncRoutine
 	{
 	public:
 		virtual ~IAsyncRoutine() = default;
@@ -26,7 +27,7 @@ namespace Inworld
 		virtual Inworld::Runnable* GetRunnable() = 0;
 	};
 
-	class AsyncRoutine : public IAsyncRoutine
+	class INWORLD_EXPORT AsyncRoutine : public IAsyncRoutine
 	{
 	public:
 		virtual ~AsyncRoutine() { Stop(); }

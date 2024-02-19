@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include "proto/ProtoDisableWarning.h"
+#include "ProtoDisableWarning.h"
 
 #include <atomic>
 #include "Define.h"
