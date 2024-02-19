@@ -1,11 +1,11 @@
 ﻿cmake_minimum_required (VERSION 3.22)
 
-project(InworldNDK VERSION 1.2.0)
+project(inworld-ndk VERSION 1.2.0)
 
 add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
 add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
 
-# InworldNDK setup
+# inworld-ndk setup
 set(ThirdPartyDir ${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty)
 
 file(GLOB_RECURSE FilesALL
@@ -15,9 +15,13 @@ file(GLOB_RECURSE FilesALL
     src/*.c
 )
 
-add_library(InworldNDK ${FilesALL})
+if (INWORLD_SHARED)
+    add_library(inworld-ndk SHARED ${FilesALL})
+else()
+    add_library(inworld-ndk STATIC ${FilesALL})
+endif()
 
-target_compile_definitions(InworldNDK PRIVATE
+target_compile_definitions(inworld-ndk PRIVATE
     NDK_VERSION_MAJOR=${PROJECT_VERSION_MAJOR}
     NDK_VERSION_MINOR=${PROJECT_VERSION_MINOR}
     NDK_VERSION_PATCH=${PROJECT_VERSION_PATCH}
@@ -26,10 +30,10 @@ target_compile_definitions(InworldNDK PRIVATE
 
 if(ANDROID)
     set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -fPIC")
-    target_compile_definitions(InworldNDK PRIVATE ANDROID=1)
+    target_compile_definitions(inworld-ndk PRIVATE ANDROID=1)
 endif()
 
-target_include_directories(InworldNDK PUBLIC
+target_include_directories(inworld-ndk PUBLIC
     ${ThirdPartyDir}/include
     ${ThirdPartyDir}/grpc/include
     src
@@ -37,7 +41,7 @@ target_include_directories(InworldNDK PUBLIC
     src/ThirdParty
 )
 
-target_compile_features(InworldNDK PUBLIC cxx_std_20)
+target_compile_features(inworld-ndk PUBLIC cxx_std_20)
 
 function(GroupSourcesByFolder target)
     set(SOURCE_GROUP_DELIMITER "/")
@@ -63,10 +67,10 @@ function(GroupSourcesByFolder target)
         source_group("${last_dir}" FILES ${files})
     endif()
 endfunction()
-GroupSourcesByFolder(InworldNDK)
+GroupSourcesByFolder(inworld-ndk)
 
 if (INWORLD_AUDIO_DUMP)
-    target_compile_definitions(InworldNDK PRIVATE INWORLD_AUDIO_DUMP=1)
+    target_compile_definitions(inworld-ndk PRIVATE INWORLD_AUDIO_DUMP=1)
 endif()
 
 # grpc setup
@@ -92,7 +96,7 @@ CheckPathValid(${OpenSSLDir})
 option(UNITY FALSE)
 if(UNITY)
     message("Building for Unity...")
-    target_compile_definitions(InworldNDK PUBLIC INWORLD_UNITY)
+    target_compile_definitions(inworld-ndk PUBLIC INWORLD_UNITY)
     file(GLOB_RECURSE UnityNDKFiles
         Example/Unity/*.h
         Example/Unity/*.cpp
@@ -105,8 +109,8 @@ if(UNITY)
     else()
         add_library(InworldUnityWrapper SHARED ${UnityNDKFiles})
     endif()
-    target_include_directories(InworldUnityWrapper PUBLIC InworldNDK/src)    
-    target_link_libraries(InworldUnityWrapper PRIVATE InworldNDK)  
+    target_include_directories(InworldUnityWrapper PUBLIC inworld-ndk/src)    
+    target_link_libraries(InworldUnityWrapper PRIVATE inworld-ndk)  
 endif()
 
 if (IOS OR ANDROID)
@@ -209,20 +213,20 @@ if (ANDROID)
     )
 endif()
 
-target_link_libraries(InworldNDK PUBLIC grpc)
-target_link_libraries(InworldNDK PUBLIC grpc++)
+target_link_libraries(inworld-ndk PUBLIC grpc)
+target_link_libraries(inworld-ndk PUBLIC grpc++)
 
 # logging
 if(INWORLD_LOG_CALLBACK)
 	# custom
-    target_compile_definitions(InworldNDK PUBLIC INWORLD_LOG=1)
-    target_compile_definitions(InworldNDK PUBLIC INWORLD_LOG_CALLBACK=1)
+    target_compile_definitions(inworld-ndk PUBLIC INWORLD_LOG=1)
+    target_compile_definitions(inworld-ndk PUBLIC INWORLD_LOG_CALLBACK=1)
 endif()
 
 if(INWORLD_LOG_SPD)
     # spdlog
-    target_compile_definitions(InworldNDK PUBLIC INWORLD_LOG=1)
-    target_compile_definitions(InworldNDK PUBLIC INWORLD_LOG_SPD=1)
+    target_compile_definitions(inworld-ndk PUBLIC INWORLD_LOG=1)
+    target_compile_definitions(inworld-ndk PUBLIC INWORLD_LOG_SPD=1)
 
     if (WIN32)
         set(SPDLOG_USE_STD_FORMAT ON CACHE BOOL "Use std::format instead of fmt library." FORCE)
@@ -232,33 +236,33 @@ if(INWORLD_LOG_SPD)
 
     add_subdirectory(ThirdParty/spdlog)
 
-    target_include_directories(InworldNDK PUBLIC
+    target_include_directories(inworld-ndk PUBLIC
         ${ThirdPartyDir}/spdlog/include
     )
-    target_link_libraries(InworldNDK PUBLIC spdlog::spdlog $<$<BOOL:${MINGW}>:ws2_32>)
+    target_link_libraries(inworld-ndk PUBLIC spdlog::spdlog $<$<BOOL:${MINGW}>:ws2_32>)
 endif()
 
 if(INWORLD_LOG)
-    target_compile_definitions(InworldNDK PUBLIC INWORLD_LOG=1)
+    target_compile_definitions(inworld-ndk PUBLIC INWORLD_LOG=1)
 endif()
 
 # gtest
 add_subdirectory(ThirdParty/googletest)
-target_link_libraries(InworldNDK PUBLIC gtest)
+target_link_libraries(inworld-ndk PUBLIC gtest)
 
 enable_testing()
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
-add_executable( InworldNDKUnit src/Test/GTest.cpp )
-target_link_libraries(InworldNDKUnit gtest gtest_main)
-target_link_libraries(InworldNDKUnit InworldNDK)
-target_include_directories(InworldNDKUnit PUBLIC 
+add_executable(inworld-ndk-unit src/Test/GTest.cpp)
+target_link_libraries(inworld-ndk-unit gtest gtest_main)
+target_link_libraries(inworld-ndk-unit inworld-ndk)
+target_include_directories(inworld-ndk-unit PUBLIC 
     src
 )
-add_test( InworldNDKUnit InworldNDKUnit )
+add_test( inworld-ndk-unit inworld-ndk-unit )
 if (WIN32)
     add_custom_command(
-        TARGET InworldNDKUnit POST_BUILD
-        COMMAND InworldNDKUnit
+        TARGET inworld-ndk-unit POST_BUILD
+        COMMAND inworld-ndk-unit
         VERBATIM
     )
 endif()
@@ -266,34 +270,38 @@ endif()
 # post build package
 set(PackageDir ${PROJECT_SOURCE_DIR}/build/Package)
 
-add_custom_command(TARGET InworldNDK POST_BUILD
+add_custom_command(TARGET inworld-ndk POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory  ${PackageDir})
-add_custom_command(TARGET InworldNDK POST_BUILD
+add_custom_command(TARGET inworld-ndk POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory  ${PackageDir}/include)
-add_custom_command(TARGET InworldNDK POST_BUILD
+add_custom_command(TARGET inworld-ndk POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory  ${PackageDir}/src)
-add_custom_command(TARGET InworldNDK POST_BUILD
+add_custom_command(TARGET inworld-ndk POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory  ${PackageDir}/lib)
 
 if (WIN32)
     set(PackageLibDir  ${PackageDir}/lib/Win64)
     set(LibExt lib)
+    set(DynamicLibExt dll)
     set(LibPref "")
 elseif (ANDROID)
     set(PackageLibDir  ${PackageDir}/lib/Android/${CMAKE_ANDROID_ARCH_ABI})
     set(LibExt a)
+    set(DynamicLibExt so)
     set(LibPref lib)
 elseif (IOS)
     set(PackageLibDir  ${PackageDir}/lib/iOS)
     set(LibExt a)
+    set(DynamicLibExt dylib)
     set(LibPref lib)
 elseif (APPLE)
     set(PackageLibDir  ${PackageDir}/lib/Mac)
     set(LibExt a)
+    set(DynamicLibExt dylib)
     set(LibPref lib)
 endif()
 
-add_custom_command(TARGET InworldNDK POST_BUILD
+add_custom_command(TARGET inworld-ndk POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E make_directory ${PackageLibDir})
 
 set(GrpcDir ${CMAKE_CURRENT_BINARY_DIR}/ThirdParty/grpc)
@@ -322,51 +330,58 @@ else()
     endif()
 endif()
 
-set(LibFiles 
-    ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}InworldNDK.${LibExt}
-    ${AbslDir}/base${ConfigDirName}/${LibPref}absl_base.${LibExt}
-    ${AbslDir}/base${ConfigDirName}/${LibPref}absl_malloc_internal.${LibExt}
-    ${AbslDir}/base${ConfigDirName}/${LibPref}absl_raw_logging_internal.${LibExt}
-    ${AbslDir}/base${ConfigDirName}/${LibPref}absl_spinlock_wait.${LibExt}
-    ${AbslDir}/base${ConfigDirName}/${LibPref}absl_throw_delegate.${LibExt}
-    ${AbslDir}/types${ConfigDirName}/${LibPref}absl_bad_optional_access.${LibExt}
-    ${AbslDir}/strings${ConfigDirName}/${LibPref}absl_cord.${LibExt}
-    ${AbslDir}/strings${ConfigDirName}/${LibPref}absl_str_format_internal.${LibExt}
-    ${AbslDir}/strings${ConfigDirName}/${LibPref}absl_strings.${LibExt}
-    ${AbslDir}/strings${ConfigDirName}/${LibPref}absl_strings_internal.${LibExt}
-    ${AbslDir}/debugging${ConfigDirName}/${LibPref}absl_symbolize.${LibExt}
-    ${AbslDir}/debugging${ConfigDirName}/${LibPref}absl_stacktrace.${LibExt}
-    ${AbslDir}/synchronization${ConfigDirName}/${LibPref}absl_graphcycles_internal.${LibExt}
-    ${AbslDir}/synchronization${ConfigDirName}/${LibPref}absl_synchronization.${LibExt}
-    ${AbslDir}/numeric${ConfigDirName}/${LibPref}absl_int128.${LibExt}
-    ${AbslDir}/status${ConfigDirName}/${LibPref}absl_status.${LibExt}
-    ${AbslDir}/status${ConfigDirName}/${LibPref}absl_statusor.${LibExt}
-    ${AbslDir}/time${ConfigDirName}/${LibPref}absl_time.${LibExt}
-    ${AbslDir}/time${ConfigDirName}/${LibPref}absl_time_zone.${LibExt}
-    ${GrpcDir}${ConfigDirName}/${LibPref}address_sorting.${LibExt}
-    ${GrpcDir}${ConfigDirName}/${LibPref}gpr.${LibExt}
-    ${GrpcDir}${ConfigDirName}/${LibPref}grpc.${LibExt}
-    ${GrpcDir}${ConfigDirName}/${LibPref}grpc++.${LibExt}
-    ${GrpcDir}/third_party/cares/cares/lib${ConfigDirNameCares}/${LibPref}cares.${LibExt}
-    ${GrpcDir}/third_party/protobuf${ConfigDirName}/${LibProtobufName}.${LibExt}
-    ${GrpcDir}/third_party/re2${ConfigDirName}/${LibPref}re2.${LibExt}
-    ${GrpcDir}${ConfigDirName}/${LibPref}upb.${LibExt}
-    ${OPENSSL_SSL_LIBRARY}
-    ${OPENSSL_CRYPTO_LIBRARY}
-    ${ZLIB_LIBRARY_RELEASE}
-)
+if (INWORLD_SHARED)
+    set(LibFiles 
+        ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}inworld-ndk.${LibExt}
+        ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}inworld-ndk.${DynamicLibExt}
+    )
+elseif()
+    set(LibFiles 
+        ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}inworld-ndk.${LibExt}
+        ${AbslDir}/base${ConfigDirName}/${LibPref}absl_base.${LibExt}
+        ${AbslDir}/base${ConfigDirName}/${LibPref}absl_malloc_internal.${LibExt}
+        ${AbslDir}/base${ConfigDirName}/${LibPref}absl_raw_logging_internal.${LibExt}
+        ${AbslDir}/base${ConfigDirName}/${LibPref}absl_spinlock_wait.${LibExt}
+        ${AbslDir}/base${ConfigDirName}/${LibPref}absl_throw_delegate.${LibExt}
+        ${AbslDir}/types${ConfigDirName}/${LibPref}absl_bad_optional_access.${LibExt}
+        ${AbslDir}/strings${ConfigDirName}/${LibPref}absl_cord.${LibExt}
+        ${AbslDir}/strings${ConfigDirName}/${LibPref}absl_str_format_internal.${LibExt}
+        ${AbslDir}/strings${ConfigDirName}/${LibPref}absl_strings.${LibExt}
+        ${AbslDir}/strings${ConfigDirName}/${LibPref}absl_strings_internal.${LibExt}
+        ${AbslDir}/debugging${ConfigDirName}/${LibPref}absl_symbolize.${LibExt}
+        ${AbslDir}/debugging${ConfigDirName}/${LibPref}absl_stacktrace.${LibExt}
+        ${AbslDir}/synchronization${ConfigDirName}/${LibPref}absl_graphcycles_internal.${LibExt}
+        ${AbslDir}/synchronization${ConfigDirName}/${LibPref}absl_synchronization.${LibExt}
+        ${AbslDir}/numeric${ConfigDirName}/${LibPref}absl_int128.${LibExt}
+        ${AbslDir}/status${ConfigDirName}/${LibPref}absl_status.${LibExt}
+        ${AbslDir}/status${ConfigDirName}/${LibPref}absl_statusor.${LibExt}
+        ${AbslDir}/time${ConfigDirName}/${LibPref}absl_time.${LibExt}
+        ${AbslDir}/time${ConfigDirName}/${LibPref}absl_time_zone.${LibExt}
+        ${GrpcDir}${ConfigDirName}/${LibPref}address_sorting.${LibExt}
+        ${GrpcDir}${ConfigDirName}/${LibPref}gpr.${LibExt}
+        ${GrpcDir}${ConfigDirName}/${LibPref}grpc.${LibExt}
+        ${GrpcDir}${ConfigDirName}/${LibPref}grpc++.${LibExt}
+        ${GrpcDir}/third_party/cares/cares/lib${ConfigDirNameCares}/${LibPref}cares.${LibExt}
+        ${GrpcDir}/third_party/protobuf${ConfigDirName}/${LibProtobufName}.${LibExt}
+        ${GrpcDir}/third_party/re2${ConfigDirName}/${LibPref}re2.${LibExt}
+        ${GrpcDir}${ConfigDirName}/${LibPref}upb.${LibExt}
+        ${OPENSSL_SSL_LIBRARY}
+        ${OPENSSL_CRYPTO_LIBRARY}
+        ${ZLIB_LIBRARY_RELEASE}
+    )
+endif()
 
-if (INWORLD_LOG_SPD)
+if (INWORLD_LOG_SPD AND NOT INWORLD_SHARED)
     list(APPEND LibFiles
-    ${CMAKE_CURRENT_SOURCE_DIR}/build/ThirdParty/spdlog${ConfigDirName}/${LibPref}${LibSpglogName}.${LibExt})
+        ${CMAKE_CURRENT_SOURCE_DIR}/build/ThirdParty/spdlog${ConfigDirName}/${LibPref}${LibSpglogName}.${LibExt})
 endif()
 
 # webrtc aec setup
 if (AEC)
     if (WIN32 OR MAC)
-        target_compile_definitions(InworldNDK PUBLIC INWORLD_AEC)
-        target_include_directories(InworldNDK PUBLIC inworld-aec/src)
-        add_custom_command(TARGET InworldNDK POST_BUILD
+        target_compile_definitions(inworld-ndk PUBLIC INWORLD_AEC)
+        target_include_directories(inworld-ndk PUBLIC inworld-aec/src)
+        add_custom_command(TARGET inworld-ndk POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy 
             ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/src/AECInterop.h  ${PackageDir}/include)
     else()
@@ -374,14 +389,14 @@ if (AEC)
     endif()
     
     if (WIN32)
-        target_link_libraries(InworldNDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Win64/webrtc_aec_plugin.lib)
+        target_link_libraries(inworld-ndk PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Win64/webrtc_aec_plugin.lib)
 
         list(APPEND LibFiles 
             ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Win64/webrtc_aec_plugin.lib
             ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Win64/webrtc_aec_plugin.dll
         )
     elseif (MAC)
-        target_link_libraries(InworldNDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Mac/libwebrtc_aec_plugin.dylib)
+        target_link_libraries(inworld-ndk PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Mac/libwebrtc_aec_plugin.dylib)
 
         list(APPEND LibFiles 
             ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Mac/libwebrtc_aec_plugin.dylib
@@ -390,13 +405,13 @@ if (AEC)
 endif()
 
 foreach(LibFile IN LISTS LibFiles)
-    add_custom_command(TARGET InworldNDK POST_BUILD
+    add_custom_command(TARGET inworld-ndk POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy ${LibFile} ${PackageLibDir})
     message("Copy lib to package: ${LibFile}")
 endforeach()
 
 function(CopyIncludeDir Path)
-    add_custom_command(TARGET InworldNDK POST_BUILD
+    add_custom_command(TARGET inworld-ndk POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory 
         ${Path}  ${PackageDir}/include)
     message("Copy include dir to package: ${Path}")
@@ -410,7 +425,7 @@ endif()
 CopyIncludeDir(${OPENSSL_INCLUDE_DIR})
 CopyIncludeDir(${ZLIB_INCLUDE_DIR})
 
-add_custom_command(TARGET InworldNDK POST_BUILD
+add_custom_command(TARGET inworld-ndk POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory 
     ${PROJECT_SOURCE_DIR}/src  ${PackageDir}/src)
 
@@ -425,15 +440,20 @@ if (WIN32 OR MAC)
         "${SourceDir}/*.c"
     )
 
-    add_executable(InworldNDKApp ${FilesALL})
+    add_executable(inworld-ndk-app ${FilesALL})
 
-    target_compile_features(InworldNDKApp PRIVATE cxx_std_20)
-    target_include_directories(InworldNDKApp PUBLIC InworldNDK/src)
-    target_link_libraries(InworldNDKApp PRIVATE InworldNDK)
+    target_compile_features(inworld-ndk-app PRIVATE cxx_std_20)
+    target_include_directories(inworld-ndk-app PUBLIC inworld-ndk/src)
+    target_link_libraries(inworld-ndk-app PRIVATE inworld-ndk)
 
     if (AEC AND WIN32)
-        add_custom_command(TARGET InworldNDKApp POST_BUILD
+        add_custom_command(TARGET inworld-ndk-app POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy
             ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Win64/webrtc_aec_plugin.dll  ${PROJECT_SOURCE_DIR}/build${ConfigDirName})
+        if (INWORLD_SHARED)
+            add_custom_command(TARGET inworld-ndk-app POST_BUILD
+                COMMAND ${CMAKE_COMMAND} -E copy
+                ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}inworld-ndk.${DynamicLibExt}  ${PROJECT_SOURCE_DIR}/build${ConfigDirName})
+        endif()
     endif()
 endif()

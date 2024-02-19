@@ -22,7 +22,7 @@ namespace InworldPakets = ai::inworld::packets;
 
 namespace Inworld {
 
-	std::string RandomUUID();
+	INWORLD_EXPORT std::string RandomUUID();
 
 	// Represents agent or player.
 	struct INWORLD_EXPORT Actor
@@ -215,7 +215,7 @@ namespace Inworld {
 		std::string _Chunk;
 	};
 
-	class AudioDataEvent : public DataEvent
+	class INWORLD_EXPORT AudioDataEvent : public DataEvent
 	{
 	public:
 		AudioDataEvent() = default;
