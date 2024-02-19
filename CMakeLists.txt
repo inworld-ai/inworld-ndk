@@ -181,8 +181,6 @@ if (ANDROID)
     )
 endif()
 
-target_link_libraries(inworld-ndk PUBLIC grpc)
-target_link_libraries(inworld-ndk PUBLIC grpc++)
 target_link_libraries(inworld-ndk-proto PUBLIC grpc)
 target_link_libraries(inworld-ndk-proto PUBLIC grpc++)
 
