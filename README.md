@@ -48,7 +48,7 @@ Download latest release from [releases page](https://github.com/inworld-ai/inwor
 2. Call *git submodule update --init --recursive* to make sure all dependency submodules are initialized and updated
 3. If you going to run **inworld-ndk-app**(testing console application for Windows and Mac) fill out client options in *Example/ConsoleApp/src/Application.cpp*. If you don't have an **Inworld.ai** account yet see more information [here](https://docs.inworld.ai/docs/intro)
 4. Run *gen* script for your platform (*win-gen.bat*, *mac-gen.sh* etc..) to generate project files
-5. Run *build* script for your platform (*win-build.bat*, *mac-build.sh* etc..) to build **InworldNDK** static lib, **inworld-ndk-app**(Win, Mac) and unit tests.
+5. Run *build* script for your platform (*win-build.bat*, *mac-build.sh* etc..) to build **inworld-ndk** static lib, **inworld-ndk-app**(Win, Mac) and unit tests.
 
 After build's succeed you have *build/Package* folder with all the source and binaries(including dependencies). You can run *build/Release/inworld-ndk-app* executable(Win, Mac) and text message with your characters in console.
 
@@ -69,7 +69,7 @@ Find Android Example App project in Exaple/AndroidApp. To run the App:
 - Open Exaple/AndroidApp project in *Android Studio*(tested on Android Studio Flamingo | 2022.2.1 Patch 2)
 - Fill *Options.SceneName*, *Options.ApiKey* and *Options.ApiSecret* in app/cpp/cpp/native-lib.cpp. If you don't have an **Inworld.ai** account yet see more information [here](https://docs.inworld.ai/docs/intro)
 - Build and run on device or emulator
-- Inworld Client is created and started on MainActivity's onCreate, a greeting to a character is sent when Inworld session is started. See *Logcat* for logs, filter by *InworldNDK*
+- Inworld Client is created and started on MainActivity's onCreate, a greeting to a character is sent when Inworld session is started. See *Logcat* for logs, filter by *inworld-ndk*
 - See app/cpp/cpp/CMakeLists.txt as an example on how to link with Inworld
 - See app/cpp/cpp/native-lib.cpp as an example on how to create and start Inworld Client
 
