@@ -45,9 +45,10 @@ endif()
 target_include_directories(inworld-ndk PUBLIC
     ${ThirdPartyDir}/include
     ${ThirdPartyDir}/grpc/include
-    src
+    src/Public
+    src/Public/Utils
     src-proto
-    src/ThirdParty
+    src/Private/ThirdParty
 )
 target_include_directories(inworld-ndk-proto PUBLIC
     ${ThirdPartyDir}/include
@@ -201,7 +202,7 @@ if(UNITY)
     else()
         add_library(InworldUnityWrapper SHARED ${UnityNDKFiles})
     endif()
-    target_include_directories(InworldUnityWrapper PUBLIC inworld-ndk/src)    
+    target_include_directories(InworldUnityWrapper PUBLIC inworld-ndk/src/Public)    
     target_link_libraries(InworldUnityWrapper PRIVATE inworld-ndk)  
 endif()
 
@@ -241,11 +242,11 @@ target_link_libraries(inworld-ndk PUBLIC gtest)
 
 enable_testing()
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
-add_executable(inworld-ndk-unit src/Test/GTest.cpp)
+add_executable(inworld-ndk-unit src/Private/Test/GTest.cpp)
 target_link_libraries(inworld-ndk-unit gtest gtest_main)
 target_link_libraries(inworld-ndk-unit inworld-ndk)
 target_include_directories(inworld-ndk-unit PUBLIC 
-    src
+    src/Public
 )
 add_test( inworld-ndk-unit inworld-ndk-unit )
 if (WIN32)
@@ -464,7 +465,7 @@ if (WIN32 OR MAC)
     add_executable(inworld-ndk-app ${FilesALL})
 
     target_compile_features(inworld-ndk-app PRIVATE cxx_std_20)
-    target_include_directories(inworld-ndk-app PUBLIC inworld-ndk/src)
+    target_include_directories(inworld-ndk-app PUBLIC inworld-ndk/src/Public)
     target_link_libraries(inworld-ndk-app PRIVATE inworld-ndk)
     target_link_libraries(inworld-ndk-app PRIVATE inworld-ndk-proto)
 
