@@ -324,7 +324,7 @@ if (INWORLD_SHARED)
         ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}inworld-ndk.${LibExt}
         ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}inworld-ndk.${DynamicLibExt}
     )
-elseif()
+else()
     set(LibFiles 
         ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}inworld-ndk.${LibExt}
         ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}inworld-ndk-proto.${LibExt}
@@ -418,6 +418,10 @@ CopyIncludeDir(${ZLIB_INCLUDE_DIR})
 add_custom_command(TARGET inworld-ndk POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory 
     ${PROJECT_SOURCE_DIR}/src  ${PackageDir}/src)
+
+add_custom_command(TARGET inworld-ndk POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory 
+    ${PROJECT_SOURCE_DIR}/src-proto  ${PackageDir}/src-proto)
 
 function(GroupSourcesByFolder target)
     set(SOURCE_GROUP_DELIMITER "/")
