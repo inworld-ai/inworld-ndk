@@ -46,7 +46,7 @@ using grpc::Status;
 
 namespace Inworld
 {
-	using ClientStream = ::grpc::ClientReaderWriter< InworldPackets::InworldPacket, InworldPackets::InworldPacket>;
+	using ClientStream = ::grpc::ClientReaderWriter<InworldPackets::InworldPacket, InworldPackets::InworldPacket>;
 
 	class INWORLD_EXPORT RunnableMessaging : public Runnable
 	{

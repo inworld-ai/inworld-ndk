@@ -11,7 +11,6 @@
 #include <functional>
 #include <type_traits>
 
-#include "Service.h"
 #include "Define.h"
 #include "Types.h"
 #include "Packets.h"
@@ -22,8 +21,22 @@
 
 using PacketQueue = Inworld::SharedQueue<std::shared_ptr<Inworld::Packet>>;
 
+namespace ai::inworld::packets
+{
+	class InworldPacket;
+}
+
+namespace grpc
+{
+	template <class W, class R>
+	class ClientReaderWriter;
+}
+
 namespace Inworld
 {
+	class ServiceSession;
+	using ClientStream = ::grpc::ClientReaderWriter<InworldPackets::InworldPacket, InworldPackets::InworldPacket>;
+
 	struct INWORLD_EXPORT SdkInfo
 	{
 		std::string Type;
@@ -195,7 +208,7 @@ namespace Inworld
 
 		ConnectionState _ConnectionState = ConnectionState::Idle;
 		std::string _ErrorMessage = std::string();
-		int32_t _ErrorCode = grpc::StatusCode::OK;
+		int32_t _ErrorCode = 0;
 
 		AECFilter _EchoFilter;
 		PerceivedLatencyTracker _LatencyTracker;
