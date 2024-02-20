@@ -10,13 +10,13 @@
 
 void NDKApp::PacketHandler::Visit(const Inworld::TextEvent& Event)
 {
-	std::string Targets = (Event._Routing._Target._Type == InworldPakets::Actor_Type_PLAYER) ? "Player" : 
+	std::string Targets = (Event._Routing._Target._Type == InworldPackets::Actor_Type_PLAYER) ? "Player" : 
 		(Event._Routing._Target._Name.empty() ? "" : GetGivenName(Event._Routing._Target._Name));
 	for (auto& Target : Event._Routing._Targets)
 	{
 		if (!Targets.empty())
 			Targets += ", ";
-		Targets += (Target._Type == InworldPakets::Actor_Type_PLAYER) ? "Player" : GetGivenName(Target._Name);
+		Targets += (Target._Type == InworldPackets::Actor_Type_PLAYER) ? "Player" : GetGivenName(Target._Name);
 	}
 
 	Inworld::Log("{} to {}: Text: {}", ARG_STR(GetGivenName(Event._Routing._Source._Name)), Targets, ARG_STR(Event.GetText()));

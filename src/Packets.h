@@ -8,17 +8,17 @@
 #pragma once
 
 #include "ProtoDisableWarning.h"
-#include "ai/inworld/packets/packets.pb.h"
 
 #include "Define.h"
 #include "Types.h"
 
-#include <google/protobuf/util/time_util.h>
 #include <vector>
 #include <unordered_map>
 #include <chrono>
 
-namespace InworldPakets = ai::inworld::packets;
+#include "ai/inworld/packets/packets.pb.h"
+
+namespace InworldPackets = ai::inworld::packets;
 
 namespace Inworld {
 
@@ -28,19 +28,19 @@ namespace Inworld {
 	struct INWORLD_EXPORT Actor
 	{
 		Actor() = default;
-		Actor(const InworldPakets::Actor& Actor) 
+		Actor(const InworldPackets::Actor& Actor) 
 			: _Type(Actor.type())
 			, _Name(Actor.name().c_str())
 		{}
-		Actor(const InworldPakets::Actor_Type Type, const std::string& Name) 
+		Actor(const InworldPackets::Actor_Type Type, const std::string& Name) 
 			: _Type(Type)
 			, _Name(Name) 
 		{}
 
-        InworldPakets::Actor ToProto() const;
+        InworldPackets::Actor ToProto() const;
         
 		// Is Actor player or agent.
-        InworldPakets::Actor_Type _Type;
+        InworldPackets::Actor_Type _Type;
         // agent id if this is agent.
         std::string _Name;
 	};
@@ -49,7 +49,7 @@ namespace Inworld {
 	struct INWORLD_EXPORT Routing
 	{
 		Routing() = default;
-		Routing(const InworldPakets::Routing& Routing);
+		Routing(const InworldPackets::Routing& Routing);
 		Routing(const Actor& Source, const Actor& Target) 
 			: _Source(Source)
 			, _Target(Target) 
@@ -62,7 +62,7 @@ namespace Inworld {
 		static Routing Player2Agent(const std::string& AgentId);
 		static Routing Player2Agents(const std::vector<std::string>& AgentIds);
 
-        InworldPakets::Routing ToProto() const;
+        InworldPackets::Routing ToProto() const;
         
 		Actor _Source;
         Actor _Target;
@@ -74,7 +74,7 @@ namespace Inworld {
         PacketId() 
 			: PacketId(RandomUUID(), std::string(RandomUUID()), std::string(RandomUUID())) 
 		{}
-        PacketId(const InworldPakets::PacketId& Other)
+        PacketId(const InworldPackets::PacketId& Other)
 			: PacketId(Other.packet_id().c_str(), Other.utterance_id().c_str(), Other.interaction_id().c_str()) 
 		{}
 		PacketId(const std::string& UID, const std::string& UtteranceId, const std::string& InteractionId) 
@@ -83,7 +83,7 @@ namespace Inworld {
 			, _InteractionId(InteractionId) 
 		{}
 
-        InworldPakets::PacketId ToProto() const;
+        InworldPackets::PacketId ToProto() const;
         
 		// Always unique for given packet.
         std::string _UID;
@@ -132,11 +132,7 @@ namespace Inworld {
     {
 	public:
         Packet() = default;
-		Packet(const InworldPakets::InworldPacket& GrpcPacket) 
-			: _PacketId(GrpcPacket.packet_id())
-			, _Routing(GrpcPacket.routing())
-			, _Timestamp(std::chrono::system_clock::time_point(std::chrono::seconds(google::protobuf_inworld::util::TimeUtil::TimestampToTimeT(GrpcPacket.timestamp()))))
-		{}
+		Packet(const InworldPackets::InworldPacket& GrpcPacket);
         Packet(const Routing& Routing) 
 			: _Routing(Routing)
 		{}
@@ -144,12 +140,12 @@ namespace Inworld {
 
 		virtual void Accept(PacketVisitor& Visitor) {}
 
-		InworldPakets::InworldPacket ToProto() const;
+		InworldPackets::InworldPacket ToProto() const;
 
 		Routing GetRouting() { return _Routing; }
 
     protected:
-        virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const {}
+        virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const {}
         
 	public:
         PacketId _PacketId;
@@ -161,7 +157,7 @@ namespace Inworld {
 	{
 	public:
 		TextEvent() = default;
-        TextEvent(const InworldPakets::InworldPacket& GrpcPacket)
+        TextEvent(const InworldPackets::InworldPacket& GrpcPacket)
             : Packet(GrpcPacket)
             , _Text(GrpcPacket.text().text().c_str())
             , _Final(GrpcPacket.text().final())
@@ -171,7 +167,7 @@ namespace Inworld {
             : Packet(Routing)
             , _Text(InText)
             , _Final(true)
-            , _SourceType(InworldPakets::TextEvent_SourceType_TYPED_IN)
+            , _SourceType(InworldPackets::TextEvent_SourceType_TYPED_IN)
         {}
 
 		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
@@ -181,19 +177,19 @@ namespace Inworld {
         bool IsFinal() const { return _Final; }
 
 	protected:
-        virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+        virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 
 	private:
 		std::string _Text;
 		bool _Final;
-		InworldPakets::TextEvent_SourceType _SourceType;
+		InworldPackets::TextEvent_SourceType _SourceType;
 	};
 
 	class INWORLD_EXPORT DataEvent : public Packet
     {
 	public:
 		DataEvent() = default;
-		DataEvent(const InworldPakets::InworldPacket& GrpcPacket)
+		DataEvent(const InworldPackets::InworldPacket& GrpcPacket)
 			: Packet(GrpcPacket)
 			, _Chunk(GrpcPacket.data_chunk().chunk())
 		{}
@@ -206,10 +202,10 @@ namespace Inworld {
 
         const std::string& GetDataChunk() const { return _Chunk; }
 
-		virtual const InworldPakets::DataChunk_DataType GetType() const = 0;
+		virtual const InworldPackets::DataChunk_DataType GetType() const = 0;
 
     protected:
-        virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+        virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 
 		// protobuf stores bytes data as string, to save copy time we can use same data type.
 		std::string _Chunk;
@@ -219,14 +215,14 @@ namespace Inworld {
 	{
 	public:
 		AudioDataEvent() = default;
-		AudioDataEvent(const InworldPakets::InworldPacket& GrpcPacket);
+		AudioDataEvent(const InworldPackets::InworldPacket& GrpcPacket);
 		AudioDataEvent(const std::string& Data, const Routing& Routing)
 			: DataEvent(Data, Routing)
 		{}
 
 		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
 
-		const InworldPakets::DataChunk_DataType GetType() const override { return InworldPakets::DataChunk_DataType_AUDIO; }
+		const InworldPackets::DataChunk_DataType GetType() const override { return InworldPackets::DataChunk_DataType_AUDIO; }
 
 		struct PhonemeInfo
 		{
@@ -236,7 +232,7 @@ namespace Inworld {
 
 		const std::vector<PhonemeInfo>& GetPhonemeInfos() const { return _PhonemeInfos; }
 	protected:
-		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 		
 	private:
 		std::vector<PhonemeInfo> _PhonemeInfos;
@@ -246,7 +242,7 @@ namespace Inworld {
 	{
 	public:
 		SilenceEvent() = default;
-		SilenceEvent(const InworldPakets::InworldPacket& GrpcPacket)
+		SilenceEvent(const InworldPackets::InworldPacket& GrpcPacket)
 			: Packet(GrpcPacket)
 			, _Duration(GrpcPacket.data_chunk().duration_ms() * 0.001f)
 		{}
@@ -260,7 +256,7 @@ namespace Inworld {
 		float GetDuration() const { return _Duration; }
 
 	protected:
-		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 
 	private:
 		float _Duration;
@@ -270,50 +266,50 @@ namespace Inworld {
     {
     public:
 		ControlEvent() = default;
-		ControlEvent(const InworldPakets::InworldPacket& GrpcPacket)
+		ControlEvent(const InworldPackets::InworldPacket& GrpcPacket)
 			: Packet(GrpcPacket)
 			, _Action(GrpcPacket.control().action())
 		{}
-        ControlEvent(InworldPakets::ControlEvent_Action Action, const Routing& Routing)
+        ControlEvent(InworldPackets::ControlEvent_Action Action, const Routing& Routing)
 			: Packet(Routing)
 			, _Action(Action)
 		{}
 
 		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
 
-        InworldPakets::ControlEvent_Action GetControlAction() const { return _Action; }
+        InworldPackets::ControlEvent_Action GetControlAction() const { return _Action; }
 
     protected:
-        virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+        virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 
 	private:
-		InworldPakets::ControlEvent_Action _Action;
+		InworldPackets::ControlEvent_Action _Action;
     };
 
     class INWORLD_EXPORT EmotionEvent : public Packet
     {
     public:
 		EmotionEvent() = default;
-		EmotionEvent(const InworldPakets::InworldPacket& GrpcPacket);
+		EmotionEvent(const InworldPackets::InworldPacket& GrpcPacket);
 
         virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
 
-		InworldPakets::EmotionEvent_SpaffCode GetEmotionalBehavior() const { return _Behavior; }
-		InworldPakets::EmotionEvent_Strength GetStrength() const { return _Strength; }
+		InworldPackets::EmotionEvent_SpaffCode GetEmotionalBehavior() const { return _Behavior; }
+		InworldPackets::EmotionEvent_Strength GetStrength() const { return _Strength; }
 
     protected:
-        virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+        virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 
 	private:
-		InworldPakets::EmotionEvent_SpaffCode _Behavior;
-		InworldPakets::EmotionEvent_Strength _Strength;
+		InworldPackets::EmotionEvent_SpaffCode _Behavior;
+		InworldPackets::EmotionEvent_Strength _Strength;
     };
 
     class INWORLD_EXPORT CustomGestureEvent : public Packet
     {
     public:
 		CustomGestureEvent() = default;
-		CustomGestureEvent(const InworldPakets::InworldPacket& GrpcPacket)
+		CustomGestureEvent(const InworldPackets::InworldPacket& GrpcPacket)
             : Packet(GrpcPacket)
             , _GestureName(GrpcPacket.custom().name().data())
 			, _Playback(GrpcPacket.custom().playback())
@@ -328,18 +324,18 @@ namespace Inworld {
         const std::string& GetCustomGesture() const { return _GestureName; }
 
     protected:
-        virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+        virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 
     private:
 		std::string _GestureName;
-		InworldPakets::Playback _Playback;
+		InworldPackets::Playback _Playback;
 	};
 
 	class INWORLD_EXPORT CustomEvent : public Packet
 	{
 	public:
 		CustomEvent() = default;
-		CustomEvent(const InworldPakets::InworldPacket& GrpcPacket);
+		CustomEvent(const InworldPackets::InworldPacket& GrpcPacket);
 		CustomEvent(const std::string& Name, const std::unordered_map<std::string, std::string>& Params, const Routing& Routing)
 			: Packet(Routing)
 			, _Name(Name)
@@ -352,7 +348,7 @@ namespace Inworld {
 		const std::unordered_map<std::string, std::string>& GetParams() const { return _Params; }
 
 	protected:
-		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 
 	private:
 		std::string _Name;
@@ -363,7 +359,7 @@ namespace Inworld {
 	{
 	public:
 		RelationEvent() = default;
-		RelationEvent(const InworldPakets::InworldPacket& GrpcPacket);
+		RelationEvent(const InworldPackets::InworldPacket& GrpcPacket);
 
 		int32_t GetAttraction() const { return _Attraction; }
 		int32_t GetFamiliar() const { return _Familiar; }
@@ -375,7 +371,7 @@ namespace Inworld {
 	
 	
 	protected:
-		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 	
 	private:
 		int32_t _Attraction;
@@ -389,7 +385,7 @@ namespace Inworld {
 	{
 	public:
 		ActionEvent() = default;
-		ActionEvent(const InworldPakets::InworldPacket& GrpcPacket);
+		ActionEvent(const InworldPackets::InworldPacket& GrpcPacket);
 		ActionEvent(const std::string& Content, const Routing& Routing)
 			: Packet(Routing)
 			, _Content(Content)
@@ -398,7 +394,7 @@ namespace Inworld {
 		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }	
 	
 	protected:
-		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 	
 	private:
 		std::string _Content;
@@ -408,7 +404,7 @@ namespace Inworld {
 	{
 	public:
 		MutationEvent() = default;
-		MutationEvent(const InworldPakets::InworldPacket& GrpcPacket)
+		MutationEvent(const InworldPackets::InworldPacket& GrpcPacket)
 			: Packet(GrpcPacket)
 		{}
 		MutationEvent(const Routing& Routing)
@@ -416,7 +412,7 @@ namespace Inworld {
 		{}
 
 	protected:
-		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const = 0;
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const = 0;
 	};
 
 	class INWORLD_EXPORT CancelResponseEvent : public MutationEvent
@@ -434,7 +430,7 @@ namespace Inworld {
 		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
 
 	protected:
-		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 
 	private:
 		std::string _InteractionId;
@@ -444,7 +440,7 @@ namespace Inworld {
 	class INWORLD_EXPORT SessionControlEvent : public MutationEvent
 	{
 	public:
-		SessionControlEvent() : MutationEvent(Routing{ { InworldPakets::Actor_Type_PLAYER, "" }, { InworldPakets::Actor_Type_WORLD, ""}}) {}
+		SessionControlEvent() : MutationEvent(Routing{ { InworldPackets::Actor_Type_PLAYER, "" }, { InworldPackets::Actor_Type_WORLD, ""}}) {}
 	};
 
 	class INWORLD_EXPORT SessionControlEvent_SessionConfiguration : public SessionControlEvent
@@ -461,7 +457,7 @@ namespace Inworld {
 		{}
 
 	protected:
-		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 
 	private:
 		Data _Data;
@@ -492,7 +488,7 @@ namespace Inworld {
 		{}
 
 	protected:
-		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 
 	private:
 		Data _Data;
@@ -526,7 +522,7 @@ namespace Inworld {
 		{}
 
 	protected:
-		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 
 	private:
 		Data _Data;
@@ -548,7 +544,7 @@ namespace Inworld {
 		{}
 
 	protected:
-		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 
 	private:
 		Data _Data;
@@ -568,7 +564,7 @@ namespace Inworld {
 		{}
 
 	protected:
-		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 
 	private:
 		Data _Data;
@@ -588,7 +584,7 @@ namespace Inworld {
 		{}
 
 	protected:
-		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 
 	private:
 		Data _Data;
@@ -608,7 +604,7 @@ namespace Inworld {
 		{}
 
 	protected:
-		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 
 	private:
 		Data _Data;
@@ -628,7 +624,7 @@ namespace Inworld {
 		{}
 
 	protected:
-		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 
 	private:
 		Data _Data;
@@ -637,7 +633,7 @@ namespace Inworld {
 	class INWORLD_EXPORT SessionControlResponse_LoadScene : public Packet
 	{
 	public:
-		SessionControlResponse_LoadScene(const InworldPakets::InworldPacket& GrpcPacket);
+		SessionControlResponse_LoadScene(const InworldPackets::InworldPacket& GrpcPacket);
 
 		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
 
@@ -650,7 +646,7 @@ namespace Inworld {
 	class INWORLD_EXPORT SessionControlResponse_LoadCharacters : public Packet
 	{
 	public:
-		SessionControlResponse_LoadCharacters(const InworldPakets::InworldPacket& GrpcPacket);
+		SessionControlResponse_LoadCharacters(const InworldPackets::InworldPacket& GrpcPacket);
 
 		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
 

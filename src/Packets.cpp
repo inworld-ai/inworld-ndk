@@ -9,8 +9,11 @@
 #include "ProtoDisableWarning.h"
 
 #include <random>
+
 #include "Types.h"
 #include "Utils/Log.h"
+
+#include "google/protobuf/util/time_util.h"
 
 namespace Inworld {
 
@@ -33,17 +36,17 @@ namespace Inworld {
         return Result;
     }
 
-    InworldPakets::Actor Actor::ToProto() const
+    InworldPackets::Actor Actor::ToProto() const
     {
-        InworldPakets::Actor actor;
+        InworldPackets::Actor actor;
         actor.set_type(_Type);
         actor.set_name(_Name);
         return actor;
     }
 
-    InworldPakets::Routing Routing::ToProto() const
+    InworldPackets::Routing Routing::ToProto() const
     {
-        InworldPakets::Routing routing;
+        InworldPackets::Routing routing;
         *routing.mutable_source() = _Source.ToProto();
         *routing.mutable_target() = _Target.ToProto();
 
@@ -55,7 +58,7 @@ namespace Inworld {
         return routing;
     }
 
-	Routing::Routing(const InworldPakets::Routing& Routing)
+	Routing::Routing(const InworldPackets::Routing& Routing)
 		: _Source(Routing.source())
 		, _Target(Routing.target())
 	{
@@ -66,7 +69,7 @@ namespace Inworld {
 	}
 
 	Routing Routing::Player2Agent(const std::string& AgentId) {
-        return { { InworldPakets::Actor_Type_PLAYER, "" }, { InworldPakets::Actor_Type_AGENT, AgentId} };
+        return { { InworldPackets::Actor_Type_PLAYER, "" }, { InworldPackets::Actor_Type_AGENT, AgentId} };
     }
 
 	Routing Routing::Player2Agents(const std::vector<std::string>& AgentIds)
@@ -74,23 +77,29 @@ namespace Inworld {
         std::vector<Actor> Actors;
         for (auto& Id : AgentIds)
         {
-            Actors.emplace_back(InworldPakets::Actor_Type_AGENT, Id);
+            Actors.emplace_back(InworldPackets::Actor_Type_AGENT, Id);
         }
-        return { { InworldPakets::Actor_Type_PLAYER, "" }, Actors };
+        return { { InworldPackets::Actor_Type_PLAYER, "" }, Actors };
 	}
 
-	InworldPakets::PacketId PacketId::ToProto() const
+	InworldPackets::PacketId PacketId::ToProto() const
     {
-        InworldPakets::PacketId proto;
+        InworldPackets::PacketId proto;
         proto.set_packet_id(_UID);
         proto.set_utterance_id(_UtteranceId);
         proto.set_interaction_id(_InteractionId);
         return proto;
     }
 
-    InworldPakets::InworldPacket Packet::ToProto() const
+	Packet::Packet(const InworldPackets::InworldPacket& GrpcPacket)
+		: _PacketId(GrpcPacket.packet_id())
+		, _Routing(GrpcPacket.routing())
+		, _Timestamp(std::chrono::system_clock::time_point(std::chrono::seconds(google::protobuf_inworld::util::TimeUtil::TimestampToTimeT(GrpcPacket.timestamp()))))
+	{}
+
+	InworldPackets::InworldPacket Packet::ToProto() const
     {
-        InworldPakets::InworldPacket Proto;
+        InworldPackets::InworldPacket Proto;
         *Proto.mutable_packet_id() = _PacketId.ToProto();
         *Proto.mutable_routing() = _Routing.ToProto();
         *Proto.mutable_timestamp() = 
@@ -99,24 +108,24 @@ namespace Inworld {
         return Proto;
     }
 
-    void TextEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const 
+    void TextEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const 
     {
         Proto.mutable_text()->set_text(_Text);
         Proto.mutable_text()->set_final(_Final);
         Proto.mutable_text()->set_source_type(_SourceType);
     }
 
-    void ControlEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+    void ControlEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
     {
         Proto.mutable_control()->set_action(_Action);
     }
 
-    void DataEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+    void DataEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
     {
         Proto.mutable_data_chunk()->set_chunk(_Chunk);
     }
 
-    void AudioDataEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+    void AudioDataEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
     {
         DataEvent::ToProtoInternal(Proto);
         Proto.mutable_data_chunk()->set_type(GetType());
@@ -131,7 +140,7 @@ namespace Inworld {
         }
     }
 
-    AudioDataEvent::AudioDataEvent(const InworldPakets::InworldPacket& GrpcPacket) : DataEvent(GrpcPacket)
+    AudioDataEvent::AudioDataEvent(const InworldPackets::InworldPacket& GrpcPacket) : DataEvent(GrpcPacket)
     {
         _PhonemeInfos.reserve(GrpcPacket.data_chunk().additional_phoneme_info_size());
         for (const auto& phoneme_info : GrpcPacket.data_chunk().additional_phoneme_info())
@@ -143,23 +152,23 @@ namespace Inworld {
         }
     }
 
-    EmotionEvent::EmotionEvent(const InworldPakets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
+    EmotionEvent::EmotionEvent(const InworldPackets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
     {
         _Behavior = GrpcPacket.emotion().behavior();
         _Strength = GrpcPacket.emotion().strength();
     }
 
-    void EmotionEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+    void EmotionEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
     {
         Proto.mutable_emotion()->set_behavior(_Behavior);
     }
 
-	void CustomGestureEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+	void CustomGestureEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
 	{
 		
 	}
 
-    CustomEvent::CustomEvent(const InworldPakets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
+    CustomEvent::CustomEvent(const InworldPackets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
     {
         _Name = GrpcPacket.custom().name().data();
         for(const auto& Param : GrpcPacket.custom().parameters())
@@ -168,7 +177,7 @@ namespace Inworld {
         }
     }
 
-	void CustomEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+	void CustomEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
 	{
         auto* mutable_custom = Proto.mutable_custom();
         mutable_custom->set_name(_Name);
@@ -180,12 +189,12 @@ namespace Inworld {
         }
 	}
 
-    void SilenceEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+    void SilenceEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
 	{
     
 	}
 
-    void CancelResponseEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+    void CancelResponseEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
     {
         auto* mutable_cancel_responses = Proto.mutable_mutation()->mutable_cancel_responses();
         mutable_cancel_responses->set_interaction_id(_InteractionId);
@@ -195,7 +204,7 @@ namespace Inworld {
         }
     }
 
-    RelationEvent::RelationEvent(const InworldPakets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
+    RelationEvent::RelationEvent(const InworldPackets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
     {
         const auto currState = GrpcPacket.debug_info().relation().relation_state();
         _Attraction = currState.attraction();
@@ -205,27 +214,27 @@ namespace Inworld {
         _Trust = currState.trust();
     }
 
-    void RelationEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+    void RelationEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
     {
         
     }
 
-    ActionEvent::ActionEvent(const InworldPakets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
+    ActionEvent::ActionEvent(const InworldPackets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
     {
         _Content = GrpcPacket.action().narrated_action().content();
     }
 
-    void ActionEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+    void ActionEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
     {
         Proto.mutable_action()->mutable_narrated_action()->set_content(_Content);
 	}
 
-	void SessionControlEvent_SessionConfiguration::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+	void SessionControlEvent_SessionConfiguration::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
 	{
 		Proto.mutable_session_control()->mutable_session_configuration()->set_game_session_id(_Data.Id);
 	}
 
-	void SessionControlEvent_Capabilities::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+	void SessionControlEvent_Capabilities::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
 	{
 		auto* Capabilities = Proto.mutable_session_control()->mutable_capabilities_configuration();
 		Capabilities->set_audio(_Data.Audio);
@@ -242,7 +251,7 @@ namespace Inworld {
 		Capabilities->set_multi_agent(_Data.Multiagent);
 	}
 
-	void SessionControlEvent_UserConfiguration::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+	void SessionControlEvent_UserConfiguration::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
 	{
 		Proto.mutable_session_control()->mutable_user_configuration()->set_id(_Data.Id);
 		Proto.mutable_session_control()->mutable_user_configuration()->set_name(_Data.Name);
@@ -260,7 +269,7 @@ namespace Inworld {
 		}
 	}
 
-	void SessionControlEvent_ClientConfiguration::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+	void SessionControlEvent_ClientConfiguration::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
 	{
 		auto* Config = Proto.mutable_session_control()->mutable_client_configuration();
         Config->set_id(_Data.Id);
@@ -272,18 +281,18 @@ namespace Inworld {
 		Inworld::Log("SessionControlEvent_ClientConfiguration Client description: %s", ARG_STR(_Data.Description));
 	}
 
-	void SessionControlEvent_SessionSave::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+	void SessionControlEvent_SessionSave::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
 	{
-		Proto.mutable_session_control()->mutable_continuation()->set_continuation_type(InworldPakets::Continuation_ContinuationType_CONTINUATION_TYPE_EXTERNALLY_SAVED_STATE);
+		Proto.mutable_session_control()->mutable_continuation()->set_continuation_type(InworldPackets::Continuation_ContinuationType_CONTINUATION_TYPE_EXTERNALLY_SAVED_STATE);
 		Proto.mutable_session_control()->mutable_continuation()->set_externally_saved_state(_Data.Bytes);
 	}
 
-	void SessionControlEvent_LoadScene::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+	void SessionControlEvent_LoadScene::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
 	{
         Proto.mutable_mutation()->mutable_load_scene()->set_name(_Data.Scene);
 	}
 
-	void SessionControlEvent_LoadCharacters::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+	void SessionControlEvent_LoadCharacters::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
 	{
         auto* LoadCharacters = Proto.mutable_mutation()->mutable_load_characters();
         for (auto& Name : _Data.Names)
@@ -292,7 +301,7 @@ namespace Inworld {
         }
 	}
 
-	void SessionControlEvent_UnloadCharacters::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+	void SessionControlEvent_UnloadCharacters::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
 	{
 		auto* UnloadCharacters = Proto.mutable_mutation()->mutable_unload_characters();
 		for (auto& Name : _Data.Names)
@@ -301,7 +310,7 @@ namespace Inworld {
 		}
 	}
 
-    SessionControlResponse_LoadScene::SessionControlResponse_LoadScene(const InworldPakets::InworldPacket& GrpcPacket)
+    SessionControlResponse_LoadScene::SessionControlResponse_LoadScene(const InworldPackets::InworldPacket& GrpcPacket)
 	{
 		auto& Scene = GrpcPacket.session_control_response().loaded_scene();
 		_AgentInfos.reserve(Scene.agents_size());
@@ -314,7 +323,7 @@ namespace Inworld {
 		}
 	}
 
-	SessionControlResponse_LoadCharacters::SessionControlResponse_LoadCharacters(const InworldPakets::InworldPacket& GrpcPacket)
+	SessionControlResponse_LoadCharacters::SessionControlResponse_LoadCharacters(const InworldPackets::InworldPacket& GrpcPacket)
 	{
         auto& Characters = GrpcPacket.session_control_response().loaded_characters();
 		_AgentInfos.reserve(Characters.agents_size());
