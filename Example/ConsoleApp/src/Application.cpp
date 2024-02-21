@@ -29,13 +29,13 @@ void NDKApp::App::Run()
 	_Cli.SetCommands({
 		{
 			"Text",
-			"Send text message to a character (Arg0: Text)",
+			"Send text message to a character (Arg: Text)",
 			[this](std::vector<std::string> Args)
 			{
-				if (Args.size() != 1)
+				std::string Text;
+				for (auto& A : Args)
 				{
-					Error("Invalid args");
-					return;
+					Text += A + " ";
 				}
 
 				auto CurAgents = GetCurrentAgentBrains();
@@ -45,7 +45,7 @@ void NDKApp::App::Run()
 					return;
 				}
 
-				_Client.SendTextMessage(CurAgents, Args[0]);
+				_Client.SendTextMessage(CurAgents, Text);
 			}
 		},
 		{
@@ -72,16 +72,22 @@ void NDKApp::App::Run()
 		},
 		{
 			"Narration",
-			"Send narration to a character (Arg0: Text)",
+			"Send narration to a character (Arg: Text)",
 			[this](std::vector<std::string> Args)
 			{
+				std::string Text;
+				for (auto& A : Args)
+				{
+					Text += A + " ";
+				}
+
 				if (_CurrentAgentIdxs.empty())
 				{
 					Error("Invalid character");
 					return;
 				}
 
-				_Client.SendNarrationEvent(_AgentInfos[_CurrentAgentIdxs[0]].AgentId, Args[0]);
+				_Client.SendNarrationEvent(_AgentInfos[_CurrentAgentIdxs[0]].AgentId, Text);
 				Inworld::Log("Narration sent.");
 			}
 		},
@@ -103,7 +109,7 @@ void NDKApp::App::Run()
 		},
 		{
 			"SetChar",
-			"Set character index (Arg0: Index)",
+			"Set character index (Arg: Index)",
 			[this](std::vector<std::string> Args)
 			{
 				if (Args.empty())
@@ -129,6 +135,7 @@ void NDKApp::App::Run()
 				{
 					Inworld::Log("{0} {1} {2}", ARG_STR(Info.GivenName), ARG_STR(Info.AgentId), ARG_STR(Info.BrainName));
 				}
+				NotifyCurrentCharacter();
 			}
 		},
 		{
@@ -164,34 +171,122 @@ void NDKApp::App::Run()
 						_AgentInfos = AgentInfos;
 						if (!AgentInfos.empty())
 						{
-							_CurrentAgentIdxs.empty();
+							_CurrentAgentIdxs.clear();
 							_CurrentAgentIdxs.push_back(0);
 							NotifyCurrentCharacter();
 						}
 					});
 			}
+		},
+		{
+			"LoadScene",
+			"Load scene",
+			[this](std::vector<std::string> Args)
+			{
+				if (Args.size() != 1)
+				{
+					Error("Invalid args");
+					return;
+				}
+
+				_Client.LoadScene(Args[0], [this](const std::vector<Inworld::AgentInfo>& AgentInfos) {
+					Inworld::Log("LoadScene done.");
+
+					_AgentInfos.insert(_AgentInfos.end(), AgentInfos.begin(), AgentInfos.end());
+					_PacketHandler._AgentInfos = _AgentInfos;
+				});
+			}
+		},
+		{
+			"LoadChars",
+			"Load characters",
+			[this](std::vector<std::string> Args)
+			{
+				if (Args.empty())
+				{
+					Error("Invalid args");
+					return;
+				}
+
+				_Client.LoadCharacters(Args, [this](const std::vector<Inworld::AgentInfo>& AgentInfos) {
+					Inworld::Log("LoadCharacters done.");
+
+					_AgentInfos.insert(_AgentInfos.end(), AgentInfos.begin(), AgentInfos.end());
+					_PacketHandler._AgentInfos = _AgentInfos;
+				});
+			}
+		},
+		{
+			"UnloadChars",
+			"Unload characters",
+			[this](std::vector<std::string> Args)
+			{
+				if (Args.empty())
+				{
+					Error("Invalid args");
+					return;
+				}
+				
+				bool bDropCurrentChars = false;
+				for (auto& Id : Args)
+				{
+					auto It = std::find_if(_AgentInfos.begin(), _AgentInfos.end(), [&Id](const auto& Info) { return Info.BrainName == Id; });
+					if (It != _AgentInfos.end())
+					{
+						Inworld::Log("Unload character %s", Id);
+						int32_t Idx = _AgentInfos.begin() - It;
+						_AgentInfos.erase(It);
+						if (std::find(_CurrentAgentIdxs.begin(), _CurrentAgentIdxs.end(), Idx) != _CurrentAgentIdxs.end())
+						{
+							bDropCurrentChars = true;
+						}
+					}
+				}
+				if (bDropCurrentChars)
+				{
+					_CurrentAgentIdxs.clear();
+					if (_AgentInfos.size() > 0)
+					{
+						_CurrentAgentIdxs.push_back(0);
+						NotifyCurrentCharacter();
+					}
+				}
+
+				_Client.UnloadCharacters(Args);
+			}
+		},
+		{
+			"LoadSave",
+			"Load save",
+			[this](std::vector<std::string> Args)
+			{
+				if (Args.size() != 1)
+				{
+					Error("Invalid args");
+					return;
+				}
+
+				_Client.LoadSavedState(Args[0]);
+			}
 		}
 		});
 
-		_Options.ServerUrl = "api-engine.inworld.ai:443";
+	_Options.ServerUrl = "api-engine.inworld.ai:443";
 	_Options.PlayerName = "Player";
 
 	_Options.SceneName = g_SceneName;
 	_Options.Base64 = g_Base64;
 	_Options.ApiKey = g_ApiKey;
 	_Options.ApiSecret = g_ApiSecret;
+	//_Options.GameSessionId = "ndk-test-game-session";
 
 	_Options.Capabilities.Animations = false;
-	_Options.Capabilities.Text = true;
 	_Options.Capabilities.Audio = true;
 	_Options.Capabilities.Emotions = true;
-	_Options.Capabilities.Gestures = true;
 	_Options.Capabilities.Interruptions = true;
-	_Options.Capabilities.Triggers = true;
 	_Options.Capabilities.EmotionStreaming = true;
 	_Options.Capabilities.SilenceEvents = true;
 	_Options.Capabilities.PhonemeInfo = true;
-	_Options.Capabilities.LoadSceneInSession = true;
 	_Options.Capabilities.NarratedActions = true;
 	_Options.Capabilities.Multiagent = true;
 
@@ -233,8 +328,8 @@ void NDKApp::App::Run()
 			{
 				_CurrentAgentIdxs.clear();
 				_CurrentAgentIdxs.push_back(0);
-				if (_AgentInfos.size() > 1)
-					_CurrentAgentIdxs.push_back(1);
+				//if (_AgentInfos.size() > 1)
+				//	_CurrentAgentIdxs.push_back(1);
 
 				NotifyCurrentCharacter();
 			}
@@ -321,9 +416,9 @@ void NDKApp::App::SetCharacter(const std::vector<int32_t>& Idxs)
 		if (Idx >= 0 && Idx < _AgentInfos.size())
 		{
 			_CurrentAgentIdxs.push_back(Idx);
-			NotifyCurrentCharacter();
 		}
 	}
+	NotifyCurrentCharacter();
 }
 
 void NDKApp::App::NotifyCurrentCharacter()
@@ -345,7 +440,7 @@ std::vector<std::string> NDKApp::App::GetCurrentAgentBrains() const
 	std::vector<std::string> Brains;
 	for (int32_t i = 0; i < _CurrentAgentIdxs.size(); i++)
 	{
-		Brains.push_back(_AgentInfos[i].AgentId);
+		Brains.push_back(_AgentInfos[_CurrentAgentIdxs[i]].AgentId);
 	}
 	return Brains;
 }

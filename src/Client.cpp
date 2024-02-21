@@ -6,7 +6,7 @@
  */
 
 #include "Client.h"
-#include "RunnableCommand.h"
+#include "Service.h"
 #include "Utils/Utils.h"
 #include "Utils/Log.h"
 #include "base64/Base64.h"
@@ -64,7 +64,51 @@ void Inworld::ClientBase::SetOptions(const ClientOptions& options)
 
 }
 
+void Inworld::ClientBase::Visit(const SessionControlResponse_LoadScene& Event)
+{
+	Inworld::Log("Load scene SUCCESS");
+	for (const auto& Info : Event.GetAgentInfos())
+	{
+		Inworld::Log("Character registered: %s, Id: %s, GivenName: %s", ARG_STR(Info.BrainName), ARG_STR(Info.AgentId), ARG_STR(Info.GivenName));
+	}
+
+	if (_OnLoadSceneCallback)
+	{
+		_OnLoadSceneCallback(Event.GetAgentInfos());
+		_OnLoadSceneCallback = nullptr;
+	}
+
+	SetConnectionState(ConnectionState::Connected);
+	StartClientStream();
+}
+
+void Inworld::ClientBase::Visit(const SessionControlResponse_LoadCharacters& Event)
+{
+	Inworld::Log("Load characters SUCCESS");
+	for (const auto& Info : Event.GetAgentInfos())
+	{
+		Inworld::Log("Character registered: %s, Id: %s, GivenName: %s", ARG_STR(Info.BrainName), ARG_STR(Info.AgentId), ARG_STR(Info.GivenName));
+	}
+
+	if (_OnLoadCharactersCallback)
+	{
+		_OnLoadCharactersCallback(Event.GetAgentInfos());
+		_OnLoadCharactersCallback = nullptr;
+	}
+}
+
 void Inworld::ClientBase::SendPacket(std::shared_ptr<Inworld::Packet> Packet)
+{
+	if (GetConnectionState() != ConnectionState::Connected)
+	{
+		Inworld::LogWarning("Packet skipped. Send packets only when connected. Connection state is '%d'", static_cast<int32_t>(GetConnectionState()));
+		return;
+	}
+
+	PushPacket(Packet);
+}
+
+void Inworld::ClientBase::PushPacket(std::shared_ptr<Inworld::Packet> Packet)
 {
 	_OutgoingPackets.PushBack(Packet);
 
@@ -183,11 +227,39 @@ std::shared_ptr<Inworld::ActionEvent> Inworld::ClientBase::SendNarrationEvent(st
 	return Packet;
 }
 
-std::shared_ptr<Inworld::ChangeSceneEvent> Inworld::ClientBase::SendChangeSceneEvent(const std::string& Scene)
+void Inworld::ClientBase::LoadScene(const std::string& Scene, CharactersLoadedCb OnLoadSceneCallback)
 {
-	auto Packet = std::make_shared<ChangeSceneEvent>(Scene, Routing());
-	SendPacket(Packet);
-	return Packet;
+	if (_OnLoadSceneCallback)
+	{
+		Inworld::LogError("Skip LoadScene. Another request is in progress.");
+		return;
+	}
+	_OnLoadSceneCallback = OnLoadSceneCallback;
+	ControlSession<SessionControlEvent_LoadScene>({ Scene });
+}
+
+void Inworld::ClientBase::LoadCharacters(const std::vector<std::string>& Names, CharactersLoadedCb OnLoadCharactersCallback)
+{
+	if (_OnLoadCharactersCallback)
+	{
+		Inworld::LogError("Skip LoadCharacters. Another request is in progress.");
+		return;
+	}
+	_OnLoadCharactersCallback = OnLoadCharactersCallback;
+	ControlSession<SessionControlEvent_LoadCharacters>({ Names });
+}
+
+void Inworld::ClientBase::UnloadCharacters(const std::vector<std::string>& Names)
+{
+	ControlSession<SessionControlEvent_UnloadCharacters>({ Names });
+}
+
+void Inworld::ClientBase::LoadSavedState(const std::string& SavedState)
+{
+	if (!SavedState.empty())
+	{
+		ControlSession<SessionControlEvent_SessionSave>({ SavedState });
+	}
 }
 
 void Inworld::ClientBase::CancelResponse(const std::string& AgentId, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds)
@@ -306,7 +378,7 @@ void Inworld::ClientBase::GenerateToken(std::function<void()> GenerateTokenCallb
 	);
 }
 
-void Inworld::ClientBase::StartClient(const ClientOptions& Options, const SessionInfo& Info, std::function<void(const std::vector<AgentInfo>&)> LoadSceneCallback)
+void Inworld::ClientBase::StartClient(const ClientOptions& Options, const SessionInfo& Info, CharactersLoadedCb LoadSceneCallback)
 {
 	if (_ConnectionState != ConnectionState::Idle && _ConnectionState != ConnectionState::Failed)
 	{
@@ -337,20 +409,18 @@ void Inworld::ClientBase::StartClient(const ClientOptions& Options, const Sessio
 
 	_LatencyTracker.TrackAudioReplies(Options.Capabilities.Audio);
 
-	_OnLoadSceneCallback = LoadSceneCallback;
-
 	SetConnectionState(ConnectionState::Connecting);
 
 	if (!_SessionInfo.IsValid())
 	{
-		GenerateToken([this]()
+		GenerateToken([this, LoadSceneCallback]()
 		{
-			LoadScene();
+			StartSession(LoadSceneCallback);
 		});
 	}
 	else
 	{
-		LoadScene();
+		StartSession(LoadSceneCallback);
 	}
 }
 
@@ -361,7 +431,7 @@ void Inworld::ClientBase::PauseClient()
 		return;
 	}
 
-	StopReaderWriter();
+	StopClientStream();
 
 	SetConnectionState(ConnectionState::Paused);
 }
@@ -379,14 +449,16 @@ void Inworld::ClientBase::ResumeClient()
 	{
 		GenerateToken([this]()
 		{
-			auto Session = static_cast<RunnableLoadScene*>(_AsyncLoadSceneTask->GetRunnable());
-			Session->SetToken(_SessionInfo.Token);
-			StartReaderWriter();
+			if (_SessionService)
+			{
+				_SessionService->SetToken(_SessionInfo.Token);
+				StartClientStream();
+			}
 		});
 	}
 	else
 	{
-		StartReaderWriter();
+		StartClientStream();
 	}
 }
 
@@ -397,8 +469,11 @@ void Inworld::ClientBase::StopClient()
 		return;
 	}
 
-	StopReaderWriter();
-	_AsyncLoadSceneTask->Stop();
+	StopClientStream();
+	if (_SessionService)
+	{
+		_SessionService->Cancel();
+	}
 	_AsyncGenerateTokenTask->Stop();
 	_AsyncGetSessionState->Stop();
 #ifdef INWORLD_AUDIO_DUMP
@@ -482,14 +557,33 @@ void Inworld::ClientBase::SetConnectionState(ConnectionState State)
 	}
 }
 
-void Inworld::ClientBase::LoadScene()
+void Inworld::ClientBase::StartSession(CharactersLoadedCb LoadSceneCallback)
 {
 	if (!_SessionInfo.IsValid())
 	{
 		return;
 	}
 
+	if (_ClientOptions.SceneName.empty())
+	{
+		Inworld::LogError("StartSession error, Provide ClientOptions.SceneName.");
+		return;
+	}
+
 	Inworld::LogSetSessionId(_SessionInfo.SessionId);
+	Inworld::Log("Session Id: %s", ARG_STR(_SessionInfo.SessionId));
+
+	_SessionService = std::make_unique<ServiceSession>(
+		_SessionInfo.Token,
+		_SessionInfo.SessionId,
+		_ClientOptions.ServerUrl
+		);
+	StartClientStream();
+	if (!_ClientStream)
+	{
+		Inworld::LogError("StartSession error, _ClientStream is invalid.");
+		return;
+	}
 
 	std::string SdkDesc = _SdkInfo.Type;
 	SdkDesc += !_SdkInfo.Subtype.empty() ? ("/" + _SdkInfo.Subtype + ";") : ";";
@@ -506,110 +600,53 @@ void Inworld::ClientBase::LoadScene()
 		SdkDesc += _ClientOptions.ProjectName;
 	}
 
-	_AsyncLoadSceneTask->Start(
-		"InworldLoadScene",
-		std::make_unique<RunnableLoadScene>(
-			_SessionInfo.Token,
-			_SessionInfo.SessionId,
-			_ClientOptions.ServerUrl,
-			_ClientOptions.SceneName,
-			_ClientOptions.PlayerName,
-			_ClientOptions.UserId,
-			_ClientOptions.UserSettings,
+	// order matters
+	ControlSession<SessionControlEvent_Capabilities>(_ClientOptions.Capabilities);
+	if (!_ClientOptions.GameSessionId.empty())
+	{
+		ControlSession<SessionControlEvent_SessionConfiguration>({ _ClientOptions.GameSessionId });
+	}
+	ControlSession<SessionControlEvent_ClientConfiguration>(
+		{ 
 			_SdkInfo.Type,
 			_SdkInfo.Version,
 			SdkDesc,
-			_SessionInfo.SessionSavedState,
-			_ClientOptions.Capabilities,
-			[this](const grpc::Status& Status, const InworldEngine::LoadSceneResponse& Response)
-			{
-				AddTaskToMainThread([this, Status, Response]() {
-					OnSceneLoaded(Status, Response);
-				});
-			}
-		)
-	);
+		});
+	ControlSession<SessionControlEvent_UserConfiguration>(_ClientOptions.UserSettings);
+	LoadSavedState(_SessionInfo.SessionSavedState);
+	LoadScene(_ClientOptions.SceneName, LoadSceneCallback);
 }
 
-void Inworld::ClientBase::OnSceneLoaded(const grpc::Status& Status, const InworldEngine::LoadSceneResponse& Response)
-{
-	if (!_OnLoadSceneCallback)
-	{
-		return;
-	}
-
-	if (!Status.ok())
-	{
-		_ErrorMessage = std::string(Status.error_message().c_str());
-		_ErrorCode = Status.error_code();
-		Inworld::LogError("Load scene FALURE! %s, Code: %d", ARG_STR(_ErrorMessage), _ErrorCode);
-		SetConnectionState(ConnectionState::Failed);
-		return;
-	}
-
-	Inworld::Log("Load scene SUCCESS. Session Id: %s", ARG_STR(_SessionInfo.SessionId));
-
-	std::vector<AgentInfo> AgentInfos;
-	AgentInfos.reserve(Response.agents_size());
-	for (int32_t i = 0; i < Response.agents_size(); i++)
-	{
-		AgentInfo Info;
-		Info.BrainName = Response.agents(i).brain_name().c_str();
-		Info.AgentId = Response.agents(i).agent_id().c_str();
-		Info.GivenName = Response.agents(i).given_name().c_str();
-		AgentInfos.push_back(Info);
-
-		Inworld::Log("Character registered: %s, Id: %s, GivenName: %s", ARG_STR(Info.BrainName), ARG_STR(Info.AgentId), ARG_STR(Info.GivenName));
-	}
-
-	AgentInfo Info;
-	Info.BrainName = "__DUMMY__";
-	Info.AgentId = "__DUMMY__";
-	Info.GivenName = "__DUMMY__";
-	AgentInfos.push_back(Info);
-
-	_OnLoadSceneCallback(AgentInfos);
-	_OnLoadSceneCallback = nullptr;
-
-	SetConnectionState(ConnectionState::Connected);
-	StartReaderWriter();
-}
-
-void Inworld::ClientBase::StartReaderWriter()
+void Inworld::ClientBase::StartClientStream()
 {
 	const bool bHasPendingWriteTask = _AsyncWriteTask->IsValid() && !_AsyncWriteTask->IsDone();
 	const bool bHasPendingReadTask = _AsyncReadTask->IsValid() && !_AsyncReadTask->IsDone();
-	if (!bHasPendingWriteTask && !bHasPendingReadTask)
+	if (!bHasPendingWriteTask && !bHasPendingReadTask && _SessionService)
 	{
 		_ErrorMessage = std::string();
 		_ErrorCode = grpc::StatusCode::OK;
-		_ReaderWriter = static_cast<RunnableLoadScene*>(_AsyncLoadSceneTask->GetRunnable())->Session();
-		_bHasReaderWriterFinished = false;
+		_ClientStream = _SessionService->OpenSession();
+		_bHasClientStreamFinished = false;
 		TryToStartReadTask();
 		TryToStartWriteTask();
 	}
 }
 
-void Inworld::ClientBase::StopReaderWriter()
+void Inworld::ClientBase::StopClientStream()
 {
-	_bHasReaderWriterFinished = true;
-	auto* Task = static_cast<RunnableLoadScene*>(_AsyncLoadSceneTask->GetRunnable());
-	if (Task)
+	_bHasClientStreamFinished = true;
+	if (_SessionService)
 	{
-		auto& Context = Task->GetContext();
-		if (Context)
-		{
-			Context->TryCancel();
-		}
+		_SessionService->Cancel();
 	}
 	_AsyncReadTask->Stop();
 	_AsyncWriteTask->Stop();
-	_ReaderWriter.reset();
+	_ClientStream.reset();
 }
 
 void Inworld::ClientBase::TryToStartReadTask()
 {
-	if (!_ReaderWriter)
+	if (!_ClientStream)
 	{
 		return;
 	}
@@ -620,8 +657,8 @@ void Inworld::ClientBase::TryToStartReadTask()
 		_AsyncReadTask->Start(
 			"InworldRead",
 			std::make_unique<RunnableRead>(
-				*_ReaderWriter.get(), 
-				_bHasReaderWriterFinished, 
+				*_ClientStream.get(), 
+				_bHasClientStreamFinished, 
 				_IncomingPackets,
 				[this](const std::shared_ptr<Inworld::Packet> InPacket)
 				{
@@ -636,6 +673,7 @@ void Inworld::ClientBase::TryToStartReadTask()
 								{
 									if (Packet)
 									{
+										Packet->Accept(*this);
 										_LatencyTracker.HandlePacket(Packet);
 										if (_OnPacketCallback)
 										{
@@ -673,7 +711,7 @@ void Inworld::ClientBase::TryToStartReadTask()
 
 void Inworld::ClientBase::TryToStartWriteTask()
 {
-	if (!_ReaderWriter)
+	if (!_ClientStream)
 	{
 		return;
 	}
@@ -687,8 +725,8 @@ void Inworld::ClientBase::TryToStartWriteTask()
 			_AsyncWriteTask->Start(
 				"InworldWrite",
 				std::make_unique<RunnableWrite>(
-					*_ReaderWriter.get(),
-					_bHasReaderWriterFinished,
+					*_ClientStream.get(),
+					_bHasClientStreamFinished,
 					_OutgoingPackets,
 					[this](const std::shared_ptr<Inworld::Packet> InPacket)
 					{

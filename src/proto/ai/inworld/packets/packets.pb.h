@@ -53,7 +53,7 @@ struct TableStruct_ai_2finworld_2fpackets_2fpackets_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[41]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[43]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -75,9 +75,15 @@ extern AdditionalPhonemeInfoDefaultTypeInternal _AdditionalPhonemeInfo_default_i
 class Agent;
 class AgentDefaultTypeInternal;
 extern AgentDefaultTypeInternal _Agent_default_instance_;
+class Agent_CharacterAssets;
+class Agent_CharacterAssetsDefaultTypeInternal;
+extern Agent_CharacterAssetsDefaultTypeInternal _Agent_CharacterAssets_default_instance_;
 class ApplyResponse;
 class ApplyResponseDefaultTypeInternal;
 extern ApplyResponseDefaultTypeInternal _ApplyResponse_default_instance_;
+class Audio2FaceAnimationEvent;
+class Audio2FaceAnimationEventDefaultTypeInternal;
+extern Audio2FaceAnimationEventDefaultTypeInternal _Audio2FaceAnimationEvent_default_instance_;
 class AudioChunk;
 class AudioChunkDefaultTypeInternal;
 extern AudioChunkDefaultTypeInternal _AudioChunk_default_instance_;
@@ -194,7 +200,9 @@ template<> ::ai::inworld::packets::ActionEvent* Arena::CreateMaybeMessage<::ai::
 template<> ::ai::inworld::packets::Actor* Arena::CreateMaybeMessage<::ai::inworld::packets::Actor>(Arena*);
 template<> ::ai::inworld::packets::AdditionalPhonemeInfo* Arena::CreateMaybeMessage<::ai::inworld::packets::AdditionalPhonemeInfo>(Arena*);
 template<> ::ai::inworld::packets::Agent* Arena::CreateMaybeMessage<::ai::inworld::packets::Agent>(Arena*);
+template<> ::ai::inworld::packets::Agent_CharacterAssets* Arena::CreateMaybeMessage<::ai::inworld::packets::Agent_CharacterAssets>(Arena*);
 template<> ::ai::inworld::packets::ApplyResponse* Arena::CreateMaybeMessage<::ai::inworld::packets::ApplyResponse>(Arena*);
+template<> ::ai::inworld::packets::Audio2FaceAnimationEvent* Arena::CreateMaybeMessage<::ai::inworld::packets::Audio2FaceAnimationEvent>(Arena*);
 template<> ::ai::inworld::packets::AudioChunk* Arena::CreateMaybeMessage<::ai::inworld::packets::AudioChunk>(Arena*);
 template<> ::ai::inworld::packets::CancelResponses* Arena::CreateMaybeMessage<::ai::inworld::packets::CancelResponses>(Arena*);
 template<> ::ai::inworld::packets::CancelResponsesEvent* Arena::CreateMaybeMessage<::ai::inworld::packets::CancelResponsesEvent>(Arena*);
@@ -1143,6 +1151,7 @@ class InworldPacket PROTOBUF_FINAL :
     kDebugInfo = 18,
     kSessionControl = 19,
     kSessionControlResponse = 20,
+    kA2FEvent = 21,
     PACKET_NOT_SET = 0,
   };
 
@@ -1238,6 +1247,7 @@ class InworldPacket PROTOBUF_FINAL :
     kDebugInfoFieldNumber = 18,
     kSessionControlFieldNumber = 19,
     kSessionControlResponseFieldNumber = 20,
+    kA2FEventFieldNumber = 21,
   };
   // .google.protobuf.Timestamp timestamp = 1;
   bool has_timestamp() const;
@@ -1527,6 +1537,24 @@ class InworldPacket PROTOBUF_FINAL :
       ::ai::inworld::packets::SessionControlResponseEvent* session_control_response);
   ::ai::inworld::packets::SessionControlResponseEvent* unsafe_arena_release_session_control_response();
 
+  // .ai.inworld.packets.Audio2FaceAnimationEvent a2f_event = 21;
+  bool has_a2f_event() const;
+  private:
+  bool _internal_has_a2f_event() const;
+  public:
+  void clear_a2f_event();
+  const ::ai::inworld::packets::Audio2FaceAnimationEvent& a2f_event() const;
+  ::ai::inworld::packets::Audio2FaceAnimationEvent* release_a2f_event();
+  ::ai::inworld::packets::Audio2FaceAnimationEvent* mutable_a2f_event();
+  void set_allocated_a2f_event(::ai::inworld::packets::Audio2FaceAnimationEvent* a2f_event);
+  private:
+  const ::ai::inworld::packets::Audio2FaceAnimationEvent& _internal_a2f_event() const;
+  ::ai::inworld::packets::Audio2FaceAnimationEvent* _internal_mutable_a2f_event();
+  public:
+  void unsafe_arena_set_allocated_a2f_event(
+      ::ai::inworld::packets::Audio2FaceAnimationEvent* a2f_event);
+  ::ai::inworld::packets::Audio2FaceAnimationEvent* unsafe_arena_release_a2f_event();
+
   void clear_packet();
   PacketCase packet_case() const;
   // @@protoc_insertion_point(class_scope:ai.inworld.packets.InworldPacket)
@@ -1545,6 +1573,7 @@ class InworldPacket PROTOBUF_FINAL :
   void set_has_debug_info();
   void set_has_session_control();
   void set_has_session_control_response();
+  void set_has_a2f_event();
 
   inline bool has_packet() const;
   inline void clear_has_packet();
@@ -1570,6 +1599,7 @@ class InworldPacket PROTOBUF_FINAL :
     ::ai::inworld::packets::DebugInfoEvent* debug_info_;
     ::ai::inworld::packets::SessionControlEvent* session_control_;
     ::ai::inworld::packets::SessionControlResponseEvent* session_control_response_;
+    ::ai::inworld::packets::Audio2FaceAnimationEvent* a2f_event_;
   } packet_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
@@ -4282,6 +4312,7 @@ class MutationEvent PROTOBUF_FINAL :
     kLoadScene = 4,
     kModifyExactResponse = 5,
     kLoadCharacters = 6,
+    kUnloadCharacters = 7,
     MUTATION_NOT_SET = 0,
   };
 
@@ -4367,6 +4398,7 @@ class MutationEvent PROTOBUF_FINAL :
     kLoadSceneFieldNumber = 4,
     kModifyExactResponseFieldNumber = 5,
     kLoadCharactersFieldNumber = 6,
+    kUnloadCharactersFieldNumber = 7,
   };
   // .ai.inworld.packets.CancelResponses cancel_responses = 1;
   bool has_cancel_responses() const;
@@ -4476,6 +4508,24 @@ class MutationEvent PROTOBUF_FINAL :
       ::ai::inworld::packets::LoadCharacters* load_characters);
   ::ai::inworld::packets::LoadCharacters* unsafe_arena_release_load_characters();
 
+  // .ai.inworld.packets.UnloadCharacters unload_characters = 7;
+  bool has_unload_characters() const;
+  private:
+  bool _internal_has_unload_characters() const;
+  public:
+  void clear_unload_characters();
+  const ::ai::inworld::packets::UnloadCharacters& unload_characters() const;
+  ::ai::inworld::packets::UnloadCharacters* release_unload_characters();
+  ::ai::inworld::packets::UnloadCharacters* mutable_unload_characters();
+  void set_allocated_unload_characters(::ai::inworld::packets::UnloadCharacters* unload_characters);
+  private:
+  const ::ai::inworld::packets::UnloadCharacters& _internal_unload_characters() const;
+  ::ai::inworld::packets::UnloadCharacters* _internal_mutable_unload_characters();
+  public:
+  void unsafe_arena_set_allocated_unload_characters(
+      ::ai::inworld::packets::UnloadCharacters* unload_characters);
+  ::ai::inworld::packets::UnloadCharacters* unsafe_arena_release_unload_characters();
+
   void clear_mutation();
   MutationCase mutation_case() const;
   // @@protoc_insertion_point(class_scope:ai.inworld.packets.MutationEvent)
@@ -4487,6 +4537,7 @@ class MutationEvent PROTOBUF_FINAL :
   void set_has_load_scene();
   void set_has_modify_exact_response();
   void set_has_load_characters();
+  void set_has_unload_characters();
 
   inline bool has_mutation() const;
   inline void clear_has_mutation();
@@ -4502,6 +4553,7 @@ class MutationEvent PROTOBUF_FINAL :
     ::ai::inworld::packets::LoadScene* load_scene_;
     ::ai::inworld::packets::ModifyExactResponse* modify_exact_response_;
     ::ai::inworld::packets::LoadCharacters* load_characters_;
+    ::ai::inworld::packets::UnloadCharacters* unload_characters_;
   } mutation_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
@@ -6516,6 +6568,221 @@ class LoadSceneOutputEvent PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class Agent_CharacterAssets PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.packets.Agent.CharacterAssets) */ {
+ public:
+  inline Agent_CharacterAssets() : Agent_CharacterAssets(nullptr) {}
+  virtual ~Agent_CharacterAssets();
+
+  Agent_CharacterAssets(const Agent_CharacterAssets& from);
+  Agent_CharacterAssets(Agent_CharacterAssets&& from) noexcept
+    : Agent_CharacterAssets() {
+    *this = ::std::move(from);
+  }
+
+  inline Agent_CharacterAssets& operator=(const Agent_CharacterAssets& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Agent_CharacterAssets& operator=(Agent_CharacterAssets&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Agent_CharacterAssets& default_instance();
+
+  static inline const Agent_CharacterAssets* internal_default_instance() {
+    return reinterpret_cast<const Agent_CharacterAssets*>(
+               &_Agent_CharacterAssets_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    32;
+
+  friend void swap(Agent_CharacterAssets& a, Agent_CharacterAssets& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Agent_CharacterAssets* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Agent_CharacterAssets* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Agent_CharacterAssets* New() const final {
+    return CreateMaybeMessage<Agent_CharacterAssets>(nullptr);
+  }
+
+  Agent_CharacterAssets* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Agent_CharacterAssets>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Agent_CharacterAssets& from);
+  void MergeFrom(const Agent_CharacterAssets& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Agent_CharacterAssets* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.packets.Agent.CharacterAssets";
+  }
+  protected:
+  explicit Agent_CharacterAssets(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto);
+    return ::descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRpmModelUriFieldNumber = 1,
+    kRpmImageUriPortraitFieldNumber = 2,
+    kRpmImageUriPostureFieldNumber = 3,
+    kAvatarImgFieldNumber = 4,
+    kAvatarImgOriginalFieldNumber = 5,
+  };
+  // string rpm_model_uri = 1;
+  void clear_rpm_model_uri();
+  const std::string& rpm_model_uri() const;
+  void set_rpm_model_uri(const std::string& value);
+  void set_rpm_model_uri(std::string&& value);
+  void set_rpm_model_uri(const char* value);
+  void set_rpm_model_uri(const char* value, size_t size);
+  std::string* mutable_rpm_model_uri();
+  std::string* release_rpm_model_uri();
+  void set_allocated_rpm_model_uri(std::string* rpm_model_uri);
+  private:
+  const std::string& _internal_rpm_model_uri() const;
+  void _internal_set_rpm_model_uri(const std::string& value);
+  std::string* _internal_mutable_rpm_model_uri();
+  public:
+
+  // string rpm_image_uri_portrait = 2;
+  void clear_rpm_image_uri_portrait();
+  const std::string& rpm_image_uri_portrait() const;
+  void set_rpm_image_uri_portrait(const std::string& value);
+  void set_rpm_image_uri_portrait(std::string&& value);
+  void set_rpm_image_uri_portrait(const char* value);
+  void set_rpm_image_uri_portrait(const char* value, size_t size);
+  std::string* mutable_rpm_image_uri_portrait();
+  std::string* release_rpm_image_uri_portrait();
+  void set_allocated_rpm_image_uri_portrait(std::string* rpm_image_uri_portrait);
+  private:
+  const std::string& _internal_rpm_image_uri_portrait() const;
+  void _internal_set_rpm_image_uri_portrait(const std::string& value);
+  std::string* _internal_mutable_rpm_image_uri_portrait();
+  public:
+
+  // string rpm_image_uri_posture = 3;
+  void clear_rpm_image_uri_posture();
+  const std::string& rpm_image_uri_posture() const;
+  void set_rpm_image_uri_posture(const std::string& value);
+  void set_rpm_image_uri_posture(std::string&& value);
+  void set_rpm_image_uri_posture(const char* value);
+  void set_rpm_image_uri_posture(const char* value, size_t size);
+  std::string* mutable_rpm_image_uri_posture();
+  std::string* release_rpm_image_uri_posture();
+  void set_allocated_rpm_image_uri_posture(std::string* rpm_image_uri_posture);
+  private:
+  const std::string& _internal_rpm_image_uri_posture() const;
+  void _internal_set_rpm_image_uri_posture(const std::string& value);
+  std::string* _internal_mutable_rpm_image_uri_posture();
+  public:
+
+  // string avatar_img = 4;
+  void clear_avatar_img();
+  const std::string& avatar_img() const;
+  void set_avatar_img(const std::string& value);
+  void set_avatar_img(std::string&& value);
+  void set_avatar_img(const char* value);
+  void set_avatar_img(const char* value, size_t size);
+  std::string* mutable_avatar_img();
+  std::string* release_avatar_img();
+  void set_allocated_avatar_img(std::string* avatar_img);
+  private:
+  const std::string& _internal_avatar_img() const;
+  void _internal_set_avatar_img(const std::string& value);
+  std::string* _internal_mutable_avatar_img();
+  public:
+
+  // string avatar_img_original = 5;
+  void clear_avatar_img_original();
+  const std::string& avatar_img_original() const;
+  void set_avatar_img_original(const std::string& value);
+  void set_avatar_img_original(std::string&& value);
+  void set_avatar_img_original(const char* value);
+  void set_avatar_img_original(const char* value, size_t size);
+  std::string* mutable_avatar_img_original();
+  std::string* release_avatar_img_original();
+  void set_allocated_avatar_img_original(std::string* avatar_img_original);
+  private:
+  const std::string& _internal_avatar_img_original() const;
+  void _internal_set_avatar_img_original(const std::string& value);
+  std::string* _internal_mutable_avatar_img_original();
+  public:
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.packets.Agent.CharacterAssets)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr rpm_model_uri_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr rpm_image_uri_portrait_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr rpm_image_uri_posture_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr avatar_img_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr avatar_img_original_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fpackets_2fpackets_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Agent PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.packets.Agent) */ {
  public:
@@ -6557,7 +6824,7 @@ class Agent PROTOBUF_FINAL :
                &_Agent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    33;
 
   friend void swap(Agent& a, Agent& b) {
     a.Swap(&b);
@@ -6625,12 +6892,15 @@ class Agent PROTOBUF_FINAL :
 
   // nested types ----------------------------------------------------
 
+  typedef Agent_CharacterAssets CharacterAssets;
+
   // accessors -------------------------------------------------------
 
   enum : int {
     kAgentIdFieldNumber = 1,
     kBrainNameFieldNumber = 2,
     kGivenNameFieldNumber = 3,
+    kCharacterAssetsFieldNumber = 4,
   };
   // string agent_id = 1;
   void clear_agent_id();
@@ -6680,6 +6950,24 @@ class Agent PROTOBUF_FINAL :
   std::string* _internal_mutable_given_name();
   public:
 
+  // .ai.inworld.packets.Agent.CharacterAssets character_assets = 4;
+  bool has_character_assets() const;
+  private:
+  bool _internal_has_character_assets() const;
+  public:
+  void clear_character_assets();
+  const ::ai::inworld::packets::Agent_CharacterAssets& character_assets() const;
+  ::ai::inworld::packets::Agent_CharacterAssets* release_character_assets();
+  ::ai::inworld::packets::Agent_CharacterAssets* mutable_character_assets();
+  void set_allocated_character_assets(::ai::inworld::packets::Agent_CharacterAssets* character_assets);
+  private:
+  const ::ai::inworld::packets::Agent_CharacterAssets& _internal_character_assets() const;
+  ::ai::inworld::packets::Agent_CharacterAssets* _internal_mutable_character_assets();
+  public:
+  void unsafe_arena_set_allocated_character_assets(
+      ::ai::inworld::packets::Agent_CharacterAssets* character_assets);
+  ::ai::inworld::packets::Agent_CharacterAssets* unsafe_arena_release_character_assets();
+
   // @@protoc_insertion_point(class_scope:ai.inworld.packets.Agent)
  private:
   class _Internal;
@@ -6690,6 +6978,7 @@ class Agent PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr agent_id_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr brain_name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr given_name_;
+  ::ai::inworld::packets::Agent_CharacterAssets* character_assets_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fpackets_2fpackets_2eproto;
 };
@@ -6741,7 +7030,7 @@ class DebugInfoEvent PROTOBUF_FINAL :
                &_DebugInfoEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    34;
 
   friend void swap(DebugInfoEvent& a, DebugInfoEvent& b) {
     a.Swap(&b);
@@ -6906,7 +7195,7 @@ class SessionControlEvent PROTOBUF_FINAL :
                &_SessionControlEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    35;
 
   friend void swap(SessionControlEvent& a, SessionControlEvent& b) {
     a.Swap(&b);
@@ -7105,6 +7394,167 @@ class SessionControlEvent PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class Audio2FaceAnimationEvent PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.packets.Audio2FaceAnimationEvent) */ {
+ public:
+  inline Audio2FaceAnimationEvent() : Audio2FaceAnimationEvent(nullptr) {}
+  virtual ~Audio2FaceAnimationEvent();
+
+  Audio2FaceAnimationEvent(const Audio2FaceAnimationEvent& from);
+  Audio2FaceAnimationEvent(Audio2FaceAnimationEvent&& from) noexcept
+    : Audio2FaceAnimationEvent() {
+    *this = ::std::move(from);
+  }
+
+  inline Audio2FaceAnimationEvent& operator=(const Audio2FaceAnimationEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Audio2FaceAnimationEvent& operator=(Audio2FaceAnimationEvent&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Audio2FaceAnimationEvent& default_instance();
+
+  static inline const Audio2FaceAnimationEvent* internal_default_instance() {
+    return reinterpret_cast<const Audio2FaceAnimationEvent*>(
+               &_Audio2FaceAnimationEvent_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    36;
+
+  friend void swap(Audio2FaceAnimationEvent& a, Audio2FaceAnimationEvent& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Audio2FaceAnimationEvent* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Audio2FaceAnimationEvent* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Audio2FaceAnimationEvent* New() const final {
+    return CreateMaybeMessage<Audio2FaceAnimationEvent>(nullptr);
+  }
+
+  Audio2FaceAnimationEvent* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Audio2FaceAnimationEvent>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Audio2FaceAnimationEvent& from);
+  void MergeFrom(const Audio2FaceAnimationEvent& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Audio2FaceAnimationEvent* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.packets.Audio2FaceAnimationEvent";
+  }
+  protected:
+  explicit Audio2FaceAnimationEvent(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto);
+    return ::descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kAnimdataFieldNumber = 1,
+    kAudioFieldNumber = 2,
+  };
+  // string animdata = 1;
+  void clear_animdata();
+  const std::string& animdata() const;
+  void set_animdata(const std::string& value);
+  void set_animdata(std::string&& value);
+  void set_animdata(const char* value);
+  void set_animdata(const char* value, size_t size);
+  std::string* mutable_animdata();
+  std::string* release_animdata();
+  void set_allocated_animdata(std::string* animdata);
+  private:
+  const std::string& _internal_animdata() const;
+  void _internal_set_animdata(const std::string& value);
+  std::string* _internal_mutable_animdata();
+  public:
+
+  // bytes audio = 2;
+  void clear_audio();
+  const std::string& audio() const;
+  void set_audio(const std::string& value);
+  void set_audio(std::string&& value);
+  void set_audio(const char* value);
+  void set_audio(const void* value, size_t size);
+  std::string* mutable_audio();
+  std::string* release_audio();
+  void set_allocated_audio(std::string* audio);
+  private:
+  const std::string& _internal_audio() const;
+  void _internal_set_audio(const std::string& value);
+  std::string* _internal_mutable_audio();
+  public:
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.packets.Audio2FaceAnimationEvent)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr animdata_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr audio_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fpackets_2fpackets_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Continuation_ContinuationInfo PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.packets.Continuation.ContinuationInfo) */ {
  public:
@@ -7146,7 +7596,7 @@ class Continuation_ContinuationInfo PROTOBUF_FINAL :
                &_Continuation_ContinuationInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    37;
 
   friend void swap(Continuation_ContinuationInfo& a, Continuation_ContinuationInfo& b) {
     a.Swap(&b);
@@ -7291,7 +7741,7 @@ class Continuation PROTOBUF_FINAL :
                &_Continuation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    38;
 
   friend void swap(Continuation& a, Continuation& b) {
     a.Swap(&b);
@@ -7519,7 +7969,7 @@ class DialogHistory_HistoryItem PROTOBUF_FINAL :
                &_DialogHistory_HistoryItem_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    39;
 
   friend void swap(DialogHistory_HistoryItem& a, DialogHistory_HistoryItem& b) {
     a.Swap(&b);
@@ -7682,7 +8132,7 @@ class DialogHistory PROTOBUF_FINAL :
                &_DialogHistory_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    40;
 
   friend void swap(DialogHistory& a, DialogHistory& b) {
     a.Swap(&b);
@@ -7829,7 +8279,7 @@ class Relations_Relation PROTOBUF_FINAL :
                &_Relations_Relation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    41;
 
   friend void swap(Relations_Relation& a, Relations_Relation& b) {
     a.Swap(&b);
@@ -7990,7 +8440,7 @@ class Relations PROTOBUF_FINAL :
                &_Relations_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    42;
 
   friend void swap(Relations& a, Relations& b) {
     a.Swap(&b);
@@ -9918,6 +10368,79 @@ inline ::ai::inworld::packets::SessionControlResponseEvent* InworldPacket::_inte
 inline ::ai::inworld::packets::SessionControlResponseEvent* InworldPacket::mutable_session_control_response() {
   // @@protoc_insertion_point(field_mutable:ai.inworld.packets.InworldPacket.session_control_response)
   return _internal_mutable_session_control_response();
+}
+
+// .ai.inworld.packets.Audio2FaceAnimationEvent a2f_event = 21;
+inline bool InworldPacket::_internal_has_a2f_event() const {
+  return packet_case() == kA2FEvent;
+}
+inline bool InworldPacket::has_a2f_event() const {
+  return _internal_has_a2f_event();
+}
+inline void InworldPacket::set_has_a2f_event() {
+  _oneof_case_[0] = kA2FEvent;
+}
+inline void InworldPacket::clear_a2f_event() {
+  if (_internal_has_a2f_event()) {
+    if (GetArena() == nullptr) {
+      delete packet_.a2f_event_;
+    }
+    clear_has_packet();
+  }
+}
+inline ::ai::inworld::packets::Audio2FaceAnimationEvent* InworldPacket::release_a2f_event() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.InworldPacket.a2f_event)
+  if (_internal_has_a2f_event()) {
+    clear_has_packet();
+      ::ai::inworld::packets::Audio2FaceAnimationEvent* temp = packet_.a2f_event_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    packet_.a2f_event_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::ai::inworld::packets::Audio2FaceAnimationEvent& InworldPacket::_internal_a2f_event() const {
+  return _internal_has_a2f_event()
+      ? *packet_.a2f_event_
+      : reinterpret_cast< ::ai::inworld::packets::Audio2FaceAnimationEvent&>(::ai::inworld::packets::_Audio2FaceAnimationEvent_default_instance_);
+}
+inline const ::ai::inworld::packets::Audio2FaceAnimationEvent& InworldPacket::a2f_event() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.InworldPacket.a2f_event)
+  return _internal_a2f_event();
+}
+inline ::ai::inworld::packets::Audio2FaceAnimationEvent* InworldPacket::unsafe_arena_release_a2f_event() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:ai.inworld.packets.InworldPacket.a2f_event)
+  if (_internal_has_a2f_event()) {
+    clear_has_packet();
+    ::ai::inworld::packets::Audio2FaceAnimationEvent* temp = packet_.a2f_event_;
+    packet_.a2f_event_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void InworldPacket::unsafe_arena_set_allocated_a2f_event(::ai::inworld::packets::Audio2FaceAnimationEvent* a2f_event) {
+  clear_packet();
+  if (a2f_event) {
+    set_has_a2f_event();
+    packet_.a2f_event_ = a2f_event;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.packets.InworldPacket.a2f_event)
+}
+inline ::ai::inworld::packets::Audio2FaceAnimationEvent* InworldPacket::_internal_mutable_a2f_event() {
+  if (!_internal_has_a2f_event()) {
+    clear_packet();
+    set_has_a2f_event();
+    packet_.a2f_event_ = CreateMaybeMessage< ::ai::inworld::packets::Audio2FaceAnimationEvent >(GetArena());
+  }
+  return packet_.a2f_event_;
+}
+inline ::ai::inworld::packets::Audio2FaceAnimationEvent* InworldPacket::mutable_a2f_event() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.InworldPacket.a2f_event)
+  return _internal_mutable_a2f_event();
 }
 
 inline bool InworldPacket::has_packet() const {
@@ -12246,6 +12769,79 @@ inline ::ai::inworld::packets::LoadCharacters* MutationEvent::mutable_load_chara
   return _internal_mutable_load_characters();
 }
 
+// .ai.inworld.packets.UnloadCharacters unload_characters = 7;
+inline bool MutationEvent::_internal_has_unload_characters() const {
+  return mutation_case() == kUnloadCharacters;
+}
+inline bool MutationEvent::has_unload_characters() const {
+  return _internal_has_unload_characters();
+}
+inline void MutationEvent::set_has_unload_characters() {
+  _oneof_case_[0] = kUnloadCharacters;
+}
+inline void MutationEvent::clear_unload_characters() {
+  if (_internal_has_unload_characters()) {
+    if (GetArena() == nullptr) {
+      delete mutation_.unload_characters_;
+    }
+    clear_has_mutation();
+  }
+}
+inline ::ai::inworld::packets::UnloadCharacters* MutationEvent::release_unload_characters() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.MutationEvent.unload_characters)
+  if (_internal_has_unload_characters()) {
+    clear_has_mutation();
+      ::ai::inworld::packets::UnloadCharacters* temp = mutation_.unload_characters_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    mutation_.unload_characters_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::ai::inworld::packets::UnloadCharacters& MutationEvent::_internal_unload_characters() const {
+  return _internal_has_unload_characters()
+      ? *mutation_.unload_characters_
+      : reinterpret_cast< ::ai::inworld::packets::UnloadCharacters&>(::ai::inworld::packets::_UnloadCharacters_default_instance_);
+}
+inline const ::ai::inworld::packets::UnloadCharacters& MutationEvent::unload_characters() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.MutationEvent.unload_characters)
+  return _internal_unload_characters();
+}
+inline ::ai::inworld::packets::UnloadCharacters* MutationEvent::unsafe_arena_release_unload_characters() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:ai.inworld.packets.MutationEvent.unload_characters)
+  if (_internal_has_unload_characters()) {
+    clear_has_mutation();
+    ::ai::inworld::packets::UnloadCharacters* temp = mutation_.unload_characters_;
+    mutation_.unload_characters_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void MutationEvent::unsafe_arena_set_allocated_unload_characters(::ai::inworld::packets::UnloadCharacters* unload_characters) {
+  clear_mutation();
+  if (unload_characters) {
+    set_has_unload_characters();
+    mutation_.unload_characters_ = unload_characters;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.packets.MutationEvent.unload_characters)
+}
+inline ::ai::inworld::packets::UnloadCharacters* MutationEvent::_internal_mutable_unload_characters() {
+  if (!_internal_has_unload_characters()) {
+    clear_mutation();
+    set_has_unload_characters();
+    mutation_.unload_characters_ = CreateMaybeMessage< ::ai::inworld::packets::UnloadCharacters >(GetArena());
+  }
+  return mutation_.unload_characters_;
+}
+inline ::ai::inworld::packets::UnloadCharacters* MutationEvent::mutable_unload_characters() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.MutationEvent.unload_characters)
+  return _internal_mutable_unload_characters();
+}
+
 inline bool MutationEvent::has_mutation() const {
   return mutation_case() != MUTATION_NOT_SET;
 }
@@ -13385,6 +13981,315 @@ LoadSceneOutputEvent::agents() const {
 
 // -------------------------------------------------------------------
 
+// Agent_CharacterAssets
+
+// string rpm_model_uri = 1;
+inline void Agent_CharacterAssets::clear_rpm_model_uri() {
+  rpm_model_uri_.ClearToEmpty();
+}
+inline const std::string& Agent_CharacterAssets::rpm_model_uri() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.Agent.CharacterAssets.rpm_model_uri)
+  return _internal_rpm_model_uri();
+}
+inline void Agent_CharacterAssets::set_rpm_model_uri(const std::string& value) {
+  _internal_set_rpm_model_uri(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.Agent.CharacterAssets.rpm_model_uri)
+}
+inline std::string* Agent_CharacterAssets::mutable_rpm_model_uri() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.Agent.CharacterAssets.rpm_model_uri)
+  return _internal_mutable_rpm_model_uri();
+}
+inline const std::string& Agent_CharacterAssets::_internal_rpm_model_uri() const {
+  return rpm_model_uri_.Get();
+}
+inline void Agent_CharacterAssets::_internal_set_rpm_model_uri(const std::string& value) {
+  
+  rpm_model_uri_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Agent_CharacterAssets::set_rpm_model_uri(std::string&& value) {
+  
+  rpm_model_uri_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.packets.Agent.CharacterAssets.rpm_model_uri)
+}
+inline void Agent_CharacterAssets::set_rpm_model_uri(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  rpm_model_uri_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.packets.Agent.CharacterAssets.rpm_model_uri)
+}
+inline void Agent_CharacterAssets::set_rpm_model_uri(const char* value,
+    size_t size) {
+  
+  rpm_model_uri_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.packets.Agent.CharacterAssets.rpm_model_uri)
+}
+inline std::string* Agent_CharacterAssets::_internal_mutable_rpm_model_uri() {
+  
+  return rpm_model_uri_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Agent_CharacterAssets::release_rpm_model_uri() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.Agent.CharacterAssets.rpm_model_uri)
+  return rpm_model_uri_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Agent_CharacterAssets::set_allocated_rpm_model_uri(std::string* rpm_model_uri) {
+  if (rpm_model_uri != nullptr) {
+    
+  } else {
+    
+  }
+  rpm_model_uri_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), rpm_model_uri,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.Agent.CharacterAssets.rpm_model_uri)
+}
+
+// string rpm_image_uri_portrait = 2;
+inline void Agent_CharacterAssets::clear_rpm_image_uri_portrait() {
+  rpm_image_uri_portrait_.ClearToEmpty();
+}
+inline const std::string& Agent_CharacterAssets::rpm_image_uri_portrait() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.Agent.CharacterAssets.rpm_image_uri_portrait)
+  return _internal_rpm_image_uri_portrait();
+}
+inline void Agent_CharacterAssets::set_rpm_image_uri_portrait(const std::string& value) {
+  _internal_set_rpm_image_uri_portrait(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.Agent.CharacterAssets.rpm_image_uri_portrait)
+}
+inline std::string* Agent_CharacterAssets::mutable_rpm_image_uri_portrait() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.Agent.CharacterAssets.rpm_image_uri_portrait)
+  return _internal_mutable_rpm_image_uri_portrait();
+}
+inline const std::string& Agent_CharacterAssets::_internal_rpm_image_uri_portrait() const {
+  return rpm_image_uri_portrait_.Get();
+}
+inline void Agent_CharacterAssets::_internal_set_rpm_image_uri_portrait(const std::string& value) {
+  
+  rpm_image_uri_portrait_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Agent_CharacterAssets::set_rpm_image_uri_portrait(std::string&& value) {
+  
+  rpm_image_uri_portrait_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.packets.Agent.CharacterAssets.rpm_image_uri_portrait)
+}
+inline void Agent_CharacterAssets::set_rpm_image_uri_portrait(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  rpm_image_uri_portrait_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.packets.Agent.CharacterAssets.rpm_image_uri_portrait)
+}
+inline void Agent_CharacterAssets::set_rpm_image_uri_portrait(const char* value,
+    size_t size) {
+  
+  rpm_image_uri_portrait_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.packets.Agent.CharacterAssets.rpm_image_uri_portrait)
+}
+inline std::string* Agent_CharacterAssets::_internal_mutable_rpm_image_uri_portrait() {
+  
+  return rpm_image_uri_portrait_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Agent_CharacterAssets::release_rpm_image_uri_portrait() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.Agent.CharacterAssets.rpm_image_uri_portrait)
+  return rpm_image_uri_portrait_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Agent_CharacterAssets::set_allocated_rpm_image_uri_portrait(std::string* rpm_image_uri_portrait) {
+  if (rpm_image_uri_portrait != nullptr) {
+    
+  } else {
+    
+  }
+  rpm_image_uri_portrait_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), rpm_image_uri_portrait,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.Agent.CharacterAssets.rpm_image_uri_portrait)
+}
+
+// string rpm_image_uri_posture = 3;
+inline void Agent_CharacterAssets::clear_rpm_image_uri_posture() {
+  rpm_image_uri_posture_.ClearToEmpty();
+}
+inline const std::string& Agent_CharacterAssets::rpm_image_uri_posture() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.Agent.CharacterAssets.rpm_image_uri_posture)
+  return _internal_rpm_image_uri_posture();
+}
+inline void Agent_CharacterAssets::set_rpm_image_uri_posture(const std::string& value) {
+  _internal_set_rpm_image_uri_posture(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.Agent.CharacterAssets.rpm_image_uri_posture)
+}
+inline std::string* Agent_CharacterAssets::mutable_rpm_image_uri_posture() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.Agent.CharacterAssets.rpm_image_uri_posture)
+  return _internal_mutable_rpm_image_uri_posture();
+}
+inline const std::string& Agent_CharacterAssets::_internal_rpm_image_uri_posture() const {
+  return rpm_image_uri_posture_.Get();
+}
+inline void Agent_CharacterAssets::_internal_set_rpm_image_uri_posture(const std::string& value) {
+  
+  rpm_image_uri_posture_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Agent_CharacterAssets::set_rpm_image_uri_posture(std::string&& value) {
+  
+  rpm_image_uri_posture_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.packets.Agent.CharacterAssets.rpm_image_uri_posture)
+}
+inline void Agent_CharacterAssets::set_rpm_image_uri_posture(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  rpm_image_uri_posture_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.packets.Agent.CharacterAssets.rpm_image_uri_posture)
+}
+inline void Agent_CharacterAssets::set_rpm_image_uri_posture(const char* value,
+    size_t size) {
+  
+  rpm_image_uri_posture_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.packets.Agent.CharacterAssets.rpm_image_uri_posture)
+}
+inline std::string* Agent_CharacterAssets::_internal_mutable_rpm_image_uri_posture() {
+  
+  return rpm_image_uri_posture_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Agent_CharacterAssets::release_rpm_image_uri_posture() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.Agent.CharacterAssets.rpm_image_uri_posture)
+  return rpm_image_uri_posture_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Agent_CharacterAssets::set_allocated_rpm_image_uri_posture(std::string* rpm_image_uri_posture) {
+  if (rpm_image_uri_posture != nullptr) {
+    
+  } else {
+    
+  }
+  rpm_image_uri_posture_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), rpm_image_uri_posture,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.Agent.CharacterAssets.rpm_image_uri_posture)
+}
+
+// string avatar_img = 4;
+inline void Agent_CharacterAssets::clear_avatar_img() {
+  avatar_img_.ClearToEmpty();
+}
+inline const std::string& Agent_CharacterAssets::avatar_img() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.Agent.CharacterAssets.avatar_img)
+  return _internal_avatar_img();
+}
+inline void Agent_CharacterAssets::set_avatar_img(const std::string& value) {
+  _internal_set_avatar_img(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.Agent.CharacterAssets.avatar_img)
+}
+inline std::string* Agent_CharacterAssets::mutable_avatar_img() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.Agent.CharacterAssets.avatar_img)
+  return _internal_mutable_avatar_img();
+}
+inline const std::string& Agent_CharacterAssets::_internal_avatar_img() const {
+  return avatar_img_.Get();
+}
+inline void Agent_CharacterAssets::_internal_set_avatar_img(const std::string& value) {
+  
+  avatar_img_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Agent_CharacterAssets::set_avatar_img(std::string&& value) {
+  
+  avatar_img_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.packets.Agent.CharacterAssets.avatar_img)
+}
+inline void Agent_CharacterAssets::set_avatar_img(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  avatar_img_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.packets.Agent.CharacterAssets.avatar_img)
+}
+inline void Agent_CharacterAssets::set_avatar_img(const char* value,
+    size_t size) {
+  
+  avatar_img_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.packets.Agent.CharacterAssets.avatar_img)
+}
+inline std::string* Agent_CharacterAssets::_internal_mutable_avatar_img() {
+  
+  return avatar_img_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Agent_CharacterAssets::release_avatar_img() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.Agent.CharacterAssets.avatar_img)
+  return avatar_img_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Agent_CharacterAssets::set_allocated_avatar_img(std::string* avatar_img) {
+  if (avatar_img != nullptr) {
+    
+  } else {
+    
+  }
+  avatar_img_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), avatar_img,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.Agent.CharacterAssets.avatar_img)
+}
+
+// string avatar_img_original = 5;
+inline void Agent_CharacterAssets::clear_avatar_img_original() {
+  avatar_img_original_.ClearToEmpty();
+}
+inline const std::string& Agent_CharacterAssets::avatar_img_original() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.Agent.CharacterAssets.avatar_img_original)
+  return _internal_avatar_img_original();
+}
+inline void Agent_CharacterAssets::set_avatar_img_original(const std::string& value) {
+  _internal_set_avatar_img_original(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.Agent.CharacterAssets.avatar_img_original)
+}
+inline std::string* Agent_CharacterAssets::mutable_avatar_img_original() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.Agent.CharacterAssets.avatar_img_original)
+  return _internal_mutable_avatar_img_original();
+}
+inline const std::string& Agent_CharacterAssets::_internal_avatar_img_original() const {
+  return avatar_img_original_.Get();
+}
+inline void Agent_CharacterAssets::_internal_set_avatar_img_original(const std::string& value) {
+  
+  avatar_img_original_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Agent_CharacterAssets::set_avatar_img_original(std::string&& value) {
+  
+  avatar_img_original_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.packets.Agent.CharacterAssets.avatar_img_original)
+}
+inline void Agent_CharacterAssets::set_avatar_img_original(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  avatar_img_original_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.packets.Agent.CharacterAssets.avatar_img_original)
+}
+inline void Agent_CharacterAssets::set_avatar_img_original(const char* value,
+    size_t size) {
+  
+  avatar_img_original_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.packets.Agent.CharacterAssets.avatar_img_original)
+}
+inline std::string* Agent_CharacterAssets::_internal_mutable_avatar_img_original() {
+  
+  return avatar_img_original_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Agent_CharacterAssets::release_avatar_img_original() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.Agent.CharacterAssets.avatar_img_original)
+  return avatar_img_original_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Agent_CharacterAssets::set_allocated_avatar_img_original(std::string* avatar_img_original) {
+  if (avatar_img_original != nullptr) {
+    
+  } else {
+    
+  }
+  avatar_img_original_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), avatar_img_original,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.Agent.CharacterAssets.avatar_img_original)
+}
+
+// -------------------------------------------------------------------
+
 // Agent
 
 // string agent_id = 1;
@@ -13568,6 +14473,89 @@ inline void Agent::set_allocated_given_name(std::string* given_name) {
   given_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), given_name,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.Agent.given_name)
+}
+
+// .ai.inworld.packets.Agent.CharacterAssets character_assets = 4;
+inline bool Agent::_internal_has_character_assets() const {
+  return this != internal_default_instance() && character_assets_ != nullptr;
+}
+inline bool Agent::has_character_assets() const {
+  return _internal_has_character_assets();
+}
+inline void Agent::clear_character_assets() {
+  if (GetArena() == nullptr && character_assets_ != nullptr) {
+    delete character_assets_;
+  }
+  character_assets_ = nullptr;
+}
+inline const ::ai::inworld::packets::Agent_CharacterAssets& Agent::_internal_character_assets() const {
+  const ::ai::inworld::packets::Agent_CharacterAssets* p = character_assets_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ai::inworld::packets::Agent_CharacterAssets&>(
+      ::ai::inworld::packets::_Agent_CharacterAssets_default_instance_);
+}
+inline const ::ai::inworld::packets::Agent_CharacterAssets& Agent::character_assets() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.Agent.character_assets)
+  return _internal_character_assets();
+}
+inline void Agent::unsafe_arena_set_allocated_character_assets(
+    ::ai::inworld::packets::Agent_CharacterAssets* character_assets) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(character_assets_);
+  }
+  character_assets_ = character_assets;
+  if (character_assets) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.packets.Agent.character_assets)
+}
+inline ::ai::inworld::packets::Agent_CharacterAssets* Agent::release_character_assets() {
+  
+  ::ai::inworld::packets::Agent_CharacterAssets* temp = character_assets_;
+  character_assets_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::ai::inworld::packets::Agent_CharacterAssets* Agent::unsafe_arena_release_character_assets() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.Agent.character_assets)
+  
+  ::ai::inworld::packets::Agent_CharacterAssets* temp = character_assets_;
+  character_assets_ = nullptr;
+  return temp;
+}
+inline ::ai::inworld::packets::Agent_CharacterAssets* Agent::_internal_mutable_character_assets() {
+  
+  if (character_assets_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ai::inworld::packets::Agent_CharacterAssets>(GetArena());
+    character_assets_ = p;
+  }
+  return character_assets_;
+}
+inline ::ai::inworld::packets::Agent_CharacterAssets* Agent::mutable_character_assets() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.Agent.character_assets)
+  return _internal_mutable_character_assets();
+}
+inline void Agent::set_allocated_character_assets(::ai::inworld::packets::Agent_CharacterAssets* character_assets) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete character_assets_;
+  }
+  if (character_assets) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(character_assets);
+    if (message_arena != submessage_arena) {
+      character_assets = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, character_assets, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  character_assets_ = character_assets;
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.Agent.character_assets)
 }
 
 // -------------------------------------------------------------------
@@ -14002,6 +14990,132 @@ inline void SessionControlEvent::clear_has_session_control() {
 inline SessionControlEvent::SessionControlCase SessionControlEvent::session_control_case() const {
   return SessionControlEvent::SessionControlCase(_oneof_case_[0]);
 }
+// -------------------------------------------------------------------
+
+// Audio2FaceAnimationEvent
+
+// string animdata = 1;
+inline void Audio2FaceAnimationEvent::clear_animdata() {
+  animdata_.ClearToEmpty();
+}
+inline const std::string& Audio2FaceAnimationEvent::animdata() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.Audio2FaceAnimationEvent.animdata)
+  return _internal_animdata();
+}
+inline void Audio2FaceAnimationEvent::set_animdata(const std::string& value) {
+  _internal_set_animdata(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.Audio2FaceAnimationEvent.animdata)
+}
+inline std::string* Audio2FaceAnimationEvent::mutable_animdata() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.Audio2FaceAnimationEvent.animdata)
+  return _internal_mutable_animdata();
+}
+inline const std::string& Audio2FaceAnimationEvent::_internal_animdata() const {
+  return animdata_.Get();
+}
+inline void Audio2FaceAnimationEvent::_internal_set_animdata(const std::string& value) {
+  
+  animdata_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Audio2FaceAnimationEvent::set_animdata(std::string&& value) {
+  
+  animdata_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.packets.Audio2FaceAnimationEvent.animdata)
+}
+inline void Audio2FaceAnimationEvent::set_animdata(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  animdata_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.packets.Audio2FaceAnimationEvent.animdata)
+}
+inline void Audio2FaceAnimationEvent::set_animdata(const char* value,
+    size_t size) {
+  
+  animdata_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.packets.Audio2FaceAnimationEvent.animdata)
+}
+inline std::string* Audio2FaceAnimationEvent::_internal_mutable_animdata() {
+  
+  return animdata_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Audio2FaceAnimationEvent::release_animdata() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.Audio2FaceAnimationEvent.animdata)
+  return animdata_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Audio2FaceAnimationEvent::set_allocated_animdata(std::string* animdata) {
+  if (animdata != nullptr) {
+    
+  } else {
+    
+  }
+  animdata_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), animdata,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.Audio2FaceAnimationEvent.animdata)
+}
+
+// bytes audio = 2;
+inline void Audio2FaceAnimationEvent::clear_audio() {
+  audio_.ClearToEmpty();
+}
+inline const std::string& Audio2FaceAnimationEvent::audio() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.Audio2FaceAnimationEvent.audio)
+  return _internal_audio();
+}
+inline void Audio2FaceAnimationEvent::set_audio(const std::string& value) {
+  _internal_set_audio(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.Audio2FaceAnimationEvent.audio)
+}
+inline std::string* Audio2FaceAnimationEvent::mutable_audio() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.Audio2FaceAnimationEvent.audio)
+  return _internal_mutable_audio();
+}
+inline const std::string& Audio2FaceAnimationEvent::_internal_audio() const {
+  return audio_.Get();
+}
+inline void Audio2FaceAnimationEvent::_internal_set_audio(const std::string& value) {
+  
+  audio_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Audio2FaceAnimationEvent::set_audio(std::string&& value) {
+  
+  audio_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.packets.Audio2FaceAnimationEvent.audio)
+}
+inline void Audio2FaceAnimationEvent::set_audio(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  audio_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.packets.Audio2FaceAnimationEvent.audio)
+}
+inline void Audio2FaceAnimationEvent::set_audio(const void* value,
+    size_t size) {
+  
+  audio_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.packets.Audio2FaceAnimationEvent.audio)
+}
+inline std::string* Audio2FaceAnimationEvent::_internal_mutable_audio() {
+  
+  return audio_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Audio2FaceAnimationEvent::release_audio() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.Audio2FaceAnimationEvent.audio)
+  return audio_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Audio2FaceAnimationEvent::set_allocated_audio(std::string* audio) {
+  if (audio != nullptr) {
+    
+  } else {
+    
+  }
+  audio_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), audio,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.Audio2FaceAnimationEvent.audio)
+}
+
 // -------------------------------------------------------------------
 
 // Continuation_ContinuationInfo
@@ -14780,6 +15894,10 @@ Relations::relations() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

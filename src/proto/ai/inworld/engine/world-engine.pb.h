@@ -54,7 +54,7 @@ struct TableStruct_ai_2finworld_2fengine_2fworld_2dengine_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[26]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[28]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -82,6 +82,12 @@ extern CapabilitiesRequestDefaultTypeInternal _CapabilitiesRequest_default_insta
 class ClientRequest;
 class ClientRequestDefaultTypeInternal;
 extern ClientRequestDefaultTypeInternal _ClientRequest_default_instance_;
+class ConversationState;
+class ConversationStateDefaultTypeInternal;
+extern ConversationStateDefaultTypeInternal _ConversationState_default_instance_;
+class ConversationState_ConversationSettings;
+class ConversationState_ConversationSettingsDefaultTypeInternal;
+extern ConversationState_ConversationSettingsDefaultTypeInternal _ConversationState_ConversationSettings_default_instance_;
 class GenerateTokenRequest;
 class GenerateTokenRequestDefaultTypeInternal;
 extern GenerateTokenRequestDefaultTypeInternal _GenerateTokenRequest_default_instance_;
@@ -152,6 +158,8 @@ template<> ::ai::inworld::engine::ActorRelations_Relation* Arena::CreateMaybeMes
 template<> ::ai::inworld::engine::AudioSettings* Arena::CreateMaybeMessage<::ai::inworld::engine::AudioSettings>(Arena*);
 template<> ::ai::inworld::engine::CapabilitiesRequest* Arena::CreateMaybeMessage<::ai::inworld::engine::CapabilitiesRequest>(Arena*);
 template<> ::ai::inworld::engine::ClientRequest* Arena::CreateMaybeMessage<::ai::inworld::engine::ClientRequest>(Arena*);
+template<> ::ai::inworld::engine::ConversationState* Arena::CreateMaybeMessage<::ai::inworld::engine::ConversationState>(Arena*);
+template<> ::ai::inworld::engine::ConversationState_ConversationSettings* Arena::CreateMaybeMessage<::ai::inworld::engine::ConversationState_ConversationSettings>(Arena*);
 template<> ::ai::inworld::engine::GenerateTokenRequest* Arena::CreateMaybeMessage<::ai::inworld::engine::GenerateTokenRequest>(Arena*);
 template<> ::ai::inworld::engine::ListBaseVoicesRequest* Arena::CreateMaybeMessage<::ai::inworld::engine::ListBaseVoicesRequest>(Arena*);
 template<> ::ai::inworld::engine::ListBaseVoicesResponce* Arena::CreateMaybeMessage<::ai::inworld::engine::ListBaseVoicesResponce>(Arena*);
@@ -420,6 +428,7 @@ class CapabilitiesRequest PROTOBUF_FINAL :
     kDebugInfoFieldNumber = 18,
     kTtsMp3FieldNumber = 19,
     kMultiAgentFieldNumber = 20,
+    kAudio2FaceFieldNumber = 21,
   };
   // bool audio = 1;
   void clear_audio();
@@ -592,6 +601,15 @@ class CapabilitiesRequest PROTOBUF_FINAL :
   void _internal_set_multi_agent(bool value);
   public:
 
+  // bool audio_2_face = 21;
+  void clear_audio_2_face();
+  bool audio_2_face() const;
+  void set_audio_2_face(bool value);
+  private:
+  bool _internal_audio_2_face() const;
+  void _internal_set_audio_2_face(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:ai.inworld.engine.CapabilitiesRequest)
  private:
   class _Internal;
@@ -618,6 +636,7 @@ class CapabilitiesRequest PROTOBUF_FINAL :
   bool debug_info_;
   bool tts_mp3_;
   bool multi_agent_;
+  bool audio_2_face_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
 };
@@ -2873,6 +2892,7 @@ class PreviousState PROTOBUF_FINAL :
   enum : int {
     kStateHoldersFieldNumber = 1,
     kGameSessionIdFieldNumber = 2,
+    kConversationStateFieldNumber = 3,
   };
   // repeated .ai.inworld.engine.PreviousState.StateHolder state_holders = 1;
   int state_holders_size() const;
@@ -2908,6 +2928,24 @@ class PreviousState PROTOBUF_FINAL :
   std::string* _internal_mutable_game_session_id();
   public:
 
+  // .ai.inworld.engine.ConversationState conversation_state = 3;
+  bool has_conversation_state() const;
+  private:
+  bool _internal_has_conversation_state() const;
+  public:
+  void clear_conversation_state();
+  const ::ai::inworld::engine::ConversationState& conversation_state() const;
+  ::ai::inworld::engine::ConversationState* release_conversation_state();
+  ::ai::inworld::engine::ConversationState* mutable_conversation_state();
+  void set_allocated_conversation_state(::ai::inworld::engine::ConversationState* conversation_state);
+  private:
+  const ::ai::inworld::engine::ConversationState& _internal_conversation_state() const;
+  ::ai::inworld::engine::ConversationState* _internal_mutable_conversation_state();
+  public:
+  void unsafe_arena_set_allocated_conversation_state(
+      ::ai::inworld::engine::ConversationState* conversation_state);
+  ::ai::inworld::engine::ConversationState* unsafe_arena_release_conversation_state();
+
   // @@protoc_insertion_point(class_scope:ai.inworld.engine.PreviousState)
  private:
   class _Internal;
@@ -2917,6 +2955,7 @@ class PreviousState PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::engine::PreviousState_StateHolder > state_holders_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr game_session_id_;
+  ::ai::inworld::engine::ConversationState* conversation_state_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
 };
@@ -5081,6 +5120,348 @@ class ActorRelations PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
 };
+// -------------------------------------------------------------------
+
+class ConversationState_ConversationSettings PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.engine.ConversationState.ConversationSettings) */ {
+ public:
+  inline ConversationState_ConversationSettings() : ConversationState_ConversationSettings(nullptr) {}
+  virtual ~ConversationState_ConversationSettings();
+
+  ConversationState_ConversationSettings(const ConversationState_ConversationSettings& from);
+  ConversationState_ConversationSettings(ConversationState_ConversationSettings&& from) noexcept
+    : ConversationState_ConversationSettings() {
+    *this = ::std::move(from);
+  }
+
+  inline ConversationState_ConversationSettings& operator=(const ConversationState_ConversationSettings& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ConversationState_ConversationSettings& operator=(ConversationState_ConversationSettings&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const ConversationState_ConversationSettings& default_instance();
+
+  static inline const ConversationState_ConversationSettings* internal_default_instance() {
+    return reinterpret_cast<const ConversationState_ConversationSettings*>(
+               &_ConversationState_ConversationSettings_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    26;
+
+  friend void swap(ConversationState_ConversationSettings& a, ConversationState_ConversationSettings& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ConversationState_ConversationSettings* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ConversationState_ConversationSettings* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ConversationState_ConversationSettings* New() const final {
+    return CreateMaybeMessage<ConversationState_ConversationSettings>(nullptr);
+  }
+
+  ConversationState_ConversationSettings* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<ConversationState_ConversationSettings>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const ConversationState_ConversationSettings& from);
+  void MergeFrom(const ConversationState_ConversationSettings& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ConversationState_ConversationSettings* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.engine.ConversationState.ConversationSettings";
+  }
+  protected:
+  explicit ConversationState_ConversationSettings(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto);
+    return ::descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kParticipantsFieldNumber = 2,
+    kSpectatorsFieldNumber = 3,
+    kConversationIdFieldNumber = 1,
+  };
+  // repeated string participants = 2;
+  int participants_size() const;
+  private:
+  int _internal_participants_size() const;
+  public:
+  void clear_participants();
+  const std::string& participants(int index) const;
+  std::string* mutable_participants(int index);
+  void set_participants(int index, const std::string& value);
+  void set_participants(int index, std::string&& value);
+  void set_participants(int index, const char* value);
+  void set_participants(int index, const char* value, size_t size);
+  std::string* add_participants();
+  void add_participants(const std::string& value);
+  void add_participants(std::string&& value);
+  void add_participants(const char* value);
+  void add_participants(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& participants() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_participants();
+  private:
+  const std::string& _internal_participants(int index) const;
+  std::string* _internal_add_participants();
+  public:
+
+  // repeated string spectators = 3;
+  int spectators_size() const;
+  private:
+  int _internal_spectators_size() const;
+  public:
+  void clear_spectators();
+  const std::string& spectators(int index) const;
+  std::string* mutable_spectators(int index);
+  void set_spectators(int index, const std::string& value);
+  void set_spectators(int index, std::string&& value);
+  void set_spectators(int index, const char* value);
+  void set_spectators(int index, const char* value, size_t size);
+  std::string* add_spectators();
+  void add_spectators(const std::string& value);
+  void add_spectators(std::string&& value);
+  void add_spectators(const char* value);
+  void add_spectators(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& spectators() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_spectators();
+  private:
+  const std::string& _internal_spectators(int index) const;
+  std::string* _internal_add_spectators();
+  public:
+
+  // string conversation_id = 1;
+  void clear_conversation_id();
+  const std::string& conversation_id() const;
+  void set_conversation_id(const std::string& value);
+  void set_conversation_id(std::string&& value);
+  void set_conversation_id(const char* value);
+  void set_conversation_id(const char* value, size_t size);
+  std::string* mutable_conversation_id();
+  std::string* release_conversation_id();
+  void set_allocated_conversation_id(std::string* conversation_id);
+  private:
+  const std::string& _internal_conversation_id() const;
+  void _internal_set_conversation_id(const std::string& value);
+  std::string* _internal_mutable_conversation_id();
+  public:
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.engine.ConversationState.ConversationSettings)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> participants_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> spectators_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr conversation_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ConversationState PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.engine.ConversationState) */ {
+ public:
+  inline ConversationState() : ConversationState(nullptr) {}
+  virtual ~ConversationState();
+
+  ConversationState(const ConversationState& from);
+  ConversationState(ConversationState&& from) noexcept
+    : ConversationState() {
+    *this = ::std::move(from);
+  }
+
+  inline ConversationState& operator=(const ConversationState& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ConversationState& operator=(ConversationState&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const ConversationState& default_instance();
+
+  static inline const ConversationState* internal_default_instance() {
+    return reinterpret_cast<const ConversationState*>(
+               &_ConversationState_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    27;
+
+  friend void swap(ConversationState& a, ConversationState& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ConversationState* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ConversationState* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ConversationState* New() const final {
+    return CreateMaybeMessage<ConversationState>(nullptr);
+  }
+
+  ConversationState* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<ConversationState>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const ConversationState& from);
+  void MergeFrom(const ConversationState& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ConversationState* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.engine.ConversationState";
+  }
+  protected:
+  explicit ConversationState(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto);
+    return ::descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  typedef ConversationState_ConversationSettings ConversationSettings;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kConversationSettingsFieldNumber = 1,
+  };
+  // repeated .ai.inworld.engine.ConversationState.ConversationSettings conversationSettings = 1;
+  int conversationsettings_size() const;
+  private:
+  int _internal_conversationsettings_size() const;
+  public:
+  void clear_conversationsettings();
+  ::ai::inworld::engine::ConversationState_ConversationSettings* mutable_conversationsettings(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::engine::ConversationState_ConversationSettings >*
+      mutable_conversationsettings();
+  private:
+  const ::ai::inworld::engine::ConversationState_ConversationSettings& _internal_conversationsettings(int index) const;
+  ::ai::inworld::engine::ConversationState_ConversationSettings* _internal_add_conversationsettings();
+  public:
+  const ::ai::inworld::engine::ConversationState_ConversationSettings& conversationsettings(int index) const;
+  ::ai::inworld::engine::ConversationState_ConversationSettings* add_conversationsettings();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::engine::ConversationState_ConversationSettings >&
+      conversationsettings() const;
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.engine.ConversationState)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::engine::ConversationState_ConversationSettings > conversationsettings_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
+};
 // ===================================================================
 
 
@@ -5470,6 +5851,26 @@ inline void CapabilitiesRequest::_internal_set_multi_agent(bool value) {
 inline void CapabilitiesRequest::set_multi_agent(bool value) {
   _internal_set_multi_agent(value);
   // @@protoc_insertion_point(field_set:ai.inworld.engine.CapabilitiesRequest.multi_agent)
+}
+
+// bool audio_2_face = 21;
+inline void CapabilitiesRequest::clear_audio_2_face() {
+  audio_2_face_ = false;
+}
+inline bool CapabilitiesRequest::_internal_audio_2_face() const {
+  return audio_2_face_;
+}
+inline bool CapabilitiesRequest::audio_2_face() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.CapabilitiesRequest.audio_2_face)
+  return _internal_audio_2_face();
+}
+inline void CapabilitiesRequest::_internal_set_audio_2_face(bool value) {
+  
+  audio_2_face_ = value;
+}
+inline void CapabilitiesRequest::set_audio_2_face(bool value) {
+  _internal_set_audio_2_face(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.CapabilitiesRequest.audio_2_face)
 }
 
 // -------------------------------------------------------------------
@@ -7457,6 +7858,89 @@ inline void PreviousState::set_allocated_game_session_id(std::string* game_sessi
   game_session_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), game_session_id,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.engine.PreviousState.game_session_id)
+}
+
+// .ai.inworld.engine.ConversationState conversation_state = 3;
+inline bool PreviousState::_internal_has_conversation_state() const {
+  return this != internal_default_instance() && conversation_state_ != nullptr;
+}
+inline bool PreviousState::has_conversation_state() const {
+  return _internal_has_conversation_state();
+}
+inline void PreviousState::clear_conversation_state() {
+  if (GetArena() == nullptr && conversation_state_ != nullptr) {
+    delete conversation_state_;
+  }
+  conversation_state_ = nullptr;
+}
+inline const ::ai::inworld::engine::ConversationState& PreviousState::_internal_conversation_state() const {
+  const ::ai::inworld::engine::ConversationState* p = conversation_state_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ai::inworld::engine::ConversationState&>(
+      ::ai::inworld::engine::_ConversationState_default_instance_);
+}
+inline const ::ai::inworld::engine::ConversationState& PreviousState::conversation_state() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.PreviousState.conversation_state)
+  return _internal_conversation_state();
+}
+inline void PreviousState::unsafe_arena_set_allocated_conversation_state(
+    ::ai::inworld::engine::ConversationState* conversation_state) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(conversation_state_);
+  }
+  conversation_state_ = conversation_state;
+  if (conversation_state) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.engine.PreviousState.conversation_state)
+}
+inline ::ai::inworld::engine::ConversationState* PreviousState::release_conversation_state() {
+  
+  ::ai::inworld::engine::ConversationState* temp = conversation_state_;
+  conversation_state_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::ai::inworld::engine::ConversationState* PreviousState::unsafe_arena_release_conversation_state() {
+  // @@protoc_insertion_point(field_release:ai.inworld.engine.PreviousState.conversation_state)
+  
+  ::ai::inworld::engine::ConversationState* temp = conversation_state_;
+  conversation_state_ = nullptr;
+  return temp;
+}
+inline ::ai::inworld::engine::ConversationState* PreviousState::_internal_mutable_conversation_state() {
+  
+  if (conversation_state_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ai::inworld::engine::ConversationState>(GetArena());
+    conversation_state_ = p;
+  }
+  return conversation_state_;
+}
+inline ::ai::inworld::engine::ConversationState* PreviousState::mutable_conversation_state() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.engine.PreviousState.conversation_state)
+  return _internal_mutable_conversation_state();
+}
+inline void PreviousState::set_allocated_conversation_state(::ai::inworld::engine::ConversationState* conversation_state) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete conversation_state_;
+  }
+  if (conversation_state) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(conversation_state);
+    if (message_arena != submessage_arena) {
+      conversation_state = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, conversation_state, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  conversation_state_ = conversation_state;
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.engine.PreviousState.conversation_state)
 }
 
 // -------------------------------------------------------------------
@@ -9544,9 +10028,269 @@ ActorRelations::relations() const {
   return relations_;
 }
 
+// -------------------------------------------------------------------
+
+// ConversationState_ConversationSettings
+
+// string conversation_id = 1;
+inline void ConversationState_ConversationSettings::clear_conversation_id() {
+  conversation_id_.ClearToEmpty();
+}
+inline const std::string& ConversationState_ConversationSettings::conversation_id() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.ConversationState.ConversationSettings.conversation_id)
+  return _internal_conversation_id();
+}
+inline void ConversationState_ConversationSettings::set_conversation_id(const std::string& value) {
+  _internal_set_conversation_id(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.ConversationState.ConversationSettings.conversation_id)
+}
+inline std::string* ConversationState_ConversationSettings::mutable_conversation_id() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.engine.ConversationState.ConversationSettings.conversation_id)
+  return _internal_mutable_conversation_id();
+}
+inline const std::string& ConversationState_ConversationSettings::_internal_conversation_id() const {
+  return conversation_id_.Get();
+}
+inline void ConversationState_ConversationSettings::_internal_set_conversation_id(const std::string& value) {
+  
+  conversation_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void ConversationState_ConversationSettings::set_conversation_id(std::string&& value) {
+  
+  conversation_id_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.engine.ConversationState.ConversationSettings.conversation_id)
+}
+inline void ConversationState_ConversationSettings::set_conversation_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  conversation_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.engine.ConversationState.ConversationSettings.conversation_id)
+}
+inline void ConversationState_ConversationSettings::set_conversation_id(const char* value,
+    size_t size) {
+  
+  conversation_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.engine.ConversationState.ConversationSettings.conversation_id)
+}
+inline std::string* ConversationState_ConversationSettings::_internal_mutable_conversation_id() {
+  
+  return conversation_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* ConversationState_ConversationSettings::release_conversation_id() {
+  // @@protoc_insertion_point(field_release:ai.inworld.engine.ConversationState.ConversationSettings.conversation_id)
+  return conversation_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void ConversationState_ConversationSettings::set_allocated_conversation_id(std::string* conversation_id) {
+  if (conversation_id != nullptr) {
+    
+  } else {
+    
+  }
+  conversation_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), conversation_id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.engine.ConversationState.ConversationSettings.conversation_id)
+}
+
+// repeated string participants = 2;
+inline int ConversationState_ConversationSettings::_internal_participants_size() const {
+  return participants_.size();
+}
+inline int ConversationState_ConversationSettings::participants_size() const {
+  return _internal_participants_size();
+}
+inline void ConversationState_ConversationSettings::clear_participants() {
+  participants_.Clear();
+}
+inline std::string* ConversationState_ConversationSettings::add_participants() {
+  // @@protoc_insertion_point(field_add_mutable:ai.inworld.engine.ConversationState.ConversationSettings.participants)
+  return _internal_add_participants();
+}
+inline const std::string& ConversationState_ConversationSettings::_internal_participants(int index) const {
+  return participants_.Get(index);
+}
+inline const std::string& ConversationState_ConversationSettings::participants(int index) const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.ConversationState.ConversationSettings.participants)
+  return _internal_participants(index);
+}
+inline std::string* ConversationState_ConversationSettings::mutable_participants(int index) {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.engine.ConversationState.ConversationSettings.participants)
+  return participants_.Mutable(index);
+}
+inline void ConversationState_ConversationSettings::set_participants(int index, const std::string& value) {
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.ConversationState.ConversationSettings.participants)
+  participants_.Mutable(index)->assign(value);
+}
+inline void ConversationState_ConversationSettings::set_participants(int index, std::string&& value) {
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.ConversationState.ConversationSettings.participants)
+  participants_.Mutable(index)->assign(std::move(value));
+}
+inline void ConversationState_ConversationSettings::set_participants(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  participants_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:ai.inworld.engine.ConversationState.ConversationSettings.participants)
+}
+inline void ConversationState_ConversationSettings::set_participants(int index, const char* value, size_t size) {
+  participants_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.engine.ConversationState.ConversationSettings.participants)
+}
+inline std::string* ConversationState_ConversationSettings::_internal_add_participants() {
+  return participants_.Add();
+}
+inline void ConversationState_ConversationSettings::add_participants(const std::string& value) {
+  participants_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:ai.inworld.engine.ConversationState.ConversationSettings.participants)
+}
+inline void ConversationState_ConversationSettings::add_participants(std::string&& value) {
+  participants_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:ai.inworld.engine.ConversationState.ConversationSettings.participants)
+}
+inline void ConversationState_ConversationSettings::add_participants(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  participants_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:ai.inworld.engine.ConversationState.ConversationSettings.participants)
+}
+inline void ConversationState_ConversationSettings::add_participants(const char* value, size_t size) {
+  participants_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:ai.inworld.engine.ConversationState.ConversationSettings.participants)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+ConversationState_ConversationSettings::participants() const {
+  // @@protoc_insertion_point(field_list:ai.inworld.engine.ConversationState.ConversationSettings.participants)
+  return participants_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+ConversationState_ConversationSettings::mutable_participants() {
+  // @@protoc_insertion_point(field_mutable_list:ai.inworld.engine.ConversationState.ConversationSettings.participants)
+  return &participants_;
+}
+
+// repeated string spectators = 3;
+inline int ConversationState_ConversationSettings::_internal_spectators_size() const {
+  return spectators_.size();
+}
+inline int ConversationState_ConversationSettings::spectators_size() const {
+  return _internal_spectators_size();
+}
+inline void ConversationState_ConversationSettings::clear_spectators() {
+  spectators_.Clear();
+}
+inline std::string* ConversationState_ConversationSettings::add_spectators() {
+  // @@protoc_insertion_point(field_add_mutable:ai.inworld.engine.ConversationState.ConversationSettings.spectators)
+  return _internal_add_spectators();
+}
+inline const std::string& ConversationState_ConversationSettings::_internal_spectators(int index) const {
+  return spectators_.Get(index);
+}
+inline const std::string& ConversationState_ConversationSettings::spectators(int index) const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.ConversationState.ConversationSettings.spectators)
+  return _internal_spectators(index);
+}
+inline std::string* ConversationState_ConversationSettings::mutable_spectators(int index) {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.engine.ConversationState.ConversationSettings.spectators)
+  return spectators_.Mutable(index);
+}
+inline void ConversationState_ConversationSettings::set_spectators(int index, const std::string& value) {
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.ConversationState.ConversationSettings.spectators)
+  spectators_.Mutable(index)->assign(value);
+}
+inline void ConversationState_ConversationSettings::set_spectators(int index, std::string&& value) {
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.ConversationState.ConversationSettings.spectators)
+  spectators_.Mutable(index)->assign(std::move(value));
+}
+inline void ConversationState_ConversationSettings::set_spectators(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  spectators_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:ai.inworld.engine.ConversationState.ConversationSettings.spectators)
+}
+inline void ConversationState_ConversationSettings::set_spectators(int index, const char* value, size_t size) {
+  spectators_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.engine.ConversationState.ConversationSettings.spectators)
+}
+inline std::string* ConversationState_ConversationSettings::_internal_add_spectators() {
+  return spectators_.Add();
+}
+inline void ConversationState_ConversationSettings::add_spectators(const std::string& value) {
+  spectators_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:ai.inworld.engine.ConversationState.ConversationSettings.spectators)
+}
+inline void ConversationState_ConversationSettings::add_spectators(std::string&& value) {
+  spectators_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:ai.inworld.engine.ConversationState.ConversationSettings.spectators)
+}
+inline void ConversationState_ConversationSettings::add_spectators(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  spectators_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:ai.inworld.engine.ConversationState.ConversationSettings.spectators)
+}
+inline void ConversationState_ConversationSettings::add_spectators(const char* value, size_t size) {
+  spectators_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:ai.inworld.engine.ConversationState.ConversationSettings.spectators)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+ConversationState_ConversationSettings::spectators() const {
+  // @@protoc_insertion_point(field_list:ai.inworld.engine.ConversationState.ConversationSettings.spectators)
+  return spectators_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+ConversationState_ConversationSettings::mutable_spectators() {
+  // @@protoc_insertion_point(field_mutable_list:ai.inworld.engine.ConversationState.ConversationSettings.spectators)
+  return &spectators_;
+}
+
+// -------------------------------------------------------------------
+
+// ConversationState
+
+// repeated .ai.inworld.engine.ConversationState.ConversationSettings conversationSettings = 1;
+inline int ConversationState::_internal_conversationsettings_size() const {
+  return conversationsettings_.size();
+}
+inline int ConversationState::conversationsettings_size() const {
+  return _internal_conversationsettings_size();
+}
+inline void ConversationState::clear_conversationsettings() {
+  conversationsettings_.Clear();
+}
+inline ::ai::inworld::engine::ConversationState_ConversationSettings* ConversationState::mutable_conversationsettings(int index) {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.engine.ConversationState.conversationSettings)
+  return conversationsettings_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::engine::ConversationState_ConversationSettings >*
+ConversationState::mutable_conversationsettings() {
+  // @@protoc_insertion_point(field_mutable_list:ai.inworld.engine.ConversationState.conversationSettings)
+  return &conversationsettings_;
+}
+inline const ::ai::inworld::engine::ConversationState_ConversationSettings& ConversationState::_internal_conversationsettings(int index) const {
+  return conversationsettings_.Get(index);
+}
+inline const ::ai::inworld::engine::ConversationState_ConversationSettings& ConversationState::conversationsettings(int index) const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.ConversationState.conversationSettings)
+  return _internal_conversationsettings(index);
+}
+inline ::ai::inworld::engine::ConversationState_ConversationSettings* ConversationState::_internal_add_conversationsettings() {
+  return conversationsettings_.Add();
+}
+inline ::ai::inworld::engine::ConversationState_ConversationSettings* ConversationState::add_conversationsettings() {
+  // @@protoc_insertion_point(field_add:ai.inworld.engine.ConversationState.conversationSettings)
+  return _internal_add_conversationsettings();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::engine::ConversationState_ConversationSettings >&
+ConversationState::conversationsettings() const {
+  // @@protoc_insertion_point(field_list:ai.inworld.engine.ConversationState.conversationSettings)
+  return conversationsettings_;
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

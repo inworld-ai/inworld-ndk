@@ -9,6 +9,8 @@
 #include "proto/ProtoDisableWarning.h"
 
 #include <random>
+#include "Types.h"
+#include "Utils/Log.h"
 
 namespace Inworld {
 
@@ -193,25 +195,6 @@ namespace Inworld {
         }
     }
 
-    ChangeSceneEvent::ChangeSceneEvent(const InworldPakets::InworldPacket& GrpcPacket) : MutationEvent(GrpcPacket)
-    {
-        _AgentInfos.reserve(GrpcPacket.load_scene_output().agents_size());
-        for (const auto& agent : GrpcPacket.load_scene_output().agents())
-        {
-            _AgentInfos.emplace_back();
-            Inworld::AgentInfo& back = _AgentInfos.back();
-            back.AgentId = agent.agent_id();
-            back.BrainName = agent.brain_name();
-            back.GivenName = agent.given_name();
-        }
-    }
-
-    void ChangeSceneEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
-    {
-        auto* mutable_load_scene = Proto.mutable_mutation()->mutable_load_scene();
-        mutable_load_scene->set_name(_SceneName);
-    }
-
     RelationEvent::RelationEvent(const InworldPakets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
     {
         const auto currState = GrpcPacket.debug_info().relation().relation_state();
@@ -235,5 +218,113 @@ namespace Inworld {
     void ActionEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
     {
         Proto.mutable_action()->mutable_narrated_action()->set_content(_Content);
-    }
+	}
+
+	void SessionControlEvent_SessionConfiguration::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+	{
+		Proto.mutable_session_control()->mutable_session_configuration()->set_game_session_id(_Data.Id);
+	}
+
+	void SessionControlEvent_Capabilities::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+	{
+		auto* Capabilities = Proto.mutable_session_control()->mutable_capabilities_configuration();
+		Capabilities->set_audio(_Data.Audio);
+		Capabilities->set_emotions(_Data.Emotions);
+		Capabilities->set_interruptions(_Data.Interruptions);
+		Capabilities->set_emotion_streaming(_Data.EmotionStreaming);
+		Capabilities->set_silence_events(_Data.SilenceEvents);
+		Capabilities->set_phoneme_info(_Data.PhonemeInfo);
+		Capabilities->set_narrated_actions(_Data.NarratedActions);
+		Capabilities->set_continuation(_Data.Continuation);
+		Capabilities->set_turn_based_stt(_Data.TurnBasedSTT);
+		Capabilities->set_relations(_Data.Relations);
+		Capabilities->set_debug_info(_Data.Relations);
+		Capabilities->set_multi_agent(_Data.Multiagent);
+	}
+
+	void SessionControlEvent_UserConfiguration::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+	{
+		Proto.mutable_session_control()->mutable_user_configuration()->set_id(_Data.Id);
+		Proto.mutable_session_control()->mutable_user_configuration()->set_name(_Data.Name);
+
+		Inworld::Log("SessionControlEvent_UserConfiguration User id: %s", ARG_STR(_Data.Id));
+		Inworld::Log("SessionControlEvent_UserConfiguration User name: %s", ARG_STR(_Data.Name));
+
+		auto* PlayerProfile = Proto.mutable_session_control()->mutable_user_configuration()->mutable_user_settings()->mutable_player_profile();
+		for (const auto& Field : _Data.Profile.Fields)
+		{
+			PlayerProfile->add_fields();
+			auto* PlayerField = PlayerProfile->mutable_fields(PlayerProfile->fields_size() - 1);
+			PlayerField->set_field_id(Field.Id);
+			PlayerField->set_field_value(Field.Value);
+		}
+	}
+
+	void SessionControlEvent_ClientConfiguration::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+	{
+		auto* Config = Proto.mutable_session_control()->mutable_client_configuration();
+        Config->set_id(_Data.Id);
+        Config->set_version(_Data.Version);
+		Config->set_description(_Data.Description);
+
+		Inworld::Log("SessionControlEvent_ClientConfiguration Client id: %s", ARG_STR(_Data.Id));
+		Inworld::Log("SessionControlEvent_ClientConfiguration Client version: %s", ARG_STR(_Data.Version));
+		Inworld::Log("SessionControlEvent_ClientConfiguration Client description: %s", ARG_STR(_Data.Description));
+	}
+
+	void SessionControlEvent_SessionSave::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+	{
+		Proto.mutable_session_control()->mutable_continuation()->set_continuation_type(InworldPakets::Continuation_ContinuationType_CONTINUATION_TYPE_EXTERNALLY_SAVED_STATE);
+		Proto.mutable_session_control()->mutable_continuation()->set_externally_saved_state(_Data.Bytes);
+	}
+
+	void SessionControlEvent_LoadScene::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+	{
+        Proto.mutable_mutation()->mutable_load_scene()->set_name(_Data.Scene);
+	}
+
+	void SessionControlEvent_LoadCharacters::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+	{
+        auto* LoadCharacters = Proto.mutable_mutation()->mutable_load_characters();
+        for (auto& Name : _Data.Names)
+        {
+            LoadCharacters->add_name()->set_name(Name);
+        }
+	}
+
+	void SessionControlEvent_UnloadCharacters::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
+	{
+		auto* UnloadCharacters = Proto.mutable_mutation()->mutable_unload_characters();
+		for (auto& Name : _Data.Names)
+		{
+            UnloadCharacters->add_agents()->set_agent_id(Name);
+		}
+	}
+
+    SessionControlResponse_LoadScene::SessionControlResponse_LoadScene(const InworldPakets::InworldPacket& GrpcPacket)
+	{
+		auto& Scene = GrpcPacket.session_control_response().loaded_scene();
+		_AgentInfos.reserve(Scene.agents_size());
+		for (int32_t i = 0; i < Scene.agents_size(); i++)
+		{
+			AgentInfo& Info = _AgentInfos.emplace_back();
+			Info.BrainName = Scene.agents(i).brain_name().c_str();
+			Info.AgentId = Scene.agents(i).agent_id().c_str();
+			Info.GivenName = Scene.agents(i).given_name().c_str();
+		}
+	}
+
+	SessionControlResponse_LoadCharacters::SessionControlResponse_LoadCharacters(const InworldPakets::InworldPacket& GrpcPacket)
+	{
+        auto& Characters = GrpcPacket.session_control_response().loaded_characters();
+		_AgentInfos.reserve(Characters.agents_size());
+		for (int32_t i = 0; i < Characters.agents_size(); i++)
+		{
+			AgentInfo& Info = _AgentInfos.emplace_back();
+			Info.BrainName = Characters.agents(i).brain_name().c_str();
+			Info.AgentId = Characters.agents(i).agent_id().c_str();
+			Info.GivenName = Characters.agents(i).given_name().c_str();
+		}
+	}
+
 }

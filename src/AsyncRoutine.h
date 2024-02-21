@@ -8,8 +8,9 @@
 #pragma once
 #include <thread>
 #include <atomic>
+#include <string>
 
-#include "RunnableCommand.h"
+#include "Runnable.h"
 
 namespace Inworld
 {

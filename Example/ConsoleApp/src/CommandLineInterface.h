@@ -7,9 +7,10 @@
 
 #include <string>
 #include <functional>
+#include <iostream>
 
-#include "RunnableCommand.h"
 #include "AsyncRoutine.h"
+#include "Utils/SharedQueue.h"
 
 namespace NDKApp
 {

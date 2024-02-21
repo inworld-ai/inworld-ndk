@@ -70,7 +70,7 @@ void NDKApp::CommandLineInterface::ExecuteCommands()
 		std::vector<std::string> Args;
 		std::string Tmp;
 
-		if (std::getline(Stream, Tmp))
+		while (std::getline(Stream, Tmp, ' '))
 		{
 			Args.push_back(Tmp);
 		}
