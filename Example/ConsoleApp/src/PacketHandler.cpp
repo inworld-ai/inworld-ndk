@@ -20,17 +20,17 @@ void NDKApp::PacketHandler::Visit(const Inworld::TextEvent& Event)
 		Targets += (Target._Type == InworldPackets::Actor_Type_PLAYER) ? "Player" : GetGivenName(Target._Name);
 	}
 
-	Inworld::Log("{} to {}: Text: {}", ARG_STR(GetGivenName(Event._Routing._Source._Name)), Targets, ARG_STR(Event.GetText()));
+	Inworld::Log("%s to %s: Text: %s", ARG_STR(GetGivenName(Event._Routing._Source._Name)), ARG_STR(Targets), ARG_STR(Event.GetText()));
 }
 
 void NDKApp::PacketHandler::Visit(const Inworld::CustomEvent& Event)
 {
-	Inworld::Log("{}: Custom: {}", ARG_STR(GetGivenName(Event._Routing._Source._Name)), ARG_STR(Event.GetName()));
+	Inworld::Log("%s: Custom: %s", ARG_STR(GetGivenName(Event._Routing._Source._Name)), ARG_STR(Event.GetName()));
 }
 
 void NDKApp::PacketHandler::Visit(const Inworld::CustomGestureEvent& Event)
 {
-	//Inworld::Log("{}: Custom gesture: {}", ARG_STR(GetGivenName(Event._Routing._Source._Name)), ARG_STR(Event.GetCustomGesture()));
+	//Inworld::Log("%s: Custom gesture: %s", ARG_STR(GetGivenName(Event._Routing._Source._Name)), ARG_STR(Event.GetCustomGesture()));
 }
 
 void NDKApp::PacketHandler::Visit(const Inworld::CancelResponseEvent& Event)
@@ -40,22 +40,22 @@ void NDKApp::PacketHandler::Visit(const Inworld::CancelResponseEvent& Event)
 
 void NDKApp::PacketHandler::Visit(const Inworld::EmotionEvent& Event)
 {
-	//Inworld::Log("{}: Emotion: Behavior {}, Strengths {}", ARG_STR(GetGivenName(Event._Routing._Source._Name)), (int32_t)Event.GetEmotionalBehavior(), (int32_t)Event.GetStrength());
+	//Inworld::Log("%s: Emotion: Behavior %d, Strengths %d", ARG_STR(GetGivenName(Event._Routing._Source._Name)), (int32_t)Event.GetEmotionalBehavior(), (int32_t)Event.GetStrength());
 }
 
 void NDKApp::PacketHandler::Visit(const Inworld::ControlEvent& Event)
 {
-	Inworld::Log("{}: Control: {}", ARG_STR(GetGivenName(Event._Routing._Source._Name)), (int32_t)Event.GetControlAction());
+	Inworld::Log("%s: Control: %d", ARG_STR(GetGivenName(Event._Routing._Source._Name)), (int32_t)Event.GetControlAction());
 }
 
 void NDKApp::PacketHandler::Visit(const Inworld::SilenceEvent& Event)
 {
-	Inworld::Log("{}: Silence: Duration {}", ARG_STR(GetGivenName(Event._Routing._Source._Name)), Event.GetDuration());
+	Inworld::Log("%s: Silence: Duration %f", ARG_STR(GetGivenName(Event._Routing._Source._Name)), Event.GetDuration());
 }
 
 void NDKApp::PacketHandler::Visit(const Inworld::DataEvent& Event)
 {
-	Inworld::Log("{}: Data: Size {}", ARG_STR(GetGivenName(Event._Routing._Source._Name)), Event.GetDataChunk().size());
+	Inworld::Log("%s: Data: Size %d", ARG_STR(GetGivenName(Event._Routing._Source._Name)), Event.GetDataChunk().size());
 }
 
 std::string NDKApp::PacketHandler::GetGivenName(const std::string& AgentId) const

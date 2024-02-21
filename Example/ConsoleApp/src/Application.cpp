@@ -133,7 +133,7 @@ void NDKApp::App::Run()
 			{
 				for (auto& Info : _AgentInfos)
 				{
-					Inworld::Log("{0} {1} {2}", ARG_STR(Info.GivenName), ARG_STR(Info.AgentId), ARG_STR(Info.BrainName));
+					Inworld::Log("%s %s %s", ARG_STR(Info.GivenName), ARG_STR(Info.AgentId), ARG_STR(Info.BrainName));
 				}
 				NotifyCurrentCharacter();
 			}
@@ -152,7 +152,7 @@ void NDKApp::App::Run()
 						}
 
 						_SavedSessionState = State;
-						Inworld::Log("Session state saved, size '{0}'", State.size());
+						Inworld::Log("Session state saved, size '%d'", State.size());
 					});
 			}
 		},
@@ -233,7 +233,7 @@ void NDKApp::App::Run()
 					auto It = std::find_if(_AgentInfos.begin(), _AgentInfos.end(), [&Id](const auto& Info) { return Info.BrainName == Id; });
 					if (It != _AgentInfos.end())
 					{
-						Inworld::Log("Unload character %s", Id);
+						Inworld::Log("Unload character %s", Id.c_str());
 						int32_t Idx = _AgentInfos.begin() - It;
 						_AgentInfos.erase(It);
 						if (std::find(_CurrentAgentIdxs.begin(), _CurrentAgentIdxs.end(), Idx) != _CurrentAgentIdxs.end())
@@ -309,7 +309,7 @@ void NDKApp::App::Run()
 			int32_t Code;
 			_Client.GetConnectionError(Error, Code);
 
-			Inworld::Log("Connection state: {0}. {1}", static_cast<uint32_t>(ConnectionState), Error.empty() ? "" : ARG_STR(std::string(" Error: ") + Error));
+			Inworld::Log("Connection state: %d. %s", static_cast<int32_t>(ConnectionState), Error.empty() ? "" : (std::string(" Error: ") + Error).c_str());
 
 			if (ConnectionState == Inworld::Client::ConnectionState::Disconnected)
 			{
@@ -361,7 +361,7 @@ void NDKApp::App::Run()
 
 void NDKApp::App::Error(std::string Msg)
 {
-	Inworld::LogError("{0}", ARG_STR(Msg));
+	Inworld::LogError("%s", ARG_STR(Msg));
 }
 
 void NDKApp::App::NextCharacter()
@@ -440,7 +440,7 @@ void NDKApp::App::NotifyCurrentCharacter()
 	for (int32_t Idx : _CurrentAgentIdxs)
 	{
 		auto& Info = _AgentInfos[Idx];
-		Inworld::Log("Current character: {} {}", Idx, ARG_STR(Info.GivenName), ARG_STR(Info.AgentId));
+		Inworld::Log("Current character: %d %s %s", Idx, ARG_STR(Info.GivenName), ARG_STR(Info.AgentId));
 	}
 }
 

@@ -16,6 +16,7 @@
 #include <unordered_map>
 #include <chrono>
 
+#ifdef _WIN32
 namespace ai::inworld::packets
 {
 	class Actor;
@@ -31,6 +32,10 @@ namespace ai::inworld::packets
 	enum EmotionEvent_Strength;
 	enum Playback;
 }
+#else
+// enum forward declarations forbidden
+#include "ai/inworld/packets/packets.pb.h"
+#endif
 namespace InworldPackets = ai::inworld::packets;
 
 namespace Inworld {
