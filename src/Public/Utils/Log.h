@@ -11,10 +11,6 @@
 #include <memory>
 #include <functional>
 
-#ifdef INWORLD_LOG_SPD
-    #include "spdlog/spdlog.h"
-#endif
-
 #include "Define.h"
 
 namespace Inworld
@@ -31,38 +27,14 @@ namespace Inworld
 	INWORLD_EXPORT extern std::function<void(const char * message, int severity)> g_LoggerCallback;
 #endif
 
-#ifdef INWORLD_LOG_SPD
-    #ifdef _WIN32
-            namespace format = std;
-    #else
-            namespace format = fmt;
-    #endif
-#endif
-
 	template<typename... Args>
 	std::string VFormat(std::string fmt, Args &&... args)
 	{
 #ifdef INWORLD_LOG
-
-    #ifdef INWORLD_LOG_SPD
-            
-            for (int32_t i = 0; i < fmt.size(); i++)
-            {
-                if (fmt[i] == '%')
-                {
-                    fmt[i] = '{';
-                    fmt[i + 1] = '}';
-                }
-            }
-            
-            return format::vformat(fmt, format::make_format_args(args...));
-    #else
-            size_t size = std::snprintf(nullptr, 0, fmt.c_str(), std::forward<Args>(args)...) + 1;
-            std::unique_ptr<char[]> buf(new char[size]);
-            std::snprintf(buf.get(), size, fmt.c_str(), std::forward<Args>(args)...);
-            return std::string(buf.get(), buf.get() + size - 1);
-    #endif
-
+		size_t size = std::snprintf(nullptr, 0, fmt.c_str(), std::forward<Args>(args)...) + 1;
+		std::unique_ptr<char[]> buf(new char[size]);
+		std::snprintf(buf.get(), size, fmt.c_str(), std::forward<Args>(args)...);
+		return std::string(buf.get(), buf.get() + size - 1);
 #else
         return {};
 #endif

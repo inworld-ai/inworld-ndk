@@ -228,7 +228,7 @@ if(INWORLD_LOG_SPD)
     target_include_directories(inworld-ndk PUBLIC
         ${ThirdPartyDir}/spdlog/include
     )
-    target_link_libraries(inworld-ndk PUBLIC spdlog::spdlog $<$<BOOL:${MINGW}>:ws2_32>)
+    target_link_libraries(inworld-ndk PRIVATE spdlog::spdlog $<$<BOOL:${MINGW}>:ws2_32>)
 endif()
 
 if(INWORLD_LOG)
