@@ -268,6 +268,15 @@ void NDKApp::App::Run()
 
 				_Client.LoadSavedState(Args[0]);
 			}
+		},
+		{
+			"Destroy",
+			"Destroy client and restart",
+			[this](std::vector<std::string> Args)
+			{
+				_Client.DestroyClient();
+				Run();
+			}
 		}
 		});
 

@@ -10,6 +10,7 @@
 #include <string>
 #include <functional>
 #include <type_traits>
+#include <memory>
 
 #include "Define.h"
 #include "Types.h"
@@ -21,6 +22,7 @@
 
 using PacketQueue = Inworld::SharedQueue<std::shared_ptr<Inworld::Packet>>;
 
+// don't include grpc related stuff to public headers
 namespace ai::inworld::packets
 {
 	class InworldPacket;
@@ -36,6 +38,16 @@ namespace Inworld
 {
 	class ServiceSession;
 	using ClientStream = ::grpc::ClientReaderWriter<InworldPackets::InworldPacket, InworldPackets::InworldPacket>;
+
+	// use for grpc related ClientBase members
+	class ClientService
+	{
+	public:
+		virtual ~ClientService() = default;
+		virtual std::unique_ptr<ServiceSession>& Session() = 0;
+		virtual std::unique_ptr<ClientStream>& Stream() = 0;
+		virtual void OpenSession() = 0;
+	};
 
 	struct INWORLD_EXPORT SdkInfo
 	{
@@ -81,6 +93,13 @@ namespace Inworld
 
 		ClientBase() = default;
 		virtual ~ClientBase() = default;
+
+		virtual void InitClient(const SdkInfo& SdkInfo, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback);
+		virtual void StartClient(const ClientOptions& Options, const SessionInfo& Info, CharactersLoadedCb LoadSceneCallback);
+		virtual void PauseClient();
+		virtual void ResumeClient();
+		virtual void StopClient();
+		virtual void DestroyClient();
 		
 		void SendPacket(std::shared_ptr<Inworld::Packet> Packet);
 
@@ -108,13 +127,6 @@ namespace Inworld
 		virtual void StartAudioSession(const std::vector<std::string>& AgentIds);
 		virtual void StopAudioSession(const std::string& AgentId);
 		virtual void StopAudioSession(const std::vector<std::string>& AgentIds);
-
-		virtual void InitClient(const SdkInfo& SdkInfo, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback);
-		virtual void StartClient(const ClientOptions& Options, const SessionInfo& Info, CharactersLoadedCb LoadSceneCallback);
-		virtual void PauseClient();
-		virtual void ResumeClient();
-		virtual void StopClient();
-		virtual void DestroyClient();
 		
 		virtual void SaveSessionState(std::function<void(std::string, bool)> Callback);
 
@@ -191,15 +203,14 @@ namespace Inworld
 		CharactersLoadedCb _OnLoadCharactersCallback;
 		std::function<void(ConnectionState)> _OnConnectionStateChangedCallback;
 
-		std::unique_ptr<ClientStream> _ClientStream;
 		std::atomic<bool> _bHasClientStreamFinished = false;
 
 		std::unique_ptr<IAsyncRoutine> _AsyncReadTask;
 		std::unique_ptr<IAsyncRoutine> _AsyncWriteTask;
 		std::unique_ptr<IAsyncRoutine> _AsyncGenerateTokenTask;		
 		std::unique_ptr<IAsyncRoutine> _AsyncGetSessionState;
-
-		std::unique_ptr<ServiceSession> _SessionService;
+		
+		std::unique_ptr<ClientService> _Service;
 
 		PacketQueue _IncomingPackets;
 		PacketQueue _OutgoingPackets;

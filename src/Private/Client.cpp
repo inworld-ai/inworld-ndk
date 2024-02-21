@@ -27,6 +27,8 @@ constexpr int64_t gMaxTokenLifespan = 60 * 45; // 45 minutes
 
 const std::string DefaultTargetUrl = "api-engine.inworld.ai:443";
 
+
+
 static void GrpcLog(gpr_log_func_args* args)
 {
 	if (args->severity != GPR_LOG_SEVERITY_ERROR)
@@ -52,6 +54,38 @@ static void GrpcLog(gpr_log_func_args* args)
 		ARG_CHAR(args->file),
 		args->line);
 }
+
+namespace Inworld
+{
+	class ClientServiceImpl : public ClientService
+	{
+	public:
+		virtual ~ClientServiceImpl()
+		{
+			_ClientStream.reset();
+			_SessionService.reset();
+		}
+
+		virtual std::unique_ptr<ServiceSession>& Session() { return _SessionService; }
+		virtual std::unique_ptr<ClientStream>& Stream() { return _ClientStream; }
+
+		virtual void OpenSession() override
+		{
+			if (!_SessionService)
+			{
+				Inworld::LogError("ClientServiceImpl::OpenSession error, service invalid");
+				return;
+			}
+
+			_ClientStream = _SessionService->OpenSession();
+		}
+
+	private:
+		std::unique_ptr<Inworld::ClientStream> _ClientStream;
+		std::unique_ptr<Inworld::ServiceSession> _SessionService;
+	};
+}
+ 
 
 const Inworld::SessionInfo& Inworld::ClientBase::GetSessionInfo() const
 {
@@ -308,7 +342,9 @@ void Inworld::ClientBase::StopAudioSession(const std::vector<std::string>& Agent
 
 void Inworld::ClientBase::InitClient(const SdkInfo& SdkInfo, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback)
 {
-	gpr_set_log_function(GrpcLog);	
+	gpr_set_log_function(GrpcLog);
+
+	_Service = std::make_unique<ClientServiceImpl>();
 
 	_SdkInfo = SdkInfo;
 	if (_SdkInfo.Type.empty())
@@ -449,9 +485,9 @@ void Inworld::ClientBase::ResumeClient()
 	{
 		GenerateToken([this]()
 		{
-			if (_SessionService)
+			if (_Service->Session())
 			{
-				_SessionService->SetToken(_SessionInfo.Token);
+				_Service->Session()->SetToken(_SessionInfo.Token);
 				StartClientStream();
 			}
 		});
@@ -470,9 +506,9 @@ void Inworld::ClientBase::StopClient()
 	}
 
 	StopClientStream();
-	if (_SessionService)
+	if (_Service->Session())
 	{
-		_SessionService->Cancel();
+		_Service->Session()->Cancel();
 	}
 	_AsyncGenerateTokenTask->Stop();
 	_AsyncGetSessionState->Stop();
@@ -493,6 +529,7 @@ void Inworld::ClientBase::DestroyClient()
 	_OnGenerateTokenCallback = nullptr;
 	_OnConnectionStateChangedCallback = nullptr;
 	_LatencyTracker.ClearCallback();
+	_Service.reset();
 }
 
 void Inworld::ClientBase::SaveSessionState(std::function<void(std::string, bool)> Callback)
@@ -573,15 +610,15 @@ void Inworld::ClientBase::StartSession(CharactersLoadedCb LoadSceneCallback)
 	Inworld::LogSetSessionId(_SessionInfo.SessionId);
 	Inworld::Log("Session Id: %s", ARG_STR(_SessionInfo.SessionId));
 
-	_SessionService = std::make_unique<ServiceSession>(
+	_Service->Session() = std::make_unique<ServiceSession>(
 		_SessionInfo.Token,
 		_SessionInfo.SessionId,
 		_ClientOptions.ServerUrl
 		);
 	StartClientStream();
-	if (!_ClientStream)
+	if (!_Service->Stream())
 	{
-		Inworld::LogError("StartSession error, _ClientStream is invalid.");
+		Inworld::LogError("StartSession error, _Service->Stream() is invalid.");
 		return;
 	}
 
@@ -621,11 +658,11 @@ void Inworld::ClientBase::StartClientStream()
 {
 	const bool bHasPendingWriteTask = _AsyncWriteTask->IsValid() && !_AsyncWriteTask->IsDone();
 	const bool bHasPendingReadTask = _AsyncReadTask->IsValid() && !_AsyncReadTask->IsDone();
-	if (!bHasPendingWriteTask && !bHasPendingReadTask && _SessionService)
+	if (!bHasPendingWriteTask && !bHasPendingReadTask && _Service->Session())
 	{
 		_ErrorMessage = std::string();
 		_ErrorCode = grpc::StatusCode::OK;
-		_ClientStream = _SessionService->OpenSession();
+		_Service->OpenSession();
 		_bHasClientStreamFinished = false;
 		TryToStartReadTask();
 		TryToStartWriteTask();
@@ -635,18 +672,18 @@ void Inworld::ClientBase::StartClientStream()
 void Inworld::ClientBase::StopClientStream()
 {
 	_bHasClientStreamFinished = true;
-	if (_SessionService)
+	if (_Service->Session())
 	{
-		_SessionService->Cancel();
+		_Service->Session()->Cancel();
 	}
 	_AsyncReadTask->Stop();
 	_AsyncWriteTask->Stop();
-	_ClientStream.reset();
+	_Service->Stream().reset();
 }
 
 void Inworld::ClientBase::TryToStartReadTask()
 {
-	if (!_ClientStream)
+	if (!_Service->Stream())
 	{
 		return;
 	}
@@ -657,7 +694,7 @@ void Inworld::ClientBase::TryToStartReadTask()
 		_AsyncReadTask->Start(
 			"InworldRead",
 			std::make_unique<RunnableRead>(
-				*_ClientStream.get(), 
+				*_Service->Stream().get(), 
 				_bHasClientStreamFinished, 
 				_IncomingPackets,
 				[this](const std::shared_ptr<Inworld::Packet> InPacket)
@@ -711,7 +748,7 @@ void Inworld::ClientBase::TryToStartReadTask()
 
 void Inworld::ClientBase::TryToStartWriteTask()
 {
-	if (!_ClientStream)
+	if (!_Service->Stream())
 	{
 		return;
 	}
@@ -725,7 +762,7 @@ void Inworld::ClientBase::TryToStartWriteTask()
 			_AsyncWriteTask->Start(
 				"InworldWrite",
 				std::make_unique<RunnableWrite>(
-					*_ClientStream.get(),
+					*_Service->Stream().get(),
 					_bHasClientStreamFinished,
 					_OutgoingPackets,
 					[this](const std::shared_ptr<Inworld::Packet> InPacket)
