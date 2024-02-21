@@ -14,6 +14,7 @@
 #include "Utils/Log.h"
 
 #include "google/protobuf/util/time_util.h"
+#include "ai/inworld/packets/packets.pb.h"
 
 namespace Inworld {
 
@@ -36,7 +37,12 @@ namespace Inworld {
         return Result;
     }
 
-    InworldPackets::Actor Actor::ToProto() const
+	Actor::Actor(const InworldPackets::Actor& Actor)
+		: _Type(Actor.type())
+		, _Name(Actor.name().c_str())
+	{}
+
+	InworldPackets::Actor Actor::ToProto() const
     {
         InworldPackets::Actor actor;
         actor.set_type(_Type);
@@ -82,6 +88,10 @@ namespace Inworld {
         return { { InworldPackets::Actor_Type_PLAYER, "" }, Actors };
 	}
 
+	PacketId::PacketId(const InworldPackets::PacketId& Other)
+		: PacketId(Other.packet_id().c_str(), Other.utterance_id().c_str(), Other.interaction_id().c_str())
+	{}
+
 	InworldPackets::PacketId PacketId::ToProto() const
     {
         InworldPackets::PacketId proto;
@@ -108,19 +118,43 @@ namespace Inworld {
         return Proto;
     }
 
-    void TextEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const 
+	TextEvent::TextEvent(const InworldPackets::InworldPacket& GrpcPacket)
+		: Packet(GrpcPacket)
+		, _Text(GrpcPacket.text().text().c_str())
+		, _Final(GrpcPacket.text().final())
+		, _SourceType(GrpcPacket.text().source_type())
+	{}
+
+	TextEvent::TextEvent(const std::string& InText, const Routing& Routing)
+		: Packet(Routing)
+		, _Text(InText)
+		, _Final(true)
+		, _SourceType(InworldPackets::TextEvent_SourceType_TYPED_IN)
+	{}
+
+	void TextEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
     {
         Proto.mutable_text()->set_text(_Text);
         Proto.mutable_text()->set_final(_Final);
         Proto.mutable_text()->set_source_type(_SourceType);
     }
 
-    void ControlEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
+	ControlEvent::ControlEvent(const InworldPackets::InworldPacket& GrpcPacket)
+		: Packet(GrpcPacket)
+		, _Action(GrpcPacket.control().action())
+	{}
+
+	void ControlEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
     {
         Proto.mutable_control()->set_action(_Action);
     }
 
-    void DataEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
+	DataEvent::DataEvent(const InworldPackets::InworldPacket& GrpcPacket)
+		: Packet(GrpcPacket)
+		, _Chunk(GrpcPacket.data_chunk().chunk())
+	{}
+
+	void DataEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
     {
         Proto.mutable_data_chunk()->set_chunk(_Chunk);
     }
@@ -152,7 +186,12 @@ namespace Inworld {
         }
     }
 
-    EmotionEvent::EmotionEvent(const InworldPackets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
+	const InworldPackets::DataChunk_DataType AudioDataEvent::GetType() const
+	{
+        return InworldPackets::DataChunk_DataType_AUDIO;
+	}
+
+	EmotionEvent::EmotionEvent(const InworldPackets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
     {
         _Behavior = GrpcPacket.emotion().behavior();
         _Strength = GrpcPacket.emotion().strength();
@@ -162,6 +201,12 @@ namespace Inworld {
     {
         Proto.mutable_emotion()->set_behavior(_Behavior);
     }
+
+	CustomGestureEvent::CustomGestureEvent(const InworldPackets::InworldPacket& GrpcPacket)
+		: Packet(GrpcPacket)
+		, _GestureName(GrpcPacket.custom().name().data())
+		, _Playback(GrpcPacket.custom().playback())
+	{}
 
 	void CustomGestureEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
 	{
@@ -189,7 +234,12 @@ namespace Inworld {
         }
 	}
 
-    void SilenceEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
+	SilenceEvent::SilenceEvent(const InworldPackets::InworldPacket& GrpcPacket)
+		: Packet(GrpcPacket)
+		, _Duration(GrpcPacket.data_chunk().duration_ms() * 0.001f)
+	{}
+
+	void SilenceEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
 	{
     
 	}
@@ -335,5 +385,9 @@ namespace Inworld {
 			Info.GivenName = Characters.agents(i).given_name().c_str();
 		}
 	}
+
+	SessionControlEvent::SessionControlEvent() 
+		: MutationEvent(Routing{ { InworldPackets::Actor_Type_PLAYER, "" }, { InworldPackets::Actor_Type_WORLD, ""} }) 
+	{}
 
 }

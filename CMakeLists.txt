@@ -24,7 +24,6 @@ file(GLOB_RECURSE FilesALLProto
 add_library(inworld-ndk-proto STATIC ${FilesALLProto})
 if (INWORLD_SHARED)
     add_library(inworld-ndk SHARED ${FilesALL})
-    #target_compile_definitions(inworld-ndk-proto PUBLIC PROTOBUF_USE_DLLS=1)
 else()
     add_library(inworld-ndk STATIC ${FilesALL})
 endif()
@@ -467,7 +466,6 @@ if (WIN32 OR MAC)
     target_compile_features(inworld-ndk-app PRIVATE cxx_std_20)
     target_include_directories(inworld-ndk-app PUBLIC inworld-ndk/src/Public)
     target_link_libraries(inworld-ndk-app PRIVATE inworld-ndk)
-    target_link_libraries(inworld-ndk-app PRIVATE inworld-ndk-proto)
 
     GroupSourcesByFolder(inworld-ndk-app)
 

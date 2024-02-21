@@ -16,8 +16,21 @@
 #include <unordered_map>
 #include <chrono>
 
-#include "ai/inworld/packets/packets.pb.h"
+namespace ai::inworld::packets
+{
+	class Actor;
+	class Routing;
+	class PacketId;
+	class InworldPacket;
 
+	enum Actor_Type;
+	enum TextEvent_SourceType;
+	enum DataChunk_DataType;
+	enum ControlEvent_Action;
+	enum EmotionEvent_SpaffCode;
+	enum EmotionEvent_Strength;
+	enum Playback;
+}
 namespace InworldPackets = ai::inworld::packets;
 
 namespace Inworld {
@@ -28,10 +41,7 @@ namespace Inworld {
 	struct INWORLD_EXPORT Actor
 	{
 		Actor() = default;
-		Actor(const InworldPackets::Actor& Actor) 
-			: _Type(Actor.type())
-			, _Name(Actor.name().c_str())
-		{}
+		Actor(const InworldPackets::Actor& Actor);
 		Actor(const InworldPackets::Actor_Type Type, const std::string& Name) 
 			: _Type(Type)
 			, _Name(Name) 
@@ -74,9 +84,7 @@ namespace Inworld {
         PacketId() 
 			: PacketId(RandomUUID(), std::string(RandomUUID()), std::string(RandomUUID())) 
 		{}
-        PacketId(const InworldPackets::PacketId& Other)
-			: PacketId(Other.packet_id().c_str(), Other.utterance_id().c_str(), Other.interaction_id().c_str()) 
-		{}
+        PacketId(const InworldPackets::PacketId& Other);
 		PacketId(const std::string& UID, const std::string& UtteranceId, const std::string& InteractionId) 
 			: _UID(UID)
 			, _UtteranceId(UtteranceId)
@@ -157,18 +165,8 @@ namespace Inworld {
 	{
 	public:
 		TextEvent() = default;
-        TextEvent(const InworldPackets::InworldPacket& GrpcPacket)
-            : Packet(GrpcPacket)
-            , _Text(GrpcPacket.text().text().c_str())
-            , _Final(GrpcPacket.text().final())
-            , _SourceType(GrpcPacket.text().source_type())
-        {}
-        TextEvent(const std::string& InText, const Routing& Routing)
-            : Packet(Routing)
-            , _Text(InText)
-            , _Final(true)
-            , _SourceType(InworldPackets::TextEvent_SourceType_TYPED_IN)
-        {}
+        TextEvent(const InworldPackets::InworldPacket& GrpcPacket);
+        TextEvent(const std::string& InText, const Routing& Routing);
 
 		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
 
@@ -189,10 +187,7 @@ namespace Inworld {
     {
 	public:
 		DataEvent() = default;
-		DataEvent(const InworldPackets::InworldPacket& GrpcPacket)
-			: Packet(GrpcPacket)
-			, _Chunk(GrpcPacket.data_chunk().chunk())
-		{}
+		DataEvent(const InworldPackets::InworldPacket& GrpcPacket);
 		DataEvent(const std::string& Data, const Routing& Routing)
 			: Packet(Routing)
 			, _Chunk(Data)
@@ -222,7 +217,7 @@ namespace Inworld {
 
 		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
 
-		const InworldPackets::DataChunk_DataType GetType() const override { return InworldPackets::DataChunk_DataType_AUDIO; }
+		const InworldPackets::DataChunk_DataType GetType() const override;
 
 		struct PhonemeInfo
 		{
@@ -242,10 +237,7 @@ namespace Inworld {
 	{
 	public:
 		SilenceEvent() = default;
-		SilenceEvent(const InworldPackets::InworldPacket& GrpcPacket)
-			: Packet(GrpcPacket)
-			, _Duration(GrpcPacket.data_chunk().duration_ms() * 0.001f)
-		{}
+		SilenceEvent(const InworldPackets::InworldPacket& GrpcPacket);
 		SilenceEvent(float Duration, const Routing& Routing)
 			: Packet(Routing)
 			, _Duration(Duration)
@@ -266,10 +258,7 @@ namespace Inworld {
     {
     public:
 		ControlEvent() = default;
-		ControlEvent(const InworldPackets::InworldPacket& GrpcPacket)
-			: Packet(GrpcPacket)
-			, _Action(GrpcPacket.control().action())
-		{}
+		ControlEvent(const InworldPackets::InworldPacket& GrpcPacket);
         ControlEvent(InworldPackets::ControlEvent_Action Action, const Routing& Routing)
 			: Packet(Routing)
 			, _Action(Action)
@@ -309,11 +298,7 @@ namespace Inworld {
     {
     public:
 		CustomGestureEvent() = default;
-		CustomGestureEvent(const InworldPackets::InworldPacket& GrpcPacket)
-            : Packet(GrpcPacket)
-            , _GestureName(GrpcPacket.custom().name().data())
-			, _Playback(GrpcPacket.custom().playback())
-        {}
+		CustomGestureEvent(const InworldPackets::InworldPacket& GrpcPacket);
 		CustomGestureEvent(const std::string& Gesture, const Routing& Routing)
             : Packet(Routing)
             , _GestureName(Gesture)
@@ -440,7 +425,7 @@ namespace Inworld {
 	class INWORLD_EXPORT SessionControlEvent : public MutationEvent
 	{
 	public:
-		SessionControlEvent() : MutationEvent(Routing{ { InworldPackets::Actor_Type_PLAYER, "" }, { InworldPackets::Actor_Type_WORLD, ""}}) {}
+		SessionControlEvent();
 	};
 
 	class INWORLD_EXPORT SessionControlEvent_SessionConfiguration : public SessionControlEvent

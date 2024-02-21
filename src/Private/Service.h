@@ -36,7 +36,6 @@
 #endif
 
 namespace InworldEngine = ai::inworld::engine;
-namespace InworldPackets = ai::inworld::packets;
 namespace InworldV1alpha = ai::inworld::studio::v1alpha;
 namespace InworldEngineV1 = ai::inworld::engine::v1;
 

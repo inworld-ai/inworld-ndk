@@ -7,6 +7,7 @@
 
 #include "PerceivedLatencyTracker.h"
 #include "Log.h"
+#include "ai/inworld/packets/packets.pb.h"
 
 void Inworld::PerceivedLatencyTracker::HandlePacket(std::shared_ptr<Inworld::Packet> Packet)
 {
