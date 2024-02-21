@@ -7,6 +7,7 @@
 
 #include "PacketHandler.h"
 #include "Utils/Log.h"
+#include "ai/inworld/packets/packets.pb.h"
 
 void NDKApp::PacketHandler::Visit(const Inworld::TextEvent& Event)
 {
