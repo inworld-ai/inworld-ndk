@@ -28,7 +28,7 @@ if (INWORLD_SHARED)
 else()
     add_library(inworld-ndk STATIC ${FilesALL})
 endif()
-target_link_libraries(inworld-ndk PUBLIC inworld-ndk-proto)
+target_link_libraries(inworld-ndk PRIVATE inworld-ndk-proto)
 
 target_compile_definitions(inworld-ndk PRIVATE
     NDK_VERSION_MAJOR=${PROJECT_VERSION_MAJOR}

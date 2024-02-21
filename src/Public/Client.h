@@ -16,8 +16,8 @@
 #include "Packets.h"
 #include "Utils/SharedQueue.h"
 #include "AsyncRoutine.h"
-#include "AECFilter.h"
 #include "Utils/PerceivedLatencyTracker.h"
+#include "AECFilter.h"
 
 using PacketQueue = Inworld::SharedQueue<std::shared_ptr<Inworld::Packet>>;
 
