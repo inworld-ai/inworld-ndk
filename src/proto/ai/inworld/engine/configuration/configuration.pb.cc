@@ -173,6 +173,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fengine_2fconfig
   PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, debug_info_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, tts_mp3_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, multi_agent_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, audio2face_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile_PlayerField, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -218,12 +219,12 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fengine_2fconfig
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::ai::inworld::engine::configuration::CapabilitiesConfiguration)},
-  { 20, -1, sizeof(::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile_PlayerField)},
-  { 27, -1, sizeof(::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile)},
-  { 33, -1, sizeof(::ai::inworld::engine::configuration::UserConfiguration_UserSettings)},
-  { 40, -1, sizeof(::ai::inworld::engine::configuration::UserConfiguration)},
-  { 48, -1, sizeof(::ai::inworld::engine::configuration::ClientConfiguration)},
-  { 56, -1, sizeof(::ai::inworld::engine::configuration::SessionConfiguration)},
+  { 21, -1, sizeof(::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile_PlayerField)},
+  { 28, -1, sizeof(::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile)},
+  { 34, -1, sizeof(::ai::inworld::engine::configuration::UserConfiguration_UserSettings)},
+  { 41, -1, sizeof(::ai::inworld::engine::configuration::UserConfiguration)},
+  { 49, -1, sizeof(::ai::inworld::engine::configuration::ClientConfiguration)},
+  { 57, -1, sizeof(::ai::inworld::engine::configuration::SessionConfiguration)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -239,7 +240,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 const char descriptor_table_protodef_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n3ai/inworld/engine/configuration/config"
   "uration.proto\022\037ai.inworld.engine.configu"
-  "ration\"\364\002\n\031CapabilitiesConfiguration\022\r\n\005"
+  "ration\"\210\003\n\031CapabilitiesConfiguration\022\r\n\005"
   "audio\030\001 \001(\010\022\025\n\rinterruptions\030\003 \001(\010\022\020\n\010em"
   "otions\030\004 \001(\010\022\032\n\016turn_based_stt\030\005 \001(\010B\002\030\001"
   "\022\031\n\021emotion_streaming\030\006 \001(\010\022\032\n\016silence_e"
@@ -248,26 +249,27 @@ const char descriptor_table_protodef_ai_2finworld_2fengine_2fconfiguration_2fcon
   "ion\030\n \001(\010\022\030\n\020narrated_actions\030\013 \001(\010\022\033\n\023r"
   "egenerate_response\030\014 \001(\010\022\021\n\trelations\030\r "
   "\001(\010\022\022\n\ndebug_info\030\016 \001(\010\022\017\n\007tts_mp3\030\017 \001(\010"
-  "\022\023\n\013multi_agent\030\024 \001(\010\"\321\003\n\021UserConfigurat"
-  "ion\022\014\n\004name\030\001 \001(\t\022\n\n\002id\030\002 \001(\t\022V\n\ruser_se"
-  "ttings\030\003 \001(\0132\?.ai.inworld.engine.configu"
-  "ration.UserConfiguration.UserSettings\032\311\002"
-  "\n\014UserSettings\022\037\n\027view_transcript_consen"
-  "t\030\001 \001(\010\022e\n\016player_profile\030\002 \001(\0132M.ai.inw"
-  "orld.engine.configuration.UserConfigurat"
-  "ion.UserSettings.PlayerProfile\032\260\001\n\rPlaye"
-  "rProfile\022i\n\006fields\030\003 \003(\0132Y.ai.inworld.en"
-  "gine.configuration.UserConfiguration.Use"
-  "rSettings.PlayerProfile.PlayerField\0324\n\013P"
-  "layerField\022\020\n\010field_id\030\001 \001(\t\022\023\n\013field_va"
-  "lue\030\002 \001(\t\"G\n\023ClientConfiguration\022\n\n\002id\030\001"
-  " \001(\t\022\017\n\007version\030\002 \001(\t\022\023\n\013description\030\003 \001"
-  "(\t\"5\n\024SessionConfiguration\022\027\n\017game_sessi"
-  "on_id\030\002 \001(\tJ\004\010\001\020\002B\251\001\n\037ai.inworld.engine."
-  "configurationB\030EngineConfigurationProtoP"
-  "\001ZMgithub.com/inworld-ai/inworld/serving"
-  "/grpc-gateway/build/proto/engine/v1alpha"
-  "\252\002\032Inworld.Grpc.Configurationb\006proto3"
+  "\022\023\n\013multi_agent\030\024 \001(\010\022\022\n\naudio2face\030\025 \001("
+  "\010\"\321\003\n\021UserConfiguration\022\014\n\004name\030\001 \001(\t\022\n\n"
+  "\002id\030\002 \001(\t\022V\n\ruser_settings\030\003 \001(\0132\?.ai.in"
+  "world.engine.configuration.UserConfigura"
+  "tion.UserSettings\032\311\002\n\014UserSettings\022\037\n\027vi"
+  "ew_transcript_consent\030\001 \001(\010\022e\n\016player_pr"
+  "ofile\030\002 \001(\0132M.ai.inworld.engine.configur"
+  "ation.UserConfiguration.UserSettings.Pla"
+  "yerProfile\032\260\001\n\rPlayerProfile\022i\n\006fields\030\003"
+  " \003(\0132Y.ai.inworld.engine.configuration.U"
+  "serConfiguration.UserSettings.PlayerProf"
+  "ile.PlayerField\0324\n\013PlayerField\022\020\n\010field_"
+  "id\030\001 \001(\t\022\023\n\013field_value\030\002 \001(\t\"G\n\023ClientC"
+  "onfiguration\022\n\n\002id\030\001 \001(\t\022\017\n\007version\030\002 \001("
+  "\t\022\023\n\013description\030\003 \001(\t\"5\n\024SessionConfigu"
+  "ration\022\027\n\017game_session_id\030\002 \001(\tJ\004\010\001\020\002B\251\001"
+  "\n\037ai.inworld.engine.configurationB\030Engin"
+  "eConfigurationProtoP\001ZMgithub.com/inworl"
+  "d-ai/inworld/serving/grpc-gateway/build/"
+  "proto/engine/v1alpha\252\002\032Inworld.Grpc.Conf"
+  "igurationb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_deps[1] = {
 };
@@ -282,7 +284,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto, "ai/inworld/engine/configuration/configuration.proto", 1237,
+  false, false, descriptor_table_protodef_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto, "ai/inworld/engine/configuration/configuration.proto", 1257,
   &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_once, descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_sccs, descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_deps, 7, 0,
   schemas, file_default_instances, TableStruct_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto::offsets,
   file_level_metadata_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto, 7, file_level_enum_descriptors_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto, file_level_service_descriptors_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto,
@@ -311,16 +313,16 @@ CapabilitiesConfiguration::CapabilitiesConfiguration(const CapabilitiesConfigura
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&audio_, &from.audio_,
-    static_cast<size_t>(reinterpret_cast<char*>(&multi_agent_) -
-    reinterpret_cast<char*>(&audio_)) + sizeof(multi_agent_));
+    static_cast<size_t>(reinterpret_cast<char*>(&audio2face_) -
+    reinterpret_cast<char*>(&audio_)) + sizeof(audio2face_));
   // @@protoc_insertion_point(copy_constructor:ai.inworld.engine.configuration.CapabilitiesConfiguration)
 }
 
 void CapabilitiesConfiguration::SharedCtor() {
   ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
       reinterpret_cast<char*>(&audio_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&multi_agent_) -
-      reinterpret_cast<char*>(&audio_)) + sizeof(multi_agent_));
+      0, static_cast<size_t>(reinterpret_cast<char*>(&audio2face_) -
+      reinterpret_cast<char*>(&audio_)) + sizeof(audio2face_));
 }
 
 CapabilitiesConfiguration::~CapabilitiesConfiguration() {
@@ -355,8 +357,8 @@ void CapabilitiesConfiguration::Clear() {
   (void) cached_has_bits;
 
   ::memset(&audio_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&multi_agent_) -
-      reinterpret_cast<char*>(&audio_)) + sizeof(multi_agent_));
+      reinterpret_cast<char*>(&audio2face_) -
+      reinterpret_cast<char*>(&audio_)) + sizeof(audio2face_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -469,6 +471,13 @@ const char* CapabilitiesConfiguration::_InternalParse(const char* ptr, ::PROTOBU
       case 20:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 160)) {
           multi_agent_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bool audio2face = 21;
+      case 21:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 168)) {
+          audio2face_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -590,6 +599,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(20, this->_internal_multi_agent(), target);
   }
 
+  // bool audio2face = 21;
+  if (this->audio2face() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(21, this->_internal_audio2face(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -681,6 +696,11 @@ size_t CapabilitiesConfiguration::ByteSizeLong() const {
     total_size += 2 + 1;
   }
 
+  // bool audio2face = 21;
+  if (this->audio2face() != 0) {
+    total_size += 2 + 1;
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -757,6 +777,9 @@ void CapabilitiesConfiguration::MergeFrom(const CapabilitiesConfiguration& from)
   if (from.multi_agent() != 0) {
     _internal_set_multi_agent(from._internal_multi_agent());
   }
+  if (from.audio2face() != 0) {
+    _internal_set_audio2face(from._internal_audio2face());
+  }
 }
 
 void CapabilitiesConfiguration::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -781,8 +804,8 @@ void CapabilitiesConfiguration::InternalSwap(CapabilitiesConfiguration* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, multi_agent_)
-      + sizeof(CapabilitiesConfiguration::multi_agent_)
+      PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, audio2face_)
+      + sizeof(CapabilitiesConfiguration::audio2face_)
       - PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, audio_)>(
           reinterpret_cast<char*>(&audio_),
           reinterpret_cast<char*>(&other->audio_));

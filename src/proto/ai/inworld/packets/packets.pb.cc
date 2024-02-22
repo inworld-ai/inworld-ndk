@@ -22,8 +22,10 @@ extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fengine_2fconfiguration_2fconfigur
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ActionEvent_ai_2finworld_2fpackets_2fpackets_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Actor_ai_2finworld_2fpackets_2fpackets_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_AdditionalPhonemeInfo_ai_2finworld_2fpackets_2fpackets_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Agent_ai_2finworld_2fpackets_2fpackets_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Agent_ai_2finworld_2fpackets_2fpackets_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Agent_CharacterAssets_ai_2finworld_2fpackets_2fpackets_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ApplyResponse_ai_2finworld_2fpackets_2fpackets_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Audio2FaceAnimationEvent_ai_2finworld_2fpackets_2fpackets_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_AudioChunk_ai_2finworld_2fpackets_2fpackets_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_CancelResponses_ai_2finworld_2fpackets_2fpackets_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_CancelResponsesEvent_ai_2finworld_2fpackets_2fpackets_2eproto;
@@ -37,6 +39,7 @@ extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTO
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_DialogHistory_ai_2finworld_2fpackets_2fpackets_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_DialogHistory_HistoryItem_ai_2finworld_2fpackets_2fpackets_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_EmotionEvent_ai_2finworld_2fpackets_2fpackets_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<19> scc_info_InworldPacket_ai_2finworld_2fpackets_2fpackets_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_LoadCharacters_ai_2finworld_2fpackets_2fpackets_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_LoadCharacters_CharacterName_ai_2finworld_2fpackets_2fpackets_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_LoadScene_ai_2finworld_2fpackets_2fpackets_2eproto;
@@ -53,8 +56,8 @@ extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTO
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_RelationInfo_RelationAttributes_ai_2finworld_2fpackets_2fpackets_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Relations_Relation_ai_2finworld_2fpackets_2fpackets_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Routing_ai_2finworld_2fpackets_2fpackets_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_SessionControlEvent_ai_2finworld_2fpackets_2fpackets_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_SessionControlResponseEvent_ai_2finworld_2fpackets_2fpackets_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<6> scc_info_SessionControlEvent_ai_2finworld_2fpackets_2fpackets_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_SessionHistoryRequest_ai_2finworld_2fpackets_2fpackets_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_TextEvent_ai_2finworld_2fpackets_2fpackets_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_TextEvent_ModelInfo_ai_2finworld_2fpackets_2fpackets_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_google_2fprotobuf_2fduration_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Duration_google_2fprotobuf_2fduration_2eproto;
@@ -191,6 +194,10 @@ class LoadSceneOutputEventDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<LoadSceneOutputEvent> _instance;
 } _LoadSceneOutputEvent_default_instance_;
+class Agent_CharacterAssetsDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Agent_CharacterAssets> _instance;
+} _Agent_CharacterAssets_default_instance_;
 class AgentDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Agent> _instance;
@@ -203,6 +210,10 @@ class SessionControlEventDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<SessionControlEvent> _instance;
 } _SessionControlEvent_default_instance_;
+class Audio2FaceAnimationEventDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Audio2FaceAnimationEvent> _instance;
+} _Audio2FaceAnimationEvent_default_instance_;
 class Continuation_ContinuationInfoDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Continuation_ContinuationInfo> _instance;
@@ -227,6 +238,18 @@ class RelationsDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Relations> _instance;
 } _Relations_default_instance_;
+class SessionHistoryRequestDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<SessionHistoryRequest> _instance;
+} _SessionHistoryRequest_default_instance_;
+class SessionHistoryResponse_SessionHistoryItemDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<SessionHistoryResponse_SessionHistoryItem> _instance;
+} _SessionHistoryResponse_SessionHistoryItem_default_instance_;
+class SessionHistoryResponseDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<SessionHistoryResponse> _instance;
+} _SessionHistoryResponse_default_instance_;
 }  // namespace packets
 }  // namespace inworld
 }  // namespace ai
@@ -281,8 +304,22 @@ static void InitDefaultsscc_info_Agent_ai_2finworld_2fpackets_2fpackets_2eproto(
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Agent_ai_2finworld_2fpackets_2fpackets_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Agent_ai_2finworld_2fpackets_2fpackets_2eproto}, {}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Agent_ai_2finworld_2fpackets_2fpackets_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_Agent_ai_2finworld_2fpackets_2fpackets_2eproto}, {
+      &scc_info_Agent_CharacterAssets_ai_2finworld_2fpackets_2fpackets_2eproto.base,}};
+
+static void InitDefaultsscc_info_Agent_CharacterAssets_ai_2finworld_2fpackets_2fpackets_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ai::inworld::packets::_Agent_CharacterAssets_default_instance_;
+    new (ptr) ::ai::inworld::packets::Agent_CharacterAssets();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Agent_CharacterAssets_ai_2finworld_2fpackets_2fpackets_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Agent_CharacterAssets_ai_2finworld_2fpackets_2fpackets_2eproto}, {}};
 
 static void InitDefaultsscc_info_ApplyResponse_ai_2finworld_2fpackets_2fpackets_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -297,6 +334,19 @@ static void InitDefaultsscc_info_ApplyResponse_ai_2finworld_2fpackets_2fpackets_
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ApplyResponse_ai_2finworld_2fpackets_2fpackets_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ApplyResponse_ai_2finworld_2fpackets_2fpackets_2eproto}, {
       &scc_info_PacketId_ai_2finworld_2fpackets_2fpackets_2eproto.base,}};
+
+static void InitDefaultsscc_info_Audio2FaceAnimationEvent_ai_2finworld_2fpackets_2fpackets_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ai::inworld::packets::_Audio2FaceAnimationEvent_default_instance_;
+    new (ptr) ::ai::inworld::packets::Audio2FaceAnimationEvent();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Audio2FaceAnimationEvent_ai_2finworld_2fpackets_2fpackets_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Audio2FaceAnimationEvent_ai_2finworld_2fpackets_2fpackets_2eproto}, {}};
 
 static void InitDefaultsscc_info_AudioChunk_ai_2finworld_2fpackets_2fpackets_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -484,10 +534,25 @@ static void InitDefaultsscc_info_InworldPacket_ai_2finworld_2fpackets_2fpackets_
     new (ptr) ::ai::inworld::packets::InworldPacket();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
+  {
+    void* ptr = &::ai::inworld::packets::_SessionControlResponseEvent_default_instance_;
+    new (ptr) ::ai::inworld::packets::SessionControlResponseEvent();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  {
+    void* ptr = &::ai::inworld::packets::_SessionHistoryResponse_SessionHistoryItem_default_instance_;
+    new (ptr) ::ai::inworld::packets::SessionHistoryResponse_SessionHistoryItem();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  {
+    void* ptr = &::ai::inworld::packets::_SessionHistoryResponse_default_instance_;
+    new (ptr) ::ai::inworld::packets::SessionHistoryResponse();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<16> scc_info_InworldPacket_ai_2finworld_2fpackets_2fpackets_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 16, 0, InitDefaultsscc_info_InworldPacket_ai_2finworld_2fpackets_2fpackets_2eproto}, {
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<19> scc_info_InworldPacket_ai_2finworld_2fpackets_2fpackets_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 19, 0, InitDefaultsscc_info_InworldPacket_ai_2finworld_2fpackets_2fpackets_2eproto}, {
       &scc_info_Timestamp_google_2fprotobuf_2ftimestamp_2eproto.base,
       &scc_info_Routing_ai_2finworld_2fpackets_2fpackets_2eproto.base,
       &scc_info_PacketId_ai_2finworld_2fpackets_2fpackets_2eproto.base,
@@ -503,7 +568,10 @@ static void InitDefaultsscc_info_InworldPacket_ai_2finworld_2fpackets_2fpackets_
       &scc_info_LoadSceneOutputEvent_ai_2finworld_2fpackets_2fpackets_2eproto.base,
       &scc_info_DebugInfoEvent_ai_2finworld_2fpackets_2fpackets_2eproto.base,
       &scc_info_SessionControlEvent_ai_2finworld_2fpackets_2fpackets_2eproto.base,
-      &scc_info_SessionControlResponseEvent_ai_2finworld_2fpackets_2fpackets_2eproto.base,}};
+      &scc_info_Audio2FaceAnimationEvent_ai_2finworld_2fpackets_2fpackets_2eproto.base,
+      &scc_info_LoadedScene_ai_2finworld_2fpackets_2fpackets_2eproto.base,
+      &scc_info_LoadedCharacters_ai_2finworld_2fpackets_2fpackets_2eproto.base,
+      &scc_info_Agent_ai_2finworld_2fpackets_2fpackets_2eproto.base,}};
 
 static void InitDefaultsscc_info_LoadCharacters_ai_2finworld_2fpackets_2fpackets_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -750,28 +818,27 @@ static void InitDefaultsscc_info_SessionControlEvent_ai_2finworld_2fpackets_2fpa
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_SessionControlEvent_ai_2finworld_2fpackets_2fpackets_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 5, 0, InitDefaultsscc_info_SessionControlEvent_ai_2finworld_2fpackets_2fpackets_2eproto}, {
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<6> scc_info_SessionControlEvent_ai_2finworld_2fpackets_2fpackets_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 6, 0, InitDefaultsscc_info_SessionControlEvent_ai_2finworld_2fpackets_2fpackets_2eproto}, {
       &scc_info_SessionConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base,
       &scc_info_UserConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base,
       &scc_info_ClientConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base,
       &scc_info_CapabilitiesConfiguration_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto.base,
-      &scc_info_Continuation_ai_2finworld_2fpackets_2fpackets_2eproto.base,}};
+      &scc_info_Continuation_ai_2finworld_2fpackets_2fpackets_2eproto.base,
+      &scc_info_SessionHistoryRequest_ai_2finworld_2fpackets_2fpackets_2eproto.base,}};
 
-static void InitDefaultsscc_info_SessionControlResponseEvent_ai_2finworld_2fpackets_2fpackets_2eproto() {
+static void InitDefaultsscc_info_SessionHistoryRequest_ai_2finworld_2fpackets_2fpackets_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::ai::inworld::packets::_SessionControlResponseEvent_default_instance_;
-    new (ptr) ::ai::inworld::packets::SessionControlResponseEvent();
+    void* ptr = &::ai::inworld::packets::_SessionHistoryRequest_default_instance_;
+    new (ptr) ::ai::inworld::packets::SessionHistoryRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_SessionControlResponseEvent_ai_2finworld_2fpackets_2fpackets_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_SessionControlResponseEvent_ai_2finworld_2fpackets_2fpackets_2eproto}, {
-      &scc_info_LoadedScene_ai_2finworld_2fpackets_2fpackets_2eproto.base,
-      &scc_info_LoadedCharacters_ai_2finworld_2fpackets_2fpackets_2eproto.base,}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_SessionHistoryRequest_ai_2finworld_2fpackets_2fpackets_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_SessionHistoryRequest_ai_2finworld_2fpackets_2fpackets_2eproto}, {}};
 
 static void InitDefaultsscc_info_TextEvent_ai_2finworld_2fpackets_2fpackets_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -814,7 +881,7 @@ static void InitDefaultsscc_info_UnloadCharacters_ai_2finworld_2fpackets_2fpacke
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_UnloadCharacters_ai_2finworld_2fpackets_2fpackets_2eproto}, {
       &scc_info_Agent_ai_2finworld_2fpackets_2fpackets_2eproto.base,}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_ai_2finworld_2fpackets_2fpackets_2eproto[41];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_ai_2finworld_2fpackets_2fpackets_2eproto[46];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_ai_2finworld_2fpackets_2fpackets_2eproto[9];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_ai_2finworld_2fpackets_2fpackets_2eproto = nullptr;
 
@@ -852,6 +919,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fpackets_2fpacke
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::InworldPacket, timestamp_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::InworldPacket, routing_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::InworldPacket, packet_id_),
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
@@ -997,6 +1065,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fpackets_2fpacke
   ~0u,  // no _weak_field_map_
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::SessionControlResponseEvent, response_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::CancelResponses, _internal_metadata_),
@@ -1076,6 +1145,16 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fpackets_2fpacke
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::LoadSceneOutputEvent, agents_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::Agent_CharacterAssets, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::Agent_CharacterAssets, rpm_model_uri_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::Agent_CharacterAssets, rpm_image_uri_portrait_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::Agent_CharacterAssets, rpm_image_uri_posture_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::Agent_CharacterAssets, avatar_img_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::Agent_CharacterAssets, avatar_img_original_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::Agent, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -1083,6 +1162,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fpackets_2fpacke
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::Agent, agent_id_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::Agent, brain_name_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::Agent, given_name_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::Agent, character_assets_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::DebugInfoEvent, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1100,7 +1180,15 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fpackets_2fpacke
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::SessionControlEvent, session_control_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::Audio2FaceAnimationEvent, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::Audio2FaceAnimationEvent, animdata_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::Audio2FaceAnimationEvent, audio_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::Continuation_ContinuationInfo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1143,49 +1231,72 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fpackets_2fpacke
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::Relations, actor_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::Relations, relations_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::SessionHistoryRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::SessionHistoryResponse_SessionHistoryItem, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::SessionHistoryResponse_SessionHistoryItem, agent_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::SessionHistoryResponse_SessionHistoryItem, packets_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::SessionHistoryResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::packets::SessionHistoryResponse, session_history_items_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::ai::inworld::packets::Actor)},
   { 7, -1, sizeof(::ai::inworld::packets::Routing)},
   { 15, -1, sizeof(::ai::inworld::packets::PacketId)},
   { 25, -1, sizeof(::ai::inworld::packets::InworldPacket)},
-  { 47, -1, sizeof(::ai::inworld::packets::TextEvent_ModelInfo)},
-  { 54, -1, sizeof(::ai::inworld::packets::TextEvent)},
-  { 63, -1, sizeof(::ai::inworld::packets::ControlEvent)},
-  { 71, -1, sizeof(::ai::inworld::packets::AudioChunk)},
-  { 77, -1, sizeof(::ai::inworld::packets::CustomEvent_Parameter)},
-  { 84, -1, sizeof(::ai::inworld::packets::CustomEvent)},
-  { 92, -1, sizeof(::ai::inworld::packets::CancelResponsesEvent)},
-  { 99, -1, sizeof(::ai::inworld::packets::EmotionEvent)},
-  { 110, -1, sizeof(::ai::inworld::packets::DataChunk)},
-  { 121, -1, sizeof(::ai::inworld::packets::AdditionalPhonemeInfo)},
-  { 128, -1, sizeof(::ai::inworld::packets::ActionEvent)},
-  { 136, -1, sizeof(::ai::inworld::packets::NarratedAction)},
-  { 142, -1, sizeof(::ai::inworld::packets::RelationInfo_RelationAttributes)},
-  { 152, -1, sizeof(::ai::inworld::packets::RelationInfo)},
-  { 159, -1, sizeof(::ai::inworld::packets::MutationEvent)},
-  { 171, -1, sizeof(::ai::inworld::packets::SessionControlResponseEvent)},
-  { 179, -1, sizeof(::ai::inworld::packets::CancelResponses)},
-  { 186, -1, sizeof(::ai::inworld::packets::RegenerateResponse)},
-  { 192, -1, sizeof(::ai::inworld::packets::ApplyResponse)},
-  { 198, -1, sizeof(::ai::inworld::packets::LoadScene)},
-  { 204, -1, sizeof(::ai::inworld::packets::LoadedScene)},
-  { 210, -1, sizeof(::ai::inworld::packets::LoadCharacters_CharacterName)},
-  { 217, -1, sizeof(::ai::inworld::packets::LoadCharacters)},
-  { 223, -1, sizeof(::ai::inworld::packets::LoadedCharacters)},
-  { 229, -1, sizeof(::ai::inworld::packets::UnloadCharacters)},
-  { 235, -1, sizeof(::ai::inworld::packets::ModifyExactResponse)},
-  { 242, -1, sizeof(::ai::inworld::packets::LoadSceneOutputEvent_Agent)},
-  { 250, -1, sizeof(::ai::inworld::packets::LoadSceneOutputEvent)},
-  { 256, -1, sizeof(::ai::inworld::packets::Agent)},
-  { 264, -1, sizeof(::ai::inworld::packets::DebugInfoEvent)},
-  { 271, -1, sizeof(::ai::inworld::packets::SessionControlEvent)},
-  { 282, -1, sizeof(::ai::inworld::packets::Continuation_ContinuationInfo)},
-  { 288, -1, sizeof(::ai::inworld::packets::Continuation)},
-  { 297, -1, sizeof(::ai::inworld::packets::DialogHistory_HistoryItem)},
-  { 304, -1, sizeof(::ai::inworld::packets::DialogHistory)},
-  { 310, -1, sizeof(::ai::inworld::packets::Relations_Relation)},
-  { 317, -1, sizeof(::ai::inworld::packets::Relations)},
+  { 48, -1, sizeof(::ai::inworld::packets::TextEvent_ModelInfo)},
+  { 55, -1, sizeof(::ai::inworld::packets::TextEvent)},
+  { 64, -1, sizeof(::ai::inworld::packets::ControlEvent)},
+  { 72, -1, sizeof(::ai::inworld::packets::AudioChunk)},
+  { 78, -1, sizeof(::ai::inworld::packets::CustomEvent_Parameter)},
+  { 85, -1, sizeof(::ai::inworld::packets::CustomEvent)},
+  { 93, -1, sizeof(::ai::inworld::packets::CancelResponsesEvent)},
+  { 100, -1, sizeof(::ai::inworld::packets::EmotionEvent)},
+  { 111, -1, sizeof(::ai::inworld::packets::DataChunk)},
+  { 122, -1, sizeof(::ai::inworld::packets::AdditionalPhonemeInfo)},
+  { 129, -1, sizeof(::ai::inworld::packets::ActionEvent)},
+  { 137, -1, sizeof(::ai::inworld::packets::NarratedAction)},
+  { 143, -1, sizeof(::ai::inworld::packets::RelationInfo_RelationAttributes)},
+  { 153, -1, sizeof(::ai::inworld::packets::RelationInfo)},
+  { 160, -1, sizeof(::ai::inworld::packets::MutationEvent)},
+  { 172, -1, sizeof(::ai::inworld::packets::SessionControlResponseEvent)},
+  { 181, -1, sizeof(::ai::inworld::packets::CancelResponses)},
+  { 188, -1, sizeof(::ai::inworld::packets::RegenerateResponse)},
+  { 194, -1, sizeof(::ai::inworld::packets::ApplyResponse)},
+  { 200, -1, sizeof(::ai::inworld::packets::LoadScene)},
+  { 206, -1, sizeof(::ai::inworld::packets::LoadedScene)},
+  { 212, -1, sizeof(::ai::inworld::packets::LoadCharacters_CharacterName)},
+  { 219, -1, sizeof(::ai::inworld::packets::LoadCharacters)},
+  { 225, -1, sizeof(::ai::inworld::packets::LoadedCharacters)},
+  { 231, -1, sizeof(::ai::inworld::packets::UnloadCharacters)},
+  { 237, -1, sizeof(::ai::inworld::packets::ModifyExactResponse)},
+  { 244, -1, sizeof(::ai::inworld::packets::LoadSceneOutputEvent_Agent)},
+  { 252, -1, sizeof(::ai::inworld::packets::LoadSceneOutputEvent)},
+  { 258, -1, sizeof(::ai::inworld::packets::Agent_CharacterAssets)},
+  { 268, -1, sizeof(::ai::inworld::packets::Agent)},
+  { 277, -1, sizeof(::ai::inworld::packets::DebugInfoEvent)},
+  { 284, -1, sizeof(::ai::inworld::packets::SessionControlEvent)},
+  { 296, -1, sizeof(::ai::inworld::packets::Audio2FaceAnimationEvent)},
+  { 303, -1, sizeof(::ai::inworld::packets::Continuation_ContinuationInfo)},
+  { 309, -1, sizeof(::ai::inworld::packets::Continuation)},
+  { 318, -1, sizeof(::ai::inworld::packets::DialogHistory_HistoryItem)},
+  { 325, -1, sizeof(::ai::inworld::packets::DialogHistory)},
+  { 331, -1, sizeof(::ai::inworld::packets::Relations_Relation)},
+  { 338, -1, sizeof(::ai::inworld::packets::Relations)},
+  { 345, -1, sizeof(::ai::inworld::packets::SessionHistoryRequest)},
+  { 350, -1, sizeof(::ai::inworld::packets::SessionHistoryResponse_SessionHistoryItem)},
+  { 357, -1, sizeof(::ai::inworld::packets::SessionHistoryResponse)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1221,15 +1332,20 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::packets::_ModifyExactResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::packets::_LoadSceneOutputEvent_Agent_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::packets::_LoadSceneOutputEvent_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::packets::_Agent_CharacterAssets_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::packets::_Agent_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::packets::_DebugInfoEvent_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::packets::_SessionControlEvent_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::packets::_Audio2FaceAnimationEvent_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::packets::_Continuation_ContinuationInfo_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::packets::_Continuation_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::packets::_DialogHistory_HistoryItem_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::packets::_DialogHistory_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::packets::_Relations_Relation_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::packets::_Relations_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::packets::_SessionHistoryRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::packets::_SessionHistoryResponse_SessionHistoryItem_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::packets::_SessionHistoryResponse_default_instance_),
 };
 
 const char descriptor_table_protodef_ai_2finworld_2fpackets_2fpackets_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -1249,7 +1365,7 @@ const char descriptor_table_protodef_ai_2finworld_2fpackets_2fpackets_2eproto[] 
   "\003(\0132\031.ai.inworld.packets.Actor\"|\n\010Packet"
   "Id\022\021\n\tpacket_id\030\001 \001(\t\022\024\n\014utterance_id\030\002 "
   "\001(\t\022\026\n\016interaction_id\030\003 \001(\t\022\026\n\016correlati"
-  "on_id\030\004 \001(\t\022\027\n\017conversation_id\030\005 \001(\t\"\314\007\n"
+  "on_id\030\004 \001(\t\022\027\n\017conversation_id\030\005 \001(\t\"\217\010\n"
   "\rInworldPacket\022-\n\ttimestamp\030\001 \001(\0132\032.goog"
   "le.protobuf.Timestamp\022,\n\007routing\030\006 \001(\0132\033"
   ".ai.inworld.packets.Routing\022/\n\tpacket_id"
@@ -1273,146 +1389,165 @@ const char descriptor_table_protodef_ai_2finworld_2fpackets_2fpackets_2eproto[] 
   "rol\030\023 \001(\0132\'.ai.inworld.packets.SessionCo"
   "ntrolEventH\000\022S\n\030session_control_response"
   "\030\024 \001(\0132/.ai.inworld.packets.SessionContr"
-  "olResponseEventH\000B\010\n\006packetJ\004\010\005\020\006J\004\010\007\020\010J"
-  "\004\010\016\020\017J\004\010\021\020\022\"\257\002\n\tTextEvent\022\014\n\004text\030\001 \001(\t\022"
-  "=\n\013source_type\030\002 \001(\0162(.ai.inworld.packet"
-  "s.TextEvent.SourceType\022\r\n\005final\030\003 \001(\010\022A\n"
-  "\nmodel_info\030\004 \001(\0132\'.ai.inworld.packets.T"
-  "extEvent.ModelInfoB\004\210\210\'\001\032+\n\tModelInfo\022\017\n"
-  "\007service\030\001 \001(\t\022\r\n\005model\030\002 \001(\t\"V\n\nSourceT"
-  "ype\022\013\n\007UNKNOWN\020\000\022\022\n\016SPEECH_TO_TEXT\020\001\022\014\n\010"
-  "TYPED_IN\020\002\022\r\n\tGENERATED\020\003\022\n\n\006FILLER\020\004\"\252\003"
-  "\n\014ControlEvent\0227\n\006action\030\001 \001(\0162\'.ai.inwo"
-  "rld.packets.ControlEvent.Action\022\023\n\013descr"
-  "iption\030\002 \001(\t\022(\n\007payload\030\003 \001(\0132\027.google.p"
-  "rotobuf.Struct\"\241\002\n\006Action\022\013\n\007UNKNOWN\020\000\022\027"
-  "\n\023AUDIO_SESSION_START\020\001\022\025\n\021AUDIO_SESSION"
-  "_END\020\002\022\023\n\017INTERACTION_END\020\003\022\026\n\022TTS_PLAYB"
-  "ACK_START\020\004\022\024\n\020TTS_PLAYBACK_END\020\005\022\025\n\021TTS"
-  "_PLAYBACK_MUTE\020\006\022\027\n\023TTS_PLAYBACK_UNMUTE\020"
-  "\007\022\013\n\007WARNING\020\010\022\017\n\013SESSION_END\020\t\022\026\n\022CONVE"
-  "RSATION_START\020\n\022\027\n\023CONVERSATION_UPDATE\020\014"
-  "\022\030\n\024CONVERSATION_STARTED\020\r\"\037\n\nAudioChunk"
-  "\022\r\n\005chunk\030\001 \001(\014:\002\030\001\"\264\001\n\013CustomEvent\022\014\n\004n"
-  "ame\030\001 \001(\t\022.\n\010playback\030\002 \001(\0162\034.ai.inworld"
-  ".packets.Playback\022=\n\nparameters\030\003 \003(\0132)."
-  "ai.inworld.packets.CustomEvent.Parameter"
-  "\032(\n\tParameter\022\014\n\004name\030\001 \001(\t\022\r\n\005value\030\002 \001"
-  "(\t\"H\n\024CancelResponsesEvent\022\026\n\016interactio"
-  "n_id\030\001 \001(\t\022\024\n\014utterance_id\030\002 \003(\t:\002\030\001\"\243\004\n"
-  "\014EmotionEvent\022\013\n\003joy\030\001 \001(\002\022\014\n\004fear\030\002 \001(\002"
-  "\022\r\n\005trust\030\003 \001(\002\022\020\n\010surprise\030\004 \001(\002\022<\n\010beh"
-  "avior\030\005 \001(\0162*.ai.inworld.packets.Emotion"
-  "Event.SpaffCode\022;\n\010strength\030\006 \001(\0162).ai.i"
-  "nworld.packets.EmotionEvent.Strength\"\234\002\n"
-  "\tSpaffCode\022\013\n\007NEUTRAL\020\000\022\013\n\007DISGUST\020\001\022\014\n\010"
-  "CONTEMPT\020\002\022\020\n\014BELLIGERENCE\020\003\022\017\n\013DOMINEER"
-  "ING\020\004\022\r\n\tCRITICISM\020\005\022\t\n\005ANGER\020\006\022\013\n\007TENSI"
-  "ON\020\007\022\017\n\013TENSE_HUMOR\020\010\022\021\n\rDEFENSIVENESS\020\t"
-  "\022\013\n\007WHINING\020\n\022\013\n\007SADNESS\020\013\022\020\n\014STONEWALLI"
-  "NG\020\014\022\014\n\010INTEREST\020\r\022\016\n\nVALIDATION\020\016\022\r\n\tAF"
-  "FECTION\020\017\022\t\n\005HUMOR\020\020\022\014\n\010SURPRISE\020\021\022\007\n\003JO"
-  "Y\020\022\"=\n\010Strength\022\017\n\013UNSPECIFIED\020\000\022\010\n\004WEAK"
-  "\020\001\022\n\n\006STRONG\020\002\022\n\n\006NORMAL\020\003\"\251\003\n\tDataChunk"
-  "\022\017\n\005chunk\030\001 \001(\014H\000\022\025\n\013duration_ms\030\003 \001(\003H\000"
-  "\0224\n\004type\030\002 \001(\0162&.ai.inworld.packets.Data"
-  "Chunk.DataType\022J\n\027additional_phoneme_inf"
-  "o\030\004 \003(\0132).ai.inworld.packets.AdditionalP"
-  "honemeInfo\022>\n\013audioFormat\030\005 \001(\0162).ai.inw"
-  "orld.packets.DataChunk.AudioFormat\"D\n\010Da"
-  "taType\022\017\n\013UNSPECIFIED\020\000\022\t\n\005AUDIO\020\001\022\013\n\007SI"
-  "LENCE\020\003\022\t\n\005STATE\020\004\"\004\010\002\020\002\"d\n\013AudioFormat\022"
-  "\034\n\030UNSPECIFIED_AUDIO_FORMAT\020\000\022\r\n\tAUDIO_M"
-  "P3\020\001\022\023\n\017AUDIO_PCM_16000\020\002\022\023\n\017AUDIO_PCM_2"
-  "2050\020\003B\006\n\004data\"Y\n\025AdditionalPhonemeInfo\022"
-  "\017\n\007phoneme\030\001 \001(\t\022/\n\014start_offset\030\002 \001(\0132\031"
-  ".google.protobuf.Duration\"\206\001\n\013ActionEven"
-  "t\022=\n\017narrated_action\030\001 \001(\0132\".ai.inworld."
-  "packets.NarratedActionH\000\022.\n\010playback\030\002 \001"
-  "(\0162\034.ai.inworld.packets.PlaybackB\010\n\006acti"
-  "on\"!\n\016NarratedAction\022\017\n\007content\030\001 \001(\t\"\232\002"
-  "\n\014RelationInfo\022K\n\016relation_state\030\001 \001(\01323"
-  ".ai.inworld.packets.RelationInfo.Relatio"
-  "nAttributes\022L\n\017relation_update\030\002 \001(\01323.a"
-  "i.inworld.packets.RelationInfo.RelationA"
-  "ttributes\032o\n\022RelationAttributes\022\r\n\005trust"
-  "\030\001 \001(\005\022\017\n\007respect\030\002 \001(\005\022\020\n\010familiar\030\003 \001("
-  "\005\022\023\n\013flirtatious\030\004 \001(\005\022\022\n\nattraction\030\005 \001"
-  "(\005\"\236\003\n\rMutationEvent\022\?\n\020cancel_responses"
-  "\030\001 \001(\0132#.ai.inworld.packets.CancelRespon"
-  "sesH\000\022E\n\023regenerate_response\030\002 \001(\0132&.ai."
-  "inworld.packets.RegenerateResponseH\000\022;\n\016"
-  "apply_response\030\003 \001(\0132!.ai.inworld.packet"
-  "s.ApplyResponseH\000\0223\n\nload_scene\030\004 \001(\0132\035."
-  "ai.inworld.packets.LoadSceneH\000\022H\n\025modify"
-  "_exact_response\030\005 \001(\0132\'.ai.inworld.packe"
-  "ts.ModifyExactResponseH\000\022=\n\017load_charact"
-  "ers\030\006 \001(\0132\".ai.inworld.packets.LoadChara"
-  "ctersH\000B\n\n\010mutation\"\245\001\n\033SessionControlRe"
-  "sponseEvent\0227\n\014loaded_scene\030\001 \001(\0132\037.ai.i"
-  "nworld.packets.LoadedSceneH\000\022A\n\021loaded_c"
-  "haracters\030\002 \001(\0132$.ai.inworld.packets.Loa"
-  "dedCharactersH\000B\n\n\010response\"\?\n\017CancelRes"
-  "ponses\022\026\n\016interaction_id\030\001 \001(\t\022\024\n\014uttera"
-  "nce_id\030\002 \003(\t\",\n\022RegenerateResponse\022\026\n\016in"
-  "teraction_id\030\001 \001(\t\"@\n\rApplyResponse\022/\n\tp"
-  "acket_id\030\001 \001(\0132\034.ai.inworld.packets.Pack"
-  "etId\"\031\n\tLoadScene\022\014\n\004name\030\001 \001(\t\"8\n\013Loade"
-  "dScene\022)\n\006agents\030\001 \003(\0132\031.ai.inworld.pack"
-  "ets.Agent\"\257\001\n\016LoadCharacters\022>\n\004name\030\001 \003"
-  "(\01320.ai.inworld.packets.LoadCharacters.C"
-  "haracterName\032]\n\rCharacterName\022\014\n\004name\030\001 "
-  "\001(\t\022>\n\rlanguage_code\030\002 \001(\0162\'.ai.inworld."
-  "language_codes.LanguageCode\"=\n\020LoadedCha"
-  "racters\022)\n\006agents\030\001 \003(\0132\031.ai.inworld.pac"
-  "kets.Agent\"=\n\020UnloadCharacters\022)\n\006agents"
-  "\030\001 \003(\0132\031.ai.inworld.packets.Agent\"A\n\023Mod"
-  "ifyExactResponse\022\026\n\016interaction_id\030\001 \001(\t"
-  "\022\022\n\nexact_text\030\002 \001(\t\"\235\001\n\024LoadSceneOutput"
-  "Event\022>\n\006agents\030\001 \003(\0132..ai.inworld.packe"
-  "ts.LoadSceneOutputEvent.Agent\032A\n\005Agent\022\020"
-  "\n\010agent_id\030\001 \001(\t\022\022\n\nbrain_name\030\002 \001(\t\022\022\n\n"
-  "given_name\030\003 \001(\t:\002\030\001\"A\n\005Agent\022\020\n\010agent_i"
-  "d\030\001 \001(\t\022\022\n\nbrain_name\030\002 \001(\t\022\022\n\ngiven_nam"
-  "e\030\003 \001(\t\"N\n\016DebugInfoEvent\0224\n\010relation\030\001 "
-  "\001(\0132 .ai.inworld.packets.RelationInfoH\000B"
-  "\006\n\004info\"\304\003\n\023SessionControlEvent\022V\n\025sessi"
-  "on_configuration\030\001 \001(\01325.ai.inworld.engi"
-  "ne.configuration.SessionConfigurationH\000\022"
-  "P\n\022user_configuration\030\002 \001(\01322.ai.inworld"
-  ".engine.configuration.UserConfigurationH"
-  "\000\022T\n\024client_configuration\030\003 \001(\01324.ai.inw"
-  "orld.engine.configuration.ClientConfigur"
-  "ationH\000\022`\n\032capabilities_configuration\030\004 "
-  "\001(\0132:.ai.inworld.engine.configuration.Ca"
-  "pabilitiesConfigurationH\000\0228\n\014continuatio"
-  "n\030\005 \001(\0132 .ai.inworld.packets.Continuatio"
-  "nH\000B\021\n\017session_control\"\322\003\n\014Continuation\022"
-  "L\n\021continuation_info\030\001 \001(\01321.ai.inworld."
-  "packets.Continuation.ContinuationInfo\022L\n"
-  "\021continuation_type\030\002 \001(\01621.ai.inworld.pa"
-  "ckets.Continuation.ContinuationType\0229\n\016d"
-  "ialog_history\030\003 \001(\0132!.ai.inworld.packets"
-  ".DialogHistory\022\036\n\026externally_saved_state"
-  "\030\004 \001(\014\032C\n\020ContinuationInfo\022/\n\013passed_tim"
-  "e\030\001 \001(\0132\032.google.protobuf.Timestamp\"\205\001\n\020"
-  "ContinuationType\022\035\n\031CONTINUATION_TYPE_UN"
-  "KNOWN\020\000\022,\n(CONTINUATION_TYPE_EXTERNALLY_"
-  "SAVED_STATE\020\001\022$\n CONTINUATION_TYPE_DIALO"
-  "G_HISTORY\020\002\"\226\001\n\rDialogHistory\022>\n\007history"
-  "\030\001 \003(\0132-.ai.inworld.packets.DialogHistor"
-  "y.HistoryItem\032E\n\013HistoryItem\022(\n\005actor\030\001 "
-  "\001(\0132\031.ai.inworld.packets.Actor\022\014\n\004text\030\002"
-  " \001(\t\"\231\001\n\tRelations\022(\n\005actor\030\001 \001(\0132\031.ai.i"
-  "nworld.packets.Actor\0229\n\trelations\030\002 \003(\0132"
-  "&.ai.inworld.packets.Relations.Relation\032"
-  "\'\n\010Relation\022\014\n\004type\030\001 \001(\t\022\r\n\005label\030\002 \001(\t"
-  "*P\n\010Playback\022\017\n\013UNSPECIFIED\020\000\022\017\n\013INTERAC"
-  "TION\020\001\022\023\n\017INTERACTION_END\020\002\022\r\n\tUTTERANCE"
-  "\020\003B\212\001\n\022ai.inworld.packetsB\026InworldPacket"
-  "sProtocolZMgithub.com/inworld-ai/inworld"
-  "/serving/grpc-gateway/build/proto/engine"
-  "/v1alpha\252\002\014Inworld.Grpcb\006proto3"
+  "olResponseEventH\000\022A\n\ta2f_event\030\025 \001(\0132,.a"
+  "i.inworld.packets.Audio2FaceAnimationEve"
+  "ntH\000B\010\n\006packetJ\004\010\005\020\006J\004\010\007\020\010J\004\010\016\020\017J\004\010\021\020\022\"\257"
+  "\002\n\tTextEvent\022\014\n\004text\030\001 \001(\t\022=\n\013source_typ"
+  "e\030\002 \001(\0162(.ai.inworld.packets.TextEvent.S"
+  "ourceType\022\r\n\005final\030\003 \001(\010\022A\n\nmodel_info\030\004"
+  " \001(\0132\'.ai.inworld.packets.TextEvent.Mode"
+  "lInfoB\004\210\210\'\001\032+\n\tModelInfo\022\017\n\007service\030\001 \001("
+  "\t\022\r\n\005model\030\002 \001(\t\"V\n\nSourceType\022\013\n\007UNKNOW"
+  "N\020\000\022\022\n\016SPEECH_TO_TEXT\020\001\022\014\n\010TYPED_IN\020\002\022\r\n"
+  "\tGENERATED\020\003\022\n\n\006FILLER\020\004\"\252\003\n\014ControlEven"
+  "t\0227\n\006action\030\001 \001(\0162\'.ai.inworld.packets.C"
+  "ontrolEvent.Action\022\023\n\013description\030\002 \001(\t\022"
+  "(\n\007payload\030\003 \001(\0132\027.google.protobuf.Struc"
+  "t\"\241\002\n\006Action\022\013\n\007UNKNOWN\020\000\022\027\n\023AUDIO_SESSI"
+  "ON_START\020\001\022\025\n\021AUDIO_SESSION_END\020\002\022\023\n\017INT"
+  "ERACTION_END\020\003\022\026\n\022TTS_PLAYBACK_START\020\004\022\024"
+  "\n\020TTS_PLAYBACK_END\020\005\022\025\n\021TTS_PLAYBACK_MUT"
+  "E\020\006\022\027\n\023TTS_PLAYBACK_UNMUTE\020\007\022\013\n\007WARNING\020"
+  "\010\022\017\n\013SESSION_END\020\t\022\026\n\022CONVERSATION_START"
+  "\020\n\022\027\n\023CONVERSATION_UPDATE\020\014\022\030\n\024CONVERSAT"
+  "ION_STARTED\020\r\"\037\n\nAudioChunk\022\r\n\005chunk\030\001 \001"
+  "(\014:\002\030\001\"\264\001\n\013CustomEvent\022\014\n\004name\030\001 \001(\t\022.\n\010"
+  "playback\030\002 \001(\0162\034.ai.inworld.packets.Play"
+  "back\022=\n\nparameters\030\003 \003(\0132).ai.inworld.pa"
+  "ckets.CustomEvent.Parameter\032(\n\tParameter"
+  "\022\014\n\004name\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"H\n\024CancelR"
+  "esponsesEvent\022\026\n\016interaction_id\030\001 \001(\t\022\024\n"
+  "\014utterance_id\030\002 \003(\t:\002\030\001\"\243\004\n\014EmotionEvent"
+  "\022\013\n\003joy\030\001 \001(\002\022\014\n\004fear\030\002 \001(\002\022\r\n\005trust\030\003 \001"
+  "(\002\022\020\n\010surprise\030\004 \001(\002\022<\n\010behavior\030\005 \001(\0162*"
+  ".ai.inworld.packets.EmotionEvent.SpaffCo"
+  "de\022;\n\010strength\030\006 \001(\0162).ai.inworld.packet"
+  "s.EmotionEvent.Strength\"\234\002\n\tSpaffCode\022\013\n"
+  "\007NEUTRAL\020\000\022\013\n\007DISGUST\020\001\022\014\n\010CONTEMPT\020\002\022\020\n"
+  "\014BELLIGERENCE\020\003\022\017\n\013DOMINEERING\020\004\022\r\n\tCRIT"
+  "ICISM\020\005\022\t\n\005ANGER\020\006\022\013\n\007TENSION\020\007\022\017\n\013TENSE"
+  "_HUMOR\020\010\022\021\n\rDEFENSIVENESS\020\t\022\013\n\007WHINING\020\n"
+  "\022\013\n\007SADNESS\020\013\022\020\n\014STONEWALLING\020\014\022\014\n\010INTER"
+  "EST\020\r\022\016\n\nVALIDATION\020\016\022\r\n\tAFFECTION\020\017\022\t\n\005"
+  "HUMOR\020\020\022\014\n\010SURPRISE\020\021\022\007\n\003JOY\020\022\"=\n\010Streng"
+  "th\022\017\n\013UNSPECIFIED\020\000\022\010\n\004WEAK\020\001\022\n\n\006STRONG\020"
+  "\002\022\n\n\006NORMAL\020\003\"\251\003\n\tDataChunk\022\017\n\005chunk\030\001 \001"
+  "(\014H\000\022\025\n\013duration_ms\030\003 \001(\003H\000\0224\n\004type\030\002 \001("
+  "\0162&.ai.inworld.packets.DataChunk.DataTyp"
+  "e\022J\n\027additional_phoneme_info\030\004 \003(\0132).ai."
+  "inworld.packets.AdditionalPhonemeInfo\022>\n"
+  "\013audioFormat\030\005 \001(\0162).ai.inworld.packets."
+  "DataChunk.AudioFormat\"D\n\010DataType\022\017\n\013UNS"
+  "PECIFIED\020\000\022\t\n\005AUDIO\020\001\022\013\n\007SILENCE\020\003\022\t\n\005ST"
+  "ATE\020\004\"\004\010\002\020\002\"d\n\013AudioFormat\022\034\n\030UNSPECIFIE"
+  "D_AUDIO_FORMAT\020\000\022\r\n\tAUDIO_MP3\020\001\022\023\n\017AUDIO"
+  "_PCM_16000\020\002\022\023\n\017AUDIO_PCM_22050\020\003B\006\n\004dat"
+  "a\"Y\n\025AdditionalPhonemeInfo\022\017\n\007phoneme\030\001 "
+  "\001(\t\022/\n\014start_offset\030\002 \001(\0132\031.google.proto"
+  "buf.Duration\"\206\001\n\013ActionEvent\022=\n\017narrated"
+  "_action\030\001 \001(\0132\".ai.inworld.packets.Narra"
+  "tedActionH\000\022.\n\010playback\030\002 \001(\0162\034.ai.inwor"
+  "ld.packets.PlaybackB\010\n\006action\"!\n\016Narrate"
+  "dAction\022\017\n\007content\030\001 \001(\t\"\232\002\n\014RelationInf"
+  "o\022K\n\016relation_state\030\001 \001(\01323.ai.inworld.p"
+  "ackets.RelationInfo.RelationAttributes\022L"
+  "\n\017relation_update\030\002 \001(\01323.ai.inworld.pac"
+  "kets.RelationInfo.RelationAttributes\032o\n\022"
+  "RelationAttributes\022\r\n\005trust\030\001 \001(\005\022\017\n\007res"
+  "pect\030\002 \001(\005\022\020\n\010familiar\030\003 \001(\005\022\023\n\013flirtati"
+  "ous\030\004 \001(\005\022\022\n\nattraction\030\005 \001(\005\"\236\003\n\rMutati"
+  "onEvent\022\?\n\020cancel_responses\030\001 \001(\0132#.ai.i"
+  "nworld.packets.CancelResponsesH\000\022E\n\023rege"
+  "nerate_response\030\002 \001(\0132&.ai.inworld.packe"
+  "ts.RegenerateResponseH\000\022;\n\016apply_respons"
+  "e\030\003 \001(\0132!.ai.inworld.packets.ApplyRespon"
+  "seH\000\0223\n\nload_scene\030\004 \001(\0132\035.ai.inworld.pa"
+  "ckets.LoadSceneH\000\022H\n\025modify_exact_respon"
+  "se\030\005 \001(\0132\'.ai.inworld.packets.ModifyExac"
+  "tResponseH\000\022=\n\017load_characters\030\006 \001(\0132\".a"
+  "i.inworld.packets.LoadCharactersH\000B\n\n\010mu"
+  "tation\"\354\001\n\033SessionControlResponseEvent\0227"
+  "\n\014loaded_scene\030\001 \001(\0132\037.ai.inworld.packet"
+  "s.LoadedSceneH\000\022A\n\021loaded_characters\030\002 \001"
+  "(\0132$.ai.inworld.packets.LoadedCharacters"
+  "H\000\022E\n\017session_history\030\003 \001(\0132*.ai.inworld"
+  ".packets.SessionHistoryResponseH\000B\n\n\010res"
+  "ponse\"\?\n\017CancelResponses\022\026\n\016interaction_"
+  "id\030\001 \001(\t\022\024\n\014utterance_id\030\002 \003(\t\",\n\022Regene"
+  "rateResponse\022\026\n\016interaction_id\030\001 \001(\t\"@\n\r"
+  "ApplyResponse\022/\n\tpacket_id\030\001 \001(\0132\034.ai.in"
+  "world.packets.PacketId\"\031\n\tLoadScene\022\014\n\004n"
+  "ame\030\001 \001(\t\"8\n\013LoadedScene\022)\n\006agents\030\001 \003(\013"
+  "2\031.ai.inworld.packets.Agent\"\257\001\n\016LoadChar"
+  "acters\022>\n\004name\030\001 \003(\01320.ai.inworld.packet"
+  "s.LoadCharacters.CharacterName\032]\n\rCharac"
+  "terName\022\014\n\004name\030\001 \001(\t\022>\n\rlanguage_code\030\002"
+  " \001(\0162\'.ai.inworld.language_codes.Languag"
+  "eCode\"=\n\020LoadedCharacters\022)\n\006agents\030\001 \003("
+  "\0132\031.ai.inworld.packets.Agent\"=\n\020UnloadCh"
+  "aracters\022)\n\006agents\030\001 \003(\0132\031.ai.inworld.pa"
+  "ckets.Agent\"A\n\023ModifyExactResponse\022\026\n\016in"
+  "teraction_id\030\001 \001(\t\022\022\n\nexact_text\030\002 \001(\t\"\235"
+  "\001\n\024LoadSceneOutputEvent\022>\n\006agents\030\001 \003(\0132"
+  "..ai.inworld.packets.LoadSceneOutputEven"
+  "t.Agent\032A\n\005Agent\022\020\n\010agent_id\030\001 \001(\t\022\022\n\nbr"
+  "ain_name\030\002 \001(\t\022\022\n\ngiven_name\030\003 \001(\t:\002\030\001\"\241"
+  "\002\n\005Agent\022\020\n\010agent_id\030\001 \001(\t\022\022\n\nbrain_name"
+  "\030\002 \001(\t\022\022\n\ngiven_name\030\003 \001(\t\022C\n\020character_"
+  "assets\030\004 \001(\0132).ai.inworld.packets.Agent."
+  "CharacterAssets\032\230\001\n\017CharacterAssets\022\025\n\rr"
+  "pm_model_uri\030\001 \001(\t\022\036\n\026rpm_image_uri_port"
+  "rait\030\002 \001(\t\022\035\n\025rpm_image_uri_posture\030\003 \001("
+  "\t\022\022\n\navatar_img\030\004 \001(\t\022\033\n\023avatar_img_orig"
+  "inal\030\005 \001(\t\"N\n\016DebugInfoEvent\0224\n\010relation"
+  "\030\001 \001(\0132 .ai.inworld.packets.RelationInfo"
+  "H\000B\006\n\004info\"\222\004\n\023SessionControlEvent\022V\n\025se"
+  "ssion_configuration\030\001 \001(\01325.ai.inworld.e"
+  "ngine.configuration.SessionConfiguration"
+  "H\000\022P\n\022user_configuration\030\002 \001(\01322.ai.inwo"
+  "rld.engine.configuration.UserConfigurati"
+  "onH\000\022T\n\024client_configuration\030\003 \001(\01324.ai."
+  "inworld.engine.configuration.ClientConfi"
+  "gurationH\000\022`\n\032capabilities_configuration"
+  "\030\004 \001(\0132:.ai.inworld.engine.configuration"
+  ".CapabilitiesConfigurationH\000\0228\n\014continua"
+  "tion\030\005 \001(\0132 .ai.inworld.packets.Continua"
+  "tionH\000\022L\n\027session_history_request\030\006 \001(\0132"
+  ").ai.inworld.packets.SessionHistoryReque"
+  "stH\000B\021\n\017session_control\";\n\030Audio2FaceAni"
+  "mationEvent\022\020\n\010animdata\030\001 \001(\t\022\r\n\005audio\030\002"
+  " \001(\014\"\322\003\n\014Continuation\022L\n\021continuation_in"
+  "fo\030\001 \001(\01321.ai.inworld.packets.Continuati"
+  "on.ContinuationInfo\022L\n\021continuation_type"
+  "\030\002 \001(\01621.ai.inworld.packets.Continuation"
+  ".ContinuationType\0229\n\016dialog_history\030\003 \001("
+  "\0132!.ai.inworld.packets.DialogHistory\022\036\n\026"
+  "externally_saved_state\030\004 \001(\014\032C\n\020Continua"
+  "tionInfo\022/\n\013passed_time\030\001 \001(\0132\032.google.p"
+  "rotobuf.Timestamp\"\205\001\n\020ContinuationType\022\035"
+  "\n\031CONTINUATION_TYPE_UNKNOWN\020\000\022,\n(CONTINU"
+  "ATION_TYPE_EXTERNALLY_SAVED_STATE\020\001\022$\n C"
+  "ONTINUATION_TYPE_DIALOG_HISTORY\020\002\"\226\001\n\rDi"
+  "alogHistory\022>\n\007history\030\001 \003(\0132-.ai.inworl"
+  "d.packets.DialogHistory.HistoryItem\032E\n\013H"
+  "istoryItem\022(\n\005actor\030\001 \001(\0132\031.ai.inworld.p"
+  "ackets.Actor\022\014\n\004text\030\002 \001(\t\"\231\001\n\tRelations"
+  "\022(\n\005actor\030\001 \001(\0132\031.ai.inworld.packets.Act"
+  "or\0229\n\trelations\030\002 \003(\0132&.ai.inworld.packe"
+  "ts.Relations.Relation\032\'\n\010Relation\022\014\n\004typ"
+  "e\030\001 \001(\t\022\r\n\005label\030\002 \001(\t\"\027\n\025SessionHistory"
+  "Request\"\352\001\n\026SessionHistoryResponse\022\\\n\025se"
+  "ssion_history_items\030\001 \003(\0132=.ai.inworld.p"
+  "ackets.SessionHistoryResponse.SessionHis"
+  "toryItem\032r\n\022SessionHistoryItem\022(\n\005agent\030"
+  "\001 \001(\0132\031.ai.inworld.packets.Agent\0222\n\007pack"
+  "ets\030\002 \003(\0132!.ai.inworld.packets.InworldPa"
+  "cket*P\n\010Playback\022\017\n\013UNSPECIFIED\020\000\022\017\n\013INT"
+  "ERACTION\020\001\022\023\n\017INTERACTION_END\020\002\022\r\n\tUTTER"
+  "ANCE\020\003B\212\001\n\022ai.inworld.packetsB\026InworldPa"
+  "cketsProtocolZMgithub.com/inworld-ai/inw"
+  "orld/serving/grpc-gateway/build/proto/en"
+  "gine/v1alpha\252\002\014Inworld.Grpcb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto_deps[6] = {
   &::descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto,
@@ -1422,12 +1557,14 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
   &::descriptor_table_google_2fprotobuf_2fstruct_2eproto,
   &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto,
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto_sccs[41] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto_sccs[43] = {
   &scc_info_ActionEvent_ai_2finworld_2fpackets_2fpackets_2eproto.base,
   &scc_info_Actor_ai_2finworld_2fpackets_2fpackets_2eproto.base,
   &scc_info_AdditionalPhonemeInfo_ai_2finworld_2fpackets_2fpackets_2eproto.base,
   &scc_info_Agent_ai_2finworld_2fpackets_2fpackets_2eproto.base,
+  &scc_info_Agent_CharacterAssets_ai_2finworld_2fpackets_2fpackets_2eproto.base,
   &scc_info_ApplyResponse_ai_2finworld_2fpackets_2fpackets_2eproto.base,
+  &scc_info_Audio2FaceAnimationEvent_ai_2finworld_2fpackets_2fpackets_2eproto.base,
   &scc_info_AudioChunk_ai_2finworld_2fpackets_2fpackets_2eproto.base,
   &scc_info_CancelResponses_ai_2finworld_2fpackets_2fpackets_2eproto.base,
   &scc_info_CancelResponsesEvent_ai_2finworld_2fpackets_2fpackets_2eproto.base,
@@ -1460,17 +1597,17 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_
   &scc_info_Relations_Relation_ai_2finworld_2fpackets_2fpackets_2eproto.base,
   &scc_info_Routing_ai_2finworld_2fpackets_2fpackets_2eproto.base,
   &scc_info_SessionControlEvent_ai_2finworld_2fpackets_2fpackets_2eproto.base,
-  &scc_info_SessionControlResponseEvent_ai_2finworld_2fpackets_2fpackets_2eproto.base,
+  &scc_info_SessionHistoryRequest_ai_2finworld_2fpackets_2fpackets_2eproto.base,
   &scc_info_TextEvent_ai_2finworld_2fpackets_2fpackets_2eproto.base,
   &scc_info_TextEvent_ModelInfo_ai_2finworld_2fpackets_2fpackets_2eproto.base,
   &scc_info_UnloadCharacters_ai_2finworld_2fpackets_2fpackets_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2fpackets_2fpackets_2eproto, "ai/inworld/packets/packets.proto", 7191,
-  &descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto_once, descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto_sccs, descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto_deps, 41, 6,
+  false, false, descriptor_table_protodef_ai_2finworld_2fpackets_2fpackets_2eproto, "ai/inworld/packets/packets.proto", 7955,
+  &descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto_once, descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto_sccs, descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto_deps, 43, 6,
   schemas, file_default_instances, TableStruct_ai_2finworld_2fpackets_2fpackets_2eproto::offsets,
-  file_level_metadata_ai_2finworld_2fpackets_2fpackets_2eproto, 41, file_level_enum_descriptors_ai_2finworld_2fpackets_2fpackets_2eproto, file_level_service_descriptors_ai_2finworld_2fpackets_2fpackets_2eproto,
+  file_level_metadata_ai_2finworld_2fpackets_2fpackets_2eproto, 46, file_level_enum_descriptors_ai_2finworld_2fpackets_2fpackets_2eproto, file_level_service_descriptors_ai_2finworld_2fpackets_2fpackets_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -2645,6 +2782,7 @@ class InworldPacket::_Internal {
   static const ::ai::inworld::packets::DebugInfoEvent& debug_info(const InworldPacket* msg);
   static const ::ai::inworld::packets::SessionControlEvent& session_control(const InworldPacket* msg);
   static const ::ai::inworld::packets::SessionControlResponseEvent& session_control_response(const InworldPacket* msg);
+  static const ::ai::inworld::packets::Audio2FaceAnimationEvent& a2f_event(const InworldPacket* msg);
 };
 
 const PROTOBUF_NAMESPACE_ID::Timestamp&
@@ -2710,6 +2848,10 @@ InworldPacket::_Internal::session_control(const InworldPacket* msg) {
 const ::ai::inworld::packets::SessionControlResponseEvent&
 InworldPacket::_Internal::session_control_response(const InworldPacket* msg) {
   return *msg->packet_.session_control_response_;
+}
+const ::ai::inworld::packets::Audio2FaceAnimationEvent&
+InworldPacket::_Internal::a2f_event(const InworldPacket* msg) {
+  return *msg->packet_.a2f_event_;
 }
 void InworldPacket::clear_timestamp() {
   if (GetArena() == nullptr && timestamp_ != nullptr) {
@@ -2912,6 +3054,21 @@ void InworldPacket::set_allocated_session_control_response(::ai::inworld::packet
   }
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.InworldPacket.session_control_response)
 }
+void InworldPacket::set_allocated_a2f_event(::ai::inworld::packets::Audio2FaceAnimationEvent* a2f_event) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  clear_packet();
+  if (a2f_event) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(a2f_event);
+    if (message_arena != submessage_arena) {
+      a2f_event = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, a2f_event, submessage_arena);
+    }
+    set_has_a2f_event();
+    packet_.a2f_event_ = a2f_event;
+  }
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.InworldPacket.a2f_event)
+}
 InworldPacket::InworldPacket(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
@@ -2988,6 +3145,10 @@ InworldPacket::InworldPacket(const InworldPacket& from)
     }
     case kSessionControlResponse: {
       _internal_mutable_session_control_response()->::ai::inworld::packets::SessionControlResponseEvent::MergeFrom(from._internal_session_control_response());
+      break;
+    }
+    case kA2FEvent: {
+      _internal_mutable_a2f_event()->::ai::inworld::packets::Audio2FaceAnimationEvent::MergeFrom(from._internal_a2f_event());
       break;
     }
     case PACKET_NOT_SET: {
@@ -3115,6 +3276,12 @@ void InworldPacket::clear_packet() {
     case kSessionControlResponse: {
       if (GetArena() == nullptr) {
         delete packet_.session_control_response_;
+      }
+      break;
+    }
+    case kA2FEvent: {
+      if (GetArena() == nullptr) {
+        delete packet_.a2f_event_;
       }
       break;
     }
@@ -3264,6 +3431,13 @@ const char* InworldPacket::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
       case 20:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 162)) {
           ptr = ctx->ParseMessage(_internal_mutable_session_control_response(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .ai.inworld.packets.Audio2FaceAnimationEvent a2f_event = 21;
+      case 21:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 170)) {
+          ptr = ctx->ParseMessage(_internal_mutable_a2f_event(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -3423,6 +3597,14 @@ failure:
         20, _Internal::session_control_response(this), target, stream);
   }
 
+  // .ai.inworld.packets.Audio2FaceAnimationEvent a2f_event = 21;
+  if (_internal_has_a2f_event()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        21, _Internal::a2f_event(this), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -3552,6 +3734,13 @@ size_t InworldPacket::ByteSizeLong() const {
           *packet_.session_control_response_);
       break;
     }
+    // .ai.inworld.packets.Audio2FaceAnimationEvent a2f_event = 21;
+    case kA2FEvent: {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *packet_.a2f_event_);
+      break;
+    }
     case PACKET_NOT_SET: {
       break;
     }
@@ -3647,6 +3836,10 @@ void InworldPacket::MergeFrom(const InworldPacket& from) {
     }
     case kSessionControlResponse: {
       _internal_mutable_session_control_response()->::ai::inworld::packets::SessionControlResponseEvent::MergeFrom(from._internal_session_control_response());
+      break;
+    }
+    case kA2FEvent: {
+      _internal_mutable_a2f_event()->::ai::inworld::packets::Audio2FaceAnimationEvent::MergeFrom(from._internal_a2f_event());
       break;
     }
     case PACKET_NOT_SET: {
@@ -8008,6 +8201,7 @@ class SessionControlResponseEvent::_Internal {
  public:
   static const ::ai::inworld::packets::LoadedScene& loaded_scene(const SessionControlResponseEvent* msg);
   static const ::ai::inworld::packets::LoadedCharacters& loaded_characters(const SessionControlResponseEvent* msg);
+  static const ::ai::inworld::packets::SessionHistoryResponse& session_history(const SessionControlResponseEvent* msg);
 };
 
 const ::ai::inworld::packets::LoadedScene&
@@ -8017,6 +8211,10 @@ SessionControlResponseEvent::_Internal::loaded_scene(const SessionControlRespons
 const ::ai::inworld::packets::LoadedCharacters&
 SessionControlResponseEvent::_Internal::loaded_characters(const SessionControlResponseEvent* msg) {
   return *msg->response_.loaded_characters_;
+}
+const ::ai::inworld::packets::SessionHistoryResponse&
+SessionControlResponseEvent::_Internal::session_history(const SessionControlResponseEvent* msg) {
+  return *msg->response_.session_history_;
 }
 void SessionControlResponseEvent::set_allocated_loaded_scene(::ai::inworld::packets::LoadedScene* loaded_scene) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
@@ -8048,6 +8246,21 @@ void SessionControlResponseEvent::set_allocated_loaded_characters(::ai::inworld:
   }
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.SessionControlResponseEvent.loaded_characters)
 }
+void SessionControlResponseEvent::set_allocated_session_history(::ai::inworld::packets::SessionHistoryResponse* session_history) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  clear_response();
+  if (session_history) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(session_history);
+    if (message_arena != submessage_arena) {
+      session_history = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, session_history, submessage_arena);
+    }
+    set_has_session_history();
+    response_.session_history_ = session_history;
+  }
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.SessionControlResponseEvent.session_history)
+}
 SessionControlResponseEvent::SessionControlResponseEvent(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
@@ -8067,6 +8280,10 @@ SessionControlResponseEvent::SessionControlResponseEvent(const SessionControlRes
       _internal_mutable_loaded_characters()->::ai::inworld::packets::LoadedCharacters::MergeFrom(from._internal_loaded_characters());
       break;
     }
+    case kSessionHistory: {
+      _internal_mutable_session_history()->::ai::inworld::packets::SessionHistoryResponse::MergeFrom(from._internal_session_history());
+      break;
+    }
     case RESPONSE_NOT_SET: {
       break;
     }
@@ -8075,7 +8292,7 @@ SessionControlResponseEvent::SessionControlResponseEvent(const SessionControlRes
 }
 
 void SessionControlResponseEvent::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_SessionControlResponseEvent_ai_2finworld_2fpackets_2fpackets_2eproto.base);
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_InworldPacket_ai_2finworld_2fpackets_2fpackets_2eproto.base);
   clear_has_response();
 }
 
@@ -8102,7 +8319,7 @@ void SessionControlResponseEvent::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 const SessionControlResponseEvent& SessionControlResponseEvent::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_SessionControlResponseEvent_ai_2finworld_2fpackets_2fpackets_2eproto.base);
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_InworldPacket_ai_2finworld_2fpackets_2fpackets_2eproto.base);
   return *internal_default_instance();
 }
 
@@ -8119,6 +8336,12 @@ void SessionControlResponseEvent::clear_response() {
     case kLoadedCharacters: {
       if (GetArena() == nullptr) {
         delete response_.loaded_characters_;
+      }
+      break;
+    }
+    case kSessionHistory: {
+      if (GetArena() == nullptr) {
+        delete response_.session_history_;
       }
       break;
     }
@@ -8158,6 +8381,13 @@ const char* SessionControlResponseEvent::_InternalParse(const char* ptr, ::PROTO
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_loaded_characters(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .ai.inworld.packets.SessionHistoryResponse session_history = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_session_history(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -8205,6 +8435,14 @@ failure:
         2, _Internal::loaded_characters(this), target, stream);
   }
 
+  // .ai.inworld.packets.SessionHistoryResponse session_history = 3;
+  if (_internal_has_session_history()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        3, _Internal::session_history(this), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -8234,6 +8472,13 @@ size_t SessionControlResponseEvent::ByteSizeLong() const {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *response_.loaded_characters_);
+      break;
+    }
+    // .ai.inworld.packets.SessionHistoryResponse session_history = 3;
+    case kSessionHistory: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *response_.session_history_);
       break;
     }
     case RESPONSE_NOT_SET: {
@@ -8278,6 +8523,10 @@ void SessionControlResponseEvent::MergeFrom(const SessionControlResponseEvent& f
     }
     case kLoadedCharacters: {
       _internal_mutable_loaded_characters()->::ai::inworld::packets::LoadedCharacters::MergeFrom(from._internal_loaded_characters());
+      break;
+    }
+    case kSessionHistory: {
+      _internal_mutable_session_history()->::ai::inworld::packets::SessionHistoryResponse::MergeFrom(from._internal_session_history());
       break;
     }
     case RESPONSE_NOT_SET: {
@@ -10943,10 +11192,373 @@ void LoadSceneOutputEvent::InternalSwap(LoadSceneOutputEvent* other) {
 
 // ===================================================================
 
-class Agent::_Internal {
+class Agent_CharacterAssets::_Internal {
  public:
 };
 
+Agent_CharacterAssets::Agent_CharacterAssets(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:ai.inworld.packets.Agent.CharacterAssets)
+}
+Agent_CharacterAssets::Agent_CharacterAssets(const Agent_CharacterAssets& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  rpm_model_uri_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_rpm_model_uri().empty()) {
+    rpm_model_uri_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_rpm_model_uri(), 
+      GetArena());
+  }
+  rpm_image_uri_portrait_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_rpm_image_uri_portrait().empty()) {
+    rpm_image_uri_portrait_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_rpm_image_uri_portrait(), 
+      GetArena());
+  }
+  rpm_image_uri_posture_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_rpm_image_uri_posture().empty()) {
+    rpm_image_uri_posture_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_rpm_image_uri_posture(), 
+      GetArena());
+  }
+  avatar_img_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_avatar_img().empty()) {
+    avatar_img_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_avatar_img(), 
+      GetArena());
+  }
+  avatar_img_original_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_avatar_img_original().empty()) {
+    avatar_img_original_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_avatar_img_original(), 
+      GetArena());
+  }
+  // @@protoc_insertion_point(copy_constructor:ai.inworld.packets.Agent.CharacterAssets)
+}
+
+void Agent_CharacterAssets::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Agent_CharacterAssets_ai_2finworld_2fpackets_2fpackets_2eproto.base);
+  rpm_model_uri_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  rpm_image_uri_portrait_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  rpm_image_uri_posture_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  avatar_img_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  avatar_img_original_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+Agent_CharacterAssets::~Agent_CharacterAssets() {
+  // @@protoc_insertion_point(destructor:ai.inworld.packets.Agent.CharacterAssets)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void Agent_CharacterAssets::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  rpm_model_uri_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  rpm_image_uri_portrait_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  rpm_image_uri_posture_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  avatar_img_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  avatar_img_original_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void Agent_CharacterAssets::ArenaDtor(void* object) {
+  Agent_CharacterAssets* _this = reinterpret_cast< Agent_CharacterAssets* >(object);
+  (void)_this;
+}
+void Agent_CharacterAssets::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void Agent_CharacterAssets::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const Agent_CharacterAssets& Agent_CharacterAssets::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Agent_CharacterAssets_ai_2finworld_2fpackets_2fpackets_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void Agent_CharacterAssets::Clear() {
+// @@protoc_insertion_point(message_clear_start:ai.inworld.packets.Agent.CharacterAssets)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  rpm_model_uri_.ClearToEmpty();
+  rpm_image_uri_portrait_.ClearToEmpty();
+  rpm_image_uri_posture_.ClearToEmpty();
+  avatar_img_.ClearToEmpty();
+  avatar_img_original_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Agent_CharacterAssets::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string rpm_model_uri = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_rpm_model_uri();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.packets.Agent.CharacterAssets.rpm_model_uri"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string rpm_image_uri_portrait = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_rpm_image_uri_portrait();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.packets.Agent.CharacterAssets.rpm_image_uri_portrait"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string rpm_image_uri_posture = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          auto str = _internal_mutable_rpm_image_uri_posture();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.packets.Agent.CharacterAssets.rpm_image_uri_posture"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string avatar_img = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          auto str = _internal_mutable_avatar_img();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.packets.Agent.CharacterAssets.avatar_img"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string avatar_img_original = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+          auto str = _internal_mutable_avatar_img_original();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.packets.Agent.CharacterAssets.avatar_img_original"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* Agent_CharacterAssets::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.packets.Agent.CharacterAssets)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string rpm_model_uri = 1;
+  if (this->rpm_model_uri().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_rpm_model_uri().data(), static_cast<int>(this->_internal_rpm_model_uri().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.packets.Agent.CharacterAssets.rpm_model_uri");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_rpm_model_uri(), target);
+  }
+
+  // string rpm_image_uri_portrait = 2;
+  if (this->rpm_image_uri_portrait().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_rpm_image_uri_portrait().data(), static_cast<int>(this->_internal_rpm_image_uri_portrait().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.packets.Agent.CharacterAssets.rpm_image_uri_portrait");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_rpm_image_uri_portrait(), target);
+  }
+
+  // string rpm_image_uri_posture = 3;
+  if (this->rpm_image_uri_posture().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_rpm_image_uri_posture().data(), static_cast<int>(this->_internal_rpm_image_uri_posture().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.packets.Agent.CharacterAssets.rpm_image_uri_posture");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_rpm_image_uri_posture(), target);
+  }
+
+  // string avatar_img = 4;
+  if (this->avatar_img().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_avatar_img().data(), static_cast<int>(this->_internal_avatar_img().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.packets.Agent.CharacterAssets.avatar_img");
+    target = stream->WriteStringMaybeAliased(
+        4, this->_internal_avatar_img(), target);
+  }
+
+  // string avatar_img_original = 5;
+  if (this->avatar_img_original().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_avatar_img_original().data(), static_cast<int>(this->_internal_avatar_img_original().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.packets.Agent.CharacterAssets.avatar_img_original");
+    target = stream->WriteStringMaybeAliased(
+        5, this->_internal_avatar_img_original(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.packets.Agent.CharacterAssets)
+  return target;
+}
+
+size_t Agent_CharacterAssets::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ai.inworld.packets.Agent.CharacterAssets)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string rpm_model_uri = 1;
+  if (this->rpm_model_uri().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_rpm_model_uri());
+  }
+
+  // string rpm_image_uri_portrait = 2;
+  if (this->rpm_image_uri_portrait().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_rpm_image_uri_portrait());
+  }
+
+  // string rpm_image_uri_posture = 3;
+  if (this->rpm_image_uri_posture().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_rpm_image_uri_posture());
+  }
+
+  // string avatar_img = 4;
+  if (this->avatar_img().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_avatar_img());
+  }
+
+  // string avatar_img_original = 5;
+  if (this->avatar_img_original().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_avatar_img_original());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void Agent_CharacterAssets::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.packets.Agent.CharacterAssets)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Agent_CharacterAssets* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Agent_CharacterAssets>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.packets.Agent.CharacterAssets)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.packets.Agent.CharacterAssets)
+    MergeFrom(*source);
+  }
+}
+
+void Agent_CharacterAssets::MergeFrom(const Agent_CharacterAssets& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.packets.Agent.CharacterAssets)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.rpm_model_uri().size() > 0) {
+    _internal_set_rpm_model_uri(from._internal_rpm_model_uri());
+  }
+  if (from.rpm_image_uri_portrait().size() > 0) {
+    _internal_set_rpm_image_uri_portrait(from._internal_rpm_image_uri_portrait());
+  }
+  if (from.rpm_image_uri_posture().size() > 0) {
+    _internal_set_rpm_image_uri_posture(from._internal_rpm_image_uri_posture());
+  }
+  if (from.avatar_img().size() > 0) {
+    _internal_set_avatar_img(from._internal_avatar_img());
+  }
+  if (from.avatar_img_original().size() > 0) {
+    _internal_set_avatar_img_original(from._internal_avatar_img_original());
+  }
+}
+
+void Agent_CharacterAssets::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.packets.Agent.CharacterAssets)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Agent_CharacterAssets::CopyFrom(const Agent_CharacterAssets& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ai.inworld.packets.Agent.CharacterAssets)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Agent_CharacterAssets::IsInitialized() const {
+  return true;
+}
+
+void Agent_CharacterAssets::InternalSwap(Agent_CharacterAssets* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  rpm_model_uri_.Swap(&other->rpm_model_uri_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  rpm_image_uri_portrait_.Swap(&other->rpm_image_uri_portrait_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  rpm_image_uri_posture_.Swap(&other->rpm_image_uri_posture_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  avatar_img_.Swap(&other->avatar_img_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  avatar_img_original_.Swap(&other->avatar_img_original_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Agent_CharacterAssets::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class Agent::_Internal {
+ public:
+  static const ::ai::inworld::packets::Agent_CharacterAssets& character_assets(const Agent* msg);
+};
+
+const ::ai::inworld::packets::Agent_CharacterAssets&
+Agent::_Internal::character_assets(const Agent* msg) {
+  return *msg->character_assets_;
+}
 Agent::Agent(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
@@ -10971,6 +11583,11 @@ Agent::Agent(const Agent& from)
     given_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_given_name(), 
       GetArena());
   }
+  if (from._internal_has_character_assets()) {
+    character_assets_ = new ::ai::inworld::packets::Agent_CharacterAssets(*from.character_assets_);
+  } else {
+    character_assets_ = nullptr;
+  }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.packets.Agent)
 }
 
@@ -10979,6 +11596,7 @@ void Agent::SharedCtor() {
   agent_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   brain_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   given_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  character_assets_ = nullptr;
 }
 
 Agent::~Agent() {
@@ -10992,6 +11610,7 @@ void Agent::SharedDtor() {
   agent_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   brain_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   given_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete character_assets_;
 }
 
 void Agent::ArenaDtor(void* object) {
@@ -11018,6 +11637,10 @@ void Agent::Clear() {
   agent_id_.ClearToEmpty();
   brain_name_.ClearToEmpty();
   given_name_.ClearToEmpty();
+  if (GetArena() == nullptr && character_assets_ != nullptr) {
+    delete character_assets_;
+  }
+  character_assets_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -11052,6 +11675,13 @@ const char* Agent::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inte
           auto str = _internal_mutable_given_name();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.packets.Agent.given_name"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .ai.inworld.packets.Agent.CharacterAssets character_assets = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_character_assets(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -11113,6 +11743,14 @@ failure:
         3, this->_internal_given_name(), target);
   }
 
+  // .ai.inworld.packets.Agent.CharacterAssets character_assets = 4;
+  if (this->has_character_assets()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        4, _Internal::character_assets(this), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -11148,6 +11786,13 @@ size_t Agent::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_given_name());
+  }
+
+  // .ai.inworld.packets.Agent.CharacterAssets character_assets = 4;
+  if (this->has_character_assets()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *character_assets_);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -11190,6 +11835,9 @@ void Agent::MergeFrom(const Agent& from) {
   if (from.given_name().size() > 0) {
     _internal_set_given_name(from._internal_given_name());
   }
+  if (from.has_character_assets()) {
+    _internal_mutable_character_assets()->::ai::inworld::packets::Agent_CharacterAssets::MergeFrom(from._internal_character_assets());
+  }
 }
 
 void Agent::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -11216,6 +11864,7 @@ void Agent::InternalSwap(Agent* other) {
   agent_id_.Swap(&other->agent_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   brain_name_.Swap(&other->brain_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   given_name_.Swap(&other->given_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  swap(character_assets_, other->character_assets_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Agent::GetMetadata() const {
@@ -11490,6 +12139,7 @@ class SessionControlEvent::_Internal {
   static const ::ai::inworld::engine::configuration::ClientConfiguration& client_configuration(const SessionControlEvent* msg);
   static const ::ai::inworld::engine::configuration::CapabilitiesConfiguration& capabilities_configuration(const SessionControlEvent* msg);
   static const ::ai::inworld::packets::Continuation& continuation(const SessionControlEvent* msg);
+  static const ::ai::inworld::packets::SessionHistoryRequest& session_history_request(const SessionControlEvent* msg);
 };
 
 const ::ai::inworld::engine::configuration::SessionConfiguration&
@@ -11511,6 +12161,10 @@ SessionControlEvent::_Internal::capabilities_configuration(const SessionControlE
 const ::ai::inworld::packets::Continuation&
 SessionControlEvent::_Internal::continuation(const SessionControlEvent* msg) {
   return *msg->session_control_.continuation_;
+}
+const ::ai::inworld::packets::SessionHistoryRequest&
+SessionControlEvent::_Internal::session_history_request(const SessionControlEvent* msg) {
+  return *msg->session_control_.session_history_request_;
 }
 void SessionControlEvent::set_allocated_session_configuration(::ai::inworld::engine::configuration::SessionConfiguration* session_configuration) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
@@ -11619,6 +12273,21 @@ void SessionControlEvent::set_allocated_continuation(::ai::inworld::packets::Con
   }
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.SessionControlEvent.continuation)
 }
+void SessionControlEvent::set_allocated_session_history_request(::ai::inworld::packets::SessionHistoryRequest* session_history_request) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  clear_session_control();
+  if (session_history_request) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(session_history_request);
+    if (message_arena != submessage_arena) {
+      session_history_request = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, session_history_request, submessage_arena);
+    }
+    set_has_session_history_request();
+    session_control_.session_history_request_ = session_history_request;
+  }
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.SessionControlEvent.session_history_request)
+}
 SessionControlEvent::SessionControlEvent(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
@@ -11648,6 +12317,10 @@ SessionControlEvent::SessionControlEvent(const SessionControlEvent& from)
     }
     case kContinuation: {
       _internal_mutable_continuation()->::ai::inworld::packets::Continuation::MergeFrom(from._internal_continuation());
+      break;
+    }
+    case kSessionHistoryRequest: {
+      _internal_mutable_session_history_request()->::ai::inworld::packets::SessionHistoryRequest::MergeFrom(from._internal_session_history_request());
       break;
     }
     case SESSION_CONTROL_NOT_SET: {
@@ -11723,6 +12396,12 @@ void SessionControlEvent::clear_session_control() {
       }
       break;
     }
+    case kSessionHistoryRequest: {
+      if (GetArena() == nullptr) {
+        delete session_control_.session_history_request_;
+      }
+      break;
+    }
     case SESSION_CONTROL_NOT_SET: {
       break;
     }
@@ -11780,6 +12459,13 @@ const char* SessionControlEvent::_InternalParse(const char* ptr, ::PROTOBUF_NAME
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           ptr = ctx->ParseMessage(_internal_mutable_continuation(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .ai.inworld.packets.SessionHistoryRequest session_history_request = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+          ptr = ctx->ParseMessage(_internal_mutable_session_history_request(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -11851,6 +12537,14 @@ failure:
         5, _Internal::continuation(this), target, stream);
   }
 
+  // .ai.inworld.packets.SessionHistoryRequest session_history_request = 6;
+  if (_internal_has_session_history_request()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        6, _Internal::session_history_request(this), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -11901,6 +12595,13 @@ size_t SessionControlEvent::ByteSizeLong() const {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *session_control_.continuation_);
+      break;
+    }
+    // .ai.inworld.packets.SessionHistoryRequest session_history_request = 6;
+    case kSessionHistoryRequest: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *session_control_.session_history_request_);
       break;
     }
     case SESSION_CONTROL_NOT_SET: {
@@ -11959,6 +12660,10 @@ void SessionControlEvent::MergeFrom(const SessionControlEvent& from) {
       _internal_mutable_continuation()->::ai::inworld::packets::Continuation::MergeFrom(from._internal_continuation());
       break;
     }
+    case kSessionHistoryRequest: {
+      _internal_mutable_session_history_request()->::ai::inworld::packets::SessionHistoryRequest::MergeFrom(from._internal_session_history_request());
+      break;
+    }
     case SESSION_CONTROL_NOT_SET: {
       break;
     }
@@ -11991,6 +12696,245 @@ void SessionControlEvent::InternalSwap(SessionControlEvent* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SessionControlEvent::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class Audio2FaceAnimationEvent::_Internal {
+ public:
+};
+
+Audio2FaceAnimationEvent::Audio2FaceAnimationEvent(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:ai.inworld.packets.Audio2FaceAnimationEvent)
+}
+Audio2FaceAnimationEvent::Audio2FaceAnimationEvent(const Audio2FaceAnimationEvent& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  animdata_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_animdata().empty()) {
+    animdata_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_animdata(), 
+      GetArena());
+  }
+  audio_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_audio().empty()) {
+    audio_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_audio(), 
+      GetArena());
+  }
+  // @@protoc_insertion_point(copy_constructor:ai.inworld.packets.Audio2FaceAnimationEvent)
+}
+
+void Audio2FaceAnimationEvent::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Audio2FaceAnimationEvent_ai_2finworld_2fpackets_2fpackets_2eproto.base);
+  animdata_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  audio_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+Audio2FaceAnimationEvent::~Audio2FaceAnimationEvent() {
+  // @@protoc_insertion_point(destructor:ai.inworld.packets.Audio2FaceAnimationEvent)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void Audio2FaceAnimationEvent::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  animdata_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  audio_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void Audio2FaceAnimationEvent::ArenaDtor(void* object) {
+  Audio2FaceAnimationEvent* _this = reinterpret_cast< Audio2FaceAnimationEvent* >(object);
+  (void)_this;
+}
+void Audio2FaceAnimationEvent::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void Audio2FaceAnimationEvent::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const Audio2FaceAnimationEvent& Audio2FaceAnimationEvent::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Audio2FaceAnimationEvent_ai_2finworld_2fpackets_2fpackets_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void Audio2FaceAnimationEvent::Clear() {
+// @@protoc_insertion_point(message_clear_start:ai.inworld.packets.Audio2FaceAnimationEvent)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  animdata_.ClearToEmpty();
+  audio_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Audio2FaceAnimationEvent::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string animdata = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_animdata();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.packets.Audio2FaceAnimationEvent.animdata"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bytes audio = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_audio();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* Audio2FaceAnimationEvent::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.packets.Audio2FaceAnimationEvent)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string animdata = 1;
+  if (this->animdata().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_animdata().data(), static_cast<int>(this->_internal_animdata().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.packets.Audio2FaceAnimationEvent.animdata");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_animdata(), target);
+  }
+
+  // bytes audio = 2;
+  if (this->audio().size() > 0) {
+    target = stream->WriteBytesMaybeAliased(
+        2, this->_internal_audio(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.packets.Audio2FaceAnimationEvent)
+  return target;
+}
+
+size_t Audio2FaceAnimationEvent::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ai.inworld.packets.Audio2FaceAnimationEvent)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string animdata = 1;
+  if (this->animdata().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_animdata());
+  }
+
+  // bytes audio = 2;
+  if (this->audio().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_audio());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void Audio2FaceAnimationEvent::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.packets.Audio2FaceAnimationEvent)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Audio2FaceAnimationEvent* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Audio2FaceAnimationEvent>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.packets.Audio2FaceAnimationEvent)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.packets.Audio2FaceAnimationEvent)
+    MergeFrom(*source);
+  }
+}
+
+void Audio2FaceAnimationEvent::MergeFrom(const Audio2FaceAnimationEvent& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.packets.Audio2FaceAnimationEvent)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.animdata().size() > 0) {
+    _internal_set_animdata(from._internal_animdata());
+  }
+  if (from.audio().size() > 0) {
+    _internal_set_audio(from._internal_audio());
+  }
+}
+
+void Audio2FaceAnimationEvent::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.packets.Audio2FaceAnimationEvent)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Audio2FaceAnimationEvent::CopyFrom(const Audio2FaceAnimationEvent& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ai.inworld.packets.Audio2FaceAnimationEvent)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Audio2FaceAnimationEvent::IsInitialized() const {
+  return true;
+}
+
+void Audio2FaceAnimationEvent::InternalSwap(Audio2FaceAnimationEvent* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  animdata_.Swap(&other->animdata_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  audio_.Swap(&other->audio_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Audio2FaceAnimationEvent::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -13462,6 +14406,610 @@ void Relations::InternalSwap(Relations* other) {
 }
 
 
+// ===================================================================
+
+class SessionHistoryRequest::_Internal {
+ public:
+};
+
+SessionHistoryRequest::SessionHistoryRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:ai.inworld.packets.SessionHistoryRequest)
+}
+SessionHistoryRequest::SessionHistoryRequest(const SessionHistoryRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:ai.inworld.packets.SessionHistoryRequest)
+}
+
+void SessionHistoryRequest::SharedCtor() {
+}
+
+SessionHistoryRequest::~SessionHistoryRequest() {
+  // @@protoc_insertion_point(destructor:ai.inworld.packets.SessionHistoryRequest)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void SessionHistoryRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void SessionHistoryRequest::ArenaDtor(void* object) {
+  SessionHistoryRequest* _this = reinterpret_cast< SessionHistoryRequest* >(object);
+  (void)_this;
+}
+void SessionHistoryRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SessionHistoryRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const SessionHistoryRequest& SessionHistoryRequest::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_SessionHistoryRequest_ai_2finworld_2fpackets_2fpackets_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void SessionHistoryRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:ai.inworld.packets.SessionHistoryRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SessionHistoryRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* SessionHistoryRequest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.packets.SessionHistoryRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.packets.SessionHistoryRequest)
+  return target;
+}
+
+size_t SessionHistoryRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ai.inworld.packets.SessionHistoryRequest)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void SessionHistoryRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.packets.SessionHistoryRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SessionHistoryRequest* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SessionHistoryRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.packets.SessionHistoryRequest)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.packets.SessionHistoryRequest)
+    MergeFrom(*source);
+  }
+}
+
+void SessionHistoryRequest::MergeFrom(const SessionHistoryRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.packets.SessionHistoryRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void SessionHistoryRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.packets.SessionHistoryRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SessionHistoryRequest::CopyFrom(const SessionHistoryRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ai.inworld.packets.SessionHistoryRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SessionHistoryRequest::IsInitialized() const {
+  return true;
+}
+
+void SessionHistoryRequest::InternalSwap(SessionHistoryRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SessionHistoryRequest::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class SessionHistoryResponse_SessionHistoryItem::_Internal {
+ public:
+  static const ::ai::inworld::packets::Agent& agent(const SessionHistoryResponse_SessionHistoryItem* msg);
+};
+
+const ::ai::inworld::packets::Agent&
+SessionHistoryResponse_SessionHistoryItem::_Internal::agent(const SessionHistoryResponse_SessionHistoryItem* msg) {
+  return *msg->agent_;
+}
+SessionHistoryResponse_SessionHistoryItem::SessionHistoryResponse_SessionHistoryItem(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  packets_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem)
+}
+SessionHistoryResponse_SessionHistoryItem::SessionHistoryResponse_SessionHistoryItem(const SessionHistoryResponse_SessionHistoryItem& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      packets_(from.packets_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_agent()) {
+    agent_ = new ::ai::inworld::packets::Agent(*from.agent_);
+  } else {
+    agent_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem)
+}
+
+void SessionHistoryResponse_SessionHistoryItem::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_InworldPacket_ai_2finworld_2fpackets_2fpackets_2eproto.base);
+  agent_ = nullptr;
+}
+
+SessionHistoryResponse_SessionHistoryItem::~SessionHistoryResponse_SessionHistoryItem() {
+  // @@protoc_insertion_point(destructor:ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void SessionHistoryResponse_SessionHistoryItem::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete agent_;
+}
+
+void SessionHistoryResponse_SessionHistoryItem::ArenaDtor(void* object) {
+  SessionHistoryResponse_SessionHistoryItem* _this = reinterpret_cast< SessionHistoryResponse_SessionHistoryItem* >(object);
+  (void)_this;
+}
+void SessionHistoryResponse_SessionHistoryItem::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SessionHistoryResponse_SessionHistoryItem::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const SessionHistoryResponse_SessionHistoryItem& SessionHistoryResponse_SessionHistoryItem::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_InworldPacket_ai_2finworld_2fpackets_2fpackets_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void SessionHistoryResponse_SessionHistoryItem::Clear() {
+// @@protoc_insertion_point(message_clear_start:ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  packets_.Clear();
+  if (GetArena() == nullptr && agent_ != nullptr) {
+    delete agent_;
+  }
+  agent_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SessionHistoryResponse_SessionHistoryItem::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .ai.inworld.packets.Agent agent = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_agent(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated .ai.inworld.packets.InworldPacket packets = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_packets(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* SessionHistoryResponse_SessionHistoryItem::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .ai.inworld.packets.Agent agent = 1;
+  if (this->has_agent()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::agent(this), target, stream);
+  }
+
+  // repeated .ai.inworld.packets.InworldPacket packets = 2;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_packets_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, this->_internal_packets(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem)
+  return target;
+}
+
+size_t SessionHistoryResponse_SessionHistoryItem::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .ai.inworld.packets.InworldPacket packets = 2;
+  total_size += 1UL * this->_internal_packets_size();
+  for (const auto& msg : this->packets_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // .ai.inworld.packets.Agent agent = 1;
+  if (this->has_agent()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *agent_);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void SessionHistoryResponse_SessionHistoryItem::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SessionHistoryResponse_SessionHistoryItem* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SessionHistoryResponse_SessionHistoryItem>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem)
+    MergeFrom(*source);
+  }
+}
+
+void SessionHistoryResponse_SessionHistoryItem::MergeFrom(const SessionHistoryResponse_SessionHistoryItem& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  packets_.MergeFrom(from.packets_);
+  if (from.has_agent()) {
+    _internal_mutable_agent()->::ai::inworld::packets::Agent::MergeFrom(from._internal_agent());
+  }
+}
+
+void SessionHistoryResponse_SessionHistoryItem::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SessionHistoryResponse_SessionHistoryItem::CopyFrom(const SessionHistoryResponse_SessionHistoryItem& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SessionHistoryResponse_SessionHistoryItem::IsInitialized() const {
+  return true;
+}
+
+void SessionHistoryResponse_SessionHistoryItem::InternalSwap(SessionHistoryResponse_SessionHistoryItem* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  packets_.InternalSwap(&other->packets_);
+  swap(agent_, other->agent_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SessionHistoryResponse_SessionHistoryItem::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class SessionHistoryResponse::_Internal {
+ public:
+};
+
+SessionHistoryResponse::SessionHistoryResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  session_history_items_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:ai.inworld.packets.SessionHistoryResponse)
+}
+SessionHistoryResponse::SessionHistoryResponse(const SessionHistoryResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      session_history_items_(from.session_history_items_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:ai.inworld.packets.SessionHistoryResponse)
+}
+
+void SessionHistoryResponse::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_InworldPacket_ai_2finworld_2fpackets_2fpackets_2eproto.base);
+}
+
+SessionHistoryResponse::~SessionHistoryResponse() {
+  // @@protoc_insertion_point(destructor:ai.inworld.packets.SessionHistoryResponse)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void SessionHistoryResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void SessionHistoryResponse::ArenaDtor(void* object) {
+  SessionHistoryResponse* _this = reinterpret_cast< SessionHistoryResponse* >(object);
+  (void)_this;
+}
+void SessionHistoryResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SessionHistoryResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const SessionHistoryResponse& SessionHistoryResponse::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_InworldPacket_ai_2finworld_2fpackets_2fpackets_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void SessionHistoryResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:ai.inworld.packets.SessionHistoryResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  session_history_items_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SessionHistoryResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // repeated .ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem session_history_items = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_session_history_items(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* SessionHistoryResponse::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.packets.SessionHistoryResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem session_history_items = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_session_history_items_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, this->_internal_session_history_items(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.packets.SessionHistoryResponse)
+  return target;
+}
+
+size_t SessionHistoryResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ai.inworld.packets.SessionHistoryResponse)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem session_history_items = 1;
+  total_size += 1UL * this->_internal_session_history_items_size();
+  for (const auto& msg : this->session_history_items_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void SessionHistoryResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.packets.SessionHistoryResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SessionHistoryResponse* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SessionHistoryResponse>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.packets.SessionHistoryResponse)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.packets.SessionHistoryResponse)
+    MergeFrom(*source);
+  }
+}
+
+void SessionHistoryResponse::MergeFrom(const SessionHistoryResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.packets.SessionHistoryResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  session_history_items_.MergeFrom(from.session_history_items_);
+}
+
+void SessionHistoryResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.packets.SessionHistoryResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SessionHistoryResponse::CopyFrom(const SessionHistoryResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ai.inworld.packets.SessionHistoryResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SessionHistoryResponse::IsInitialized() const {
+  return true;
+}
+
+void SessionHistoryResponse::InternalSwap(SessionHistoryResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  session_history_items_.InternalSwap(&other->session_history_items_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SessionHistoryResponse::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace packets
 }  // namespace inworld
@@ -13563,6 +15111,9 @@ template<> PROTOBUF_NOINLINE ::ai::inworld::packets::LoadSceneOutputEvent_Agent*
 template<> PROTOBUF_NOINLINE ::ai::inworld::packets::LoadSceneOutputEvent* Arena::CreateMaybeMessage< ::ai::inworld::packets::LoadSceneOutputEvent >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ai::inworld::packets::LoadSceneOutputEvent >(arena);
 }
+template<> PROTOBUF_NOINLINE ::ai::inworld::packets::Agent_CharacterAssets* Arena::CreateMaybeMessage< ::ai::inworld::packets::Agent_CharacterAssets >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ai::inworld::packets::Agent_CharacterAssets >(arena);
+}
 template<> PROTOBUF_NOINLINE ::ai::inworld::packets::Agent* Arena::CreateMaybeMessage< ::ai::inworld::packets::Agent >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ai::inworld::packets::Agent >(arena);
 }
@@ -13571,6 +15122,9 @@ template<> PROTOBUF_NOINLINE ::ai::inworld::packets::DebugInfoEvent* Arena::Crea
 }
 template<> PROTOBUF_NOINLINE ::ai::inworld::packets::SessionControlEvent* Arena::CreateMaybeMessage< ::ai::inworld::packets::SessionControlEvent >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ai::inworld::packets::SessionControlEvent >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ai::inworld::packets::Audio2FaceAnimationEvent* Arena::CreateMaybeMessage< ::ai::inworld::packets::Audio2FaceAnimationEvent >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ai::inworld::packets::Audio2FaceAnimationEvent >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ai::inworld::packets::Continuation_ContinuationInfo* Arena::CreateMaybeMessage< ::ai::inworld::packets::Continuation_ContinuationInfo >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ai::inworld::packets::Continuation_ContinuationInfo >(arena);
@@ -13589,6 +15143,15 @@ template<> PROTOBUF_NOINLINE ::ai::inworld::packets::Relations_Relation* Arena::
 }
 template<> PROTOBUF_NOINLINE ::ai::inworld::packets::Relations* Arena::CreateMaybeMessage< ::ai::inworld::packets::Relations >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ai::inworld::packets::Relations >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ai::inworld::packets::SessionHistoryRequest* Arena::CreateMaybeMessage< ::ai::inworld::packets::SessionHistoryRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ai::inworld::packets::SessionHistoryRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ai::inworld::packets::SessionHistoryResponse_SessionHistoryItem* Arena::CreateMaybeMessage< ::ai::inworld::packets::SessionHistoryResponse_SessionHistoryItem >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ai::inworld::packets::SessionHistoryResponse_SessionHistoryItem >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ai::inworld::packets::SessionHistoryResponse* Arena::CreateMaybeMessage< ::ai::inworld::packets::SessionHistoryResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ai::inworld::packets::SessionHistoryResponse >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

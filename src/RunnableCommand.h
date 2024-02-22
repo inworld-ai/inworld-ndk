@@ -24,6 +24,7 @@
 #include "ai/inworld/studio/v1alpha/scenes.grpc.pb.h"
 #include "ai/inworld/studio/v1alpha/characters.grpc.pb.h"
 #include "ai/inworld/studio/v1alpha/apikeys.grpc.pb.h"
+#include "ai/inworld/studio/v1alpha/narrative_graph.grpc.pb.h"
 #include "ai/inworld/engine/v1/state_serialization.grpc.pb.h"
 
 #include "Utils/Utils.h"
@@ -387,6 +388,23 @@ namespace Inworld
 	};
 
 	std::unique_ptr<Runnable> MakeRunnableListApiKeysRequest(const std::string& InInworldToken, const std::string& InServerUrl, const std::string& InWorkspace, std::function<void(const grpc::Status& Status, const InworldV1alpha::ListApiKeysResponse& Response)> InCallback);
+
+	class INWORLD_EXPORT RunnableListGraphsRequest : public RunnableRequest<InworldV1alpha::NarrativeGraph, InworldV1alpha::ListGraphsResponse>
+	{
+	public:
+		RunnableListGraphsRequest(const std::string& InInworldToken, const std::string& InServerUrl, const std::string& InWorkspace, std::function<void(const grpc::Status& Status, const InworldV1alpha::ListGraphsResponse& Response)> InCallback)
+			: RunnableRequest(InServerUrl, InCallback)
+			, _InworldToken(InInworldToken)
+			, _Workspace(InWorkspace)
+		{}
+		virtual ~RunnableListGraphsRequest() = default;
+
+		virtual grpc::Status RunProcess() override;
+
+	private:
+		std::string _InworldToken;
+		std::string _Workspace;
+	};
 
 #ifdef INWORLD_AUDIO_DUMP
 	class RunnableAudioDumper : public Inworld::Runnable

@@ -378,3 +378,16 @@ std::unique_ptr<Inworld::Runnable> Inworld::MakeRunnableListApiKeysRequest(const
 {
 	return std::make_unique<Inworld::RunnableListApiKeysRequest>(InInworldToken, InServerUrl, InWorkspace, InCallback);
 }
+
+grpc::Status Inworld::RunnableListGraphsRequest::RunProcess()
+{
+	InworldV1alpha::ListGraphsRequest Request;
+	Request.set_parent(_Workspace);
+
+	auto& Ctx = UpdateContext({
+		{"x-authorization-bearer-type", "inworld"},
+		{"authorization", std::string("Bearer ") + _InworldToken }
+		});
+
+	return CreateStub()->ListGraphs(Ctx.get(), Request, &_Response);
+}

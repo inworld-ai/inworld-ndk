@@ -70,6 +70,7 @@ for file_name in [
     "ai/inworld/studio/v1alpha/behavioral_contexts.proto",
     "ai/inworld/studio/v1alpha/characters.proto",
     "ai/inworld/studio/v1alpha/errors.proto",
+    "ai/inworld/studio/v1alpha/narrative_graph.proto",
     "ai/inworld/studio/v1alpha/scenes.proto",
     "ai/inworld/studio/v1alpha/tokens.proto",
     "ai/inworld/studio/v1alpha/users.proto",
