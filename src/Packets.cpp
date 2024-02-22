@@ -71,6 +71,11 @@ namespace Inworld {
 
 	Routing Routing::Player2Agents(const std::vector<std::string>& AgentIds)
 	{
+        if (AgentIds.size() == 1)
+        {
+            return Player2Agent(AgentIds[0]);
+        }
+
         std::vector<Actor> Actors;
         for (auto& Id : AgentIds)
         {

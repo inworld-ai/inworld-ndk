@@ -171,10 +171,6 @@ std::shared_ptr<Inworld::TextEvent> Inworld::ClientBase::SendTextMessage(const s
 
 std::shared_ptr<Inworld::TextEvent> Inworld::ClientBase::SendTextMessage(const std::vector<std::string>& AgentIds, const std::string& Text)
 {
-	if (AgentIds.size() == 1)
-	{
-		return SendTextMessage(AgentIds[0], Text);
-	}
 	return SendTextMessage(Routing::Player2Agents(AgentIds), Text);
 }
 
@@ -185,10 +181,6 @@ std::shared_ptr<Inworld::DataEvent> Inworld::ClientBase::SendSoundMessage(const 
 
 std::shared_ptr<Inworld::DataEvent> Inworld::ClientBase::SendSoundMessage(const std::vector<std::string>& AgentIds, const std::string& Data)
 {
-	if (AgentIds.size() == 1)
-	{
-		return SendSoundMessage(AgentIds[0], Data);
-	}
 	return SendSoundMessage(Routing::Player2Agents(AgentIds), Data);
 }
 
@@ -199,10 +191,6 @@ std::shared_ptr<Inworld::DataEvent> Inworld::ClientBase::SendSoundMessageWithAEC
 
 std::shared_ptr<Inworld::DataEvent> Inworld::ClientBase::SendSoundMessageWithAEC(const std::vector<std::string>& AgentIds, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData)
 {
-	if (AgentIds.size() == 1)
-	{
-		return SendSoundMessageWithAEC(AgentIds[0], InputData, OutputData);
-	}
 	return SendSoundMessageWithAEC(Routing::Player2Agents(AgentIds), InputData, OutputData);
 }
 
@@ -213,10 +201,6 @@ std::shared_ptr<Inworld::CustomEvent> Inworld::ClientBase::SendCustomEvent(std::
 
 std::shared_ptr<Inworld::CustomEvent> Inworld::ClientBase::SendCustomEvent(const std::vector<std::string>& AgentIds, const std::string& Name, const std::unordered_map<std::string, std::string>& Params)
 {
-	if (AgentIds.size() == 1)
-	{
-		return SendCustomEvent(AgentIds[0], Name, Params);
-	}
 	return SendCustomEvent(Routing::Player2Agents(AgentIds), Name, Params);
 }
 
