@@ -388,7 +388,7 @@ namespace Inworld {
 		}
     }
 
-    SessionControlResponse_LoadScene::SessionControlResponse_LoadScene(const InworldPakets::InworldPacket& GrpcPacket)
+    SessionControlResponse_LoadScene::SessionControlResponse_LoadScene(const InworldPackets::InworldPacket& GrpcPacket)
 	{
 		const auto& Scene = GrpcPacket.session_control_response().loaded_scene();
         ExtractAgentInfos(Scene, _AgentInfos);
