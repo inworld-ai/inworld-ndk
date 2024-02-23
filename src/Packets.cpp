@@ -148,6 +148,16 @@ namespace Inworld {
         }
     }
 
+    A2FAnimationHeaderEvent::A2FAnimationHeaderEvent(const InworldPakets::InworldPacket& GrpcPacket) : DataEvent(GrpcPacket)
+    {
+        
+    }
+
+    A2FAnimationEvent::A2FAnimationEvent(const InworldPakets::InworldPacket& GrpcPacket) : DataEvent(GrpcPacket)
+    {
+
+    }
+
     EmotionEvent::EmotionEvent(const InworldPakets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
     {
         _Behavior = GrpcPacket.emotion().behavior();
@@ -245,6 +255,7 @@ namespace Inworld {
 		Capabilities->set_relations(_Data.Relations);
 		Capabilities->set_debug_info(_Data.Relations);
 		Capabilities->set_multi_agent(_Data.Multiagent);
+        Capabilities->set_audio2face(_Data.Audio2Face);
 	}
 
 	void SessionControlEvent_UserConfiguration::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
@@ -299,10 +310,11 @@ namespace Inworld {
 
 	void SessionControlEvent_UnloadCharacters::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
 	{
-		auto* UnloadCharacters = Proto.mutable_mutation()->mutable_unload_characters();
+        // ???
+		//auto* UnloadCharacters = Proto.mutable_mutation()->mutable_unload_characters();
 		for (auto& Name : _Data.Names)
 		{
-            UnloadCharacters->add_agents()->set_agent_id(Name);
+            //UnloadCharacters->add_agents()->set_agent_id(Name);
 		}
 	}
 

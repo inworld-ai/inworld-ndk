@@ -167,6 +167,35 @@ inline bool TTSType_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<TTSType>(
     TTSType_descriptor(), name, value);
 }
+enum Accent : int {
+  ACCENT_UNSPECIFIED = 0,
+  ACCENT_BRITISH = 1,
+  ACCENT_RUSSIAN = 2,
+  ACCENT_AUSTRALIAN = 3,
+  ACCENT_GERMAN = 4,
+  ACCENT_FRENCH = 5,
+  Accent_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  Accent_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool Accent_IsValid(int value);
+constexpr Accent Accent_MIN = ACCENT_UNSPECIFIED;
+constexpr Accent Accent_MAX = ACCENT_FRENCH;
+constexpr int Accent_ARRAYSIZE = Accent_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Accent_descriptor();
+template<typename T>
+inline const std::string& Accent_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, Accent>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function Accent_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    Accent_descriptor(), enum_t_value);
+}
+inline bool Accent_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Accent* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Accent>(
+    Accent_descriptor(), name, value);
+}
 // ===================================================================
 
 class InworldV2Metadata PROTOBUF_FINAL :
@@ -282,6 +311,8 @@ class InworldV2Metadata PROTOBUF_FINAL :
 
   enum : int {
     kVoiceIdFieldNumber = 1,
+    kAccentFieldNumber = 2,
+    kCustomFieldNumber = 3,
   };
   // string voice_id = 1;
   void clear_voice_id();
@@ -299,6 +330,24 @@ class InworldV2Metadata PROTOBUF_FINAL :
   std::string* _internal_mutable_voice_id();
   public:
 
+  // .ai.inworld.voices.Accent accent = 2;
+  void clear_accent();
+  ::ai::inworld::voices::Accent accent() const;
+  void set_accent(::ai::inworld::voices::Accent value);
+  private:
+  ::ai::inworld::voices::Accent _internal_accent() const;
+  void _internal_set_accent(::ai::inworld::voices::Accent value);
+  public:
+
+  // bool custom = 3;
+  void clear_custom();
+  bool custom() const;
+  void set_custom(bool value);
+  private:
+  bool _internal_custom() const;
+  void _internal_set_custom(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:ai.inworld.voices.InworldV2Metadata)
  private:
   class _Internal;
@@ -307,6 +356,8 @@ class InworldV2Metadata PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr voice_id_;
+  int accent_;
+  bool custom_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fvoices_2fvoices_2eproto;
 };
@@ -617,6 +668,7 @@ class Voice PROTOBUF_FINAL :
     kRoboticVoiceFilterLevelFieldNumber = 6,
     kAgeFieldNumber = 8,
     kLanguageFieldNumber = 10,
+    kAccentFieldNumber = 11,
     kElevenlabsMetadataFieldNumber = 100,
     kInworldV2MetadataFieldNumber = 101,
   };
@@ -732,6 +784,15 @@ class Voice PROTOBUF_FINAL :
   void _internal_set_language(::ai::inworld::language_codes::LanguageCode value);
   public:
 
+  // .ai.inworld.voices.Accent accent = 11;
+  void clear_accent();
+  ::ai::inworld::voices::Accent accent() const;
+  void set_accent(::ai::inworld::voices::Accent value);
+  private:
+  ::ai::inworld::voices::Accent _internal_accent() const;
+  void _internal_set_accent(::ai::inworld::voices::Accent value);
+  public:
+
   // .ai.inworld.voices.Voice.ElevenLabsMetadata elevenlabs_metadata = 100;
   bool has_elevenlabs_metadata() const;
   private:
@@ -796,6 +857,7 @@ class Voice PROTOBUF_FINAL :
   double robotic_voice_filter_level_;
   int age_;
   int language_;
+  int accent_;
   union TtsMetadataUnion {
     TtsMetadataUnion() {}
     ::ai::inworld::voices::Voice_ElevenLabsMetadata* elevenlabs_metadata_;
@@ -876,6 +938,46 @@ inline void InworldV2Metadata::set_allocated_voice_id(std::string* voice_id) {
   voice_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), voice_id,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.voices.InworldV2Metadata.voice_id)
+}
+
+// .ai.inworld.voices.Accent accent = 2;
+inline void InworldV2Metadata::clear_accent() {
+  accent_ = 0;
+}
+inline ::ai::inworld::voices::Accent InworldV2Metadata::_internal_accent() const {
+  return static_cast< ::ai::inworld::voices::Accent >(accent_);
+}
+inline ::ai::inworld::voices::Accent InworldV2Metadata::accent() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.voices.InworldV2Metadata.accent)
+  return _internal_accent();
+}
+inline void InworldV2Metadata::_internal_set_accent(::ai::inworld::voices::Accent value) {
+  
+  accent_ = value;
+}
+inline void InworldV2Metadata::set_accent(::ai::inworld::voices::Accent value) {
+  _internal_set_accent(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.voices.InworldV2Metadata.accent)
+}
+
+// bool custom = 3;
+inline void InworldV2Metadata::clear_custom() {
+  custom_ = false;
+}
+inline bool InworldV2Metadata::_internal_custom() const {
+  return custom_;
+}
+inline bool InworldV2Metadata::custom() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.voices.InworldV2Metadata.custom)
+  return _internal_custom();
+}
+inline void InworldV2Metadata::_internal_set_custom(bool value) {
+  
+  custom_ = value;
+}
+inline void InworldV2Metadata::set_custom(bool value) {
+  _internal_set_custom(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.voices.InworldV2Metadata.custom)
 }
 
 // -------------------------------------------------------------------
@@ -1240,6 +1342,26 @@ inline void Voice::set_language(::ai::inworld::language_codes::LanguageCode valu
   // @@protoc_insertion_point(field_set:ai.inworld.voices.Voice.language)
 }
 
+// .ai.inworld.voices.Accent accent = 11;
+inline void Voice::clear_accent() {
+  accent_ = 0;
+}
+inline ::ai::inworld::voices::Accent Voice::_internal_accent() const {
+  return static_cast< ::ai::inworld::voices::Accent >(accent_);
+}
+inline ::ai::inworld::voices::Accent Voice::accent() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.voices.Voice.accent)
+  return _internal_accent();
+}
+inline void Voice::_internal_set_accent(::ai::inworld::voices::Accent value) {
+  
+  accent_ = value;
+}
+inline void Voice::set_accent(::ai::inworld::voices::Accent value) {
+  _internal_set_accent(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.voices.Voice.accent)
+}
+
 // .ai.inworld.voices.Voice.ElevenLabsMetadata elevenlabs_metadata = 100;
 inline bool Voice::_internal_has_elevenlabs_metadata() const {
   return tts_metadata_case() == kElevenlabsMetadata;
@@ -1427,6 +1549,11 @@ template <> struct is_proto_enum< ::ai::inworld::voices::TTSType> : ::std::true_
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ai::inworld::voices::TTSType>() {
   return ::ai::inworld::voices::TTSType_descriptor();
+}
+template <> struct is_proto_enum< ::ai::inworld::voices::Accent> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ai::inworld::voices::Accent>() {
+  return ::ai::inworld::voices::Accent_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

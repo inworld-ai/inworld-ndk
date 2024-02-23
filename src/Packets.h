@@ -215,7 +215,7 @@ namespace Inworld {
 		std::string _Chunk;
 	};
 
-	class AudioDataEvent : public DataEvent
+	class INWORLD_EXPORT AudioDataEvent : public DataEvent
 	{
 	public:
 		AudioDataEvent() = default;
@@ -240,6 +240,42 @@ namespace Inworld {
 		
 	private:
 		std::vector<PhonemeInfo> _PhonemeInfos;
+	};
+
+	class INWORLD_EXPORT A2FAnimationHeaderEvent : public DataEvent
+	{
+	public:
+		A2FAnimationHeaderEvent() = default;
+		A2FAnimationHeaderEvent(const InworldPakets::InworldPacket& GrpcPacket);
+		A2FAnimationHeaderEvent(const std::string& Data, const Routing& Routing)
+			: DataEvent(Data, Routing)
+		{}
+
+		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
+
+		const InworldPakets::DataChunk_DataType GetType() const override { return InworldPakets::DataChunk_DataType_NVIDIA_A2F_ANIMATION_HEADER; }
+
+	protected:
+		//virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+
+	};
+
+	class INWORLD_EXPORT A2FAnimationEvent : public DataEvent
+	{
+	public:
+		A2FAnimationEvent() = default;
+		A2FAnimationEvent(const InworldPakets::InworldPacket& GrpcPacket);
+		A2FAnimationEvent(const std::string& Data, const Routing& Routing)
+			: DataEvent(Data, Routing)
+		{}
+
+		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
+
+		const InworldPakets::DataChunk_DataType GetType() const override { return InworldPakets::DataChunk_DataType_NVIDIA_A2F_ANIMATION; }
+
+	protected:
+		//virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+
 	};
 
 	class INWORLD_EXPORT SilenceEvent : public Packet
@@ -484,6 +520,7 @@ namespace Inworld {
 			bool NarratedActions = true;
 			bool Relations = true;
 			bool Multiagent = true;
+			bool Audio2Face = false;
 		};
 
 		SessionControlEvent_Capabilities(const Data& Data)
