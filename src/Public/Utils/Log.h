@@ -28,7 +28,7 @@ namespace Inworld
 #endif
 
 	template<typename... Args>
-	std::string VFormat(std::string fmt, Args &&... args)
+	std::string Format(std::string fmt, Args &&... args)
 	{
 #ifdef INWORLD_LOG
 		size_t size = std::snprintf(nullptr, 0, fmt.c_str(), std::forward<Args>(args)...) + 1;
@@ -46,7 +46,7 @@ namespace Inworld
 	void Log(std::string fmt, Args &&... args)
 	{
 #ifdef INWORLD_LOG
-		Log(VFormat(fmt, args...));
+		Log(Format(fmt, args...));
 #endif
 	}
 
@@ -56,7 +56,7 @@ namespace Inworld
 	void LogWarning(std::string fmt, Args &&... args)
 	{
 #ifdef INWORLD_LOG
-		LogWarning(VFormat(fmt, args...));
+		LogWarning(Format(fmt, args...));
 #endif
 	}
 	
@@ -66,7 +66,7 @@ namespace Inworld
 	void LogError(std::string fmt, Args &&... args)
 	{
 #ifdef INWORLD_LOG
-		LogError(VFormat(fmt, args...));
+		LogError(Format(fmt, args...));
 #endif
 	}
 
