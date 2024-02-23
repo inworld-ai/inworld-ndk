@@ -122,7 +122,7 @@ set(gRPC_CARES_PROVIDER module)
 set(gRPC_PROTOBUF_PROVIDER module)
 set(gRPC_RE2_PROVIDER module)
 
-if (INWORLD_SHARED)
+if (INWORLD_SHARED AND IOS)
     set(gRPC_ZLIB_PROVIDER module)
     set(gRPC_SSL_PROVIDER module)
 else()
