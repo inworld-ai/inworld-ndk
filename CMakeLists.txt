@@ -321,9 +321,12 @@ endif()
 
 if (INWORLD_SHARED)
     set(LibFiles 
-        ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}inworld-ndk.${LibExt}
         ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}inworld-ndk.${DynamicLibExt}
     )
+    if (WIN32)
+        list(APPEND LibFiles
+            ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}inworld-ndk.${LibExt})
+    endif()
 else()
     set(LibFiles 
         ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}inworld-ndk.${LibExt}

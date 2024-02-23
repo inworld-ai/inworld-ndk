@@ -66,8 +66,8 @@ namespace Inworld
 			_SessionService.reset();
 		}
 
-		virtual std::unique_ptr<ServiceSession>& Session() { return _SessionService; }
-		virtual std::unique_ptr<ClientStream>& Stream() { return _ClientStream; }
+		virtual std::unique_ptr<ServiceSession>& Session() override { return _SessionService; }
+		virtual std::unique_ptr<ClientStream>& Stream() override { return _ClientStream; }
 
 		virtual void OpenSession() override
 		{
