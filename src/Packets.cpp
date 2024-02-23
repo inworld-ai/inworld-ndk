@@ -9,7 +9,6 @@
 #include "proto/ProtoDisableWarning.h"
 
 #include <random>
-#include <format>
 #include "Types.h"
 #include "Utils/Log.h"
 
@@ -323,7 +322,7 @@ namespace Inworld {
 			{
 				const auto Workspace = Info.BrainName.substr(0, Idx);
 				const auto Character = Info.BrainName.substr(Idx + 2, Info.BrainName.size() - Idx + 1);
-                const auto Normalized = std::format("workspaces/{}/characters/{}", Workspace.c_str(), Character.c_str());
+                const auto Normalized = Inworld::Format("workspaces/%s/characters/%s", Workspace.c_str(), Character.c_str());
 				Inworld::Log("Normalizing character brain name '%s', new name '%s'", Info.BrainName.c_str(), Normalized.c_str());
                 Info.BrainName = Normalized;
 			}
