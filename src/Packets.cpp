@@ -9,6 +9,7 @@
 #include "proto/ProtoDisableWarning.h"
 
 #include <random>
+#include <format>
 #include "Types.h"
 #include "Utils/Log.h"
 
@@ -306,30 +307,39 @@ namespace Inworld {
 		}
 	}
 
+    template<typename TSource>
+    void ExtractAgentInfos(const TSource& Source, std::vector<AgentInfo>& AgentInfos)
+    {
+		AgentInfos.reserve(Source.agents_size());
+		for (int32_t i = 0; i < Source.agents_size(); i++)
+		{
+			AgentInfo& Info = AgentInfos.emplace_back();
+			Info.BrainName = Source.agents(i).brain_name().c_str();
+			Info.AgentId = Source.agents(i).agent_id().c_str();
+			Info.GivenName = Source.agents(i).given_name().c_str();
+
+			const size_t Idx = Info.BrainName.find("__");
+			if (Idx != std::string::npos)
+			{
+				const auto Workspace = Info.BrainName.substr(0, Idx);
+				const auto Character = Info.BrainName.substr(Idx + 2, Info.BrainName.size() - Idx + 1);
+                const auto Normalized = std::format("workspaces/{}/characters/{}", Workspace.c_str(), Character.c_str());
+				Inworld::Log("Normalizing character brain name '%s', new name '%s'", Info.BrainName.c_str(), Normalized.c_str());
+                Info.BrainName = Normalized;
+			}
+		}
+    }
+
     SessionControlResponse_LoadScene::SessionControlResponse_LoadScene(const InworldPakets::InworldPacket& GrpcPacket)
 	{
-		auto& Scene = GrpcPacket.session_control_response().loaded_scene();
-		_AgentInfos.reserve(Scene.agents_size());
-		for (int32_t i = 0; i < Scene.agents_size(); i++)
-		{
-			AgentInfo& Info = _AgentInfos.emplace_back();
-			Info.BrainName = Scene.agents(i).brain_name().c_str();
-			Info.AgentId = Scene.agents(i).agent_id().c_str();
-			Info.GivenName = Scene.agents(i).given_name().c_str();
-		}
+		const auto& Scene = GrpcPacket.session_control_response().loaded_scene();
+        ExtractAgentInfos(Scene, _AgentInfos);
 	}
 
 	SessionControlResponse_LoadCharacters::SessionControlResponse_LoadCharacters(const InworldPakets::InworldPacket& GrpcPacket)
 	{
-        auto& Characters = GrpcPacket.session_control_response().loaded_characters();
-		_AgentInfos.reserve(Characters.agents_size());
-		for (int32_t i = 0; i < Characters.agents_size(); i++)
-		{
-			AgentInfo& Info = _AgentInfos.emplace_back();
-			Info.BrainName = Characters.agents(i).brain_name().c_str();
-			Info.AgentId = Characters.agents(i).agent_id().c_str();
-			Info.GivenName = Characters.agents(i).given_name().c_str();
-		}
+		const auto& Characters = GrpcPacket.session_control_response().loaded_characters();
+		ExtractAgentInfos(Characters, _AgentInfos);
 	}
 
 }
