@@ -10,6 +10,7 @@
 #include "Client.h"
 #include "CommandLineInterface.h"
 #include "PacketHandler.h"
+#include "StudioClient.h"
 
 namespace NDKApp
 {
@@ -30,6 +31,7 @@ namespace NDKApp
 
 		Inworld::Client _Client;
 		Inworld::ClientOptions _Options;
+		Inworld::StudioClient _StudioClient;
 		CommandLineInterface _Cli;
 		PacketHandler _PacketHandler;
 

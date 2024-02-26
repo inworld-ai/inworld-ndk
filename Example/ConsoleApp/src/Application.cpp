@@ -277,6 +277,52 @@ void NDKApp::App::Run()
 				_Client.DestroyClient();
 				Run();
 			}
+		},
+		{
+			"StudioRequest",
+			"Request studio data",
+			[this](std::vector<std::string> Args)
+			{
+				if (Args.size() != 1)
+				{
+					Error("Invalid args");
+					return;
+				}
+
+				_StudioClient.RequestStudioUserData(Args[0], "api-studio.inworld.ai:443", [this](bool bSuccess)
+					{
+						if (!bSuccess)
+						{
+							Error("Secure token failure");
+							return;
+						}
+
+						Inworld::Log("Studio data success");
+						const auto& Data = _StudioClient.GetStudioUserData();
+						for (auto& W : Data.Workspaces)
+						{
+							Inworld::Log("Workspace %s", W.ShortName.c_str());
+							
+							Inworld::Log(" Characters:");
+							for (auto& C : W.Characters)
+							{
+								Inworld::Log("  %s", C.ShortName.c_str());
+							}
+
+							Inworld::Log(" Scenes:");
+							for (auto& S : W.Scenes)
+							{
+								Inworld::Log("  %s", S.ShortName.c_str());
+							}
+
+							Inworld::Log(" ApiKeys:");
+							for (auto& A : W.ApiKeys)
+							{
+								Inworld::Log("  %s", A.Name.c_str());
+							}
+						}
+					});
+			}
 		}
 		});
 
@@ -347,6 +393,7 @@ void NDKApp::App::Run()
 	for (;;)
 	{
 		_Client.Update();
+		_StudioClient.Update();
 
 		if (!_AgentInfos.empty() && !_Cli.IsRunning())
 		{

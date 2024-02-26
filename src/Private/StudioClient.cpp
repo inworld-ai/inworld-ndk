@@ -1,0 +1,262 @@
+/**
+ * Copyright 2023-2024 Theai, Inc. dba Inworld AI
+ *
+ * Use of this source code is governed by the Inworld.ai Software Development Kit License Agreement
+ * that can be found in the LICENSE.md file or at https://www.inworld.ai/sdk-license
+ */
+
+#include "StudioClient.h"
+#include "Service.h"
+#include "Log.h"
+#include "GrpcHelpers.h"
+
+void Inworld::StudioClientBase::RequestStudioUserData(const std::string& InToken, const std::string& InServerUrl, std::function<void(bool bSuccess)> InCallback)
+{
+	ClearError();
+
+	ServerUrl = InServerUrl;
+	Callback = InCallback;
+
+	Request(
+		"RunnableGenerateUserTokenRequest",
+		std::make_unique<Inworld::RunnableGenerateUserTokenRequest>(
+			InToken,
+			InServerUrl,
+			[this](const grpc::Status& Status, const InworldV1alpha::GenerateTokenUserResponse& Response)
+			{
+				if (!Status.ok())
+				{
+					Error(Inworld::Format("RunnableGenerateUserTokenRequest FALURE! %s, Code: %d", Status.error_message().c_str(), Status.error_code()));
+					return;
+				}
+
+				OnGenerateUserToken(Response);
+			}
+		)
+	);
+}
+
+void Inworld::StudioClientBase::OnGenerateUserToken(const InworldV1alpha::GenerateTokenUserResponse& Response)
+{
+	InworldToken = Response.token().c_str();
+	StudioUserData.Workspaces.clear();
+
+	Request(
+		"RunnableListWorkspacesRequest",
+		std::make_unique<Inworld::RunnableListWorkspacesRequest>(
+			InworldToken,
+			ServerUrl,
+			[this](const grpc::Status& Status, const InworldV1alpha::ListWorkspacesResponse& Response)
+			{
+				if (!Status.ok())
+				{
+					Error(Inworld::Format("RunnableListWorkspacesRequest FALURE! %s, Code: %d", Status.error_message().c_str(), Status.error_code()));
+					return;
+				}
+
+				OnWorkspacesReady(Response);
+			}
+		)
+	);
+}
+
+static std::string CreateShortName(const std::string& Name)
+{
+	const int32_t Idx = Name.find_last_of('/');
+	if (Idx != std::string::npos)
+	{
+		return Name.substr(Idx + 1, Name.size() - Idx + 1);
+	}
+	return Name;
+}
+
+void Inworld::StudioClientBase::OnWorkspacesReady(const InworldV1alpha::ListWorkspacesResponse& Response)
+{
+	StudioUserData.Workspaces.reserve(Response.workspaces_size());
+
+	for (int32_t i = 0; i < Response.workspaces_size(); i++)
+	{
+		const auto& GrpcWorkspace = Response.workspaces(i);
+		auto& Workspace = StudioUserData.Workspaces.emplace_back();
+		Workspace.Name = GrpcWorkspace.name().data();
+		Workspace.ShortName = CreateShortName(Workspace.Name);
+
+		Request(
+			"RunnableListScenesRequest",
+			std::make_unique<Inworld::RunnableListScenesRequest>(
+				InworldToken,
+				ServerUrl,
+				GrpcWorkspace.name(),
+				[this, &Workspace](const grpc::Status& Status, const InworldV1alpha::ListScenesResponse& Response)
+				{
+					if (!Status.ok())
+					{
+						Error(Inworld::Format("RunnableListScenesRequest FALURE! %s, Code: %d", Status.error_message().c_str(), Status.error_code()));
+						return;
+					}
+
+					OnScenesReady(Response, Workspace);
+				}
+			)
+		);
+
+		Request(
+			"RunnableListCharactersRequest",
+			std::make_unique<Inworld::RunnableListCharactersRequest>(
+				InworldToken,
+				ServerUrl,
+				GrpcWorkspace.name(),
+				[this, &Workspace](const grpc::Status& Status, const InworldV1alpha::ListCharactersResponse& Response)
+				{
+					if (!Status.ok())
+					{
+						Error(Inworld::Format("RunnableListCharactersRequest FALURE! %s, Code: %d", Status.error_message().c_str(), Status.error_code()));
+						return;
+					}
+
+					OnCharactersReady(Response, Workspace);
+				}
+			)
+		);
+
+		Request(
+			"RunnableListApiKeysRequest",
+			std::make_unique<Inworld::RunnableListApiKeysRequest>(
+				InworldToken,
+				ServerUrl,
+				GrpcWorkspace.name(),
+				[this, &Workspace](const grpc::Status& Status, const InworldV1alpha::ListApiKeysResponse& Response)
+				{
+					if (!Status.ok())
+					{
+						Error(Inworld::Format("RunnableListCharactersRequest FALURE! %s, Code: %d", Status.error_message().c_str(), Status.error_code()));
+						return;
+					}
+
+					OnApiKeysReady(Response, Workspace);
+				}
+			)
+		);
+	}
+}
+
+void Inworld::StudioClientBase::OnApiKeysReady(const InworldV1alpha::ListApiKeysResponse& Response, Inworld::StudioUserWorkspaceData& Workspace)
+{
+	Workspace.ApiKeys.reserve(Response.api_keys_size());
+
+	for (int32_t i = 0; i < Response.api_keys_size(); i++)
+	{
+		const auto& GrpcApiKey = Response.api_keys(i);
+		auto& ApiKey = Workspace.ApiKeys.emplace_back();
+		ApiKey.Name = GrpcApiKey.name().data();
+		ApiKey.Key = GrpcApiKey.key().data();
+		ApiKey.Secret = GrpcApiKey.secret().data();
+		ApiKey.IsActive = GrpcApiKey.state() == InworldV1alpha::ApiKey_State_ACTIVE;
+	}
+
+	AddTaskToMainThread([this]() { CheckRequestsDone(); });
+}
+
+void Inworld::StudioClientBase::OnScenesReady(const InworldV1alpha::ListScenesResponse& Response, Inworld::StudioUserWorkspaceData& Workspace)
+{
+	Workspace.Scenes.reserve(Response.scenes_size());
+
+	for (int32_t i = 0; i < Response.scenes_size(); i++)
+	{
+		const auto& GrpcScene = Response.scenes(i);
+		auto& Scene = Workspace.Scenes.emplace_back();
+		Scene.Name = GrpcScene.name().data();
+		Scene.ShortName = CreateShortName(Scene.Name);
+		Scene.Characters.reserve(GrpcScene.character_references_size());
+		for (int32_t j = 0; j < GrpcScene.character_references_size(); j++)
+		{
+			Scene.Characters.emplace_back(GrpcScene.character_references(j).character().data());
+		}
+	}
+
+	AddTaskToMainThread([this]() { CheckRequestsDone(); });
+}
+
+void Inworld::StudioClientBase::OnCharactersReady(const InworldV1alpha::ListCharactersResponse& Response, Inworld::StudioUserWorkspaceData& Workspace)
+{
+	Workspace.Characters.reserve(Response.characters_size());
+
+	for (int32_t i = 0; i < Response.characters_size(); i++)
+	{
+		const auto& GrpcCharacter = Response.characters(i);
+		auto& Character = Workspace.Characters.emplace_back();
+		Inworld::GrpcHelper::CharacterInfo CharInfo = Inworld::GrpcHelper::CreateCharacterInfo(GrpcCharacter);
+		Character.Name = CharInfo._Name.c_str();
+		Character.ShortName = CreateShortName(Character.Name);
+		Character.RpmModelUri = CharInfo._RpmModelUri.c_str();
+		Character.RpmImageUri = CharInfo._RpmImageUri.c_str();
+		Character.RpmPortraitUri = CharInfo._RpmPortraitUri.c_str();
+		Character.RpmPostureUri = CharInfo._RpmPostureUri.c_str();
+		Character.bMale = CharInfo._bMale;
+	}
+
+	AddTaskToMainThread([this]() { CheckRequestsDone(); });
+}
+
+void Inworld::StudioClientBase::CancelRequests()
+{
+	std::lock_guard<std::mutex> Lock(RequestsMutex);
+
+	Requests.clear();
+}
+
+void Inworld::StudioClientBase::Request(const std::string& ThreadName, std::unique_ptr<Inworld::Runnable> Runnable)
+{
+	std::lock_guard<std::mutex> Lock(RequestsMutex);
+
+	auto& AsyncTask = Requests.emplace_back(std::make_shared<AsyncRoutine>());
+	AsyncTask->Start(ThreadName, std::move(Runnable));
+}
+
+void Inworld::StudioClientBase::CheckRequestsDone()
+{
+	std::lock_guard<std::mutex> Lock(RequestsMutex);
+
+	for (auto& R : Requests)
+	{
+		if (!R->IsDone())
+		{
+			return;
+		}
+	}
+
+	Requests.clear();
+	Callback(true);
+}
+
+void Inworld::StudioClientBase::Error(std::string Message)
+{
+	Inworld::LogError("%s", Message.c_str());
+	ErrorMessage = Message;
+	CancelRequests();
+	Callback(false);
+}
+
+void Inworld::StudioClientBase::ClearError()
+{
+	ErrorMessage.clear();
+}
+
+void Inworld::StudioClient::Update()
+{
+	ExecutePendingTasks();
+}
+
+void Inworld::StudioClient::AddTaskToMainThread(std::function<void()> Task)
+{
+	_MainThreadTasks.PushBack(Task);
+}
+
+void Inworld::StudioClient::ExecutePendingTasks()
+{
+	std::function<void()> Task;
+	while (_MainThreadTasks.PopFront(Task))
+	{
+		Task();
+	}
+}
