@@ -40,10 +40,10 @@ namespace Inworld
 	using ClientStream = ::grpc::ClientReaderWriter<InworldPackets::InworldPacket, InworldPackets::InworldPacket>;
 
 	// use for grpc related ClientBase members
-	class ClientService
+	class IClientService
 	{
 	public:
-		virtual ~ClientService() = default;
+		virtual ~IClientService() = default;
 		virtual std::unique_ptr<ServiceSession>& Session() = 0;
 		virtual std::unique_ptr<ClientStream>& Stream() = 0;
 		virtual void OpenSession() = 0;
@@ -210,7 +210,7 @@ namespace Inworld
 		std::unique_ptr<IAsyncRoutine> _AsyncGenerateTokenTask;		
 		std::unique_ptr<IAsyncRoutine> _AsyncGetSessionState;
 		
-		std::unique_ptr<ClientService> _Service;
+		std::unique_ptr<IClientService> _Service;
 
 		PacketQueue _IncomingPackets;
 		PacketQueue _OutgoingPackets;

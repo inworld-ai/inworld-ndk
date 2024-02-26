@@ -57,10 +57,10 @@ static void GrpcLog(gpr_log_func_args* args)
 
 namespace Inworld
 {
-	class ClientServiceImpl : public ClientService
+	class ClientService : public IClientService
 	{
 	public:
-		virtual ~ClientServiceImpl()
+		virtual ~ClientService()
 		{
 			_ClientStream.reset();
 			_SessionService.reset();
@@ -73,7 +73,7 @@ namespace Inworld
 		{
 			if (!_SessionService)
 			{
-				Inworld::LogError("ClientServiceImpl::OpenSession error, service invalid");
+				Inworld::LogError("ClientService::OpenSession error, service invalid");
 				return;
 			}
 
@@ -328,7 +328,7 @@ void Inworld::ClientBase::InitClient(const SdkInfo& SdkInfo, std::function<void(
 {
 	gpr_set_log_function(GrpcLog);
 
-	_Service = std::make_unique<ClientServiceImpl>();
+	_Service = std::make_unique<ClientService>();
 
 	_SdkInfo = SdkInfo;
 	if (_SdkInfo.Type.empty())
