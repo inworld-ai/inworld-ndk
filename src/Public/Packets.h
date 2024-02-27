@@ -644,4 +644,3 @@ namespace Inworld {
 		std::vector<AgentInfo> _AgentInfos;
 	};
 }
-#pragma warning(pop)

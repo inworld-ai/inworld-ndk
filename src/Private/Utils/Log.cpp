@@ -21,6 +21,11 @@
 
 std::string Inworld::g_SessionId = "Unknown";
 
+const std::string& Inworld::GetSessionId()
+{
+	return g_SessionId;
+}
+
 void Inworld::LogSetSessionId(const std::string Id)
 {
     g_SessionId = Id;

@@ -15,7 +15,8 @@
 
 namespace Inworld
 {
-	INWORLD_EXPORT extern std::string g_SessionId;
+	extern std::string g_SessionId;
+	INWORLD_EXPORT const std::string& GetSessionId();
 
 	INWORLD_EXPORT void LogSetSessionId(const std::string Id);
 	INWORLD_EXPORT void LogClearSessionId();

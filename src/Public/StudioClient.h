@@ -14,7 +14,7 @@
 #include <mutex>
 
 #include "AsyncRoutine.h"
-#include "SharedQueue.h"
+#include "Utils/SharedQueue.h"
 #include "Define.h"
 
 namespace ai::inworld::studio::v1alpha
@@ -79,26 +79,11 @@ namespace Inworld
 		std::vector<StudioUserWorkspaceData> Workspaces;
 	};
 
-	struct INWORLD_EXPORT FRefreshTokenRequestData
-	{
-		std::string grant_type;
-		std::string refresh_token;
-	};
-
-	struct INWORLD_EXPORT FRefreshTokenResponseData
-	{
-		std::string access_token;
-		int32_t expires_in = 0;
-		std::string token_type;
-		std::string refresh_token;
-		std::string id_token;
-		std::string user_id;
-		std::string project_id;
-	};
-
 	class INWORLD_EXPORT StudioClientBase
 	{
 	public:
+		virtual ~StudioClientBase() = default;
+		
 		void RequestStudioUserData(const std::string& Token, const std::string& ServerUrl, std::function<void(bool bSuccess)> InCallback);
 
 		void CancelRequests();
