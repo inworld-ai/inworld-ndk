@@ -14,25 +14,20 @@
 #include <unordered_map>
 #include <chrono>
 
-#ifdef _WIN32
 namespace ai { namespace inworld { namespace packets {
 	class Actor;
 	class Routing;
 	class PacketId;
 	class InworldPacket;
 
-	enum Actor_Type;
-	enum TextEvent_SourceType;
-	enum DataChunk_DataType;
-	enum ControlEvent_Action;
-	enum EmotionEvent_SpaffCode;
-	enum EmotionEvent_Strength;
-	enum Playback;
+	enum Actor_Type : int;
+	enum TextEvent_SourceType : int;
+	enum DataChunk_DataType : int;
+	enum ControlEvent_Action : int;
+	enum EmotionEvent_SpaffCode : int;
+	enum EmotionEvent_Strength : int;
+	enum Playback : int;
 }}}
-#else
-// enum forward declarations forbidden
-#include "ai/inworld/packets/packets.pb.h"
-#endif
 namespace InworldPackets = ai::inworld::packets;
 
 namespace Inworld {
