@@ -17,14 +17,14 @@
 #include "Utils/SharedQueue.h"
 #include "Define.h"
 
-namespace ai::inworld::studio::v1alpha
+namespace ai { namespace inworld { namespace studio { namespace v1alpha
 {
 	class GenerateTokenUserResponse;
 	class ListWorkspacesResponse;
 	class ListApiKeysResponse;
 	class ListScenesResponse;
 	class ListCharactersResponse;
-}
+}}}}
 
 namespace InworldV1alpha = ai::inworld::studio::v1alpha;
 

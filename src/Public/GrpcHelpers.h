@@ -10,10 +10,10 @@
 #include <string>
 #include "Define.h"
 
-namespace ai::inworld::studio::v1alpha
+namespace ai { namespace inworld { namespace studio { namespace v1alpha
 {
 	class Character;
-}
+}}}}
 
 namespace InworldV1alpha = ai::inworld::studio::v1alpha;
 

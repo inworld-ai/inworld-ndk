@@ -23,10 +23,10 @@
 using PacketQueue = Inworld::SharedQueue<std::shared_ptr<Inworld::Packet>>;
 
 // don't include grpc related stuff to public headers
-namespace ai::inworld::packets
-{
+namespace ai { namespace inworld { namespace packets {
 	class InworldPacket;
-}
+}}}
+namespace InworldPackets = ai::inworld::packets;
 
 namespace grpc
 {

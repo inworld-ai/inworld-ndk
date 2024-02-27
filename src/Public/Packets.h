@@ -15,8 +15,7 @@
 #include <chrono>
 
 #ifdef _WIN32
-namespace ai::inworld::packets
-{
+namespace ai { namespace inworld { namespace packets {
 	class Actor;
 	class Routing;
 	class PacketId;
@@ -29,7 +28,7 @@ namespace ai::inworld::packets
 	enum EmotionEvent_SpaffCode;
 	enum EmotionEvent_Strength;
 	enum Playback;
-}
+}}}
 #else
 // enum forward declarations forbidden
 #include "ai/inworld/packets/packets.pb.h"
