@@ -3593,6 +3593,7 @@ class WorkspaceLimitInfo_CharacterLimit PROTOBUF_FINAL :
 
   enum : int {
     kCharacterDescriptionFieldNumber = 4,
+    kUserTagsFieldNumber = 5,
     kNameMaxLengthFieldNumber = 1,
     kTotalTriggersFieldNumber = 2,
     kTotalCommonKnowledgeFieldNumber = 3,
@@ -3614,6 +3615,24 @@ class WorkspaceLimitInfo_CharacterLimit PROTOBUF_FINAL :
   void unsafe_arena_set_allocated_character_description(
       ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit* character_description);
   ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit* unsafe_arena_release_character_description();
+
+  // .ai.inworld.studio.v1alpha.WorkspaceLimitInfo.TextListLimit user_tags = 5;
+  bool has_user_tags() const;
+  private:
+  bool _internal_has_user_tags() const;
+  public:
+  void clear_user_tags();
+  const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit& user_tags() const;
+  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* release_user_tags();
+  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* mutable_user_tags();
+  void set_allocated_user_tags(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* user_tags);
+  private:
+  const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit& _internal_user_tags() const;
+  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* _internal_mutable_user_tags();
+  public:
+  void unsafe_arena_set_allocated_user_tags(
+      ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* user_tags);
+  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* unsafe_arena_release_user_tags();
 
   // int32 name_max_length = 1;
   void clear_name_max_length();
@@ -3650,6 +3669,7 @@ class WorkspaceLimitInfo_CharacterLimit PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit* character_description_;
+  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* user_tags_;
   ::PROTOBUF_NAMESPACE_ID::int32 name_max_length_;
   ::PROTOBUF_NAMESPACE_ID::int32 total_triggers_;
   ::PROTOBUF_NAMESPACE_ID::int32 total_common_knowledge_;
@@ -3770,6 +3790,7 @@ class WorkspaceLimitInfo_SceneLimit PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kUserTagsFieldNumber = 7,
     kDescriptionMaxLengthFieldNumber = 1,
     kTotalCharactersFieldNumber = 2,
     kTotalTriggersFieldNumber = 3,
@@ -3777,6 +3798,24 @@ class WorkspaceLimitInfo_SceneLimit PROTOBUF_FINAL :
     kTotalCommonKnowledgeFieldNumber = 5,
     kSceneTriggerDescriptionMaxLengthFieldNumber = 6,
   };
+  // .ai.inworld.studio.v1alpha.WorkspaceLimitInfo.TextListLimit user_tags = 7;
+  bool has_user_tags() const;
+  private:
+  bool _internal_has_user_tags() const;
+  public:
+  void clear_user_tags();
+  const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit& user_tags() const;
+  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* release_user_tags();
+  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* mutable_user_tags();
+  void set_allocated_user_tags(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* user_tags);
+  private:
+  const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit& _internal_user_tags() const;
+  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* _internal_mutable_user_tags();
+  public:
+  void unsafe_arena_set_allocated_user_tags(
+      ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* user_tags);
+  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* unsafe_arena_release_user_tags();
+
   // int32 description_max_length = 1;
   void clear_description_max_length();
   ::PROTOBUF_NAMESPACE_ID::int32 description_max_length() const;
@@ -3838,6 +3877,7 @@ class WorkspaceLimitInfo_SceneLimit PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* user_tags_;
   ::PROTOBUF_NAMESPACE_ID::int32 description_max_length_;
   ::PROTOBUF_NAMESPACE_ID::int32 total_characters_;
   ::PROTOBUF_NAMESPACE_ID::int32 total_triggers_;
@@ -4300,6 +4340,7 @@ class WorkspaceLimitInfo_CommonKnowledgeLimit PROTOBUF_FINAL :
 
   enum : int {
     kMemoryRecordsFieldNumber = 3,
+    kUserTagsFieldNumber = 4,
     kDisplayNameMaxLengthFieldNumber = 1,
     kDescriptionMaxLengthFieldNumber = 2,
   };
@@ -4320,6 +4361,24 @@ class WorkspaceLimitInfo_CommonKnowledgeLimit PROTOBUF_FINAL :
   void unsafe_arena_set_allocated_memory_records(
       ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* memory_records);
   ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* unsafe_arena_release_memory_records();
+
+  // .ai.inworld.studio.v1alpha.WorkspaceLimitInfo.TextListLimit user_tags = 4;
+  bool has_user_tags() const;
+  private:
+  bool _internal_has_user_tags() const;
+  public:
+  void clear_user_tags();
+  const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit& user_tags() const;
+  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* release_user_tags();
+  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* mutable_user_tags();
+  void set_allocated_user_tags(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* user_tags);
+  private:
+  const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit& _internal_user_tags() const;
+  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* _internal_mutable_user_tags();
+  public:
+  void unsafe_arena_set_allocated_user_tags(
+      ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* user_tags);
+  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* unsafe_arena_release_user_tags();
 
   // int32 display_name_max_length = 1;
   void clear_display_name_max_length();
@@ -4347,6 +4406,7 @@ class WorkspaceLimitInfo_CommonKnowledgeLimit PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* memory_records_;
+  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* user_tags_;
   ::PROTOBUF_NAMESPACE_ID::int32 display_name_max_length_;
   ::PROTOBUF_NAMESPACE_ID::int32 description_max_length_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -7631,6 +7691,89 @@ inline void WorkspaceLimitInfo_CharacterLimit::set_allocated_character_descripti
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.CharacterLimit.character_description)
 }
 
+// .ai.inworld.studio.v1alpha.WorkspaceLimitInfo.TextListLimit user_tags = 5;
+inline bool WorkspaceLimitInfo_CharacterLimit::_internal_has_user_tags() const {
+  return this != internal_default_instance() && user_tags_ != nullptr;
+}
+inline bool WorkspaceLimitInfo_CharacterLimit::has_user_tags() const {
+  return _internal_has_user_tags();
+}
+inline void WorkspaceLimitInfo_CharacterLimit::clear_user_tags() {
+  if (GetArena() == nullptr && user_tags_ != nullptr) {
+    delete user_tags_;
+  }
+  user_tags_ = nullptr;
+}
+inline const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit& WorkspaceLimitInfo_CharacterLimit::_internal_user_tags() const {
+  const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* p = user_tags_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit&>(
+      ::ai::inworld::studio::v1alpha::_WorkspaceLimitInfo_TextListLimit_default_instance_);
+}
+inline const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit& WorkspaceLimitInfo_CharacterLimit::user_tags() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.CharacterLimit.user_tags)
+  return _internal_user_tags();
+}
+inline void WorkspaceLimitInfo_CharacterLimit::unsafe_arena_set_allocated_user_tags(
+    ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* user_tags) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(user_tags_);
+  }
+  user_tags_ = user_tags;
+  if (user_tags) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.CharacterLimit.user_tags)
+}
+inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* WorkspaceLimitInfo_CharacterLimit::release_user_tags() {
+  
+  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* temp = user_tags_;
+  user_tags_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* WorkspaceLimitInfo_CharacterLimit::unsafe_arena_release_user_tags() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.CharacterLimit.user_tags)
+  
+  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* temp = user_tags_;
+  user_tags_ = nullptr;
+  return temp;
+}
+inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* WorkspaceLimitInfo_CharacterLimit::_internal_mutable_user_tags() {
+  
+  if (user_tags_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit>(GetArena());
+    user_tags_ = p;
+  }
+  return user_tags_;
+}
+inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* WorkspaceLimitInfo_CharacterLimit::mutable_user_tags() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.CharacterLimit.user_tags)
+  return _internal_mutable_user_tags();
+}
+inline void WorkspaceLimitInfo_CharacterLimit::set_allocated_user_tags(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* user_tags) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete user_tags_;
+  }
+  if (user_tags) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(user_tags);
+    if (message_arena != submessage_arena) {
+      user_tags = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, user_tags, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  user_tags_ = user_tags;
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.CharacterLimit.user_tags)
+}
+
 // -------------------------------------------------------------------
 
 // WorkspaceLimitInfo_SceneLimit
@@ -7753,6 +7896,89 @@ inline void WorkspaceLimitInfo_SceneLimit::_internal_set_scene_trigger_descripti
 inline void WorkspaceLimitInfo_SceneLimit::set_scene_trigger_description_max_length(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_scene_trigger_description_max_length(value);
   // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.SceneLimit.scene_trigger_description_max_length)
+}
+
+// .ai.inworld.studio.v1alpha.WorkspaceLimitInfo.TextListLimit user_tags = 7;
+inline bool WorkspaceLimitInfo_SceneLimit::_internal_has_user_tags() const {
+  return this != internal_default_instance() && user_tags_ != nullptr;
+}
+inline bool WorkspaceLimitInfo_SceneLimit::has_user_tags() const {
+  return _internal_has_user_tags();
+}
+inline void WorkspaceLimitInfo_SceneLimit::clear_user_tags() {
+  if (GetArena() == nullptr && user_tags_ != nullptr) {
+    delete user_tags_;
+  }
+  user_tags_ = nullptr;
+}
+inline const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit& WorkspaceLimitInfo_SceneLimit::_internal_user_tags() const {
+  const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* p = user_tags_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit&>(
+      ::ai::inworld::studio::v1alpha::_WorkspaceLimitInfo_TextListLimit_default_instance_);
+}
+inline const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit& WorkspaceLimitInfo_SceneLimit::user_tags() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.SceneLimit.user_tags)
+  return _internal_user_tags();
+}
+inline void WorkspaceLimitInfo_SceneLimit::unsafe_arena_set_allocated_user_tags(
+    ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* user_tags) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(user_tags_);
+  }
+  user_tags_ = user_tags;
+  if (user_tags) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.SceneLimit.user_tags)
+}
+inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* WorkspaceLimitInfo_SceneLimit::release_user_tags() {
+  
+  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* temp = user_tags_;
+  user_tags_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* WorkspaceLimitInfo_SceneLimit::unsafe_arena_release_user_tags() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.SceneLimit.user_tags)
+  
+  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* temp = user_tags_;
+  user_tags_ = nullptr;
+  return temp;
+}
+inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* WorkspaceLimitInfo_SceneLimit::_internal_mutable_user_tags() {
+  
+  if (user_tags_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit>(GetArena());
+    user_tags_ = p;
+  }
+  return user_tags_;
+}
+inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* WorkspaceLimitInfo_SceneLimit::mutable_user_tags() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.SceneLimit.user_tags)
+  return _internal_mutable_user_tags();
+}
+inline void WorkspaceLimitInfo_SceneLimit::set_allocated_user_tags(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* user_tags) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete user_tags_;
+  }
+  if (user_tags) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(user_tags);
+    if (message_arena != submessage_arena) {
+      user_tags = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, user_tags, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  user_tags_ = user_tags;
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.SceneLimit.user_tags)
 }
 
 // -------------------------------------------------------------------
@@ -8048,6 +8274,89 @@ inline void WorkspaceLimitInfo_CommonKnowledgeLimit::set_allocated_memory_record
   }
   memory_records_ = memory_records;
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.CommonKnowledgeLimit.memory_records)
+}
+
+// .ai.inworld.studio.v1alpha.WorkspaceLimitInfo.TextListLimit user_tags = 4;
+inline bool WorkspaceLimitInfo_CommonKnowledgeLimit::_internal_has_user_tags() const {
+  return this != internal_default_instance() && user_tags_ != nullptr;
+}
+inline bool WorkspaceLimitInfo_CommonKnowledgeLimit::has_user_tags() const {
+  return _internal_has_user_tags();
+}
+inline void WorkspaceLimitInfo_CommonKnowledgeLimit::clear_user_tags() {
+  if (GetArena() == nullptr && user_tags_ != nullptr) {
+    delete user_tags_;
+  }
+  user_tags_ = nullptr;
+}
+inline const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit& WorkspaceLimitInfo_CommonKnowledgeLimit::_internal_user_tags() const {
+  const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* p = user_tags_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit&>(
+      ::ai::inworld::studio::v1alpha::_WorkspaceLimitInfo_TextListLimit_default_instance_);
+}
+inline const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit& WorkspaceLimitInfo_CommonKnowledgeLimit::user_tags() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.CommonKnowledgeLimit.user_tags)
+  return _internal_user_tags();
+}
+inline void WorkspaceLimitInfo_CommonKnowledgeLimit::unsafe_arena_set_allocated_user_tags(
+    ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* user_tags) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(user_tags_);
+  }
+  user_tags_ = user_tags;
+  if (user_tags) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.CommonKnowledgeLimit.user_tags)
+}
+inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* WorkspaceLimitInfo_CommonKnowledgeLimit::release_user_tags() {
+  
+  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* temp = user_tags_;
+  user_tags_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* WorkspaceLimitInfo_CommonKnowledgeLimit::unsafe_arena_release_user_tags() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.CommonKnowledgeLimit.user_tags)
+  
+  ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* temp = user_tags_;
+  user_tags_ = nullptr;
+  return temp;
+}
+inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* WorkspaceLimitInfo_CommonKnowledgeLimit::_internal_mutable_user_tags() {
+  
+  if (user_tags_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit>(GetArena());
+    user_tags_ = p;
+  }
+  return user_tags_;
+}
+inline ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* WorkspaceLimitInfo_CommonKnowledgeLimit::mutable_user_tags() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.CommonKnowledgeLimit.user_tags)
+  return _internal_mutable_user_tags();
+}
+inline void WorkspaceLimitInfo_CommonKnowledgeLimit::set_allocated_user_tags(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit* user_tags) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete user_tags_;
+  }
+  if (user_tags) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(user_tags);
+    if (message_arena != submessage_arena) {
+      user_tags = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, user_tags, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  user_tags_ = user_tags;
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.WorkspaceLimitInfo.CommonKnowledgeLimit.user_tags)
 }
 
 // -------------------------------------------------------------------

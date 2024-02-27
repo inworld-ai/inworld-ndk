@@ -9,6 +9,7 @@
 
 #include "ProtoDisableWarning.h"
 #include "ai/inworld/packets/packets.pb.h"
+#include "nvidia/animation-controller-interface-proto/nvidia.ace.controller.v1.pb.h"
 
 #include "Define.h"
 #include "Types.h"
@@ -96,6 +97,8 @@ namespace Inworld {
     class TextEvent;
     class DataEvent;
     class AudioDataEvent;
+    class A2FAnimationHeaderEvent;
+    class A2FAnimationEvent;
     class SilenceEvent;
     class ControlEvent;
     class EmotionEvent;
@@ -113,6 +116,8 @@ namespace Inworld {
         virtual void Visit(const TextEvent& Event) {  }
         virtual void Visit(const DataEvent& Event) {  }
         virtual void Visit(const AudioDataEvent& Event) {  }
+        virtual void Visit(const A2FAnimationHeaderEvent& Event) {  }
+        virtual void Visit(const A2FAnimationEvent& Event) {  }
         virtual void Visit(const SilenceEvent& Event) {  }
         virtual void Visit(const ControlEvent& Event) {  }
         virtual void Visit(const EmotionEvent& Event) {  }
@@ -242,40 +247,72 @@ namespace Inworld {
 		std::vector<PhonemeInfo> _PhonemeInfos;
 	};
 
-	class INWORLD_EXPORT A2FAnimationHeaderEvent : public DataEvent
+	class INWORLD_EXPORT A2FAnimationHeaderEvent : public Packet
 	{
 	public:
 		A2FAnimationHeaderEvent() = default;
+		A2FAnimationHeaderEvent(const void* Data, uint32_t Size);
 		A2FAnimationHeaderEvent(const InworldPakets::InworldPacket& GrpcPacket);
 		A2FAnimationHeaderEvent(const std::string& Data, const Routing& Routing)
-			: DataEvent(Data, Routing)
+			: Packet(Routing)
 		{}
 
 		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
 
-		const InworldPakets::DataChunk_DataType GetType() const override { return InworldPakets::DataChunk_DataType_NVIDIA_A2F_ANIMATION_HEADER; }
+		int32_t GetChannelCount() const { return _ChannelCount; }
+		int32_t GetSamplesPerSecond() const { return _SamplesPerSecond; }
+		int32_t GetBitsPerSample() const { return _BitsPerSample; }
+		const std::vector<std::string>& GetBlendShapes() const { return _BlendShapes; }
 
 	protected:
 		//virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
 
+	private:
+		int32_t _ChannelCount = 0;
+		int32_t _SamplesPerSecond = 0;
+		int32_t _BitsPerSample = 0;
+		std::vector<std::string> _BlendShapes;
 	};
 
-	class INWORLD_EXPORT A2FAnimationEvent : public DataEvent
+	class INWORLD_EXPORT A2FAnimationEvent : public Packet
 	{
 	public:
 		A2FAnimationEvent() = default;
+		A2FAnimationEvent(const void* Data, uint32_t Size);
 		A2FAnimationEvent(const InworldPakets::InworldPacket& GrpcPacket);
 		A2FAnimationEvent(const std::string& Data, const Routing& Routing)
-			: DataEvent(Data, Routing)
+			: Packet(Routing)
 		{}
 
 		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
 
-		const InworldPakets::DataChunk_DataType GetType() const override { return InworldPakets::DataChunk_DataType_NVIDIA_A2F_ANIMATION; }
+		struct FAudioInfo
+		{
+			double _TimeCode;
+			std::string _Audio;
+		};
+
+		struct FSkeletalAnim
+		{
+			struct FBlendShapeWeights
+			{
+				double _TimeCode;
+				std::vector<float> _Values;
+			};
+
+			std::vector<FBlendShapeWeights> _BlendShapeWeights;
+		};
+
+		const FAudioInfo& GetAudioInfo() const { return _AudioInfo; }
+		const FSkeletalAnim& GetSkeletalAnim() const { return _SkeletalAnimInfo; }
 
 	protected:
 		//virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
 
+	private:
+		FAudioInfo _AudioInfo;
+		FSkeletalAnim _SkeletalAnimInfo;
+		
 	};
 
 	class INWORLD_EXPORT SilenceEvent : public Packet

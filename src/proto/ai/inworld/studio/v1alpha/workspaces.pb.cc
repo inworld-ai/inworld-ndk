@@ -21,11 +21,11 @@ extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2ep
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_WorkspaceLimitInfo_AutoGeneratorLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_WorkspaceLimitInfo_BatchLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_WorkspaceLimitInfo_BillingAccountLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_WorkspaceLimitInfo_CharacterLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_WorkspaceLimitInfo_CharacterLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_WorkspaceLimitInfo_CommonKnowledgeLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_WorkspaceLimitInfo_NarrativeGraphLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_WorkspaceLimitInfo_SceneLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_WorkspaceLimitInfo_SceneLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_WorkspaceLimitInfo_TextListLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_WorkspaceLimitInfo_WorkspaceLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_google_2fprotobuf_2ffield_5fmask_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_FieldMask_google_2fprotobuf_2ffield_5fmask_2eproto;
@@ -433,9 +433,10 @@ static void InitDefaultsscc_info_WorkspaceLimitInfo_CharacterLimit_ai_2finworld_
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_WorkspaceLimitInfo_CharacterLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_WorkspaceLimitInfo_CharacterLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto}, {
-      &scc_info_WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto.base,}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_WorkspaceLimitInfo_CharacterLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_WorkspaceLimitInfo_CharacterLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto}, {
+      &scc_info_WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto.base,
+      &scc_info_WorkspaceLimitInfo_TextListLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto.base,}};
 
 static void InitDefaultsscc_info_WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -488,8 +489,9 @@ static void InitDefaultsscc_info_WorkspaceLimitInfo_SceneLimit_ai_2finworld_2fst
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_WorkspaceLimitInfo_SceneLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_WorkspaceLimitInfo_SceneLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto}, {}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_WorkspaceLimitInfo_SceneLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_WorkspaceLimitInfo_SceneLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto}, {
+      &scc_info_WorkspaceLimitInfo_TextListLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto.base,}};
 
 static void InitDefaultsscc_info_WorkspaceLimitInfo_TextListLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -686,6 +688,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fstudio_2fv1alph
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit, total_triggers_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit, total_common_knowledge_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit, character_description_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit, user_tags_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -697,6 +700,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fstudio_2fv1alph
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit, display_name_max_length_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit, total_common_knowledge_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit, scene_trigger_description_max_length_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit, user_tags_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_WorkspaceLimit, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -723,6 +727,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fstudio_2fv1alph
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CommonKnowledgeLimit, display_name_max_length_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CommonKnowledgeLimit, description_max_length_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CommonKnowledgeLimit, memory_records_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CommonKnowledgeLimit, user_tags_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_AutoGeneratorLimit, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -783,14 +788,14 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 122, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit)},
   { 129, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit)},
   { 142, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit)},
-  { 151, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit)},
-  { 162, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_WorkspaceLimit)},
-  { 174, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_BillingAccountLimit)},
-  { 180, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CommonKnowledgeLimit)},
-  { 188, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_AutoGeneratorLimit)},
-  { 197, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_NarrativeGraphLimit)},
-  { 205, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_BatchLimit)},
-  { 213, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo)},
+  { 152, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_SceneLimit)},
+  { 164, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_WorkspaceLimit)},
+  { 176, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_BillingAccountLimit)},
+  { 182, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CommonKnowledgeLimit)},
+  { 191, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_AutoGeneratorLimit)},
+  { 200, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_NarrativeGraphLimit)},
+  { 208, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_BatchLimit)},
+  { 216, -1, sizeof(::ai::inworld::studio::v1alpha::WorkspaceLimitInfo)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -896,7 +901,7 @@ const char descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fworkspace
   "equest\022.\n\004name\030\001 \001(\tB \340A\002\372A\032\n\030api.inworl"
   "d.ai/Workspace\"T\n\"GetRemainWorkspaceLimi"
   "tInfoRequest\022.\n\004name\030\001 \001(\tB \340A\002\372A\032\n\030api."
-  "inworld.ai/Workspace\"\322\022\n\022WorkspaceLimitI"
+  "inworld.ai/Workspace\"\302\024\n\022WorkspaceLimitI"
   "nfo\022O\n\tcharacter\030\001 \001(\0132<.ai.inworld.stud"
   "io.v1alpha.WorkspaceLimitInfo.CharacterL"
   "imit\022G\n\005scene\030\002 \001(\01328.ai.inworld.studio."
@@ -915,12 +920,14 @@ const char descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fworkspace
   "hLimit\022G\n\005batch\030\010 \001(\01328.ai.inworld.studi"
   "o.v1alpha.WorkspaceLimitInfo.BatchLimit\032"
   "=\n\rTextListLimit\022\027\n\017item_max_length\030\001 \001("
-  "\005\022\023\n\013total_items\030\002 \001(\005\032\224\005\n\016CharacterLimi"
+  "\005\022\023\n\013total_items\030\002 \001(\005\032\344\005\n\016CharacterLimi"
   "t\022\027\n\017name_max_length\030\001 \001(\005\022\026\n\016total_trig"
   "gers\030\002 \001(\005\022\036\n\026total_common_knowledge\030\003 \001"
   "(\005\022u\n\025character_description\030\004 \001(\0132V.ai.i"
   "nworld.studio.v1alpha.WorkspaceLimitInfo"
   ".CharacterLimit.CharacterDescriptionLimi"
+  "t\022N\n\tuser_tags\030\005 \001(\0132;.ai.inworld.studio"
+  ".v1alpha.WorkspaceLimitInfo.TextListLimi"
   "t\032\271\003\n\031CharacterDescriptionLimit\022\027\n\017core_"
   "max_length\030\001 \001(\005\022!\n\031example_dialog_max_l"
   "ength\030\002 \001(\005\022\035\n\025motivation_max_length\030\003 \001"
@@ -932,21 +939,25 @@ const char descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fworkspace
   "tLimit\022[\n\026personality_adjectives\030\007 \001(\0132;"
   ".ai.inworld.studio.v1alpha.WorkspaceLimi"
   "tInfo.TextListLimit\022\030\n\020flaws_max_length\030"
-  "\010 \001(\005\032\315\001\n\nSceneLimit\022\036\n\026description_max_"
+  "\010 \001(\005\032\235\002\n\nSceneLimit\022\036\n\026description_max_"
   "length\030\001 \001(\005\022\030\n\020total_characters\030\002 \001(\005\022\026"
   "\n\016total_triggers\030\003 \001(\005\022\037\n\027display_name_m"
   "ax_length\030\004 \001(\005\022\036\n\026total_common_knowledg"
   "e\030\005 \001(\005\022,\n$scene_trigger_description_max"
-  "_length\030\006 \001(\005\032\317\001\n\016WorkspaceLimit\022\037\n\027disp"
+  "_length\030\006 \001(\005\022N\n\tuser_tags\030\007 \001(\0132;.ai.in"
+  "world.studio.v1alpha.WorkspaceLimitInfo."
+  "TextListLimit\032\317\001\n\016WorkspaceLimit\022\037\n\027disp"
   "lay_name_max_length\030\001 \001(\005\022\030\n\020total_chara"
   "cters\030\002 \001(\005\022\024\n\014total_scenes\030\003 \001(\005\022\026\n\016tot"
   "al_triggers\030\004 \001(\005\022\024\n\014total_voices\030\005 \001(\005\022"
   "\036\n\026total_common_knowledge\030\006 \001(\005\022\036\n\026total"
   "_narrative_graphs\030\007 \001(\005\032/\n\023BillingAccoun"
-  "tLimit\022\030\n\020total_workspaces\030\001 \001(\005\032\254\001\n\024Com"
+  "tLimit\022\030\n\020total_workspaces\030\001 \001(\005\032\374\001\n\024Com"
   "monKnowledgeLimit\022\037\n\027display_name_max_le"
   "ngth\030\001 \001(\005\022\036\n\026description_max_length\030\002 \001"
   "(\005\022S\n\016memory_records\030\003 \001(\0132;.ai.inworld."
+  "studio.v1alpha.WorkspaceLimitInfo.TextLi"
+  "stLimit\022N\n\tuser_tags\030\004 \001(\0132;.ai.inworld."
   "studio.v1alpha.WorkspaceLimitInfo.TextLi"
   "stLimit\032t\n\022AutoGeneratorLimit\022\030\n\020notes_m"
   "ax_length\030\001 \001(\005\022\032\n\022outline_max_length\030\002 "
@@ -1063,7 +1074,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto, "ai/inworld/studio/v1alpha/workspaces.proto", 7655,
+  false, false, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto, "ai/inworld/studio/v1alpha/workspaces.proto", 7895,
   &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_once, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_sccs, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto_deps, 28, 11,
   schemas, file_default_instances, TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto::offsets,
   file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto, 28, file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto, file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto,
@@ -5953,11 +5964,16 @@ void WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::InternalSwap(W
 class WorkspaceLimitInfo_CharacterLimit::_Internal {
  public:
   static const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit& character_description(const WorkspaceLimitInfo_CharacterLimit* msg);
+  static const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit& user_tags(const WorkspaceLimitInfo_CharacterLimit* msg);
 };
 
 const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit&
 WorkspaceLimitInfo_CharacterLimit::_Internal::character_description(const WorkspaceLimitInfo_CharacterLimit* msg) {
   return *msg->character_description_;
+}
+const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit&
+WorkspaceLimitInfo_CharacterLimit::_Internal::user_tags(const WorkspaceLimitInfo_CharacterLimit* msg) {
+  return *msg->user_tags_;
 }
 WorkspaceLimitInfo_CharacterLimit::WorkspaceLimitInfo_CharacterLimit(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
@@ -5972,6 +5988,11 @@ WorkspaceLimitInfo_CharacterLimit::WorkspaceLimitInfo_CharacterLimit(const Works
     character_description_ = new ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit(*from.character_description_);
   } else {
     character_description_ = nullptr;
+  }
+  if (from._internal_has_user_tags()) {
+    user_tags_ = new ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit(*from.user_tags_);
+  } else {
+    user_tags_ = nullptr;
   }
   ::memcpy(&name_max_length_, &from.name_max_length_,
     static_cast<size_t>(reinterpret_cast<char*>(&total_common_knowledge_) -
@@ -5996,6 +6017,7 @@ WorkspaceLimitInfo_CharacterLimit::~WorkspaceLimitInfo_CharacterLimit() {
 void WorkspaceLimitInfo_CharacterLimit::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   if (this != internal_default_instance()) delete character_description_;
+  if (this != internal_default_instance()) delete user_tags_;
 }
 
 void WorkspaceLimitInfo_CharacterLimit::ArenaDtor(void* object) {
@@ -6023,6 +6045,10 @@ void WorkspaceLimitInfo_CharacterLimit::Clear() {
     delete character_description_;
   }
   character_description_ = nullptr;
+  if (GetArena() == nullptr && user_tags_ != nullptr) {
+    delete user_tags_;
+  }
+  user_tags_ = nullptr;
   ::memset(&name_max_length_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&total_common_knowledge_) -
       reinterpret_cast<char*>(&name_max_length_)) + sizeof(total_common_knowledge_));
@@ -6061,6 +6087,13 @@ const char* WorkspaceLimitInfo_CharacterLimit::_InternalParse(const char* ptr, :
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_character_description(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .ai.inworld.studio.v1alpha.WorkspaceLimitInfo.TextListLimit user_tags = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+          ptr = ctx->ParseMessage(_internal_mutable_user_tags(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -6118,6 +6151,14 @@ failure:
         4, _Internal::character_description(this), target, stream);
   }
 
+  // .ai.inworld.studio.v1alpha.WorkspaceLimitInfo.TextListLimit user_tags = 5;
+  if (this->has_user_tags()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        5, _Internal::user_tags(this), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -6139,6 +6180,13 @@ size_t WorkspaceLimitInfo_CharacterLimit::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *character_description_);
+  }
+
+  // .ai.inworld.studio.v1alpha.WorkspaceLimitInfo.TextListLimit user_tags = 5;
+  if (this->has_user_tags()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *user_tags_);
   }
 
   // int32 name_max_length = 1;
@@ -6196,6 +6244,9 @@ void WorkspaceLimitInfo_CharacterLimit::MergeFrom(const WorkspaceLimitInfo_Chara
   if (from.has_character_description()) {
     _internal_mutable_character_description()->::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_CharacterLimit_CharacterDescriptionLimit::MergeFrom(from._internal_character_description());
   }
+  if (from.has_user_tags()) {
+    _internal_mutable_user_tags()->::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit::MergeFrom(from._internal_user_tags());
+  }
   if (from.name_max_length() != 0) {
     _internal_set_name_max_length(from._internal_name_max_length());
   }
@@ -6245,8 +6296,13 @@ void WorkspaceLimitInfo_CharacterLimit::InternalSwap(WorkspaceLimitInfo_Characte
 
 class WorkspaceLimitInfo_SceneLimit::_Internal {
  public:
+  static const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit& user_tags(const WorkspaceLimitInfo_SceneLimit* msg);
 };
 
+const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit&
+WorkspaceLimitInfo_SceneLimit::_Internal::user_tags(const WorkspaceLimitInfo_SceneLimit* msg) {
+  return *msg->user_tags_;
+}
 WorkspaceLimitInfo_SceneLimit::WorkspaceLimitInfo_SceneLimit(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
@@ -6256,6 +6312,11 @@ WorkspaceLimitInfo_SceneLimit::WorkspaceLimitInfo_SceneLimit(::PROTOBUF_NAMESPAC
 WorkspaceLimitInfo_SceneLimit::WorkspaceLimitInfo_SceneLimit(const WorkspaceLimitInfo_SceneLimit& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_user_tags()) {
+    user_tags_ = new ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit(*from.user_tags_);
+  } else {
+    user_tags_ = nullptr;
+  }
   ::memcpy(&description_max_length_, &from.description_max_length_,
     static_cast<size_t>(reinterpret_cast<char*>(&scene_trigger_description_max_length_) -
     reinterpret_cast<char*>(&description_max_length_)) + sizeof(scene_trigger_description_max_length_));
@@ -6263,10 +6324,11 @@ WorkspaceLimitInfo_SceneLimit::WorkspaceLimitInfo_SceneLimit(const WorkspaceLimi
 }
 
 void WorkspaceLimitInfo_SceneLimit::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_WorkspaceLimitInfo_SceneLimit_ai_2finworld_2fstudio_2fv1alpha_2fworkspaces_2eproto.base);
   ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&description_max_length_) - reinterpret_cast<char*>(this)),
+      reinterpret_cast<char*>(&user_tags_) - reinterpret_cast<char*>(this)),
       0, static_cast<size_t>(reinterpret_cast<char*>(&scene_trigger_description_max_length_) -
-      reinterpret_cast<char*>(&description_max_length_)) + sizeof(scene_trigger_description_max_length_));
+      reinterpret_cast<char*>(&user_tags_)) + sizeof(scene_trigger_description_max_length_));
 }
 
 WorkspaceLimitInfo_SceneLimit::~WorkspaceLimitInfo_SceneLimit() {
@@ -6277,6 +6339,7 @@ WorkspaceLimitInfo_SceneLimit::~WorkspaceLimitInfo_SceneLimit() {
 
 void WorkspaceLimitInfo_SceneLimit::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete user_tags_;
 }
 
 void WorkspaceLimitInfo_SceneLimit::ArenaDtor(void* object) {
@@ -6300,6 +6363,10 @@ void WorkspaceLimitInfo_SceneLimit::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  if (GetArena() == nullptr && user_tags_ != nullptr) {
+    delete user_tags_;
+  }
+  user_tags_ = nullptr;
   ::memset(&description_max_length_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&scene_trigger_description_max_length_) -
       reinterpret_cast<char*>(&description_max_length_)) + sizeof(scene_trigger_description_max_length_));
@@ -6352,6 +6419,13 @@ const char* WorkspaceLimitInfo_SceneLimit::_InternalParse(const char* ptr, ::PRO
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           scene_trigger_description_max_length_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .ai.inworld.studio.v1alpha.WorkspaceLimitInfo.TextListLimit user_tags = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+          ptr = ctx->ParseMessage(_internal_mutable_user_tags(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -6419,6 +6493,14 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(6, this->_internal_scene_trigger_description_max_length(), target);
   }
 
+  // .ai.inworld.studio.v1alpha.WorkspaceLimitInfo.TextListLimit user_tags = 7;
+  if (this->has_user_tags()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        7, _Internal::user_tags(this), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -6434,6 +6516,13 @@ size_t WorkspaceLimitInfo_SceneLimit::ByteSizeLong() const {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // .ai.inworld.studio.v1alpha.WorkspaceLimitInfo.TextListLimit user_tags = 7;
+  if (this->has_user_tags()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *user_tags_);
+  }
 
   // int32 description_max_length = 1;
   if (this->description_max_length() != 0) {
@@ -6508,6 +6597,9 @@ void WorkspaceLimitInfo_SceneLimit::MergeFrom(const WorkspaceLimitInfo_SceneLimi
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (from.has_user_tags()) {
+    _internal_mutable_user_tags()->::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit::MergeFrom(from._internal_user_tags());
+  }
   if (from.description_max_length() != 0) {
     _internal_set_description_max_length(from._internal_description_max_length());
   }
@@ -6552,9 +6644,9 @@ void WorkspaceLimitInfo_SceneLimit::InternalSwap(WorkspaceLimitInfo_SceneLimit* 
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(WorkspaceLimitInfo_SceneLimit, scene_trigger_description_max_length_)
       + sizeof(WorkspaceLimitInfo_SceneLimit::scene_trigger_description_max_length_)
-      - PROTOBUF_FIELD_OFFSET(WorkspaceLimitInfo_SceneLimit, description_max_length_)>(
-          reinterpret_cast<char*>(&description_max_length_),
-          reinterpret_cast<char*>(&other->description_max_length_));
+      - PROTOBUF_FIELD_OFFSET(WorkspaceLimitInfo_SceneLimit, user_tags_)>(
+          reinterpret_cast<char*>(&user_tags_),
+          reinterpret_cast<char*>(&other->user_tags_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata WorkspaceLimitInfo_SceneLimit::GetMetadata() const {
@@ -7105,11 +7197,16 @@ void WorkspaceLimitInfo_BillingAccountLimit::InternalSwap(WorkspaceLimitInfo_Bil
 class WorkspaceLimitInfo_CommonKnowledgeLimit::_Internal {
  public:
   static const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit& memory_records(const WorkspaceLimitInfo_CommonKnowledgeLimit* msg);
+  static const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit& user_tags(const WorkspaceLimitInfo_CommonKnowledgeLimit* msg);
 };
 
 const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit&
 WorkspaceLimitInfo_CommonKnowledgeLimit::_Internal::memory_records(const WorkspaceLimitInfo_CommonKnowledgeLimit* msg) {
   return *msg->memory_records_;
+}
+const ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit&
+WorkspaceLimitInfo_CommonKnowledgeLimit::_Internal::user_tags(const WorkspaceLimitInfo_CommonKnowledgeLimit* msg) {
+  return *msg->user_tags_;
 }
 WorkspaceLimitInfo_CommonKnowledgeLimit::WorkspaceLimitInfo_CommonKnowledgeLimit(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
@@ -7124,6 +7221,11 @@ WorkspaceLimitInfo_CommonKnowledgeLimit::WorkspaceLimitInfo_CommonKnowledgeLimit
     memory_records_ = new ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit(*from.memory_records_);
   } else {
     memory_records_ = nullptr;
+  }
+  if (from._internal_has_user_tags()) {
+    user_tags_ = new ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit(*from.user_tags_);
+  } else {
+    user_tags_ = nullptr;
   }
   ::memcpy(&display_name_max_length_, &from.display_name_max_length_,
     static_cast<size_t>(reinterpret_cast<char*>(&description_max_length_) -
@@ -7148,6 +7250,7 @@ WorkspaceLimitInfo_CommonKnowledgeLimit::~WorkspaceLimitInfo_CommonKnowledgeLimi
 void WorkspaceLimitInfo_CommonKnowledgeLimit::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   if (this != internal_default_instance()) delete memory_records_;
+  if (this != internal_default_instance()) delete user_tags_;
 }
 
 void WorkspaceLimitInfo_CommonKnowledgeLimit::ArenaDtor(void* object) {
@@ -7175,6 +7278,10 @@ void WorkspaceLimitInfo_CommonKnowledgeLimit::Clear() {
     delete memory_records_;
   }
   memory_records_ = nullptr;
+  if (GetArena() == nullptr && user_tags_ != nullptr) {
+    delete user_tags_;
+  }
+  user_tags_ = nullptr;
   ::memset(&display_name_max_length_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&description_max_length_) -
       reinterpret_cast<char*>(&display_name_max_length_)) + sizeof(description_max_length_));
@@ -7206,6 +7313,13 @@ const char* WorkspaceLimitInfo_CommonKnowledgeLimit::_InternalParse(const char* 
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_memory_records(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .ai.inworld.studio.v1alpha.WorkspaceLimitInfo.TextListLimit user_tags = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_user_tags(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -7257,6 +7371,14 @@ failure:
         3, _Internal::memory_records(this), target, stream);
   }
 
+  // .ai.inworld.studio.v1alpha.WorkspaceLimitInfo.TextListLimit user_tags = 4;
+  if (this->has_user_tags()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        4, _Internal::user_tags(this), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -7278,6 +7400,13 @@ size_t WorkspaceLimitInfo_CommonKnowledgeLimit::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *memory_records_);
+  }
+
+  // .ai.inworld.studio.v1alpha.WorkspaceLimitInfo.TextListLimit user_tags = 4;
+  if (this->has_user_tags()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *user_tags_);
   }
 
   // int32 display_name_max_length = 1;
@@ -7327,6 +7456,9 @@ void WorkspaceLimitInfo_CommonKnowledgeLimit::MergeFrom(const WorkspaceLimitInfo
 
   if (from.has_memory_records()) {
     _internal_mutable_memory_records()->::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit::MergeFrom(from._internal_memory_records());
+  }
+  if (from.has_user_tags()) {
+    _internal_mutable_user_tags()->::ai::inworld::studio::v1alpha::WorkspaceLimitInfo_TextListLimit::MergeFrom(from._internal_user_tags());
   }
   if (from.display_name_max_length() != 0) {
     _internal_set_display_name_max_length(from._internal_display_name_max_length());

@@ -39,6 +39,7 @@ def generate(path, filepath):
     cmd_line += f" --cpp_out={out_path}"
     cmd_line += f" --plugin=protoc-gen-grpc={CPP_PLUGIN_PATH}"
     cmd_line += f" {os.path.join(path, filepath)}"
+    cmd_line += f" --experimental_allow_proto3_optional"
 
     print(cmd_line)
     tokens = cmd_line.split()
@@ -76,6 +77,16 @@ for file_name in [
     "ai/inworld/studio/v1alpha/impression_event_data.proto",
     "ai/inworld/studio/v1alpha/language_code.proto",
     "ai/inworld/studio/v1alpha/workspaces.proto",
+    "nvidia/a2x-interface-proto/nvidia.ace.a2x.v1.proto",
+    "nvidia/a2x-interface-proto/nvidia.ace.services.a2x.v1.proto",
+    "nvidia/animation-common-interface-proto/nvidia.ace.animation_data.v1.proto",
+    "nvidia/animation-common-interface-proto/nvidia.ace.animation_id.v1.proto",
+    "nvidia/animation-common-interface-proto/nvidia.ace.audio.v1.proto",
+    "nvidia/animation-common-interface-proto/nvidia.ace.status.v1.proto",
+    "nvidia/animation-controller-interface-proto/nvidia.ace.controller.v1.proto",
+    "nvidia/animation-controller-interface-proto/nvidia.ace.services.a2x_controller.v1.proto",
+    "nvidia/animation-controller-interface-proto/nvidia.ace.services.animation_controller.v1.proto",
+    "nvidia/animation-data-interface-proto/nvidia.ace.services.animation_data.v1.proto"
 ]:
     generate(proto_path, file_name)
 

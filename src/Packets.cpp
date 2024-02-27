@@ -8,6 +8,7 @@
 #include "Packets.h"
 #include "proto/ProtoDisableWarning.h"
 
+
 #include <random>
 #include "Types.h"
 #include "Utils/Log.h"
@@ -148,14 +149,72 @@ namespace Inworld {
         }
     }
 
-    A2FAnimationHeaderEvent::A2FAnimationHeaderEvent(const InworldPakets::InworldPacket& GrpcPacket) : DataEvent(GrpcPacket)
+    A2FAnimationHeaderEvent::A2FAnimationHeaderEvent(const void* Data, uint32_t Size) : Packet()
     {
-        
+        nvidia::ace::controller::v1::AnimationDataStreamHeader AnimationDataStreamHeader;
+        AnimationDataStreamHeader.ParseFromArray(Data, Size);
+
+        _ChannelCount = AnimationDataStreamHeader.audio_header().channel_count();
+        _SamplesPerSecond = AnimationDataStreamHeader.audio_header().samples_per_second();
+        _BitsPerSample = AnimationDataStreamHeader.audio_header().bits_per_sample();
+
+        for (const auto& BlendShape : AnimationDataStreamHeader.skel_animation_header().blend_shapes())
+        {
+            _BlendShapes.push_back(BlendShape.c_str());
+        }
     }
 
-    A2FAnimationEvent::A2FAnimationEvent(const InworldPakets::InworldPacket& GrpcPacket) : DataEvent(GrpcPacket)
+    A2FAnimationHeaderEvent::A2FAnimationHeaderEvent(const InworldPakets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
     {
+        nvidia::ace::controller::v1::AnimationDataStreamHeader AnimationDataStreamHeader;
+        AnimationDataStreamHeader.ParseFromString(GrpcPacket.data_chunk().chunk());
 
+        _ChannelCount = AnimationDataStreamHeader.audio_header().channel_count();
+        _SamplesPerSecond = AnimationDataStreamHeader.audio_header().samples_per_second();
+        _BitsPerSample = AnimationDataStreamHeader.audio_header().bits_per_sample();
+
+        for (const auto& BlendShape : AnimationDataStreamHeader.skel_animation_header().blend_shapes())
+        {
+            _BlendShapes.push_back(BlendShape.c_str());
+        }
+    }
+
+    A2FAnimationEvent::A2FAnimationEvent(const void* Data, uint32_t Size) : Packet()
+    {
+        nvidia::ace::animation_data::v1::AnimationData AnimationData;
+        AnimationData.ParseFromArray(Data, Size);
+
+        _AudioInfo._Audio = AnimationData.audio().audio_buffer();
+        _AudioInfo._TimeCode = AnimationData.audio().time_code();
+
+        for (const auto& BlendShapeWeight : AnimationData.skel_animation().blend_shape_weights())
+        {
+            auto& _BlendShapeWeight = _SkeletalAnimInfo._BlendShapeWeights.emplace_back();
+            _BlendShapeWeight._TimeCode = BlendShapeWeight.time_code();
+            for (const auto& Value : BlendShapeWeight.values())
+            {
+                _BlendShapeWeight._Values.push_back(Value);
+            }
+        }
+    }
+
+    A2FAnimationEvent::A2FAnimationEvent(const InworldPakets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
+    {
+        nvidia::ace::animation_data::v1::AnimationData AnimationData;
+        AnimationData.ParseFromString(GrpcPacket.data_chunk().chunk());
+
+        _AudioInfo._Audio = AnimationData.audio().audio_buffer();
+        _AudioInfo._TimeCode = AnimationData.audio().time_code();
+
+        for (const auto& BlendShapeWeight : AnimationData.skel_animation().blend_shape_weights())
+        {
+            auto& _BlendShapeWeight = _SkeletalAnimInfo._BlendShapeWeights.emplace_back();
+            _BlendShapeWeight._TimeCode = BlendShapeWeight.time_code();
+            for (const auto& Value : BlendShapeWeight.values())
+            {
+                _BlendShapeWeight._Values.push_back(Value);
+            }
+        }
     }
 
     EmotionEvent::EmotionEvent(const InworldPakets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
@@ -255,7 +314,7 @@ namespace Inworld {
 		Capabilities->set_relations(_Data.Relations);
 		Capabilities->set_debug_info(_Data.Relations);
 		Capabilities->set_multi_agent(_Data.Multiagent);
-        Capabilities->set_audio2face(_Data.Audio2Face);
+        Capabilities->set_audio2face(true);
 	}
 
 	void SessionControlEvent_UserConfiguration::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
