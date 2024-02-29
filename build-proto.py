@@ -86,7 +86,10 @@ for file_name in [
     "nvidia/animation-controller-interface-proto/nvidia.ace.controller.v1.proto",
     "nvidia/animation-controller-interface-proto/nvidia.ace.services.a2x_controller.v1.proto",
     "nvidia/animation-controller-interface-proto/nvidia.ace.services.animation_controller.v1.proto",
-    "nvidia/animation-data-interface-proto/nvidia.ace.services.animation_data.v1.proto"
+    "nvidia/animation-data-interface-proto/nvidia.ace.services.animation_data.v1.proto",
+    "nvidia/old/anim_controller.proto",
+    "nvidia/old/anim_data.proto",
+    "nvidia/old/audio_data.proto"
 ]:
     generate(proto_path, file_name)
 

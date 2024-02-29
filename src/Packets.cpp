@@ -179,6 +179,24 @@ namespace Inworld {
         }
     }
 
+    A2FOldAnimationHeaderEvent::A2FOldAnimationHeaderEvent(const void* Data, uint32_t Size) : Packet()
+    {
+        nvidia::ace::animation::A2XAnimDataStreamHeader AnimationDataStreamHeader;
+        AnimationDataStreamHeader.ParseFromArray(Data, Size);
+
+        _Success = AnimationDataStreamHeader.success();
+        _Message = AnimationDataStreamHeader.message();
+    }
+
+    A2FOldAnimationHeaderEvent::A2FOldAnimationHeaderEvent(const InworldPakets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
+    {
+        nvidia::ace::animation::A2XAnimDataStreamHeader AnimationDataStreamHeader;
+        AnimationDataStreamHeader.ParseFromString(GrpcPacket.data_chunk().chunk());
+
+        _Success = AnimationDataStreamHeader.success();
+        _Message = AnimationDataStreamHeader.message();
+    }
+
     A2FAnimationEvent::A2FAnimationEvent(const void* Data, uint32_t Size) : Packet()
     {
         nvidia::ace::animation_data::v1::AnimationData AnimationData;
@@ -214,6 +232,30 @@ namespace Inworld {
             {
                 _BlendShapeWeight._Values.push_back(Value);
             }
+        }
+    }
+
+    A2FOldAnimationContentEvent::A2FOldAnimationContentEvent(const void* Data, uint32_t Size) : Packet()
+    {
+        nvidia::ace::animation::A2XAnimDataStreamContent AnimationDataStreamContent;
+        AnimationDataStreamContent.ParseFromArray(Data, Size);
+
+        _USDA = AnimationDataStreamContent.usda();
+        for (const auto& file : AnimationDataStreamContent.files())
+        {
+            _Files.emplace(file.first, file.second);
+        }
+    }
+
+    A2FOldAnimationContentEvent::A2FOldAnimationContentEvent(const InworldPakets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
+    {
+        nvidia::ace::animation::A2XAnimDataStreamContent AnimationDataStreamContent;
+        AnimationDataStreamContent.ParseFromString(GrpcPacket.data_chunk().chunk());
+
+        _USDA = AnimationDataStreamContent.usda();
+        for (const auto& file : AnimationDataStreamContent.files())
+        {
+            _Files.emplace(file.first, file.second);
         }
     }
 

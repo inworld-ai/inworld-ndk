@@ -10,6 +10,7 @@
 #include "ProtoDisableWarning.h"
 #include "ai/inworld/packets/packets.pb.h"
 #include "nvidia/animation-controller-interface-proto/nvidia.ace.controller.v1.pb.h"
+#include "nvidia/old/anim_controller.pb.h"
 
 #include "Define.h"
 #include "Types.h"
@@ -98,7 +99,9 @@ namespace Inworld {
     class DataEvent;
     class AudioDataEvent;
     class A2FAnimationHeaderEvent;
+	class A2FOldAnimationHeaderEvent;
     class A2FAnimationEvent;
+	class A2FOldAnimationContentEvent;
     class SilenceEvent;
     class ControlEvent;
     class EmotionEvent;
@@ -117,7 +120,9 @@ namespace Inworld {
         virtual void Visit(const DataEvent& Event) {  }
         virtual void Visit(const AudioDataEvent& Event) {  }
         virtual void Visit(const A2FAnimationHeaderEvent& Event) {  }
+		virtual void Visit(const A2FOldAnimationHeaderEvent& Event) {  }
         virtual void Visit(const A2FAnimationEvent& Event) {  }
+		virtual void Visit(const A2FOldAnimationContentEvent& Event) {  }
         virtual void Visit(const SilenceEvent& Event) {  }
         virtual void Visit(const ControlEvent& Event) {  }
         virtual void Visit(const EmotionEvent& Event) {  }
@@ -253,7 +258,7 @@ namespace Inworld {
 		A2FAnimationHeaderEvent() = default;
 		A2FAnimationHeaderEvent(const void* Data, uint32_t Size);
 		A2FAnimationHeaderEvent(const InworldPakets::InworldPacket& GrpcPacket);
-		A2FAnimationHeaderEvent(const std::string& Data, const Routing& Routing)
+		A2FAnimationHeaderEvent(const Routing& Routing)
 			: Packet(Routing)
 		{}
 
@@ -272,6 +277,29 @@ namespace Inworld {
 		int32_t _SamplesPerSecond = 0;
 		int32_t _BitsPerSample = 0;
 		std::vector<std::string> _BlendShapes;
+	};
+
+	class INWORLD_EXPORT A2FOldAnimationHeaderEvent : public Packet
+	{
+	public:
+		A2FOldAnimationHeaderEvent() = default;
+		A2FOldAnimationHeaderEvent(const void* Data, uint32_t Size);
+		A2FOldAnimationHeaderEvent(const InworldPakets::InworldPacket& GrpcPacket);
+		A2FOldAnimationHeaderEvent(const Routing& Routing)
+			: Packet(Routing)
+		{}
+
+		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
+
+		bool GetSuccess() const { return _Success; }
+		std::string GetMessage() const { return _Message; }
+
+	protected:
+		//virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+
+	private:
+		bool _Success = false;
+		std::string _Message = 0;
 	};
 
 	class INWORLD_EXPORT A2FAnimationEvent : public Packet
@@ -312,7 +340,29 @@ namespace Inworld {
 	private:
 		FAudioInfo _AudioInfo;
 		FSkeletalAnim _SkeletalAnimInfo;
-		
+	};
+
+	class INWORLD_EXPORT A2FOldAnimationContentEvent : public Packet
+	{
+	public:
+		A2FOldAnimationContentEvent() = default;
+		A2FOldAnimationContentEvent(const void* Data, uint32_t Size);
+		A2FOldAnimationContentEvent(const InworldPakets::InworldPacket& GrpcPacket);
+		A2FOldAnimationContentEvent(const Routing& Routing)
+			: Packet(Routing)
+		{}
+
+		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
+
+		const std::string& GetUSDA() const { return _USDA; }
+		const std::unordered_map<std::string, std::string>& GetFiles() const { return _Files; }
+
+	protected:
+		//virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
+
+	private:
+		std::string _USDA;
+		std::unordered_map<std::string, std::string> _Files;
 	};
 
 	class INWORLD_EXPORT SilenceEvent : public Packet

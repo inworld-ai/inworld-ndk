@@ -46,11 +46,13 @@ void Inworld::RunnableRead::Run()
 			}
 			else if (IncomingPacket.data_chunk().type() == ai::inworld::packets::DataChunk_DataType_NVIDIA_A2F_ANIMATION_HEADER)
 			{
-				Packet = std::make_shared<Inworld::A2FAnimationHeaderEvent>(IncomingPacket);
+				//Packet = std::make_shared<Inworld::A2FAnimationHeaderEvent>(IncomingPacket);
+				Packet = std::make_shared<Inworld::A2FOldAnimationHeaderEvent>(IncomingPacket);
 			}
 			else if (IncomingPacket.data_chunk().type() == ai::inworld::packets::DataChunk_DataType_NVIDIA_A2F_ANIMATION)
 			{
-				Packet = std::make_shared<Inworld::A2FAnimationEvent>(IncomingPacket);
+				//Packet = std::make_shared<Inworld::A2FAnimationEvent>(IncomingPacket);
+				Packet = std::make_shared<Inworld::A2FOldAnimationContentEvent>(IncomingPacket);
 			}
 		}
 		else if (IncomingPacket.has_control())
