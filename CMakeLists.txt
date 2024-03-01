@@ -24,6 +24,7 @@ file(GLOB_RECURSE FilesALLProto
 add_library(inworld-ndk-proto STATIC ${FilesALLProto})
 if (INWORLD_SHARED)
     add_library(inworld-ndk SHARED ${FilesALL})
+    target_compile_definitions(inworld-ndk PRIVATE INWORLD_DLL_EXPORT=1)
 else()
     add_library(inworld-ndk STATIC ${FilesALL})
 endif()
