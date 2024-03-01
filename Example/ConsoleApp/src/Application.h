@@ -29,7 +29,7 @@ namespace NDKApp
 
 		std::vector<std::string> GetCurrentAgentBrains() const;
 
-		Inworld::Client _Client;
+		Inworld::ClientDefault _Client;
 		Inworld::ClientOptions _Options;
 		Inworld::StudioClientDefault _StudioClient;
 		CommandLineInterface _Cli;

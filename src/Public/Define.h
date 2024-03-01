@@ -8,11 +8,7 @@
 #pragma once
 
 #ifdef _WIN32
-#ifdef INWORLD_DLL_EXPORT
 #define INWORLD_EXPORT __declspec(dllexport)
-#else
-#define INWORLD_EXPORT __declspec(dllimport)
-#endif
 #else
 #define INWORLD_EXPORT __attribute__((visibility("default")))
 #endif

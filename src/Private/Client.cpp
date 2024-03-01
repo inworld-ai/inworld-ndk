@@ -84,21 +84,27 @@ namespace Inworld
 		std::unique_ptr<Inworld::ClientStream> _ClientStream;
 		std::unique_ptr<Inworld::ServiceSession> _SessionService;
 	};
+
+	int64_t SizeOfSdkInfo()
+	{
+		return sizeof(SdkInfo);
+	}
+
 }
  
 
-const Inworld::SessionInfo& Inworld::ClientBase::GetSessionInfo() const
+const Inworld::SessionInfo& Inworld::Client::GetSessionInfo() const
 {
 	return _SessionInfo;
 }
 
-void Inworld::ClientBase::SetOptions(const ClientOptions& options)
+void Inworld::Client::SetOptions(const ClientOptions& options)
 {
 	_ClientOptions = options;
 
 }
 
-void Inworld::ClientBase::Visit(const SessionControlResponse_LoadScene& Event)
+void Inworld::Client::Visit(const SessionControlResponse_LoadScene& Event)
 {
 	Inworld::Log("Load scene SUCCESS");
 	for (const auto& Info : Event.GetAgentInfos())
@@ -116,7 +122,7 @@ void Inworld::ClientBase::Visit(const SessionControlResponse_LoadScene& Event)
 	StartClientStream();
 }
 
-void Inworld::ClientBase::Visit(const SessionControlResponse_LoadCharacters& Event)
+void Inworld::Client::Visit(const SessionControlResponse_LoadCharacters& Event)
 {
 	Inworld::Log("Load characters SUCCESS");
 	for (const auto& Info : Event.GetAgentInfos())
@@ -131,7 +137,7 @@ void Inworld::ClientBase::Visit(const SessionControlResponse_LoadCharacters& Eve
 	}
 }
 
-void Inworld::ClientBase::SendPacket(std::shared_ptr<Inworld::Packet> Packet)
+void Inworld::Client::SendPacket(std::shared_ptr<Inworld::Packet> Packet)
 {
 	if (GetConnectionState() != ConnectionState::Connected)
 	{
@@ -142,14 +148,14 @@ void Inworld::ClientBase::SendPacket(std::shared_ptr<Inworld::Packet> Packet)
 	PushPacket(Packet);
 }
 
-void Inworld::ClientBase::PushPacket(std::shared_ptr<Inworld::Packet> Packet)
+void Inworld::Client::PushPacket(std::shared_ptr<Inworld::Packet> Packet)
 {
 	_OutgoingPackets.PushBack(Packet);
 
 	TryToStartWriteTask();
 }
 
-std::shared_ptr<Inworld::TextEvent> Inworld::ClientBase::SendTextMessage(const Inworld::Routing& Routing, const std::string& Text)
+std::shared_ptr<Inworld::TextEvent> Inworld::Client::SendTextMessage(const Inworld::Routing& Routing, const std::string& Text)
 {
 	auto Packet = std::make_shared<TextEvent>(Text, Routing);
 	SendPacket(Packet);
@@ -157,7 +163,7 @@ std::shared_ptr<Inworld::TextEvent> Inworld::ClientBase::SendTextMessage(const I
 	return Packet;
 }
 
-std::shared_ptr<Inworld::DataEvent> Inworld::ClientBase::SendSoundMessage(const Inworld::Routing& Routing, const std::string& Data)
+std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessage(const Inworld::Routing& Routing, const std::string& Data)
 {
 	auto Packet = std::make_shared<AudioDataEvent>(Data, Routing);
 	SendPacket(Packet);
@@ -168,7 +174,7 @@ std::shared_ptr<Inworld::DataEvent> Inworld::ClientBase::SendSoundMessage(const 
 	return Packet;
 }
 
-std::shared_ptr<Inworld::DataEvent> Inworld::ClientBase::SendSoundMessageWithAEC(const Inworld::Routing& Routing, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData)
+std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessageWithAEC(const Inworld::Routing& Routing, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData)
 {
 	std::vector<int16_t> FilteredData = _EchoFilter.FilterAudio(InputData, OutputData);
 
@@ -179,73 +185,73 @@ std::shared_ptr<Inworld::DataEvent> Inworld::ClientBase::SendSoundMessageWithAEC
 	return SendSoundMessage(Routing, Data);
 }
 
-std::shared_ptr<Inworld::CustomEvent> Inworld::ClientBase::SendCustomEvent(const Inworld::Routing& Routing, const std::string& Name, const std::unordered_map<std::string, std::string>& Params)
+std::shared_ptr<Inworld::CustomEvent> Inworld::Client::SendCustomEvent(const Inworld::Routing& Routing, const std::string& Name, const std::unordered_map<std::string, std::string>& Params)
 {
 	auto Packet = std::make_shared<CustomEvent>(Name, Params, Routing);
 	SendPacket(Packet);
 	return Packet;
 }
 
-void Inworld::ClientBase::StartAudioSession(const Inworld::Routing& Routing)
+void Inworld::Client::StartAudioSession(const Inworld::Routing& Routing)
 {
 	auto Packet = std::make_shared<Inworld::ControlEvent>(ai::inworld::packets::ControlEvent_Action_AUDIO_SESSION_START, Routing);
 	SendPacket(Packet);
 }
 
-void Inworld::ClientBase::StopAudioSession(const Inworld::Routing& Routing)
+void Inworld::Client::StopAudioSession(const Inworld::Routing& Routing)
 {
 	auto Packet = std::make_shared<Inworld::ControlEvent>(ai::inworld::packets::ControlEvent_Action_AUDIO_SESSION_END, Routing);
 	SendPacket(Packet);
 }
 
-std::shared_ptr<Inworld::TextEvent> Inworld::ClientBase::SendTextMessage(const std::string& AgentId, const std::string& Text)
+std::shared_ptr<Inworld::TextEvent> Inworld::Client::SendTextMessage(const std::string& AgentId, const std::string& Text)
 {
 	return SendTextMessage(Routing::Player2Agent(AgentId), Text);
 }
 
-std::shared_ptr<Inworld::TextEvent> Inworld::ClientBase::SendTextMessage(const std::vector<std::string>& AgentIds, const std::string& Text)
+std::shared_ptr<Inworld::TextEvent> Inworld::Client::SendTextMessage(const std::vector<std::string>& AgentIds, const std::string& Text)
 {
 	return SendTextMessage(Routing::Player2Agents(AgentIds), Text);
 }
 
-std::shared_ptr<Inworld::DataEvent> Inworld::ClientBase::SendSoundMessage(const std::string& AgentId, const std::string& Data)
+std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessage(const std::string& AgentId, const std::string& Data)
 {
 	return SendSoundMessage(Routing::Player2Agent(AgentId), Data);
 }
 
-std::shared_ptr<Inworld::DataEvent> Inworld::ClientBase::SendSoundMessage(const std::vector<std::string>& AgentIds, const std::string& Data)
+std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessage(const std::vector<std::string>& AgentIds, const std::string& Data)
 {
 	return SendSoundMessage(Routing::Player2Agents(AgentIds), Data);
 }
 
-std::shared_ptr<Inworld::DataEvent> Inworld::ClientBase::SendSoundMessageWithAEC(const std::string& AgentId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData)
+std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessageWithAEC(const std::string& AgentId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData)
 {
 	return SendSoundMessageWithAEC(Routing::Player2Agent(AgentId), InputData, OutputData);
 }
 
-std::shared_ptr<Inworld::DataEvent> Inworld::ClientBase::SendSoundMessageWithAEC(const std::vector<std::string>& AgentIds, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData)
+std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessageWithAEC(const std::vector<std::string>& AgentIds, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData)
 {
 	return SendSoundMessageWithAEC(Routing::Player2Agents(AgentIds), InputData, OutputData);
 }
 
-std::shared_ptr<Inworld::CustomEvent> Inworld::ClientBase::SendCustomEvent(std::string AgentId, const std::string& Name, const std::unordered_map<std::string, std::string>& Params)
+std::shared_ptr<Inworld::CustomEvent> Inworld::Client::SendCustomEvent(std::string AgentId, const std::string& Name, const std::unordered_map<std::string, std::string>& Params)
 {
 	return SendCustomEvent(Routing::Player2Agent(AgentId), Name, Params);
 }
 
-std::shared_ptr<Inworld::CustomEvent> Inworld::ClientBase::SendCustomEvent(const std::vector<std::string>& AgentIds, const std::string& Name, const std::unordered_map<std::string, std::string>& Params)
+std::shared_ptr<Inworld::CustomEvent> Inworld::Client::SendCustomEvent(const std::vector<std::string>& AgentIds, const std::string& Name, const std::unordered_map<std::string, std::string>& Params)
 {
 	return SendCustomEvent(Routing::Player2Agents(AgentIds), Name, Params);
 }
 
-std::shared_ptr<Inworld::ActionEvent> Inworld::ClientBase::SendNarrationEvent(std::string AgentId, const std::string& Content)
+std::shared_ptr<Inworld::ActionEvent> Inworld::Client::SendNarrationEvent(std::string AgentId, const std::string& Content)
 {
 	auto Packet = std::make_shared<ActionEvent>(Content, Routing::Player2Agent(AgentId));
 	SendPacket(Packet);
 	return Packet;
 }
 
-void Inworld::ClientBase::LoadScene(const std::string& Scene, CharactersLoadedCb OnLoadSceneCallback)
+void Inworld::Client::LoadScene(const std::string& Scene, CharactersLoadedCb OnLoadSceneCallback)
 {
 	if (_OnLoadSceneCallback)
 	{
@@ -256,7 +262,7 @@ void Inworld::ClientBase::LoadScene(const std::string& Scene, CharactersLoadedCb
 	ControlSession<SessionControlEvent_LoadScene>({ Scene });
 }
 
-void Inworld::ClientBase::LoadCharacters(const std::vector<std::string>& Names, CharactersLoadedCb OnLoadCharactersCallback)
+void Inworld::Client::LoadCharacters(const std::vector<std::string>& Names, CharactersLoadedCb OnLoadCharactersCallback)
 {
 	if (_OnLoadCharactersCallback)
 	{
@@ -267,12 +273,12 @@ void Inworld::ClientBase::LoadCharacters(const std::vector<std::string>& Names, 
 	ControlSession<SessionControlEvent_LoadCharacters>({ Names });
 }
 
-void Inworld::ClientBase::UnloadCharacters(const std::vector<std::string>& Names)
+void Inworld::Client::UnloadCharacters(const std::vector<std::string>& Names)
 {
 	ControlSession<SessionControlEvent_UnloadCharacters>({ Names });
 }
 
-void Inworld::ClientBase::LoadSavedState(const std::string& SavedState)
+void Inworld::Client::LoadSavedState(const std::string& SavedState)
 {
 	if (!SavedState.empty())
 	{
@@ -280,7 +286,7 @@ void Inworld::ClientBase::LoadSavedState(const std::string& SavedState)
 	}
 }
 
-void Inworld::ClientBase::CancelResponse(const std::string& AgentId, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds)
+void Inworld::Client::CancelResponse(const std::string& AgentId, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds)
 {
 	auto Packet = std::make_shared<Inworld::CancelResponseEvent>(
 		InteractionId, 
@@ -290,41 +296,41 @@ void Inworld::ClientBase::CancelResponse(const std::string& AgentId, const std::
 	SendPacket(Packet);
 }
 
-void Inworld::ClientBase::SetAudioDumpEnabled(bool bEnabled, const std::string& FileName)
+void Inworld::Client::SetAudioDumpEnabled(bool bEnabled, const std::string& FileName)
 {
 #ifdef INWORLD_AUDIO_DUMP
 	bDumpAudio = bEnabled;
 	_AudioDumpFileName = FileName;
-	_AsyncAudioDumper->Stop();
+	/*_AsyncAudioDumper->Stop();
 	if (bDumpAudio)
 	{
 		_AsyncAudioDumper->Start("InworldAudioDumper", std::make_unique<RunnableAudioDumper>(_AudioChunksToDump, _AudioDumpFileName));
 		Inworld::Log("ASYNC audio dump STARTING");
-	}
+	}*/
 #endif
 }
 
-void Inworld::ClientBase::StartAudioSession(const std::string& AgentId)
+void Inworld::Client::StartAudioSession(const std::string& AgentId)
 {
 	StartAudioSession(Inworld::Routing::Player2Agent(AgentId));
 }
 
-void Inworld::ClientBase::StartAudioSession(const std::vector<std::string>& AgentIds)
+void Inworld::Client::StartAudioSession(const std::vector<std::string>& AgentIds)
 {
 	StartAudioSession(Inworld::Routing::Player2Agents(AgentIds));
 }
 
-void Inworld::ClientBase::StopAudioSession(const std::string& AgentId)
+void Inworld::Client::StopAudioSession(const std::string& AgentId)
 {
 	StopAudioSession(Inworld::Routing::Player2Agent(AgentId));
 }
 
-void Inworld::ClientBase::StopAudioSession(const std::vector<std::string>& AgentIds)
+void Inworld::Client::StopAudioSession(const std::vector<std::string>& AgentIds)
 {
 	StopAudioSession(Inworld::Routing::Player2Agents(AgentIds));
 }
 
-void Inworld::ClientBase::InitClient(const SdkInfo& SdkInfo, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback)
+void Inworld::Client::InitClient(const SdkInfo& SdkInfo, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback)
 {
 	gpr_set_log_function(GrpcLog);
 
@@ -355,7 +361,7 @@ void Inworld::ClientBase::InitClient(const SdkInfo& SdkInfo, std::function<void(
 	SetConnectionState(ConnectionState::Idle);
 }
 
-void Inworld::ClientBase::GenerateToken(std::function<void()> GenerateTokenCallback)
+void Inworld::Client::GenerateToken(std::function<void()> GenerateTokenCallback)
 {
 	_OnGenerateTokenCallback = GenerateTokenCallback;
 
@@ -375,7 +381,7 @@ void Inworld::ClientBase::GenerateToken(std::function<void()> GenerateTokenCallb
 				_SessionInfo.Token = Token.token();
 				_SessionInfo.ExpirationTime = std::time(0) + std::max(std::min(Token.expiration_time().seconds() - std::time(0), gMaxTokenLifespan), int64_t(0));
 
-				AddTaskToMainThread([this, Status]()
+				_MainThreadTaskCallback([this, Status]()
 				{
 					if (!Status.ok())
 					{
@@ -398,12 +404,18 @@ void Inworld::ClientBase::GenerateToken(std::function<void()> GenerateTokenCallb
 	);
 }
 
-void Inworld::ClientBase::StartClient(const ClientOptions& Options, const SessionInfo& Info, CharactersLoadedCb LoadSceneCallback)
+void Inworld::Client::StartClient(const ClientOptions& Options, const SessionInfo& Info, CharactersLoadedCb LoadSceneCallback, MainThreadTaskCb TaskCallback)
 {
 	if (_ConnectionState != ConnectionState::Idle && _ConnectionState != ConnectionState::Failed)
 	{
 		return;
 	}
+	if (!TaskCallback)
+	{
+		Inworld::LogError("StartClient: provide MainThreadTaskCallback.");
+	}
+
+	_MainThreadTaskCallback = TaskCallback;
 	_ClientOptions = Options;
 	if (!_ClientOptions.Base64.empty())
 	{
@@ -417,12 +429,12 @@ void Inworld::ClientBase::StartClient(const ClientOptions& Options, const Sessio
 		}
 		else
 		{
-			Inworld::LogError("Invalid base64 signature, ignored.");
+			Inworld::LogError("StartClient: invalid base64 signature, ignored.");
 		}
 	}
 	if (_ClientOptions.ProjectName.empty())
 	{
-		Inworld::LogWarning("Please provide ClientOptions.ProjectName");
+		Inworld::LogWarning("StartClient: provide ClientOptions.ProjectName");
 	}
 
 	_SessionInfo = Info;
@@ -444,7 +456,7 @@ void Inworld::ClientBase::StartClient(const ClientOptions& Options, const Sessio
 	}
 }
 
-void Inworld::ClientBase::PauseClient()
+void Inworld::Client::PauseClient()
 {
 	if (_ConnectionState != ConnectionState::Connected)
 	{
@@ -456,7 +468,7 @@ void Inworld::ClientBase::PauseClient()
 	SetConnectionState(ConnectionState::Paused);
 }
 
-void Inworld::ClientBase::ResumeClient()
+void Inworld::Client::ResumeClient()
 {
 	if (_ConnectionState != ConnectionState::Disconnected && _ConnectionState != ConnectionState::Paused)
 	{
@@ -482,7 +494,7 @@ void Inworld::ClientBase::ResumeClient()
 	}
 }
 
-void Inworld::ClientBase::StopClient()
+void Inworld::Client::StopClient()
 {
 	if (_ConnectionState == ConnectionState::Idle)
 	{
@@ -505,25 +517,26 @@ void Inworld::ClientBase::StopClient()
 	Inworld::LogClearSessionId();
 }
 
-void Inworld::ClientBase::DestroyClient()
+void Inworld::Client::DestroyClient()
 {
 	StopClient();
 	_OnPacketCallback = nullptr;
 	_OnLoadSceneCallback = nullptr;
+	_MainThreadTaskCallback = nullptr;
 	_OnGenerateTokenCallback = nullptr;
 	_OnConnectionStateChangedCallback = nullptr;
 	_LatencyTracker.ClearCallback();
 	_Service.reset();
 }
 
-void Inworld::ClientBase::SaveSessionState(std::function<void(std::string, bool)> Callback)
+void Inworld::Client::SaveSessionState(std::function<void(std::string, bool)> Callback)
 {
 	const size_t CharactersPos = _ClientOptions.SceneName.find("characters");
 	const size_t ScenesPos = _ClientOptions.SceneName.find("scenes");
 	const size_t Pos = CharactersPos != std::string::npos ? CharactersPos : ScenesPos;
 	if (Pos == std::string::npos)
 	{
-		Inworld::LogError("Inworld::ClientBase::SaveSessionState: Couldn't form SessionName");
+		Inworld::LogError("Inworld::Client::SaveSessionState: Couldn't form SessionName");
 		Callback({}, false);
 		return;
 	}
@@ -537,7 +550,7 @@ void Inworld::ClientBase::SaveSessionState(std::function<void(std::string, bool)
 			SessionName,
 			[this, Callback](const grpc::Status& Status, const InworldEngineV1::SessionState& State)
 			{
-				AddTaskToMainThread([this, Status, State, Callback]() {
+				_MainThreadTaskCallback([this, Status, State, Callback]() {
 					if (!Status.ok())
 					{
 						Inworld::LogError("Save session state FALURE! %s, Code: %d", ARG_STR(Status.error_message()), (int32_t)Status.error_code());
@@ -550,14 +563,14 @@ void Inworld::ClientBase::SaveSessionState(std::function<void(std::string, bool)
 		));
 }
 
-bool Inworld::ClientBase::GetConnectionError(std::string& OutErrorMessage, int32_t& OutErrorCode) const
+bool Inworld::Client::GetConnectionError(std::string& OutErrorMessage, int32_t& OutErrorCode) const
 {
 	OutErrorMessage = _ErrorMessage;
 	OutErrorCode = _ErrorCode;
 	return _ErrorCode != grpc::StatusCode::OK;
 }
 
-void Inworld::ClientBase::SetConnectionState(ConnectionState State)
+void Inworld::Client::SetConnectionState(ConnectionState State)
 {
 	if (_ConnectionState == State)
 	{
@@ -578,7 +591,7 @@ void Inworld::ClientBase::SetConnectionState(ConnectionState State)
 	}
 }
 
-void Inworld::ClientBase::StartSession(CharactersLoadedCb LoadSceneCallback)
+void Inworld::Client::StartSession(CharactersLoadedCb LoadSceneCallback)
 {
 	if (!_SessionInfo.IsValid())
 	{
@@ -638,7 +651,7 @@ void Inworld::ClientBase::StartSession(CharactersLoadedCb LoadSceneCallback)
 	LoadScene(_ClientOptions.SceneName, LoadSceneCallback);
 }
 
-void Inworld::ClientBase::StartClientStream()
+void Inworld::Client::StartClientStream()
 {
 	const bool bHasPendingWriteTask = _AsyncWriteTask->IsValid() && !_AsyncWriteTask->IsDone();
 	const bool bHasPendingReadTask = _AsyncReadTask->IsValid() && !_AsyncReadTask->IsDone();
@@ -653,7 +666,7 @@ void Inworld::ClientBase::StartClientStream()
 	}
 }
 
-void Inworld::ClientBase::StopClientStream()
+void Inworld::Client::StopClientStream()
 {
 	_bHasClientStreamFinished = true;
 	if (_Service->Session())
@@ -665,7 +678,7 @@ void Inworld::ClientBase::StopClientStream()
 	_Service->Stream().reset();
 }
 
-void Inworld::ClientBase::TryToStartReadTask()
+void Inworld::Client::TryToStartReadTask()
 {
 	if (!_Service->Stream())
 	{
@@ -686,7 +699,7 @@ void Inworld::ClientBase::TryToStartReadTask()
 					if (!_bPendingIncomingPacketFlush)
 					{
 						_bPendingIncomingPacketFlush = true;
-						AddTaskToMainThread(
+						_MainThreadTaskCallback(
 							[this]()
 							{
 								std::shared_ptr<Inworld::Packet> Packet;
@@ -707,7 +720,7 @@ void Inworld::ClientBase::TryToStartReadTask()
 					}
 					if (_ConnectionState != ConnectionState::Connected)
 					{
-						AddTaskToMainThread(
+						_MainThreadTaskCallback(
 							[this]()
 							{
 								SetConnectionState(ConnectionState::Connected);
@@ -719,7 +732,7 @@ void Inworld::ClientBase::TryToStartReadTask()
 					_ErrorMessage = std::string(Status.error_message().c_str());
 					_ErrorCode = Status.error_code();
 					Inworld::LogError("Message READ failed: %s. Code: %d", ARG_STR(_ErrorMessage), _ErrorCode);
-					AddTaskToMainThread(
+					_MainThreadTaskCallback(
 						[this]()
 						{
 							SetConnectionState(ConnectionState::Disconnected);
@@ -730,7 +743,7 @@ void Inworld::ClientBase::TryToStartReadTask()
 	}
 }
 
-void Inworld::ClientBase::TryToStartWriteTask()
+void Inworld::Client::TryToStartWriteTask()
 {
 	if (!_Service->Stream())
 	{
@@ -753,7 +766,7 @@ void Inworld::ClientBase::TryToStartWriteTask()
 					{
 						if (_ConnectionState != ConnectionState::Connected)
 						{
-							AddTaskToMainThread([this]() {
+							_MainThreadTaskCallback([this]() {
 								SetConnectionState(ConnectionState::Connected);
 							});
 						}
@@ -763,7 +776,7 @@ void Inworld::ClientBase::TryToStartWriteTask()
 						_ErrorMessage = std::string(Status.error_message().c_str());
 						_ErrorCode = Status.error_code();
 						Inworld::LogError("Message WRITE failed: %s. Code: %d", ARG_STR(_ErrorMessage), _ErrorCode);
-						AddTaskToMainThread([this]() {
+						_MainThreadTaskCallback([this]() {
 							SetConnectionState(ConnectionState::Disconnected);
 						});
 					}
@@ -773,17 +786,26 @@ void Inworld::ClientBase::TryToStartWriteTask()
 	}
 }
 
-void Inworld::Client::Update()
+Inworld::ClientDefault::ClientDefault()
+{
+	_Client.CreateAsyncRoutines<Inworld::AsyncRoutine>();
+}
+
+void Inworld::ClientDefault::StartClient(const ClientOptions& Options, const SessionInfo& Info, CharactersLoadedCb LoadSceneCallback)
+{
+	_Client.StartClient(Options, Info, LoadSceneCallback, [this](std::function<void()> Task)
+		{
+			_MainThreadTasks.PushBack(Task);
+		}
+	);
+}
+
+void Inworld::ClientDefault::Update()
 {
 	ExecutePendingTasks();
 }
 
-void Inworld::Client::AddTaskToMainThread(std::function<void()> Task)
-{
-	_MainThreadTasks.PushBack(Task);
-}
-
-void Inworld::Client::ExecutePendingTasks()
+void Inworld::ClientDefault::ExecutePendingTasks()
 {
 	std::function<void()> Task;
 	while (_MainThreadTasks.PopFront(Task))

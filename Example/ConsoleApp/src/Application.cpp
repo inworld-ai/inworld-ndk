@@ -9,13 +9,16 @@
 #include "Utils/Log.h"
 
 // !!! Fill out this options !!!
-constexpr std::string_view g_SceneName = "";
-constexpr std::string_view g_Base64 = "";
+constexpr std::string_view g_SceneName = "workspaces/artem_v_test/scenes/demo";
+constexpr std::string_view g_Base64 = "TUdoSkowSTlQeVg3VDUzVWE3MFJlUHoyemJBZ29JTnA6dW9Lb0tCWEQ2emVMamdpaGJXSGRnVjNmendTNkRCMFRFWGxCVXB1VzR0czNMQ3pjV1l4eEEyVkdUNlNzQzhSUg==";
 constexpr std::string_view g_ApiKey = "";
 constexpr std::string_view g_ApiSecret = "";
 
 void NDKApp::App::Run()
 {
+	int64_t Size0 = Inworld::SizeOfSdkInfo();
+	int64_t Size1 = sizeof(Inworld::SdkInfo);
+
 	if (
 		g_SceneName.empty() ||
 		(g_Base64.empty() &&
@@ -45,7 +48,7 @@ void NDKApp::App::Run()
 					return;
 				}
 
-				_Client.SendTextMessage(CurAgents, Text);
+				_Client.Client().SendTextMessage(CurAgents, Text);
 			}
 		},
 		{
@@ -67,7 +70,7 @@ void NDKApp::App::Run()
 				}
 
 				Inworld::Log("Send inworld.conversation.next_turn");
-				_Client.SendCustomEvent(CurAgents, "inworld.conversation.next_turn", {});
+				_Client.Client().SendCustomEvent(CurAgents, "inworld.conversation.next_turn", {});
 			}
 		},
 		{
@@ -87,7 +90,7 @@ void NDKApp::App::Run()
 					return;
 				}
 
-				_Client.SendNarrationEvent(_AgentInfos[_CurrentAgentIdxs[0]].AgentId, Text);
+				_Client.Client().SendNarrationEvent(_AgentInfos[_CurrentAgentIdxs[0]].AgentId, Text);
 				Inworld::Log("Narration sent.");
 			}
 		},
@@ -143,7 +146,7 @@ void NDKApp::App::Run()
 			"Save current session state",
 			[this](std::vector<std::string> Args)
 			{
-				_Client.SaveSessionState([this](std::string State, bool bSuccess)
+				_Client.Client().SaveSessionState([this](std::string State, bool bSuccess)
 					{
 						if (!bSuccess)
 						{
@@ -161,7 +164,7 @@ void NDKApp::App::Run()
 			"Restart session with saved state",
 			[this](std::vector<std::string> Args)
 			{
-				_Client.StopClient();
+				_Client.Client().StopClient();
 
 				Inworld::SessionInfo SessionInfo;
 				SessionInfo.SessionSavedState = _SavedSessionState;
@@ -189,7 +192,7 @@ void NDKApp::App::Run()
 					return;
 				}
 
-				_Client.LoadScene(Args[0], [this](const std::vector<Inworld::AgentInfo>& AgentInfos) {
+				_Client.Client().LoadScene(Args[0], [this](const std::vector<Inworld::AgentInfo>& AgentInfos) {
 					Inworld::Log("LoadScene done.");
 
 					_AgentInfos.insert(_AgentInfos.end(), AgentInfos.begin(), AgentInfos.end());
@@ -208,7 +211,7 @@ void NDKApp::App::Run()
 					return;
 				}
 
-				_Client.LoadCharacters(Args, [this](const std::vector<Inworld::AgentInfo>& AgentInfos) {
+				_Client.Client().LoadCharacters(Args, [this](const std::vector<Inworld::AgentInfo>& AgentInfos) {
 					Inworld::Log("LoadCharacters done.");
 
 					_AgentInfos.insert(_AgentInfos.end(), AgentInfos.begin(), AgentInfos.end());
@@ -252,7 +255,7 @@ void NDKApp::App::Run()
 					}
 				}
 
-				_Client.UnloadCharacters(Args);
+				_Client.Client().UnloadCharacters(Args);
 			}
 		},
 		{
@@ -266,7 +269,7 @@ void NDKApp::App::Run()
 					return;
 				}
 
-				_Client.LoadSavedState(Args[0]);
+				_Client.Client().LoadSavedState(Args[0]);
 			}
 		},
 		{
@@ -274,7 +277,7 @@ void NDKApp::App::Run()
 			"Destroy client and restart",
 			[this](std::vector<std::string> Args)
 			{
-				_Client.DestroyClient();
+				_Client.Client().DestroyClient();
 				Run();
 			}
 		},
@@ -347,19 +350,19 @@ void NDKApp::App::Run()
 
 	std::vector<Inworld::AgentInfo> AgentInfos;
 
-	_Client.InitClient(
+	_Client.Client().InitClient(
 		{},
 		[this](Inworld::Client::ConnectionState ConnectionState)
 		{
 			std::string Error;
 			int32_t Code;
-			_Client.GetConnectionError(Error, Code);
+			_Client.Client().GetConnectionError(Error, Code);
 
 			Inworld::Log("Connection state: %d. %s", static_cast<int32_t>(ConnectionState), Error.empty() ? "" : (std::string(" Error: ") + Error).c_str());
 
 			if (ConnectionState == Inworld::Client::ConnectionState::Disconnected)
 			{
-				_Client.ResumeClient();
+				_Client.Client().ResumeClient();
 			}
 		},
 		[this](std::shared_ptr<Inworld::Packet> Packet)
@@ -368,7 +371,7 @@ void NDKApp::App::Run()
 		}
 		);
 
-	_Client.SetPerceivedLatencyTrackerCallback([](const std::string& InteractonId, int32_t Latency)
+	_Client.Client().SetPerceivedLatencyTrackerCallback([](const std::string& InteractonId, int32_t Latency)
 		{
 			//Inworld::Log("PerceivedLatencyTracker. Latency is '%d', Interaction: %s", Latency, ARG_STR(InteractonId));
 		});

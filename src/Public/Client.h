@@ -39,7 +39,7 @@ namespace Inworld
 	class ServiceSession;
 	using ClientStream = ::grpc::ClientReaderWriter<InworldPackets::InworldPacket, InworldPackets::InworldPacket>;
 
-	// use for grpc related ClientBase members
+	// use for grpc related Client members
 	class IClientService
 	{
 	public:
@@ -56,6 +56,8 @@ namespace Inworld
 		std::string Version;
 		std::string OS;
 	};
+
+	INWORLD_EXPORT int64_t SizeOfSdkInfo();
 
 	using Capabilities = SessionControlEvent_Capabilities::Data;
 	using UserSettings = SessionControlEvent_UserConfiguration::Data;
@@ -76,8 +78,9 @@ namespace Inworld
 	};
 
 	using CharactersLoadedCb = std::function<void(const std::vector<AgentInfo>&)>;
+	using MainThreadTaskCb = std::function<void(std::function<void()>)>;
 
-	class INWORLD_EXPORT ClientBase : public PacketVisitor
+	class INWORLD_EXPORT Client : public PacketVisitor
 	{
 	public:
 		enum class ConnectionState : uint8_t 
@@ -91,53 +94,51 @@ namespace Inworld
 			Reconnecting
 		};
 
-		ClientBase() = default;
-		virtual ~ClientBase() = default;
+		Client() = default;
+		~Client() = default;
 
-		virtual void InitClient(const SdkInfo& SdkInfo, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback);
-		virtual void StartClient(const ClientOptions& Options, const SessionInfo& Info, CharactersLoadedCb LoadSceneCallback);
-		virtual void PauseClient();
-		virtual void ResumeClient();
-		virtual void StopClient();
-		virtual void DestroyClient();
+		void InitClient(const SdkInfo& SdkInfo, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback);
+		void StartClient(const ClientOptions& Options, const SessionInfo& Info, CharactersLoadedCb LoadSceneCallback, MainThreadTaskCb TaskCallback);
+		void PauseClient();
+		void ResumeClient();
+		void StopClient();
+		void DestroyClient();
 		
 		void SendPacket(std::shared_ptr<Inworld::Packet> Packet);
 
-		virtual std::shared_ptr<TextEvent> SendTextMessage(const std::string& AgentId, const std::string& Text);
-		virtual std::shared_ptr<TextEvent> SendTextMessage(const std::vector<std::string>& AgentIds, const std::string& Text);
-		virtual std::shared_ptr<DataEvent> SendSoundMessage(const std::string& AgentId, const std::string& Data);
-		virtual std::shared_ptr<DataEvent> SendSoundMessage(const std::vector<std::string>& AgentIds, const std::string& Data);
-		virtual std::shared_ptr<DataEvent> SendSoundMessageWithAEC(const std::string& AgentId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
-		virtual std::shared_ptr<DataEvent> SendSoundMessageWithAEC(const std::vector<std::string>& AgentIds, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
-		virtual std::shared_ptr<CustomEvent> SendCustomEvent(std::string AgentId, const std::string& Name, const std::unordered_map<std::string, std::string>& Params);
-		virtual std::shared_ptr<CustomEvent> SendCustomEvent(const std::vector<std::string>& AgentIds, const std::string& Name, const std::unordered_map<std::string, std::string>& Params);
+		std::shared_ptr<TextEvent> SendTextMessage(const std::string& AgentId, const std::string& Text);
+		std::shared_ptr<TextEvent> SendTextMessage(const std::vector<std::string>& AgentIds, const std::string& Text);
+		std::shared_ptr<DataEvent> SendSoundMessage(const std::string& AgentId, const std::string& Data);
+		std::shared_ptr<DataEvent> SendSoundMessage(const std::vector<std::string>& AgentIds, const std::string& Data);
+		std::shared_ptr<DataEvent> SendSoundMessageWithAEC(const std::string& AgentId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
+		std::shared_ptr<DataEvent> SendSoundMessageWithAEC(const std::vector<std::string>& AgentIds, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
+		std::shared_ptr<CustomEvent> SendCustomEvent(std::string AgentId, const std::string& Name, const std::unordered_map<std::string, std::string>& Params);
+		std::shared_ptr<CustomEvent> SendCustomEvent(const std::vector<std::string>& AgentIds, const std::string& Name, const std::unordered_map<std::string, std::string>& Params);
 		
-		virtual std::shared_ptr<ActionEvent> SendNarrationEvent(std::string AgentId, const std::string& Content);
+		std::shared_ptr<ActionEvent> SendNarrationEvent(std::string AgentId, const std::string& Content);
 		
 		// Experimental
-		virtual void LoadScene(const std::string& Scene, CharactersLoadedCb OnLoadSceneCallback);
-		virtual void LoadCharacters(const std::vector<std::string>& Names, CharactersLoadedCb OnLoadCharactersCallback);
-		virtual void UnloadCharacters(const std::vector<std::string>& Names);
-		virtual void LoadSavedState(const std::string& SavedState);
+		void LoadScene(const std::string& Scene, CharactersLoadedCb OnLoadSceneCallback);
+		void LoadCharacters(const std::vector<std::string>& Names, CharactersLoadedCb OnLoadCharactersCallback);
+		void UnloadCharacters(const std::vector<std::string>& Names);
+		void LoadSavedState(const std::string& SavedState);
 		// ~Experimental
 
-		virtual void CancelResponse(const std::string& AgentId, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds);
+		void CancelResponse(const std::string& AgentId, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds);
 
-		virtual void StartAudioSession(const std::string& AgentId);
-		virtual void StartAudioSession(const std::vector<std::string>& AgentIds);
-		virtual void StopAudioSession(const std::string& AgentId);
-		virtual void StopAudioSession(const std::vector<std::string>& AgentIds);
+		void StartAudioSession(const std::string& AgentId);
+		void StartAudioSession(const std::vector<std::string>& AgentIds);
+		void StopAudioSession(const std::string& AgentId);
+		void StopAudioSession(const std::vector<std::string>& AgentIds);
 		
-		virtual void SaveSessionState(std::function<void(std::string, bool)> Callback);
+		void SaveSessionState(std::function<void(std::string, bool)> Callback);
 
-		virtual void GenerateToken(std::function<void()> RefreshTokenCallback);
+		void GenerateToken(std::function<void()> RefreshTokenCallback);
 
-		virtual void SetAudioDumpEnabled(bool bEnabled, const std::string& FileName);
+		void SetAudioDumpEnabled(bool bEnabled, const std::string& FileName);
 		
 		ConnectionState GetConnectionState() const { return _ConnectionState; }
 		bool GetConnectionError(std::string& OutErrorMessage, int32_t& OutErrorCode) const;
-		
-		virtual void Update() {}
 
 		void SetPerceivedLatencyTrackerCallback(PerceivedLatencyCallback Cb) { _LatencyTracker.SetCallback(Cb); }
 		void ClearPerceivedLatencyTrackerCallback() { _LatencyTracker.ClearCallback(); }
@@ -147,18 +148,6 @@ namespace Inworld
 
 		virtual void Visit(const SessionControlResponse_LoadScene& Event) override;
 		virtual void Visit(const SessionControlResponse_LoadCharacters& Event) override;
-
-	protected:
-		void PushPacket(std::shared_ptr<Inworld::Packet> Packet);
-
-		virtual std::shared_ptr<TextEvent> SendTextMessage(const Inworld::Routing& Routing, const std::string& Text);
-		virtual std::shared_ptr<DataEvent> SendSoundMessage(const Inworld::Routing& Routing, const std::string& Data);
-		virtual std::shared_ptr<DataEvent> SendSoundMessageWithAEC(const Inworld::Routing& Routing, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
-		virtual std::shared_ptr<CustomEvent> SendCustomEvent(const Inworld::Routing& Routing, const std::string& Name, const std::unordered_map<std::string, std::string>& Params);
-		virtual void StartAudioSession(const Inworld::Routing& Routing);
-		virtual void StopAudioSession(const Inworld::Routing& Routing);
-
-		virtual void AddTaskToMainThread(std::function<void()> Task) = 0;
 
 		template<typename TAsyncRoutine>
 		void CreateAsyncRoutines()
@@ -171,6 +160,17 @@ namespace Inworld
 			_AsyncAudioDumper = std::make_unique<TAsyncRoutine>();
 #endif			
 		}
+
+	protected:
+		void PushPacket(std::shared_ptr<Inworld::Packet> Packet);
+
+		std::shared_ptr<TextEvent> SendTextMessage(const Inworld::Routing& Routing, const std::string& Text);
+		std::shared_ptr<DataEvent> SendSoundMessage(const Inworld::Routing& Routing, const std::string& Data);
+		std::shared_ptr<DataEvent> SendSoundMessageWithAEC(const Inworld::Routing& Routing, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
+		std::shared_ptr<CustomEvent> SendCustomEvent(const Inworld::Routing& Routing, const std::string& Name, const std::unordered_map<std::string, std::string>& Params);
+		void StartAudioSession(const Inworld::Routing& Routing);
+		void StopAudioSession(const Inworld::Routing& Routing);
+
 		void StartClientStream();
 		void StopClientStream();
 		void SetConnectionState(ConnectionState State);
@@ -190,6 +190,8 @@ namespace Inworld
 			static_assert(std::is_base_of<SessionControlEvent, T>::value, "ControlSession can be used only with SessionControlEvents");
 			PushPacket(std::make_shared<T>(D));
 		}
+
+		std::function<void(std::function<void()>)> _MainThreadTaskCallback;
 
 #ifdef INWORLD_AUDIO_DUMP
 		std::unique_ptr<IAsyncRoutine> _AsyncAudioDumper;
@@ -225,22 +227,20 @@ namespace Inworld
 		PerceivedLatencyTracker _LatencyTracker;
 	};
 
-	class INWORLD_EXPORT Client : public ClientBase
+	class INWORLD_EXPORT ClientDefault
 	{
 	public:
-		Client()
-		{
-			CreateAsyncRoutines<Inworld::AsyncRoutine>();
-		}
+		ClientDefault();
 
-		virtual void Update() override;
+		void StartClient(const ClientOptions& Options, const SessionInfo& Info, CharactersLoadedCb LoadSceneCallback);
+		void Update();
 
-	protected:
-		virtual void AddTaskToMainThread(std::function<void()> Task) override;
+		Client& Client() { return _Client; }
 
 	private:
 		void ExecutePendingTasks();
 
+		Inworld::Client _Client;
 		SharedQueue<std::function<void()>> _MainThreadTasks;
 	};
 }
