@@ -151,13 +151,12 @@ namespace Inworld
 		virtual void Run() override
 		{
 			_Status = RunProcess();
+			_IsDone = true;
 
 			if (_Callback)
 			{
 				_Callback(_Status, _Response);
 			}
-
-			_IsDone = true;
 		}
 
 		virtual void Deinitialize() override

@@ -31,7 +31,7 @@ namespace NDKApp
 
 		Inworld::Client _Client;
 		Inworld::ClientOptions _Options;
-		Inworld::StudioClient _StudioClient;
+		Inworld::StudioClientDefault _StudioClient;
 		CommandLineInterface _Cli;
 		PacketHandler _PacketHandler;
 

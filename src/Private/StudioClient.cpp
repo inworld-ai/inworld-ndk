@@ -10,18 +10,18 @@
 #include "Log.h"
 #include "GrpcHelpers.h"
 
-void Inworld::StudioClientBase::RequestStudioUserData(const std::string& InToken, const std::string& InServerUrl, std::function<void(bool bSuccess)> InCallback)
+void Inworld::StudioClient::RequestStudioUserData(const std::string& Token, const std::string& ServerUrl, std::function<void(bool bSuccess)> Callback)
 {
 	ClearError();
 
-	ServerUrl = InServerUrl;
-	Callback = InCallback;
+	_ServerUrl = ServerUrl;
+	_Callback = Callback;
 
 	Request(
 		"RunnableGenerateUserTokenRequest",
 		std::make_unique<Inworld::RunnableGenerateUserTokenRequest>(
-			InToken,
-			InServerUrl,
+			Token,
+			ServerUrl,
 			[this](const grpc::Status& Status, const InworldV1alpha::GenerateTokenUserResponse& Response)
 			{
 				if (!Status.ok())
@@ -36,16 +36,16 @@ void Inworld::StudioClientBase::RequestStudioUserData(const std::string& InToken
 	);
 }
 
-void Inworld::StudioClientBase::OnGenerateUserToken(const InworldV1alpha::GenerateTokenUserResponse& Response)
+void Inworld::StudioClient::OnGenerateUserToken(const InworldV1alpha::GenerateTokenUserResponse& Response)
 {
-	InworldToken = Response.token().c_str();
-	StudioUserData.Workspaces.clear();
+	_InworldToken = Response.token().c_str();
+	_StudioUserData.Workspaces.clear();
 
 	Request(
 		"RunnableListWorkspacesRequest",
 		std::make_unique<Inworld::RunnableListWorkspacesRequest>(
-			InworldToken,
-			ServerUrl,
+			_InworldToken,
+			_ServerUrl,
 			[this](const grpc::Status& Status, const InworldV1alpha::ListWorkspacesResponse& Response)
 			{
 				if (!Status.ok())
@@ -70,22 +70,22 @@ static std::string CreateShortName(const std::string& Name)
 	return Name;
 }
 
-void Inworld::StudioClientBase::OnWorkspacesReady(const InworldV1alpha::ListWorkspacesResponse& Response)
+void Inworld::StudioClient::OnWorkspacesReady(const InworldV1alpha::ListWorkspacesResponse& Response)
 {
-	StudioUserData.Workspaces.reserve(Response.workspaces_size());
+	_StudioUserData.Workspaces.reserve(Response.workspaces_size());
 
 	for (int32_t i = 0; i < Response.workspaces_size(); i++)
 	{
 		const auto& GrpcWorkspace = Response.workspaces(i);
-		auto& Workspace = StudioUserData.Workspaces.emplace_back();
+		auto& Workspace = _StudioUserData.Workspaces.emplace_back();
 		Workspace.Name = GrpcWorkspace.name().data();
 		Workspace.ShortName = CreateShortName(Workspace.Name);
 
 		Request(
 			"RunnableListScenesRequest",
 			std::make_unique<Inworld::RunnableListScenesRequest>(
-				InworldToken,
-				ServerUrl,
+				_InworldToken,
+				_ServerUrl,
 				GrpcWorkspace.name(),
 				[this, &Workspace](const grpc::Status& Status, const InworldV1alpha::ListScenesResponse& Response)
 				{
@@ -103,8 +103,8 @@ void Inworld::StudioClientBase::OnWorkspacesReady(const InworldV1alpha::ListWork
 		Request(
 			"RunnableListCharactersRequest",
 			std::make_unique<Inworld::RunnableListCharactersRequest>(
-				InworldToken,
-				ServerUrl,
+				_InworldToken,
+				_ServerUrl,
 				GrpcWorkspace.name(),
 				[this, &Workspace](const grpc::Status& Status, const InworldV1alpha::ListCharactersResponse& Response)
 				{
@@ -122,8 +122,8 @@ void Inworld::StudioClientBase::OnWorkspacesReady(const InworldV1alpha::ListWork
 		Request(
 			"RunnableListApiKeysRequest",
 			std::make_unique<Inworld::RunnableListApiKeysRequest>(
-				InworldToken,
-				ServerUrl,
+				_InworldToken,
+				_ServerUrl,
 				GrpcWorkspace.name(),
 				[this, &Workspace](const grpc::Status& Status, const InworldV1alpha::ListApiKeysResponse& Response)
 				{
@@ -140,7 +140,7 @@ void Inworld::StudioClientBase::OnWorkspacesReady(const InworldV1alpha::ListWork
 	}
 }
 
-void Inworld::StudioClientBase::OnApiKeysReady(const InworldV1alpha::ListApiKeysResponse& Response, Inworld::StudioUserWorkspaceData& Workspace)
+void Inworld::StudioClient::OnApiKeysReady(const InworldV1alpha::ListApiKeysResponse& Response, Inworld::StudioUserWorkspaceData& Workspace)
 {
 	Workspace.ApiKeys.reserve(Response.api_keys_size());
 
@@ -154,10 +154,10 @@ void Inworld::StudioClientBase::OnApiKeysReady(const InworldV1alpha::ListApiKeys
 		ApiKey.IsActive = GrpcApiKey.state() == InworldV1alpha::ApiKey_State_ACTIVE;
 	}
 
-	AddTaskToMainThread([this]() { CheckRequestsDone(); });
+	CheckRequestsDone();
 }
 
-void Inworld::StudioClientBase::OnScenesReady(const InworldV1alpha::ListScenesResponse& Response, Inworld::StudioUserWorkspaceData& Workspace)
+void Inworld::StudioClient::OnScenesReady(const InworldV1alpha::ListScenesResponse& Response, Inworld::StudioUserWorkspaceData& Workspace)
 {
 	Workspace.Scenes.reserve(Response.scenes_size());
 
@@ -174,10 +174,10 @@ void Inworld::StudioClientBase::OnScenesReady(const InworldV1alpha::ListScenesRe
 		}
 	}
 
-	AddTaskToMainThread([this]() { CheckRequestsDone(); });
+	CheckRequestsDone();
 }
 
-void Inworld::StudioClientBase::OnCharactersReady(const InworldV1alpha::ListCharactersResponse& Response, Inworld::StudioUserWorkspaceData& Workspace)
+void Inworld::StudioClient::OnCharactersReady(const InworldV1alpha::ListCharactersResponse& Response, Inworld::StudioUserWorkspaceData& Workspace)
 {
 	Workspace.Characters.reserve(Response.characters_size());
 
@@ -195,29 +195,29 @@ void Inworld::StudioClientBase::OnCharactersReady(const InworldV1alpha::ListChar
 		Character.bMale = CharInfo._bMale;
 	}
 
-	AddTaskToMainThread([this]() { CheckRequestsDone(); });
+	CheckRequestsDone();
 }
 
-void Inworld::StudioClientBase::CancelRequests()
+void Inworld::StudioClient::CancelRequests()
 {
-	std::lock_guard<std::mutex> Lock(RequestsMutex);
+	std::lock_guard<std::mutex> Lock(_RequestsMutex);
 
-	Requests.clear();
+	_Requests.clear();
 }
 
-void Inworld::StudioClientBase::Request(const std::string& ThreadName, std::unique_ptr<Inworld::Runnable> Runnable)
+void Inworld::StudioClient::Request(const std::string& ThreadName, std::unique_ptr<Inworld::Runnable> Runnable)
 {
-	std::lock_guard<std::mutex> Lock(RequestsMutex);
+	std::lock_guard<std::mutex> Lock(_RequestsMutex);
 
-	auto& AsyncTask = Requests.emplace_back(std::make_shared<AsyncRoutine>());
+	auto& AsyncTask = _Requests.emplace_back(std::make_shared<AsyncRoutine>());
 	AsyncTask->Start(ThreadName, std::move(Runnable));
 }
 
-void Inworld::StudioClientBase::CheckRequestsDone()
+void Inworld::StudioClient::CheckRequestsDone()
 {
-	std::lock_guard<std::mutex> Lock(RequestsMutex);
+	std::lock_guard<std::mutex> Lock(_RequestsMutex);
 
-	for (auto& R : Requests)
+	for (auto& R : _Requests)
 	{
 		if (!R->IsDone())
 		{
@@ -225,34 +225,41 @@ void Inworld::StudioClientBase::CheckRequestsDone()
 		}
 	}
 
-	Requests.clear();
-	Callback(true);
+	_Requests.clear();
+	_Callback(true);
 }
 
-void Inworld::StudioClientBase::Error(std::string Message)
+void Inworld::StudioClient::Error(std::string Message)
 {
 	Inworld::LogError("%s", Message.c_str());
-	ErrorMessage = Message;
+	_ErrorMessage = Message;
 	CancelRequests();
-	Callback(false);
+	_Callback(false);
 }
 
-void Inworld::StudioClientBase::ClearError()
+void Inworld::StudioClient::ClearError()
 {
-	ErrorMessage.clear();
+	_ErrorMessage.clear();
 }
 
-void Inworld::StudioClient::Update()
+void Inworld::StudioClientDefault::RequestStudioUserData(const std::string& Token, const std::string& ServerUrl, std::function<void(bool bSuccess)> Callback)
+{
+	_Client.RequestStudioUserData(Token, ServerUrl, [this, Callback](bool bSuccess) {
+			AddTaskToMainThread([bSuccess, Callback]() { Callback(bSuccess); });
+		});
+}
+
+void Inworld::StudioClientDefault::Update()
 {
 	ExecutePendingTasks();
 }
 
-void Inworld::StudioClient::AddTaskToMainThread(std::function<void()> Task)
+void Inworld::StudioClientDefault::AddTaskToMainThread(std::function<void()> Task)
 {
 	_MainThreadTasks.PushBack(Task);
 }
 
-void Inworld::StudioClient::ExecutePendingTasks()
+void Inworld::StudioClientDefault::ExecutePendingTasks()
 {
 	std::function<void()> Task;
 	while (_MainThreadTasks.PopFront(Task))

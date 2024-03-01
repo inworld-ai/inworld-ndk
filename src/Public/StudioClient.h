@@ -79,34 +79,28 @@ namespace Inworld
 		std::vector<StudioUserWorkspaceData> Workspaces;
 	};
 
-	class INWORLD_EXPORT StudioClientBase
+	class INWORLD_EXPORT StudioClient
 	{
 	public:
-		virtual ~StudioClientBase() = default;
-		
-		void RequestStudioUserData(const std::string& Token, const std::string& ServerUrl, std::function<void(bool bSuccess)> InCallback);
+		// callback will be called not on main thread 
+		void RequestStudioUserData(const std::string& Token, const std::string& ServerUrl, std::function<void(bool bSuccess)> Callback);
 
 		void CancelRequests();
-		bool IsRequestInProgress() const { return !Requests.empty(); }
+		bool IsRequestInProgress() const { return !_Requests.empty(); }
 
-		const std::string& GetError() const { return ErrorMessage; }
-		const StudioUserData& GetStudioUserData() const { return StudioUserData; }
-
-		virtual void Update() {}
-
-	protected:
-		virtual void AddTaskToMainThread(std::function<void()> Task) = 0;
+		const std::string& GetError() const { return _ErrorMessage; }
+		const StudioUserData& GetStudioUserData() const { return _StudioUserData; }
 
 	private:
-		std::function<void(bool bSuccess)> Callback;
-		std::string ServerUrl;
-		std::string InworldToken;
-		StudioUserData StudioUserData;
+		std::function<void(bool bSuccess)> _Callback;
+		std::string _ServerUrl;
+		std::string _InworldToken;
+		StudioUserData _StudioUserData;
 
-		std::mutex RequestsMutex;
-		std::vector<std::shared_ptr<AsyncRoutine>> Requests;
+		std::mutex _RequestsMutex;
+		std::vector<std::shared_ptr<AsyncRoutine>> _Requests;
 
-		std::string ErrorMessage;
+		std::string _ErrorMessage;
 
 	private:
 		void Request(const std::string& ThreadName, std::unique_ptr<Inworld::Runnable> Runnable);
@@ -122,17 +116,26 @@ namespace Inworld
 		void ClearError();
 	};
 
-	class INWORLD_EXPORT StudioClient : public StudioClientBase
+	class INWORLD_EXPORT StudioClientDefault
 	{
 	public:
-		virtual void Update() override;
+		void RequestStudioUserData(const std::string& Token, const std::string& ServerUrl, std::function<void(bool bSuccess)> Callback);
+
+		void CancelRequests() { _Client.CancelRequests(); }
+		bool IsRequestInProgress() const { return _Client.IsRequestInProgress(); }
+
+		const std::string& GetError() const { return _Client.GetError(); }
+		const StudioUserData& GetStudioUserData() const { return _Client.GetStudioUserData(); }
+
+		void Update();
 
 	protected:
-		virtual void AddTaskToMainThread(std::function<void()> Task) override;
+		void AddTaskToMainThread(std::function<void()> Task);
 
 	private:
 		void ExecutePendingTasks();
 
+		StudioClient _Client;
 		SharedQueue<std::function<void()>> _MainThreadTasks;
 	};
 }
