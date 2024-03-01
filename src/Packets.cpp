@@ -356,7 +356,7 @@ namespace Inworld {
 		Capabilities->set_relations(_Data.Relations);
 		Capabilities->set_debug_info(_Data.Relations);
 		Capabilities->set_multi_agent(_Data.Multiagent);
-        Capabilities->set_audio2face(true);
+        Capabilities->set_audio2face(_Data.Audio2Face);
 	}
 
 	void SessionControlEvent_UserConfiguration::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
