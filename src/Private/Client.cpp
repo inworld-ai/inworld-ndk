@@ -85,26 +85,21 @@ namespace Inworld
 		std::unique_ptr<Inworld::ServiceSession> _SessionService;
 	};
 
-	std::unique_ptr<Client> ClientPtr;
-
-	int64_t SizeOfSdkInfo()
-	{
-		return sizeof(SdkInfo);
-	}
+	static std::unique_ptr<Client> g_ClientPtr;
 
 	void CreateClient()
 	{
-		ClientPtr = std::make_unique<Client>();
+		g_ClientPtr = std::make_unique<Client>();
 	}
 
 	void DestroyClient()
 	{
-		ClientPtr.reset();
+		g_ClientPtr.reset();
 	}
 
 	std::unique_ptr<Inworld::Client>& GetClient()
 	{
-		return ClientPtr;
+		return g_ClientPtr;
 	}
 
 }

@@ -9,6 +9,7 @@
 #include "Service.h"
 #include "Log.h"
 #include "GrpcHelpers.h"
+#include <memory>
 
 void Inworld::StudioClient::RequestStudioUserData(const std::string& Token, const std::string& ServerUrl, std::function<void(bool bSuccess)> Callback)
 {
@@ -266,4 +267,21 @@ void Inworld::StudioClientDefault::ExecutePendingTasks()
 	{
 		Task();
 	}
+}
+
+static std::unique_ptr<Inworld::StudioClient> g_ClientPtr;
+
+INWORLD_EXPORT void Inworld::CreateStudioClient()
+{
+	g_ClientPtr = std::make_unique<Inworld::StudioClient>();
+}
+
+INWORLD_EXPORT void Inworld::DestroyStudioClient()
+{
+	g_ClientPtr.reset();
+}
+
+INWORLD_EXPORT std::unique_ptr<Inworld::StudioClient>& Inworld::GetStudioClient()
+{
+	return g_ClientPtr;
 }

@@ -116,6 +116,11 @@ namespace Inworld
 		void ClearError();
 	};
 
+	// use if build as dll
+	INWORLD_EXPORT void CreateStudioClient();
+	INWORLD_EXPORT void DestroyStudioClient();
+	INWORLD_EXPORT std::unique_ptr<StudioClient>& GetStudioClient();
+
 	class INWORLD_EXPORT StudioClientDefault
 	{
 	public:

@@ -57,8 +57,6 @@ namespace Inworld
 		std::string OS;
 	};
 
-	INWORLD_EXPORT int64_t SizeOfSdkInfo();
-
 	using Capabilities = SessionControlEvent_Capabilities::Data;
 	using UserSettings = SessionControlEvent_UserConfiguration::Data;
 	struct INWORLD_EXPORT ClientOptions
@@ -227,6 +225,7 @@ namespace Inworld
 		PerceivedLatencyTracker _LatencyTracker;
 	};
 
+	// use if build as dll
 	INWORLD_EXPORT void CreateClient();
 	INWORLD_EXPORT void DestroyClient();
 	INWORLD_EXPORT std::unique_ptr<Client>& GetClient();
