@@ -41,6 +41,30 @@ jobs:
             exit 1
           fi
           exit 0
+    - name: gen-shared
+      shell: bash
+      run: |
+          sh mac-gen-shared.sh > GenLog.txt -Wait -NoNewWindow -PassThru 
+          cat GenLog.txt
+          if grep -Fxq "$GenLog.txt" "Configuring incomplete"
+          then
+              exit 1
+          fi
+          exit 0
+    - name: build-mac-shared
+      shell: bash
+      run: |
+          sh mac-build.sh > BuildLog.txt -Wait -NoNewWindow -PassThru
+          cat BuildLog.txt
+          if (grep -Fxq "$BuildLog.txt" "** BUILD FAILED **")
+          then
+            exit 1
+          fi
+          if (grep -Fxq "$BuildLog.txt" "[  FAILED  ]")
+          then
+            exit 1
+          fi
+          exit 0
     - uses: actions/cache/save@v3
       with:
         path: build/Package

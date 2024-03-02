@@ -61,6 +61,50 @@ jobs:
             exit 1
           }
           exit 0
+    - name: gen-shared
+      shell: pwsh
+      run: |
+          Start-Process -FilePath "win-gen-shared.bat" " > GenLog.txt" -Wait -NoNewWindow -PassThru 
+          cat GenLog.txt
+          if (Select-String -Path GenLog.txt -Pattern "Configuring incomplete" -SimpleMatch -Quiet)
+          {
+            exit 1
+          }
+          exit 0
+    - name: build-win-shared
+      shell: pwsh
+      run: |
+          Start-Process -FilePath "win-build.bat" " > BuildLog.txt" -Wait -NoNewWindow -PassThru
+          cat BuildLog.txt
+          if (Select-String -Path BuildLog.txt -Pattern "inworld-ndk.vcxproj ->" -SimpleMatch -Quiet)
+          {
+            "inworld-ndk built successfully"
+          }
+          else
+          {
+            exit 1
+          }
+          if (Select-String -Path BuildLog.txt -Pattern "inworld-ndk-app.vcxproj ->" -SimpleMatch -Quiet)
+          {
+            "inworld-ndk-app built successfully"
+          }
+          else
+          {
+            exit 1
+          }
+          if (Select-String -Path BuildLog.txt -Pattern "inworld-ndk-unit.vcxproj ->" -SimpleMatch -Quiet)
+          {
+            "inworld-ndk-unit built successfully"
+          }
+          else
+          {
+            exit 1
+          }
+          if (Select-String -Path BuildLog.txt -Pattern "[  FAILED  ]" -SimpleMatch -Quiet)
+          {
+            exit 1
+          }
+          exit 0
     - uses: actions/cache/save@v3
       with:
         path: build\Package

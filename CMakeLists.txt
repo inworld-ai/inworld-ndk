@@ -24,7 +24,10 @@ file(GLOB_RECURSE FilesALLProto
 add_library(inworld-ndk-proto STATIC ${FilesALLProto})
 if (INWORLD_SHARED)
     add_library(inworld-ndk SHARED ${FilesALL})
-    #target_compile_definitions(inworld-ndk PRIVATE INWORLD_DLL_EXPORT=1)
+    set_target_properties(inworld-ndk PROPERTIES
+        LIBRARY_OUTPUT_NAME "inworld-ndk.dll"
+        IMPORT_SUFFIX ".dll.lib"
+    )
 else()
     add_library(inworld-ndk STATIC ${FilesALL})
 endif()
@@ -56,8 +59,8 @@ target_include_directories(inworld-ndk-proto PUBLIC
     src-proto
 )
 
-target_compile_features(inworld-ndk PUBLIC cxx_std_17)
-target_compile_features(inworld-ndk-proto PUBLIC cxx_std_17)
+target_compile_features(inworld-ndk PUBLIC cxx_std_20)
+target_compile_features(inworld-ndk-proto PUBLIC cxx_std_20)
 
 if (INWORLD_AUDIO_DUMP)
     target_compile_definitions(inworld-ndk PRIVATE INWORLD_AUDIO_DUMP=1)
@@ -309,6 +312,7 @@ else()
 endif()
 
 if (${CMAKE_BUILD_TYPE} MATCHES "Debug")
+    set(INWORLD_DEBUG True)
     set(LibProtobufName libprotobufd)
     if(INWORLD_LOG_SPD)
         set(LibSpglogName spdlogd)
@@ -326,7 +330,7 @@ if (INWORLD_SHARED)
     )
     if (WIN32)
         list(APPEND LibFiles
-            ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}inworld-ndk.${LibExt})
+            ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/inworld-ndk.dll.lib)
     endif()
 else()
     set(LibFiles 
@@ -365,7 +369,7 @@ else()
     )
 endif()
 
-if (WIN32 AND ${CMAKE_BUILD_TYPE} MATCHES "Debug")
+if (WIN32 AND INWORLD_DEBUG)
     list(APPEND LibFiles ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}inworld-ndk.pdb)
 endif()
 
@@ -471,7 +475,7 @@ if (WIN32 OR MAC)
 
     add_executable(inworld-ndk-app ${FilesALL})
 
-    target_compile_features(inworld-ndk-app PRIVATE cxx_std_17)
+    target_compile_features(inworld-ndk-app PRIVATE cxx_std_20)
     target_include_directories(inworld-ndk-app PUBLIC inworld-ndk/src/Public)
     target_link_libraries(inworld-ndk-app PRIVATE inworld-ndk)
 
