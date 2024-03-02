@@ -53,6 +53,14 @@ std::vector<uint8_t> Inworld::Utils::HmacSha256(const std::vector<uint8_t>& Data
 	return Res;
 }
 
+INWORLD_EXPORT const std::vector<uint8_t>& Inworld::Utils::HmacSha256Safe(const std::vector<uint8_t>& Data, const std::vector<uint8_t>& Key)
+{
+    // prevent implicit memory move to avoid undefined behavior when built as dll
+	static std::vector<uint8_t> Res(32);
+	hmac_sha256(Key.data(), Key.size(), Data.data(), Data.size(), Res.data(), Res.size());
+	return Res;
+}
+
 std::string Inworld::Utils::ToHex(const std::vector<uint8_t>& Data)
 {
 	std::string Res(Data.size() * 2, '0');
