@@ -229,12 +229,6 @@ grpc::Status Inworld::RunnableGenerateUserTokenRequest::RunProcess()
 	return CreateStub()->GenerateTokenUser(Ctx.get(), Request, &_Response);
 }
 
-std::unique_ptr<Inworld::Runnable> Inworld::MakeRunnableGenerateUserTokenRequest(const std::string& InFirebaseToken, const std::string& InServerUrl, std::function<void(const grpc::Status& Status, const InworldV1alpha::GenerateTokenUserResponse& Response)> InCallback)
-{
-	return std::make_unique<Inworld::RunnableGenerateUserTokenRequest>(InFirebaseToken, InServerUrl, InCallback);
-}
-
-
 grpc::Status Inworld::RunnableGetSessionState::RunProcess()
 {
 	InworldEngineV1::GetSessionStateRequest Request;
@@ -260,11 +254,6 @@ grpc::Status Inworld::RunnableListWorkspacesRequest::RunProcess()
 	return CreateStub()->ListWorkspaces(Ctx.get(), Request, &_Response);
 }
 
-std::unique_ptr<Inworld::Runnable> Inworld::MakeRunnableListWorkspacesRequest(const std::string& InInworldToken, const std::string& InServerUrl, std::function<void(const grpc::Status& Status, const InworldV1alpha::ListWorkspacesResponse& Response)> InCallback)
-{
-	return std::make_unique<Inworld::RunnableListWorkspacesRequest>(InInworldToken, InServerUrl, InCallback);
-}
-
 grpc::Status Inworld::RunnableListScenesRequest::RunProcess()
 {
 	InworldV1alpha::ListScenesRequest Request;
@@ -276,11 +265,6 @@ grpc::Status Inworld::RunnableListScenesRequest::RunProcess()
 		});
 
 	return CreateStub()->ListScenes(Ctx.get(), Request, &_Response);
-}
-
-std::unique_ptr<Inworld::Runnable> Inworld::MakeRunnableListScenesRequest(const std::string& InInworldToken, const std::string& InServerUrl, const std::string& InWorkspace, std::function<void(const grpc::Status& Status, const InworldV1alpha::ListScenesResponse& Response)> InCallback)
-{
-	return std::make_unique<Inworld::RunnableListScenesRequest>(InInworldToken, InServerUrl, InWorkspace, InCallback);
 }
 
 grpc::Status Inworld::RunnableListCharactersRequest::RunProcess()
@@ -297,11 +281,6 @@ grpc::Status Inworld::RunnableListCharactersRequest::RunProcess()
 	return CreateStub()->ListCharacters(Ctx.get(), Request, &_Response);
 }
 
-std::unique_ptr<Inworld::Runnable> Inworld::MakeRunnableListCharactersRequest(const std::string& InInworldToken, const std::string& InServerUrl, const std::string& InWorkspace, std::function<void(const grpc::Status& Status, const InworldV1alpha::ListCharactersResponse& Response)> InCallback)
-{
-	return std::make_unique<Inworld::RunnableListCharactersRequest>(InInworldToken, InServerUrl, InWorkspace, InCallback);
-}
-
 grpc::Status Inworld::RunnableListApiKeysRequest::RunProcess()
 {
 	InworldV1alpha::ListApiKeysRequest Request;
@@ -313,9 +292,4 @@ grpc::Status Inworld::RunnableListApiKeysRequest::RunProcess()
 		});
 
 	return CreateStub()->ListApiKeys(Ctx.get(), Request, &_Response);
-}
-
-std::unique_ptr<Inworld::Runnable> Inworld::MakeRunnableListApiKeysRequest(const std::string& InInworldToken, const std::string& InServerUrl, const std::string& InWorkspace, std::function<void(const grpc::Status& Status, const InworldV1alpha::ListApiKeysResponse& Response)> InCallback)
-{
-	return std::make_unique<Inworld::RunnableListApiKeysRequest>(InInworldToken, InServerUrl, InWorkspace, InCallback);
 }
