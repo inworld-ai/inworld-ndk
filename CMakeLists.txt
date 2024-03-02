@@ -24,10 +24,12 @@ file(GLOB_RECURSE FilesALLProto
 add_library(inworld-ndk-proto STATIC ${FilesALLProto})
 if (INWORLD_SHARED)
     add_library(inworld-ndk SHARED ${FilesALL})
-    set_target_properties(inworld-ndk PROPERTIES
-        LIBRARY_OUTPUT_NAME "inworld-ndk.dll"
-        IMPORT_SUFFIX ".dll.lib"
-    )
+    if (WIN32)
+        set_target_properties(inworld-ndk PROPERTIES
+            LIBRARY_OUTPUT_NAME "inworld-ndk.dll"
+            IMPORT_SUFFIX ".dll.lib"
+        )
+    endif()
 else()
     add_library(inworld-ndk STATIC ${FilesALL})
 endif()
