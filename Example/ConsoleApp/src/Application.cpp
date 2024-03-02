@@ -16,9 +16,6 @@ constexpr std::string_view g_ApiSecret = "";
 
 void NDKApp::App::Run()
 {
-	int64_t Size0 = Inworld::SizeOfSdkInfo();
-	int64_t Size1 = sizeof(Inworld::SdkInfo);
-
 	if (
 		g_SceneName.empty() ||
 		(g_Base64.empty() &&

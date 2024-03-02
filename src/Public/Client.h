@@ -227,6 +227,10 @@ namespace Inworld
 		PerceivedLatencyTracker _LatencyTracker;
 	};
 
+	INWORLD_EXPORT void CreateClient();
+	INWORLD_EXPORT void DestroyClient();
+	INWORLD_EXPORT std::unique_ptr<Client>& GetClient();
+
 	class INWORLD_EXPORT ClientDefault
 	{
 	public:

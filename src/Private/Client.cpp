@@ -85,9 +85,26 @@ namespace Inworld
 		std::unique_ptr<Inworld::ServiceSession> _SessionService;
 	};
 
+	std::unique_ptr<Client> ClientPtr;
+
 	int64_t SizeOfSdkInfo()
 	{
 		return sizeof(SdkInfo);
+	}
+
+	void CreateClient()
+	{
+		ClientPtr = std::make_unique<Client>();
+	}
+
+	void DestroyClient()
+	{
+		ClientPtr.reset();
+	}
+
+	std::unique_ptr<Inworld::Client>& GetClient()
+	{
+		return ClientPtr;
 	}
 
 }
@@ -301,12 +318,12 @@ void Inworld::Client::SetAudioDumpEnabled(bool bEnabled, const std::string& File
 #ifdef INWORLD_AUDIO_DUMP
 	bDumpAudio = bEnabled;
 	_AudioDumpFileName = FileName;
-	/*_AsyncAudioDumper->Stop();
+	_AsyncAudioDumper->Stop();
 	if (bDumpAudio)
 	{
 		_AsyncAudioDumper->Start("InworldAudioDumper", std::make_unique<RunnableAudioDumper>(_AudioChunksToDump, _AudioDumpFileName));
 		Inworld::Log("ASYNC audio dump STARTING");
-	}*/
+	}
 #endif
 }
 
