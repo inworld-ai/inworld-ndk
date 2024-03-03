@@ -203,7 +203,9 @@ std::string Inworld::RunnableGenerateSessionToken::GenerateHeader() const
 		std::vector<uint8_t> Data;
 		Data.resize(Arg.size());
 		memcpy(Data.data(), Arg.data(), Arg.size());
-		Key = Inworld::Utils::HmacSha256(Data, Key);
+		std::vector<uint8_t> NewKey(32);
+		Inworld::Utils::HmacSha256(Data, Key, NewKey);
+		Key = NewKey;
 	}
 
 	const std::string Signature = Inworld::Utils::ToHex(Key);

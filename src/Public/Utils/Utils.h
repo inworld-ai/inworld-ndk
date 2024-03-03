@@ -19,8 +19,7 @@ namespace Inworld
 		INWORLD_EXPORT std::string GetSslRootCerts();
 		INWORLD_EXPORT std::string PhonemeToViseme(const std::string& Phoneme);
 
-		INWORLD_EXPORT std::vector<uint8_t> HmacSha256(const std::vector<uint8_t>& Data, const std::vector<uint8_t>& Key);
-		INWORLD_EXPORT const std::vector<uint8_t>& HmacSha256Safe(const std::vector<uint8_t>& Data, const std::vector<uint8_t>& Key);
+		INWORLD_EXPORT void HmacSha256(const std::vector<uint8_t>& Data, const std::vector<uint8_t>& Key, std::vector<uint8_t>& Signature);
 		INWORLD_EXPORT std::string ToHex(const std::vector<uint8_t>& Data);
 	}
 }
