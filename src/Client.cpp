@@ -292,6 +292,8 @@ void Inworld::ClientBase::StopAudioSession(const std::vector<std::string>& Agent
 
 void Inworld::ClientBase::InitClient(const SdkInfo& SdkInfo, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback)
 {
+	Inworld::StartAudioDump();
+	
 	gpr_set_log_function(GrpcLog);	
 
 	_SdkInfo = SdkInfo;
@@ -395,14 +397,14 @@ void Inworld::ClientBase::StartClient(const ClientOptions& Options, const Sessio
 
 	SetConnectionState(ConnectionState::Connecting);
 
-	if (!_SessionInfo.IsValid())
+	/*if (!_SessionInfo.IsValid())
 	{
 		GenerateToken([this, LoadSceneCallback]()
 		{
 			StartSession(LoadSceneCallback);
 		});
 	}
-	else
+	else*/
 	{
 		StartSession(LoadSceneCallback);
 	}
@@ -477,6 +479,8 @@ void Inworld::ClientBase::DestroyClient()
 	_OnGenerateTokenCallback = nullptr;
 	_OnConnectionStateChangedCallback = nullptr;
 	_LatencyTracker.ClearCallback();
+	Inworld::StopAudioDump();
+
 }
 
 void Inworld::ClientBase::SaveSessionState(std::function<void(std::string, bool)> Callback)
@@ -545,7 +549,7 @@ void Inworld::ClientBase::StartSession(CharactersLoadedCb LoadSceneCallback)
 {
 	if (!_SessionInfo.IsValid())
 	{
-		return;
+		//return;
 	}
 
 	if (_ClientOptions.SceneName.empty())

@@ -783,5 +783,8 @@ namespace Inworld {
 	private:
 		std::vector<AgentInfo> _AgentInfos;
 	};
+
+	void StartAudioDump();
+	void StopAudioDump();
 }
 #pragma warning(pop)

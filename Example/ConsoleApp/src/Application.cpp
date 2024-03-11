@@ -26,6 +26,7 @@ void NDKApp::App::Run()
 		return;
 	}
 
+	bool bQuit = false;
 	_Cli.SetCommands({
 		{
 			"Text",
@@ -268,10 +269,18 @@ void NDKApp::App::Run()
 
 				_Client.LoadSavedState(Args[0]);
 			}
+		},
+		{
+			"Quit",
+			"Quit app",
+			[this, &bQuit](std::vector<std::string> Args)
+			{
+				bQuit = true;
+			}
 		}
 		});
 
-	_Options.ServerUrl = "api-engine.inworld.ai:443";
+	_Options.ServerUrl = "100.115.146.43:9090";//"knivesout.dev.inworld.ai:443";
 	_Options.PlayerName = "Player";
 
 	_Options.SceneName = g_SceneName;
@@ -289,6 +298,7 @@ void NDKApp::App::Run()
 	_Options.Capabilities.PhonemeInfo = true;
 	_Options.Capabilities.NarratedActions = true;
 	_Options.Capabilities.Multiagent = true;
+	_Options.Capabilities.Audio2Face = true;
 
 	std::vector<Inworld::AgentInfo> AgentInfos;
 
@@ -335,7 +345,7 @@ void NDKApp::App::Run()
 			}
 		});
 
-	for (;;)
+	while (!bQuit)
 	{
 		_Client.Update();
 
@@ -348,6 +358,8 @@ void NDKApp::App::Run()
 
 		std::this_thread::sleep_for(std::chrono::milliseconds(30));
 	}
+
+	_Client.DestroyClient();
 }
 
 void NDKApp::App::Error(std::string Msg)

@@ -5,6 +5,8 @@
  * that can be found in the LICENSE.md file or at https://www.inworld.ai/sdk-license
  */
 
+#include <filesystem>
+#include <fstream>
 #include "Packets.h"
 #include "proto/ProtoDisableWarning.h"
 
@@ -34,7 +36,7 @@ namespace Inworld {
         return Result;
     }
 
-    InworldPakets::Actor Actor::ToProto() const
+	InworldPakets::Actor Actor::ToProto() const
     {
         InworldPakets::Actor actor;
         actor.set_type(_Type);
@@ -235,6 +237,81 @@ namespace Inworld {
         }
     }
 
+    static std::map<std::string, int32_t> AudioIdxMap;
+    static std::map<std::string, int32_t> AudioCountsMap;
+    static std::vector<std::string> Audio;
+    static std::string Header;
+	const std::string DumpPath = "C:/Tmp/AudioDumps/";
+
+	void StartAudioDump()
+	{
+		Inworld::Log("StartAudioDump");
+		namespace fs = std::filesystem;
+		for (const auto& entry : fs::directory_iterator(DumpPath)) {
+			if (entry.is_regular_file()) {
+				fs::remove(entry.path());
+			}
+		}
+	}
+
+	void StopAudioDump()
+	{
+		Inworld::Log("StopAudioDump");
+		std::ofstream Stream(DumpPath + "Dump.wav", std::ios::binary);
+        Stream.write(Header.data(), Header.size());
+        for (auto& A : Audio)
+        {
+			Stream.write(A.data(), A.size());
+		}
+		Stream.close();
+
+        for (auto& P : AudioCountsMap)
+        {
+            Inworld::Log("Packet count %s: %d", P.first, P.second);
+        }
+
+        AudioIdxMap.clear();
+        AudioCountsMap.clear();
+        Audio.clear();
+	}
+
+    static void PushAudioDump(const std::string& Id, const std::string& File)
+    {
+        if (Header.empty())
+        {
+            Header = { File.data(), 44 };
+        }
+
+		{
+			auto it = AudioCountsMap.find(Id);
+			if (it != AudioCountsMap.end())
+			{
+				it->second++;
+			}
+			else
+			{
+				AudioCountsMap.insert({ Id, 1 });
+			}
+		}
+        
+        auto it = AudioIdxMap.find(Id);
+        int32_t Idx = -1;
+        if (it == AudioIdxMap.end())
+        {
+            Idx = Audio.size();
+            AudioIdxMap.insert({ Id, Idx });
+            Audio.emplace_back();
+        }
+        else
+        {
+            Idx = it->second;
+        }
+        
+		Audio[Idx].append(File.data() + 44, File.size() - 44);
+		
+        //Inworld::Log("PushAudioDump: %s %d bytes", Id.c_str(), File.size() - 44);
+    }
+
     A2FOldAnimationContentEvent::A2FOldAnimationContentEvent(const void* Data, uint32_t Size) : Packet()
     {
         nvidia::ace::animation::A2XAnimDataStreamContent AnimationDataStreamContent;
@@ -255,7 +332,8 @@ namespace Inworld {
         _USDA = AnimationDataStreamContent.usda();
         for (const auto& file : AnimationDataStreamContent.files())
         {
-            _Files.emplace(file.first, file.second);
+			_Files.emplace(file.first, file.second);
+			PushAudioDump(_PacketId._UtteranceId, file.second);
         }
     }
 
