@@ -397,10 +397,10 @@ void Inworld::ClientBase::StartClient(const ClientOptions& Options, const Sessio
 
 	if (!_SessionInfo.IsValid())
 	{
-		GenerateToken([this, LoadSceneCallback]()
-		{
+		//GenerateToken([this, LoadSceneCallback]()
+		//{
 			StartSession(LoadSceneCallback);
-		});
+		//});
 	}
 	else
 	{
@@ -545,7 +545,7 @@ void Inworld::ClientBase::StartSession(CharactersLoadedCb LoadSceneCallback)
 {
 	if (!_SessionInfo.IsValid())
 	{
-		return;
+		//return;
 	}
 
 	if (_ClientOptions.SceneName.empty())
