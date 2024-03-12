@@ -26,6 +26,7 @@ void NDKApp::App::Run()
 		return;
 	}
 
+	bool bQuit = false;
 	_Cli.SetCommands({
 		{
 			"Text",
@@ -322,6 +323,14 @@ void NDKApp::App::Run()
 							}
 						}
 					});
+				}
+		},
+		{
+			"Quit",
+			"Quit app",
+			[this, &bQuit](std::vector<std::string> Args)
+			{
+				bQuit = true;
 			}
 		}
 		});
@@ -390,7 +399,7 @@ void NDKApp::App::Run()
 			}
 		});
 
-	for (;;)
+	while (!bQuit)
 	{
 		_Client.Update();
 		_StudioClient.Update();
