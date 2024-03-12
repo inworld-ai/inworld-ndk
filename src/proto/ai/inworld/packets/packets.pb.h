@@ -4330,6 +4330,7 @@ class MutationEvent PROTOBUF_FINAL :
     kLoadScene = 4,
     kModifyExactResponse = 5,
     kLoadCharacters = 6,
+    kUnloadCharacters = 7,
     MUTATION_NOT_SET = 0,
   };
 
@@ -4415,6 +4416,7 @@ class MutationEvent PROTOBUF_FINAL :
     kLoadSceneFieldNumber = 4,
     kModifyExactResponseFieldNumber = 5,
     kLoadCharactersFieldNumber = 6,
+    kUnloadCharactersFieldNumber = 7,
   };
   // .ai.inworld.packets.CancelResponses cancel_responses = 1;
   bool has_cancel_responses() const;
@@ -4524,6 +4526,24 @@ class MutationEvent PROTOBUF_FINAL :
       ::ai::inworld::packets::LoadCharacters* load_characters);
   ::ai::inworld::packets::LoadCharacters* unsafe_arena_release_load_characters();
 
+  // .ai.inworld.packets.UnloadCharacters unload_characters = 7;
+  bool has_unload_characters() const;
+  private:
+  bool _internal_has_unload_characters() const;
+  public:
+  void clear_unload_characters();
+  const ::ai::inworld::packets::UnloadCharacters& unload_characters() const;
+  ::ai::inworld::packets::UnloadCharacters* release_unload_characters();
+  ::ai::inworld::packets::UnloadCharacters* mutable_unload_characters();
+  void set_allocated_unload_characters(::ai::inworld::packets::UnloadCharacters* unload_characters);
+  private:
+  const ::ai::inworld::packets::UnloadCharacters& _internal_unload_characters() const;
+  ::ai::inworld::packets::UnloadCharacters* _internal_mutable_unload_characters();
+  public:
+  void unsafe_arena_set_allocated_unload_characters(
+      ::ai::inworld::packets::UnloadCharacters* unload_characters);
+  ::ai::inworld::packets::UnloadCharacters* unsafe_arena_release_unload_characters();
+
   void clear_mutation();
   MutationCase mutation_case() const;
   // @@protoc_insertion_point(class_scope:ai.inworld.packets.MutationEvent)
@@ -4535,6 +4555,7 @@ class MutationEvent PROTOBUF_FINAL :
   void set_has_load_scene();
   void set_has_modify_exact_response();
   void set_has_load_characters();
+  void set_has_unload_characters();
 
   inline bool has_mutation() const;
   inline void clear_has_mutation();
@@ -4550,6 +4571,7 @@ class MutationEvent PROTOBUF_FINAL :
     ::ai::inworld::packets::LoadScene* load_scene_;
     ::ai::inworld::packets::ModifyExactResponse* modify_exact_response_;
     ::ai::inworld::packets::LoadCharacters* load_characters_;
+    ::ai::inworld::packets::UnloadCharacters* unload_characters_;
   } mutation_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
@@ -5476,6 +5498,9 @@ class LoadedScene PROTOBUF_FINAL :
 
   enum : int {
     kAgentsFieldNumber = 1,
+    kSceneNameFieldNumber = 2,
+    kSceneDescriptionFieldNumber = 3,
+    kSceneDisplayNameFieldNumber = 4,
   };
   // repeated .ai.inworld.packets.Agent agents = 1;
   int agents_size() const;
@@ -5495,6 +5520,54 @@ class LoadedScene PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Agent >&
       agents() const;
 
+  // string scene_name = 2;
+  void clear_scene_name();
+  const std::string& scene_name() const;
+  void set_scene_name(const std::string& value);
+  void set_scene_name(std::string&& value);
+  void set_scene_name(const char* value);
+  void set_scene_name(const char* value, size_t size);
+  std::string* mutable_scene_name();
+  std::string* release_scene_name();
+  void set_allocated_scene_name(std::string* scene_name);
+  private:
+  const std::string& _internal_scene_name() const;
+  void _internal_set_scene_name(const std::string& value);
+  std::string* _internal_mutable_scene_name();
+  public:
+
+  // string scene_description = 3;
+  void clear_scene_description();
+  const std::string& scene_description() const;
+  void set_scene_description(const std::string& value);
+  void set_scene_description(std::string&& value);
+  void set_scene_description(const char* value);
+  void set_scene_description(const char* value, size_t size);
+  std::string* mutable_scene_description();
+  std::string* release_scene_description();
+  void set_allocated_scene_description(std::string* scene_description);
+  private:
+  const std::string& _internal_scene_description() const;
+  void _internal_set_scene_description(const std::string& value);
+  std::string* _internal_mutable_scene_description();
+  public:
+
+  // string scene_display_name = 4;
+  void clear_scene_display_name();
+  const std::string& scene_display_name() const;
+  void set_scene_display_name(const std::string& value);
+  void set_scene_display_name(std::string&& value);
+  void set_scene_display_name(const char* value);
+  void set_scene_display_name(const char* value, size_t size);
+  std::string* mutable_scene_display_name();
+  std::string* release_scene_display_name();
+  void set_allocated_scene_display_name(std::string* scene_display_name);
+  private:
+  const std::string& _internal_scene_display_name() const;
+  void _internal_set_scene_display_name(const std::string& value);
+  std::string* _internal_mutable_scene_display_name();
+  public:
+
   // @@protoc_insertion_point(class_scope:ai.inworld.packets.LoadedScene)
  private:
   class _Internal;
@@ -5503,6 +5576,9 @@ class LoadedScene PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Agent > agents_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr scene_name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr scene_description_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr scene_display_name_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fpackets_2fpackets_2eproto;
 };
@@ -5922,6 +5998,9 @@ class LoadedCharacters PROTOBUF_FINAL :
 
   enum : int {
     kAgentsFieldNumber = 1,
+    kSceneNameFieldNumber = 2,
+    kSceneDescriptionFieldNumber = 3,
+    kSceneDisplayNameFieldNumber = 4,
   };
   // repeated .ai.inworld.packets.Agent agents = 1;
   int agents_size() const;
@@ -5941,6 +6020,54 @@ class LoadedCharacters PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Agent >&
       agents() const;
 
+  // string scene_name = 2;
+  void clear_scene_name();
+  const std::string& scene_name() const;
+  void set_scene_name(const std::string& value);
+  void set_scene_name(std::string&& value);
+  void set_scene_name(const char* value);
+  void set_scene_name(const char* value, size_t size);
+  std::string* mutable_scene_name();
+  std::string* release_scene_name();
+  void set_allocated_scene_name(std::string* scene_name);
+  private:
+  const std::string& _internal_scene_name() const;
+  void _internal_set_scene_name(const std::string& value);
+  std::string* _internal_mutable_scene_name();
+  public:
+
+  // string scene_description = 3;
+  void clear_scene_description();
+  const std::string& scene_description() const;
+  void set_scene_description(const std::string& value);
+  void set_scene_description(std::string&& value);
+  void set_scene_description(const char* value);
+  void set_scene_description(const char* value, size_t size);
+  std::string* mutable_scene_description();
+  std::string* release_scene_description();
+  void set_allocated_scene_description(std::string* scene_description);
+  private:
+  const std::string& _internal_scene_description() const;
+  void _internal_set_scene_description(const std::string& value);
+  std::string* _internal_mutable_scene_description();
+  public:
+
+  // string scene_display_name = 4;
+  void clear_scene_display_name();
+  const std::string& scene_display_name() const;
+  void set_scene_display_name(const std::string& value);
+  void set_scene_display_name(std::string&& value);
+  void set_scene_display_name(const char* value);
+  void set_scene_display_name(const char* value, size_t size);
+  std::string* mutable_scene_display_name();
+  std::string* release_scene_display_name();
+  void set_allocated_scene_display_name(std::string* scene_display_name);
+  private:
+  const std::string& _internal_scene_display_name() const;
+  void _internal_set_scene_display_name(const std::string& value);
+  std::string* _internal_mutable_scene_display_name();
+  public:
+
   // @@protoc_insertion_point(class_scope:ai.inworld.packets.LoadedCharacters)
  private:
   class _Internal;
@@ -5949,6 +6076,9 @@ class LoadedCharacters PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Agent > agents_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr scene_name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr scene_description_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr scene_display_name_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fpackets_2fpackets_2eproto;
 };
@@ -13244,6 +13374,79 @@ inline ::ai::inworld::packets::LoadCharacters* MutationEvent::mutable_load_chara
   return _internal_mutable_load_characters();
 }
 
+// .ai.inworld.packets.UnloadCharacters unload_characters = 7;
+inline bool MutationEvent::_internal_has_unload_characters() const {
+  return mutation_case() == kUnloadCharacters;
+}
+inline bool MutationEvent::has_unload_characters() const {
+  return _internal_has_unload_characters();
+}
+inline void MutationEvent::set_has_unload_characters() {
+  _oneof_case_[0] = kUnloadCharacters;
+}
+inline void MutationEvent::clear_unload_characters() {
+  if (_internal_has_unload_characters()) {
+    if (GetArena() == nullptr) {
+      delete mutation_.unload_characters_;
+    }
+    clear_has_mutation();
+  }
+}
+inline ::ai::inworld::packets::UnloadCharacters* MutationEvent::release_unload_characters() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.MutationEvent.unload_characters)
+  if (_internal_has_unload_characters()) {
+    clear_has_mutation();
+      ::ai::inworld::packets::UnloadCharacters* temp = mutation_.unload_characters_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    mutation_.unload_characters_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::ai::inworld::packets::UnloadCharacters& MutationEvent::_internal_unload_characters() const {
+  return _internal_has_unload_characters()
+      ? *mutation_.unload_characters_
+      : reinterpret_cast< ::ai::inworld::packets::UnloadCharacters&>(::ai::inworld::packets::_UnloadCharacters_default_instance_);
+}
+inline const ::ai::inworld::packets::UnloadCharacters& MutationEvent::unload_characters() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.MutationEvent.unload_characters)
+  return _internal_unload_characters();
+}
+inline ::ai::inworld::packets::UnloadCharacters* MutationEvent::unsafe_arena_release_unload_characters() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:ai.inworld.packets.MutationEvent.unload_characters)
+  if (_internal_has_unload_characters()) {
+    clear_has_mutation();
+    ::ai::inworld::packets::UnloadCharacters* temp = mutation_.unload_characters_;
+    mutation_.unload_characters_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void MutationEvent::unsafe_arena_set_allocated_unload_characters(::ai::inworld::packets::UnloadCharacters* unload_characters) {
+  clear_mutation();
+  if (unload_characters) {
+    set_has_unload_characters();
+    mutation_.unload_characters_ = unload_characters;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.packets.MutationEvent.unload_characters)
+}
+inline ::ai::inworld::packets::UnloadCharacters* MutationEvent::_internal_mutable_unload_characters() {
+  if (!_internal_has_unload_characters()) {
+    clear_mutation();
+    set_has_unload_characters();
+    mutation_.unload_characters_ = CreateMaybeMessage< ::ai::inworld::packets::UnloadCharacters >(GetArena());
+  }
+  return mutation_.unload_characters_;
+}
+inline ::ai::inworld::packets::UnloadCharacters* MutationEvent::mutable_unload_characters() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.MutationEvent.unload_characters)
+  return _internal_mutable_unload_characters();
+}
+
 inline bool MutationEvent::has_mutation() const {
   return mutation_case() != MUTATION_NOT_SET;
 }
@@ -13884,6 +14087,189 @@ LoadedScene::agents() const {
   return agents_;
 }
 
+// string scene_name = 2;
+inline void LoadedScene::clear_scene_name() {
+  scene_name_.ClearToEmpty();
+}
+inline const std::string& LoadedScene::scene_name() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.LoadedScene.scene_name)
+  return _internal_scene_name();
+}
+inline void LoadedScene::set_scene_name(const std::string& value) {
+  _internal_set_scene_name(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.LoadedScene.scene_name)
+}
+inline std::string* LoadedScene::mutable_scene_name() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.LoadedScene.scene_name)
+  return _internal_mutable_scene_name();
+}
+inline const std::string& LoadedScene::_internal_scene_name() const {
+  return scene_name_.Get();
+}
+inline void LoadedScene::_internal_set_scene_name(const std::string& value) {
+  
+  scene_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void LoadedScene::set_scene_name(std::string&& value) {
+  
+  scene_name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.packets.LoadedScene.scene_name)
+}
+inline void LoadedScene::set_scene_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  scene_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.packets.LoadedScene.scene_name)
+}
+inline void LoadedScene::set_scene_name(const char* value,
+    size_t size) {
+  
+  scene_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.packets.LoadedScene.scene_name)
+}
+inline std::string* LoadedScene::_internal_mutable_scene_name() {
+  
+  return scene_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* LoadedScene::release_scene_name() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.LoadedScene.scene_name)
+  return scene_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void LoadedScene::set_allocated_scene_name(std::string* scene_name) {
+  if (scene_name != nullptr) {
+    
+  } else {
+    
+  }
+  scene_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), scene_name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.LoadedScene.scene_name)
+}
+
+// string scene_description = 3;
+inline void LoadedScene::clear_scene_description() {
+  scene_description_.ClearToEmpty();
+}
+inline const std::string& LoadedScene::scene_description() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.LoadedScene.scene_description)
+  return _internal_scene_description();
+}
+inline void LoadedScene::set_scene_description(const std::string& value) {
+  _internal_set_scene_description(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.LoadedScene.scene_description)
+}
+inline std::string* LoadedScene::mutable_scene_description() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.LoadedScene.scene_description)
+  return _internal_mutable_scene_description();
+}
+inline const std::string& LoadedScene::_internal_scene_description() const {
+  return scene_description_.Get();
+}
+inline void LoadedScene::_internal_set_scene_description(const std::string& value) {
+  
+  scene_description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void LoadedScene::set_scene_description(std::string&& value) {
+  
+  scene_description_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.packets.LoadedScene.scene_description)
+}
+inline void LoadedScene::set_scene_description(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  scene_description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.packets.LoadedScene.scene_description)
+}
+inline void LoadedScene::set_scene_description(const char* value,
+    size_t size) {
+  
+  scene_description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.packets.LoadedScene.scene_description)
+}
+inline std::string* LoadedScene::_internal_mutable_scene_description() {
+  
+  return scene_description_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* LoadedScene::release_scene_description() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.LoadedScene.scene_description)
+  return scene_description_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void LoadedScene::set_allocated_scene_description(std::string* scene_description) {
+  if (scene_description != nullptr) {
+    
+  } else {
+    
+  }
+  scene_description_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), scene_description,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.LoadedScene.scene_description)
+}
+
+// string scene_display_name = 4;
+inline void LoadedScene::clear_scene_display_name() {
+  scene_display_name_.ClearToEmpty();
+}
+inline const std::string& LoadedScene::scene_display_name() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.LoadedScene.scene_display_name)
+  return _internal_scene_display_name();
+}
+inline void LoadedScene::set_scene_display_name(const std::string& value) {
+  _internal_set_scene_display_name(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.LoadedScene.scene_display_name)
+}
+inline std::string* LoadedScene::mutable_scene_display_name() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.LoadedScene.scene_display_name)
+  return _internal_mutable_scene_display_name();
+}
+inline const std::string& LoadedScene::_internal_scene_display_name() const {
+  return scene_display_name_.Get();
+}
+inline void LoadedScene::_internal_set_scene_display_name(const std::string& value) {
+  
+  scene_display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void LoadedScene::set_scene_display_name(std::string&& value) {
+  
+  scene_display_name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.packets.LoadedScene.scene_display_name)
+}
+inline void LoadedScene::set_scene_display_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  scene_display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.packets.LoadedScene.scene_display_name)
+}
+inline void LoadedScene::set_scene_display_name(const char* value,
+    size_t size) {
+  
+  scene_display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.packets.LoadedScene.scene_display_name)
+}
+inline std::string* LoadedScene::_internal_mutable_scene_display_name() {
+  
+  return scene_display_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* LoadedScene::release_scene_display_name() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.LoadedScene.scene_display_name)
+  return scene_display_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void LoadedScene::set_allocated_scene_display_name(std::string* scene_display_name) {
+  if (scene_display_name != nullptr) {
+    
+  } else {
+    
+  }
+  scene_display_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), scene_display_name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.LoadedScene.scene_display_name)
+}
+
 // -------------------------------------------------------------------
 
 // LoadCharacters_CharacterName
@@ -14053,6 +14439,189 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::
 LoadedCharacters::agents() const {
   // @@protoc_insertion_point(field_list:ai.inworld.packets.LoadedCharacters.agents)
   return agents_;
+}
+
+// string scene_name = 2;
+inline void LoadedCharacters::clear_scene_name() {
+  scene_name_.ClearToEmpty();
+}
+inline const std::string& LoadedCharacters::scene_name() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.LoadedCharacters.scene_name)
+  return _internal_scene_name();
+}
+inline void LoadedCharacters::set_scene_name(const std::string& value) {
+  _internal_set_scene_name(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.LoadedCharacters.scene_name)
+}
+inline std::string* LoadedCharacters::mutable_scene_name() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.LoadedCharacters.scene_name)
+  return _internal_mutable_scene_name();
+}
+inline const std::string& LoadedCharacters::_internal_scene_name() const {
+  return scene_name_.Get();
+}
+inline void LoadedCharacters::_internal_set_scene_name(const std::string& value) {
+  
+  scene_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void LoadedCharacters::set_scene_name(std::string&& value) {
+  
+  scene_name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.packets.LoadedCharacters.scene_name)
+}
+inline void LoadedCharacters::set_scene_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  scene_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.packets.LoadedCharacters.scene_name)
+}
+inline void LoadedCharacters::set_scene_name(const char* value,
+    size_t size) {
+  
+  scene_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.packets.LoadedCharacters.scene_name)
+}
+inline std::string* LoadedCharacters::_internal_mutable_scene_name() {
+  
+  return scene_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* LoadedCharacters::release_scene_name() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.LoadedCharacters.scene_name)
+  return scene_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void LoadedCharacters::set_allocated_scene_name(std::string* scene_name) {
+  if (scene_name != nullptr) {
+    
+  } else {
+    
+  }
+  scene_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), scene_name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.LoadedCharacters.scene_name)
+}
+
+// string scene_description = 3;
+inline void LoadedCharacters::clear_scene_description() {
+  scene_description_.ClearToEmpty();
+}
+inline const std::string& LoadedCharacters::scene_description() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.LoadedCharacters.scene_description)
+  return _internal_scene_description();
+}
+inline void LoadedCharacters::set_scene_description(const std::string& value) {
+  _internal_set_scene_description(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.LoadedCharacters.scene_description)
+}
+inline std::string* LoadedCharacters::mutable_scene_description() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.LoadedCharacters.scene_description)
+  return _internal_mutable_scene_description();
+}
+inline const std::string& LoadedCharacters::_internal_scene_description() const {
+  return scene_description_.Get();
+}
+inline void LoadedCharacters::_internal_set_scene_description(const std::string& value) {
+  
+  scene_description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void LoadedCharacters::set_scene_description(std::string&& value) {
+  
+  scene_description_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.packets.LoadedCharacters.scene_description)
+}
+inline void LoadedCharacters::set_scene_description(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  scene_description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.packets.LoadedCharacters.scene_description)
+}
+inline void LoadedCharacters::set_scene_description(const char* value,
+    size_t size) {
+  
+  scene_description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.packets.LoadedCharacters.scene_description)
+}
+inline std::string* LoadedCharacters::_internal_mutable_scene_description() {
+  
+  return scene_description_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* LoadedCharacters::release_scene_description() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.LoadedCharacters.scene_description)
+  return scene_description_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void LoadedCharacters::set_allocated_scene_description(std::string* scene_description) {
+  if (scene_description != nullptr) {
+    
+  } else {
+    
+  }
+  scene_description_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), scene_description,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.LoadedCharacters.scene_description)
+}
+
+// string scene_display_name = 4;
+inline void LoadedCharacters::clear_scene_display_name() {
+  scene_display_name_.ClearToEmpty();
+}
+inline const std::string& LoadedCharacters::scene_display_name() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.LoadedCharacters.scene_display_name)
+  return _internal_scene_display_name();
+}
+inline void LoadedCharacters::set_scene_display_name(const std::string& value) {
+  _internal_set_scene_display_name(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.LoadedCharacters.scene_display_name)
+}
+inline std::string* LoadedCharacters::mutable_scene_display_name() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.LoadedCharacters.scene_display_name)
+  return _internal_mutable_scene_display_name();
+}
+inline const std::string& LoadedCharacters::_internal_scene_display_name() const {
+  return scene_display_name_.Get();
+}
+inline void LoadedCharacters::_internal_set_scene_display_name(const std::string& value) {
+  
+  scene_display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void LoadedCharacters::set_scene_display_name(std::string&& value) {
+  
+  scene_display_name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.packets.LoadedCharacters.scene_display_name)
+}
+inline void LoadedCharacters::set_scene_display_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  scene_display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.packets.LoadedCharacters.scene_display_name)
+}
+inline void LoadedCharacters::set_scene_display_name(const char* value,
+    size_t size) {
+  
+  scene_display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.packets.LoadedCharacters.scene_display_name)
+}
+inline std::string* LoadedCharacters::_internal_mutable_scene_display_name() {
+  
+  return scene_display_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* LoadedCharacters::release_scene_display_name() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.LoadedCharacters.scene_display_name)
+  return scene_display_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void LoadedCharacters::set_allocated_scene_display_name(std::string* scene_display_name) {
+  if (scene_display_name != nullptr) {
+    
+  } else {
+    
+  }
+  scene_display_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), scene_display_name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.LoadedCharacters.scene_display_name)
 }
 
 // -------------------------------------------------------------------

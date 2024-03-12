@@ -166,9 +166,10 @@ namespace Inworld {
 
     A2FAnimationHeaderEvent::A2FAnimationHeaderEvent(const InworldPakets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
     {
-        nvidia::ace::controller::v1::AnimationDataStreamHeader AnimationDataStreamHeader;
-        AnimationDataStreamHeader.ParseFromString(GrpcPacket.data_chunk().chunk());
+        nvidia::ace::controller::v1::AnimationDataStream AnimationDataStream;
+        AnimationDataStream.ParseFromString(GrpcPacket.data_chunk().chunk());
 
+        nvidia::ace::controller::v1::AnimationDataStreamHeader AnimationDataStreamHeader = AnimationDataStream.animation_data_stream_header();
         _ChannelCount = AnimationDataStreamHeader.audio_header().channel_count();
         _SamplesPerSecond = AnimationDataStreamHeader.audio_header().samples_per_second();
         _BitsPerSample = AnimationDataStreamHeader.audio_header().bits_per_sample();
@@ -179,25 +180,7 @@ namespace Inworld {
         }
     }
 
-    A2FOldAnimationHeaderEvent::A2FOldAnimationHeaderEvent(const void* Data, uint32_t Size) : Packet()
-    {
-        nvidia::ace::animation::A2XAnimDataStreamHeader AnimationDataStreamHeader;
-        AnimationDataStreamHeader.ParseFromArray(Data, Size);
-
-        _Success = AnimationDataStreamHeader.success();
-        _Message = AnimationDataStreamHeader.message();
-    }
-
-    A2FOldAnimationHeaderEvent::A2FOldAnimationHeaderEvent(const InworldPakets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
-    {
-        nvidia::ace::animation::A2XAnimDataStreamHeader AnimationDataStreamHeader;
-        AnimationDataStreamHeader.ParseFromString(GrpcPacket.data_chunk().chunk());
-
-        _Success = AnimationDataStreamHeader.success();
-        _Message = AnimationDataStreamHeader.message();
-    }
-
-    A2FAnimationEvent::A2FAnimationEvent(const void* Data, uint32_t Size) : Packet()
+    A2FAnimationContentEvent::A2FAnimationContentEvent(const void* Data, uint32_t Size) : Packet()
     {
         nvidia::ace::animation_data::v1::AnimationData AnimationData;
         AnimationData.ParseFromArray(Data, Size);
@@ -216,10 +199,13 @@ namespace Inworld {
         }
     }
 
-    A2FAnimationEvent::A2FAnimationEvent(const InworldPakets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
+    A2FAnimationContentEvent::A2FAnimationContentEvent(const InworldPakets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
     {
-        nvidia::ace::animation_data::v1::AnimationData AnimationData;
-        AnimationData.ParseFromString(GrpcPacket.data_chunk().chunk());
+
+        nvidia::ace::controller::v1::AnimationDataStream AnimationDataStream;
+        AnimationDataStream.ParseFromString(GrpcPacket.data_chunk().chunk());
+
+        nvidia::ace::animation_data::v1::AnimationData AnimationData = AnimationDataStream.animation_data();
 
         _AudioInfo._Audio = AnimationData.audio().audio_buffer();
         _AudioInfo._TimeCode = AnimationData.audio().time_code();
@@ -232,30 +218,6 @@ namespace Inworld {
             {
                 _BlendShapeWeight._Values.push_back(Value);
             }
-        }
-    }
-
-    A2FOldAnimationContentEvent::A2FOldAnimationContentEvent(const void* Data, uint32_t Size) : Packet()
-    {
-        nvidia::ace::animation::A2XAnimDataStreamContent AnimationDataStreamContent;
-        AnimationDataStreamContent.ParseFromArray(Data, Size);
-
-        _USDA = AnimationDataStreamContent.usda();
-        for (const auto& file : AnimationDataStreamContent.files())
-        {
-            _Files.emplace(file.first, file.second);
-        }
-    }
-
-    A2FOldAnimationContentEvent::A2FOldAnimationContentEvent(const InworldPakets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
-    {
-        nvidia::ace::animation::A2XAnimDataStreamContent AnimationDataStreamContent;
-        AnimationDataStreamContent.ParseFromString(GrpcPacket.data_chunk().chunk());
-
-        _USDA = AnimationDataStreamContent.usda();
-        for (const auto& file : AnimationDataStreamContent.files())
-        {
-            _Files.emplace(file.first, file.second);
         }
     }
 
