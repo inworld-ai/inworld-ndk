@@ -79,6 +79,12 @@ namespace Inworld
 		std::vector<StudioUserWorkspaceData> Workspaces;
 	};
 
+	// use for studio client lifecycle
+	class StudioClient;
+	INWORLD_EXPORT void CreateStudioClient();
+	INWORLD_EXPORT void DestroyStudioClient();
+	INWORLD_EXPORT std::unique_ptr<StudioClient>& GetStudioClient();
+
 	class INWORLD_EXPORT StudioClient
 	{
 	public:
@@ -114,33 +120,5 @@ namespace Inworld
 
 		void Error(std::string Error);
 		void ClearError();
-	};
-
-	// use if build as dll
-	INWORLD_EXPORT void CreateStudioClient();
-	INWORLD_EXPORT void DestroyStudioClient();
-	INWORLD_EXPORT std::unique_ptr<StudioClient>& GetStudioClient();
-
-	class INWORLD_EXPORT StudioClientDefault
-	{
-	public:
-		void RequestStudioUserData(const std::string& Token, const std::string& ServerUrl, std::function<void(bool bSuccess)> Callback);
-
-		void CancelRequests() { _Client.CancelRequests(); }
-		bool IsRequestInProgress() const { return _Client.IsRequestInProgress(); }
-
-		const std::string& GetError() const { return _Client.GetError(); }
-		const StudioUserData& GetStudioUserData() const { return _Client.GetStudioUserData(); }
-
-		void Update();
-
-	protected:
-		void AddTaskToMainThread(std::function<void()> Task);
-
-	private:
-		void ExecutePendingTasks();
-
-		StudioClient _Client;
-		SharedQueue<std::function<void()>> _MainThreadTasks;
 	};
 }

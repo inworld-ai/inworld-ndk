@@ -243,32 +243,6 @@ void Inworld::StudioClient::ClearError()
 	_ErrorMessage.clear();
 }
 
-void Inworld::StudioClientDefault::RequestStudioUserData(const std::string& Token, const std::string& ServerUrl, std::function<void(bool bSuccess)> Callback)
-{
-	_Client.RequestStudioUserData(Token, ServerUrl, [this, Callback](bool bSuccess) {
-			AddTaskToMainThread([bSuccess, Callback]() { Callback(bSuccess); });
-		});
-}
-
-void Inworld::StudioClientDefault::Update()
-{
-	ExecutePendingTasks();
-}
-
-void Inworld::StudioClientDefault::AddTaskToMainThread(std::function<void()> Task)
-{
-	_MainThreadTasks.PushBack(Task);
-}
-
-void Inworld::StudioClientDefault::ExecutePendingTasks()
-{
-	std::function<void()> Task;
-	while (_MainThreadTasks.PopFront(Task))
-	{
-		Task();
-	}
-}
-
 static std::unique_ptr<Inworld::StudioClient> g_ClientPtr;
 
 INWORLD_EXPORT void Inworld::CreateStudioClient()

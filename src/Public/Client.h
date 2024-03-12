@@ -78,6 +78,12 @@ namespace Inworld
 	using CharactersLoadedCb = std::function<void(const std::vector<AgentInfo>&)>;
 	using MainThreadTaskCb = std::function<void(std::function<void()>)>;
 
+	// use for client lifecycle
+	class Client;
+	INWORLD_EXPORT void CreateClient();
+	INWORLD_EXPORT void DestroyClient();
+	INWORLD_EXPORT std::unique_ptr<Client>& GetClient();
+
 	class INWORLD_EXPORT Client : public PacketVisitor
 	{
 	public:
@@ -96,7 +102,8 @@ namespace Inworld
 		~Client() = default;
 
 		void InitClient(const SdkInfo& SdkInfo, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback);
-		void StartClient(const ClientOptions& Options, const SessionInfo& Info, CharactersLoadedCb LoadSceneCallback, MainThreadTaskCb TaskCallback);
+		// the callback is not called on calling thread for Async methods
+		void StartClientAsync(const ClientOptions& Options, const SessionInfo& Info, CharactersLoadedCb LoadSceneCallback);
 		void PauseClient();
 		void ResumeClient();
 		void StopClient();
@@ -116,8 +123,9 @@ namespace Inworld
 		std::shared_ptr<ActionEvent> SendNarrationEvent(std::string AgentId, const std::string& Content);
 		
 		// Experimental
-		void LoadScene(const std::string& Scene, CharactersLoadedCb OnLoadSceneCallback);
-		void LoadCharacters(const std::vector<std::string>& Names, CharactersLoadedCb OnLoadCharactersCallback);
+		// the callback is not called on calling thread for Async methods
+		void LoadSceneAsync(const std::string& Scene, CharactersLoadedCb OnLoadSceneCallback);
+		void LoadCharactersAsync(const std::vector<std::string>& Names, CharactersLoadedCb OnLoadCharactersCallback);
 		void UnloadCharacters(const std::vector<std::string>& Names);
 		void LoadSavedState(const std::string& SavedState);
 		// ~Experimental
@@ -128,8 +136,9 @@ namespace Inworld
 		void StartAudioSession(const std::vector<std::string>& AgentIds);
 		void StopAudioSession(const std::string& AgentId);
 		void StopAudioSession(const std::vector<std::string>& AgentIds);
-		
-		void SaveSessionState(std::function<void(std::string, bool)> Callback);
+
+		// the callback is not called on calling thread for Async methods
+		void SaveSessionStateAsync(std::function<void(std::string, bool)> Callback);
 
 		void GenerateToken(std::function<void()> RefreshTokenCallback);
 
@@ -146,18 +155,6 @@ namespace Inworld
 
 		virtual void Visit(const SessionControlResponse_LoadScene& Event) override;
 		virtual void Visit(const SessionControlResponse_LoadCharacters& Event) override;
-
-		template<typename TAsyncRoutine>
-		void CreateAsyncRoutines()
-		{
-			_AsyncReadTask = std::make_unique<TAsyncRoutine>();
-			_AsyncWriteTask = std::make_unique<TAsyncRoutine>();
-			_AsyncGenerateTokenTask = std::make_unique<TAsyncRoutine>();
-			_AsyncGetSessionState = std::make_unique<TAsyncRoutine>();
-#ifdef INWORLD_AUDIO_DUMP
-			_AsyncAudioDumper = std::make_unique<TAsyncRoutine>();
-#endif			
-		}
 
 	protected:
 		void PushPacket(std::shared_ptr<Inworld::Packet> Packet);
@@ -189,10 +186,8 @@ namespace Inworld
 			PushPacket(std::make_shared<T>(D));
 		}
 
-		std::function<void(std::function<void()>)> _MainThreadTaskCallback;
-
 #ifdef INWORLD_AUDIO_DUMP
-		std::unique_ptr<IAsyncRoutine> _AsyncAudioDumper;
+		AsyncRoutine _AsyncAudioDumper;
 		SharedQueue<std::string> _AudioChunksToDump;
 		bool bDumpAudio = false;
 		std::string _AudioDumpFileName = "C:/Tmp/AudioDump.wav";
@@ -205,10 +200,10 @@ namespace Inworld
 
 		std::atomic<bool> _bHasClientStreamFinished = false;
 
-		std::unique_ptr<IAsyncRoutine> _AsyncReadTask;
-		std::unique_ptr<IAsyncRoutine> _AsyncWriteTask;
-		std::unique_ptr<IAsyncRoutine> _AsyncGenerateTokenTask;		
-		std::unique_ptr<IAsyncRoutine> _AsyncGetSessionState;
+		AsyncRoutine _AsyncReadTask;
+		AsyncRoutine _AsyncWriteTask;
+		AsyncRoutine _AsyncGenerateTokenTask;
+		AsyncRoutine _AsyncGetSessionState;
 		
 		std::unique_ptr<IClientService> _Service;
 
@@ -223,28 +218,6 @@ namespace Inworld
 
 		AECFilter _EchoFilter;
 		PerceivedLatencyTracker _LatencyTracker;
-	};
-
-	// use if build as dll
-	INWORLD_EXPORT void CreateClient();
-	INWORLD_EXPORT void DestroyClient();
-	INWORLD_EXPORT std::unique_ptr<Client>& GetClient();
-
-	class INWORLD_EXPORT ClientDefault
-	{
-	public:
-		ClientDefault();
-
-		void StartClient(const ClientOptions& Options, const SessionInfo& Info, CharactersLoadedCb LoadSceneCallback);
-		void Update();
-
-		Client& Client() { return _Client; }
-
-	private:
-		void ExecutePendingTasks();
-
-		Inworld::Client _Client;
-		SharedQueue<std::function<void()>> _MainThreadTasks;
 	};
 }
 

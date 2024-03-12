@@ -27,8 +27,6 @@ constexpr int64_t gMaxTokenLifespan = 60 * 45; // 45 minutes
 
 const std::string DefaultTargetUrl = "api-engine.inworld.ai:443";
 
-
-
 static void GrpcLog(gpr_log_func_args* args)
 {
 	if (args->severity != GPR_LOG_SEVERITY_ERROR)
@@ -57,6 +55,24 @@ static void GrpcLog(gpr_log_func_args* args)
 
 namespace Inworld
 {
+
+	static std::unique_ptr<Client> g_ClientPtr;
+
+	void CreateClient()
+	{
+		g_ClientPtr = std::make_unique<Client>();
+	}
+
+	void DestroyClient()
+	{
+		g_ClientPtr.reset();
+	}
+
+	std::unique_ptr<Inworld::Client>& GetClient()
+	{
+		return g_ClientPtr;
+	}
+
 	class ClientService : public IClientService
 	{
 	public:
@@ -84,24 +100,6 @@ namespace Inworld
 		std::unique_ptr<Inworld::ClientStream> _ClientStream;
 		std::unique_ptr<Inworld::ServiceSession> _SessionService;
 	};
-
-	static std::unique_ptr<Client> g_ClientPtr;
-
-	void CreateClient()
-	{
-		g_ClientPtr = std::make_unique<Client>();
-	}
-
-	void DestroyClient()
-	{
-		g_ClientPtr.reset();
-	}
-
-	std::unique_ptr<Inworld::Client>& GetClient()
-	{
-		return g_ClientPtr;
-	}
-
 }
  
 
@@ -263,7 +261,7 @@ std::shared_ptr<Inworld::ActionEvent> Inworld::Client::SendNarrationEvent(std::s
 	return Packet;
 }
 
-void Inworld::Client::LoadScene(const std::string& Scene, CharactersLoadedCb OnLoadSceneCallback)
+void Inworld::Client::LoadSceneAsync(const std::string& Scene, CharactersLoadedCb OnLoadSceneCallback)
 {
 	if (_OnLoadSceneCallback)
 	{
@@ -274,7 +272,7 @@ void Inworld::Client::LoadScene(const std::string& Scene, CharactersLoadedCb OnL
 	ControlSession<SessionControlEvent_LoadScene>({ Scene });
 }
 
-void Inworld::Client::LoadCharacters(const std::vector<std::string>& Names, CharactersLoadedCb OnLoadCharactersCallback)
+void Inworld::Client::LoadCharactersAsync(const std::vector<std::string>& Names, CharactersLoadedCb OnLoadCharactersCallback)
 {
 	if (_OnLoadCharactersCallback)
 	{
@@ -313,10 +311,10 @@ void Inworld::Client::SetAudioDumpEnabled(bool bEnabled, const std::string& File
 #ifdef INWORLD_AUDIO_DUMP
 	bDumpAudio = bEnabled;
 	_AudioDumpFileName = FileName;
-	_AsyncAudioDumper->Stop();
+	_AsyncAudioDumper.Stop();
 	if (bDumpAudio)
 	{
-		_AsyncAudioDumper->Start("InworldAudioDumper", std::make_unique<RunnableAudioDumper>(_AudioChunksToDump, _AudioDumpFileName));
+		_AsyncAudioDumper.Start("InworldAudioDumper", std::make_unique<RunnableAudioDumper>(_AudioChunksToDump, _AudioDumpFileName));
 		Inworld::Log("ASYNC audio dump STARTING");
 	}
 #endif
@@ -377,7 +375,7 @@ void Inworld::Client::GenerateToken(std::function<void()> GenerateTokenCallback)
 {
 	_OnGenerateTokenCallback = GenerateTokenCallback;
 
-	_AsyncGenerateTokenTask->Start(
+	_AsyncGenerateTokenTask.Start(
 		"InworldGenerateTokenTask",
 		std::make_unique<RunnableGenerateSessionToken>(
 			_ClientOptions.ServerUrl,
@@ -393,41 +391,32 @@ void Inworld::Client::GenerateToken(std::function<void()> GenerateTokenCallback)
 				_SessionInfo.Token = Token.token();
 				_SessionInfo.ExpirationTime = std::time(0) + std::max(std::min(Token.expiration_time().seconds() - std::time(0), gMaxTokenLifespan), int64_t(0));
 
-				_MainThreadTaskCallback([this, Status]()
+				if (!Status.ok())
 				{
-					if (!Status.ok())
+					_ErrorMessage = std::string(Status.error_message().c_str());
+					_ErrorCode = Status.error_code();
+					Inworld::LogError("Generate session token FALURE! %s, Code: %d", ARG_STR(_ErrorMessage), _ErrorCode);
+					SetConnectionState(ConnectionState::Failed);
+				}
+				else
+				{
+					if (_OnGenerateTokenCallback)
 					{
-						_ErrorMessage = std::string(Status.error_message().c_str());
-						_ErrorCode = Status.error_code();
-						Inworld::LogError("Generate session token FALURE! %s, Code: %d", ARG_STR(_ErrorMessage), _ErrorCode);
-						SetConnectionState(ConnectionState::Failed);
+						_OnGenerateTokenCallback();
 					}
-					else
-					{
-						if (_OnGenerateTokenCallback)
-						{
-							_OnGenerateTokenCallback();
-						}
-					}
-					_OnGenerateTokenCallback = nullptr;
-				});
+				}
+				_OnGenerateTokenCallback = nullptr;
 			}
 		)
 	);
 }
 
-void Inworld::Client::StartClient(const ClientOptions& Options, const SessionInfo& Info, CharactersLoadedCb LoadSceneCallback, MainThreadTaskCb TaskCallback)
+void Inworld::Client::StartClientAsync(const ClientOptions& Options, const SessionInfo& Info, CharactersLoadedCb LoadSceneCallback)
 {
 	if (_ConnectionState != ConnectionState::Idle && _ConnectionState != ConnectionState::Failed)
 	{
 		return;
 	}
-	if (!TaskCallback)
-	{
-		Inworld::LogError("StartClient: provide MainThreadTaskCallback.");
-	}
-
-	_MainThreadTaskCallback = TaskCallback;
 	_ClientOptions = Options;
 	if (!_ClientOptions.Base64.empty())
 	{
@@ -518,10 +507,10 @@ void Inworld::Client::StopClient()
 	{
 		_Service->Session()->Cancel();
 	}
-	_AsyncGenerateTokenTask->Stop();
-	_AsyncGetSessionState->Stop();
+	_AsyncGenerateTokenTask.Stop();
+	_AsyncGetSessionState.Stop();
 #ifdef INWORLD_AUDIO_DUMP
-	_AsyncAudioDumper->Stop();
+	_AsyncAudioDumper.Stop();
 #endif
 	_ClientOptions = ClientOptions();
 	_SessionInfo = SessionInfo();
@@ -534,14 +523,13 @@ void Inworld::Client::DestroyClient()
 	StopClient();
 	_OnPacketCallback = nullptr;
 	_OnLoadSceneCallback = nullptr;
-	_MainThreadTaskCallback = nullptr;
 	_OnGenerateTokenCallback = nullptr;
 	_OnConnectionStateChangedCallback = nullptr;
 	_LatencyTracker.ClearCallback();
 	_Service.reset();
 }
 
-void Inworld::Client::SaveSessionState(std::function<void(std::string, bool)> Callback)
+void Inworld::Client::SaveSessionStateAsync(std::function<void(std::string, bool)> Callback)
 {
 	const size_t CharactersPos = _ClientOptions.SceneName.find("characters");
 	const size_t ScenesPos = _ClientOptions.SceneName.find("scenes");
@@ -554,7 +542,7 @@ void Inworld::Client::SaveSessionState(std::function<void(std::string, bool)> Ca
 	}
 
 	const std::string SessionName = _ClientOptions.SceneName.substr(0, Pos) + "sessions/" + _SessionInfo.SessionId;
-	_AsyncGetSessionState->Start(
+	_AsyncGetSessionState.Start(
 		"InworldSaveSession",
 		std::make_unique<RunnableGetSessionState>(
 			_ClientOptions.ServerUrl,
@@ -562,15 +550,13 @@ void Inworld::Client::SaveSessionState(std::function<void(std::string, bool)> Ca
 			SessionName,
 			[this, Callback](const grpc::Status& Status, const InworldEngineV1::SessionState& State)
 			{
-				_MainThreadTaskCallback([this, Status, State, Callback]() {
-					if (!Status.ok())
-					{
-						Inworld::LogError("Save session state FALURE! %s, Code: %d", ARG_STR(Status.error_message()), (int32_t)Status.error_code());
-						Callback({}, false);
-						return;
-					}
-					Callback(State.state(), true);
-				});
+				if (!Status.ok())
+				{
+					Inworld::LogError("Save session state FALURE! %s, Code: %d", ARG_STR(Status.error_message()), (int32_t)Status.error_code());
+					Callback({}, false);
+					return;
+				}
+				Callback(State.state(), true);
 			}
 		));
 }
@@ -660,13 +646,13 @@ void Inworld::Client::StartSession(CharactersLoadedCb LoadSceneCallback)
 		});
 	ControlSession<SessionControlEvent_UserConfiguration>(_ClientOptions.UserSettings);
 	LoadSavedState(_SessionInfo.SessionSavedState);
-	LoadScene(_ClientOptions.SceneName, LoadSceneCallback);
+	LoadSceneAsync(_ClientOptions.SceneName, LoadSceneCallback);
 }
 
 void Inworld::Client::StartClientStream()
 {
-	const bool bHasPendingWriteTask = _AsyncWriteTask->IsValid() && !_AsyncWriteTask->IsDone();
-	const bool bHasPendingReadTask = _AsyncReadTask->IsValid() && !_AsyncReadTask->IsDone();
+	const bool bHasPendingWriteTask = _AsyncWriteTask.IsValid() && !_AsyncWriteTask.IsDone();
+	const bool bHasPendingReadTask = _AsyncReadTask.IsValid() && !_AsyncReadTask.IsDone();
 	if (!bHasPendingWriteTask && !bHasPendingReadTask && _Service->Session())
 	{
 		_ErrorMessage = std::string();
@@ -685,8 +671,8 @@ void Inworld::Client::StopClientStream()
 	{
 		_Service->Session()->Cancel();
 	}
-	_AsyncReadTask->Stop();
-	_AsyncWriteTask->Stop();
+	_AsyncReadTask.Stop();
+	_AsyncWriteTask.Stop();
 	_Service->Stream().reset();
 }
 
@@ -697,10 +683,10 @@ void Inworld::Client::TryToStartReadTask()
 		return;
 	}
 
-	const bool bHasPendingReadTask = _AsyncReadTask->IsValid() && !_AsyncReadTask->IsDone();
+	const bool bHasPendingReadTask = _AsyncReadTask.IsValid() && !_AsyncReadTask.IsDone();
 	if (!bHasPendingReadTask)
 	{
-		_AsyncReadTask->Start(
+		_AsyncReadTask.Start(
 			"InworldRead",
 			std::make_unique<RunnableRead>(
 				*_Service->Stream().get(), 
@@ -711,32 +697,24 @@ void Inworld::Client::TryToStartReadTask()
 					if (!_bPendingIncomingPacketFlush)
 					{
 						_bPendingIncomingPacketFlush = true;
-						_MainThreadTaskCallback(
-							[this]()
+						std::shared_ptr<Inworld::Packet> Packet;
+						while (_IncomingPackets.PopFront(Packet))
+						{
+							if (Packet)
 							{
-								std::shared_ptr<Inworld::Packet> Packet;
-								while (_IncomingPackets.PopFront(Packet))
+								Packet->Accept(*this);
+								_LatencyTracker.HandlePacket(Packet);
+								if (_OnPacketCallback)
 								{
-									if (Packet)
-									{
-										Packet->Accept(*this);
-										_LatencyTracker.HandlePacket(Packet);
-										if (_OnPacketCallback)
-										{
-											_OnPacketCallback(Packet);
-										}
-									}
+									_OnPacketCallback(Packet);
 								}
-								_bPendingIncomingPacketFlush = false;
-							});
+							}
+						}
+						_bPendingIncomingPacketFlush = false;
 					}
 					if (_ConnectionState != ConnectionState::Connected)
 					{
-						_MainThreadTaskCallback(
-							[this]()
-							{
-								SetConnectionState(ConnectionState::Connected);
-							});
+						SetConnectionState(ConnectionState::Connected);
 					}
 				},
 				[this](const grpc::Status& Status)
@@ -744,11 +722,7 @@ void Inworld::Client::TryToStartReadTask()
 					_ErrorMessage = std::string(Status.error_message().c_str());
 					_ErrorCode = Status.error_code();
 					Inworld::LogError("Message READ failed: %s. Code: %d", ARG_STR(_ErrorMessage), _ErrorCode);
-					_MainThreadTaskCallback(
-						[this]()
-						{
-							SetConnectionState(ConnectionState::Disconnected);
-						});
+					SetConnectionState(ConnectionState::Disconnected);
 				}
 			)
 		);
@@ -762,13 +736,13 @@ void Inworld::Client::TryToStartWriteTask()
 		return;
 	}
 
-	const bool bHasPendingWriteTask = _AsyncWriteTask->IsValid() && !_AsyncWriteTask->IsDone();
+	const bool bHasPendingWriteTask = _AsyncWriteTask.IsValid() && !_AsyncWriteTask.IsDone();
 	if (!bHasPendingWriteTask)
 	{
 		const bool bHasOutgoingPackets = !_OutgoingPackets.IsEmpty();
 		if (bHasOutgoingPackets)
 		{
-			_AsyncWriteTask->Start(
+			_AsyncWriteTask.Start(
 				"InworldWrite",
 				std::make_unique<RunnableWrite>(
 					*_Service->Stream().get(),
@@ -778,9 +752,7 @@ void Inworld::Client::TryToStartWriteTask()
 					{
 						if (_ConnectionState != ConnectionState::Connected)
 						{
-							_MainThreadTaskCallback([this]() {
-								SetConnectionState(ConnectionState::Connected);
-							});
+							SetConnectionState(ConnectionState::Connected);
 						}
 					},
 					[this](const grpc::Status& Status)
@@ -788,41 +760,11 @@ void Inworld::Client::TryToStartWriteTask()
 						_ErrorMessage = std::string(Status.error_message().c_str());
 						_ErrorCode = Status.error_code();
 						Inworld::LogError("Message WRITE failed: %s. Code: %d", ARG_STR(_ErrorMessage), _ErrorCode);
-						_MainThreadTaskCallback([this]() {
-							SetConnectionState(ConnectionState::Disconnected);
-						});
+						SetConnectionState(ConnectionState::Disconnected);
 					}
 				)
 			);
 		}
-	}
-}
-
-Inworld::ClientDefault::ClientDefault()
-{
-	_Client.CreateAsyncRoutines<Inworld::AsyncRoutine>();
-}
-
-void Inworld::ClientDefault::StartClient(const ClientOptions& Options, const SessionInfo& Info, CharactersLoadedCb LoadSceneCallback)
-{
-	_Client.StartClient(Options, Info, LoadSceneCallback, [this](std::function<void()> Task)
-		{
-			_MainThreadTasks.PushBack(Task);
-		}
-	);
-}
-
-void Inworld::ClientDefault::Update()
-{
-	ExecutePendingTasks();
-}
-
-void Inworld::ClientDefault::ExecutePendingTasks()
-{
-	std::function<void()> Task;
-	while (_MainThreadTasks.PopFront(Task))
-	{
-		Task();
 	}
 }
 

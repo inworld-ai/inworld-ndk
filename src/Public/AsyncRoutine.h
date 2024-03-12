@@ -15,37 +15,25 @@
 
 namespace Inworld
 {
-	class INWORLD_EXPORT IAsyncRoutine
+	class INWORLD_EXPORT AsyncRoutine
 	{
 	public:
-		virtual ~IAsyncRoutine() = default;
+		~AsyncRoutine() { Stop(); }
 
-		virtual void Start(std::string ThreadName, std::unique_ptr<Runnable> Runnable) = 0;
-		virtual void Stop() = 0;
-		virtual bool IsDone() const = 0;
-		virtual bool IsValid() const = 0;
-		virtual Inworld::Runnable* GetRunnable() = 0;
-	};
-
-	class INWORLD_EXPORT AsyncRoutine : public IAsyncRoutine
-	{
-	public:
-		virtual ~AsyncRoutine() { Stop(); }
-
-		virtual void Start(std::string ThreadName, std::unique_ptr<Runnable> Runnable) override;
-		virtual void Stop() override;
+		void Start(std::string ThreadName, std::unique_ptr<Runnable> Runnable);
+		void Stop();
 		
-		virtual bool IsDone() const override
+		bool IsDone() const
 		{
 			return _Runnable ? _Runnable->IsDone() : false;
 		}
 		
-		virtual bool IsValid() const override
+		bool IsValid() const
 		{ 
 			return _Runnable && _Thread;
 		}
 
-		virtual Runnable* GetRunnable() override
+		Runnable* GetRunnable()
 		{
 			return _Runnable.get();
 		}
