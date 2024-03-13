@@ -84,7 +84,7 @@ namespace Inworld
 	INWORLD_EXPORT void DestroyClient();
 	INWORLD_EXPORT std::unique_ptr<Client>& GetClient();
 
-	class INWORLD_EXPORT Client : public PacketVisitor
+	class INWORLD_EXPORT Client final : public PacketVisitor
 	{
 	public:
 		enum class ConnectionState : uint8_t 
@@ -99,7 +99,7 @@ namespace Inworld
 		};
 
 		Client() = default;
-		~Client() = default;
+		~Client() { DestroyClient(); }
 
 		void InitClient(const SdkInfo& SdkInfo, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback);
 		// the callback is not called on calling thread for Async methods

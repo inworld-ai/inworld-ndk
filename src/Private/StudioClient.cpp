@@ -11,7 +11,7 @@
 #include "GrpcHelpers.h"
 #include <memory>
 
-void Inworld::StudioClient::RequestStudioUserData(const std::string& Token, const std::string& ServerUrl, std::function<void(bool bSuccess)> Callback)
+void Inworld::StudioClient::RequestStudioUserDataAsync(const std::string& Token, const std::string& ServerUrl, std::function<void(bool bSuccess)> Callback)
 {
 	ClearError();
 

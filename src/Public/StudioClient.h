@@ -85,11 +85,14 @@ namespace Inworld
 	INWORLD_EXPORT void DestroyStudioClient();
 	INWORLD_EXPORT std::unique_ptr<StudioClient>& GetStudioClient();
 
-	class INWORLD_EXPORT StudioClient
+	class INWORLD_EXPORT StudioClient final
 	{
 	public:
+		StudioClient() = default;
+		~StudioClient() { CancelRequests(); }
+		
 		// callback will be called not on main thread 
-		void RequestStudioUserData(const std::string& Token, const std::string& ServerUrl, std::function<void(bool bSuccess)> Callback);
+		void RequestStudioUserDataAsync(const std::string& Token, const std::string& ServerUrl, std::function<void(bool bSuccess)> Callback);
 
 		void CancelRequests();
 		bool IsRequestInProgress() const { return !_Requests.empty(); }
