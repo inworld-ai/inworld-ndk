@@ -340,7 +340,7 @@ void Inworld::Client::StopAudioSession(const std::vector<std::string>& AgentIds)
 	StopAudioSession(Inworld::Routing::Player2Agents(AgentIds));
 }
 
-void Inworld::Client::InitClient(const SdkInfo& SdkInfo, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback)
+void Inworld::Client::InitClientAsync(const SdkInfo& SdkInfo, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback)
 {
 	gpr_set_log_function(GrpcLog);
 

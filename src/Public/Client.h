@@ -101,8 +101,8 @@ namespace Inworld
 		Client() = default;
 		~Client() { DestroyClient(); }
 
-		void InitClient(const SdkInfo& SdkInfo, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback);
-		// the callback is not called on calling thread for Async methods
+		// the callbacks are not called on calling thread for Async methods
+		void InitClientAsync(const SdkInfo& SdkInfo, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback);
 		void StartClientAsync(const ClientOptions& Options, const SessionInfo& Info, CharactersLoadedCb LoadSceneCallback);
 		void PauseClient();
 		void ResumeClient();
