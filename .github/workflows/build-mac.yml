@@ -41,6 +41,10 @@ jobs:
             exit 1
           fi
           exit 0
+    - name: clear-cmake-cache
+      shell: bash
+      run: |
+          rm build/CMakeCache.txt
     - name: gen-shared
       shell: bash
       run: |

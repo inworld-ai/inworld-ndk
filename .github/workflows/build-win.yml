@@ -61,6 +61,10 @@ jobs:
             exit 1
           }
           exit 0
+    - name: clear-cmake-cache
+      shell: pwsh
+      run: |
+          Remove-Item -Path "build\CMakeCache.txt"
     - name: gen-shared
       shell: pwsh
       run: |
