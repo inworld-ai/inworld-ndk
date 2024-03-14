@@ -417,7 +417,7 @@ void NDKApp::App::Run()
 
 	std::vector<Inworld::AgentInfo> AgentInfos;
 
-	C.Client().InitClient(
+	C.Client().InitClientAsync(
 		{},
 		[this, &C](Inworld::Client::ConnectionState ConnectionState)
 		{
