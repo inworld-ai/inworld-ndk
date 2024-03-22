@@ -256,20 +256,23 @@ namespace Inworld {
     public:
 		ControlEvent() = default;
 		ControlEvent(const InworldPackets::InworldPacket& GrpcPacket);
-        ControlEvent(InworldPackets::ControlEvent_Action Action, const Routing& Routing)
+        ControlEvent(InworldPackets::ControlEvent_Action Action, const std::string& Description, const Routing& Routing)
 			: Packet(Routing)
 			, _Action(Action)
+			, _Description(Description)
 		{}
 
 		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
 
         InworldPackets::ControlEvent_Action GetControlAction() const { return _Action; }
+        const std::string& GetDescription() const { return _Description; }
 
     protected:
         virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 
 	private:
 		InworldPackets::ControlEvent_Action _Action;
+		std::string _Description;
     };
 
     class INWORLD_EXPORT EmotionEvent : public Packet
