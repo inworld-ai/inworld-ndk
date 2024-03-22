@@ -273,6 +273,7 @@ namespace Inworld {
 		ControlEvent(const InworldPakets::InworldPacket& GrpcPacket)
 			: Packet(GrpcPacket)
 			, _Action(GrpcPacket.control().action())
+			, _Description(GrpcPacket.control().description())
 		{}
         ControlEvent(InworldPakets::ControlEvent_Action Action, const Routing& Routing)
 			: Packet(Routing)
@@ -282,12 +283,14 @@ namespace Inworld {
 		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
 
         InworldPakets::ControlEvent_Action GetControlAction() const { return _Action; }
+        const std::string& GetDescription() const { return _Description; }
 
     protected:
         virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override;
 
 	private:
 		InworldPakets::ControlEvent_Action _Action;
+		std::string _Description;
     };
 
     class INWORLD_EXPORT EmotionEvent : public Packet
