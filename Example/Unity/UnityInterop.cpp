@@ -163,6 +163,13 @@ void Unity_SendText(const char* agentID, const char* message)
 	g_pWrapper->SendTextMessage(agentID, message);
 }
 
+void Unity_SendNarrativeAction(const char* agentID, const char* content)
+{
+	if (g_pWrapper == nullptr)
+		return;
+	g_pWrapper->SendNarrationEvent(agentID, content);
+}
+
 void Unity_SendAudio(const char* agentID, const char* data)
 {
 	if (g_pWrapper == nullptr)

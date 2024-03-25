@@ -45,6 +45,7 @@ extern "C"
 
 #pragma region Send Data
 	DLL_EXPORT void Unity_SendText(const char* agentID, const char* message);
+	DLL_EXPORT void Unity_SendNarrativeAction(const char* agentID, const char* content);
 	DLL_EXPORT void Unity_SendAudio(const char* agentID, const char* data);
 	DLL_EXPORT void Unity_SendTrigger(const char* agentID, const char* triggerName);
 	DLL_EXPORT void Unity_SendTriggerParam(const char* agentID, const char* triggerName, const char* param, const char* paramValue);
