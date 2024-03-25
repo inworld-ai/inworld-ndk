@@ -38,7 +38,9 @@ TEST(Utils, HmacSha256)
 	const std::string Key = "IW1eVA0wHtiN8snf27KA4Zl2HfBZUi8pXfazni1oy5ahsyEDV1lrIzh8ILOVf7cO43u";
 	const std::string ExpectedRes = "c2fd81041cbeaaedd91220906920f911297cfda7851de7578856225f72e1e886";
 
-	const auto Res = Inworld::Utils::ToHex(Inworld::Utils::HmacSha256(StrToVec(Data), StrToVec(Key)));
+	std::vector<uint8_t> Signature(32);
+	Inworld::Utils::HmacSha256(StrToVec(Data), StrToVec(Key), Signature);
+	const auto Res = Inworld::Utils::ToHex(Signature);
 
 	EXPECT_EQ(ExpectedRes, Res);
 }

@@ -7,10 +7,13 @@
 
 #pragma once
 
-#include "ai/inworld/studio/v1alpha/characters.pb.h"
-
 #include <string>
 #include "Define.h"
+
+namespace ai { namespace inworld { namespace studio { namespace v1alpha
+{
+	class Character;
+}}}}
 
 namespace InworldV1alpha = ai::inworld::studio::v1alpha;
 
@@ -22,14 +25,7 @@ namespace Inworld
 		{
 		public:
 			CharacterInfo() = default;
-			CharacterInfo(const InworldV1alpha::Character& GrpcCharacter)
-				: _Name(GrpcCharacter.name())
-				, _RpmModelUri(GrpcCharacter.default_character_assets().rpm_model_uri())
-				, _RpmImageUri(GrpcCharacter.default_character_assets().rpm_image_uri())
-				, _RpmPortraitUri(GrpcCharacter.default_character_assets().rpm_image_uri_portrait())
-				, _RpmPostureUri(GrpcCharacter.default_character_assets().rpm_image_uri_posture())
-				, _bMale(GrpcCharacter.default_character_description().pronoun() == InworldV1alpha::Character_CharacterDescription_Pronoun_PRONOUN_MALE)
-			{}
+			CharacterInfo(const InworldV1alpha::Character& GrpcCharacter);
 			~CharacterInfo() = default;
 
 			std::string _Name;

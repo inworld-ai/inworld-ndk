@@ -11,15 +11,12 @@
 #include <memory>
 #include <functional>
 
-#ifdef INWORLD_LOG_SPD
-    #include "spdlog/spdlog.h"
-#endif
-
 #include "Define.h"
 
 namespace Inworld
 {
-	INWORLD_EXPORT extern std::string g_SessionId;
+	extern std::string g_SessionId;
+	INWORLD_EXPORT const std::string& GetSessionId();
 
 	INWORLD_EXPORT void LogSetSessionId(const std::string Id);
 	INWORLD_EXPORT void LogClearSessionId();
@@ -31,44 +28,20 @@ namespace Inworld
 	INWORLD_EXPORT extern std::function<void(const char * message, int severity)> g_LoggerCallback;
 #endif
 
-#ifdef INWORLD_LOG_SPD
-    #ifdef _WIN32
-            namespace format = std;
-    #else
-            namespace format = fmt;
-    #endif
-#endif
-
 	template<typename... Args>
 	std::string Format(std::string fmt, Args &&... args)
 	{
 #ifdef INWORLD_LOG
-
-    #ifdef INWORLD_LOG_SPD
-            
-            for (int32_t i = 0; i < fmt.size(); i++)
-            {
-                if (fmt[i] == '%')
-                {
-                    fmt[i] = '{';
-                    fmt[i + 1] = '}';
-                }
-            }
-            
-            return format::vformat(fmt, format::make_format_args(args...));
-    #else
-            size_t size = std::snprintf(nullptr, 0, fmt.c_str(), std::forward<Args>(args)...) + 1;
-            std::unique_ptr<char[]> buf(new char[size]);
-            std::snprintf(buf.get(), size, fmt.c_str(), std::forward<Args>(args)...);
-            return std::string(buf.get(), buf.get() + size - 1);
-    #endif
-
+		size_t size = std::snprintf(nullptr, 0, fmt.c_str(), std::forward<Args>(args)...) + 1;
+		std::unique_ptr<char[]> buf(new char[size]);
+		std::snprintf(buf.get(), size, fmt.c_str(), std::forward<Args>(args)...);
+		return std::string(buf.get(), buf.get() + size - 1);
 #else
         return {};
 #endif
 	}
 	
-	void Log(const std::string& message);
+	void INWORLD_EXPORT Log(const std::string& message);
 
 	template<typename... Args>
 	void Log(std::string fmt, Args &&... args)
@@ -78,7 +51,7 @@ namespace Inworld
 #endif
 	}
 
-	void LogWarning(const std::string& message);
+	void INWORLD_EXPORT LogWarning(const std::string& message);
 
 	template<typename... Args>
 	void LogWarning(std::string fmt, Args &&... args)
@@ -88,7 +61,7 @@ namespace Inworld
 #endif
 	}
 	
-	void LogError(const std::string& message);
+	void INWORLD_EXPORT LogError(const std::string& message);
 
 	template<typename... Args>
 	void LogError(std::string fmt, Args &&... args)

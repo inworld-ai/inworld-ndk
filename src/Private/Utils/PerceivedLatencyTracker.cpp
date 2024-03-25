@@ -7,6 +7,7 @@
 
 #include "PerceivedLatencyTracker.h"
 #include "Log.h"
+#include "ai/inworld/packets/packets.pb.h"
 
 void Inworld::PerceivedLatencyTracker::HandlePacket(std::shared_ptr<Inworld::Packet> Packet)
 {
@@ -18,7 +19,7 @@ void Inworld::PerceivedLatencyTracker::HandlePacket(std::shared_ptr<Inworld::Pac
 
 void Inworld::PerceivedLatencyTracker::Visit(const Inworld::TextEvent& Event)
 {
-	if (Event._Routing._Source._Type == InworldPakets::Actor_Type_PLAYER && Event.IsFinal())
+	if (Event._Routing._Source._Type == InworldPackets::Actor_Type_PLAYER && Event.IsFinal())
 	{
 		const auto& Interaction = Event._PacketId._InteractionId;
 		if (_InteractionTimeMap.find(Interaction) != _InteractionTimeMap.end())
@@ -30,7 +31,7 @@ void Inworld::PerceivedLatencyTracker::Visit(const Inworld::TextEvent& Event)
 			_InteractionTimeMap.emplace(Interaction, std::chrono::system_clock::now());
 		}
 	}
-	else if (Event._Routing._Source._Type == InworldPakets::Actor_Type_AGENT && !_TrackAudioReplies)
+	else if (Event._Routing._Source._Type == InworldPackets::Actor_Type_AGENT && !_TrackAudioReplies)
 	{
 		VisitReply(Event);
 	}
@@ -65,7 +66,7 @@ void Inworld::PerceivedLatencyTracker::VisitReply(const Inworld::Packet& Event)
 
 void Inworld::PerceivedLatencyTracker::Visit(const Inworld::ControlEvent& Event)
 {
-	if (Event.GetControlAction() != InworldPakets::ControlEvent_Action_INTERACTION_END)
+	if (Event.GetControlAction() != InworldPackets::ControlEvent_Action_INTERACTION_END)
 	{
 		return;
 	}

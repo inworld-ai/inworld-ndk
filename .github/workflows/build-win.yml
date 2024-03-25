@@ -32,25 +32,73 @@ jobs:
       run: |
           Start-Process -FilePath "win-build.bat" " > BuildLog.txt" -Wait -NoNewWindow -PassThru
           cat BuildLog.txt
-          if (Select-String -Path BuildLog.txt -Pattern "InworldNDK.vcxproj ->" -SimpleMatch -Quiet)
+          if (Select-String -Path BuildLog.txt -Pattern "inworld-ndk.vcxproj ->" -SimpleMatch -Quiet)
           {
-            "InworldNDK built successfully"
+            "inworld-ndk built successfully"
           }
           else
           {
             exit 1
           }
-          if (Select-String -Path BuildLog.txt -Pattern "InworldNDKApp.vcxproj ->" -SimpleMatch -Quiet)
+          if (Select-String -Path BuildLog.txt -Pattern "inworld-ndk-app.vcxproj ->" -SimpleMatch -Quiet)
           {
-            "InworldNDKApp built successfully"
+            "inworld-ndk-app built successfully"
           }
           else
           {
             exit 1
           }
-          if (Select-String -Path BuildLog.txt -Pattern "InworldNDKUnit.vcxproj ->" -SimpleMatch -Quiet)
+          if (Select-String -Path BuildLog.txt -Pattern "inworld-ndk-unit.vcxproj ->" -SimpleMatch -Quiet)
           {
-            "InworldNDKUnit built successfully"
+            "inworld-ndk-unit built successfully"
+          }
+          else
+          {
+            exit 1
+          }
+          if (Select-String -Path BuildLog.txt -Pattern "[  FAILED  ]" -SimpleMatch -Quiet)
+          {
+            exit 1
+          }
+          exit 0
+    - name: clear-cmake-cache
+      shell: pwsh
+      run: |
+          Remove-Item -Path "build\CMakeCache.txt"
+    - name: gen-shared
+      shell: pwsh
+      run: |
+          Start-Process -FilePath "win-gen-shared.bat" " > GenLog.txt" -Wait -NoNewWindow -PassThru 
+          cat GenLog.txt
+          if (Select-String -Path GenLog.txt -Pattern "Configuring incomplete" -SimpleMatch -Quiet)
+          {
+            exit 1
+          }
+          exit 0
+    - name: build-win-shared
+      shell: pwsh
+      run: |
+          Start-Process -FilePath "win-build.bat" " > BuildLog.txt" -Wait -NoNewWindow -PassThru
+          cat BuildLog.txt
+          if (Select-String -Path BuildLog.txt -Pattern "inworld-ndk.vcxproj ->" -SimpleMatch -Quiet)
+          {
+            "inworld-ndk built successfully"
+          }
+          else
+          {
+            exit 1
+          }
+          if (Select-String -Path BuildLog.txt -Pattern "inworld-ndk-app.vcxproj ->" -SimpleMatch -Quiet)
+          {
+            "inworld-ndk-app built successfully"
+          }
+          else
+          {
+            exit 1
+          }
+          if (Select-String -Path BuildLog.txt -Pattern "inworld-ndk-unit.vcxproj ->" -SimpleMatch -Quiet)
+          {
+            "inworld-ndk-unit built successfully"
           }
           else
           {

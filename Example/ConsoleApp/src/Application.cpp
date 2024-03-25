@@ -14,6 +14,49 @@ constexpr std::string_view g_Base64 = "";
 constexpr std::string_view g_ApiKey = "";
 constexpr std::string_view g_ApiSecret = "";
 
+class TaskExecutor
+{
+public:
+	void Execute()
+	{
+		std::function<void()> Task;
+		while (_Tasks.PopFront(Task))
+		{
+			Task();
+		}
+	}
+
+	void Push(std::function<void()> Task)
+	{
+		_Tasks.PushBack(Task);
+	}
+
+private:
+
+	Inworld::SharedQueue<std::function<void()>> _Tasks;
+};
+
+class InworldClient
+{
+public:
+	InworldClient() 
+	{
+		Inworld::CreateClient();
+		Inworld::CreateStudioClient();
+	}
+
+	~InworldClient()
+	{
+		Inworld::DestroyClient();
+		Inworld::DestroyStudioClient();
+	}
+
+	Inworld::Client& Client() { return *Inworld::GetClient(); }
+	Inworld::StudioClient& Studio() { return *Inworld::GetStudioClient(); }
+
+	TaskExecutor TaskExec;
+};
+
 void NDKApp::App::Run()
 {
 	if (
@@ -26,11 +69,14 @@ void NDKApp::App::Run()
 		return;
 	}
 
+	InworldClient C;
+
+	bool bQuit = false;
 	_Cli.SetCommands({
 		{
 			"Text",
 			"Send text message to a character (Arg: Text)",
-			[this](std::vector<std::string> Args)
+			[this, &C](std::vector<std::string> Args)
 			{
 				std::string Text;
 				for (auto& A : Args)
@@ -45,13 +91,13 @@ void NDKApp::App::Run()
 					return;
 				}
 
-				_Client.SendTextMessage(CurAgents, Text);
+				C.Client().SendTextMessage(CurAgents, Text);
 			}
 		},
 		{
 			"NextTurn",
 			"Next turn in conversation between multiple chars",
-			[this](std::vector<std::string> Args)
+			[this, &C](std::vector<std::string> Args)
 			{
 				if (Args.size() > 0)
 				{
@@ -67,13 +113,13 @@ void NDKApp::App::Run()
 				}
 
 				Inworld::Log("Send inworld.conversation.next_turn");
-				_Client.SendCustomEvent(CurAgents, "inworld.conversation.next_turn", {});
+				C.Client().SendCustomEvent(CurAgents, "inworld.conversation.next_turn", {});
 			}
 		},
 		{
 			"Narration",
 			"Send narration to a character (Arg: Text)",
-			[this](std::vector<std::string> Args)
+			[this, &C](std::vector<std::string> Args)
 			{
 				std::string Text;
 				for (auto& A : Args)
@@ -87,14 +133,14 @@ void NDKApp::App::Run()
 					return;
 				}
 
-				_Client.SendNarrationEvent(_AgentInfos[_CurrentAgentIdxs[0]].AgentId, Text);
+				C.Client().SendNarrationEvent(_AgentInfos[_CurrentAgentIdxs[0]].AgentId, Text);
 				Inworld::Log("Narration sent.");
 			}
 		},
 		{
 			"NextChar",
 			"Next character",
-			[this](std::vector<std::string> Args)
+			[this, &C](std::vector<std::string> Args)
 			{
 				NextCharacter();
 			}
@@ -102,7 +148,7 @@ void NDKApp::App::Run()
 		{
 			"PrevChar",
 			"Previous character",
-			[this](std::vector<std::string> Args)
+			[this, &C](std::vector<std::string> Args)
 			{
 				PrevCharacter();
 			}
@@ -110,7 +156,7 @@ void NDKApp::App::Run()
 		{
 			"SetChar",
 			"Set character index (Arg: Index)",
-			[this](std::vector<std::string> Args)
+			[this, &C](std::vector<std::string> Args)
 			{
 				if (Args.empty())
 				{
@@ -129,11 +175,11 @@ void NDKApp::App::Run()
 		{
 			"Chars",
 			"Show info about all characters",
-			[this](std::vector<std::string> Args)
+			[this, &C](std::vector<std::string> Args)
 			{
 				for (auto& Info : _AgentInfos)
 				{
-					Inworld::Log("{0} {1} {2}", ARG_STR(Info.GivenName), ARG_STR(Info.AgentId), ARG_STR(Info.BrainName));
+					Inworld::Log("%s %s %s", ARG_STR(Info.GivenName), ARG_STR(Info.AgentId), ARG_STR(Info.BrainName));
 				}
 				NotifyCurrentCharacter();
 			}
@@ -141,9 +187,11 @@ void NDKApp::App::Run()
 		{
 			"Save",
 			"Save current session state",
-			[this](std::vector<std::string> Args)
+			[this, &C](std::vector<std::string> Args)
 			{
-				_Client.SaveSessionState([this](std::string State, bool bSuccess)
+				C.Client().SaveSessionStateAsync([this, &C](std::string State, bool bSuccess)
+				{
+					C.TaskExec.Push([this, State, bSuccess]()
 					{
 						if (!bSuccess)
 						{
@@ -152,36 +200,40 @@ void NDKApp::App::Run()
 						}
 
 						_SavedSessionState = State;
-						Inworld::Log("Session state saved, size '{0}'", State.size());
+						Inworld::Log("Session state saved, size '%d'", State.size());
 					});
+				});
 			}
 		},
 		{
 			"Restart",
 			"Restart session with saved state",
-			[this](std::vector<std::string> Args)
+			[this, &C](std::vector<std::string> Args)
 			{
-				_Client.StopClient();
+				C.Client().StopClient();
 
 				Inworld::SessionInfo SessionInfo;
 				SessionInfo.SessionSavedState = _SavedSessionState;
-				_Client.StartClient(_Options, SessionInfo,
-					[this](std::vector<Inworld::AgentInfo> AgentInfos)
+				C.Client().StartClientAsync(_Options, SessionInfo,
+					[this, &C](std::vector<Inworld::AgentInfo> AgentInfos)
 					{
-						_AgentInfos = AgentInfos;
-						if (!AgentInfos.empty())
-						{
-							_CurrentAgentIdxs.clear();
-							_CurrentAgentIdxs.push_back(0);
-							NotifyCurrentCharacter();
-						}
+						C.TaskExec.Push([this, AgentInfos]()
+							{
+								_AgentInfos = AgentInfos;
+								if (!AgentInfos.empty())
+								{
+									_CurrentAgentIdxs.clear();
+									_CurrentAgentIdxs.push_back(0);
+									NotifyCurrentCharacter();
+								}
+							});
 					});
 			}
 		},
 		{
 			"LoadScene",
 			"Load scene",
-			[this](std::vector<std::string> Args)
+			[this, &C](std::vector<std::string> Args)
 			{
 				if (Args.size() != 1)
 				{
@@ -189,18 +241,21 @@ void NDKApp::App::Run()
 					return;
 				}
 
-				_Client.LoadScene(Args[0], [this](const std::vector<Inworld::AgentInfo>& AgentInfos) {
-					Inworld::Log("LoadScene done.");
+				C.Client().LoadSceneAsync(Args[0], [this, &C](const std::vector<Inworld::AgentInfo>& AgentInfos) {
+					C.TaskExec.Push([this, AgentInfos]()
+						{
+							Inworld::Log("LoadScene done.");
 
-					_AgentInfos.insert(_AgentInfos.end(), AgentInfos.begin(), AgentInfos.end());
-					_PacketHandler._AgentInfos = _AgentInfos;
+							_AgentInfos.insert(_AgentInfos.end(), AgentInfos.begin(), AgentInfos.end());
+							_PacketHandler._AgentInfos = _AgentInfos;
+						});
 				});
 			}
 		},
 		{
 			"LoadChars",
 			"Load characters",
-			[this](std::vector<std::string> Args)
+			[this, &C](std::vector<std::string> Args)
 			{
 				if (Args.empty())
 				{
@@ -208,18 +263,22 @@ void NDKApp::App::Run()
 					return;
 				}
 
-				_Client.LoadCharacters(Args, [this](const std::vector<Inworld::AgentInfo>& AgentInfos) {
-					Inworld::Log("LoadCharacters done.");
+				C.Client().LoadCharactersAsync(Args, [this, &C](const std::vector<Inworld::AgentInfo>& AgentInfos) {
+					C.TaskExec.Push([this, AgentInfos]()
+						{
+							Inworld::Log("LoadCharacters done.");
 
-					_AgentInfos.insert(_AgentInfos.end(), AgentInfos.begin(), AgentInfos.end());
-					_PacketHandler._AgentInfos = _AgentInfos;
+							_AgentInfos.insert(_AgentInfos.end(), AgentInfos.begin(), AgentInfos.end());
+							_PacketHandler._AgentInfos = _AgentInfos;
+
+						});
 				});
 			}
 		},
 		{
 			"UnloadChars",
 			"Unload characters",
-			[this](std::vector<std::string> Args)
+			[this, &C](std::vector<std::string> Args)
 			{
 				if (Args.empty())
 				{
@@ -233,7 +292,7 @@ void NDKApp::App::Run()
 					auto It = std::find_if(_AgentInfos.begin(), _AgentInfos.end(), [&Id](const auto& Info) { return Info.BrainName == Id; });
 					if (It != _AgentInfos.end())
 					{
-						Inworld::Log("Unload character %s", Id);
+						Inworld::Log("Unload character %s", Id.c_str());
 						int32_t Idx = _AgentInfos.begin() - It;
 						_AgentInfos.erase(It);
 						if (std::find(_CurrentAgentIdxs.begin(), _CurrentAgentIdxs.end(), Idx) != _CurrentAgentIdxs.end())
@@ -252,13 +311,13 @@ void NDKApp::App::Run()
 					}
 				}
 
-				_Client.UnloadCharacters(Args);
+				C.Client().UnloadCharacters(Args);
 			}
 		},
 		{
 			"LoadSave",
 			"Load save",
-			[this](std::vector<std::string> Args)
+			[this, &C](std::vector<std::string> Args)
 			{
 				if (Args.size() != 1)
 				{
@@ -266,10 +325,76 @@ void NDKApp::App::Run()
 					return;
 				}
 
-				_Client.LoadSavedState(Args[0]);
+				C.Client().LoadSavedState(Args[0]);
+			}
+		},
+		{
+			"Destroy",
+			"Destroy client and restart",
+			[this, &C](std::vector<std::string> Args)
+			{
+				C.Client().DestroyClient();
+				Run();
+			}
+		},
+		{
+			"StudioRequest",
+			"Request studio data",
+			[this, &C](std::vector<std::string> Args)
+			{
+				if (Args.size() != 1)
+				{
+					Error("Invalid args");
+					return;
+				}
+
+				C.Studio().RequestStudioUserDataAsync(Args[0], "api-studio.inworld.ai:443", [this, &C](bool bSuccess)
+					{
+						C.TaskExec.Push([this, &C, bSuccess]()
+							{
+								if (!bSuccess)
+								{
+									Error("Secure token failure");
+									return;
+								}
+
+								Inworld::Log("Studio data success");
+								const auto& Data = C.Studio().GetStudioUserData();
+								for (auto& W : Data.Workspaces)
+								{
+									Inworld::Log("Workspace %s", W.ShortName.c_str());
+
+									Inworld::Log(" Characters:");
+									for (auto& C : W.Characters)
+									{
+										Inworld::Log("  %s", C.ShortName.c_str());
+									}
+
+									Inworld::Log(" Scenes:");
+									for (auto& S : W.Scenes)
+									{
+										Inworld::Log("  %s", S.ShortName.c_str());
+									}
+
+									Inworld::Log(" ApiKeys:");
+									for (auto& A : W.ApiKeys)
+									{
+										Inworld::Log("  %s", A.Name.c_str());
+									}
+								}
+						});
+				});
+			}
+		},
+		{
+			"Quit",
+			"Quit app",
+			[this, &C, &bQuit](std::vector<std::string> Args)
+			{
+				bQuit = true;
 			}
 		}
-		});
+	});
 
 	_Options.ServerUrl = "api-engine.inworld.ai:443";
 	_Options.PlayerName = "Player";
@@ -292,52 +417,55 @@ void NDKApp::App::Run()
 
 	std::vector<Inworld::AgentInfo> AgentInfos;
 
-	_Client.InitClient(
+	C.Client().InitClientAsync(
 		{},
-		[this](Inworld::Client::ConnectionState ConnectionState)
+		[this, &C](Inworld::Client::ConnectionState ConnectionState)
 		{
 			std::string Error;
 			int32_t Code;
-			_Client.GetConnectionError(Error, Code);
+			C.Client().GetConnectionError(Error, Code);
 
-			Inworld::Log("Connection state: {0}. {1}", static_cast<uint32_t>(ConnectionState), Error.empty() ? "" : ARG_STR(std::string(" Error: ") + Error));
+			Inworld::Log("Connection state: %d. %s", static_cast<int32_t>(ConnectionState), Error.empty() ? "" : (std::string(" Error: ") + Error).c_str());
 
 			if (ConnectionState == Inworld::Client::ConnectionState::Disconnected)
 			{
-				_Client.ResumeClient();
+				C.Client().ResumeClient();
 			}
 		},
-		[this](std::shared_ptr<Inworld::Packet> Packet)
+		[this, &C](std::shared_ptr<Inworld::Packet> Packet)
 		{
 			Packet->Accept(_PacketHandler);
 		}
 		);
 
-	_Client.SetPerceivedLatencyTrackerCallback([](const std::string& InteractonId, int32_t Latency)
+	C.Client().SetPerceivedLatencyTrackerCallback([](const std::string& InteractonId, int32_t Latency)
 		{
 			//Inworld::Log("PerceivedLatencyTracker. Latency is '%d', Interaction: %s", Latency, ARG_STR(InteractonId));
 		});
 
 	Inworld::SessionInfo SessionInfo;
-	_Client.StartClient(_Options, SessionInfo,
-		[this](std::vector<Inworld::AgentInfo> AgentInfos)
+	C.Client().StartClientAsync(_Options, SessionInfo,
+		[this, &C](std::vector<Inworld::AgentInfo> AgentInfos)
 		{
-			_AgentInfos = AgentInfos;
-			_PacketHandler._AgentInfos = _AgentInfos;
-			if (!AgentInfos.empty())
-			{
-				_CurrentAgentIdxs.clear();
-				_CurrentAgentIdxs.push_back(0);
-				//if (_AgentInfos.size() > 1)
-				//	_CurrentAgentIdxs.push_back(1);
+			C.TaskExec.Push([this, AgentInfos]()
+				{
+					_AgentInfos = AgentInfos;
+					_PacketHandler._AgentInfos = _AgentInfos;
+					if (!AgentInfos.empty())
+					{
+						_CurrentAgentIdxs.clear();
+						_CurrentAgentIdxs.push_back(0);
+						//if (_AgentInfos.size() > 1)
+						//	_CurrentAgentIdxs.push_back(1);
 
-				NotifyCurrentCharacter();
-			}
+						NotifyCurrentCharacter();
+					}
+				});
 		});
 
-	for (;;)
+	while (!bQuit)
 	{
-		_Client.Update();
+		C.TaskExec.Execute();
 
 		if (!_AgentInfos.empty() && !_Cli.IsRunning())
 		{
@@ -352,7 +480,7 @@ void NDKApp::App::Run()
 
 void NDKApp::App::Error(std::string Msg)
 {
-	Inworld::LogError("{0}", ARG_STR(Msg));
+	Inworld::LogError("%s", ARG_STR(Msg));
 }
 
 void NDKApp::App::NextCharacter()
@@ -431,7 +559,7 @@ void NDKApp::App::NotifyCurrentCharacter()
 	for (int32_t Idx : _CurrentAgentIdxs)
 	{
 		auto& Info = _AgentInfos[Idx];
-		Inworld::Log("Current character: {} {}", Idx, ARG_STR(Info.GivenName), ARG_STR(Info.AgentId));
+		Inworld::Log("Current character: %d %s %s", Idx, ARG_STR(Info.GivenName), ARG_STR(Info.AgentId));
 	}
 }
 

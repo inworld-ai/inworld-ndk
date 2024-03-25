@@ -37,6 +37,30 @@ jobs:
             exit 1
           fi
           exit 0
+    - name: clear-cmake-cache
+      shell: bash
+      run: |
+          rm build/CMakeCache.txt
+    - name: gen-shared
+      shell: bash
+      run: |
+          sh android-gen-shared.sh > GenLog.txt -Wait -NoNewWindow -PassThru 
+          cat GenLog.txt
+          if grep -Fxq "$GenLog.txt" "Configuring incomplete"
+          then
+              exit 1
+          fi
+          exit 0
+    - name: build-android-shared
+      shell: bash
+      run: |
+          sh android-build.sh > BuildLog.txt -Wait -NoNewWindow -PassThru
+          cat BuildLog.txt
+          if (grep -Fxq "$BuildLog.txt" " error: ")
+          then
+            exit 1
+          fi
+          exit 0
     - uses: actions/cache/save@v3
       with:
         path: build/Package

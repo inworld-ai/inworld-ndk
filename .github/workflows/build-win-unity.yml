@@ -36,9 +36,9 @@ jobs:
       run: |
           Start-Process -FilePath "win-build-unity.bat" " > BuildLog.txt" -Wait -NoNewWindow -PassThru
           cat BuildLog.txt
-          if (Select-String -Path BuildLog.txt -Pattern "InworldNDK.vcxproj ->" -SimpleMatch -Quiet)
+          if (Select-String -Path BuildLog.txt -Pattern "inworld-ndk.vcxproj ->" -SimpleMatch -Quiet)
           {
-            "InworldNDK built successful"
+            "inworld-ndk built successful"
           }
           else
           {

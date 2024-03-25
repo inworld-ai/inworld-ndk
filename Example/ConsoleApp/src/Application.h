@@ -10,6 +10,7 @@
 #include "Client.h"
 #include "CommandLineInterface.h"
 #include "PacketHandler.h"
+#include "StudioClient.h"
 
 namespace NDKApp
 {
@@ -28,7 +29,6 @@ namespace NDKApp
 
 		std::vector<std::string> GetCurrentAgentBrains() const;
 
-		Inworld::Client _Client;
 		Inworld::ClientOptions _Options;
 		CommandLineInterface _Cli;
 		PacketHandler _PacketHandler;
