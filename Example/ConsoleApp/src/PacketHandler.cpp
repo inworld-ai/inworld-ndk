@@ -45,7 +45,7 @@ void NDKApp::PacketHandler::Visit(const Inworld::EmotionEvent& Event)
 
 void NDKApp::PacketHandler::Visit(const Inworld::ControlEvent& Event)
 {
-	Inworld::Log("%s: Control: %d", ARG_STR(GetGivenName(Event._Routing._Source._Name)), (int32_t)Event.GetControlAction());
+	Inworld::Log("%s: Control: %d %s", ARG_STR(GetGivenName(Event._Routing._Source._Name)), (int32_t)Event.GetControlAction(), ARG_STR(Event.GetDescription()));
 }
 
 void NDKApp::PacketHandler::Visit(const Inworld::SilenceEvent& Event)
