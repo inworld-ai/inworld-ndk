@@ -69,9 +69,7 @@ namespace Inworld
 		std::string ApiKey;
 		std::string ApiSecret;
 		std::string Base64;
-		std::string PlayerName;
 		std::string ProjectName;
-		std::string UserId;
 		std::string GameSessionId;
 	};
 
