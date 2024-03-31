@@ -22,15 +22,12 @@ jobs:
     - name: cppcheck-install
       run: |
         choco install cppcheck --confirm
-        exitCode=$?
-        exePath="/c/Program Files/Cppcheck/cppcheck.exe"
-        if [[ $exitCode -eq 3010 || $exitCode -eq 0 ]]; then
-          if [[ -f "$exePath" ]]; then
-              exit 0
-          else
-              echo "Couldn't find CppCheck exe file by /c/Program Files/Cppcheck/cppcheck.exe path"
-              exit 1
-          fi
+        exePath="C:/Program Files/Cppcheck/cppcheck.exe"
+        if [[ -f "$exePath" ]]; then
+            exit 0
+        else
+            echo "Couldn't find CppCheck exe file"
+            exit 1
         fi
       shell: bash
 
