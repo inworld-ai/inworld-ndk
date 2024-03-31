@@ -15,20 +15,22 @@ jobs:
     runs-on: windows-2022
     steps:
     - uses: actions/checkout@v2
-    - name: git-update-dependecies
-      run: git submodule update --init --recursive
-      shell: bash
 
     - name: cppcheck-install
       run: |
-        choco install cppcheck --confirm || EXIT_CODE=$?
-        if [[ $EXIT_CODE -eq 3010 ]]; then
+        choco install cppcheck --confirm
+        EXIT_CODE=${?}
+        if [ "${EXIT_CODE}" -eq 3010 ]; then
           echo "Installation signaled reboot (exit code 3010), ignoring..."
           exit 0
-        elif [[ $EXIT_CODE -ne 0 ]]; then
-          echo "Installation failed with exit code $EXIT_CODE"
-          exit $EXIT_CODE
+        elif [ "${EXIT_CODE}" -ne 0 ]; then
+          echo "Installation failed with exit code ${EXIT_CODE}"
+          exit ${EXIT_CODE}
         fi
+      shell: bash
+      
+    - name: git-update-dependecies
+      run: git submodule update --init --recursive
       shell: bash
 
     - name: gen
