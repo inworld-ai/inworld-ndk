@@ -16,7 +16,7 @@ std::string Inworld::Utils::GetSslRootCerts()
 {
     std::string SslRootCerts;
 
-	for (auto& Str : SslRootsFileContents)
+	for (const auto& Str : SslRootsFileContents)
 	{
         SslRootCerts += Str;
 	}
