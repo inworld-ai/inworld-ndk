@@ -16,11 +16,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: cppcheck-install
-      run: |
-        pip install cppcheck
-      shell: bash
-
     - name: git-update-dependecies
       run: git submodule update --init --recursive
       shell: bash

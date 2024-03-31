@@ -499,7 +499,7 @@ endif()
 if(WIN32 AND INWORLD_CPPCHECK)
     message("configuring CppCheck")
 
-    set(CMD_CPPCHECK "C:/Program Files/Cppcheck/cppcheck.exe")
+    set(CMD_CPPCHECK "${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/cppcheck/cppcheck.exe")
     if(NOT EXISTS ${CMD_CPPCHECK})
         message(FATAL_ERROR "couldn't find cppcheck")
     endif()
