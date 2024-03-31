@@ -18,7 +18,7 @@ jobs:
 
     - name: cppcheck-install
       run: |
-        choco install cppcheck --confirm --debug
+        pip install cppcheck
       shell: bash
 
     - name: git-update-dependecies
