@@ -498,17 +498,14 @@ endif()
 # cppcheck
 if(WIN32 AND INWORLD_CPPCHECK)
     message("configuring CppCheck")
-
-    find_program(CMAKE_CXX_CPPCHECK cppcheck NAMES cppcheck HINTS $ENV{PROGRAMFILES}/cppcheck)
-    if(NOT CMAKE_CXX_CPPCHECK)
-        message(FATAL_ERROR "couldn't find cppcheck")
-    endif()
+    
+    set(CMD_CPPCHECK "C:/Program Files/Cppcheck/cppcheck.exe")
 
     include(ProcessorCount)
     ProcessorCount(CPU_CORES)
 
     list(
-      APPEND CMAKE_CXX_CPPCHECK
+      APPEND CMD_CPPCHECK
         "-j ${CPU_CORES}"
         "--quiet"
         "--enable=style"
@@ -520,23 +517,23 @@ if(WIN32 AND INWORLD_CPPCHECK)
       )
     
     add_custom_target(inworld-ndk-cppcheck
-      COMMAND ${CMAKE_CXX_CPPCHECK}
+      COMMAND ${CMD_CPPCHECK}
       WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src
       COMMENT "inworld-ndk static code analysis"
     )
     add_custom_command(TARGET inworld-ndk POST_BUILD
-        COMMAND ${CMAKE_CXX_CPPCHECK}
+        COMMAND ${CMD_CPPCHECK}
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src
         COMMENT "inworld-ndk static code analysis"
     )
     
     add_custom_target(inworld-ndk-app-cppcheck
-      COMMAND ${CMAKE_CXX_CPPCHECK}
+      COMMAND ${CMD_CPPCHECK}
       WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/Example/ConsoleApp/src
       COMMENT "inworld-ndk-app static code analysis"
     )
     add_custom_command(TARGET inworld-ndk-app POST_BUILD
-        COMMAND ${CMAKE_CXX_CPPCHECK}
+        COMMAND ${CMD_CPPCHECK}
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/Example/ConsoleApp/src
         COMMENT "inworld-ndk-app static code analysis"
     )
