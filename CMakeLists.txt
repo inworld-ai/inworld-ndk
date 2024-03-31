@@ -499,8 +499,8 @@ endif()
 if(WIN32 AND INWORLD_CPPCHECK)
     message("configuring CppCheck")
 
-    find_program(CMD_CPPCHECK cppcheck NAMES cppcheck HINTS $ENV{PROGRAMFILES}/cppcheck)
-    if(NOT CMD_CPPCHECK)
+    set(CMD_CPPCHECK "C:/Program Files/Cppcheck/cppcheck.exe")
+    if(NOT EXISTS ${CMD_CPPCHECK})
         message(FATAL_ERROR "couldn't find cppcheck")
     endif()
 
@@ -515,6 +515,7 @@ if(WIN32 AND INWORLD_CPPCHECK)
         "--std=c++20"
         "--platform=win64"
         "--inline-suppr"
+        "--suppressions-list=${CMAKE_CURRENT_SOURCE_DIR}/cppcheck_suppressions.txt"
         "."
       )
 
