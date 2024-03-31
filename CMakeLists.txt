@@ -506,38 +506,33 @@ if(WIN32 AND INWORLD_CPPCHECK)
 
     include(ProcessorCount)
     ProcessorCount(CPU_CORES)
+    
+    function(AddCppCheck Target Source)
+        list(
+        APPEND CMD_CPPCHECK
+            "-j ${CPU_CORES}"
+            "--quiet"
+            "--enable=style"
+            "--std=c++20"
+            "--platform=win64"
+            "--inline-suppr"
+            "--suppressions-list=${CMAKE_CURRENT_SOURCE_DIR}/cppcheck_suppressions.txt"
+            "--template=\"${Source}/{file}({line}): cppcheck fail: {severity} ({id}): {message}\"" 
+            "."
+        )
 
-    list(
-      APPEND CMD_CPPCHECK
-        "-j ${CPU_CORES}"
-        "--quiet"
-        "--enable=style"
-        "--std=c++20"
-        "--platform=win64"
-        "--inline-suppr"
-        "--suppressions-list=${CMAKE_CURRENT_SOURCE_DIR}/cppcheck_suppressions.txt"
-        "."
-      )
+        add_custom_target(${Target}-cppcheck
+            COMMAND ${CMD_CPPCHECK}
+            WORKING_DIRECTORY ${Source}
+            COMMENT "${Target} static code analysis"
+        )
+        add_custom_command(TARGET ${Target} POST_BUILD
+            COMMAND ${CMD_CPPCHECK}
+            WORKING_DIRECTORY ${Source}
+            COMMENT "${Target} static code analysis"
+        )
+    endfunction()
 
-    add_custom_target(inworld-ndk-cppcheck
-      COMMAND ${CMD_CPPCHECK}
-      WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src
-      COMMENT "inworld-ndk static code analysis"
-    )
-    add_custom_command(TARGET inworld-ndk POST_BUILD
-        COMMAND ${CMD_CPPCHECK}
-        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src
-        COMMENT "inworld-ndk static code analysis"
-    )
-
-    add_custom_target(inworld-ndk-app-cppcheck
-      COMMAND ${CMD_CPPCHECK}
-      WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/Example/ConsoleApp/src
-      COMMENT "inworld-ndk-app static code analysis"
-    )
-    add_custom_command(TARGET inworld-ndk-app POST_BUILD
-        COMMAND ${CMD_CPPCHECK}
-        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/Example/ConsoleApp/src
-        COMMENT "inworld-ndk-app static code analysis"
-    )
+    AddCppCheck(inworld-ndk ${CMAKE_CURRENT_SOURCE_DIR}/src)
+    AddCppCheck(inworld-ndk-app ${CMAKE_CURRENT_SOURCE_DIR}/Example/ConsoleApp/src)
 endif()
