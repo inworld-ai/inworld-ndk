@@ -18,9 +18,7 @@ jobs:
 
     - name: cppcheck-install
       run: |
-        setx PATH "%PATH%;C:\Program Files\CppCheck"
-        choco install cppcheck
-        exit 0
+        choco install cppcheck --force
       shell: bash
 
     - name: git-update-dependecies
