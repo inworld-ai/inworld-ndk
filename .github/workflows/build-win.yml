@@ -23,7 +23,13 @@ jobs:
         $exitCode = $LASTEXITCODE
         if ($exitCode -eq 3010 -or $exitCode -eq 0) 
         {
-          exit 0
+          $exePath = "C:\Program Files\Cppcheck\cppcheck.exe"
+          if (Test-Path -Path $exePath -PathType Leaf) {
+              exit 0
+          } else {
+              "Couldn't find CppCheck exe file by C:\Program Files\Cppcheck\cppcheck.exe path"
+              exit 1
+          }
         }
     - name: gen
       shell: pwsh

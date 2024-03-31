@@ -515,9 +515,10 @@ if(WIN32 AND INWORLD_CPPCHECK)
             "--enable=style"
             "--std=c++20"
             "--platform=win64"
+            "-iPrivate/ThirdParty"
             "--inline-suppr"
             "--suppressions-list=${CMAKE_CURRENT_SOURCE_DIR}/cppcheck_suppressions.txt"
-            "--template=\"${Source}/{file}({line}): cppcheck fail: {severity} ({id}): {message}\"" 
+            "--template=\"${Source}/{file}({line}): cppcheck fail: {severity} ({id}): {message}\""
             "."
         )
 
