@@ -15,6 +15,16 @@ jobs:
     runs-on: windows-2022
     steps:
     - uses: actions/checkout@v2
+    - name: cppcheck-intall
+      run: |
+        choco install cppcheck
+        where cppcheck
+        if errorlevel 1 (
+          echo "CppCheck installation failed"
+          exit 1
+        )
+        cppcheck --version
+        exit 0
     - name: git-update-dependecies
       run: git submodule update --init --recursive | Write-Host
     - name: gen
@@ -27,12 +37,6 @@ jobs:
             exit 1
           }
           exit 0
-    - name: cppcheck-intall
-      run: |
-        choco install cppcheck
-    - name: cppcheck-verify
-      run: |
-        cppcheck --version
     - name: cppcheck-run
       shell: pwsh
       run: |
