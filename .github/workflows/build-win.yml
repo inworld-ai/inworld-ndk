@@ -18,13 +18,13 @@ jobs:
     - name: cppcheck-intall
       run: |
         choco install cppcheck
-        where cppcheck
-        if errorlevel 1 (
-          echo "CppCheck installation failed"
+        $cppcheckPath = Get-Command cppcheck | Select-Object -ExpandProperty Source
+        if ($null -eq $cppcheckPath) {
+          Write-Error "CppCheck installation failed"
           exit 1
-        )
-        cppcheck --version
-        exit 0
+        } else {
+          Write-Host "CppCheck is installed at: $cppcheckPath"
+        }
     - name: git-update-dependecies
       run: git submodule update --init --recursive | Write-Host
     - name: gen
