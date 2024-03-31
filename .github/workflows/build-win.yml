@@ -16,127 +16,110 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: git-update-dependecies
-      run: git submodule update --init --recursive | Write-Host
-    - name: cppcheck-intall
-      run: |
-        choco install cppcheck --confirm | Out-Null
-        $exitCode = $LASTEXITCODE
-        if ($exitCode -eq 3010 -or $exitCode -eq 0) 
-        {
-          $exePath = "C:\Program Files\Cppcheck\cppcheck.exe"
-          if (Test-Path -Path $exePath -PathType Leaf) {
-              exit 0
-          } else {
-              "Couldn't find CppCheck exe file by C:\Program Files\Cppcheck\cppcheck.exe path"
-              exit 1
-          }
-        }
-    - name: gen
-      shell: pwsh
-      run: |
-          Start-Process -FilePath "win-gen.bat" " > GenLog.txt" -Wait -NoNewWindow -PassThru 
-          cat GenLog.txt
-          if (Select-String -Path GenLog.txt -Pattern "Configuring incomplete" -SimpleMatch -Quiet)
-          {
-            exit 1
-          }
-          exit 0
-    - name: cppcheck-run
-      shell: pwsh
-      run: |
-          Start-Process -FilePath "win-cppcheck.bat" " > CppCheckLog.txt" -Wait -NoNewWindow -PassThru
-          cat CppCheckLog.txt
-          if (Select-String -Path CppCheckLog.txt -Pattern "cppcheck fail:" -SimpleMatch -Quiet)
-          {
-            "CppCheck fail"
-            exit 1
-          }
-          exit 0
-    - name: build-win
-      shell: pwsh
-      run: |
-          Start-Process -FilePath "win-build.bat" " > BuildLog.txt" -Wait -NoNewWindow -PassThru
-          cat BuildLog.txt
-          if (Select-String -Path BuildLog.txt -Pattern "inworld-ndk.vcxproj ->" -SimpleMatch -Quiet)
-          {
-            "inworld-ndk built successfully"
-          }
-          else
-          {
-            exit 1
-          }
-          if (Select-String -Path BuildLog.txt -Pattern "inworld-ndk-app.vcxproj ->" -SimpleMatch -Quiet)
-          {
-            "inworld-ndk-app built successfully"
-          }
-          else
-          {
-            exit 1
-          }
-          if (Select-String -Path BuildLog.txt -Pattern "inworld-ndk-unit.vcxproj ->" -SimpleMatch -Quiet)
-          {
-            "inworld-ndk-unit built successfully"
-          }
-          else
-          {
-            exit 1
-          }
-          if (Select-String -Path BuildLog.txt -Pattern "[  FAILED  ]" -SimpleMatch -Quiet)
-          {
-            exit 1
-          }
-          exit 0
-    - name: clear-cmake-cache
-      shell: pwsh
-      run: |
-          Remove-Item -Path "build\CMakeCache.txt"
-    - name: gen-shared
-      shell: pwsh
-      run: |
-          Start-Process -FilePath "win-gen-shared.bat" " > GenLog.txt" -Wait -NoNewWindow -PassThru 
-          cat GenLog.txt
-          if (Select-String -Path GenLog.txt -Pattern "Configuring incomplete" -SimpleMatch -Quiet)
-          {
-            exit 1
-          }
-          exit 0
-    - name: build-win-shared
-      shell: pwsh
-      run: |
-          Start-Process -FilePath "win-build.bat" " > BuildLog.txt" -Wait -NoNewWindow -PassThru
-          cat BuildLog.txt
-          if (Select-String -Path BuildLog.txt -Pattern "inworld-ndk.vcxproj ->" -SimpleMatch -Quiet)
-          {
-            "inworld-ndk built successfully"
-          }
-          else
-          {
-            exit 1
-          }
-          if (Select-String -Path BuildLog.txt -Pattern "inworld-ndk-app.vcxproj ->" -SimpleMatch -Quiet)
-          {
-            "inworld-ndk-app built successfully"
-          }
-          else
-          {
-            exit 1
-          }
-          if (Select-String -Path BuildLog.txt -Pattern "inworld-ndk-unit.vcxproj ->" -SimpleMatch -Quiet)
-          {
-            "inworld-ndk-unit built successfully"
-          }
-          else
-          {
-            exit 1
-          }
-          if (Select-String -Path BuildLog.txt -Pattern "[  FAILED  ]" -SimpleMatch -Quiet)
-          {
-            exit 1
-          }
-          exit 0
-    - uses: actions/cache/save@v3
-      with:
-        path: build\Package
-        key: ndk-cache-win64-${{ github.sha }}
+      run: git submodule update --init --recursive
+      shell: bash
 
-         
+    - name: cppcheck-install
+      run: |
+        choco install cppcheck --confirm
+        exitCode=$?
+        exePath="/c/Program Files/Cppcheck/cppcheck.exe"
+        if [[ $exitCode -eq 3010 || $exitCode -eq 0 ]]; then
+          if [[ -f "$exePath" ]]; then
+              exit 0
+          else
+              echo "Couldn't find CppCheck exe file by /c/Program Files/Cppcheck/cppcheck.exe path"
+              exit 1
+          fi
+        fi
+      shell: bash
+
+    - name: gen
+      run: |
+        ./win-gen.bat > GenLog.txt
+        cat GenLog.txt
+        if grep -q "Configuring incomplete" GenLog.txt; then
+          exit 1
+        fi
+        exit 0
+      shell: bash
+
+    - name: cppcheck-run
+      run: |
+        ./win-cppcheck.bat > CppCheckLog.txt
+        cat CppCheckLog.txt
+        if grep -q "cppcheck fail:" CppCheckLog.txt; then
+          echo "CppCheck fail"
+          exit 1
+        fi
+        exit 0
+      shell: bash
+
+    - name: build-win
+      run: |
+        ./win-build.bat > BuildLog.txt
+        cat BuildLog.txt
+        if ! grep -q "inworld-ndk.vcxproj ->" BuildLog.txt; then
+          exit 1
+        else
+          echo "inworld-ndk built successfully"
+        fi
+        if ! grep -q "inworld-ndk-app.vcxproj ->" BuildLog.txt; then
+          exit 1
+        else
+          echo "inworld-ndk-app built successfully"
+        fi
+        if ! grep -q "inworld-ndk-unit.vcxproj ->" BuildLog.txt; then
+          exit 1
+        else
+          echo "inworld-ndk-unit built successfully"
+        fi
+        if grep -q "[  FAILED  ]" BuildLog.txt; then
+          exit 1
+        fi
+        exit 0
+      shell: bash
+
+    - name: clear-cmake-cache
+      run: rm -f build/CMakeCache.txt
+      shell: bash
+
+    - name: gen-shared
+      run: |
+        ./win-gen-shared.bat > GenLog.txt
+        cat GenLog.txt
+        if grep -q "Configuring incomplete" GenLog.txt; then
+          exit 1
+        fi
+        exit 0
+      shell: bash
+
+    - name: build-win-shared
+      run: |
+        ./win-build.bat > BuildLog.txt
+        cat BuildLog.txt
+        if ! grep -q "inworld-ndk.vcxproj ->" BuildLog.txt; then
+          exit 1
+        else
+          echo "inworld-ndk built successfully"
+        fi
+        if ! grep -q "inworld-ndk-app.vcxproj ->" BuildLog.txt; then
+          exit 1
+        else
+          echo "inworld-ndk-app built successfully"
+        fi
+        if ! grep -q "inworld-ndk-unit.vcxproj ->" BuildLog.txt; then
+          exit 1
+        else
+          echo "inworld-ndk-unit built successfully"
+        fi
+        if grep -q "[  FAILED  ]" BuildLog.txt; then
+          exit 1
+        fi
+        exit 0
+      shell: bash
+
+    - uses: actions/cache@v3
+      with:
+        path: build/Package
+        key: ndk-cache-win64-${{ github.sha }}
