@@ -80,14 +80,15 @@ void Inworld::LogWarning(const std::string& message)
 void Inworld::LogError(const std::string& message)
 {
 #ifdef INWORLD_LOG
-	const std::string error = Format("%s (SessionId: %s)", ARG_STR(message), ARG_STR(g_SessionId));
 	#if defined(INWORLD_LOG_CALLBACK)
 		if (g_LoggerCallback) g_LoggerCallback(message.c_str(), 2);
-  #elif defined(ANDROID)
-    __android_log_print(ANDROID_LOG_ERROR, "inworld-ndk", "%s", error.c_str());
-  #elif defined(INWORLD_LOG_SPD)
+#elif defined(ANDROID)
+		const std::string error = Format("%s (SessionId: %s)", ARG_STR(message), ARG_STR(g_SessionId));
+		__android_log_print(ANDROID_LOG_ERROR, "inworld-ndk", "%s", error.c_str());
+#elif defined(INWORLD_LOG_SPD)
+		const std::string error = Format("%s (SessionId: %s)", ARG_STR(message), ARG_STR(g_SessionId));
 		spdlog::error(error);
-  #else
+	#else
     std::cout << error << std::endl;
 	#endif
 #endif

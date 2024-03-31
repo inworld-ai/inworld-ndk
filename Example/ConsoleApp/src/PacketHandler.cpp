@@ -13,7 +13,7 @@ void NDKApp::PacketHandler::Visit(const Inworld::TextEvent& Event)
 {
 	std::string Targets = (Event._Routing._Target._Type == InworldPackets::Actor_Type_PLAYER) ? "Player" : 
 		(Event._Routing._Target._Name.empty() ? "" : GetGivenName(Event._Routing._Target._Name));
-	for (auto& Target : Event._Routing._Targets)
+	for (const auto& Target : Event._Routing._Targets)
 	{
 		if (!Targets.empty())
 			Targets += ", ";
