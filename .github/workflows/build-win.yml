@@ -27,6 +27,38 @@ jobs:
             exit 1
           }
           exit 0
+    - name: cppcheck-intall
+      run: |
+        choco install cppcheck
+    - name: cppcheck-verify
+      run: |
+        cppcheck --version
+    - name: cppcheck-run
+      shell: pwsh
+      run: |
+          Start-Process -FilePath "win-cppcheck.bat" " > CppCheckLog.txt" -Wait -NoNewWindow -PassThru
+          cat CppCheckLog.txt
+          if (Select-String -Path CppCheckLog.txt -Pattern ": error:" -SimpleMatch -Quiet)
+          {
+            "CppCheck was not successfull"
+            exit 1
+          }
+          if (Select-String -Path CppCheckLog.txt -Pattern ": warning:" -SimpleMatch -Quiet)
+          {
+            "CppCheck was not successfull"
+            exit 1
+          }
+          if (Select-String -Path CppCheckLog.txt -Pattern ": performance:" -SimpleMatch -Quiet)
+          {
+            "CppCheck was not successfull"
+            exit 1
+          }
+          if (Select-String -Path CppCheckLog.txt -Pattern ": portability:" -SimpleMatch -Quiet)
+          {
+            "CppCheck was not successfull"
+            exit 1
+          }
+          exit 0
     - name: build-win
       shell: pwsh
       run: |
