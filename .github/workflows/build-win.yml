@@ -22,19 +22,21 @@ jobs:
 
     - name: gen
       run: |
-        ./win-gen.bat > GenLog.txt
+        sh win-gen.bat > GenLog.txt -Wait -NoNewWindow -PassThru 
         cat GenLog.txt
-        if grep -q "Configuring incomplete" GenLog.txt; then
-          exit 1
+        if grep -Fxq "$GenLog.txt" "Configuring incomplete"
+        then
+            exit 1
         fi
         exit 0
       shell: bash
 
     - name: cppcheck-run
       run: |
-        ./win-cppcheck.bat > CppCheckLog.txt
+        sh win-cppcheck.bat > CppCheckLog.txt -Wait -NoNewWindow -PassThru
         cat CppCheckLog.txt
-        if grep -q "cppcheck fail:" CppCheckLog.txt; then
+        if (grep -Fxq "$CppCheckLog.txt" "cppcheck fail:")
+        then
           echo "CppCheck fail"
           exit 1
         fi
@@ -43,24 +45,14 @@ jobs:
 
     - name: build-win
       run: |
-        ./win-build.bat > BuildLog.txt
+        sh win-build.bat > BuildLog.txt -Wait -NoNewWindow -PassThru
         cat BuildLog.txt
-        if ! grep -q "inworld-ndk.vcxproj ->" BuildLog.txt; then
+        if (grep -Fxq "$BuildLog.txt" ": error")
+        then
           exit 1
-        else
-          echo "inworld-ndk built successfully"
         fi
-        if ! grep -q "inworld-ndk-app.vcxproj ->" BuildLog.txt; then
-          exit 1
-        else
-          echo "inworld-ndk-app built successfully"
-        fi
-        if ! grep -q "inworld-ndk-unit.vcxproj ->" BuildLog.txt; then
-          exit 1
-        else
-          echo "inworld-ndk-unit built successfully"
-        fi
-        if grep -q "[  FAILED  ]" BuildLog.txt; then
+        if (grep -Fxq "$BuildLog.txt" "[  FAILED  ]")
+        then
           exit 1
         fi
         exit 0
@@ -72,34 +64,25 @@ jobs:
 
     - name: gen-shared
       run: |
-        ./win-gen-shared.bat > GenLog.txt
+        sh win-gen-shared.bat > GenLog.txt -Wait -NoNewWindow -PassThru
         cat GenLog.txt
-        if grep -q "Configuring incomplete" GenLog.txt; then
-          exit 1
+        if grep -Fxq "$GenLog.txt" "Configuring incomplete"
+        then
+            exit 1
         fi
         exit 0
       shell: bash
 
     - name: build-win-shared
       run: |
-        ./win-build.bat > BuildLog.txt
+        sh win-build.bat > BuildLog.txt -Wait -NoNewWindow -PassThru
         cat BuildLog.txt
-        if ! grep -q "inworld-ndk.vcxproj ->" BuildLog.txt; then
+        if (grep -Fxq "$BuildLog.txt" ": error")
+        then
           exit 1
-        else
-          echo "inworld-ndk built successfully"
         fi
-        if ! grep -q "inworld-ndk-app.vcxproj ->" BuildLog.txt; then
-          exit 1
-        else
-          echo "inworld-ndk-app built successfully"
-        fi
-        if ! grep -q "inworld-ndk-unit.vcxproj ->" BuildLog.txt; then
-          exit 1
-        else
-          echo "inworld-ndk-unit built successfully"
-        fi
-        if grep -q "[  FAILED  ]" BuildLog.txt; then
+        if (grep -Fxq "$BuildLog.txt" "[  FAILED  ]")
+        then
           exit 1
         fi
         exit 0
