@@ -24,7 +24,7 @@ jobs:
       run: |
         sh win-gen.bat > GenLog.txt -Wait -NoNewWindow -PassThru 
         cat GenLog.txt
-        if grep -Fxq "$GenLog.txt" "Configuring incomplete"
+        if (grep -Fxq "$GenLog.txt" "Configuring incomplete")
         then
             exit 1
         fi
@@ -51,7 +51,7 @@ jobs:
         then
           exit 1
         fi
-        if (grep -Fxq "$BuildLog.txt" "[  FAILED  ]")
+        if (grep -Fxq "$BuildLog.txt" "FAILED")
         then
           exit 1
         fi
@@ -81,7 +81,7 @@ jobs:
         then
           exit 1
         fi
-        if (grep -Fxq "$BuildLog.txt" "[  FAILED  ]")
+        if (grep -Fxq "$BuildLog.txt" "FAILED")
         then
           exit 1
         fi
