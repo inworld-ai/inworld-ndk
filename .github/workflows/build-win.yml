@@ -90,5 +90,5 @@ jobs:
 
     - uses: actions/cache@v3
       with:
-        path: build/Package
+        path: build\Package
         key: ndk-cache-win64-${{ github.sha }}
