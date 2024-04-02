@@ -39,6 +39,9 @@
 !inworld-aec/prebuilt/win64/webrtc_aec_plugin.dll
 !inworld-aec/prebuilt/mac/libwebrtc_aec_plugin.dylib
 
+!ThirdParty/cppcheck/cppcheck.exe
+!ThirdParty/cppcheck/cppcheck-core.dll
+
 CMakeLists.txt.user
 CMakeCache.txt
 CMakeFiles

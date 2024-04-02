@@ -17,7 +17,7 @@ namespace NDKApp
 	class RunnableReadKeyboard : public Inworld::Runnable
 	{
 	public:
-		RunnableReadKeyboard(Inworld::SharedQueue<std::string>& Messages) : _Messages(Messages) {}
+		explicit RunnableReadKeyboard(Inworld::SharedQueue<std::string>& Messages) : _Messages(Messages) {}
 
 		virtual void Run() override
 		{
@@ -37,7 +37,7 @@ namespace NDKApp
 	{
 		std::string _Id;
 		std::string _Desc;
-		std::function<void(std::vector<std::string> Args)> _Task;
+		std::function<void(const std::vector<std::string>& Args)> _Task;
 	};
 
 	class CommandLineInterface
@@ -45,7 +45,7 @@ namespace NDKApp
 	public:
 		CommandLineInterface() = default;
 
-		void SetCommands(std::vector<ConsoleCommand> Commands);
+		void SetCommands(const std::vector<ConsoleCommand>& Commands);
 
 		void Run();
 		void Stop();

@@ -59,11 +59,15 @@ public:
 
 void NDKApp::App::Run()
 {
-	if (
-		g_SceneName.empty() ||
-		(g_Base64.empty() &&
-		(g_ApiKey.empty() ||
-		g_ApiSecret.empty())))
+	if (g_SceneName.empty())
+	{
+		Inworld::LogError("Fill out g_SceneName in Application.cpp");
+		return;
+	}
+	
+	// cppcheck-suppress redundantCondition
+	// cppcheck-suppress knownConditionTrueFalse
+	if (g_Base64.empty() && (g_ApiKey.empty() || g_ApiSecret.empty()))
 	{
 		Inworld::LogError("Fill out client options in Application.cpp");
 		return;
@@ -76,10 +80,10 @@ void NDKApp::App::Run()
 		{
 			"Text",
 			"Send text message to a character (Arg: Text)",
-			[this, &C](std::vector<std::string> Args)
+			[this, &C](const std::vector<std::string>& Args)
 			{
 				std::string Text;
-				for (auto& A : Args)
+				for (const auto& A : Args)
 				{
 					Text += A + " ";
 				}
@@ -97,7 +101,7 @@ void NDKApp::App::Run()
 		{
 			"NextTurn",
 			"Next turn in conversation between multiple chars",
-			[this, &C](std::vector<std::string> Args)
+			[this, &C](const std::vector<std::string>& Args)
 			{
 				if (Args.size() > 0)
 				{
@@ -119,10 +123,10 @@ void NDKApp::App::Run()
 		{
 			"Narration",
 			"Send narration to a character (Arg: Text)",
-			[this, &C](std::vector<std::string> Args)
+			[this, &C](const std::vector<std::string>& Args)
 			{
 				std::string Text;
-				for (auto& A : Args)
+				for (const auto& A : Args)
 				{
 					Text += A + " ";
 				}
@@ -140,7 +144,7 @@ void NDKApp::App::Run()
 		{
 			"NextChar",
 			"Next character",
-			[this, &C](std::vector<std::string> Args)
+			[this, &C](const std::vector<std::string>& Args)
 			{
 				NextCharacter();
 			}
@@ -148,7 +152,7 @@ void NDKApp::App::Run()
 		{
 			"PrevChar",
 			"Previous character",
-			[this, &C](std::vector<std::string> Args)
+			[this, &C](const std::vector<std::string>& Args)
 			{
 				PrevCharacter();
 			}
@@ -156,7 +160,7 @@ void NDKApp::App::Run()
 		{
 			"SetChar",
 			"Set character index (Arg: Index)",
-			[this, &C](std::vector<std::string> Args)
+			[this, &C](const std::vector<std::string>& Args)
 			{
 				if (Args.empty())
 				{
@@ -165,7 +169,7 @@ void NDKApp::App::Run()
 				}
 
 				std::vector<int32_t> Idxs;
-				for (std::string& Arg : Args)
+				for (const auto& Arg : Args)
 				{
 					Idxs.push_back(std::stoi(Arg));
 				}
@@ -175,7 +179,7 @@ void NDKApp::App::Run()
 		{
 			"Chars",
 			"Show info about all characters",
-			[this, &C](std::vector<std::string> Args)
+			[this, &C](const std::vector<std::string>& Args)
 			{
 				for (auto& Info : _AgentInfos)
 				{
@@ -187,7 +191,7 @@ void NDKApp::App::Run()
 		{
 			"Save",
 			"Save current session state",
-			[this, &C](std::vector<std::string> Args)
+			[this, &C](const std::vector<std::string>& Args)
 			{
 				C.Client().SaveSessionStateAsync([this, &C](std::string State, bool bSuccess)
 				{
@@ -208,7 +212,7 @@ void NDKApp::App::Run()
 		{
 			"Restart",
 			"Restart session with saved state",
-			[this, &C](std::vector<std::string> Args)
+			[this, &C](const std::vector<std::string>& Args)
 			{
 				C.Client().StopClient();
 
@@ -233,7 +237,7 @@ void NDKApp::App::Run()
 		{
 			"LoadScene",
 			"Load scene",
-			[this, &C](std::vector<std::string> Args)
+			[this, &C](const std::vector<std::string>& Args)
 			{
 				if (Args.size() != 1)
 				{
@@ -255,7 +259,7 @@ void NDKApp::App::Run()
 		{
 			"LoadChars",
 			"Load characters",
-			[this, &C](std::vector<std::string> Args)
+			[this, &C](const std::vector<std::string>& Args)
 			{
 				if (Args.empty())
 				{
@@ -278,7 +282,7 @@ void NDKApp::App::Run()
 		{
 			"UnloadChars",
 			"Unload characters",
-			[this, &C](std::vector<std::string> Args)
+			[this, &C](const std::vector<std::string>& Args)
 			{
 				if (Args.empty())
 				{
@@ -317,7 +321,7 @@ void NDKApp::App::Run()
 		{
 			"LoadSave",
 			"Load save",
-			[this, &C](std::vector<std::string> Args)
+			[this, &C](const std::vector<std::string>& Args)
 			{
 				if (Args.size() != 1)
 				{
@@ -331,7 +335,7 @@ void NDKApp::App::Run()
 		{
 			"Destroy",
 			"Destroy client and restart",
-			[this, &C](std::vector<std::string> Args)
+			[this, &C](const std::vector<std::string>& Args)
 			{
 				C.Client().DestroyClient();
 				Run();
@@ -340,7 +344,7 @@ void NDKApp::App::Run()
 		{
 			"StudioRequest",
 			"Request studio data",
-			[this, &C](std::vector<std::string> Args)
+			[this, &C](const std::vector<std::string>& Args)
 			{
 				if (Args.size() != 1)
 				{
@@ -389,7 +393,7 @@ void NDKApp::App::Run()
 		{
 			"Quit",
 			"Quit app",
-			[this, &C, &bQuit](std::vector<std::string> Args)
+			[this, &C, &bQuit](const std::vector<std::string>& Args)
 			{
 				bQuit = true;
 			}

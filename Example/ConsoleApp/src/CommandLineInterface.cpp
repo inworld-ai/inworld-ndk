@@ -10,13 +10,13 @@
 
 #include <sstream>
 
-void NDKApp::CommandLineInterface::SetCommands(std::vector<ConsoleCommand> Commands)
+void NDKApp::CommandLineInterface::SetCommands(const std::vector<ConsoleCommand>& Commands)
 {
 	_Commands = Commands;
 	_Commands.push_back({
 			"help",
 			"show all commands",
-			[this](std::vector<std::string> Args)
+			[this](const std::vector<std::string>& Args)
 			{
 				for (auto& Command : _Commands)
 				{

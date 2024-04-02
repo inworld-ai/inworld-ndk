@@ -494,3 +494,46 @@ if (WIN32 OR MAC)
         endif()
     endif()
 endif()
+
+# cppcheck
+if(WIN32 AND INWORLD_CPPCHECK)
+    message("configuring CppCheck")
+
+    set(CMD_CPPCHECK "${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/cppcheck/cppcheck.exe")
+    if(NOT EXISTS ${CMD_CPPCHECK})
+        message(FATAL_ERROR "couldn't find cppcheck")
+    endif()
+
+    include(ProcessorCount)
+    ProcessorCount(CPU_CORES)
+    
+    function(AddCppCheck Target Source)
+        list(
+        APPEND CMD_CPPCHECK
+            "-j ${CPU_CORES}"
+            "--quiet"
+            "--enable=style"
+            "--std=c++20"
+            "--platform=win64"
+            "-iPrivate/ThirdParty"
+            "--inline-suppr"
+            "--suppressions-list=${CMAKE_CURRENT_SOURCE_DIR}/cppcheck_suppressions.txt"
+            "--template=\"${Source}/{file}({line}): cppcheck fail: {severity} ({id}): {message}\""
+            "."
+        )
+
+        add_custom_target(${Target}-cppcheck
+            COMMAND ${CMD_CPPCHECK}
+            WORKING_DIRECTORY ${Source}
+            COMMENT "${Target} static code analysis"
+        )
+        add_custom_command(TARGET ${Target} POST_BUILD
+            COMMAND ${CMD_CPPCHECK}
+            WORKING_DIRECTORY ${Source}
+            COMMENT "${Target} static code analysis"
+        )
+    endfunction()
+
+    AddCppCheck(inworld-ndk ${CMAKE_CURRENT_SOURCE_DIR}/src)
+    AddCppCheck(inworld-ndk-app ${CMAKE_CURRENT_SOURCE_DIR}/Example/ConsoleApp/src)
+endif()

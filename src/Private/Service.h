@@ -94,7 +94,7 @@ namespace Inworld
 	class INWORLD_EXPORT Service
 	{
 	public:
-		Service(const std::string& ServerUrl)
+		explicit Service(const std::string& ServerUrl)
 			: _ServerUrl(ServerUrl)
 		{}
 
