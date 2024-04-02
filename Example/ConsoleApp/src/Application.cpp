@@ -401,7 +401,7 @@ void NDKApp::App::Run()
 	});
 
 	_Options.ServerUrl = "api-engine.inworld.ai:443";
-	_Options.PlayerName = "Player";
+	_Options.UserSettings.Name = "Player";
 
 	_Options.SceneName = g_SceneName;
 	_Options.Base64 = g_Base64;
