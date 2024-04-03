@@ -19,8 +19,8 @@ jobs:
     - name: cppcheck-install
       run: |
           choco install cppcheck
-          echo "Ignore this fail. Cocolately returns non-zero code on successful Cppcheck install."
-      shell: pwsh
+          echo "Ignore this error. Chocolately returns non-zero code on successful Cppcheck install."
+      shell: bash
       continue-on-error: true
 
     - name: git-update-dependecies
