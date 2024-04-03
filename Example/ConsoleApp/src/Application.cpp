@@ -126,7 +126,7 @@ void NDKApp::App::Run()
 			[this, &C](const std::vector<std::string>& Args)
 			{
 				std::string Text;
-				for (const auto& A : Args)
+				for (auto& A : Args)
 				{
 					Text += A + " ";
 				}
