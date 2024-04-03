@@ -18,15 +18,7 @@ jobs:
 
     - name: cppcheck-install
       run: |
-          $CPPCHECK_VERSION = "2.13.0"
-          $DOWNLOAD_URL = "https://github.com/danmar/cppcheck/releases/download/${CPPCHECK_VERSION}/cppcheck-${CPPCHECK_VERSION}-x64-Setup.msi"
-          $installerPath = "cppcheck-installer.msi"
-
-          Write-Output "Downloading cppcheck..."
-          Invoke-WebRequest -Uri $DOWNLOAD_URL -OutFile $installerPath
-          
-          Write-Output "Installing cppcheck..."
-          Start-Process msiexec.exe -ArgumentList "/i $installerPath /quiet /qn /norestart" -Wait
+          choco install cppcheck
       shell: pwsh
 
     - name: git-update-dependecies
