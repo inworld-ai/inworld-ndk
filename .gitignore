@@ -57,3 +57,5 @@ _deps
 build/
 
 android-gen-local.sh
+
+local-*
