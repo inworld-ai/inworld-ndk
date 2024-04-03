@@ -42,7 +42,7 @@ jobs:
       run: |
         sh win-cppcheck.bat > CppCheckLog.txt -Wait -NoNewWindow -PassThru
         cat CppCheckLog.txt
-        if grep -Fxq "cppcheck fail:" CppCheckLog.txt; then
+        if grep -Fq "cppcheck fail:" CppCheckLog.txt; then
             echo "CppCheck fail"
             exit 1
         fi
