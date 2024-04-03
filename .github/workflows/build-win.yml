@@ -18,21 +18,16 @@ jobs:
 
     - name: cppcheck-install
       run: |
-        CPPCHECK_VERSION="2.13.0"
-        DOWNLOAD_URL="https://github.com/danmar/cppcheck/releases/download/${CPPCHECK_VERSION}/cppcheck-${CPPCHECK_VERSION}-x64-Setup.msi"
+          $CPPCHECK_VERSION = "2.13.0"
+          $DOWNLOAD_URL = "https://github.com/danmar/cppcheck/releases/download/${CPPCHECK_VERSION}/cppcheck-${CPPCHECK_VERSION}-x64-Setup.msi"
+          $installerPath = "cppcheck-installer.msi"
 
-        echo "Downloading cppcheck ${CPPCHECK_VERSION}..."
-        curl -L -o cppcheck-installer.msi "${DOWNLOAD_URL}"
-
-        echo "Installing cppcheck..."
-        msiexec /i cppcheck-installer.msi /quiet /qn /norestart
-
-        echo "Adding cppcheck to PATH..."
-        export PATH=$PATH:'/c/Program Files/Cppcheck'
-
-        echo "Verifying cppcheck installation..."
-        cppcheck --version
-      shell: bash
+          Write-Output "Downloading cppcheck..."
+          Invoke-WebRequest -Uri $DOWNLOAD_URL -OutFile $installerPath
+          
+          Write-Output "Installing cppcheck..."
+          Start-Process msiexec.exe -ArgumentList "/i $installerPath /quiet /qn /norestart" -Wait
+      shell: pwsh
 
     - name: git-update-dependecies
       run: git submodule update --init --recursive
