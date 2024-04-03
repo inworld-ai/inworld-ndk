@@ -18,7 +18,7 @@ jobs:
 
     - name: cppcheck-install
       run: |
-          choco install cppcheck
+          choco install cppcheck || echo "Continue after installation..."
       shell: pwsh
 
     - name: git-update-dependecies
