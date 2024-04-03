@@ -18,8 +18,10 @@ jobs:
 
     - name: cppcheck-install
       run: |
-          choco install cppcheck || echo "Continue after installation..."
+          choco install cppcheck
+          echo "Ignore this fail. Cocolately returns non-zero code on successful Cppcheck install."
       shell: pwsh
+      continue-on-error: true
 
     - name: git-update-dependecies
       run: git submodule update --init --recursive
