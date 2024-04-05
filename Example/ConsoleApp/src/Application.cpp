@@ -18,6 +18,8 @@ constexpr std::string_view g_ApiSecret = "";
 
 static bool IsConfigValid()
 {
+	// cppcheck-suppress redundantCondition
+	// cppcheck-suppress knownConditionTrueFalse
 	if (g_SceneName.empty())
 	{
 		return false;
