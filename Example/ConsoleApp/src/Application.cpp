@@ -26,6 +26,7 @@ static bool IsConfigValid()
 	}
 	// cppcheck-suppress redundantCondition
 	// cppcheck-suppress knownConditionTrueFalse
+	// cppcheck-suppress identicalConditionAfterEarlyExit
 	return !g_Base64.empty() || (g_ApiKey.empty() && g_ApiSecret.empty());
 }
 
