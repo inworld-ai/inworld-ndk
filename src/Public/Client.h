@@ -73,9 +73,6 @@ namespace Inworld
 		std::string GameSessionId;
 	};
 
-	using CharactersLoadedCb = std::function<void(const std::vector<AgentInfo>&)>;
-	using MainThreadTaskCb = std::function<void(std::function<void()>)>;
-
 	// use for client lifecycle
 	class Client;
 	INWORLD_EXPORT void CreateClient();
