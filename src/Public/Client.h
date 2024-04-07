@@ -58,11 +58,11 @@ namespace Inworld
 	};
 
 	using Capabilities = SessionControlEvent_Capabilities::Data;
-	using UserSettings = SessionControlEvent_UserConfiguration::Data;
+	using UserConfiguration = SessionControlEvent_UserConfiguration::Data;
 	struct INWORLD_EXPORT ClientOptions
 	{
 		Capabilities Capabilities;
-		UserSettings UserSettings;
+		UserConfiguration UserConfig;
 		std::string ServerUrl;
 		std::string SceneName;
 		std::string Resource;
@@ -72,9 +72,6 @@ namespace Inworld
 		std::string ProjectName;
 		std::string GameSessionId;
 	};
-
-	using CharactersLoadedCb = std::function<void(const std::vector<AgentInfo>&)>;
-	using MainThreadTaskCb = std::function<void(std::function<void()>)>;
 
 	// use for client lifecycle
 	class Client;
@@ -99,9 +96,9 @@ namespace Inworld
 		Client() = default;
 		~Client() { DestroyClient(); }
 
-		// the callbacks are not called on calling thread for Async methods
+		// callbacks will not be called on calling thread
 		void InitClientAsync(const SdkInfo& SdkInfo, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback);
-		void StartClientAsync(const ClientOptions& Options, const SessionInfo& Info, CharactersLoadedCb LoadSceneCallback);
+		void StartClient(const ClientOptions& Options, const SessionInfo& Info);
 		void PauseClient();
 		void ResumeClient();
 		void StopClient();
@@ -120,13 +117,12 @@ namespace Inworld
 		
 		std::shared_ptr<ActionEvent> SendNarrationEvent(std::string AgentId, const std::string& Content);
 		
-		// Experimental
-		// the callback is not called on calling thread for Async methods
-		void LoadSceneAsync(const std::string& Scene, CharactersLoadedCb OnLoadSceneCallback);
-		void LoadCharactersAsync(const std::vector<std::string>& Names, CharactersLoadedCb OnLoadCharactersCallback);
+		void LoadScene(const std::string& Scene);
+		void LoadCharacters(const std::vector<std::string>& Names);
 		void UnloadCharacters(const std::vector<std::string>& Names);
 		void LoadSavedState(const std::string& SavedState);
-		// ~Experimental
+		void LoadCapabilities(const Capabilities& Capabilities);
+		void LoadUserConfiguration(const UserConfiguration& UserConfig);
 
 		void CancelResponse(const std::string& AgentId, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds);
 
@@ -173,7 +169,7 @@ namespace Inworld
 		SessionInfo _SessionInfo;
 		SdkInfo _SdkInfo;
 	private:
-		void StartSession(CharactersLoadedCb LoadSceneCallback);
+		void StartSession();
 		void TryToStartReadTask();
 		void TryToStartWriteTask();
 
@@ -192,8 +188,6 @@ namespace Inworld
 #endif
 
 		std::function<void()> _OnGenerateTokenCallback;
-		CharactersLoadedCb _OnLoadSceneCallback;
-		CharactersLoadedCb _OnLoadCharactersCallback;
 		std::function<void(ConnectionState)> _OnConnectionStateChangedCallback;
 
 		std::atomic<bool> _bHasClientStreamFinished = false;

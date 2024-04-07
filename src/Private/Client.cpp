@@ -122,12 +122,6 @@ void Inworld::Client::Visit(const SessionControlResponse_LoadScene& Event)
 		Inworld::Log("Character registered: %s, Id: %s, GivenName: %s", ARG_STR(Info.BrainName), ARG_STR(Info.AgentId), ARG_STR(Info.GivenName));
 	}
 
-	if (_OnLoadSceneCallback)
-	{
-		_OnLoadSceneCallback(Event.GetAgentInfos());
-		_OnLoadSceneCallback = nullptr;
-	}
-
 	SetConnectionState(ConnectionState::Connected);
 	StartClientStream();
 }
@@ -138,12 +132,6 @@ void Inworld::Client::Visit(const SessionControlResponse_LoadCharacters& Event)
 	for (const auto& Info : Event.GetAgentInfos())
 	{
 		Inworld::Log("Character registered: %s, Id: %s, GivenName: %s", ARG_STR(Info.BrainName), ARG_STR(Info.AgentId), ARG_STR(Info.GivenName));
-	}
-
-	if (_OnLoadCharactersCallback)
-	{
-		_OnLoadCharactersCallback(Event.GetAgentInfos());
-		_OnLoadCharactersCallback = nullptr;
 	}
 }
 
@@ -261,25 +249,13 @@ std::shared_ptr<Inworld::ActionEvent> Inworld::Client::SendNarrationEvent(std::s
 	return Packet;
 }
 
-void Inworld::Client::LoadSceneAsync(const std::string& Scene, CharactersLoadedCb OnLoadSceneCallback)
+void Inworld::Client::LoadScene(const std::string& Scene)
 {
-	if (_OnLoadSceneCallback)
-	{
-		Inworld::LogError("Skip LoadScene. Another request is in progress.");
-		return;
-	}
-	_OnLoadSceneCallback = OnLoadSceneCallback;
 	ControlSession<SessionControlEvent_LoadScene>({ Scene });
 }
 
-void Inworld::Client::LoadCharactersAsync(const std::vector<std::string>& Names, CharactersLoadedCb OnLoadCharactersCallback)
+void Inworld::Client::LoadCharacters(const std::vector<std::string>& Names)
 {
-	if (_OnLoadCharactersCallback)
-	{
-		Inworld::LogError("Skip LoadCharacters. Another request is in progress.");
-		return;
-	}
-	_OnLoadCharactersCallback = OnLoadCharactersCallback;
 	ControlSession<SessionControlEvent_LoadCharacters>({ Names });
 }
 
@@ -294,6 +270,16 @@ void Inworld::Client::LoadSavedState(const std::string& SavedState)
 	{
 		ControlSession<SessionControlEvent_SessionSave>({ SavedState });
 	}
+}
+
+void Inworld::Client::LoadCapabilities(const Capabilities& Capabilities)
+{
+	ControlSession<SessionControlEvent_Capabilities>(Capabilities);
+}
+
+void Inworld::Client::LoadUserConfiguration(const UserConfiguration& UserConfig)
+{
+	ControlSession<SessionControlEvent_UserConfiguration>(UserConfig);
 }
 
 void Inworld::Client::CancelResponse(const std::string& AgentId, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds)
@@ -411,7 +397,7 @@ void Inworld::Client::GenerateToken(std::function<void()> GenerateTokenCallback)
 	);
 }
 
-void Inworld::Client::StartClientAsync(const ClientOptions& Options, const SessionInfo& Info, CharactersLoadedCb LoadSceneCallback)
+void Inworld::Client::StartClient(const ClientOptions& Options, const SessionInfo& Info)
 {
 	if (_ConnectionState != ConnectionState::Idle && _ConnectionState != ConnectionState::Failed)
 	{
@@ -446,14 +432,14 @@ void Inworld::Client::StartClientAsync(const ClientOptions& Options, const Sessi
 
 	if (!_SessionInfo.IsValid())
 	{
-		GenerateToken([this, LoadSceneCallback]()
+		GenerateToken([this]()
 		{
-			StartSession(LoadSceneCallback);
+			StartSession();
 		});
 	}
 	else
 	{
-		StartSession(LoadSceneCallback);
+		StartSession();
 	}
 }
 
@@ -522,7 +508,6 @@ void Inworld::Client::DestroyClient()
 {
 	StopClient();
 	_OnPacketCallback = nullptr;
-	_OnLoadSceneCallback = nullptr;
 	_OnGenerateTokenCallback = nullptr;
 	_OnConnectionStateChangedCallback = nullptr;
 	_LatencyTracker.ClearCallback();
@@ -589,7 +574,7 @@ void Inworld::Client::SetConnectionState(ConnectionState State)
 	}
 }
 
-void Inworld::Client::StartSession(CharactersLoadedCb LoadSceneCallback)
+void Inworld::Client::StartSession()
 {
 	if (!_SessionInfo.IsValid())
 	{
@@ -633,7 +618,7 @@ void Inworld::Client::StartSession(CharactersLoadedCb LoadSceneCallback)
 	}
 
 	// order matters
-	ControlSession<SessionControlEvent_Capabilities>(_ClientOptions.Capabilities);
+	LoadCapabilities(_ClientOptions.Capabilities);
 	if (!_ClientOptions.GameSessionId.empty())
 	{
 		ControlSession<SessionControlEvent_SessionConfiguration>({ _ClientOptions.GameSessionId });
@@ -644,9 +629,9 @@ void Inworld::Client::StartSession(CharactersLoadedCb LoadSceneCallback)
 			_SdkInfo.Version,
 			SdkDesc,
 		});
-	ControlSession<SessionControlEvent_UserConfiguration>(_ClientOptions.UserSettings);
+	LoadUserConfiguration(_ClientOptions.UserConfig);
 	LoadSavedState(_SessionInfo.SessionSavedState);
-	LoadSceneAsync(_ClientOptions.SceneName, LoadSceneCallback);
+	LoadScene(_ClientOptions.SceneName);
 }
 
 void Inworld::Client::StartClientStream()
