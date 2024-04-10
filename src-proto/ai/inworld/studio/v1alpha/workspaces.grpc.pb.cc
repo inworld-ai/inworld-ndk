@@ -36,6 +36,7 @@ static const char* Workspaces_method_names[] = {
   "/ai.inworld.studio.v1alpha.Workspaces/generateResourceName",
   "/ai.inworld.studio.v1alpha.Workspaces/GetWorkspaceShareInfo",
   "/ai.inworld.studio.v1alpha.Workspaces/GetWorkspaceLimitInfo",
+  "/ai.inworld.studio.v1alpha.Workspaces/RemainWorkspaceLimitInfo",
   "/ai.inworld.studio.v1alpha.Workspaces/SendImpressionEvent",
 };
 
@@ -56,7 +57,8 @@ Workspaces::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel
   , rpcmethod_generateResourceName_(Workspaces_method_names[7], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetWorkspaceShareInfo_(Workspaces_method_names[8], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetWorkspaceLimitInfo_(Workspaces_method_names[9], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SendImpressionEvent_(Workspaces_method_names[10], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_RemainWorkspaceLimitInfo_(Workspaces_method_names[10], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SendImpressionEvent_(Workspaces_method_names[11], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status Workspaces::Stub::GetWorkspace(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceRequest& request, ::ai::inworld::studio::v1alpha::Workspace* response) {
@@ -289,6 +291,29 @@ void Workspaces::Stub::experimental_async::GetWorkspaceLimitInfo(::grpc::ClientC
   return result;
 }
 
+::grpc::Status Workspaces::Stub::RemainWorkspaceLimitInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetRemainWorkspaceLimitInfoRequest& request, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::GetRemainWorkspaceLimitInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_RemainWorkspaceLimitInfo_, context, request, response);
+}
+
+void Workspaces::Stub::experimental_async::RemainWorkspaceLimitInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetRemainWorkspaceLimitInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::GetRemainWorkspaceLimitInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_RemainWorkspaceLimitInfo_, context, request, response, std::move(f));
+}
+
+void Workspaces::Stub::experimental_async::RemainWorkspaceLimitInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetRemainWorkspaceLimitInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_RemainWorkspaceLimitInfo_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo>* Workspaces::Stub::PrepareAsyncRemainWorkspaceLimitInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetRemainWorkspaceLimitInfoRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo, ::ai::inworld::studio::v1alpha::GetRemainWorkspaceLimitInfoRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_RemainWorkspaceLimitInfo_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo>* Workspaces::Stub::AsyncRemainWorkspaceLimitInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetRemainWorkspaceLimitInfoRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncRemainWorkspaceLimitInfoRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
 ::grpc::Status Workspaces::Stub::SendImpressionEvent(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ImpressionEventRequest& request, ::google::protobuf_inworld::Empty* response) {
   return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_SendImpressionEvent_, context, request, response);
 }
@@ -416,6 +441,16 @@ Workspaces::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Workspaces_method_names[10],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::GetRemainWorkspaceLimitInfoRequest, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
+          [](Workspaces::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::ai::inworld::studio::v1alpha::GetRemainWorkspaceLimitInfoRequest* req,
+             ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* resp) {
+               return service->RemainWorkspaceLimitInfo(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Workspaces_method_names[11],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Workspaces::Service, ::ai::inworld::studio::v1alpha::ImpressionEventRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Workspaces::Service* service,
              ::grpc::ServerContext* ctx,
@@ -492,6 +527,13 @@ Workspaces::Service::~Service() {
 }
 
 ::grpc::Status Workspaces::Service::GetWorkspaceLimitInfo(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::GetWorkspaceLimitInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Workspaces::Service::RemainWorkspaceLimitInfo(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::GetRemainWorkspaceLimitInfoRequest* request, ::ai::inworld::studio::v1alpha::WorkspaceLimitInfo* response) {
   (void) context;
   (void) request;
   (void) response;

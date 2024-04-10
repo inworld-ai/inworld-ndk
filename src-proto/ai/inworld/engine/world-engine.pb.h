@@ -5236,55 +5236,74 @@ class ConversationState_ConversationSettings PROTOBUF_FINAL :
   enum : int {
     kParticipantsFieldNumber = 2,
     kSpectatorsFieldNumber = 3,
+    kParticipatingActorsFieldNumber = 4,
     kConversationIdFieldNumber = 1,
   };
-  // repeated string participants = 2;
-  int participants_size() const;
+  // repeated string participants = 2 [deprecated = true];
+  PROTOBUF_DEPRECATED int participants_size() const;
   private:
   int _internal_participants_size() const;
   public:
-  void clear_participants();
-  const std::string& participants(int index) const;
-  std::string* mutable_participants(int index);
-  void set_participants(int index, const std::string& value);
-  void set_participants(int index, std::string&& value);
-  void set_participants(int index, const char* value);
-  void set_participants(int index, const char* value, size_t size);
-  std::string* add_participants();
-  void add_participants(const std::string& value);
-  void add_participants(std::string&& value);
-  void add_participants(const char* value);
-  void add_participants(const char* value, size_t size);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& participants() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_participants();
+  PROTOBUF_DEPRECATED void clear_participants();
+  PROTOBUF_DEPRECATED const std::string& participants(int index) const;
+  PROTOBUF_DEPRECATED std::string* mutable_participants(int index);
+  PROTOBUF_DEPRECATED void set_participants(int index, const std::string& value);
+  PROTOBUF_DEPRECATED void set_participants(int index, std::string&& value);
+  PROTOBUF_DEPRECATED void set_participants(int index, const char* value);
+  PROTOBUF_DEPRECATED void set_participants(int index, const char* value, size_t size);
+  PROTOBUF_DEPRECATED std::string* add_participants();
+  PROTOBUF_DEPRECATED void add_participants(const std::string& value);
+  PROTOBUF_DEPRECATED void add_participants(std::string&& value);
+  PROTOBUF_DEPRECATED void add_participants(const char* value);
+  PROTOBUF_DEPRECATED void add_participants(const char* value, size_t size);
+  PROTOBUF_DEPRECATED const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& participants() const;
+  PROTOBUF_DEPRECATED ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_participants();
   private:
   const std::string& _internal_participants(int index) const;
   std::string* _internal_add_participants();
   public:
 
-  // repeated string spectators = 3;
-  int spectators_size() const;
+  // repeated string spectators = 3 [deprecated = true];
+  PROTOBUF_DEPRECATED int spectators_size() const;
   private:
   int _internal_spectators_size() const;
   public:
-  void clear_spectators();
-  const std::string& spectators(int index) const;
-  std::string* mutable_spectators(int index);
-  void set_spectators(int index, const std::string& value);
-  void set_spectators(int index, std::string&& value);
-  void set_spectators(int index, const char* value);
-  void set_spectators(int index, const char* value, size_t size);
-  std::string* add_spectators();
-  void add_spectators(const std::string& value);
-  void add_spectators(std::string&& value);
-  void add_spectators(const char* value);
-  void add_spectators(const char* value, size_t size);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& spectators() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_spectators();
+  PROTOBUF_DEPRECATED void clear_spectators();
+  PROTOBUF_DEPRECATED const std::string& spectators(int index) const;
+  PROTOBUF_DEPRECATED std::string* mutable_spectators(int index);
+  PROTOBUF_DEPRECATED void set_spectators(int index, const std::string& value);
+  PROTOBUF_DEPRECATED void set_spectators(int index, std::string&& value);
+  PROTOBUF_DEPRECATED void set_spectators(int index, const char* value);
+  PROTOBUF_DEPRECATED void set_spectators(int index, const char* value, size_t size);
+  PROTOBUF_DEPRECATED std::string* add_spectators();
+  PROTOBUF_DEPRECATED void add_spectators(const std::string& value);
+  PROTOBUF_DEPRECATED void add_spectators(std::string&& value);
+  PROTOBUF_DEPRECATED void add_spectators(const char* value);
+  PROTOBUF_DEPRECATED void add_spectators(const char* value, size_t size);
+  PROTOBUF_DEPRECATED const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& spectators() const;
+  PROTOBUF_DEPRECATED ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_spectators();
   private:
   const std::string& _internal_spectators(int index) const;
   std::string* _internal_add_spectators();
   public:
+
+  // repeated .ai.inworld.packets.Actor participating_actors = 4;
+  int participating_actors_size() const;
+  private:
+  int _internal_participating_actors_size() const;
+  public:
+  void clear_participating_actors();
+  ::ai::inworld::packets::Actor* mutable_participating_actors(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Actor >*
+      mutable_participating_actors();
+  private:
+  const ::ai::inworld::packets::Actor& _internal_participating_actors(int index) const;
+  ::ai::inworld::packets::Actor* _internal_add_participating_actors();
+  public:
+  const ::ai::inworld::packets::Actor& participating_actors(int index) const;
+  ::ai::inworld::packets::Actor* add_participating_actors();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Actor >&
+      participating_actors() const;
 
   // string conversation_id = 1;
   void clear_conversation_id();
@@ -5311,6 +5330,7 @@ class ConversationState_ConversationSettings PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> participants_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> spectators_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Actor > participating_actors_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr conversation_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
@@ -10093,7 +10113,7 @@ inline void ConversationState_ConversationSettings::set_allocated_conversation_i
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.engine.ConversationState.ConversationSettings.conversation_id)
 }
 
-// repeated string participants = 2;
+// repeated string participants = 2 [deprecated = true];
 inline int ConversationState_ConversationSettings::_internal_participants_size() const {
   return participants_.size();
 }
@@ -10167,7 +10187,7 @@ ConversationState_ConversationSettings::mutable_participants() {
   return &participants_;
 }
 
-// repeated string spectators = 3;
+// repeated string spectators = 3 [deprecated = true];
 inline int ConversationState_ConversationSettings::_internal_spectators_size() const {
   return spectators_.size();
 }
@@ -10239,6 +10259,42 @@ inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
 ConversationState_ConversationSettings::mutable_spectators() {
   // @@protoc_insertion_point(field_mutable_list:ai.inworld.engine.ConversationState.ConversationSettings.spectators)
   return &spectators_;
+}
+
+// repeated .ai.inworld.packets.Actor participating_actors = 4;
+inline int ConversationState_ConversationSettings::_internal_participating_actors_size() const {
+  return participating_actors_.size();
+}
+inline int ConversationState_ConversationSettings::participating_actors_size() const {
+  return _internal_participating_actors_size();
+}
+inline ::ai::inworld::packets::Actor* ConversationState_ConversationSettings::mutable_participating_actors(int index) {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.engine.ConversationState.ConversationSettings.participating_actors)
+  return participating_actors_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Actor >*
+ConversationState_ConversationSettings::mutable_participating_actors() {
+  // @@protoc_insertion_point(field_mutable_list:ai.inworld.engine.ConversationState.ConversationSettings.participating_actors)
+  return &participating_actors_;
+}
+inline const ::ai::inworld::packets::Actor& ConversationState_ConversationSettings::_internal_participating_actors(int index) const {
+  return participating_actors_.Get(index);
+}
+inline const ::ai::inworld::packets::Actor& ConversationState_ConversationSettings::participating_actors(int index) const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.ConversationState.ConversationSettings.participating_actors)
+  return _internal_participating_actors(index);
+}
+inline ::ai::inworld::packets::Actor* ConversationState_ConversationSettings::_internal_add_participating_actors() {
+  return participating_actors_.Add();
+}
+inline ::ai::inworld::packets::Actor* ConversationState_ConversationSettings::add_participating_actors() {
+  // @@protoc_insertion_point(field_add:ai.inworld.engine.ConversationState.ConversationSettings.participating_actors)
+  return _internal_add_participating_actors();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Actor >&
+ConversationState_ConversationSettings::participating_actors() const {
+  // @@protoc_insertion_point(field_list:ai.inworld.engine.ConversationState.ConversationSettings.participating_actors)
+  return participating_actors_;
 }
 
 // -------------------------------------------------------------------
