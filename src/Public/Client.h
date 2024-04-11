@@ -107,13 +107,9 @@ namespace Inworld
 		void SendPacket(std::shared_ptr<Inworld::Packet> Packet);
 
 		std::shared_ptr<TextEvent> SendTextMessage(const std::string& AgentId, const std::string& Text);
-		std::shared_ptr<TextEvent> SendTextMessage(const std::vector<std::string>& AgentIds, const std::string& Text);
 		std::shared_ptr<DataEvent> SendSoundMessage(const std::string& AgentId, const std::string& Data);
-		std::shared_ptr<DataEvent> SendSoundMessage(const std::vector<std::string>& AgentIds, const std::string& Data);
 		std::shared_ptr<DataEvent> SendSoundMessageWithAEC(const std::string& AgentId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
-		std::shared_ptr<DataEvent> SendSoundMessageWithAEC(const std::vector<std::string>& AgentIds, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
 		std::shared_ptr<CustomEvent> SendCustomEvent(std::string AgentId, const std::string& Name, const std::unordered_map<std::string, std::string>& Params);
-		std::shared_ptr<CustomEvent> SendCustomEvent(const std::vector<std::string>& AgentIds, const std::string& Name, const std::unordered_map<std::string, std::string>& Params);
 		
 		std::shared_ptr<ActionEvent> SendNarrationEvent(std::string AgentId, const std::string& Content);
 		
@@ -127,9 +123,7 @@ namespace Inworld
 		void CancelResponse(const std::string& AgentId, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds);
 
 		void StartAudioSession(const std::string& AgentId);
-		void StartAudioSession(const std::vector<std::string>& AgentIds);
 		void StopAudioSession(const std::string& AgentId);
-		void StopAudioSession(const std::vector<std::string>& AgentIds);
 
 		// the callback is not called on calling thread for Async methods
 		void SaveSessionStateAsync(std::function<void(std::string, bool)> Callback);
