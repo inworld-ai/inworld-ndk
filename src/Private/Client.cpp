@@ -137,7 +137,7 @@ void Inworld::Client::Visit(const SessionControlResponse_LoadCharacters& Event)
 
 void Inworld::Client::SendPacket(std::shared_ptr<Inworld::Packet> Packet)
 {
-	if (GetConnectionState() != ConnectionState::Connected)
+	if (GetConnectionState() != ConnectionState::Connected && GetConnectionState() != ConnectionState::Reconnecting)
 	{
 		Inworld::LogWarning("Packet skipped. Send packets only when connected. Connection state is '%d'", static_cast<int32_t>(GetConnectionState()));
 		return;
