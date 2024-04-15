@@ -69,8 +69,13 @@ namespace Inworld {
         return { { InworldPackets::Actor_Type_PLAYER, "" }, { InworldPackets::Actor_Type_AGENT, AgentId} };
     }
 
+	Routing Routing::Player2Conversation(const std::string& ConversationId)
+	{
+    	return { { InworldPackets::Actor_Type_PLAYER, "" }, ConversationId };
+	}
+
 	PacketId::PacketId(const InworldPackets::PacketId& Other)
-		: PacketId(Other.packet_id().c_str(), Other.utterance_id().c_str(), Other.interaction_id().c_str())
+		: PacketId(Other.packet_id(), Other.utterance_id(), Other.interaction_id())
 	{}
 
 	InworldPackets::PacketId PacketId::ToProto() const
@@ -79,7 +84,6 @@ namespace Inworld {
         proto.set_packet_id(_UID);
         proto.set_utterance_id(_UtteranceId);
         proto.set_interaction_id(_InteractionId);
-        proto.set_conversation_id(_ConversationId);
         return proto;
     }
 
@@ -96,6 +100,7 @@ namespace Inworld {
         *Proto.mutable_routing() = _Routing.ToProto();
         *Proto.mutable_timestamp() = 
             ::google::protobuf_inworld::util::TimeUtil::TimeTToTimestamp(std::chrono::duration_cast<std::chrono::seconds>(_Timestamp.time_since_epoch()).count());
+    	*Proto.mutable_packet_id()->mutable_conversation_id() = _Routing._ConversationId;
         ToProtoInternal(Proto);
         return Proto;
     }
@@ -105,7 +110,9 @@ namespace Inworld {
 		, _Text(GrpcPacket.text().text().c_str())
 		, _Final(GrpcPacket.text().final())
 		, _SourceType(GrpcPacket.text().source_type())
-	{}
+    {
+    	_Routing._ConversationId = GrpcPacket.packet_id().conversation_id();
+    }
 
 	TextEvent::TextEvent(const std::string& InText, const Routing& Routing)
 		: Packet(Routing)
@@ -381,7 +388,33 @@ namespace Inworld {
 		: MutationEvent(Routing{ { InworldPackets::Actor_Type_PLAYER, "" }, { InworldPackets::Actor_Type_WORLD, ""} }) 
 	{}
 
-    void ControlEventConversationUpdate::ToProtoInternal(InworldPackets::InworldPacket& Proto) const {
+	ControlEventConversationUpdate::ControlEventConversationUpdate(const InworldPackets::InworldPacket& GrpcPacket)
+		: ControlEvent(GrpcPacket)
+	{
+    	const auto& ConvEvent = GrpcPacket.control().conversation_event();
+    	for (const auto& Participant : ConvEvent.participants())
+		{
+			if (Participant.type() == InworldPackets::Actor_Type_AGENT)
+			{
+				_Agents.push_back(Participant.name());
+			}
+			else if (Participant.type() == InworldPackets::Actor_Type_PLAYER)
+			{
+				_bIncludePlayer = true;
+			}
+		}
+    	_EventType = ConvEvent.event_type();
+	}
+
+	ControlEventConversationUpdate::ControlEventConversationUpdate(const std::string& ConversationId, const std::vector<std::string>& Agents, bool bIncludePlayer)
+		: ControlEvent(InworldPackets::ControlEvent_Action_CONVERSATION_UPDATE, "",
+			Routing::Player2Conversation(ConversationId.empty() ? RandomUUID() : ConversationId))
+		, _Agents(Agents)
+		, _bIncludePlayer(bIncludePlayer)
+	{
+	}
+
+	void ControlEventConversationUpdate::ToProtoInternal(InworldPackets::InworldPacket& Proto) const {
         ControlEvent::ToProtoInternal(Proto);
 
         for (const auto& Participant : _Agents)

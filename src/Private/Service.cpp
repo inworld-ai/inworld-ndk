@@ -47,7 +47,14 @@ void Inworld::RunnableRead::Run()
 		}
 		else if (IncomingPacket.has_control())
 		{
-			Packet = std::make_shared<Inworld::ControlEvent>(IncomingPacket);
+			if (IncomingPacket.control().has_conversation_event())
+			{
+				Packet = std::make_shared<Inworld::ControlEventConversationUpdate>(IncomingPacket);
+			}
+			else
+			{
+				Packet = std::make_shared<Inworld::ControlEvent>(IncomingPacket);
+			}
 		}
 		else if (IncomingPacket.has_emotion())
 		{

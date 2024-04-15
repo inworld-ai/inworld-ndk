@@ -51,14 +51,13 @@ void NDKApp::App::Run()
 					Text += A + " ";
 				}
 
-				auto CurAgents = GetCurrentAgentBrains();
-				if (CurAgents.empty())
+				Inworld::Routing R;
+				if (!GetRouting(R))
 				{
-					Error("Invalid character");
 					return;
 				}
-
-				_Client.Client().SendTextMessage(CurAgents, Text);
+				
+				_Client.Client().SendTextMessage(R, Text);
 			}
 		},
 		{
@@ -72,15 +71,20 @@ void NDKApp::App::Run()
 					return;
 				}
 
-				auto CurAgents = GetCurrentAgentBrains();
-				if (CurAgents.size() < 2)
+				if (_CurrentConversationIdx == -1)
 				{
-					Error("Need multiple characters");
+					Error("No conversation selected");
+					return;
+				}
+
+				Inworld::Routing R;
+				if (!GetRouting(R))
+				{
 					return;
 				}
 
 				Inworld::Log("Send inworld.conversation.next_turn");
-				_Client.Client().SendCustomEvent(CurAgents, "inworld.conversation.next_turn", {});
+				_Client.Client().SendCustomEvent(R, "inworld.conversation.next_turn", {});
 			}
 		},
 		{
@@ -94,13 +98,13 @@ void NDKApp::App::Run()
 					Text += A + " ";
 				}
 
-				if (_CurrentAgentIdxs.empty())
+				Inworld::Routing R;
+				if (!GetRouting(R))
 				{
-					Error("Invalid character");
 					return;
 				}
-
-				_Client.Client().SendNarrationEvent(_AgentInfos[_CurrentAgentIdxs[0]].AgentId, Text);
+				
+				_Client.Client().SendNarrationEvent(R, Text);
 				Inworld::Log("Narration sent.");
 			}
 		},
@@ -125,18 +129,14 @@ void NDKApp::App::Run()
 			"Set character index (Arg: Index)",
 			[this](const std::vector<std::string>& Args)
 			{
-				if (Args.empty())
+				if (Args.size() != 1)
 				{
 					Error("Invalid args");
 					return;
 				}
 
-				std::vector<int32_t> Idxs;
-				for (const auto& Arg : Args)
-				{
-					Idxs.push_back(std::stoi(Arg));
-				}
-				SetCharacter(Idxs);
+				int32_t Idx = std::stoi(Args[0]);
+				SetCharacter(Idx);
 			}
 		},
 		{
@@ -223,7 +223,7 @@ void NDKApp::App::Run()
 					return;
 				}
 				
-				bool bDropCurrentChars = false;
+				bool bDropCurrentChar = false;
 				for (auto& Id : Args)
 				{
 					auto It = std::find_if(_AgentInfos.begin(), _AgentInfos.end(), [&Id](const auto& Info) { return Info.BrainName == Id; });
@@ -232,20 +232,16 @@ void NDKApp::App::Run()
 						Inworld::Log("Unload character %s", Id.c_str());
 						int32_t Idx = _AgentInfos.begin() - It;
 						_AgentInfos.erase(It);
-						if (std::find(_CurrentAgentIdxs.begin(), _CurrentAgentIdxs.end(), Idx) != _CurrentAgentIdxs.end())
+						if (Idx == _CurrentAgentIdx)
 						{
-							bDropCurrentChars = true;
+							bDropCurrentChar = true;
 						}
 					}
 				}
-				if (bDropCurrentChars)
+				if (bDropCurrentChar)
 				{
-					_CurrentAgentIdxs.clear();
-					if (!_AgentInfos.empty())
-					{
-						_CurrentAgentIdxs.push_back(0);
-						NotifyCurrentCharacter();
-					}
+					_CurrentAgentIdx = 0;
+					NotifyCurrentCharacter();
 				}
 
 				_Client.Client().UnloadCharacters(Args);
@@ -304,6 +300,48 @@ void NDKApp::App::Run()
 				Config.Name = Args[0];
 				
 				_Client.Client().LoadUserConfiguration(Config);
+			}
+		},
+		{
+			"conv-start",
+			"Start conversation",
+			[this](const std::vector<std::string>& Args)
+			{
+				if (Args.size() < 3)
+				{
+					Error("Invalid args");
+					return;
+				}
+
+				const bool bIncludePlayer = Args[0] == "true";
+				std::vector<std::string> AgentIds;
+				for (int32_t i = 1; i < Args.size(); ++i)
+				{
+					AgentIds.push_back(Args[i]);
+				}
+						
+				_Client.Client().UpdateConversation(AgentIds, "", bIncludePlayer);
+			}
+		},
+		{
+			"conv-update",
+			"Update conversation",
+			[this](const std::vector<std::string>& Args)
+			{
+				if (Args.size() < 4)
+				{
+					Error("Invalid args");
+					return;
+				}
+
+				const bool bIncludePlayer = Args[0] == "true";
+				std::vector<std::string> AgentIds;
+				for (int32_t i = 2; i < Args.size(); ++i)
+				{
+					AgentIds.push_back(Args[i]);
+				}
+								
+				_Client.Client().UpdateConversation(AgentIds, Args[1], bIncludePlayer);
 			}
 		},
 		{
@@ -452,18 +490,9 @@ void NDKApp::App::NextCharacter()
 		return;
 	}
 
-	if (_CurrentAgentIdxs.empty())
-	{
-		_CurrentAgentIdxs.push_back(0);
-	}
-	else if (_CurrentAgentIdxs.size() > 1)
-	{
-		Error("Multiple characters, use SetChar");
-	}
-	else if (++_CurrentAgentIdxs[0] == _AgentInfos.size())
-	{
-		_CurrentAgentIdxs[0] = 0;
-	}
+	_CurrentAgentIdx = (_CurrentAgentIdx + 1) % _AgentInfos.size();
+	_CurrentConversationIdx = -1;
+	
 	NotifyCurrentCharacter();
 }
 
@@ -475,75 +504,50 @@ void NDKApp::App::PrevCharacter()
 		return;
 	}
 
-	if (_CurrentAgentIdxs.empty())
-	{
-		_CurrentAgentIdxs.push_back(0);
-	}
-	else if (_CurrentAgentIdxs.size() > 1)
-	{
-		Error("Multiple characters, use SetChar");
-	}
-	else if (--_CurrentAgentIdxs[0] == 0)
-	{
-		_CurrentAgentIdxs[0] = _AgentInfos.size() - 1;
-	}
+	_CurrentAgentIdx = (_CurrentAgentIdx - 1 + _AgentInfos.size()) % _AgentInfos.size();
+	_CurrentConversationIdx = -1;
 
 	NotifyCurrentCharacter();
 }
 
-void NDKApp::App::SetCharacter(const std::vector<int32_t>& Idxs)
+void NDKApp::App::SetCharacter(int32_t Idx)
 {
-	if (Idxs.empty())
-	{
-		Error("Empty char list");
-		return;
-	}
-
-	_CurrentAgentIdxs.clear();
-	for (int32_t Idx : Idxs)
-	{
-		if (Idx >= 0 && Idx < _AgentInfos.size())
-		{
-			_CurrentAgentIdxs.push_back(Idx);
-		}
-	}
+	_CurrentAgentIdx = Idx;
+	_CurrentConversationIdx = -1;
 	NotifyCurrentCharacter();
 }
 
 void NDKApp::App::NotifyCurrentCharacter()
 {
-	if (_CurrentAgentIdxs.empty())
-	{
-		Inworld::Log("No current character");
-	}
-
-	for (int32_t Idx : _CurrentAgentIdxs)
-	{
-		auto& Info = _AgentInfos[Idx];
-		Inworld::Log("Current character: %d %s %s", Idx, ARG_STR(Info.GivenName), ARG_STR(Info.AgentId));
-	}
+	auto& Info = _AgentInfos[_CurrentAgentIdx];
+	Inworld::Log("Current character: %d %s %s", _CurrentAgentIdx, ARG_STR(Info.GivenName), ARG_STR(Info.AgentId));
 }
 
-std::vector<std::string> NDKApp::App::GetCurrentAgentBrains() const
+std::string NDKApp::App::GetTargetStr(const Inworld::Routing& Routing)
 {
-	std::vector<std::string> Brains;
-	for (int32_t i = 0; i < _CurrentAgentIdxs.size(); i++)
+	std::string Target = Routing._Target._Name;
+	if (Target.empty())
 	{
-		Brains.push_back(_AgentInfos[_CurrentAgentIdxs[i]].AgentId);
+		for (const auto& C : _Conversations)
+		{
+			if (C.Id != Routing._ConversationId)
+			{
+				continue;
+			}
+
+			for (const auto& AgentId : C.Agents)
+			{
+				Target += GetGivenName(AgentId);
+				Target += " ";
+			}
+		}
 	}
-	return Brains;
+	return Target;
 }
 
 void NDKApp::App::Visit(const Inworld::TextEvent& Event)
 {
-	std::string Targets;
-	for (const auto& Target : Event._Routing._Targets)
-	{
-		Targets += (Target._Type == 1/*InworldPackets::Actor_Type_PLAYER*/) ? "Player" : GetGivenName(Target._Name);
-		Targets += " ";
-	}
-
-	Inworld::Log("%s to %s: Text: %s", ARG_STR(GetGivenName(Event._Routing._Source._Name)), ARG_STR(Targets), ARG_STR(Event.GetText()));
+	Inworld::Log("%s to %s: Text: %s", ARG_STR(GetGivenName(Event._Routing._Source._Name)), ARG_STR(GetTargetStr(Event._Routing)), ARG_STR(Event.GetText()));
 }
 
 void NDKApp::App::Visit(const Inworld::CustomEvent& Event)
@@ -563,8 +567,7 @@ void NDKApp::App::Visit(const Inworld::SessionControlResponse_LoadScene& Event)
 			_AgentInfos = AgentInfos;
 			if (!AgentInfos.empty())
 			{
-				_CurrentAgentIdxs.clear();
-				_CurrentAgentIdxs.push_back(0);
+				_CurrentAgentIdx = 0;
 				NotifyCurrentCharacter();
 			}
 		});
@@ -578,6 +581,14 @@ void NDKApp::App::Visit(const Inworld::SessionControlResponse_LoadCharacters& Ev
 
 			_AgentInfos.insert(_AgentInfos.end(), AgentInfos.begin(), AgentInfos.end());
 		});
+}
+
+void NDKApp::App::Visit(const Inworld::ControlEventConversationUpdate& Event)
+{
+	Inworld::Log("Conversation update: %s", ARG_STR(Event._Routing._ConversationId));
+	_Conversations.push_back({ Event._Routing._ConversationId, Event.GetAgents() });
+	_CurrentConversationIdx = _Conversations.size() - 1;
+	_CurrentAgentIdx = -1;
 }
 
 void NDKApp::App::Visit(const Inworld::CustomGestureEvent& Event)
@@ -618,4 +629,22 @@ std::string NDKApp::App::GetGivenName(const std::string& AgentId) const
 		return "InvalidName";
 	}
 	return it->GivenName;
+}
+
+bool NDKApp::App::GetRouting(Inworld::Routing& Routing)
+{
+	if (_CurrentAgentIdx >= 0 && _CurrentAgentIdx < _AgentInfos.size())
+	{
+		Routing = Inworld::Routing::Player2Agent(_AgentInfos[_CurrentAgentIdx].AgentId);
+		return true;
+	}
+
+	if (_CurrentConversationIdx >= 0 && _CurrentConversationIdx < _Conversations.size())
+	{
+		Routing = Inworld::Routing::Player2Conversation(_Conversations[_CurrentConversationIdx].Id);
+		return true;
+	}
+	
+	Error("Current routing is invalid.");
+	return false;
 }

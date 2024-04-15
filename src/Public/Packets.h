@@ -62,25 +62,31 @@ namespace Inworld {
 			: _Source(Source)
 			, _Target(Target) 
 		{}
+		Routing(const Actor& Source, const std::string& ConversationId) 
+			: _Source(Source)
+			, _ConversationId(ConversationId) 
+		{}
 
 		static Routing Player2Agent(const std::string& AgentId);
+		static Routing Player2Conversation(const std::string& ConversationId);
 
         InworldPackets::Routing ToProto() const;
         
 		Actor _Source;
         Actor _Target;
+        std::string _ConversationId;
 	};
 
 	struct INWORLD_EXPORT PacketId {
 		// Constructs with all random parameters.
-        PacketId() 
+        PacketId()
 			: PacketId(RandomUUID(), RandomUUID(), RandomUUID())
 		{}
         PacketId(const InworldPackets::PacketId& Other);
 		PacketId(const std::string& UID, const std::string& UtteranceId, const std::string& InteractionId) 
 			: _UID(UID)
 			, _UtteranceId(UtteranceId)
-			, _InteractionId(InteractionId) 
+			, _InteractionId(InteractionId)
 		{}
 
         InworldPackets::PacketId ToProto() const;
@@ -91,7 +97,6 @@ namespace Inworld {
         std::string _UtteranceId;
         // Interaction start when player triggers it and finished when agent answers to player.
         std::string _InteractionId;
-        std::string _ConversationId;
 	};
 
     struct INWORLD_EXPORT Conversation
@@ -105,6 +110,7 @@ namespace Inworld {
     class AudioDataEvent;
     class SilenceEvent;
     class ControlEvent;
+	class ControlEventConversationUpdate;
     class EmotionEvent;
     class CancelResponseEvent;
     class CustomGestureEvent;
@@ -122,6 +128,7 @@ namespace Inworld {
         virtual void Visit(const AudioDataEvent& Event) {  }
         virtual void Visit(const SilenceEvent& Event) {  }
         virtual void Visit(const ControlEvent& Event) {  }
+        virtual void Visit(const ControlEventConversationUpdate& Event) {  }
         virtual void Visit(const EmotionEvent& Event) {  }
         virtual void Visit(const CancelResponseEvent& Event) {  }
         virtual void Visit(const CustomGestureEvent& Event) {  }
@@ -165,7 +172,7 @@ namespace Inworld {
 	public:
 		TextEvent() = default;
         TextEvent(const InworldPackets::InworldPacket& GrpcPacket);
-        TextEvent(const std::string& InText, const Routing& Routing);
+        TextEvent(const std::string& Text, const Routing& Routing);
 
 		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
 
@@ -279,11 +286,16 @@ namespace Inworld {
 
     class INWORLD_EXPORT ControlEventConversationUpdate : public ControlEvent
     {
-        public:
-            ControlEventConversationUpdate() = default;
-            ControlEventConversationUpdate(const InworldPackets::InworldPacket& GrpcPacket);
+    public:
+        ControlEventConversationUpdate() = default;
+        ControlEventConversationUpdate(const InworldPackets::InworldPacket& GrpcPacket);
+    	ControlEventConversationUpdate(const std::string& ConversationId, const std::vector<std::string>& Agents, bool bIncludePlayer);
 
-            virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
+        virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
+
+    	InworldPackets::ConversationEventPayload_ConversationEventType GetType() const { return _EventType; }
+    	const std::vector<std::string>& GetAgents() const { return _Agents; }
+    	bool GetIncludePlayer() const { return _bIncludePlayer; }
 
     protected:
         virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
