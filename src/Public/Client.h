@@ -151,7 +151,8 @@ namespace Inworld
 		std::shared_ptr<DataEvent> SendSoundMessage(const Inworld::Routing& Routing, const std::string& Data);
 		std::shared_ptr<DataEvent> SendSoundMessageWithAEC(const Inworld::Routing& Routing, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
 		std::shared_ptr<CustomEvent> SendCustomEvent(const Inworld::Routing& Routing, const std::string& Name, const std::unordered_map<std::string, std::string>& Params);
-		void StartAudioSession(const Inworld::Routing& Routing);
+
+        void StartAudioSession(const Inworld::Routing& Routing);
 		void StopAudioSession(const Inworld::Routing& Routing);
 
 		void StartClientStream();

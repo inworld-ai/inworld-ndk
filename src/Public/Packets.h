@@ -27,6 +27,7 @@ namespace ai { namespace inworld { namespace packets {
 	enum EmotionEvent_SpaffCode : int;
 	enum EmotionEvent_Strength : int;
 	enum Playback : int;
+    enum ConversationEventPayload_ConversationEventType : int;
 }}}
 namespace InworldPackets = ai::inworld::packets;
 
@@ -61,25 +62,19 @@ namespace Inworld {
 			: _Source(Source)
 			, _Target(Target) 
 		{}
-		Routing(const Actor & Source, const std::vector<Actor>& Targets)
-			: _Source(Source)
-			, _Targets(Targets)
-		{}
 
 		static Routing Player2Agent(const std::string& AgentId);
-		static Routing Player2Agents(const std::vector<std::string>& AgentIds);
 
         InworldPackets::Routing ToProto() const;
         
 		Actor _Source;
         Actor _Target;
-		std::vector<Actor> _Targets;
 	};
 
 	struct INWORLD_EXPORT PacketId {
 		// Constructs with all random parameters.
         PacketId() 
-			: PacketId(RandomUUID(), std::string(RandomUUID()), std::string(RandomUUID())) 
+			: PacketId(RandomUUID(), RandomUUID(), RandomUUID())
 		{}
         PacketId(const InworldPackets::PacketId& Other);
 		PacketId(const std::string& UID, const std::string& UtteranceId, const std::string& InteractionId) 
@@ -96,7 +91,14 @@ namespace Inworld {
         std::string _UtteranceId;
         // Interaction start when player triggers it and finished when agent answers to player.
         std::string _InteractionId;
+        std::string _ConversationId;
 	};
+
+    struct INWORLD_EXPORT Conversation
+    {
+        std::string _Id;
+        std::vector<Actor> _Actors;
+    };
 
     class TextEvent;
     class DataEvent;
@@ -273,6 +275,23 @@ namespace Inworld {
 	private:
 		InworldPackets::ControlEvent_Action _Action;
 		std::string _Description;
+    };
+
+    class INWORLD_EXPORT ControlEventConversationUpdate : public ControlEvent
+    {
+        public:
+            ControlEventConversationUpdate() = default;
+            ControlEventConversationUpdate(const InworldPackets::InworldPacket& GrpcPacket);
+
+            virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
+
+    protected:
+        virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
+
+    private:
+        std::vector<std::string> _Agents;
+        bool _bIncludePlayer;
+        InworldPackets::ConversationEventPayload_ConversationEventType _EventType;
     };
 
     class INWORLD_EXPORT EmotionEvent : public Packet

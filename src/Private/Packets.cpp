@@ -56,11 +56,6 @@ namespace Inworld {
         *routing.mutable_source() = _Source.ToProto();
         *routing.mutable_target() = _Target.ToProto();
 
-        for (auto& T : _Targets)
-        {
-            auto* Actor = routing.add_targets();
-            *Actor = T.ToProto();
-        }
         return routing;
     }
 
@@ -68,30 +63,11 @@ namespace Inworld {
 		: _Source(Routing.source())
 		, _Target(Routing.target())
 	{
-        for (uint32_t i = 0; i < Routing.targets_size(); i++)
-        {
-            _Targets.emplace_back(Routing.targets(i));
-        }
 	}
 
 	Routing Routing::Player2Agent(const std::string& AgentId) {
         return { { InworldPackets::Actor_Type_PLAYER, "" }, { InworldPackets::Actor_Type_AGENT, AgentId} };
     }
-
-	Routing Routing::Player2Agents(const std::vector<std::string>& AgentIds)
-	{
-        if (AgentIds.size() == 1)
-        {
-            return Player2Agent(AgentIds[0]);
-        }
-
-        std::vector<Actor> Actors;
-        for (auto& Id : AgentIds)
-        {
-            Actors.emplace_back(InworldPackets::Actor_Type_AGENT, Id);
-        }
-        return { { InworldPackets::Actor_Type_PLAYER, "" }, Actors };
-	}
 
 	PacketId::PacketId(const InworldPackets::PacketId& Other)
 		: PacketId(Other.packet_id().c_str(), Other.utterance_id().c_str(), Other.interaction_id().c_str())
@@ -103,6 +79,7 @@ namespace Inworld {
         proto.set_packet_id(_UID);
         proto.set_utterance_id(_UtteranceId);
         proto.set_interaction_id(_InteractionId);
+        proto.set_conversation_id(_ConversationId);
         return proto;
     }
 
@@ -404,4 +381,20 @@ namespace Inworld {
 		: MutationEvent(Routing{ { InworldPackets::Actor_Type_PLAYER, "" }, { InworldPackets::Actor_Type_WORLD, ""} }) 
 	{}
 
+    void ControlEventConversationUpdate::ToProtoInternal(InworldPackets::InworldPacket& Proto) const {
+        ControlEvent::ToProtoInternal(Proto);
+
+        for (const auto& Participant : _Agents)
+        {
+            auto* ParticipantProto = Proto.mutable_control()->mutable_conversation_update()->add_participants();
+            ParticipantProto->set_type(InworldPackets::Actor_Type_AGENT);
+            ParticipantProto->set_name(Participant);
+        }
+
+        if (_bIncludePlayer)
+        {
+            auto* ParticipantProto = Proto.mutable_control()->mutable_conversation_update()->add_participants();
+            ParticipantProto->set_type(InworldPackets::Actor_Type_PLAYER);
+        }
+    }
 }
