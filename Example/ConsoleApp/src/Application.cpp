@@ -461,7 +461,36 @@ void NDKApp::App::Run()
 			int32_t Code;
 			_Client.Client().GetConnectionError(Error, Code);
 
-			Inworld::Log("Connection state: %d. %s", static_cast<int32_t>(ConnectionState), Error.empty() ? "" : (std::string(" Error: ") + Error).c_str());
+			std::string State;
+			switch (ConnectionState)
+			{
+			case Inworld::Client::ConnectionState::Connected:
+				State = "Connected";
+				break;
+			case Inworld::Client::ConnectionState::Disconnected:
+				State = "Disconnected";
+				break;
+			case Inworld::Client::ConnectionState::Failed:
+				State = "Failed";
+				break;
+			case Inworld::Client::ConnectionState::Idle:
+				State = "Idle";
+				break;
+			case Inworld::Client::ConnectionState::Paused:
+				State = "Paused";
+				break;
+			case Inworld::Client::ConnectionState::Reconnecting:
+				State = "Reconnecting";
+				break;
+			case Inworld::Client::ConnectionState::Connecting:
+				State = "Connecting";
+				break;
+			default:
+				State = "Unknown";
+				break;
+			}
+			
+			Inworld::Log("Connection state: %s. %s", State.c_str(), Error.empty() ? "" : (std::string(" Error: ") + Error).c_str());
 
 			if (ConnectionState == Inworld::Client::ConnectionState::Disconnected)
 			{
@@ -629,12 +658,15 @@ void NDKApp::App::Visit(const Inworld::ControlEventConversationUpdate& Event)
 	}
 
 	const std::string Type = Event.GetType() ==	1 ? "STARTED" : Event.GetType() == 2 ? "UPDATED" : "EVICTED";
-	const std::string Agents = std::accumulate(std::next(Conv.Agents.begin()), Conv.Agents.end(), Conv.Agents[0],
-										 [this](const std::string &a, const std::string &b) {
-											 return GetGivenName(a) + " , " + GetGivenName(b);
-										 });
+	std::string Agents;
+	for (auto& A : Conv.Agents)
+	{
+		Agents += GetGivenName(A);
+		Agents += ",";
+	}
+	Agents.pop_back();
 
-	Inworld::Log("Conversation update: %s %s %s", Type.c_str(), Conv.Id.c_str(), Agents.c_str());
+	Inworld::Log("Conversation %s %s: %s", Type.c_str(), Conv.Id.c_str(), Agents.c_str());
 }
 
 void NDKApp::App::Visit(const Inworld::CustomGestureEvent& Event)
