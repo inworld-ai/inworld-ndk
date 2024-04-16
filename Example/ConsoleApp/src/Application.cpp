@@ -146,7 +146,7 @@ void NDKApp::App::Run()
 			{
 				for (auto& Info : _AgentInfos)
 				{
-					Inworld::Log("%s %s %s", ARG_STR(Info.GivenName), ARG_STR(Info.AgentId), ARG_STR(Info.BrainName));
+					Inworld::Log("%s %s %s", Info.GivenName.c_str(), Info.AgentId.c_str(), Info.BrainName.c_str());
 				}
 				NotifyCurrentCharacter();
 			}
@@ -303,7 +303,7 @@ void NDKApp::App::Run()
 			}
 		},
 		{
-			"conv-start",
+			"ConvStart",
 			"Start conversation",
 			[this](const std::vector<std::string>& Args)
 			{
@@ -317,14 +317,20 @@ void NDKApp::App::Run()
 				std::vector<std::string> AgentIds;
 				for (int32_t i = 1; i < Args.size(); ++i)
 				{
-					AgentIds.push_back(Args[i]);
+					int32_t Idx = std::stoi(Args[i]);
+					if (Idx < 0 || Idx >= _AgentInfos.size())
+					{
+						Error("Invalid agent index");
+						return;
+					}
+					AgentIds.push_back(_AgentInfos[Idx].AgentId);
 				}
 						
 				_Client.Client().UpdateConversation(AgentIds, "", bIncludePlayer);
 			}
 		},
 		{
-			"conv-update",
+			"ConvUpd",
 			"Update conversation",
 			[this](const std::vector<std::string>& Args)
 			{
@@ -338,7 +344,13 @@ void NDKApp::App::Run()
 				std::vector<std::string> AgentIds;
 				for (int32_t i = 2; i < Args.size(); ++i)
 				{
-					AgentIds.push_back(Args[i]);
+					int32_t Idx = std::stoi(Args[i]);
+					if (Idx < 0 || Idx >= _AgentInfos.size())
+					{
+						Error("Invalid agent index");
+						return;
+					}
+					AgentIds.push_back(_AgentInfos[Idx].AgentId);
 				}
 								
 				_Client.Client().UpdateConversation(AgentIds, Args[1], bIncludePlayer);
@@ -351,6 +363,14 @@ void NDKApp::App::Run()
 			{
 				_Client.Client().DestroyClient();
 				Run();
+			}
+		},
+		{
+			"Resume",
+			"Resume client",
+			[this](const std::vector<std::string>& Args)
+			{
+				_Client.Client().ResumeClient();
 			}
 		},
 		{
@@ -456,7 +476,7 @@ void NDKApp::App::Run()
 
 	_Client.Client().SetPerceivedLatencyTrackerCallback([](const std::string& InteractonId, int32_t Latency)
 		{
-			//Inworld::Log("PerceivedLatencyTracker. Latency is '%d', Interaction: %s", Latency, ARG_STR(InteractonId));
+			//Inworld::Log("PerceivedLatencyTracker. Latency is '%d', Interaction: %s", Latency, InteractonId));
 		});
 
 	Inworld::SessionInfo SessionInfo;
@@ -479,7 +499,7 @@ void NDKApp::App::Run()
 
 void NDKApp::App::Error(std::string Msg)
 {
-	Inworld::LogError("%s", ARG_STR(Msg));
+	Inworld::LogError("%s", Msg.c_str());
 }
 
 void NDKApp::App::NextCharacter()
@@ -520,7 +540,7 @@ void NDKApp::App::SetCharacter(int32_t Idx)
 void NDKApp::App::NotifyCurrentCharacter()
 {
 	auto& Info = _AgentInfos[_CurrentAgentIdx];
-	Inworld::Log("Current character: %d %s %s", _CurrentAgentIdx, ARG_STR(Info.GivenName), ARG_STR(Info.AgentId));
+	Inworld::Log("Current character: %d %s %s", _CurrentAgentIdx, Info.GivenName.c_str(), Info.AgentId.c_str());
 }
 
 std::string NDKApp::App::GetTargetStr(const Inworld::Routing& Routing)
@@ -547,17 +567,17 @@ std::string NDKApp::App::GetTargetStr(const Inworld::Routing& Routing)
 
 void NDKApp::App::Visit(const Inworld::TextEvent& Event)
 {
-	Inworld::Log("%s to %s: Text: %s", ARG_STR(GetGivenName(Event._Routing._Source._Name)), ARG_STR(GetTargetStr(Event._Routing)), ARG_STR(Event.GetText()));
+	Inworld::Log("%s to %s: Text: %s", GetGivenName(Event._Routing._Source._Name).c_str(), GetTargetStr(Event._Routing).c_str(), Event.GetText().c_str());
 }
 
 void NDKApp::App::Visit(const Inworld::CustomEvent& Event)
 {
-	Inworld::Log("%s: Custom: %s", ARG_STR(GetGivenName(Event._Routing._Source._Name)), ARG_STR(Event.GetName()));
+	Inworld::Log("%s: Custom: %s", GetGivenName(Event._Routing._Source._Name).c_str(), Event.GetName().c_str());
 }
 
 void NDKApp::App::Visit(const Inworld::AudioDataEvent& Event)
 {
-	Inworld::Log("%s: Audio: %d", ARG_STR(GetGivenName(Event._Routing._Source._Name)), Event.GetDataChunk().size());
+	Inworld::Log("%s: Audio: %d", GetGivenName(Event._Routing._Source._Name).c_str(), Event.GetDataChunk().size());
 }
 
 void NDKApp::App::Visit(const Inworld::SessionControlResponse_LoadScene& Event)
@@ -585,15 +605,41 @@ void NDKApp::App::Visit(const Inworld::SessionControlResponse_LoadCharacters& Ev
 
 void NDKApp::App::Visit(const Inworld::ControlEventConversationUpdate& Event)
 {
-	Inworld::Log("Conversation update: %s", ARG_STR(Event._Routing._ConversationId));
-	_Conversations.push_back({ Event._Routing._ConversationId, Event.GetAgents() });
-	_CurrentConversationIdx = _Conversations.size() - 1;
+	_CurrentConversationIdx = -1;
 	_CurrentAgentIdx = -1;
+	
+	Conversation Conv;
+	Conv.Id = Event._Routing._ConversationId;
+	Conv.Agents = Event.GetAgents();
+	for (int32_t i = 0; i < _Conversations.size(); ++i)
+	{
+		auto& C = _Conversations[i];
+		if (C.Id == Event._Routing._ConversationId)
+		{
+			C = Conv;
+			_CurrentConversationIdx = i;
+			break;
+		}
+	}
+
+	if (_CurrentConversationIdx == -1)
+	{
+		_Conversations.push_back({ Conv.Id, Event.GetAgents() });
+		_CurrentConversationIdx = _Conversations.size() - 1;
+	}
+
+	const std::string Type = Event.GetType() ==	1 ? "STARTED" : Event.GetType() == 2 ? "UPDATED" : "EVICTED";
+	const std::string Agents = std::accumulate(std::next(Conv.Agents.begin()), Conv.Agents.end(), Conv.Agents[0],
+										 [this](const std::string &a, const std::string &b) {
+											 return GetGivenName(a) + " , " + GetGivenName(b);
+										 });
+
+	Inworld::Log("Conversation update: %s %s %s", Type.c_str(), Conv.Id.c_str(), Agents.c_str());
 }
 
 void NDKApp::App::Visit(const Inworld::CustomGestureEvent& Event)
 {
-	//Inworld::Log("%s: Custom gesture: %s", ARG_STR(GetGivenName(Event._Routing._Source._Name)), ARG_STR(Event.GetCustomGesture()));
+	//Inworld::Log("%s: Custom gesture: %s", GetGivenName(Event._Routing._Source._Name).c_str(), Event.GetCustomGesture()));
 }
 
 void NDKApp::App::Visit(const Inworld::CancelResponseEvent& Event)
@@ -603,22 +649,22 @@ void NDKApp::App::Visit(const Inworld::CancelResponseEvent& Event)
 
 void NDKApp::App::Visit(const Inworld::EmotionEvent& Event)
 {
-	//Inworld::Log("%s: Emotion: Behavior %d, Strengths %d", ARG_STR(GetGivenName(Event._Routing._Source._Name)), (int32_t)Event.GetEmotionalBehavior(), (int32_t)Event.GetStrength());
+	//Inworld::Log("%s: Emotion: Behavior %d, Strengths %d", GetGivenName(Event._Routing._Source._Name).c_str(), (int32_t)Event.GetEmotionalBehavior(), (int32_t)Event.GetStrength());
 }
 
 void NDKApp::App::Visit(const Inworld::ControlEvent& Event)
 {
-	Inworld::Log("%s: Control: %d %s", ARG_STR(GetGivenName(Event._Routing._Source._Name)), (int32_t)Event.GetControlAction(), ARG_STR(Event.GetDescription()));
+	Inworld::Log("%s: Control: %d %s", GetGivenName(Event._Routing._Source._Name).c_str(), (int32_t)Event.GetControlAction(), Event.GetDescription().c_str());
 }
 
 void NDKApp::App::Visit(const Inworld::SilenceEvent& Event)
 {
-	Inworld::Log("%s: Silence: Duration %f", ARG_STR(GetGivenName(Event._Routing._Source._Name)), Event.GetDuration());
+	Inworld::Log("%s: Silence: Duration %f", GetGivenName(Event._Routing._Source._Name).c_str(), Event.GetDuration());
 }
 
 void NDKApp::App::Visit(const Inworld::DataEvent& Event)
 {
-	Inworld::Log("%s: Data: Size %d", ARG_STR(GetGivenName(Event._Routing._Source._Name)), Event.GetDataChunk().size());
+	Inworld::Log("%s: Data: Size %d", GetGivenName(Event._Routing._Source._Name).c_str(), Event.GetDataChunk().size());
 }
 
 std::string NDKApp::App::GetGivenName(const std::string& AgentId) const

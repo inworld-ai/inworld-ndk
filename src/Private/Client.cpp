@@ -48,8 +48,8 @@ static void GrpcLog(gpr_log_func_args* args)
 	}
 	
 	Inworld::LogError("GRPC %s %s::%d",
-		ARG_CHAR(args->message),
-		ARG_CHAR(args->file),
+		args->message,
+		args->file,
 		args->line);
 }
 
@@ -119,7 +119,7 @@ void Inworld::Client::Visit(const SessionControlResponse_LoadScene& Event)
 	Inworld::Log("Load scene SUCCESS");
 	for (const auto& Info : Event.GetAgentInfos())
 	{
-		Inworld::Log("Character registered: %s, Id: %s, GivenName: %s", ARG_STR(Info.BrainName), ARG_STR(Info.AgentId), ARG_STR(Info.GivenName));
+		Inworld::Log("Character registered: %s, Id: %s, GivenName: %s", Info.BrainName.c_str(), Info.AgentId.c_str(), Info.GivenName.c_str());
 	}
 
 	SetConnectionState(ConnectionState::Connected);
@@ -131,7 +131,7 @@ void Inworld::Client::Visit(const SessionControlResponse_LoadCharacters& Event)
 	Inworld::Log("Load characters SUCCESS");
 	for (const auto& Info : Event.GetAgentInfos())
 	{
-		Inworld::Log("Character registered: %s, Id: %s, GivenName: %s", ARG_STR(Info.BrainName), ARG_STR(Info.AgentId), ARG_STR(Info.GivenName));
+		Inworld::Log("Character registered: %s, Id: %s, GivenName: %s", Info.BrainName.c_str(), Info.AgentId.c_str(), Info.GivenName.c_str());
 	}
 }
 
@@ -422,7 +422,7 @@ void Inworld::Client::GenerateToken(std::function<void()> GenerateTokenCallback)
 				{
 					_ErrorMessage = std::string(Status.error_message().c_str());
 					_ErrorCode = Status.error_code();
-					Inworld::LogError("Generate session token FALURE! %s, Code: %d", ARG_STR(_ErrorMessage), _ErrorCode);
+					Inworld::LogError("Generate session token FALURE! %s, Code: %d", _ErrorMessage.c_str(), _ErrorCode);
 					SetConnectionState(ConnectionState::Failed);
 				}
 				else
@@ -578,7 +578,7 @@ void Inworld::Client::SaveSessionStateAsync(std::function<void(std::string, bool
 			{
 				if (!Status.ok())
 				{
-					Inworld::LogError("Save session state FALURE! %s, Code: %d", ARG_STR(Status.error_message()), (int32_t)Status.error_code());
+					Inworld::LogError("Save session state FALURE! %s, Code: %d", Status.error_message().c_str(), (int32_t)Status.error_code());
 					Callback({}, false);
 					return;
 				}
@@ -629,7 +629,7 @@ void Inworld::Client::StartSession()
 	}
 
 	Inworld::LogSetSessionId(_SessionInfo.SessionId);
-	Inworld::Log("Session Id: %s", ARG_STR(_SessionInfo.SessionId));
+	Inworld::Log("Session Id: %s", _SessionInfo.SessionId.c_str());
 
 	_Service->Session() = std::make_unique<ServiceSession>(
 		_SessionInfo.Token,
@@ -747,7 +747,7 @@ void Inworld::Client::TryToStartReadTask()
 				{
 					_ErrorMessage = std::string(Status.error_message().c_str());
 					_ErrorCode = Status.error_code();
-					Inworld::LogError("Message READ failed: %s. Code: %d", ARG_STR(_ErrorMessage), _ErrorCode);
+					Inworld::LogError("Message READ failed: %s. Code: %d", _ErrorMessage.c_str(), _ErrorCode);
 					SetConnectionState(ConnectionState::Disconnected);
 				}
 			)
@@ -785,7 +785,7 @@ void Inworld::Client::TryToStartWriteTask()
 					{
 						_ErrorMessage = std::string(Status.error_message().c_str());
 						_ErrorCode = Status.error_code();
-						Inworld::LogError("Message WRITE failed: %s. Code: %d", ARG_STR(_ErrorMessage), _ErrorCode);
+						Inworld::LogError("Message WRITE failed: %s. Code: %d", _ErrorMessage.c_str(), _ErrorCode);
 						SetConnectionState(ConnectionState::Disconnected);
 					}
 				)

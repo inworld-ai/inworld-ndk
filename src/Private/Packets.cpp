@@ -91,7 +91,9 @@ namespace Inworld {
 		: _PacketId(GrpcPacket.packet_id())
 		, _Routing(GrpcPacket.routing())
 		, _Timestamp(std::chrono::system_clock::time_point(std::chrono::seconds(google::protobuf_inworld::util::TimeUtil::TimestampToTimeT(GrpcPacket.timestamp()))))
-	{}
+    {
+    	_Routing._ConversationId = GrpcPacket.packet_id().conversation_id();
+    }
 
 	InworldPackets::InworldPacket Packet::ToProto() const
     {
@@ -111,7 +113,7 @@ namespace Inworld {
 		, _Final(GrpcPacket.text().final())
 		, _SourceType(GrpcPacket.text().source_type())
     {
-    	_Routing._ConversationId = GrpcPacket.packet_id().conversation_id();
+    	
     }
 
 	TextEvent::TextEvent(const std::string& InText, const Routing& Routing)
@@ -295,8 +297,8 @@ namespace Inworld {
 		Proto.mutable_session_control()->mutable_user_configuration()->set_id(_Data.Id);
 		Proto.mutable_session_control()->mutable_user_configuration()->set_name(_Data.Name);
 
-		Inworld::Log("SessionControlEvent_UserConfiguration User id: %s", ARG_STR(_Data.Id));
-		Inworld::Log("SessionControlEvent_UserConfiguration User name: %s", ARG_STR(_Data.Name));
+		Inworld::Log("SessionControlEvent_UserConfiguration User id: %s", _Data.Id.c_str());
+		Inworld::Log("SessionControlEvent_UserConfiguration User name: %s", _Data.Name.c_str());
 
 		auto* PlayerProfile = Proto.mutable_session_control()->mutable_user_configuration()->mutable_user_settings()->mutable_player_profile();
 		for (const auto& Field : _Data.Profile.Fields)
@@ -315,9 +317,9 @@ namespace Inworld {
         Config->set_version(_Data.Version);
 		Config->set_description(_Data.Description);
 
-		Inworld::Log("SessionControlEvent_ClientConfiguration Client id: %s", ARG_STR(_Data.Id));
-		Inworld::Log("SessionControlEvent_ClientConfiguration Client version: %s", ARG_STR(_Data.Version));
-		Inworld::Log("SessionControlEvent_ClientConfiguration Client description: %s", ARG_STR(_Data.Description));
+		Inworld::Log("SessionControlEvent_ClientConfiguration Client id: %s", _Data.Id.c_str());
+		Inworld::Log("SessionControlEvent_ClientConfiguration Client version: %s", _Data.Version.c_str());
+		Inworld::Log("SessionControlEvent_ClientConfiguration Client description: %s", _Data.Description.c_str());
 	}
 
 	void SessionControlEvent_SessionSave::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
@@ -422,12 +424,14 @@ namespace Inworld {
             auto* ParticipantProto = Proto.mutable_control()->mutable_conversation_update()->add_participants();
             ParticipantProto->set_type(InworldPackets::Actor_Type_AGENT);
             ParticipantProto->set_name(Participant);
+    		Inworld::Log("ControlEventConversationUpdate::ToProtoInternal. Add character '%s' to conversation '%s'", Participant.c_str(), _Routing._ConversationId.c_str());
         }
 
         if (_bIncludePlayer)
         {
             auto* ParticipantProto = Proto.mutable_control()->mutable_conversation_update()->add_participants();
             ParticipantProto->set_type(InworldPackets::Actor_Type_PLAYER);
+    		Inworld::Log("ControlEventConversationUpdate::ToProtoInternal. Add player to conversation '%s'", _Routing._ConversationId.c_str());
         }
     }
 }
