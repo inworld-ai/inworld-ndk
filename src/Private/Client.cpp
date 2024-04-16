@@ -7,7 +7,6 @@
 
 #include "Client.h"
 #include "Service.h"
-#include "Utils/Utils.h"
 #include "Utils/Log.h"
 #include "base64/Base64.h"
 
@@ -422,6 +421,7 @@ void Inworld::Client::GenerateToken(std::function<void()> GenerateTokenCallback)
 				{
 					_ErrorMessage = std::string(Status.error_message().c_str());
 					_ErrorCode = Status.error_code();
+					StopClientStream();
 					Inworld::LogError("Generate session token FALURE! %s, Code: %d", _ErrorMessage.c_str(), _ErrorCode);
 					SetConnectionState(ConnectionState::Failed);
 				}
@@ -747,6 +747,7 @@ void Inworld::Client::TryToStartReadTask()
 				{
 					_ErrorMessage = std::string(Status.error_message().c_str());
 					_ErrorCode = Status.error_code();
+					StopClientStream();
 					Inworld::LogError("Message READ failed: %s. Code: %d", _ErrorMessage.c_str(), _ErrorCode);
 					SetConnectionState(ConnectionState::Disconnected);
 				}
@@ -785,6 +786,7 @@ void Inworld::Client::TryToStartWriteTask()
 					{
 						_ErrorMessage = std::string(Status.error_message().c_str());
 						_ErrorCode = Status.error_code();
+						StopClientStream();
 						Inworld::LogError("Message WRITE failed: %s. Code: %d", _ErrorMessage.c_str(), _ErrorCode);
 						SetConnectionState(ConnectionState::Disconnected);
 					}
