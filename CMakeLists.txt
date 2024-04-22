@@ -496,8 +496,10 @@ function(GroupSourcesByFolder target)
         source_group("${last_dir}" FILES ${files})
     endif()
 endfunction()
+
 GroupSourcesByFolder(inworld-ndk)
 GroupSourcesByFolder(inworld-ndk-proto)
+GroupSourcesByFolder(inworld-ndk-vad)
 
 # setup example
 if (WIN32 OR MAC)
