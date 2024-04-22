@@ -408,6 +408,41 @@ if (AEC)
     endif()
 endif()
 
+# vad
+if (INWORLD_VAD AND WIN32)
+    message("configuring VAD")
+
+    file(GLOB_RECURSE FilesAllVAD
+        inworld-vad/src/*.h
+        inworld-vad/src/*.cpp
+        inworld-vad/src/*.cc
+        inworld-vad/src/*.c
+    )
+    add_library(inworld-ndk-vad STATIC ${FilesAllVAD})
+    target_compile_features(inworld-ndk-vad PRIVATE cxx_std_20)
+    target_link_libraries(inworld-ndk PUBLIC inworld-ndk-vad)
+
+    set(OnnxDir ${ThirdPartyDir}/onnx/onnxruntime-win-x64-1.17.3)
+    target_include_directories(inworld-ndk-vad PRIVATE ${OnnxDir}/include)
+    
+    set(INWORLD_VAD_MODEL DEV-services_ml-hosting_silero_vad_10_27_2022.onnx)
+    target_compile_definitions(inworld-ndk-vad PUBLIC INWORLD_VAD_MODEL=${INWORLD_VAD_MODEL})
+    target_compile_definitions(inworld-ndk-vad PUBLIC INWORLD_VAD=1)
+
+    target_link_libraries(inworld-ndk-vad PUBLIC ${OnnxDir}/lib/onnxruntime.lib)
+    target_link_libraries(inworld-ndk-vad PUBLIC ${OnnxDir}/lib/onnxruntime_providers_shared.lib)
+
+    list(APPEND LibFiles 
+        ${OnnxDir}/lib/onnxruntime.lib
+        ${OnnxDir}/lib/onnxruntime.dll
+        ${OnnxDir}/lib/onnxruntime_providers_shared.lib
+        ${OnnxDir}/lib/onnxruntime_providers_shared.dll
+    )
+
+    add_custom_command(TARGET inworld-ndk POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/model/${INWORLD_VAD_MODEL} ${PackageDir}/model)
+endif()
+
 foreach(LibFile IN LISTS LibFiles)
     add_custom_command(TARGET inworld-ndk POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy ${LibFile} ${PackageLibDir})
@@ -466,13 +501,11 @@ GroupSourcesByFolder(inworld-ndk-proto)
 
 # setup example
 if (WIN32 OR MAC)
-    set(SourceDir Example/ConsoleApp/src)
-
     file(GLOB_RECURSE FilesALL
-        "${SourceDir}/*.h"
-        "${SourceDir}/*.cpp"
-        "${SourceDir}/*.cc"
-        "${SourceDir}/*.c"
+        Example/ConsoleApp/src/*.h
+        Example/ConsoleApp/src/*.cpp
+        Example/ConsoleApp/src/*.cc
+        Example/ConsoleApp/src/*.c
     )
 
     add_executable(inworld-ndk-app ${FilesALL})
