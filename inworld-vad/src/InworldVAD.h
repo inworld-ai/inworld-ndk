@@ -9,13 +9,6 @@
 
 #include <memory>
 #include <string>
-
-namespace Ort
-{
-    class Env;
-    class Session;
-}
-
 namespace Inworld
 {
     class VAD {
@@ -24,10 +17,6 @@ namespace Inworld
         VAD(const std::string& Model);
         
         float ProcessAudioChunk(const std::string& AudioData);
-
         
-    private:
-        std::unique_ptr<Ort::Env> Env;
-        std::unique_ptr<Ort::Session> Session;
     };
 }

@@ -572,3 +572,22 @@ if(WIN32 AND INWORLD_CPPCHECK)
     AddCppCheck(inworld-ndk ${CMAKE_CURRENT_SOURCE_DIR}/src)
     AddCppCheck(inworld-ndk-app ${CMAKE_CURRENT_SOURCE_DIR}/Example/ConsoleApp/src)
 endif()
+
+if (INWORLD_VAD_TEST)
+    file(GLOB_RECURSE FilesALL
+        test-vad/*.h
+        test-vad/*.cpp
+        test-vad/*.cc
+        test-vad/*.c
+    )
+
+    add_executable(inworld-ndk-vad-test ${FilesALL})
+
+    target_compile_features(inworld-ndk-vad-test PRIVATE cxx_std_20)
+
+    set(OnnxDir ${ThirdPartyDir}/onnx/onnxruntime-win-x64-1.17.3)
+    target_include_directories(inworld-ndk-vad-test PRIVATE ${OnnxDir}/include)
+
+    target_link_libraries(inworld-ndk-vad-test PUBLIC ${OnnxDir}/lib/onnxruntime.lib)
+    target_link_libraries(inworld-ndk-vad-test PUBLIC ${OnnxDir}/lib/onnxruntime_providers_shared.lib)
+endif()

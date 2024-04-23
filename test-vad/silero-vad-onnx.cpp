@@ -1,12 +1,3 @@
-/**
-* Copyright 2023-2024 Theai, Inc. dba Inworld AI
- *
- * Use of this source code is governed by the Inworld.ai Software Development Kit License Agreement
- * that can be found in the LICENSE.md file or at https://www.inworld.ai/sdk-license
- */
-
-#include "InworldVAD.h"
-
 #include <iostream>
 #include <vector>
 #include <sstream>
@@ -19,14 +10,14 @@
 #include <iostream>
 #include <string>
 #include "onnxruntime_cxx_api.h"
-//#include "wav.h"
+#include "wav.h"
 #include <cstdio>
 #include <cstdarg>
 #if __cplusplus < 201703L
 #include <memory>
 #endif
 
-//#define __DEBUG_SPEECH_PROB___
+#define __DEBUG_SPEECH_PROB___
 
 class timestamp_t
 {
@@ -438,12 +429,58 @@ public:
     };
 };
 
-Inworld::VAD::VAD(const std::string& Model)
+int main()
 {
-    
-}
+    std::vector<timestamp_t> stamps;
 
-float Inworld::VAD::ProcessAudioChunk(const std::string& AudioData)
-{
-    return 0.f;
+    // Read wav
+    wav::WavReader wav_reader("C:/Projects/inworld/TestEmpty52/Plugins/inworld-unreal-sdk/InworldAI/inworld-ndk/test-vad/InworldAudioDump.wav"); //16000,1,32float
+    std::vector<float> input_wav(wav_reader.num_samples());
+    std::vector<float> output_wav;
+
+    for (int i = 0; i < wav_reader.num_samples(); i++)
+    {
+        input_wav[i] = static_cast<float>(*(wav_reader.data() + i));
+    }
+
+
+
+    // ===== Test configs =====
+    std::wstring path = L"C:/Projects/inworld/TestEmpty52/Plugins/inworld-unreal-sdk/InworldAI/inworld-ndk/inworld-vad/model/DEV-services_ml-hosting_silero_vad_10_27_2022.onnx";
+    VadIterator vad(path);
+
+    // ==============================================
+    // ==== = Example 1 of full function  ===== 
+    // ==============================================
+    vad.process(input_wav);
+
+    // 1.a get_speech_timestamps
+    stamps = vad.get_speech_timestamps();
+    for (int i = 0; i < stamps.size(); i++) {
+
+        std::cout << stamps[i].c_str() << std::endl;
+    }
+
+    // 1.b collect_chunks output wav
+    vad.collect_chunks(input_wav, output_wav);
+
+    // 1.c drop_chunks output wav
+    //vad.drop_chunks(input_wav, output_wav);
+
+    // ==============================================
+    // ===== Example 2 of simple full function  =====
+    // ==============================================
+    vad.process(input_wav, output_wav);
+
+    stamps = vad.get_speech_timestamps();
+    for (int i = 0; i < stamps.size(); i++) {
+
+        std::cout << stamps[i].c_str() << std::endl;
+    }
+
+    // ==============================================
+    // ===== Example 3 of full function  =====
+    // ==============================================
+    for(int i = 0; i<2; i++)
+        vad.process(input_wav, output_wav);
 }
