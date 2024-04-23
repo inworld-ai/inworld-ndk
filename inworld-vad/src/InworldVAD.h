@@ -8,15 +8,17 @@
 #pragma once
 
 #include <memory>
+#include <vector>
 #include <string>
+
 namespace Inworld
 {
     class VAD {
 
     public:
         VAD(const std::string& Model);
+        ~VAD();
         
-        float ProcessAudioChunk(const std::string& AudioData);
-        
+        float ProcessAudioChunk(const std::vector<float>& AudioData);
     };
 }

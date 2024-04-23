@@ -9,14 +9,10 @@
 
 #include <iostream>
 #include <vector>
-#include <sstream>
 #include <cstring>
 #include <limits>
 #include <chrono>
 #include <memory>
-#include <string>
-#include <stdexcept>
-#include <iostream>
 #include <string>
 #include "onnxruntime_cxx_api.h"
 //#include "wav.h"
@@ -175,6 +171,8 @@ private:
         float *cn = ort_outputs[2].GetTensorMutableData<float>();
         std::memcpy(_c.data(), cn, size_hc * sizeof(float));
 
+        probability = speech_prob;
+
         // Push forward sample index
         current_sample += window_size_samples;
 
@@ -294,7 +292,7 @@ private:
 public:
     void process(const std::vector<float>& input_wav)
     {
-        reset_states();
+        //reset_states();
 
         audio_length_samples = input_wav.size();
 
@@ -340,6 +338,11 @@ public:
         return speeches;
     }
 
+    float get_speech_probability() const
+    {
+        return probability;
+    }
+
     void drop_chunks(const std::vector<float>& input_wav, std::vector<float>& output_wav)
     {
         output_wav.clear();
@@ -371,7 +374,8 @@ private:
     // model states
     bool triggered = false;
     unsigned int temp_end = 0;
-    unsigned int current_sample = 0;    
+    unsigned int current_sample = 0;
+    float probability = 0.0f;;
     // MAX 4294967295 samples / 8sample per ms / 1000 / 60 = 8947 minutes  
     int prev_end;
     int next_start = 0;
@@ -438,12 +442,25 @@ public:
     };
 };
 
+std::unique_ptr<VadIterator> s_VadIterator;
+
 Inworld::VAD::VAD(const std::string& Model)
 {
-    
+    s_VadIterator = std::make_unique<VadIterator>(L"C:/Projects/inworld/TestEmpty52/Plugins/inworld-unreal-sdk/InworldAI/inworld-ndk/inworld-vad/model/DEV-services_ml-hosting_silero_vad_10_27_2022.onnx");
 }
 
-float Inworld::VAD::ProcessAudioChunk(const std::string& AudioData)
+Inworld::VAD::~VAD()
 {
-    return 0.f;
+    s_VadIterator.reset();
+}
+
+float Inworld::VAD::ProcessAudioChunk(const std::vector<float>& AudioData)
+{
+    if (!s_VadIterator)
+    {
+        return 0.f;
+    }
+
+    s_VadIterator->process(AudioData);
+    return s_VadIterator->get_speech_probability();
 }

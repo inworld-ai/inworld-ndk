@@ -179,10 +179,21 @@ std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessage(const Inwo
 	return Packet;
 }
 
-std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessageWithAEC(const Inworld::Routing& Routing, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData)
+std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessageWithAEC(const Inworld::Routing& Routing, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData, float& SpeechProbability)
 {
 	std::vector<int16_t> FilteredData = _EchoFilter.FilterAudio(InputData, OutputData);
 
+    std::vector<float> FloatData(FilteredData.size());
+    for (size_t i = 0; i < FilteredData.size(); ++i)
+    {
+        FloatData[i] = static_cast<float>(FilteredData[i]) / 32767.0f;
+    }
+
+    if (_Vad)
+    {
+        SpeechProbability = _Vad->ProcessAudioChunk(FloatData);
+    }
+    
 	std::string Data;
 	Data.resize(FilteredData.size() * sizeof(int16_t));
 	std::memcpy((void*)Data.data(), (void*)FilteredData.data(), Data.size());
@@ -199,6 +210,7 @@ std::shared_ptr<Inworld::CustomEvent> Inworld::Client::SendCustomEvent(const Inw
 
 std::shared_ptr<Inworld::ControlEvent> Inworld::Client::StartAudioSession(const Inworld::Routing& Routing)
 {
+    _Vad = std::make_unique<Inworld::VAD>("model");
 	auto Packet = std::make_shared<Inworld::ControlEvent>(ai::inworld::packets::ControlEvent_Action_AUDIO_SESSION_START, std::string{}, Routing);
 	SendPacket(Packet);
 	return Packet;
@@ -206,6 +218,7 @@ std::shared_ptr<Inworld::ControlEvent> Inworld::Client::StartAudioSession(const 
 
 std::shared_ptr<Inworld::ControlEvent> Inworld::Client::StopAudioSession(const Inworld::Routing& Routing)
 {
+    _Vad.reset();
 	auto Packet = std::make_shared<Inworld::ControlEvent>(ai::inworld::packets::ControlEvent_Action_AUDIO_SESSION_END, std::string{}, Routing);
 	SendPacket(Packet);
 	return Packet;
@@ -241,9 +254,9 @@ std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessageToConversat
 	return SendSoundMessage(Routing::Player2Conversation(ConversationId), Data);
 }
 
-std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessageWithAEC(const std::string& AgentId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData)
+std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessageWithAEC(const std::string& AgentId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData, float& SpeechProbability)
 {
-	return SendSoundMessageWithAEC(Routing::Player2Agent(AgentId), InputData, OutputData);
+	return SendSoundMessageWithAEC(Routing::Player2Agent(AgentId), InputData, OutputData, SpeechProbability);
 }
 
 std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessageWithAECToConversation(

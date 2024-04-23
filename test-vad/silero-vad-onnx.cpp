@@ -17,7 +17,7 @@
 #include <memory>
 #endif
 
-#define __DEBUG_SPEECH_PROB___
+//#define __DEBUG_SPEECH_PROB___
 
 class timestamp_t
 {
@@ -285,7 +285,7 @@ private:
 public:
     void process(const std::vector<float>& input_wav)
     {
-        reset_states();
+        //reset_states();
 
         audio_length_samples = input_wav.size();
 
@@ -306,7 +306,7 @@ public:
             temp_end = 0;
             triggered = false;
         }
-    };
+    }
 
     void process(const std::vector<float>& input_wav, std::vector<float>& output_wav)
     {
@@ -461,11 +461,11 @@ int main()
         std::cout << stamps[i].c_str() << std::endl;
     }
 
-    // 1.b collect_chunks output wav
+    /*// 1.b collect_chunks output wav
     vad.collect_chunks(input_wav, output_wav);
 
     // 1.c drop_chunks output wav
-    //vad.drop_chunks(input_wav, output_wav);
+    vad.drop_chunks(input_wav, output_wav);
 
     // ==============================================
     // ===== Example 2 of simple full function  =====
@@ -482,5 +482,5 @@ int main()
     // ===== Example 3 of full function  =====
     // ==============================================
     for(int i = 0; i<2; i++)
-        vad.process(input_wav, output_wav);
+        vad.process(input_wav, output_wav);*/
 }

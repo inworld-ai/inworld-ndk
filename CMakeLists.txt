@@ -421,6 +421,7 @@ if (INWORLD_VAD AND WIN32)
     add_library(inworld-ndk-vad STATIC ${FilesAllVAD})
     target_compile_features(inworld-ndk-vad PRIVATE cxx_std_20)
     target_link_libraries(inworld-ndk PUBLIC inworld-ndk-vad)
+    target_include_directories(inworld-ndk PRIVATE inworld-vad/src)
 
     set(OnnxDir ${ThirdPartyDir}/onnx/onnxruntime-win-x64-1.17.3)
     target_include_directories(inworld-ndk-vad PRIVATE ${OnnxDir}/include)

@@ -19,6 +19,7 @@
 #include "AsyncRoutine.h"
 #include "Utils/PerceivedLatencyTracker.h"
 #include "AECFilter.h"
+#include "InworldVAD.h"
 
 using PacketQueue = Inworld::SharedQueue<std::shared_ptr<Inworld::Packet>>;
 
@@ -27,6 +28,11 @@ namespace ai { namespace inworld { namespace packets {
 	class InworldPacket;
 }}}
 namespace InworldPackets = ai::inworld::packets;
+
+namespace Inworld
+{
+    class VAD;
+}
 
 namespace grpc
 {
@@ -119,8 +125,8 @@ namespace Inworld
 		std::shared_ptr<DataEvent> SendSoundMessage(const std::string& AgentId, const std::string& Data);
 		std::shared_ptr<DataEvent> SendSoundMessageToConversation(const std::string& ConversationId, const std::string& Data);
 		
-		std::shared_ptr<DataEvent> SendSoundMessageWithAEC(const Inworld::Routing& Routing, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
-		std::shared_ptr<DataEvent> SendSoundMessageWithAEC(const std::string& AgentId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
+		std::shared_ptr<DataEvent> SendSoundMessageWithAEC(const Inworld::Routing& Routing, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData, float& SpeechProbability);
+		std::shared_ptr<DataEvent> SendSoundMessageWithAEC(const std::string& AgentId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData, float& SpeechProbability);
 		std::shared_ptr<DataEvent> SendSoundMessageWithAECToConversation(const std::string& ConversationId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
 
 		std::shared_ptr<CustomEvent> SendCustomEvent(const Inworld::Routing& Routing, const std::string& Name, const std::unordered_map<std::string, std::string>& Params);
@@ -224,6 +230,7 @@ namespace Inworld
 		int32_t _ErrorCode = 0;
 
 		AECFilter _EchoFilter;
+	    std::unique_ptr<VAD> _Vad;
 		PerceivedLatencyTracker _LatencyTracker;
 	};
 }
