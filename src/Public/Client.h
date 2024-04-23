@@ -19,7 +19,6 @@
 #include "AsyncRoutine.h"
 #include "Utils/PerceivedLatencyTracker.h"
 #include "AECFilter.h"
-#include "InworldVAD.h"
 
 using PacketQueue = Inworld::SharedQueue<std::shared_ptr<Inworld::Packet>>;
 
@@ -230,7 +229,6 @@ namespace Inworld
 		int32_t _ErrorCode = 0;
 
 		AECFilter _EchoFilter;
-	    std::unique_ptr<VAD> _Vad;
 		PerceivedLatencyTracker _LatencyTracker;
 	};
 }

@@ -409,7 +409,7 @@ if (AEC)
 endif()
 
 # vad
-if (INWORLD_VAD AND WIN32)
+#if (INWORLD_VAD AND WIN32)
     message("configuring VAD")
 
     file(GLOB_RECURSE FilesAllVAD
@@ -442,7 +442,7 @@ if (INWORLD_VAD AND WIN32)
 
     add_custom_command(TARGET inworld-ndk POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/model/${INWORLD_VAD_MODEL} ${PackageDir}/model)
-endif()
+#endif()
 
 foreach(LibFile IN LISTS LibFiles)
     add_custom_command(TARGET inworld-ndk POST_BUILD

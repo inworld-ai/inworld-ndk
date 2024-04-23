@@ -9,6 +9,7 @@
 #include "Service.h"
 #include "Utils/Log.h"
 #include "base64/Base64.h"
+#include "InworldVAD.h"
 
 #include "grpc/impl/codegen/log.h"
 
@@ -100,7 +101,8 @@ namespace Inworld
 		std::unique_ptr<Inworld::ServiceSession> _SessionService;
 	};
 }
- 
+    
+static std::unique_ptr<Inworld::VAD> g_Vad;
 
 const Inworld::SessionInfo& Inworld::Client::GetSessionInfo() const
 {
@@ -189,9 +191,9 @@ std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessageWithAEC(con
         FloatData[i] = static_cast<float>(FilteredData[i]) / 32767.0f;
     }
 
-    if (_Vad)
+    if (g_Vad)
     {
-        SpeechProbability = _Vad->ProcessAudioChunk(FloatData);
+        SpeechProbability = g_Vad->ProcessAudioChunk(FloatData);
     }
     
 	std::string Data;
@@ -210,7 +212,7 @@ std::shared_ptr<Inworld::CustomEvent> Inworld::Client::SendCustomEvent(const Inw
 
 std::shared_ptr<Inworld::ControlEvent> Inworld::Client::StartAudioSession(const Inworld::Routing& Routing)
 {
-    _Vad = std::make_unique<Inworld::VAD>("model");
+    g_Vad = std::make_unique<Inworld::VAD>("model");
 	auto Packet = std::make_shared<Inworld::ControlEvent>(ai::inworld::packets::ControlEvent_Action_AUDIO_SESSION_START, std::string{}, Routing);
 	SendPacket(Packet);
 	return Packet;
@@ -218,7 +220,7 @@ std::shared_ptr<Inworld::ControlEvent> Inworld::Client::StartAudioSession(const 
 
 std::shared_ptr<Inworld::ControlEvent> Inworld::Client::StopAudioSession(const Inworld::Routing& Routing)
 {
-    _Vad.reset();
+    g_Vad.reset();
 	auto Packet = std::make_shared<Inworld::ControlEvent>(ai::inworld::packets::ControlEvent_Action_AUDIO_SESSION_END, std::string{}, Routing);
 	SendPacket(Packet);
 	return Packet;
@@ -262,7 +264,8 @@ std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessageWithAEC(con
 std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessageWithAECToConversation(
 	const std::string& ConversationId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData)
 {
-	return SendSoundMessageWithAEC(Routing::Player2Conversation(ConversationId), InputData, OutputData);
+    float F;
+	return SendSoundMessageWithAEC(Routing::Player2Conversation(ConversationId), InputData, OutputData, F);
 }
 
 std::shared_ptr<Inworld::CustomEvent> Inworld::Client::SendCustomEvent(const std::string& AgentId, const std::string& Name, const std::unordered_map<std::string, std::string>& Params)
@@ -556,6 +559,7 @@ void Inworld::Client::StopClient()
 	_SessionInfo = SessionInfo();
 	SetConnectionState(ConnectionState::Idle);
 	Inworld::LogClearSessionId();
+    g_Vad.reset();
 }
 
 void Inworld::Client::DestroyClient()
