@@ -429,7 +429,18 @@ void NDKApp::App::Run()
 			{
 				bQuit = true;
 			}
-		}
+		},
+        {
+            "VadTest",
+            "Test VAD",
+            [this, &bQuit](const std::vector<std::string>& Args)
+            {
+                Inworld::VAD Vad("model");
+                std::vector<float> AudioData(300000, 0.0f);
+                const float Res = Vad.ProcessAudioChunk(AudioData);
+                Inworld::Log("VAD result %f", Res);
+            }
+        }
 	});
 
 	_Options.ServerUrl = "api-engine.inworld.ai:443";
