@@ -107,8 +107,6 @@ namespace Inworld
 #pragma endregion
 
 #pragma region Conversations
-		void SendPacket(std::shared_ptr<Inworld::Packet> Packet);
-
 		std::shared_ptr<ControlEventConversationUpdate> UpdateConversation(const std::vector<std::string>& AgentIds, const std::string& ConversationId = "", bool bIncludePlayer = true);
 
 		std::shared_ptr<TextEvent> SendTextMessage(const Inworld::Routing& Routing, const std::string& Text);
@@ -173,6 +171,7 @@ namespace Inworld
 		virtual void Visit(const SessionControlResponse_LoadCharacters& Event) override;
 
 	protected:
+		void SendPacket(std::shared_ptr<Inworld::Packet> Packet);
 		void PushPacket(std::shared_ptr<Inworld::Packet> Packet);
 
 		void StartClientStream();

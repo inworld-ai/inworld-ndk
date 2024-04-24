@@ -71,7 +71,10 @@ namespace Inworld {
 
 	Routing Routing::Player2Conversation(const std::string& ConversationId)
 	{
-    	return { { InworldPackets::Actor_Type_PLAYER, "" }, ConversationId };
+        Routing R = { { InworldPackets::Actor_Type_PLAYER, "" }, ConversationId };
+        R._Target._Type = InworldPackets::Actor_Type_WORLD;
+        R._Target._Name = "";
+    	return R;
 	}
 
 	PacketId::PacketId(const InworldPackets::PacketId& Other)
