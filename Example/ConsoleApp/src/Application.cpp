@@ -440,6 +440,34 @@ void NDKApp::App::Run()
                 const float Res = Vad.ProcessAudioChunk(AudioData);
                 Inworld::Log("VAD result %f", Res);
             }
+        },
+        {
+            "StartAudioSession",
+            "StartAudioSession",
+            [this, &bQuit](const std::vector<std::string>& Args)
+            {
+                Inworld::Routing R;
+                if (!GetRouting(R))
+                {
+                    return;
+                }
+                
+                _Client.Client().StartAudioSession(R);
+            }
+        },
+        {
+            "StopAudioSession",
+            "StopAudioSession",
+            [this, &bQuit](const std::vector<std::string>& Args)
+            {
+                Inworld::Routing R;
+                if (!GetRouting(R))
+                {
+                    return;
+                }
+                
+                _Client.Client().StopAudioSession(R);
+            }
         }
 	});
 

@@ -442,25 +442,25 @@ public:
     };
 };
 
-std::unique_ptr<VadIterator> s_VadIterator;
+std::unique_ptr<VadIterator> g_VadIterator;
 
 Inworld::VAD::VAD(const std::string& Model)
 {
-    s_VadIterator = std::make_unique<VadIterator>(L"C:/Projects/inworld/TestEmpty52/Plugins/inworld-unreal-sdk/InworldAI/inworld-ndk/inworld-vad/model/DEV-services_ml-hosting_silero_vad_10_27_2022.onnx");
+    g_VadIterator = std::make_unique<VadIterator>(L"C:/Projects/inworld/TestEmpty52/Plugins/inworld-unreal-sdk/InworldAI/inworld-ndk/inworld-vad/model/DEV-services_ml-hosting_silero_vad_10_27_2022.onnx");
 }
 
 Inworld::VAD::~VAD()
 {
-    s_VadIterator.reset();
+    g_VadIterator.reset();
 }
 
 float Inworld::VAD::ProcessAudioChunk(const std::vector<float>& AudioData)
 {
-    if (!s_VadIterator)
+    if (!g_VadIterator)
     {
         return 0.f;
     }
 
-    s_VadIterator->process(AudioData);
-    return s_VadIterator->get_speech_probability();
+    g_VadIterator->process(AudioData);
+    return g_VadIterator->get_speech_probability();
 }

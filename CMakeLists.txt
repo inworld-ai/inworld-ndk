@@ -514,7 +514,8 @@ if (WIN32 OR MAC)
     add_executable(inworld-ndk-app ${FilesALL})
 
     target_compile_features(inworld-ndk-app PRIVATE cxx_std_20)
-    target_include_directories(inworld-ndk-app PUBLIC inworld-ndk/src/Public)
+    target_include_directories(inworld-ndk-app PRIVATE inworld-ndk/src/Public)
+    target_include_directories(inworld-ndk-app PRIVATE inworld-vad/src)
     target_link_libraries(inworld-ndk-app PRIVATE inworld-ndk)
 
     GroupSourcesByFolder(inworld-ndk-app)
