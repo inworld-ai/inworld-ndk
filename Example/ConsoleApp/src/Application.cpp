@@ -526,7 +526,7 @@ void NDKApp::App::Run()
 	}
 }
 
-void NDKApp::App::Error(std::string Msg)
+void NDKApp::App::Error(const std::string& Msg)
 {
 	Inworld::LogError("%s", Msg.c_str());
 }
@@ -659,7 +659,7 @@ void NDKApp::App::Visit(const Inworld::ControlEventConversationUpdate& Event)
 
 	const std::string Type = Event.GetType() ==	1 ? "STARTED" : Event.GetType() == 2 ? "UPDATED" : "EVICTED";
 	std::string Agents;
-	for (auto& A : Conv.Agents)
+	for (const auto& A : Conv.Agents)
 	{
 		Agents += GetGivenName(A);
 		Agents += ",";

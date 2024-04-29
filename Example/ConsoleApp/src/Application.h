@@ -69,7 +69,7 @@ namespace NDKApp
 		void Run();
 
 	private:
-		void Error(std::string Msg);
+		void Error(const std::string& Msg);
 
 		void NextCharacter();
 		void PrevCharacter();
