@@ -276,24 +276,12 @@ std::shared_ptr<Inworld::ActionEvent> Inworld::Client::SendNarrationEvent(const 
 	return SendNarrationEvent(Routing::Player2Agent(AgentId), Content);
 }
 
-std::shared_ptr<Inworld::ActionEvent> Inworld::Client::SendNarrationEventToConversation(
-	const std::string& ConversationId, const std::string& Content)
-{
-	return SendNarrationEvent(Routing::Player2Conversation(ConversationId), Content);
-}
-
 std::shared_ptr<Inworld::CancelResponseEvent> Inworld::Client::CancelResponse(const Inworld::Routing& Routing,
 	const std::string& InteractionId, const std::vector<std::string>& UtteranceIds)
 {
 	auto Packet = std::make_shared<Inworld::CancelResponseEvent>(InteractionId, UtteranceIds, Routing);
 	SendPacket(Packet);
 	return Packet;
-}
-
-std::shared_ptr<Inworld::CancelResponseEvent> Inworld::Client::CancelResponseInConversation(const std::string& ConversationId, const std::string& InteractionId,
-	const std::vector<std::string>& UtteranceIds)
-{
-	return CancelResponse(Routing::Player2Conversation(ConversationId), InteractionId, UtteranceIds);
 }
 
 std::shared_ptr<Inworld::ControlEvent> Inworld::Client::StartAudioSessionInConversation(

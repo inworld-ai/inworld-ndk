@@ -127,13 +127,9 @@ namespace Inworld
 		
 		std::shared_ptr<ActionEvent> SendNarrationEvent(const Inworld::Routing& Routing, const std::string& Content);
 		std::shared_ptr<ActionEvent> SendNarrationEvent(const std::string& AgentId, const std::string& Content);
-	    // deprecated
-		std::shared_ptr<ActionEvent> SendNarrationEventToConversation(const std::string& ConversationId, const std::string& Content);
 
 		std::shared_ptr<CancelResponseEvent> CancelResponse(const Inworld::Routing& Routing, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds);
 		std::shared_ptr<CancelResponseEvent> CancelResponse(const std::string& AgentId, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds);
-	    // deprecated
-		std::shared_ptr<CancelResponseEvent> CancelResponseInConversation(const std::string& ConversationId, const std::string& InteractionI, const std::vector<std::string>& UtteranceIds);
 		
 		std::shared_ptr<ControlEvent> StartAudioSession(const Inworld::Routing& Routing);
 		std::shared_ptr<ControlEvent> StartAudioSession(const std::string& AgentId);
