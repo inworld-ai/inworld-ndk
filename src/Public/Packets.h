@@ -99,12 +99,6 @@ namespace Inworld {
         std::string _InteractionId;
 	};
 
-    struct INWORLD_EXPORT Conversation
-    {
-        std::string _Id;
-        std::vector<Actor> _Actors;
-    };
-
     class TextEvent;
     class DataEvent;
     class AudioDataEvent;
