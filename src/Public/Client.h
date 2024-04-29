@@ -171,6 +171,7 @@ namespace Inworld
 
 		virtual void Visit(const SessionControlResponse_LoadScene& Event) override;
 		virtual void Visit(const SessionControlResponse_LoadCharacters& Event) override;
+		virtual void Visit(const ControlEventConversationUpdate& Event) override;
 
 	protected:
 		void SendPacket(std::shared_ptr<Inworld::Packet> Packet);
@@ -179,6 +180,8 @@ namespace Inworld
 		void StartClientStream();
 		void StopClientStream();
 		void SetConnectionState(ConnectionState State);
+
+	    std::vector<std::string> GetConversationAgents(const std::string& ConversationId);
 
 		std::function<void(std::shared_ptr<Inworld::Packet>)> _OnPacketCallback;
 		ClientOptions _ClientOptions;
@@ -202,6 +205,13 @@ namespace Inworld
 		bool bDumpAudio = false;
 		std::string _AudioDumpFileName = "C:/Tmp/AudioDump.wav";
 #endif
+
+	    struct Conversation
+	    {
+	        std::string Id;
+	        std::vector<std::string> Agents;
+	    };
+	    std::vector<Conversation> _Conversations;
 
 		std::function<void()> _OnGenerateTokenCallback;
 		std::function<void(ConnectionState)> _OnConnectionStateChangedCallback;

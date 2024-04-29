@@ -53,8 +53,20 @@ namespace Inworld {
     InworldPackets::Routing Routing::ToProto() const
     {
         InworldPackets::Routing routing;
-        *routing.mutable_source() = _Source.ToProto();
-        *routing.mutable_target() = _Target.ToProto();
+        if (_Source._Type != InworldPackets::Actor_Type_UNKNOWN)
+        {
+            *routing.mutable_source() = _Source.ToProto();
+        }
+        if (_Target._Type != InworldPackets::Actor_Type_UNKNOWN)
+        {
+            *routing.mutable_target() = _Target.ToProto();
+        }
+
+        for (auto& T : _Targets)
+        {
+            auto* Actor = routing.add_targets();
+            *Actor = T.ToProto();
+        }
 
         return routing;
     }
@@ -63,18 +75,24 @@ namespace Inworld {
 		: _Source(Routing.source())
 		, _Target(Routing.target())
 	{
+        for (uint32_t i = 0; i < Routing.targets_size(); i++)
+        {
+            _Targets.emplace_back(Routing.targets(i));
+        }
 	}
 
 	Routing Routing::Player2Agent(const std::string& AgentId) {
         return { { InworldPackets::Actor_Type_PLAYER, "" }, { InworldPackets::Actor_Type_AGENT, AgentId} };
     }
 
-	Routing Routing::Player2Conversation(const std::string& ConversationId)
+	Routing Routing::Player2Conversation(const std::string& ConversationId, const std::vector<std::string>& Targets)
 	{
         Routing R = { { InworldPackets::Actor_Type_PLAYER, "" }, ConversationId };
-        R._Target._Type = InworldPackets::Actor_Type_WORLD;
-        R._Target._Name = "";
-    	return R;
+        for (auto& Target : Targets)
+        {
+            R._Targets.push_back({ InworldPackets::Actor_Type_AGENT, Target });
+        }
+    	return { { InworldPackets::Actor_Type_PLAYER, "" }, ConversationId };
 	}
 
 	PacketId::PacketId(const InworldPackets::PacketId& Other)
@@ -413,7 +431,7 @@ namespace Inworld {
 
 	ControlEventConversationUpdate::ControlEventConversationUpdate(const std::string& ConversationId, const std::vector<std::string>& Agents, bool bIncludePlayer)
 		: ControlEvent(InworldPackets::ControlEvent_Action_CONVERSATION_UPDATE, "",
-			Routing::Player2Conversation(ConversationId.empty() ? RandomUUID() : ConversationId))
+			Routing::Player2Conversation(ConversationId.empty() ? RandomUUID() : ConversationId, Agents))
 		, _Agents(Agents)
 		, _bIncludePlayer(bIncludePlayer)
 	{

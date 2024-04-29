@@ -134,6 +134,30 @@ void Inworld::Client::Visit(const SessionControlResponse_LoadCharacters& Event)
 	}
 }
 
+void Inworld::Client::Visit(const ControlEventConversationUpdate& Event)
+{
+    const auto It = std::find_if(_Conversations.begin(), _Conversations.end(), [&Event](const Conversation& C) { return C.Id == Event._Routing._ConversationId; });
+    if (Event.GetType() == InworldPackets::ConversationEventPayload_ConversationEventType_EVICTED && It != _Conversations.end())
+    {
+        _Conversations.erase(It);
+        return;
+    }
+    
+    if (Event.GetType() != InworldPackets::ConversationEventPayload_ConversationEventType_STARTED &&
+            Event.GetType() != InworldPackets::ConversationEventPayload_ConversationEventType_UPDATED)
+    {
+        return;   
+    }
+
+    if (It != _Conversations.end())
+    {
+        It->Agents = Event.GetAgents();
+        return;
+    }
+
+    _Conversations.emplace_back(Event._Routing._ConversationId, Event.GetAgents());
+}
+
 void Inworld::Client::SendPacket(std::shared_ptr<Inworld::Packet> Packet)
 {
 	if (GetConnectionState() != ConnectionState::Connected && GetConnectionState() != ConnectionState::Reconnecting)
@@ -228,7 +252,7 @@ std::shared_ptr<Inworld::TextEvent> Inworld::Client::SendTextMessage(const std::
 
 std::shared_ptr<Inworld::TextEvent> Inworld::Client::SendTextMessageToConversation(const std::string& ConversationId, const std::string& Text)
 {
-	return SendTextMessage(Routing::Player2Conversation(ConversationId), Text);
+	return SendTextMessage(Routing::Player2Conversation(ConversationId, {}), Text);
 }
 
 std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessage(const std::string& AgentId, const std::string& Data)
@@ -238,7 +262,7 @@ std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessage(const std:
 
 std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessageToConversation(const std::string& ConversationId, const std::string& Data)
 {
-	return SendSoundMessage(Routing::Player2Conversation(ConversationId), Data);
+	return SendSoundMessage(Routing::Player2Conversation(ConversationId, {}), Data);
 }
 
 std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessageWithAEC(const std::string& AgentId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData)
@@ -249,7 +273,7 @@ std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessageWithAEC(con
 std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessageWithAECToConversation(
 	const std::string& ConversationId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData)
 {
-	return SendSoundMessageWithAEC(Routing::Player2Conversation(ConversationId), InputData, OutputData);
+	return SendSoundMessageWithAEC(Routing::Player2Conversation(ConversationId, {}), InputData, OutputData);
 }
 
 std::shared_ptr<Inworld::CustomEvent> Inworld::Client::SendCustomEvent(const std::string& AgentId, const std::string& Name, const std::unordered_map<std::string, std::string>& Params)
@@ -260,7 +284,7 @@ std::shared_ptr<Inworld::CustomEvent> Inworld::Client::SendCustomEvent(const std
 std::shared_ptr<Inworld::CustomEvent> Inworld::Client::SendCustomEventToConversation(const std::string& ConversationId,
 	const std::string& Name, const std::unordered_map<std::string, std::string>& Params)
 {
-	return SendCustomEvent(Routing::Player2Conversation(ConversationId), Name, Params);
+	return SendCustomEvent(Routing::Player2Conversation(ConversationId, GetConversationAgents(ConversationId)), Name, Params);
 }
 
 std::shared_ptr<Inworld::ActionEvent> Inworld::Client::SendNarrationEvent(const Inworld::Routing& Routing,
@@ -279,7 +303,7 @@ std::shared_ptr<Inworld::ActionEvent> Inworld::Client::SendNarrationEvent(const 
 std::shared_ptr<Inworld::ActionEvent> Inworld::Client::SendNarrationEventToConversation(
 	const std::string& ConversationId, const std::string& Content)
 {
-	return SendNarrationEvent(Routing::Player2Conversation(ConversationId), Content);
+	return SendNarrationEvent(Routing::Player2Conversation(ConversationId, {}), Content);
 }
 
 std::shared_ptr<Inworld::CancelResponseEvent> Inworld::Client::CancelResponse(const Inworld::Routing& Routing,
@@ -293,19 +317,19 @@ std::shared_ptr<Inworld::CancelResponseEvent> Inworld::Client::CancelResponse(co
 std::shared_ptr<Inworld::CancelResponseEvent> Inworld::Client::CancelResponseInConversation(const std::string& ConversationId, const std::string& InteractionId,
 	const std::vector<std::string>& UtteranceIds)
 {
-	return CancelResponse(Routing::Player2Conversation(ConversationId), InteractionId, UtteranceIds);
+	return CancelResponse(Routing::Player2Conversation(ConversationId, {}), InteractionId, UtteranceIds);
 }
 
 std::shared_ptr<Inworld::ControlEvent> Inworld::Client::StartAudioSessionInConversation(
 	const std::string& ConversationId)
 {
-	return StartAudioSession(Routing::Player2Conversation(ConversationId));
+	return StartAudioSession(Routing::Player2Conversation(ConversationId, {}));
 }
 
 std::shared_ptr<Inworld::ControlEvent> Inworld::Client::StopAudioSessionInConversation(
 	const std::string& ConversationId)
 {
-	return StopAudioSession(Routing::Player2Conversation(ConversationId));
+	return StopAudioSession(Routing::Player2Conversation(ConversationId, {}));
 }
 
 void Inworld::Client::LoadScene(const std::string& Scene)
@@ -613,6 +637,12 @@ void Inworld::Client::SetConnectionState(ConnectionState State)
 	{
 		_OnConnectionStateChangedCallback(_ConnectionState);
 	}
+}
+
+std::vector<std::string> Inworld::Client::GetConversationAgents(const std::string& ConversationId)
+{
+    const auto It = std::find_if(_Conversations.begin(), _Conversations.end(), [&ConversationId](const Conversation& C) { return C.Id == ConversationId; });
+    return It != _Conversations.end() ? It->Agents : std::vector<std::string>();
 }
 
 void Inworld::Client::StartSession()
