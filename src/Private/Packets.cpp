@@ -62,12 +62,6 @@ namespace Inworld {
             *routing.mutable_target() = _Target.ToProto();
         }
 
-        for (auto& T : _Targets)
-        {
-            auto* Actor = routing.add_targets();
-            *Actor = T.ToProto();
-        }
-
         return routing;
     }
 
@@ -75,23 +69,14 @@ namespace Inworld {
 		: _Source(Routing.source())
 		, _Target(Routing.target())
 	{
-        for (uint32_t i = 0; i < Routing.targets_size(); i++)
-        {
-            _Targets.emplace_back(Routing.targets(i));
-        }
 	}
 
 	Routing Routing::Player2Agent(const std::string& AgentId) {
         return { { InworldPackets::Actor_Type_PLAYER, "" }, { InworldPackets::Actor_Type_AGENT, AgentId} };
     }
 
-	Routing Routing::Player2Conversation(const std::string& ConversationId, const std::vector<std::string>& Targets)
+	Routing Routing::Player2Conversation(const std::string& ConversationId)
 	{
-        Routing R = { { InworldPackets::Actor_Type_PLAYER, "" }, ConversationId };
-        for (auto& Target : Targets)
-        {
-            R._Targets.push_back({ InworldPackets::Actor_Type_AGENT, Target });
-        }
     	return { { InworldPackets::Actor_Type_PLAYER, "" }, ConversationId };
 	}
 
@@ -431,7 +416,7 @@ namespace Inworld {
 
 	ControlEventConversationUpdate::ControlEventConversationUpdate(const std::string& ConversationId, const std::vector<std::string>& Agents, bool bIncludePlayer)
 		: ControlEvent(InworldPackets::ControlEvent_Action_CONVERSATION_UPDATE, "",
-			Routing::Player2Conversation(ConversationId.empty() ? RandomUUID() : ConversationId, Agents))
+			Routing::Player2Conversation(ConversationId.empty() ? RandomUUID() : ConversationId))
 		, _Agents(Agents)
 		, _bIncludePlayer(bIncludePlayer)
 	{

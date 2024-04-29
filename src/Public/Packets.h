@@ -48,7 +48,7 @@ namespace Inworld {
         InworldPackets::Actor ToProto() const;
         
 		// Is Actor player or agent.
-        InworldPackets::Actor_Type _Type = static_cast<InworldPackets::Actor_Type>(0);
+        InworldPackets::Actor_Type _Type = static_cast<InworldPackets::Actor_Type>(0);;
         // agent id if this is agent.
         std::string _Name;
 	};
@@ -68,14 +68,13 @@ namespace Inworld {
 		{}
 
 		static Routing Player2Agent(const std::string& AgentId);
-		static Routing Player2Conversation(const std::string& ConversationId, const std::vector<std::string>& Targets);
+		static Routing Player2Conversation(const std::string& ConversationId);
 
         InworldPackets::Routing ToProto() const;
         
 		Actor _Source;
         Actor _Target;
         std::string _ConversationId;
-	    std::vector<Actor> _Targets;
 	};
 
 	struct INWORLD_EXPORT PacketId {
