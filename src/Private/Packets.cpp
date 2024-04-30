@@ -284,6 +284,11 @@ namespace Inworld {
         Proto.mutable_action()->mutable_narrated_action()->set_content(_Content);
 	}
 
+    void FeedbackEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
+    {
+        
+    }
+
 	void SessionControlEvent_SessionConfiguration::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
 	{
 		Proto.mutable_session_control()->mutable_session_configuration()->set_game_session_id(_Data.Id);

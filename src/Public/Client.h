@@ -134,6 +134,8 @@ namespace Inworld
 		// the callback is not called on calling thread for Async methods
 		void SaveSessionStateAsync(std::function<void(std::string, bool)> Callback);
 
+		void SendFeedbackAsync(std::string& InteractionId, const InteractionFeedback& Feedback, std::function<void(std::string, bool)> Callback = nullptr);
+
 		void GenerateToken(std::function<void()> RefreshTokenCallback);
 
 		void SetAudioDumpEnabled(bool bEnabled, const std::string& FileName);
@@ -196,6 +198,7 @@ namespace Inworld
 		AsyncRoutine _AsyncWriteTask;
 		AsyncRoutine _AsyncGenerateTokenTask;
 		AsyncRoutine _AsyncGetSessionState;
+		AsyncRoutine _AsyncSendFeedback;
 		
 		std::unique_ptr<IClientService> _Service;
 

@@ -9,6 +9,7 @@
 
 #include <string>
 #include <ctime>
+#include <unordered_set>
 #include "Define.h"
 
 namespace Inworld
@@ -33,4 +34,22 @@ namespace Inworld
 		std::string GivenName;
 	};
 
+	struct INWORLD_EXPORT InteractionFeedback
+	{
+	public:
+		bool bIsLike = false;
+		enum INWORLD_EXPORT DislikeType : uint8_t
+		{
+			UNSPECIFIED = 0,
+			IRRELEVANT = 1,
+			UNSAFE = 2,
+			UNTRUE = 3,
+			INCORRECT_USE_KNOWLEDGE = 4,
+			UNEXPECTED_ACTION = 5,
+			NEXPECTED_GOAL_BEHAVIOR = 6,
+			REPETITION = 7,
+		};
+		std::unordered_set<DislikeType> DislikeReasons;
+		std::string comment;
+	};
 }

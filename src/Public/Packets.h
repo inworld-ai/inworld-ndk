@@ -79,13 +79,13 @@ namespace Inworld {
 	struct INWORLD_EXPORT PacketId {
 		// Constructs with all random parameters.
         PacketId() 
-			: PacketId(RandomUUID(), std::string(RandomUUID()), std::string(RandomUUID())) 
+			: PacketId(RandomUUID(), std::string(RandomUUID()), std::string(RandomUUID()))
 		{}
         PacketId(const InworldPackets::PacketId& Other);
 		PacketId(const std::string& UID, const std::string& UtteranceId, const std::string& InteractionId) 
 			: _UID(UID)
 			, _UtteranceId(UtteranceId)
-			, _InteractionId(InteractionId) 
+			, _InteractionId(InteractionId)
 		{}
 
         InworldPackets::PacketId ToProto() const;
@@ -383,6 +383,14 @@ namespace Inworld {
 	
 	private:
 		std::string _Content;
+	};
+
+	class INWORLD_EXPORT FeedbackEvent : public Packet
+	{
+	public:
+		FeedbackEvent() = default;
+	protected:
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 	};
 	
 	class INWORLD_EXPORT MutationEvent : public Packet

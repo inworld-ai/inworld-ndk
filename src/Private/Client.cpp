@@ -495,6 +495,7 @@ void Inworld::Client::StopClient()
 	}
 	_AsyncGenerateTokenTask.Stop();
 	_AsyncGetSessionState.Stop();
+	_AsyncSendFeedback.Stop();
 #ifdef INWORLD_AUDIO_DUMP
 	_AsyncAudioDumper.Stop();
 #endif
@@ -514,19 +515,29 @@ void Inworld::Client::DestroyClient()
 	_Service.reset();
 }
 
-void Inworld::Client::SaveSessionStateAsync(std::function<void(std::string, bool)> Callback)
+std::string GetSessionName(const std::string& SceneName, const std::string& SessionId)
 {
-	const size_t CharactersPos = _ClientOptions.SceneName.find("characters");
-	const size_t ScenesPos = _ClientOptions.SceneName.find("scenes");
+	const size_t CharactersPos = SceneName.find("characters");
+	const size_t ScenesPos = SceneName.find("scenes");
 	const size_t Pos = CharactersPos != std::string::npos ? CharactersPos : ScenesPos;
 	if (Pos == std::string::npos)
 	{
-		Inworld::LogError("Inworld::Client::SaveSessionState: Couldn't form SessionName");
+		Inworld::LogError("Inworld::Client::GetSessionName: Couldn't form SessionName");
+		return {};
+	}
+	return SceneName.substr(0, Pos) + "sessions/" + SessionId;
+}
+
+void Inworld::Client::SaveSessionStateAsync(std::function<void(std::string, bool)> Callback)
+{
+	const std::string SessionName = GetSessionName(_ClientOptions.SceneName, _SessionInfo.SessionId);
+	if (SessionName.empty())
+	{
+		Inworld::LogError("Inworld::Client::SaveSessionState: SessionName is empty!");
 		Callback({}, false);
 		return;
 	}
 
-	const std::string SessionName = _ClientOptions.SceneName.substr(0, Pos) + "sessions/" + _SessionInfo.SessionId;
 	_AsyncGetSessionState.Start(
 		"InworldSaveSession",
 		std::make_unique<RunnableGetSessionState>(
@@ -542,6 +553,37 @@ void Inworld::Client::SaveSessionStateAsync(std::function<void(std::string, bool
 					return;
 				}
 				Callback(State.state(), true);
+			}
+		));
+}
+
+void Inworld::Client::SendFeedbackAsync(std::string& InteractionId, const InteractionFeedback& Feedback, std::function<void(std::string, bool)> Callback)
+{
+	const std::string SessionName = GetSessionName(_ClientOptions.SceneName, _SessionInfo.SessionId);
+	if (SessionName.empty())
+	{
+		Inworld::LogError("Inworld::Client::SendFeedback: SessionName is empty!");
+		return;
+	}
+
+	_AsyncSendFeedback.Start(
+		"InworldSendFeedback",
+		std::make_unique<RunnableCreateInteractionFeedback>(
+			_ClientOptions.ServerUrl,
+			_SessionInfo.SessionId,
+			_SessionInfo.Token,
+			SessionName + "/interactions/" + InteractionId + "/groups/default",
+			Feedback,
+			[this, Callback](const grpc::Status& Status, const InworldEngineV1::InteractionFeedback& Feedback)
+			{
+				if (!Status.ok())
+				{
+					Inworld::LogError("Send Feedback FALURE! %s, Code: %d", ARG_STR(Status.error_message()), (int32_t)Status.error_code());
+					if(Callback) Callback({}, false);
+					return;
+				}
+				Inworld::Log("Feedback %s sent!", ARG_STR(Feedback.name()));
+				if(Callback) Callback(Feedback.name(), true);
 			}
 		));
 }
