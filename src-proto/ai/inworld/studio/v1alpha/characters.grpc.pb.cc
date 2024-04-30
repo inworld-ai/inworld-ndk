@@ -39,7 +39,9 @@ static const char* Characters_method_names[] = {
   "/ai.inworld.studio.v1alpha.Characters/PreviewPromptTemplate",
   "/ai.inworld.studio.v1alpha.Characters/CheckDeployInfo",
   "/ai.inworld.studio.v1alpha.Characters/GetCharacterAdvancedSettings",
+  "/ai.inworld.studio.v1alpha.Characters/BatchGetCharacterAdvancedSettings",
   "/ai.inworld.studio.v1alpha.Characters/UpdateCharacterAdvancedSettings",
+  "/ai.inworld.studio.v1alpha.Characters/BatchUpdateCharacterAdvancedSettings",
   "/ai.inworld.studio.v1alpha.Characters/ShareCharacter",
   "/ai.inworld.studio.v1alpha.Characters/ShareCharacterPortal",
   "/ai.inworld.studio.v1alpha.Characters/UnshareCharacterPortal",
@@ -67,12 +69,14 @@ Characters::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel
   , rpcmethod_PreviewPromptTemplate_(Characters_method_names[10], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_CheckDeployInfo_(Characters_method_names[11], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetCharacterAdvancedSettings_(Characters_method_names[12], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_UpdateCharacterAdvancedSettings_(Characters_method_names[13], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_ShareCharacter_(Characters_method_names[14], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_ShareCharacterPortal_(Characters_method_names[15], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_UnshareCharacterPortal_(Characters_method_names[16], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_ListSharedCharacters_(Characters_method_names[17], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetCharacterShareInfo_(Characters_method_names[18], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_BatchGetCharacterAdvancedSettings_(Characters_method_names[13], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_UpdateCharacterAdvancedSettings_(Characters_method_names[14], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_BatchUpdateCharacterAdvancedSettings_(Characters_method_names[15], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_ShareCharacter_(Characters_method_names[16], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_ShareCharacterPortal_(Characters_method_names[17], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_UnshareCharacterPortal_(Characters_method_names[18], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_ListSharedCharacters_(Characters_method_names[19], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetCharacterShareInfo_(Characters_method_names[20], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status Characters::Stub::DeployCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::DeployCharacterRequest& request, ::google::protobuf_inworld::Empty* response) {
@@ -374,6 +378,29 @@ void Characters::Stub::experimental_async::GetCharacterAdvancedSettings(::grpc::
   return result;
 }
 
+::grpc::Status Characters::Stub::BatchGetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest& request, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_BatchGetCharacterAdvancedSettings_, context, request, response);
+}
+
+void Characters::Stub::experimental_async::BatchGetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_BatchGetCharacterAdvancedSettings_, context, request, response, std::move(f));
+}
+
+void Characters::Stub::experimental_async::BatchGetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_BatchGetCharacterAdvancedSettings_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse>* Characters::Stub::PrepareAsyncBatchGetCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_BatchGetCharacterAdvancedSettings_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse>* Characters::Stub::AsyncBatchGetCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncBatchGetCharacterAdvancedSettingsRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
 ::grpc::Status Characters::Stub::UpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest& request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response) {
   return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_UpdateCharacterAdvancedSettings_, context, request, response);
 }
@@ -393,6 +420,29 @@ void Characters::Stub::experimental_async::UpdateCharacterAdvancedSettings(::grp
 ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* Characters::Stub::AsyncUpdateCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncUpdateCharacterAdvancedSettingsRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status Characters::Stub::BatchUpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest& request, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), rpcmethod_BatchUpdateCharacterAdvancedSettings_, context, request, response);
+}
+
+void Characters::Stub::experimental_async::BatchUpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_BatchUpdateCharacterAdvancedSettings_, context, request, response, std::move(f));
+}
+
+void Characters::Stub::experimental_async::BatchUpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_BatchUpdateCharacterAdvancedSettings_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse>* Characters::Stub::PrepareAsyncBatchUpdateCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(channel_.get(), cq, rpcmethod_BatchUpdateCharacterAdvancedSettings_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse>* Characters::Stub::AsyncBatchUpdateCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncBatchUpdateCharacterAdvancedSettingsRaw(context, request, cq);
   result->StartCall();
   return result;
 }
@@ -646,6 +696,16 @@ Characters::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Characters_method_names[13],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
+          [](Characters::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest* req,
+             ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse* resp) {
+               return service->BatchGetCharacterAdvancedSettings(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Characters_method_names[14],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Characters::Service* service,
              ::grpc::ServerContext* ctx,
@@ -654,7 +714,17 @@ Characters::Service::Service() {
                return service->UpdateCharacterAdvancedSettings(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Characters_method_names[14],
+      Characters_method_names[15],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
+          [](Characters::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest* req,
+             ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse* resp) {
+               return service->BatchUpdateCharacterAdvancedSettings(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Characters_method_names[16],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Characters::Service* service,
@@ -664,7 +734,7 @@ Characters::Service::Service() {
                return service->ShareCharacter(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Characters_method_names[15],
+      Characters_method_names[17],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Characters::Service* service,
@@ -674,7 +744,7 @@ Characters::Service::Service() {
                return service->ShareCharacterPortal(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Characters_method_names[16],
+      Characters_method_names[18],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf_inworld::Empty, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Characters::Service* service,
@@ -684,7 +754,7 @@ Characters::Service::Service() {
                return service->UnshareCharacterPortal(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Characters_method_names[17],
+      Characters_method_names[19],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Characters::Service* service,
@@ -694,7 +764,7 @@ Characters::Service::Service() {
                return service->ListSharedCharacters(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Characters_method_names[18],
+      Characters_method_names[20],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Characters::Service, ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest, ::ai::inworld::studio::v1alpha::CharacterShareInfo, ::grpc::protobuf_inworld::MessageLite, ::grpc::protobuf_inworld::MessageLite>(
           [](Characters::Service* service,
@@ -799,7 +869,21 @@ Characters::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
+::grpc::Status Characters::Service::BatchGetCharacterAdvancedSettings(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
 ::grpc::Status Characters::Service::UpdateCharacterAdvancedSettings(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Characters::Service::BatchUpdateCharacterAdvancedSettings(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse* response) {
   (void) context;
   (void) request;
   (void) response;

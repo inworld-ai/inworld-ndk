@@ -58,24 +58,25 @@ def generate(path, filepath):
 
 proto_path = os.path.join(PROTO_REPO, "proto/")
 for file_name in [
-    "ai/inworld/engine/world-engine.proto",
-    "ai/inworld/engine/v1/state_serialization.proto",
-    "ai/inworld/packets/packets.proto",
-    "ai/inworld/voices/voices.proto",
-    "ai/inworld/voices/base_voice.proto",
-    "ai/inworld/options/options.proto",
+    "ai/inworld/common/status.proto",
     "ai/inworld/engine/configuration/configuration.proto",
+    "ai/inworld/engine/v1/state_serialization.proto",
+    "ai/inworld/engine/world-engine.proto",
     "ai/inworld/language_codes/language_codes.proto",
+    "ai/inworld/options/options.proto",
+    "ai/inworld/packets/packets.proto",
     "ai/inworld/studio/v1alpha/apikeys.proto",
     "ai/inworld/studio/v1alpha/behavioral_contexts.proto",
     "ai/inworld/studio/v1alpha/characters.proto",
     "ai/inworld/studio/v1alpha/errors.proto",
+    "ai/inworld/studio/v1alpha/impression_event_data.proto",
+    "ai/inworld/studio/v1alpha/language_code.proto",
     "ai/inworld/studio/v1alpha/scenes.proto",
     "ai/inworld/studio/v1alpha/tokens.proto",
     "ai/inworld/studio/v1alpha/users.proto",
-    "ai/inworld/studio/v1alpha/impression_event_data.proto",
-    "ai/inworld/studio/v1alpha/language_code.proto",
     "ai/inworld/studio/v1alpha/workspaces.proto",
+    "ai/inworld/voices/base_voice.proto",
+    "ai/inworld/voices/voices.proto",
 ]:
     generate(proto_path, file_name)
 
@@ -85,6 +86,7 @@ for file_name in [
     "google/api/field_behavior.proto",
     "google/api/http.proto",
     "google/api/resource.proto",
+    "google/api/visibility.proto",
     "google/longrunning/operations.proto",
     "google/rpc/status.proto"
 ]:

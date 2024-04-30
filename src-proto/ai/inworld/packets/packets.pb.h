@@ -53,7 +53,7 @@ struct TableStruct_ai_2finworld_2fpackets_2fpackets_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[43]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[51]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -87,6 +87,9 @@ extern Audio2FaceAnimationEventDefaultTypeInternal _Audio2FaceAnimationEvent_def
 class AudioChunk;
 class AudioChunkDefaultTypeInternal;
 extern AudioChunkDefaultTypeInternal _AudioChunk_default_instance_;
+class AudioSessionStartPayload;
+class AudioSessionStartPayloadDefaultTypeInternal;
+extern AudioSessionStartPayloadDefaultTypeInternal _AudioSessionStartPayload_default_instance_;
 class CancelResponses;
 class CancelResponsesDefaultTypeInternal;
 extern CancelResponsesDefaultTypeInternal _CancelResponses_default_instance_;
@@ -102,6 +105,15 @@ extern Continuation_ContinuationInfoDefaultTypeInternal _Continuation_Continuati
 class ControlEvent;
 class ControlEventDefaultTypeInternal;
 extern ControlEventDefaultTypeInternal _ControlEvent_default_instance_;
+class ConversationEventPayload;
+class ConversationEventPayloadDefaultTypeInternal;
+extern ConversationEventPayloadDefaultTypeInternal _ConversationEventPayload_default_instance_;
+class ConversationUpdatePayload;
+class ConversationUpdatePayloadDefaultTypeInternal;
+extern ConversationUpdatePayloadDefaultTypeInternal _ConversationUpdatePayload_default_instance_;
+class CurrentSceneStatus;
+class CurrentSceneStatusDefaultTypeInternal;
+extern CurrentSceneStatusDefaultTypeInternal _CurrentSceneStatus_default_instance_;
 class CustomEvent;
 class CustomEventDefaultTypeInternal;
 extern CustomEventDefaultTypeInternal _CustomEvent_default_instance_;
@@ -177,12 +189,24 @@ extern Relations_RelationDefaultTypeInternal _Relations_Relation_default_instanc
 class Routing;
 class RoutingDefaultTypeInternal;
 extern RoutingDefaultTypeInternal _Routing_default_instance_;
+class SessionConfigurationPayload;
+class SessionConfigurationPayloadDefaultTypeInternal;
+extern SessionConfigurationPayloadDefaultTypeInternal _SessionConfigurationPayload_default_instance_;
 class SessionControlEvent;
 class SessionControlEventDefaultTypeInternal;
 extern SessionControlEventDefaultTypeInternal _SessionControlEvent_default_instance_;
 class SessionControlResponseEvent;
 class SessionControlResponseEventDefaultTypeInternal;
 extern SessionControlResponseEventDefaultTypeInternal _SessionControlResponseEvent_default_instance_;
+class SessionHistoryRequest;
+class SessionHistoryRequestDefaultTypeInternal;
+extern SessionHistoryRequestDefaultTypeInternal _SessionHistoryRequest_default_instance_;
+class SessionHistoryResponse;
+class SessionHistoryResponseDefaultTypeInternal;
+extern SessionHistoryResponseDefaultTypeInternal _SessionHistoryResponse_default_instance_;
+class SessionHistoryResponse_SessionHistoryItem;
+class SessionHistoryResponse_SessionHistoryItemDefaultTypeInternal;
+extern SessionHistoryResponse_SessionHistoryItemDefaultTypeInternal _SessionHistoryResponse_SessionHistoryItem_default_instance_;
 class TextEvent;
 class TextEventDefaultTypeInternal;
 extern TextEventDefaultTypeInternal _TextEvent_default_instance_;
@@ -204,11 +228,15 @@ template<> ::ai::inworld::packets::Agent_CharacterAssets* Arena::CreateMaybeMess
 template<> ::ai::inworld::packets::ApplyResponse* Arena::CreateMaybeMessage<::ai::inworld::packets::ApplyResponse>(Arena*);
 template<> ::ai::inworld::packets::Audio2FaceAnimationEvent* Arena::CreateMaybeMessage<::ai::inworld::packets::Audio2FaceAnimationEvent>(Arena*);
 template<> ::ai::inworld::packets::AudioChunk* Arena::CreateMaybeMessage<::ai::inworld::packets::AudioChunk>(Arena*);
+template<> ::ai::inworld::packets::AudioSessionStartPayload* Arena::CreateMaybeMessage<::ai::inworld::packets::AudioSessionStartPayload>(Arena*);
 template<> ::ai::inworld::packets::CancelResponses* Arena::CreateMaybeMessage<::ai::inworld::packets::CancelResponses>(Arena*);
 template<> ::ai::inworld::packets::CancelResponsesEvent* Arena::CreateMaybeMessage<::ai::inworld::packets::CancelResponsesEvent>(Arena*);
 template<> ::ai::inworld::packets::Continuation* Arena::CreateMaybeMessage<::ai::inworld::packets::Continuation>(Arena*);
 template<> ::ai::inworld::packets::Continuation_ContinuationInfo* Arena::CreateMaybeMessage<::ai::inworld::packets::Continuation_ContinuationInfo>(Arena*);
 template<> ::ai::inworld::packets::ControlEvent* Arena::CreateMaybeMessage<::ai::inworld::packets::ControlEvent>(Arena*);
+template<> ::ai::inworld::packets::ConversationEventPayload* Arena::CreateMaybeMessage<::ai::inworld::packets::ConversationEventPayload>(Arena*);
+template<> ::ai::inworld::packets::ConversationUpdatePayload* Arena::CreateMaybeMessage<::ai::inworld::packets::ConversationUpdatePayload>(Arena*);
+template<> ::ai::inworld::packets::CurrentSceneStatus* Arena::CreateMaybeMessage<::ai::inworld::packets::CurrentSceneStatus>(Arena*);
 template<> ::ai::inworld::packets::CustomEvent* Arena::CreateMaybeMessage<::ai::inworld::packets::CustomEvent>(Arena*);
 template<> ::ai::inworld::packets::CustomEvent_Parameter* Arena::CreateMaybeMessage<::ai::inworld::packets::CustomEvent_Parameter>(Arena*);
 template<> ::ai::inworld::packets::DataChunk* Arena::CreateMaybeMessage<::ai::inworld::packets::DataChunk>(Arena*);
@@ -234,8 +262,12 @@ template<> ::ai::inworld::packets::RelationInfo_RelationAttributes* Arena::Creat
 template<> ::ai::inworld::packets::Relations* Arena::CreateMaybeMessage<::ai::inworld::packets::Relations>(Arena*);
 template<> ::ai::inworld::packets::Relations_Relation* Arena::CreateMaybeMessage<::ai::inworld::packets::Relations_Relation>(Arena*);
 template<> ::ai::inworld::packets::Routing* Arena::CreateMaybeMessage<::ai::inworld::packets::Routing>(Arena*);
+template<> ::ai::inworld::packets::SessionConfigurationPayload* Arena::CreateMaybeMessage<::ai::inworld::packets::SessionConfigurationPayload>(Arena*);
 template<> ::ai::inworld::packets::SessionControlEvent* Arena::CreateMaybeMessage<::ai::inworld::packets::SessionControlEvent>(Arena*);
 template<> ::ai::inworld::packets::SessionControlResponseEvent* Arena::CreateMaybeMessage<::ai::inworld::packets::SessionControlResponseEvent>(Arena*);
+template<> ::ai::inworld::packets::SessionHistoryRequest* Arena::CreateMaybeMessage<::ai::inworld::packets::SessionHistoryRequest>(Arena*);
+template<> ::ai::inworld::packets::SessionHistoryResponse* Arena::CreateMaybeMessage<::ai::inworld::packets::SessionHistoryResponse>(Arena*);
+template<> ::ai::inworld::packets::SessionHistoryResponse_SessionHistoryItem* Arena::CreateMaybeMessage<::ai::inworld::packets::SessionHistoryResponse_SessionHistoryItem>(Arena*);
 template<> ::ai::inworld::packets::TextEvent* Arena::CreateMaybeMessage<::ai::inworld::packets::TextEvent>(Arena*);
 template<> ::ai::inworld::packets::TextEvent_ModelInfo* Arena::CreateMaybeMessage<::ai::inworld::packets::TextEvent_ModelInfo>(Arena*);
 template<> ::ai::inworld::packets::UnloadCharacters* Arena::CreateMaybeMessage<::ai::inworld::packets::UnloadCharacters>(Arena*);
@@ -310,15 +342,18 @@ enum ControlEvent_Action : int {
   ControlEvent_Action_TTS_PLAYBACK_UNMUTE = 7,
   ControlEvent_Action_WARNING = 8,
   ControlEvent_Action_SESSION_END = 9,
-  ControlEvent_Action_CONVERSATION_START = 10,
+  ControlEvent_Action_CONVERSATION_START PROTOBUF_DEPRECATED_ENUM = 10,
   ControlEvent_Action_CONVERSATION_UPDATE = 12,
-  ControlEvent_Action_CONVERSATION_STARTED = 13,
+  ControlEvent_Action_CONVERSATION_STARTED PROTOBUF_DEPRECATED_ENUM = 13,
+  ControlEvent_Action_CONVERSATION_EVENT = 14,
+  ControlEvent_Action_CURRENT_SCENE_STATUS = 15,
+  ControlEvent_Action_SESSION_CONFIGURATION = 16,
   ControlEvent_Action_ControlEvent_Action_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   ControlEvent_Action_ControlEvent_Action_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
 bool ControlEvent_Action_IsValid(int value);
 constexpr ControlEvent_Action ControlEvent_Action_Action_MIN = ControlEvent_Action_UNKNOWN;
-constexpr ControlEvent_Action ControlEvent_Action_Action_MAX = ControlEvent_Action_CONVERSATION_STARTED;
+constexpr ControlEvent_Action ControlEvent_Action_Action_MAX = ControlEvent_Action_SESSION_CONFIGURATION;
 constexpr int ControlEvent_Action_Action_ARRAYSIZE = ControlEvent_Action_Action_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ControlEvent_Action_descriptor();
@@ -334,6 +369,32 @@ inline bool ControlEvent_Action_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ControlEvent_Action* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ControlEvent_Action>(
     ControlEvent_Action_descriptor(), name, value);
+}
+enum AudioSessionStartPayload_MicrophoneMode : int {
+  AudioSessionStartPayload_MicrophoneMode_UNSPECIFIED = 0,
+  AudioSessionStartPayload_MicrophoneMode_OPEN_MIC = 1,
+  AudioSessionStartPayload_MicrophoneMode_EXPECT_AUDIO_END = 2,
+  AudioSessionStartPayload_MicrophoneMode_AudioSessionStartPayload_MicrophoneMode_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  AudioSessionStartPayload_MicrophoneMode_AudioSessionStartPayload_MicrophoneMode_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool AudioSessionStartPayload_MicrophoneMode_IsValid(int value);
+constexpr AudioSessionStartPayload_MicrophoneMode AudioSessionStartPayload_MicrophoneMode_MicrophoneMode_MIN = AudioSessionStartPayload_MicrophoneMode_UNSPECIFIED;
+constexpr AudioSessionStartPayload_MicrophoneMode AudioSessionStartPayload_MicrophoneMode_MicrophoneMode_MAX = AudioSessionStartPayload_MicrophoneMode_EXPECT_AUDIO_END;
+constexpr int AudioSessionStartPayload_MicrophoneMode_MicrophoneMode_ARRAYSIZE = AudioSessionStartPayload_MicrophoneMode_MicrophoneMode_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* AudioSessionStartPayload_MicrophoneMode_descriptor();
+template<typename T>
+inline const std::string& AudioSessionStartPayload_MicrophoneMode_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, AudioSessionStartPayload_MicrophoneMode>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function AudioSessionStartPayload_MicrophoneMode_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    AudioSessionStartPayload_MicrophoneMode_descriptor(), enum_t_value);
+}
+inline bool AudioSessionStartPayload_MicrophoneMode_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, AudioSessionStartPayload_MicrophoneMode* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<AudioSessionStartPayload_MicrophoneMode>(
+    AudioSessionStartPayload_MicrophoneMode_descriptor(), name, value);
 }
 enum EmotionEvent_SpaffCode : int {
   EmotionEvent_SpaffCode_NEUTRAL = 0,
@@ -409,12 +470,14 @@ enum DataChunk_DataType : int {
   DataChunk_DataType_AUDIO = 1,
   DataChunk_DataType_SILENCE = 3,
   DataChunk_DataType_STATE = 4,
+  DataChunk_DataType_NVIDIA_A2F_ANIMATION = 5,
+  DataChunk_DataType_NVIDIA_A2F_ANIMATION_HEADER = 6,
   DataChunk_DataType_DataChunk_DataType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   DataChunk_DataType_DataChunk_DataType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
 bool DataChunk_DataType_IsValid(int value);
 constexpr DataChunk_DataType DataChunk_DataType_DataType_MIN = DataChunk_DataType_UNSPECIFIED;
-constexpr DataChunk_DataType DataChunk_DataType_DataType_MAX = DataChunk_DataType_STATE;
+constexpr DataChunk_DataType DataChunk_DataType_DataType_MAX = DataChunk_DataType_NVIDIA_A2F_ANIMATION_HEADER;
 constexpr int DataChunk_DataType_DataType_ARRAYSIZE = DataChunk_DataType_DataType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DataChunk_DataType_descriptor();
@@ -483,6 +546,33 @@ inline bool Continuation_ContinuationType_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Continuation_ContinuationType* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Continuation_ContinuationType>(
     Continuation_ContinuationType_descriptor(), name, value);
+}
+enum ConversationEventPayload_ConversationEventType : int {
+  ConversationEventPayload_ConversationEventType_UNKNOWN = 0,
+  ConversationEventPayload_ConversationEventType_STARTED = 1,
+  ConversationEventPayload_ConversationEventType_UPDATED = 2,
+  ConversationEventPayload_ConversationEventType_EVICTED = 3,
+  ConversationEventPayload_ConversationEventType_ConversationEventPayload_ConversationEventType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  ConversationEventPayload_ConversationEventType_ConversationEventPayload_ConversationEventType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool ConversationEventPayload_ConversationEventType_IsValid(int value);
+constexpr ConversationEventPayload_ConversationEventType ConversationEventPayload_ConversationEventType_ConversationEventType_MIN = ConversationEventPayload_ConversationEventType_UNKNOWN;
+constexpr ConversationEventPayload_ConversationEventType ConversationEventPayload_ConversationEventType_ConversationEventType_MAX = ConversationEventPayload_ConversationEventType_EVICTED;
+constexpr int ConversationEventPayload_ConversationEventType_ConversationEventType_ARRAYSIZE = ConversationEventPayload_ConversationEventType_ConversationEventType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ConversationEventPayload_ConversationEventType_descriptor();
+template<typename T>
+inline const std::string& ConversationEventPayload_ConversationEventType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, ConversationEventPayload_ConversationEventType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function ConversationEventPayload_ConversationEventType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    ConversationEventPayload_ConversationEventType_descriptor(), enum_t_value);
+}
+inline bool ConversationEventPayload_ConversationEventType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ConversationEventPayload_ConversationEventType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ConversationEventPayload_ConversationEventType>(
+    ConversationEventPayload_ConversationEventType_descriptor(), name, value);
 }
 enum Playback : int {
   UNSPECIFIED = 0,
@@ -2028,6 +2118,15 @@ class ControlEvent PROTOBUF_FINAL :
   }
   static const ControlEvent& default_instance();
 
+  enum PayloadStructuredCase {
+    kConversationUpdate = 4,
+    kConversationEvent = 5,
+    kAudioSessionStart = 6,
+    kCurrentSceneStatus = 7,
+    kSessionConfiguration = 8,
+    PAYLOAD_STRUCTURED_NOT_SET = 0,
+  };
+
   static inline const ControlEvent* internal_default_instance() {
     return reinterpret_cast<const ControlEvent*>(
                &_ControlEvent_default_instance_);
@@ -2122,12 +2221,18 @@ class ControlEvent PROTOBUF_FINAL :
     ControlEvent_Action_WARNING;
   static constexpr Action SESSION_END =
     ControlEvent_Action_SESSION_END;
-  static constexpr Action CONVERSATION_START =
+  PROTOBUF_DEPRECATED_ENUM static constexpr Action CONVERSATION_START =
     ControlEvent_Action_CONVERSATION_START;
   static constexpr Action CONVERSATION_UPDATE =
     ControlEvent_Action_CONVERSATION_UPDATE;
-  static constexpr Action CONVERSATION_STARTED =
+  PROTOBUF_DEPRECATED_ENUM static constexpr Action CONVERSATION_STARTED =
     ControlEvent_Action_CONVERSATION_STARTED;
+  static constexpr Action CONVERSATION_EVENT =
+    ControlEvent_Action_CONVERSATION_EVENT;
+  static constexpr Action CURRENT_SCENE_STATUS =
+    ControlEvent_Action_CURRENT_SCENE_STATUS;
+  static constexpr Action SESSION_CONFIGURATION =
+    ControlEvent_Action_SESSION_CONFIGURATION;
   static inline bool Action_IsValid(int value) {
     return ControlEvent_Action_IsValid(value);
   }
@@ -2159,6 +2264,11 @@ class ControlEvent PROTOBUF_FINAL :
     kDescriptionFieldNumber = 2,
     kPayloadFieldNumber = 3,
     kActionFieldNumber = 1,
+    kConversationUpdateFieldNumber = 4,
+    kConversationEventFieldNumber = 5,
+    kAudioSessionStartFieldNumber = 6,
+    kCurrentSceneStatusFieldNumber = 7,
+    kSessionConfigurationFieldNumber = 8,
   };
   // string description = 2;
   void clear_description();
@@ -2203,9 +2313,109 @@ class ControlEvent PROTOBUF_FINAL :
   void _internal_set_action(::ai::inworld::packets::ControlEvent_Action value);
   public:
 
+  // .ai.inworld.packets.ConversationUpdatePayload conversation_update = 4;
+  bool has_conversation_update() const;
+  private:
+  bool _internal_has_conversation_update() const;
+  public:
+  void clear_conversation_update();
+  const ::ai::inworld::packets::ConversationUpdatePayload& conversation_update() const;
+  ::ai::inworld::packets::ConversationUpdatePayload* release_conversation_update();
+  ::ai::inworld::packets::ConversationUpdatePayload* mutable_conversation_update();
+  void set_allocated_conversation_update(::ai::inworld::packets::ConversationUpdatePayload* conversation_update);
+  private:
+  const ::ai::inworld::packets::ConversationUpdatePayload& _internal_conversation_update() const;
+  ::ai::inworld::packets::ConversationUpdatePayload* _internal_mutable_conversation_update();
+  public:
+  void unsafe_arena_set_allocated_conversation_update(
+      ::ai::inworld::packets::ConversationUpdatePayload* conversation_update);
+  ::ai::inworld::packets::ConversationUpdatePayload* unsafe_arena_release_conversation_update();
+
+  // .ai.inworld.packets.ConversationEventPayload conversation_event = 5;
+  bool has_conversation_event() const;
+  private:
+  bool _internal_has_conversation_event() const;
+  public:
+  void clear_conversation_event();
+  const ::ai::inworld::packets::ConversationEventPayload& conversation_event() const;
+  ::ai::inworld::packets::ConversationEventPayload* release_conversation_event();
+  ::ai::inworld::packets::ConversationEventPayload* mutable_conversation_event();
+  void set_allocated_conversation_event(::ai::inworld::packets::ConversationEventPayload* conversation_event);
+  private:
+  const ::ai::inworld::packets::ConversationEventPayload& _internal_conversation_event() const;
+  ::ai::inworld::packets::ConversationEventPayload* _internal_mutable_conversation_event();
+  public:
+  void unsafe_arena_set_allocated_conversation_event(
+      ::ai::inworld::packets::ConversationEventPayload* conversation_event);
+  ::ai::inworld::packets::ConversationEventPayload* unsafe_arena_release_conversation_event();
+
+  // .ai.inworld.packets.AudioSessionStartPayload audio_session_start = 6;
+  bool has_audio_session_start() const;
+  private:
+  bool _internal_has_audio_session_start() const;
+  public:
+  void clear_audio_session_start();
+  const ::ai::inworld::packets::AudioSessionStartPayload& audio_session_start() const;
+  ::ai::inworld::packets::AudioSessionStartPayload* release_audio_session_start();
+  ::ai::inworld::packets::AudioSessionStartPayload* mutable_audio_session_start();
+  void set_allocated_audio_session_start(::ai::inworld::packets::AudioSessionStartPayload* audio_session_start);
+  private:
+  const ::ai::inworld::packets::AudioSessionStartPayload& _internal_audio_session_start() const;
+  ::ai::inworld::packets::AudioSessionStartPayload* _internal_mutable_audio_session_start();
+  public:
+  void unsafe_arena_set_allocated_audio_session_start(
+      ::ai::inworld::packets::AudioSessionStartPayload* audio_session_start);
+  ::ai::inworld::packets::AudioSessionStartPayload* unsafe_arena_release_audio_session_start();
+
+  // .ai.inworld.packets.CurrentSceneStatus current_scene_status = 7;
+  bool has_current_scene_status() const;
+  private:
+  bool _internal_has_current_scene_status() const;
+  public:
+  void clear_current_scene_status();
+  const ::ai::inworld::packets::CurrentSceneStatus& current_scene_status() const;
+  ::ai::inworld::packets::CurrentSceneStatus* release_current_scene_status();
+  ::ai::inworld::packets::CurrentSceneStatus* mutable_current_scene_status();
+  void set_allocated_current_scene_status(::ai::inworld::packets::CurrentSceneStatus* current_scene_status);
+  private:
+  const ::ai::inworld::packets::CurrentSceneStatus& _internal_current_scene_status() const;
+  ::ai::inworld::packets::CurrentSceneStatus* _internal_mutable_current_scene_status();
+  public:
+  void unsafe_arena_set_allocated_current_scene_status(
+      ::ai::inworld::packets::CurrentSceneStatus* current_scene_status);
+  ::ai::inworld::packets::CurrentSceneStatus* unsafe_arena_release_current_scene_status();
+
+  // .ai.inworld.packets.SessionConfigurationPayload session_configuration = 8;
+  bool has_session_configuration() const;
+  private:
+  bool _internal_has_session_configuration() const;
+  public:
+  void clear_session_configuration();
+  const ::ai::inworld::packets::SessionConfigurationPayload& session_configuration() const;
+  ::ai::inworld::packets::SessionConfigurationPayload* release_session_configuration();
+  ::ai::inworld::packets::SessionConfigurationPayload* mutable_session_configuration();
+  void set_allocated_session_configuration(::ai::inworld::packets::SessionConfigurationPayload* session_configuration);
+  private:
+  const ::ai::inworld::packets::SessionConfigurationPayload& _internal_session_configuration() const;
+  ::ai::inworld::packets::SessionConfigurationPayload* _internal_mutable_session_configuration();
+  public:
+  void unsafe_arena_set_allocated_session_configuration(
+      ::ai::inworld::packets::SessionConfigurationPayload* session_configuration);
+  ::ai::inworld::packets::SessionConfigurationPayload* unsafe_arena_release_session_configuration();
+
+  void clear_payload_structured();
+  PayloadStructuredCase payload_structured_case() const;
   // @@protoc_insertion_point(class_scope:ai.inworld.packets.ControlEvent)
  private:
   class _Internal;
+  void set_has_conversation_update();
+  void set_has_conversation_event();
+  void set_has_audio_session_start();
+  void set_has_current_scene_status();
+  void set_has_session_configuration();
+
+  inline bool has_payload_structured() const;
+  inline void clear_has_payload_structured();
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
@@ -2213,6 +2423,184 @@ class ControlEvent PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr description_;
   PROTOBUF_NAMESPACE_ID::Struct* payload_;
   int action_;
+  union PayloadStructuredUnion {
+    PayloadStructuredUnion() {}
+    ::ai::inworld::packets::ConversationUpdatePayload* conversation_update_;
+    ::ai::inworld::packets::ConversationEventPayload* conversation_event_;
+    ::ai::inworld::packets::AudioSessionStartPayload* audio_session_start_;
+    ::ai::inworld::packets::CurrentSceneStatus* current_scene_status_;
+    ::ai::inworld::packets::SessionConfigurationPayload* session_configuration_;
+  } payload_structured_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
+
+  friend struct ::TableStruct_ai_2finworld_2fpackets_2fpackets_2eproto;
+};
+// -------------------------------------------------------------------
+
+class AudioSessionStartPayload PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.packets.AudioSessionStartPayload) */ {
+ public:
+  inline AudioSessionStartPayload() : AudioSessionStartPayload(nullptr) {}
+  virtual ~AudioSessionStartPayload();
+
+  AudioSessionStartPayload(const AudioSessionStartPayload& from);
+  AudioSessionStartPayload(AudioSessionStartPayload&& from) noexcept
+    : AudioSessionStartPayload() {
+    *this = ::std::move(from);
+  }
+
+  inline AudioSessionStartPayload& operator=(const AudioSessionStartPayload& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline AudioSessionStartPayload& operator=(AudioSessionStartPayload&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const AudioSessionStartPayload& default_instance();
+
+  static inline const AudioSessionStartPayload* internal_default_instance() {
+    return reinterpret_cast<const AudioSessionStartPayload*>(
+               &_AudioSessionStartPayload_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  friend void swap(AudioSessionStartPayload& a, AudioSessionStartPayload& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(AudioSessionStartPayload* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(AudioSessionStartPayload* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline AudioSessionStartPayload* New() const final {
+    return CreateMaybeMessage<AudioSessionStartPayload>(nullptr);
+  }
+
+  AudioSessionStartPayload* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<AudioSessionStartPayload>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const AudioSessionStartPayload& from);
+  void MergeFrom(const AudioSessionStartPayload& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(AudioSessionStartPayload* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.packets.AudioSessionStartPayload";
+  }
+  protected:
+  explicit AudioSessionStartPayload(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto);
+    return ::descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  typedef AudioSessionStartPayload_MicrophoneMode MicrophoneMode;
+  static constexpr MicrophoneMode UNSPECIFIED =
+    AudioSessionStartPayload_MicrophoneMode_UNSPECIFIED;
+  static constexpr MicrophoneMode OPEN_MIC =
+    AudioSessionStartPayload_MicrophoneMode_OPEN_MIC;
+  static constexpr MicrophoneMode EXPECT_AUDIO_END =
+    AudioSessionStartPayload_MicrophoneMode_EXPECT_AUDIO_END;
+  static inline bool MicrophoneMode_IsValid(int value) {
+    return AudioSessionStartPayload_MicrophoneMode_IsValid(value);
+  }
+  static constexpr MicrophoneMode MicrophoneMode_MIN =
+    AudioSessionStartPayload_MicrophoneMode_MicrophoneMode_MIN;
+  static constexpr MicrophoneMode MicrophoneMode_MAX =
+    AudioSessionStartPayload_MicrophoneMode_MicrophoneMode_MAX;
+  static constexpr int MicrophoneMode_ARRAYSIZE =
+    AudioSessionStartPayload_MicrophoneMode_MicrophoneMode_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  MicrophoneMode_descriptor() {
+    return AudioSessionStartPayload_MicrophoneMode_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& MicrophoneMode_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, MicrophoneMode>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function MicrophoneMode_Name.");
+    return AudioSessionStartPayload_MicrophoneMode_Name(enum_t_value);
+  }
+  static inline bool MicrophoneMode_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      MicrophoneMode* value) {
+    return AudioSessionStartPayload_MicrophoneMode_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kModeFieldNumber = 1,
+  };
+  // .ai.inworld.packets.AudioSessionStartPayload.MicrophoneMode mode = 1;
+  void clear_mode();
+  ::ai::inworld::packets::AudioSessionStartPayload_MicrophoneMode mode() const;
+  void set_mode(::ai::inworld::packets::AudioSessionStartPayload_MicrophoneMode value);
+  private:
+  ::ai::inworld::packets::AudioSessionStartPayload_MicrophoneMode _internal_mode() const;
+  void _internal_set_mode(::ai::inworld::packets::AudioSessionStartPayload_MicrophoneMode value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.packets.AudioSessionStartPayload)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  int mode_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fpackets_2fpackets_2eproto;
 };
@@ -2259,7 +2647,7 @@ class AudioChunk PROTOBUF_FINAL :
                &_AudioChunk_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(AudioChunk& a, AudioChunk& b) {
     a.Swap(&b);
@@ -2402,7 +2790,7 @@ class CustomEvent_Parameter PROTOBUF_FINAL :
                &_CustomEvent_Parameter_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(CustomEvent_Parameter& a, CustomEvent_Parameter& b) {
     a.Swap(&b);
@@ -2563,7 +2951,7 @@ class CustomEvent PROTOBUF_FINAL :
                &_CustomEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(CustomEvent& a, CustomEvent& b) {
     a.Swap(&b);
@@ -2739,7 +3127,7 @@ class CancelResponsesEvent PROTOBUF_FINAL :
                &_CancelResponsesEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(CancelResponsesEvent& a, CancelResponsesEvent& b) {
     a.Swap(&b);
@@ -2908,7 +3296,7 @@ class EmotionEvent PROTOBUF_FINAL :
                &_EmotionEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(EmotionEvent& a, EmotionEvent& b) {
     a.Swap(&b);
@@ -3203,7 +3591,7 @@ class DataChunk PROTOBUF_FINAL :
                &_DataChunk_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(DataChunk& a, DataChunk& b) {
     a.Swap(&b);
@@ -3280,6 +3668,10 @@ class DataChunk PROTOBUF_FINAL :
     DataChunk_DataType_SILENCE;
   static constexpr DataType STATE =
     DataChunk_DataType_STATE;
+  static constexpr DataType NVIDIA_A2F_ANIMATION =
+    DataChunk_DataType_NVIDIA_A2F_ANIMATION;
+  static constexpr DataType NVIDIA_A2F_ANIMATION_HEADER =
+    DataChunk_DataType_NVIDIA_A2F_ANIMATION_HEADER;
   static inline bool DataType_IsValid(int value) {
     return DataChunk_DataType_IsValid(value);
   }
@@ -3485,7 +3877,7 @@ class AdditionalPhonemeInfo PROTOBUF_FINAL :
                &_AdditionalPhonemeInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(AdditionalPhonemeInfo& a, AdditionalPhonemeInfo& b) {
     a.Swap(&b);
@@ -3653,7 +4045,7 @@ class ActionEvent PROTOBUF_FINAL :
                &_ActionEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(ActionEvent& a, ActionEvent& b) {
     a.Swap(&b);
@@ -3820,7 +4212,7 @@ class NarratedAction PROTOBUF_FINAL :
                &_NarratedAction_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(NarratedAction& a, NarratedAction& b) {
     a.Swap(&b);
@@ -3963,7 +4355,7 @@ class RelationInfo_RelationAttributes PROTOBUF_FINAL :
                &_RelationInfo_RelationAttributes_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(RelationInfo_RelationAttributes& a, RelationInfo_RelationAttributes& b) {
     a.Swap(&b);
@@ -4143,7 +4535,7 @@ class RelationInfo PROTOBUF_FINAL :
                &_RelationInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(RelationInfo& a, RelationInfo& b) {
     a.Swap(&b);
@@ -4321,7 +4713,7 @@ class MutationEvent PROTOBUF_FINAL :
                &_MutationEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(MutationEvent& a, MutationEvent& b) {
     a.Swap(&b);
@@ -4601,6 +4993,7 @@ class SessionControlResponseEvent PROTOBUF_FINAL :
   enum ResponseCase {
     kLoadedScene = 1,
     kLoadedCharacters = 2,
+    kSessionHistory = 3,
     RESPONSE_NOT_SET = 0,
   };
 
@@ -4609,7 +5002,7 @@ class SessionControlResponseEvent PROTOBUF_FINAL :
                &_SessionControlResponseEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(SessionControlResponseEvent& a, SessionControlResponseEvent& b) {
     a.Swap(&b);
@@ -4682,42 +5075,61 @@ class SessionControlResponseEvent PROTOBUF_FINAL :
   enum : int {
     kLoadedSceneFieldNumber = 1,
     kLoadedCharactersFieldNumber = 2,
+    kSessionHistoryFieldNumber = 3,
   };
-  // .ai.inworld.packets.LoadedScene loaded_scene = 1;
-  bool has_loaded_scene() const;
+  // .ai.inworld.packets.LoadedScene loaded_scene = 1 [deprecated = true];
+  PROTOBUF_DEPRECATED bool has_loaded_scene() const;
   private:
   bool _internal_has_loaded_scene() const;
   public:
-  void clear_loaded_scene();
-  const ::ai::inworld::packets::LoadedScene& loaded_scene() const;
-  ::ai::inworld::packets::LoadedScene* release_loaded_scene();
-  ::ai::inworld::packets::LoadedScene* mutable_loaded_scene();
-  void set_allocated_loaded_scene(::ai::inworld::packets::LoadedScene* loaded_scene);
+  PROTOBUF_DEPRECATED void clear_loaded_scene();
+  PROTOBUF_DEPRECATED const ::ai::inworld::packets::LoadedScene& loaded_scene() const;
+  PROTOBUF_DEPRECATED ::ai::inworld::packets::LoadedScene* release_loaded_scene();
+  PROTOBUF_DEPRECATED ::ai::inworld::packets::LoadedScene* mutable_loaded_scene();
+  PROTOBUF_DEPRECATED void set_allocated_loaded_scene(::ai::inworld::packets::LoadedScene* loaded_scene);
   private:
   const ::ai::inworld::packets::LoadedScene& _internal_loaded_scene() const;
   ::ai::inworld::packets::LoadedScene* _internal_mutable_loaded_scene();
   public:
-  void unsafe_arena_set_allocated_loaded_scene(
+  PROTOBUF_DEPRECATED void unsafe_arena_set_allocated_loaded_scene(
       ::ai::inworld::packets::LoadedScene* loaded_scene);
-  ::ai::inworld::packets::LoadedScene* unsafe_arena_release_loaded_scene();
+  PROTOBUF_DEPRECATED ::ai::inworld::packets::LoadedScene* unsafe_arena_release_loaded_scene();
 
-  // .ai.inworld.packets.LoadedCharacters loaded_characters = 2;
-  bool has_loaded_characters() const;
+  // .ai.inworld.packets.LoadedCharacters loaded_characters = 2 [deprecated = true];
+  PROTOBUF_DEPRECATED bool has_loaded_characters() const;
   private:
   bool _internal_has_loaded_characters() const;
   public:
-  void clear_loaded_characters();
-  const ::ai::inworld::packets::LoadedCharacters& loaded_characters() const;
-  ::ai::inworld::packets::LoadedCharacters* release_loaded_characters();
-  ::ai::inworld::packets::LoadedCharacters* mutable_loaded_characters();
-  void set_allocated_loaded_characters(::ai::inworld::packets::LoadedCharacters* loaded_characters);
+  PROTOBUF_DEPRECATED void clear_loaded_characters();
+  PROTOBUF_DEPRECATED const ::ai::inworld::packets::LoadedCharacters& loaded_characters() const;
+  PROTOBUF_DEPRECATED ::ai::inworld::packets::LoadedCharacters* release_loaded_characters();
+  PROTOBUF_DEPRECATED ::ai::inworld::packets::LoadedCharacters* mutable_loaded_characters();
+  PROTOBUF_DEPRECATED void set_allocated_loaded_characters(::ai::inworld::packets::LoadedCharacters* loaded_characters);
   private:
   const ::ai::inworld::packets::LoadedCharacters& _internal_loaded_characters() const;
   ::ai::inworld::packets::LoadedCharacters* _internal_mutable_loaded_characters();
   public:
-  void unsafe_arena_set_allocated_loaded_characters(
+  PROTOBUF_DEPRECATED void unsafe_arena_set_allocated_loaded_characters(
       ::ai::inworld::packets::LoadedCharacters* loaded_characters);
-  ::ai::inworld::packets::LoadedCharacters* unsafe_arena_release_loaded_characters();
+  PROTOBUF_DEPRECATED ::ai::inworld::packets::LoadedCharacters* unsafe_arena_release_loaded_characters();
+
+  // .ai.inworld.packets.SessionHistoryResponse session_history = 3;
+  bool has_session_history() const;
+  private:
+  bool _internal_has_session_history() const;
+  public:
+  void clear_session_history();
+  const ::ai::inworld::packets::SessionHistoryResponse& session_history() const;
+  ::ai::inworld::packets::SessionHistoryResponse* release_session_history();
+  ::ai::inworld::packets::SessionHistoryResponse* mutable_session_history();
+  void set_allocated_session_history(::ai::inworld::packets::SessionHistoryResponse* session_history);
+  private:
+  const ::ai::inworld::packets::SessionHistoryResponse& _internal_session_history() const;
+  ::ai::inworld::packets::SessionHistoryResponse* _internal_mutable_session_history();
+  public:
+  void unsafe_arena_set_allocated_session_history(
+      ::ai::inworld::packets::SessionHistoryResponse* session_history);
+  ::ai::inworld::packets::SessionHistoryResponse* unsafe_arena_release_session_history();
 
   void clear_response();
   ResponseCase response_case() const;
@@ -4726,6 +5138,7 @@ class SessionControlResponseEvent PROTOBUF_FINAL :
   class _Internal;
   void set_has_loaded_scene();
   void set_has_loaded_characters();
+  void set_has_session_history();
 
   inline bool has_response() const;
   inline void clear_has_response();
@@ -4737,6 +5150,7 @@ class SessionControlResponseEvent PROTOBUF_FINAL :
     ResponseUnion() {}
     ::ai::inworld::packets::LoadedScene* loaded_scene_;
     ::ai::inworld::packets::LoadedCharacters* loaded_characters_;
+    ::ai::inworld::packets::SessionHistoryResponse* session_history_;
   } response_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
@@ -4786,7 +5200,7 @@ class CancelResponses PROTOBUF_FINAL :
                &_CancelResponses_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(CancelResponses& a, CancelResponses& b) {
     a.Swap(&b);
@@ -4955,7 +5369,7 @@ class RegenerateResponse PROTOBUF_FINAL :
                &_RegenerateResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(RegenerateResponse& a, RegenerateResponse& b) {
     a.Swap(&b);
@@ -5098,7 +5512,7 @@ class ApplyResponse PROTOBUF_FINAL :
                &_ApplyResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(ApplyResponse& a, ApplyResponse& b) {
     a.Swap(&b);
@@ -5243,7 +5657,7 @@ class LoadScene PROTOBUF_FINAL :
                &_LoadScene_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   friend void swap(LoadScene& a, LoadScene& b) {
     a.Swap(&b);
@@ -5386,7 +5800,7 @@ class LoadedScene PROTOBUF_FINAL :
                &_LoadedScene_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    25;
 
   friend void swap(LoadedScene& a, LoadedScene& b) {
     a.Swap(&b);
@@ -5458,6 +5872,9 @@ class LoadedScene PROTOBUF_FINAL :
 
   enum : int {
     kAgentsFieldNumber = 1,
+    kSceneNameFieldNumber = 2,
+    kSceneDescriptionFieldNumber = 3,
+    kSceneDisplayNameFieldNumber = 4,
   };
   // repeated .ai.inworld.packets.Agent agents = 1;
   int agents_size() const;
@@ -5477,6 +5894,54 @@ class LoadedScene PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Agent >&
       agents() const;
 
+  // string scene_name = 2;
+  void clear_scene_name();
+  const std::string& scene_name() const;
+  void set_scene_name(const std::string& value);
+  void set_scene_name(std::string&& value);
+  void set_scene_name(const char* value);
+  void set_scene_name(const char* value, size_t size);
+  std::string* mutable_scene_name();
+  std::string* release_scene_name();
+  void set_allocated_scene_name(std::string* scene_name);
+  private:
+  const std::string& _internal_scene_name() const;
+  void _internal_set_scene_name(const std::string& value);
+  std::string* _internal_mutable_scene_name();
+  public:
+
+  // string scene_description = 3;
+  void clear_scene_description();
+  const std::string& scene_description() const;
+  void set_scene_description(const std::string& value);
+  void set_scene_description(std::string&& value);
+  void set_scene_description(const char* value);
+  void set_scene_description(const char* value, size_t size);
+  std::string* mutable_scene_description();
+  std::string* release_scene_description();
+  void set_allocated_scene_description(std::string* scene_description);
+  private:
+  const std::string& _internal_scene_description() const;
+  void _internal_set_scene_description(const std::string& value);
+  std::string* _internal_mutable_scene_description();
+  public:
+
+  // string scene_display_name = 4;
+  void clear_scene_display_name();
+  const std::string& scene_display_name() const;
+  void set_scene_display_name(const std::string& value);
+  void set_scene_display_name(std::string&& value);
+  void set_scene_display_name(const char* value);
+  void set_scene_display_name(const char* value, size_t size);
+  std::string* mutable_scene_display_name();
+  std::string* release_scene_display_name();
+  void set_allocated_scene_display_name(std::string* scene_display_name);
+  private:
+  const std::string& _internal_scene_display_name() const;
+  void _internal_set_scene_display_name(const std::string& value);
+  std::string* _internal_mutable_scene_display_name();
+  public:
+
   // @@protoc_insertion_point(class_scope:ai.inworld.packets.LoadedScene)
  private:
   class _Internal;
@@ -5485,6 +5950,9 @@ class LoadedScene PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Agent > agents_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr scene_name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr scene_description_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr scene_display_name_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fpackets_2fpackets_2eproto;
 };
@@ -5531,7 +5999,7 @@ class LoadCharacters_CharacterName PROTOBUF_FINAL :
                &_LoadCharacters_CharacterName_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    26;
 
   friend void swap(LoadCharacters_CharacterName& a, LoadCharacters_CharacterName& b) {
     a.Swap(&b);
@@ -5685,7 +6153,7 @@ class LoadCharacters PROTOBUF_FINAL :
                &_LoadCharacters_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    27;
 
   friend void swap(LoadCharacters& a, LoadCharacters& b) {
     a.Swap(&b);
@@ -5832,7 +6300,7 @@ class LoadedCharacters PROTOBUF_FINAL :
                &_LoadedCharacters_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    28;
 
   friend void swap(LoadedCharacters& a, LoadedCharacters& b) {
     a.Swap(&b);
@@ -5904,6 +6372,9 @@ class LoadedCharacters PROTOBUF_FINAL :
 
   enum : int {
     kAgentsFieldNumber = 1,
+    kSceneNameFieldNumber = 2,
+    kSceneDescriptionFieldNumber = 3,
+    kSceneDisplayNameFieldNumber = 4,
   };
   // repeated .ai.inworld.packets.Agent agents = 1;
   int agents_size() const;
@@ -5923,6 +6394,54 @@ class LoadedCharacters PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Agent >&
       agents() const;
 
+  // string scene_name = 2;
+  void clear_scene_name();
+  const std::string& scene_name() const;
+  void set_scene_name(const std::string& value);
+  void set_scene_name(std::string&& value);
+  void set_scene_name(const char* value);
+  void set_scene_name(const char* value, size_t size);
+  std::string* mutable_scene_name();
+  std::string* release_scene_name();
+  void set_allocated_scene_name(std::string* scene_name);
+  private:
+  const std::string& _internal_scene_name() const;
+  void _internal_set_scene_name(const std::string& value);
+  std::string* _internal_mutable_scene_name();
+  public:
+
+  // string scene_description = 3;
+  void clear_scene_description();
+  const std::string& scene_description() const;
+  void set_scene_description(const std::string& value);
+  void set_scene_description(std::string&& value);
+  void set_scene_description(const char* value);
+  void set_scene_description(const char* value, size_t size);
+  std::string* mutable_scene_description();
+  std::string* release_scene_description();
+  void set_allocated_scene_description(std::string* scene_description);
+  private:
+  const std::string& _internal_scene_description() const;
+  void _internal_set_scene_description(const std::string& value);
+  std::string* _internal_mutable_scene_description();
+  public:
+
+  // string scene_display_name = 4;
+  void clear_scene_display_name();
+  const std::string& scene_display_name() const;
+  void set_scene_display_name(const std::string& value);
+  void set_scene_display_name(std::string&& value);
+  void set_scene_display_name(const char* value);
+  void set_scene_display_name(const char* value, size_t size);
+  std::string* mutable_scene_display_name();
+  std::string* release_scene_display_name();
+  void set_allocated_scene_display_name(std::string* scene_display_name);
+  private:
+  const std::string& _internal_scene_display_name() const;
+  void _internal_set_scene_display_name(const std::string& value);
+  std::string* _internal_mutable_scene_display_name();
+  public:
+
   // @@protoc_insertion_point(class_scope:ai.inworld.packets.LoadedCharacters)
  private:
   class _Internal;
@@ -5931,6 +6450,9 @@ class LoadedCharacters PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Agent > agents_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr scene_name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr scene_description_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr scene_display_name_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fpackets_2fpackets_2eproto;
 };
@@ -5977,7 +6499,7 @@ class UnloadCharacters PROTOBUF_FINAL :
                &_UnloadCharacters_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    29;
 
   friend void swap(UnloadCharacters& a, UnloadCharacters& b) {
     a.Swap(&b);
@@ -6081,6 +6603,205 @@ class UnloadCharacters PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class CurrentSceneStatus PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.packets.CurrentSceneStatus) */ {
+ public:
+  inline CurrentSceneStatus() : CurrentSceneStatus(nullptr) {}
+  virtual ~CurrentSceneStatus();
+
+  CurrentSceneStatus(const CurrentSceneStatus& from);
+  CurrentSceneStatus(CurrentSceneStatus&& from) noexcept
+    : CurrentSceneStatus() {
+    *this = ::std::move(from);
+  }
+
+  inline CurrentSceneStatus& operator=(const CurrentSceneStatus& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CurrentSceneStatus& operator=(CurrentSceneStatus&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CurrentSceneStatus& default_instance();
+
+  static inline const CurrentSceneStatus* internal_default_instance() {
+    return reinterpret_cast<const CurrentSceneStatus*>(
+               &_CurrentSceneStatus_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    30;
+
+  friend void swap(CurrentSceneStatus& a, CurrentSceneStatus& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CurrentSceneStatus* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CurrentSceneStatus* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CurrentSceneStatus* New() const final {
+    return CreateMaybeMessage<CurrentSceneStatus>(nullptr);
+  }
+
+  CurrentSceneStatus* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CurrentSceneStatus>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CurrentSceneStatus& from);
+  void MergeFrom(const CurrentSceneStatus& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CurrentSceneStatus* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.packets.CurrentSceneStatus";
+  }
+  protected:
+  explicit CurrentSceneStatus(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto);
+    return ::descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kAgentsFieldNumber = 1,
+    kSceneNameFieldNumber = 2,
+    kSceneDescriptionFieldNumber = 3,
+    kSceneDisplayNameFieldNumber = 4,
+  };
+  // repeated .ai.inworld.packets.Agent agents = 1;
+  int agents_size() const;
+  private:
+  int _internal_agents_size() const;
+  public:
+  void clear_agents();
+  ::ai::inworld::packets::Agent* mutable_agents(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Agent >*
+      mutable_agents();
+  private:
+  const ::ai::inworld::packets::Agent& _internal_agents(int index) const;
+  ::ai::inworld::packets::Agent* _internal_add_agents();
+  public:
+  const ::ai::inworld::packets::Agent& agents(int index) const;
+  ::ai::inworld::packets::Agent* add_agents();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Agent >&
+      agents() const;
+
+  // string scene_name = 2;
+  void clear_scene_name();
+  const std::string& scene_name() const;
+  void set_scene_name(const std::string& value);
+  void set_scene_name(std::string&& value);
+  void set_scene_name(const char* value);
+  void set_scene_name(const char* value, size_t size);
+  std::string* mutable_scene_name();
+  std::string* release_scene_name();
+  void set_allocated_scene_name(std::string* scene_name);
+  private:
+  const std::string& _internal_scene_name() const;
+  void _internal_set_scene_name(const std::string& value);
+  std::string* _internal_mutable_scene_name();
+  public:
+
+  // string scene_description = 3;
+  void clear_scene_description();
+  const std::string& scene_description() const;
+  void set_scene_description(const std::string& value);
+  void set_scene_description(std::string&& value);
+  void set_scene_description(const char* value);
+  void set_scene_description(const char* value, size_t size);
+  std::string* mutable_scene_description();
+  std::string* release_scene_description();
+  void set_allocated_scene_description(std::string* scene_description);
+  private:
+  const std::string& _internal_scene_description() const;
+  void _internal_set_scene_description(const std::string& value);
+  std::string* _internal_mutable_scene_description();
+  public:
+
+  // string scene_display_name = 4;
+  void clear_scene_display_name();
+  const std::string& scene_display_name() const;
+  void set_scene_display_name(const std::string& value);
+  void set_scene_display_name(std::string&& value);
+  void set_scene_display_name(const char* value);
+  void set_scene_display_name(const char* value, size_t size);
+  std::string* mutable_scene_display_name();
+  std::string* release_scene_display_name();
+  void set_allocated_scene_display_name(std::string* scene_display_name);
+  private:
+  const std::string& _internal_scene_display_name() const;
+  void _internal_set_scene_display_name(const std::string& value);
+  std::string* _internal_mutable_scene_display_name();
+  public:
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.packets.CurrentSceneStatus)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Agent > agents_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr scene_name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr scene_description_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr scene_display_name_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fpackets_2fpackets_2eproto;
+};
+// -------------------------------------------------------------------
+
 class ModifyExactResponse PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.packets.ModifyExactResponse) */ {
  public:
@@ -6122,7 +6843,7 @@ class ModifyExactResponse PROTOBUF_FINAL :
                &_ModifyExactResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    31;
 
   friend void swap(ModifyExactResponse& a, ModifyExactResponse& b) {
     a.Swap(&b);
@@ -6283,7 +7004,7 @@ class LoadSceneOutputEvent_Agent PROTOBUF_FINAL :
                &_LoadSceneOutputEvent_Agent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    32;
 
   friend void swap(LoadSceneOutputEvent_Agent& a, LoadSceneOutputEvent_Agent& b) {
     a.Swap(&b);
@@ -6462,7 +7183,7 @@ class LoadSceneOutputEvent PROTOBUF_FINAL :
                &_LoadSceneOutputEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    33;
 
   friend void swap(LoadSceneOutputEvent& a, LoadSceneOutputEvent& b) {
     a.Swap(&b);
@@ -6609,7 +7330,7 @@ class Agent_CharacterAssets PROTOBUF_FINAL :
                &_Agent_CharacterAssets_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    34;
 
   friend void swap(Agent_CharacterAssets& a, Agent_CharacterAssets& b) {
     a.Swap(&b);
@@ -6824,7 +7545,7 @@ class Agent PROTOBUF_FINAL :
                &_Agent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    35;
 
   friend void swap(Agent& a, Agent& b) {
     a.Swap(&b);
@@ -7030,7 +7751,7 @@ class DebugInfoEvent PROTOBUF_FINAL :
                &_DebugInfoEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    36;
 
   friend void swap(DebugInfoEvent& a, DebugInfoEvent& b) {
     a.Swap(&b);
@@ -7187,6 +7908,8 @@ class SessionControlEvent PROTOBUF_FINAL :
     kClientConfiguration = 3,
     kCapabilitiesConfiguration = 4,
     kContinuation = 5,
+    kSessionHistoryRequest = 6,
+    kSessionConfigurationPayload = 7,
     SESSION_CONTROL_NOT_SET = 0,
   };
 
@@ -7195,7 +7918,7 @@ class SessionControlEvent PROTOBUF_FINAL :
                &_SessionControlEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    37;
 
   friend void swap(SessionControlEvent& a, SessionControlEvent& b) {
     a.Swap(&b);
@@ -7247,6 +7970,288 @@ class SessionControlEvent PROTOBUF_FINAL :
   }
   protected:
   explicit SessionControlEvent(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto);
+    return ::descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSessionConfigurationFieldNumber = 1,
+    kUserConfigurationFieldNumber = 2,
+    kClientConfigurationFieldNumber = 3,
+    kCapabilitiesConfigurationFieldNumber = 4,
+    kContinuationFieldNumber = 5,
+    kSessionHistoryRequestFieldNumber = 6,
+    kSessionConfigurationPayloadFieldNumber = 7,
+  };
+  // .ai.inworld.engine.configuration.SessionConfiguration session_configuration = 1;
+  bool has_session_configuration() const;
+  private:
+  bool _internal_has_session_configuration() const;
+  public:
+  void clear_session_configuration();
+  const ::ai::inworld::engine::configuration::SessionConfiguration& session_configuration() const;
+  ::ai::inworld::engine::configuration::SessionConfiguration* release_session_configuration();
+  ::ai::inworld::engine::configuration::SessionConfiguration* mutable_session_configuration();
+  void set_allocated_session_configuration(::ai::inworld::engine::configuration::SessionConfiguration* session_configuration);
+  private:
+  const ::ai::inworld::engine::configuration::SessionConfiguration& _internal_session_configuration() const;
+  ::ai::inworld::engine::configuration::SessionConfiguration* _internal_mutable_session_configuration();
+  public:
+  void unsafe_arena_set_allocated_session_configuration(
+      ::ai::inworld::engine::configuration::SessionConfiguration* session_configuration);
+  ::ai::inworld::engine::configuration::SessionConfiguration* unsafe_arena_release_session_configuration();
+
+  // .ai.inworld.engine.configuration.UserConfiguration user_configuration = 2;
+  bool has_user_configuration() const;
+  private:
+  bool _internal_has_user_configuration() const;
+  public:
+  void clear_user_configuration();
+  const ::ai::inworld::engine::configuration::UserConfiguration& user_configuration() const;
+  ::ai::inworld::engine::configuration::UserConfiguration* release_user_configuration();
+  ::ai::inworld::engine::configuration::UserConfiguration* mutable_user_configuration();
+  void set_allocated_user_configuration(::ai::inworld::engine::configuration::UserConfiguration* user_configuration);
+  private:
+  const ::ai::inworld::engine::configuration::UserConfiguration& _internal_user_configuration() const;
+  ::ai::inworld::engine::configuration::UserConfiguration* _internal_mutable_user_configuration();
+  public:
+  void unsafe_arena_set_allocated_user_configuration(
+      ::ai::inworld::engine::configuration::UserConfiguration* user_configuration);
+  ::ai::inworld::engine::configuration::UserConfiguration* unsafe_arena_release_user_configuration();
+
+  // .ai.inworld.engine.configuration.ClientConfiguration client_configuration = 3;
+  bool has_client_configuration() const;
+  private:
+  bool _internal_has_client_configuration() const;
+  public:
+  void clear_client_configuration();
+  const ::ai::inworld::engine::configuration::ClientConfiguration& client_configuration() const;
+  ::ai::inworld::engine::configuration::ClientConfiguration* release_client_configuration();
+  ::ai::inworld::engine::configuration::ClientConfiguration* mutable_client_configuration();
+  void set_allocated_client_configuration(::ai::inworld::engine::configuration::ClientConfiguration* client_configuration);
+  private:
+  const ::ai::inworld::engine::configuration::ClientConfiguration& _internal_client_configuration() const;
+  ::ai::inworld::engine::configuration::ClientConfiguration* _internal_mutable_client_configuration();
+  public:
+  void unsafe_arena_set_allocated_client_configuration(
+      ::ai::inworld::engine::configuration::ClientConfiguration* client_configuration);
+  ::ai::inworld::engine::configuration::ClientConfiguration* unsafe_arena_release_client_configuration();
+
+  // .ai.inworld.engine.configuration.CapabilitiesConfiguration capabilities_configuration = 4;
+  bool has_capabilities_configuration() const;
+  private:
+  bool _internal_has_capabilities_configuration() const;
+  public:
+  void clear_capabilities_configuration();
+  const ::ai::inworld::engine::configuration::CapabilitiesConfiguration& capabilities_configuration() const;
+  ::ai::inworld::engine::configuration::CapabilitiesConfiguration* release_capabilities_configuration();
+  ::ai::inworld::engine::configuration::CapabilitiesConfiguration* mutable_capabilities_configuration();
+  void set_allocated_capabilities_configuration(::ai::inworld::engine::configuration::CapabilitiesConfiguration* capabilities_configuration);
+  private:
+  const ::ai::inworld::engine::configuration::CapabilitiesConfiguration& _internal_capabilities_configuration() const;
+  ::ai::inworld::engine::configuration::CapabilitiesConfiguration* _internal_mutable_capabilities_configuration();
+  public:
+  void unsafe_arena_set_allocated_capabilities_configuration(
+      ::ai::inworld::engine::configuration::CapabilitiesConfiguration* capabilities_configuration);
+  ::ai::inworld::engine::configuration::CapabilitiesConfiguration* unsafe_arena_release_capabilities_configuration();
+
+  // .ai.inworld.packets.Continuation continuation = 5;
+  bool has_continuation() const;
+  private:
+  bool _internal_has_continuation() const;
+  public:
+  void clear_continuation();
+  const ::ai::inworld::packets::Continuation& continuation() const;
+  ::ai::inworld::packets::Continuation* release_continuation();
+  ::ai::inworld::packets::Continuation* mutable_continuation();
+  void set_allocated_continuation(::ai::inworld::packets::Continuation* continuation);
+  private:
+  const ::ai::inworld::packets::Continuation& _internal_continuation() const;
+  ::ai::inworld::packets::Continuation* _internal_mutable_continuation();
+  public:
+  void unsafe_arena_set_allocated_continuation(
+      ::ai::inworld::packets::Continuation* continuation);
+  ::ai::inworld::packets::Continuation* unsafe_arena_release_continuation();
+
+  // .ai.inworld.packets.SessionHistoryRequest session_history_request = 6;
+  bool has_session_history_request() const;
+  private:
+  bool _internal_has_session_history_request() const;
+  public:
+  void clear_session_history_request();
+  const ::ai::inworld::packets::SessionHistoryRequest& session_history_request() const;
+  ::ai::inworld::packets::SessionHistoryRequest* release_session_history_request();
+  ::ai::inworld::packets::SessionHistoryRequest* mutable_session_history_request();
+  void set_allocated_session_history_request(::ai::inworld::packets::SessionHistoryRequest* session_history_request);
+  private:
+  const ::ai::inworld::packets::SessionHistoryRequest& _internal_session_history_request() const;
+  ::ai::inworld::packets::SessionHistoryRequest* _internal_mutable_session_history_request();
+  public:
+  void unsafe_arena_set_allocated_session_history_request(
+      ::ai::inworld::packets::SessionHistoryRequest* session_history_request);
+  ::ai::inworld::packets::SessionHistoryRequest* unsafe_arena_release_session_history_request();
+
+  // .ai.inworld.packets.SessionConfigurationPayload session_configuration_payload = 7;
+  bool has_session_configuration_payload() const;
+  private:
+  bool _internal_has_session_configuration_payload() const;
+  public:
+  void clear_session_configuration_payload();
+  const ::ai::inworld::packets::SessionConfigurationPayload& session_configuration_payload() const;
+  ::ai::inworld::packets::SessionConfigurationPayload* release_session_configuration_payload();
+  ::ai::inworld::packets::SessionConfigurationPayload* mutable_session_configuration_payload();
+  void set_allocated_session_configuration_payload(::ai::inworld::packets::SessionConfigurationPayload* session_configuration_payload);
+  private:
+  const ::ai::inworld::packets::SessionConfigurationPayload& _internal_session_configuration_payload() const;
+  ::ai::inworld::packets::SessionConfigurationPayload* _internal_mutable_session_configuration_payload();
+  public:
+  void unsafe_arena_set_allocated_session_configuration_payload(
+      ::ai::inworld::packets::SessionConfigurationPayload* session_configuration_payload);
+  ::ai::inworld::packets::SessionConfigurationPayload* unsafe_arena_release_session_configuration_payload();
+
+  void clear_session_control();
+  SessionControlCase session_control_case() const;
+  // @@protoc_insertion_point(class_scope:ai.inworld.packets.SessionControlEvent)
+ private:
+  class _Internal;
+  void set_has_session_configuration();
+  void set_has_user_configuration();
+  void set_has_client_configuration();
+  void set_has_capabilities_configuration();
+  void set_has_continuation();
+  void set_has_session_history_request();
+  void set_has_session_configuration_payload();
+
+  inline bool has_session_control() const;
+  inline void clear_has_session_control();
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  union SessionControlUnion {
+    SessionControlUnion() {}
+    ::ai::inworld::engine::configuration::SessionConfiguration* session_configuration_;
+    ::ai::inworld::engine::configuration::UserConfiguration* user_configuration_;
+    ::ai::inworld::engine::configuration::ClientConfiguration* client_configuration_;
+    ::ai::inworld::engine::configuration::CapabilitiesConfiguration* capabilities_configuration_;
+    ::ai::inworld::packets::Continuation* continuation_;
+    ::ai::inworld::packets::SessionHistoryRequest* session_history_request_;
+    ::ai::inworld::packets::SessionConfigurationPayload* session_configuration_payload_;
+  } session_control_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
+
+  friend struct ::TableStruct_ai_2finworld_2fpackets_2fpackets_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SessionConfigurationPayload PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.packets.SessionConfigurationPayload) */ {
+ public:
+  inline SessionConfigurationPayload() : SessionConfigurationPayload(nullptr) {}
+  virtual ~SessionConfigurationPayload();
+
+  SessionConfigurationPayload(const SessionConfigurationPayload& from);
+  SessionConfigurationPayload(SessionConfigurationPayload&& from) noexcept
+    : SessionConfigurationPayload() {
+    *this = ::std::move(from);
+  }
+
+  inline SessionConfigurationPayload& operator=(const SessionConfigurationPayload& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SessionConfigurationPayload& operator=(SessionConfigurationPayload&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const SessionConfigurationPayload& default_instance();
+
+  static inline const SessionConfigurationPayload* internal_default_instance() {
+    return reinterpret_cast<const SessionConfigurationPayload*>(
+               &_SessionConfigurationPayload_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    38;
+
+  friend void swap(SessionConfigurationPayload& a, SessionConfigurationPayload& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SessionConfigurationPayload* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SessionConfigurationPayload* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SessionConfigurationPayload* New() const final {
+    return CreateMaybeMessage<SessionConfigurationPayload>(nullptr);
+  }
+
+  SessionConfigurationPayload* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<SessionConfigurationPayload>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const SessionConfigurationPayload& from);
+  void MergeFrom(const SessionConfigurationPayload& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SessionConfigurationPayload* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.packets.SessionConfigurationPayload";
+  }
+  protected:
+  explicit SessionConfigurationPayload(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -7362,34 +8367,19 @@ class SessionControlEvent PROTOBUF_FINAL :
       ::ai::inworld::packets::Continuation* continuation);
   ::ai::inworld::packets::Continuation* unsafe_arena_release_continuation();
 
-  void clear_session_control();
-  SessionControlCase session_control_case() const;
-  // @@protoc_insertion_point(class_scope:ai.inworld.packets.SessionControlEvent)
+  // @@protoc_insertion_point(class_scope:ai.inworld.packets.SessionConfigurationPayload)
  private:
   class _Internal;
-  void set_has_session_configuration();
-  void set_has_user_configuration();
-  void set_has_client_configuration();
-  void set_has_capabilities_configuration();
-  void set_has_continuation();
-
-  inline bool has_session_control() const;
-  inline void clear_has_session_control();
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  union SessionControlUnion {
-    SessionControlUnion() {}
-    ::ai::inworld::engine::configuration::SessionConfiguration* session_configuration_;
-    ::ai::inworld::engine::configuration::UserConfiguration* user_configuration_;
-    ::ai::inworld::engine::configuration::ClientConfiguration* client_configuration_;
-    ::ai::inworld::engine::configuration::CapabilitiesConfiguration* capabilities_configuration_;
-    ::ai::inworld::packets::Continuation* continuation_;
-  } session_control_;
+  ::ai::inworld::engine::configuration::SessionConfiguration* session_configuration_;
+  ::ai::inworld::engine::configuration::UserConfiguration* user_configuration_;
+  ::ai::inworld::engine::configuration::ClientConfiguration* client_configuration_;
+  ::ai::inworld::engine::configuration::CapabilitiesConfiguration* capabilities_configuration_;
+  ::ai::inworld::packets::Continuation* continuation_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
-
   friend struct ::TableStruct_ai_2finworld_2fpackets_2fpackets_2eproto;
 };
 // -------------------------------------------------------------------
@@ -7435,7 +8425,7 @@ class Audio2FaceAnimationEvent PROTOBUF_FINAL :
                &_Audio2FaceAnimationEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    39;
 
   friend void swap(Audio2FaceAnimationEvent& a, Audio2FaceAnimationEvent& b) {
     a.Swap(&b);
@@ -7596,7 +8586,7 @@ class Continuation_ContinuationInfo PROTOBUF_FINAL :
                &_Continuation_ContinuationInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    40;
 
   friend void swap(Continuation_ContinuationInfo& a, Continuation_ContinuationInfo& b) {
     a.Swap(&b);
@@ -7741,7 +8731,7 @@ class Continuation PROTOBUF_FINAL :
                &_Continuation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    41;
 
   friend void swap(Continuation& a, Continuation& b) {
     a.Swap(&b);
@@ -7969,7 +8959,7 @@ class DialogHistory_HistoryItem PROTOBUF_FINAL :
                &_DialogHistory_HistoryItem_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    42;
 
   friend void swap(DialogHistory_HistoryItem& a, DialogHistory_HistoryItem& b) {
     a.Swap(&b);
@@ -8132,7 +9122,7 @@ class DialogHistory PROTOBUF_FINAL :
                &_DialogHistory_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    43;
 
   friend void swap(DialogHistory& a, DialogHistory& b) {
     a.Swap(&b);
@@ -8279,7 +9269,7 @@ class Relations_Relation PROTOBUF_FINAL :
                &_Relations_Relation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    44;
 
   friend void swap(Relations_Relation& a, Relations_Relation& b) {
     a.Swap(&b);
@@ -8440,7 +9430,7 @@ class Relations PROTOBUF_FINAL :
                &_Relations_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    45;
 
   friend void swap(Relations& a, Relations& b) {
     a.Swap(&b);
@@ -8561,6 +9551,776 @@ class Relations PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Relations_Relation > relations_;
   ::ai::inworld::packets::Actor* actor_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fpackets_2fpackets_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SessionHistoryRequest PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.packets.SessionHistoryRequest) */ {
+ public:
+  inline SessionHistoryRequest() : SessionHistoryRequest(nullptr) {}
+  virtual ~SessionHistoryRequest();
+
+  SessionHistoryRequest(const SessionHistoryRequest& from);
+  SessionHistoryRequest(SessionHistoryRequest&& from) noexcept
+    : SessionHistoryRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline SessionHistoryRequest& operator=(const SessionHistoryRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SessionHistoryRequest& operator=(SessionHistoryRequest&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const SessionHistoryRequest& default_instance();
+
+  static inline const SessionHistoryRequest* internal_default_instance() {
+    return reinterpret_cast<const SessionHistoryRequest*>(
+               &_SessionHistoryRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    46;
+
+  friend void swap(SessionHistoryRequest& a, SessionHistoryRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SessionHistoryRequest* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SessionHistoryRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SessionHistoryRequest* New() const final {
+    return CreateMaybeMessage<SessionHistoryRequest>(nullptr);
+  }
+
+  SessionHistoryRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<SessionHistoryRequest>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const SessionHistoryRequest& from);
+  void MergeFrom(const SessionHistoryRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SessionHistoryRequest* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.packets.SessionHistoryRequest";
+  }
+  protected:
+  explicit SessionHistoryRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto);
+    return ::descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.packets.SessionHistoryRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fpackets_2fpackets_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SessionHistoryResponse_SessionHistoryItem PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem) */ {
+ public:
+  inline SessionHistoryResponse_SessionHistoryItem() : SessionHistoryResponse_SessionHistoryItem(nullptr) {}
+  virtual ~SessionHistoryResponse_SessionHistoryItem();
+
+  SessionHistoryResponse_SessionHistoryItem(const SessionHistoryResponse_SessionHistoryItem& from);
+  SessionHistoryResponse_SessionHistoryItem(SessionHistoryResponse_SessionHistoryItem&& from) noexcept
+    : SessionHistoryResponse_SessionHistoryItem() {
+    *this = ::std::move(from);
+  }
+
+  inline SessionHistoryResponse_SessionHistoryItem& operator=(const SessionHistoryResponse_SessionHistoryItem& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SessionHistoryResponse_SessionHistoryItem& operator=(SessionHistoryResponse_SessionHistoryItem&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const SessionHistoryResponse_SessionHistoryItem& default_instance();
+
+  static inline const SessionHistoryResponse_SessionHistoryItem* internal_default_instance() {
+    return reinterpret_cast<const SessionHistoryResponse_SessionHistoryItem*>(
+               &_SessionHistoryResponse_SessionHistoryItem_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    47;
+
+  friend void swap(SessionHistoryResponse_SessionHistoryItem& a, SessionHistoryResponse_SessionHistoryItem& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SessionHistoryResponse_SessionHistoryItem* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SessionHistoryResponse_SessionHistoryItem* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SessionHistoryResponse_SessionHistoryItem* New() const final {
+    return CreateMaybeMessage<SessionHistoryResponse_SessionHistoryItem>(nullptr);
+  }
+
+  SessionHistoryResponse_SessionHistoryItem* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<SessionHistoryResponse_SessionHistoryItem>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const SessionHistoryResponse_SessionHistoryItem& from);
+  void MergeFrom(const SessionHistoryResponse_SessionHistoryItem& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SessionHistoryResponse_SessionHistoryItem* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem";
+  }
+  protected:
+  explicit SessionHistoryResponse_SessionHistoryItem(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto);
+    return ::descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPacketsFieldNumber = 2,
+    kAgentFieldNumber = 1,
+  };
+  // repeated .ai.inworld.packets.InworldPacket packets = 2;
+  int packets_size() const;
+  private:
+  int _internal_packets_size() const;
+  public:
+  void clear_packets();
+  ::ai::inworld::packets::InworldPacket* mutable_packets(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::InworldPacket >*
+      mutable_packets();
+  private:
+  const ::ai::inworld::packets::InworldPacket& _internal_packets(int index) const;
+  ::ai::inworld::packets::InworldPacket* _internal_add_packets();
+  public:
+  const ::ai::inworld::packets::InworldPacket& packets(int index) const;
+  ::ai::inworld::packets::InworldPacket* add_packets();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::InworldPacket >&
+      packets() const;
+
+  // .ai.inworld.packets.Agent agent = 1;
+  bool has_agent() const;
+  private:
+  bool _internal_has_agent() const;
+  public:
+  void clear_agent();
+  const ::ai::inworld::packets::Agent& agent() const;
+  ::ai::inworld::packets::Agent* release_agent();
+  ::ai::inworld::packets::Agent* mutable_agent();
+  void set_allocated_agent(::ai::inworld::packets::Agent* agent);
+  private:
+  const ::ai::inworld::packets::Agent& _internal_agent() const;
+  ::ai::inworld::packets::Agent* _internal_mutable_agent();
+  public:
+  void unsafe_arena_set_allocated_agent(
+      ::ai::inworld::packets::Agent* agent);
+  ::ai::inworld::packets::Agent* unsafe_arena_release_agent();
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::InworldPacket > packets_;
+  ::ai::inworld::packets::Agent* agent_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fpackets_2fpackets_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SessionHistoryResponse PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.packets.SessionHistoryResponse) */ {
+ public:
+  inline SessionHistoryResponse() : SessionHistoryResponse(nullptr) {}
+  virtual ~SessionHistoryResponse();
+
+  SessionHistoryResponse(const SessionHistoryResponse& from);
+  SessionHistoryResponse(SessionHistoryResponse&& from) noexcept
+    : SessionHistoryResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline SessionHistoryResponse& operator=(const SessionHistoryResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SessionHistoryResponse& operator=(SessionHistoryResponse&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const SessionHistoryResponse& default_instance();
+
+  static inline const SessionHistoryResponse* internal_default_instance() {
+    return reinterpret_cast<const SessionHistoryResponse*>(
+               &_SessionHistoryResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    48;
+
+  friend void swap(SessionHistoryResponse& a, SessionHistoryResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SessionHistoryResponse* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SessionHistoryResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SessionHistoryResponse* New() const final {
+    return CreateMaybeMessage<SessionHistoryResponse>(nullptr);
+  }
+
+  SessionHistoryResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<SessionHistoryResponse>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const SessionHistoryResponse& from);
+  void MergeFrom(const SessionHistoryResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SessionHistoryResponse* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.packets.SessionHistoryResponse";
+  }
+  protected:
+  explicit SessionHistoryResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto);
+    return ::descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  typedef SessionHistoryResponse_SessionHistoryItem SessionHistoryItem;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSessionHistoryItemsFieldNumber = 1,
+  };
+  // repeated .ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem session_history_items = 1;
+  int session_history_items_size() const;
+  private:
+  int _internal_session_history_items_size() const;
+  public:
+  void clear_session_history_items();
+  ::ai::inworld::packets::SessionHistoryResponse_SessionHistoryItem* mutable_session_history_items(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::SessionHistoryResponse_SessionHistoryItem >*
+      mutable_session_history_items();
+  private:
+  const ::ai::inworld::packets::SessionHistoryResponse_SessionHistoryItem& _internal_session_history_items(int index) const;
+  ::ai::inworld::packets::SessionHistoryResponse_SessionHistoryItem* _internal_add_session_history_items();
+  public:
+  const ::ai::inworld::packets::SessionHistoryResponse_SessionHistoryItem& session_history_items(int index) const;
+  ::ai::inworld::packets::SessionHistoryResponse_SessionHistoryItem* add_session_history_items();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::SessionHistoryResponse_SessionHistoryItem >&
+      session_history_items() const;
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.packets.SessionHistoryResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::SessionHistoryResponse_SessionHistoryItem > session_history_items_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fpackets_2fpackets_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ConversationUpdatePayload PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.packets.ConversationUpdatePayload) */ {
+ public:
+  inline ConversationUpdatePayload() : ConversationUpdatePayload(nullptr) {}
+  virtual ~ConversationUpdatePayload();
+
+  ConversationUpdatePayload(const ConversationUpdatePayload& from);
+  ConversationUpdatePayload(ConversationUpdatePayload&& from) noexcept
+    : ConversationUpdatePayload() {
+    *this = ::std::move(from);
+  }
+
+  inline ConversationUpdatePayload& operator=(const ConversationUpdatePayload& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ConversationUpdatePayload& operator=(ConversationUpdatePayload&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const ConversationUpdatePayload& default_instance();
+
+  static inline const ConversationUpdatePayload* internal_default_instance() {
+    return reinterpret_cast<const ConversationUpdatePayload*>(
+               &_ConversationUpdatePayload_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    49;
+
+  friend void swap(ConversationUpdatePayload& a, ConversationUpdatePayload& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ConversationUpdatePayload* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ConversationUpdatePayload* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ConversationUpdatePayload* New() const final {
+    return CreateMaybeMessage<ConversationUpdatePayload>(nullptr);
+  }
+
+  ConversationUpdatePayload* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<ConversationUpdatePayload>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const ConversationUpdatePayload& from);
+  void MergeFrom(const ConversationUpdatePayload& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ConversationUpdatePayload* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.packets.ConversationUpdatePayload";
+  }
+  protected:
+  explicit ConversationUpdatePayload(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto);
+    return ::descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kParticipantsFieldNumber = 1,
+  };
+  // repeated .ai.inworld.packets.Actor participants = 1;
+  int participants_size() const;
+  private:
+  int _internal_participants_size() const;
+  public:
+  void clear_participants();
+  ::ai::inworld::packets::Actor* mutable_participants(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Actor >*
+      mutable_participants();
+  private:
+  const ::ai::inworld::packets::Actor& _internal_participants(int index) const;
+  ::ai::inworld::packets::Actor* _internal_add_participants();
+  public:
+  const ::ai::inworld::packets::Actor& participants(int index) const;
+  ::ai::inworld::packets::Actor* add_participants();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Actor >&
+      participants() const;
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.packets.ConversationUpdatePayload)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Actor > participants_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fpackets_2fpackets_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ConversationEventPayload PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.packets.ConversationEventPayload) */ {
+ public:
+  inline ConversationEventPayload() : ConversationEventPayload(nullptr) {}
+  virtual ~ConversationEventPayload();
+
+  ConversationEventPayload(const ConversationEventPayload& from);
+  ConversationEventPayload(ConversationEventPayload&& from) noexcept
+    : ConversationEventPayload() {
+    *this = ::std::move(from);
+  }
+
+  inline ConversationEventPayload& operator=(const ConversationEventPayload& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ConversationEventPayload& operator=(ConversationEventPayload&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const ConversationEventPayload& default_instance();
+
+  static inline const ConversationEventPayload* internal_default_instance() {
+    return reinterpret_cast<const ConversationEventPayload*>(
+               &_ConversationEventPayload_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    50;
+
+  friend void swap(ConversationEventPayload& a, ConversationEventPayload& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ConversationEventPayload* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ConversationEventPayload* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ConversationEventPayload* New() const final {
+    return CreateMaybeMessage<ConversationEventPayload>(nullptr);
+  }
+
+  ConversationEventPayload* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<ConversationEventPayload>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const ConversationEventPayload& from);
+  void MergeFrom(const ConversationEventPayload& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ConversationEventPayload* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.packets.ConversationEventPayload";
+  }
+  protected:
+  explicit ConversationEventPayload(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto);
+    return ::descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  typedef ConversationEventPayload_ConversationEventType ConversationEventType;
+  static constexpr ConversationEventType UNKNOWN =
+    ConversationEventPayload_ConversationEventType_UNKNOWN;
+  static constexpr ConversationEventType STARTED =
+    ConversationEventPayload_ConversationEventType_STARTED;
+  static constexpr ConversationEventType UPDATED =
+    ConversationEventPayload_ConversationEventType_UPDATED;
+  static constexpr ConversationEventType EVICTED =
+    ConversationEventPayload_ConversationEventType_EVICTED;
+  static inline bool ConversationEventType_IsValid(int value) {
+    return ConversationEventPayload_ConversationEventType_IsValid(value);
+  }
+  static constexpr ConversationEventType ConversationEventType_MIN =
+    ConversationEventPayload_ConversationEventType_ConversationEventType_MIN;
+  static constexpr ConversationEventType ConversationEventType_MAX =
+    ConversationEventPayload_ConversationEventType_ConversationEventType_MAX;
+  static constexpr int ConversationEventType_ARRAYSIZE =
+    ConversationEventPayload_ConversationEventType_ConversationEventType_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  ConversationEventType_descriptor() {
+    return ConversationEventPayload_ConversationEventType_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& ConversationEventType_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, ConversationEventType>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function ConversationEventType_Name.");
+    return ConversationEventPayload_ConversationEventType_Name(enum_t_value);
+  }
+  static inline bool ConversationEventType_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      ConversationEventType* value) {
+    return ConversationEventPayload_ConversationEventType_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kParticipantsFieldNumber = 1,
+    kEventTypeFieldNumber = 2,
+  };
+  // repeated .ai.inworld.packets.Actor participants = 1;
+  int participants_size() const;
+  private:
+  int _internal_participants_size() const;
+  public:
+  void clear_participants();
+  ::ai::inworld::packets::Actor* mutable_participants(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Actor >*
+      mutable_participants();
+  private:
+  const ::ai::inworld::packets::Actor& _internal_participants(int index) const;
+  ::ai::inworld::packets::Actor* _internal_add_participants();
+  public:
+  const ::ai::inworld::packets::Actor& participants(int index) const;
+  ::ai::inworld::packets::Actor* add_participants();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Actor >&
+      participants() const;
+
+  // .ai.inworld.packets.ConversationEventPayload.ConversationEventType event_type = 2;
+  void clear_event_type();
+  ::ai::inworld::packets::ConversationEventPayload_ConversationEventType event_type() const;
+  void set_event_type(::ai::inworld::packets::ConversationEventPayload_ConversationEventType value);
+  private:
+  ::ai::inworld::packets::ConversationEventPayload_ConversationEventType _internal_event_type() const;
+  void _internal_set_event_type(::ai::inworld::packets::ConversationEventPayload_ConversationEventType value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.packets.ConversationEventPayload)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Actor > participants_;
+  int event_type_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fpackets_2fpackets_2eproto;
 };
@@ -10928,6 +12688,404 @@ inline void ControlEvent::set_allocated_payload(PROTOBUF_NAMESPACE_ID::Struct* p
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.ControlEvent.payload)
 }
 
+// .ai.inworld.packets.ConversationUpdatePayload conversation_update = 4;
+inline bool ControlEvent::_internal_has_conversation_update() const {
+  return payload_structured_case() == kConversationUpdate;
+}
+inline bool ControlEvent::has_conversation_update() const {
+  return _internal_has_conversation_update();
+}
+inline void ControlEvent::set_has_conversation_update() {
+  _oneof_case_[0] = kConversationUpdate;
+}
+inline void ControlEvent::clear_conversation_update() {
+  if (_internal_has_conversation_update()) {
+    if (GetArena() == nullptr) {
+      delete payload_structured_.conversation_update_;
+    }
+    clear_has_payload_structured();
+  }
+}
+inline ::ai::inworld::packets::ConversationUpdatePayload* ControlEvent::release_conversation_update() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.ControlEvent.conversation_update)
+  if (_internal_has_conversation_update()) {
+    clear_has_payload_structured();
+      ::ai::inworld::packets::ConversationUpdatePayload* temp = payload_structured_.conversation_update_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    payload_structured_.conversation_update_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::ai::inworld::packets::ConversationUpdatePayload& ControlEvent::_internal_conversation_update() const {
+  return _internal_has_conversation_update()
+      ? *payload_structured_.conversation_update_
+      : reinterpret_cast< ::ai::inworld::packets::ConversationUpdatePayload&>(::ai::inworld::packets::_ConversationUpdatePayload_default_instance_);
+}
+inline const ::ai::inworld::packets::ConversationUpdatePayload& ControlEvent::conversation_update() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.ControlEvent.conversation_update)
+  return _internal_conversation_update();
+}
+inline ::ai::inworld::packets::ConversationUpdatePayload* ControlEvent::unsafe_arena_release_conversation_update() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:ai.inworld.packets.ControlEvent.conversation_update)
+  if (_internal_has_conversation_update()) {
+    clear_has_payload_structured();
+    ::ai::inworld::packets::ConversationUpdatePayload* temp = payload_structured_.conversation_update_;
+    payload_structured_.conversation_update_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void ControlEvent::unsafe_arena_set_allocated_conversation_update(::ai::inworld::packets::ConversationUpdatePayload* conversation_update) {
+  clear_payload_structured();
+  if (conversation_update) {
+    set_has_conversation_update();
+    payload_structured_.conversation_update_ = conversation_update;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.packets.ControlEvent.conversation_update)
+}
+inline ::ai::inworld::packets::ConversationUpdatePayload* ControlEvent::_internal_mutable_conversation_update() {
+  if (!_internal_has_conversation_update()) {
+    clear_payload_structured();
+    set_has_conversation_update();
+    payload_structured_.conversation_update_ = CreateMaybeMessage< ::ai::inworld::packets::ConversationUpdatePayload >(GetArena());
+  }
+  return payload_structured_.conversation_update_;
+}
+inline ::ai::inworld::packets::ConversationUpdatePayload* ControlEvent::mutable_conversation_update() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.ControlEvent.conversation_update)
+  return _internal_mutable_conversation_update();
+}
+
+// .ai.inworld.packets.ConversationEventPayload conversation_event = 5;
+inline bool ControlEvent::_internal_has_conversation_event() const {
+  return payload_structured_case() == kConversationEvent;
+}
+inline bool ControlEvent::has_conversation_event() const {
+  return _internal_has_conversation_event();
+}
+inline void ControlEvent::set_has_conversation_event() {
+  _oneof_case_[0] = kConversationEvent;
+}
+inline void ControlEvent::clear_conversation_event() {
+  if (_internal_has_conversation_event()) {
+    if (GetArena() == nullptr) {
+      delete payload_structured_.conversation_event_;
+    }
+    clear_has_payload_structured();
+  }
+}
+inline ::ai::inworld::packets::ConversationEventPayload* ControlEvent::release_conversation_event() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.ControlEvent.conversation_event)
+  if (_internal_has_conversation_event()) {
+    clear_has_payload_structured();
+      ::ai::inworld::packets::ConversationEventPayload* temp = payload_structured_.conversation_event_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    payload_structured_.conversation_event_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::ai::inworld::packets::ConversationEventPayload& ControlEvent::_internal_conversation_event() const {
+  return _internal_has_conversation_event()
+      ? *payload_structured_.conversation_event_
+      : reinterpret_cast< ::ai::inworld::packets::ConversationEventPayload&>(::ai::inworld::packets::_ConversationEventPayload_default_instance_);
+}
+inline const ::ai::inworld::packets::ConversationEventPayload& ControlEvent::conversation_event() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.ControlEvent.conversation_event)
+  return _internal_conversation_event();
+}
+inline ::ai::inworld::packets::ConversationEventPayload* ControlEvent::unsafe_arena_release_conversation_event() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:ai.inworld.packets.ControlEvent.conversation_event)
+  if (_internal_has_conversation_event()) {
+    clear_has_payload_structured();
+    ::ai::inworld::packets::ConversationEventPayload* temp = payload_structured_.conversation_event_;
+    payload_structured_.conversation_event_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void ControlEvent::unsafe_arena_set_allocated_conversation_event(::ai::inworld::packets::ConversationEventPayload* conversation_event) {
+  clear_payload_structured();
+  if (conversation_event) {
+    set_has_conversation_event();
+    payload_structured_.conversation_event_ = conversation_event;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.packets.ControlEvent.conversation_event)
+}
+inline ::ai::inworld::packets::ConversationEventPayload* ControlEvent::_internal_mutable_conversation_event() {
+  if (!_internal_has_conversation_event()) {
+    clear_payload_structured();
+    set_has_conversation_event();
+    payload_structured_.conversation_event_ = CreateMaybeMessage< ::ai::inworld::packets::ConversationEventPayload >(GetArena());
+  }
+  return payload_structured_.conversation_event_;
+}
+inline ::ai::inworld::packets::ConversationEventPayload* ControlEvent::mutable_conversation_event() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.ControlEvent.conversation_event)
+  return _internal_mutable_conversation_event();
+}
+
+// .ai.inworld.packets.AudioSessionStartPayload audio_session_start = 6;
+inline bool ControlEvent::_internal_has_audio_session_start() const {
+  return payload_structured_case() == kAudioSessionStart;
+}
+inline bool ControlEvent::has_audio_session_start() const {
+  return _internal_has_audio_session_start();
+}
+inline void ControlEvent::set_has_audio_session_start() {
+  _oneof_case_[0] = kAudioSessionStart;
+}
+inline void ControlEvent::clear_audio_session_start() {
+  if (_internal_has_audio_session_start()) {
+    if (GetArena() == nullptr) {
+      delete payload_structured_.audio_session_start_;
+    }
+    clear_has_payload_structured();
+  }
+}
+inline ::ai::inworld::packets::AudioSessionStartPayload* ControlEvent::release_audio_session_start() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.ControlEvent.audio_session_start)
+  if (_internal_has_audio_session_start()) {
+    clear_has_payload_structured();
+      ::ai::inworld::packets::AudioSessionStartPayload* temp = payload_structured_.audio_session_start_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    payload_structured_.audio_session_start_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::ai::inworld::packets::AudioSessionStartPayload& ControlEvent::_internal_audio_session_start() const {
+  return _internal_has_audio_session_start()
+      ? *payload_structured_.audio_session_start_
+      : reinterpret_cast< ::ai::inworld::packets::AudioSessionStartPayload&>(::ai::inworld::packets::_AudioSessionStartPayload_default_instance_);
+}
+inline const ::ai::inworld::packets::AudioSessionStartPayload& ControlEvent::audio_session_start() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.ControlEvent.audio_session_start)
+  return _internal_audio_session_start();
+}
+inline ::ai::inworld::packets::AudioSessionStartPayload* ControlEvent::unsafe_arena_release_audio_session_start() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:ai.inworld.packets.ControlEvent.audio_session_start)
+  if (_internal_has_audio_session_start()) {
+    clear_has_payload_structured();
+    ::ai::inworld::packets::AudioSessionStartPayload* temp = payload_structured_.audio_session_start_;
+    payload_structured_.audio_session_start_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void ControlEvent::unsafe_arena_set_allocated_audio_session_start(::ai::inworld::packets::AudioSessionStartPayload* audio_session_start) {
+  clear_payload_structured();
+  if (audio_session_start) {
+    set_has_audio_session_start();
+    payload_structured_.audio_session_start_ = audio_session_start;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.packets.ControlEvent.audio_session_start)
+}
+inline ::ai::inworld::packets::AudioSessionStartPayload* ControlEvent::_internal_mutable_audio_session_start() {
+  if (!_internal_has_audio_session_start()) {
+    clear_payload_structured();
+    set_has_audio_session_start();
+    payload_structured_.audio_session_start_ = CreateMaybeMessage< ::ai::inworld::packets::AudioSessionStartPayload >(GetArena());
+  }
+  return payload_structured_.audio_session_start_;
+}
+inline ::ai::inworld::packets::AudioSessionStartPayload* ControlEvent::mutable_audio_session_start() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.ControlEvent.audio_session_start)
+  return _internal_mutable_audio_session_start();
+}
+
+// .ai.inworld.packets.CurrentSceneStatus current_scene_status = 7;
+inline bool ControlEvent::_internal_has_current_scene_status() const {
+  return payload_structured_case() == kCurrentSceneStatus;
+}
+inline bool ControlEvent::has_current_scene_status() const {
+  return _internal_has_current_scene_status();
+}
+inline void ControlEvent::set_has_current_scene_status() {
+  _oneof_case_[0] = kCurrentSceneStatus;
+}
+inline void ControlEvent::clear_current_scene_status() {
+  if (_internal_has_current_scene_status()) {
+    if (GetArena() == nullptr) {
+      delete payload_structured_.current_scene_status_;
+    }
+    clear_has_payload_structured();
+  }
+}
+inline ::ai::inworld::packets::CurrentSceneStatus* ControlEvent::release_current_scene_status() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.ControlEvent.current_scene_status)
+  if (_internal_has_current_scene_status()) {
+    clear_has_payload_structured();
+      ::ai::inworld::packets::CurrentSceneStatus* temp = payload_structured_.current_scene_status_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    payload_structured_.current_scene_status_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::ai::inworld::packets::CurrentSceneStatus& ControlEvent::_internal_current_scene_status() const {
+  return _internal_has_current_scene_status()
+      ? *payload_structured_.current_scene_status_
+      : reinterpret_cast< ::ai::inworld::packets::CurrentSceneStatus&>(::ai::inworld::packets::_CurrentSceneStatus_default_instance_);
+}
+inline const ::ai::inworld::packets::CurrentSceneStatus& ControlEvent::current_scene_status() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.ControlEvent.current_scene_status)
+  return _internal_current_scene_status();
+}
+inline ::ai::inworld::packets::CurrentSceneStatus* ControlEvent::unsafe_arena_release_current_scene_status() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:ai.inworld.packets.ControlEvent.current_scene_status)
+  if (_internal_has_current_scene_status()) {
+    clear_has_payload_structured();
+    ::ai::inworld::packets::CurrentSceneStatus* temp = payload_structured_.current_scene_status_;
+    payload_structured_.current_scene_status_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void ControlEvent::unsafe_arena_set_allocated_current_scene_status(::ai::inworld::packets::CurrentSceneStatus* current_scene_status) {
+  clear_payload_structured();
+  if (current_scene_status) {
+    set_has_current_scene_status();
+    payload_structured_.current_scene_status_ = current_scene_status;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.packets.ControlEvent.current_scene_status)
+}
+inline ::ai::inworld::packets::CurrentSceneStatus* ControlEvent::_internal_mutable_current_scene_status() {
+  if (!_internal_has_current_scene_status()) {
+    clear_payload_structured();
+    set_has_current_scene_status();
+    payload_structured_.current_scene_status_ = CreateMaybeMessage< ::ai::inworld::packets::CurrentSceneStatus >(GetArena());
+  }
+  return payload_structured_.current_scene_status_;
+}
+inline ::ai::inworld::packets::CurrentSceneStatus* ControlEvent::mutable_current_scene_status() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.ControlEvent.current_scene_status)
+  return _internal_mutable_current_scene_status();
+}
+
+// .ai.inworld.packets.SessionConfigurationPayload session_configuration = 8;
+inline bool ControlEvent::_internal_has_session_configuration() const {
+  return payload_structured_case() == kSessionConfiguration;
+}
+inline bool ControlEvent::has_session_configuration() const {
+  return _internal_has_session_configuration();
+}
+inline void ControlEvent::set_has_session_configuration() {
+  _oneof_case_[0] = kSessionConfiguration;
+}
+inline void ControlEvent::clear_session_configuration() {
+  if (_internal_has_session_configuration()) {
+    if (GetArena() == nullptr) {
+      delete payload_structured_.session_configuration_;
+    }
+    clear_has_payload_structured();
+  }
+}
+inline ::ai::inworld::packets::SessionConfigurationPayload* ControlEvent::release_session_configuration() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.ControlEvent.session_configuration)
+  if (_internal_has_session_configuration()) {
+    clear_has_payload_structured();
+      ::ai::inworld::packets::SessionConfigurationPayload* temp = payload_structured_.session_configuration_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    payload_structured_.session_configuration_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::ai::inworld::packets::SessionConfigurationPayload& ControlEvent::_internal_session_configuration() const {
+  return _internal_has_session_configuration()
+      ? *payload_structured_.session_configuration_
+      : reinterpret_cast< ::ai::inworld::packets::SessionConfigurationPayload&>(::ai::inworld::packets::_SessionConfigurationPayload_default_instance_);
+}
+inline const ::ai::inworld::packets::SessionConfigurationPayload& ControlEvent::session_configuration() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.ControlEvent.session_configuration)
+  return _internal_session_configuration();
+}
+inline ::ai::inworld::packets::SessionConfigurationPayload* ControlEvent::unsafe_arena_release_session_configuration() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:ai.inworld.packets.ControlEvent.session_configuration)
+  if (_internal_has_session_configuration()) {
+    clear_has_payload_structured();
+    ::ai::inworld::packets::SessionConfigurationPayload* temp = payload_structured_.session_configuration_;
+    payload_structured_.session_configuration_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void ControlEvent::unsafe_arena_set_allocated_session_configuration(::ai::inworld::packets::SessionConfigurationPayload* session_configuration) {
+  clear_payload_structured();
+  if (session_configuration) {
+    set_has_session_configuration();
+    payload_structured_.session_configuration_ = session_configuration;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.packets.ControlEvent.session_configuration)
+}
+inline ::ai::inworld::packets::SessionConfigurationPayload* ControlEvent::_internal_mutable_session_configuration() {
+  if (!_internal_has_session_configuration()) {
+    clear_payload_structured();
+    set_has_session_configuration();
+    payload_structured_.session_configuration_ = CreateMaybeMessage< ::ai::inworld::packets::SessionConfigurationPayload >(GetArena());
+  }
+  return payload_structured_.session_configuration_;
+}
+inline ::ai::inworld::packets::SessionConfigurationPayload* ControlEvent::mutable_session_configuration() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.ControlEvent.session_configuration)
+  return _internal_mutable_session_configuration();
+}
+
+inline bool ControlEvent::has_payload_structured() const {
+  return payload_structured_case() != PAYLOAD_STRUCTURED_NOT_SET;
+}
+inline void ControlEvent::clear_has_payload_structured() {
+  _oneof_case_[0] = PAYLOAD_STRUCTURED_NOT_SET;
+}
+inline ControlEvent::PayloadStructuredCase ControlEvent::payload_structured_case() const {
+  return ControlEvent::PayloadStructuredCase(_oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
+// AudioSessionStartPayload
+
+// .ai.inworld.packets.AudioSessionStartPayload.MicrophoneMode mode = 1;
+inline void AudioSessionStartPayload::clear_mode() {
+  mode_ = 0;
+}
+inline ::ai::inworld::packets::AudioSessionStartPayload_MicrophoneMode AudioSessionStartPayload::_internal_mode() const {
+  return static_cast< ::ai::inworld::packets::AudioSessionStartPayload_MicrophoneMode >(mode_);
+}
+inline ::ai::inworld::packets::AudioSessionStartPayload_MicrophoneMode AudioSessionStartPayload::mode() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.AudioSessionStartPayload.mode)
+  return _internal_mode();
+}
+inline void AudioSessionStartPayload::_internal_set_mode(::ai::inworld::packets::AudioSessionStartPayload_MicrophoneMode value) {
+  
+  mode_ = value;
+}
+inline void AudioSessionStartPayload::set_mode(::ai::inworld::packets::AudioSessionStartPayload_MicrophoneMode value) {
+  _internal_set_mode(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.AudioSessionStartPayload.mode)
+}
+
 // -------------------------------------------------------------------
 
 // AudioChunk
@@ -12855,7 +15013,7 @@ inline MutationEvent::MutationCase MutationEvent::mutation_case() const {
 
 // SessionControlResponseEvent
 
-// .ai.inworld.packets.LoadedScene loaded_scene = 1;
+// .ai.inworld.packets.LoadedScene loaded_scene = 1 [deprecated = true];
 inline bool SessionControlResponseEvent::_internal_has_loaded_scene() const {
   return response_case() == kLoadedScene;
 }
@@ -12928,7 +15086,7 @@ inline ::ai::inworld::packets::LoadedScene* SessionControlResponseEvent::mutable
   return _internal_mutable_loaded_scene();
 }
 
-// .ai.inworld.packets.LoadedCharacters loaded_characters = 2;
+// .ai.inworld.packets.LoadedCharacters loaded_characters = 2 [deprecated = true];
 inline bool SessionControlResponseEvent::_internal_has_loaded_characters() const {
   return response_case() == kLoadedCharacters;
 }
@@ -12999,6 +15157,79 @@ inline ::ai::inworld::packets::LoadedCharacters* SessionControlResponseEvent::_i
 inline ::ai::inworld::packets::LoadedCharacters* SessionControlResponseEvent::mutable_loaded_characters() {
   // @@protoc_insertion_point(field_mutable:ai.inworld.packets.SessionControlResponseEvent.loaded_characters)
   return _internal_mutable_loaded_characters();
+}
+
+// .ai.inworld.packets.SessionHistoryResponse session_history = 3;
+inline bool SessionControlResponseEvent::_internal_has_session_history() const {
+  return response_case() == kSessionHistory;
+}
+inline bool SessionControlResponseEvent::has_session_history() const {
+  return _internal_has_session_history();
+}
+inline void SessionControlResponseEvent::set_has_session_history() {
+  _oneof_case_[0] = kSessionHistory;
+}
+inline void SessionControlResponseEvent::clear_session_history() {
+  if (_internal_has_session_history()) {
+    if (GetArena() == nullptr) {
+      delete response_.session_history_;
+    }
+    clear_has_response();
+  }
+}
+inline ::ai::inworld::packets::SessionHistoryResponse* SessionControlResponseEvent::release_session_history() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.SessionControlResponseEvent.session_history)
+  if (_internal_has_session_history()) {
+    clear_has_response();
+      ::ai::inworld::packets::SessionHistoryResponse* temp = response_.session_history_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    response_.session_history_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::ai::inworld::packets::SessionHistoryResponse& SessionControlResponseEvent::_internal_session_history() const {
+  return _internal_has_session_history()
+      ? *response_.session_history_
+      : reinterpret_cast< ::ai::inworld::packets::SessionHistoryResponse&>(::ai::inworld::packets::_SessionHistoryResponse_default_instance_);
+}
+inline const ::ai::inworld::packets::SessionHistoryResponse& SessionControlResponseEvent::session_history() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.SessionControlResponseEvent.session_history)
+  return _internal_session_history();
+}
+inline ::ai::inworld::packets::SessionHistoryResponse* SessionControlResponseEvent::unsafe_arena_release_session_history() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:ai.inworld.packets.SessionControlResponseEvent.session_history)
+  if (_internal_has_session_history()) {
+    clear_has_response();
+    ::ai::inworld::packets::SessionHistoryResponse* temp = response_.session_history_;
+    response_.session_history_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void SessionControlResponseEvent::unsafe_arena_set_allocated_session_history(::ai::inworld::packets::SessionHistoryResponse* session_history) {
+  clear_response();
+  if (session_history) {
+    set_has_session_history();
+    response_.session_history_ = session_history;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.packets.SessionControlResponseEvent.session_history)
+}
+inline ::ai::inworld::packets::SessionHistoryResponse* SessionControlResponseEvent::_internal_mutable_session_history() {
+  if (!_internal_has_session_history()) {
+    clear_response();
+    set_has_session_history();
+    response_.session_history_ = CreateMaybeMessage< ::ai::inworld::packets::SessionHistoryResponse >(GetArena());
+  }
+  return response_.session_history_;
+}
+inline ::ai::inworld::packets::SessionHistoryResponse* SessionControlResponseEvent::mutable_session_history() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.SessionControlResponseEvent.session_history)
+  return _internal_mutable_session_history();
 }
 
 inline bool SessionControlResponseEvent::has_response() const {
@@ -13409,6 +15640,189 @@ LoadedScene::agents() const {
   return agents_;
 }
 
+// string scene_name = 2;
+inline void LoadedScene::clear_scene_name() {
+  scene_name_.ClearToEmpty();
+}
+inline const std::string& LoadedScene::scene_name() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.LoadedScene.scene_name)
+  return _internal_scene_name();
+}
+inline void LoadedScene::set_scene_name(const std::string& value) {
+  _internal_set_scene_name(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.LoadedScene.scene_name)
+}
+inline std::string* LoadedScene::mutable_scene_name() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.LoadedScene.scene_name)
+  return _internal_mutable_scene_name();
+}
+inline const std::string& LoadedScene::_internal_scene_name() const {
+  return scene_name_.Get();
+}
+inline void LoadedScene::_internal_set_scene_name(const std::string& value) {
+  
+  scene_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void LoadedScene::set_scene_name(std::string&& value) {
+  
+  scene_name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.packets.LoadedScene.scene_name)
+}
+inline void LoadedScene::set_scene_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  scene_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.packets.LoadedScene.scene_name)
+}
+inline void LoadedScene::set_scene_name(const char* value,
+    size_t size) {
+  
+  scene_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.packets.LoadedScene.scene_name)
+}
+inline std::string* LoadedScene::_internal_mutable_scene_name() {
+  
+  return scene_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* LoadedScene::release_scene_name() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.LoadedScene.scene_name)
+  return scene_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void LoadedScene::set_allocated_scene_name(std::string* scene_name) {
+  if (scene_name != nullptr) {
+    
+  } else {
+    
+  }
+  scene_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), scene_name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.LoadedScene.scene_name)
+}
+
+// string scene_description = 3;
+inline void LoadedScene::clear_scene_description() {
+  scene_description_.ClearToEmpty();
+}
+inline const std::string& LoadedScene::scene_description() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.LoadedScene.scene_description)
+  return _internal_scene_description();
+}
+inline void LoadedScene::set_scene_description(const std::string& value) {
+  _internal_set_scene_description(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.LoadedScene.scene_description)
+}
+inline std::string* LoadedScene::mutable_scene_description() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.LoadedScene.scene_description)
+  return _internal_mutable_scene_description();
+}
+inline const std::string& LoadedScene::_internal_scene_description() const {
+  return scene_description_.Get();
+}
+inline void LoadedScene::_internal_set_scene_description(const std::string& value) {
+  
+  scene_description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void LoadedScene::set_scene_description(std::string&& value) {
+  
+  scene_description_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.packets.LoadedScene.scene_description)
+}
+inline void LoadedScene::set_scene_description(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  scene_description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.packets.LoadedScene.scene_description)
+}
+inline void LoadedScene::set_scene_description(const char* value,
+    size_t size) {
+  
+  scene_description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.packets.LoadedScene.scene_description)
+}
+inline std::string* LoadedScene::_internal_mutable_scene_description() {
+  
+  return scene_description_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* LoadedScene::release_scene_description() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.LoadedScene.scene_description)
+  return scene_description_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void LoadedScene::set_allocated_scene_description(std::string* scene_description) {
+  if (scene_description != nullptr) {
+    
+  } else {
+    
+  }
+  scene_description_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), scene_description,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.LoadedScene.scene_description)
+}
+
+// string scene_display_name = 4;
+inline void LoadedScene::clear_scene_display_name() {
+  scene_display_name_.ClearToEmpty();
+}
+inline const std::string& LoadedScene::scene_display_name() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.LoadedScene.scene_display_name)
+  return _internal_scene_display_name();
+}
+inline void LoadedScene::set_scene_display_name(const std::string& value) {
+  _internal_set_scene_display_name(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.LoadedScene.scene_display_name)
+}
+inline std::string* LoadedScene::mutable_scene_display_name() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.LoadedScene.scene_display_name)
+  return _internal_mutable_scene_display_name();
+}
+inline const std::string& LoadedScene::_internal_scene_display_name() const {
+  return scene_display_name_.Get();
+}
+inline void LoadedScene::_internal_set_scene_display_name(const std::string& value) {
+  
+  scene_display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void LoadedScene::set_scene_display_name(std::string&& value) {
+  
+  scene_display_name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.packets.LoadedScene.scene_display_name)
+}
+inline void LoadedScene::set_scene_display_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  scene_display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.packets.LoadedScene.scene_display_name)
+}
+inline void LoadedScene::set_scene_display_name(const char* value,
+    size_t size) {
+  
+  scene_display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.packets.LoadedScene.scene_display_name)
+}
+inline std::string* LoadedScene::_internal_mutable_scene_display_name() {
+  
+  return scene_display_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* LoadedScene::release_scene_display_name() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.LoadedScene.scene_display_name)
+  return scene_display_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void LoadedScene::set_allocated_scene_display_name(std::string* scene_display_name) {
+  if (scene_display_name != nullptr) {
+    
+  } else {
+    
+  }
+  scene_display_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), scene_display_name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.LoadedScene.scene_display_name)
+}
+
 // -------------------------------------------------------------------
 
 // LoadCharacters_CharacterName
@@ -13580,6 +15994,189 @@ LoadedCharacters::agents() const {
   return agents_;
 }
 
+// string scene_name = 2;
+inline void LoadedCharacters::clear_scene_name() {
+  scene_name_.ClearToEmpty();
+}
+inline const std::string& LoadedCharacters::scene_name() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.LoadedCharacters.scene_name)
+  return _internal_scene_name();
+}
+inline void LoadedCharacters::set_scene_name(const std::string& value) {
+  _internal_set_scene_name(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.LoadedCharacters.scene_name)
+}
+inline std::string* LoadedCharacters::mutable_scene_name() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.LoadedCharacters.scene_name)
+  return _internal_mutable_scene_name();
+}
+inline const std::string& LoadedCharacters::_internal_scene_name() const {
+  return scene_name_.Get();
+}
+inline void LoadedCharacters::_internal_set_scene_name(const std::string& value) {
+  
+  scene_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void LoadedCharacters::set_scene_name(std::string&& value) {
+  
+  scene_name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.packets.LoadedCharacters.scene_name)
+}
+inline void LoadedCharacters::set_scene_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  scene_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.packets.LoadedCharacters.scene_name)
+}
+inline void LoadedCharacters::set_scene_name(const char* value,
+    size_t size) {
+  
+  scene_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.packets.LoadedCharacters.scene_name)
+}
+inline std::string* LoadedCharacters::_internal_mutable_scene_name() {
+  
+  return scene_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* LoadedCharacters::release_scene_name() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.LoadedCharacters.scene_name)
+  return scene_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void LoadedCharacters::set_allocated_scene_name(std::string* scene_name) {
+  if (scene_name != nullptr) {
+    
+  } else {
+    
+  }
+  scene_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), scene_name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.LoadedCharacters.scene_name)
+}
+
+// string scene_description = 3;
+inline void LoadedCharacters::clear_scene_description() {
+  scene_description_.ClearToEmpty();
+}
+inline const std::string& LoadedCharacters::scene_description() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.LoadedCharacters.scene_description)
+  return _internal_scene_description();
+}
+inline void LoadedCharacters::set_scene_description(const std::string& value) {
+  _internal_set_scene_description(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.LoadedCharacters.scene_description)
+}
+inline std::string* LoadedCharacters::mutable_scene_description() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.LoadedCharacters.scene_description)
+  return _internal_mutable_scene_description();
+}
+inline const std::string& LoadedCharacters::_internal_scene_description() const {
+  return scene_description_.Get();
+}
+inline void LoadedCharacters::_internal_set_scene_description(const std::string& value) {
+  
+  scene_description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void LoadedCharacters::set_scene_description(std::string&& value) {
+  
+  scene_description_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.packets.LoadedCharacters.scene_description)
+}
+inline void LoadedCharacters::set_scene_description(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  scene_description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.packets.LoadedCharacters.scene_description)
+}
+inline void LoadedCharacters::set_scene_description(const char* value,
+    size_t size) {
+  
+  scene_description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.packets.LoadedCharacters.scene_description)
+}
+inline std::string* LoadedCharacters::_internal_mutable_scene_description() {
+  
+  return scene_description_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* LoadedCharacters::release_scene_description() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.LoadedCharacters.scene_description)
+  return scene_description_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void LoadedCharacters::set_allocated_scene_description(std::string* scene_description) {
+  if (scene_description != nullptr) {
+    
+  } else {
+    
+  }
+  scene_description_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), scene_description,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.LoadedCharacters.scene_description)
+}
+
+// string scene_display_name = 4;
+inline void LoadedCharacters::clear_scene_display_name() {
+  scene_display_name_.ClearToEmpty();
+}
+inline const std::string& LoadedCharacters::scene_display_name() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.LoadedCharacters.scene_display_name)
+  return _internal_scene_display_name();
+}
+inline void LoadedCharacters::set_scene_display_name(const std::string& value) {
+  _internal_set_scene_display_name(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.LoadedCharacters.scene_display_name)
+}
+inline std::string* LoadedCharacters::mutable_scene_display_name() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.LoadedCharacters.scene_display_name)
+  return _internal_mutable_scene_display_name();
+}
+inline const std::string& LoadedCharacters::_internal_scene_display_name() const {
+  return scene_display_name_.Get();
+}
+inline void LoadedCharacters::_internal_set_scene_display_name(const std::string& value) {
+  
+  scene_display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void LoadedCharacters::set_scene_display_name(std::string&& value) {
+  
+  scene_display_name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.packets.LoadedCharacters.scene_display_name)
+}
+inline void LoadedCharacters::set_scene_display_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  scene_display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.packets.LoadedCharacters.scene_display_name)
+}
+inline void LoadedCharacters::set_scene_display_name(const char* value,
+    size_t size) {
+  
+  scene_display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.packets.LoadedCharacters.scene_display_name)
+}
+inline std::string* LoadedCharacters::_internal_mutable_scene_display_name() {
+  
+  return scene_display_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* LoadedCharacters::release_scene_display_name() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.LoadedCharacters.scene_display_name)
+  return scene_display_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void LoadedCharacters::set_allocated_scene_display_name(std::string* scene_display_name) {
+  if (scene_display_name != nullptr) {
+    
+  } else {
+    
+  }
+  scene_display_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), scene_display_name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.LoadedCharacters.scene_display_name)
+}
+
 // -------------------------------------------------------------------
 
 // UnloadCharacters
@@ -13621,6 +16218,232 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::
 UnloadCharacters::agents() const {
   // @@protoc_insertion_point(field_list:ai.inworld.packets.UnloadCharacters.agents)
   return agents_;
+}
+
+// -------------------------------------------------------------------
+
+// CurrentSceneStatus
+
+// repeated .ai.inworld.packets.Agent agents = 1;
+inline int CurrentSceneStatus::_internal_agents_size() const {
+  return agents_.size();
+}
+inline int CurrentSceneStatus::agents_size() const {
+  return _internal_agents_size();
+}
+inline void CurrentSceneStatus::clear_agents() {
+  agents_.Clear();
+}
+inline ::ai::inworld::packets::Agent* CurrentSceneStatus::mutable_agents(int index) {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.CurrentSceneStatus.agents)
+  return agents_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Agent >*
+CurrentSceneStatus::mutable_agents() {
+  // @@protoc_insertion_point(field_mutable_list:ai.inworld.packets.CurrentSceneStatus.agents)
+  return &agents_;
+}
+inline const ::ai::inworld::packets::Agent& CurrentSceneStatus::_internal_agents(int index) const {
+  return agents_.Get(index);
+}
+inline const ::ai::inworld::packets::Agent& CurrentSceneStatus::agents(int index) const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.CurrentSceneStatus.agents)
+  return _internal_agents(index);
+}
+inline ::ai::inworld::packets::Agent* CurrentSceneStatus::_internal_add_agents() {
+  return agents_.Add();
+}
+inline ::ai::inworld::packets::Agent* CurrentSceneStatus::add_agents() {
+  // @@protoc_insertion_point(field_add:ai.inworld.packets.CurrentSceneStatus.agents)
+  return _internal_add_agents();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Agent >&
+CurrentSceneStatus::agents() const {
+  // @@protoc_insertion_point(field_list:ai.inworld.packets.CurrentSceneStatus.agents)
+  return agents_;
+}
+
+// string scene_name = 2;
+inline void CurrentSceneStatus::clear_scene_name() {
+  scene_name_.ClearToEmpty();
+}
+inline const std::string& CurrentSceneStatus::scene_name() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.CurrentSceneStatus.scene_name)
+  return _internal_scene_name();
+}
+inline void CurrentSceneStatus::set_scene_name(const std::string& value) {
+  _internal_set_scene_name(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.CurrentSceneStatus.scene_name)
+}
+inline std::string* CurrentSceneStatus::mutable_scene_name() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.CurrentSceneStatus.scene_name)
+  return _internal_mutable_scene_name();
+}
+inline const std::string& CurrentSceneStatus::_internal_scene_name() const {
+  return scene_name_.Get();
+}
+inline void CurrentSceneStatus::_internal_set_scene_name(const std::string& value) {
+  
+  scene_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CurrentSceneStatus::set_scene_name(std::string&& value) {
+  
+  scene_name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.packets.CurrentSceneStatus.scene_name)
+}
+inline void CurrentSceneStatus::set_scene_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  scene_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.packets.CurrentSceneStatus.scene_name)
+}
+inline void CurrentSceneStatus::set_scene_name(const char* value,
+    size_t size) {
+  
+  scene_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.packets.CurrentSceneStatus.scene_name)
+}
+inline std::string* CurrentSceneStatus::_internal_mutable_scene_name() {
+  
+  return scene_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CurrentSceneStatus::release_scene_name() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.CurrentSceneStatus.scene_name)
+  return scene_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CurrentSceneStatus::set_allocated_scene_name(std::string* scene_name) {
+  if (scene_name != nullptr) {
+    
+  } else {
+    
+  }
+  scene_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), scene_name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.CurrentSceneStatus.scene_name)
+}
+
+// string scene_description = 3;
+inline void CurrentSceneStatus::clear_scene_description() {
+  scene_description_.ClearToEmpty();
+}
+inline const std::string& CurrentSceneStatus::scene_description() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.CurrentSceneStatus.scene_description)
+  return _internal_scene_description();
+}
+inline void CurrentSceneStatus::set_scene_description(const std::string& value) {
+  _internal_set_scene_description(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.CurrentSceneStatus.scene_description)
+}
+inline std::string* CurrentSceneStatus::mutable_scene_description() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.CurrentSceneStatus.scene_description)
+  return _internal_mutable_scene_description();
+}
+inline const std::string& CurrentSceneStatus::_internal_scene_description() const {
+  return scene_description_.Get();
+}
+inline void CurrentSceneStatus::_internal_set_scene_description(const std::string& value) {
+  
+  scene_description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CurrentSceneStatus::set_scene_description(std::string&& value) {
+  
+  scene_description_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.packets.CurrentSceneStatus.scene_description)
+}
+inline void CurrentSceneStatus::set_scene_description(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  scene_description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.packets.CurrentSceneStatus.scene_description)
+}
+inline void CurrentSceneStatus::set_scene_description(const char* value,
+    size_t size) {
+  
+  scene_description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.packets.CurrentSceneStatus.scene_description)
+}
+inline std::string* CurrentSceneStatus::_internal_mutable_scene_description() {
+  
+  return scene_description_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CurrentSceneStatus::release_scene_description() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.CurrentSceneStatus.scene_description)
+  return scene_description_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CurrentSceneStatus::set_allocated_scene_description(std::string* scene_description) {
+  if (scene_description != nullptr) {
+    
+  } else {
+    
+  }
+  scene_description_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), scene_description,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.CurrentSceneStatus.scene_description)
+}
+
+// string scene_display_name = 4;
+inline void CurrentSceneStatus::clear_scene_display_name() {
+  scene_display_name_.ClearToEmpty();
+}
+inline const std::string& CurrentSceneStatus::scene_display_name() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.CurrentSceneStatus.scene_display_name)
+  return _internal_scene_display_name();
+}
+inline void CurrentSceneStatus::set_scene_display_name(const std::string& value) {
+  _internal_set_scene_display_name(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.CurrentSceneStatus.scene_display_name)
+}
+inline std::string* CurrentSceneStatus::mutable_scene_display_name() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.CurrentSceneStatus.scene_display_name)
+  return _internal_mutable_scene_display_name();
+}
+inline const std::string& CurrentSceneStatus::_internal_scene_display_name() const {
+  return scene_display_name_.Get();
+}
+inline void CurrentSceneStatus::_internal_set_scene_display_name(const std::string& value) {
+  
+  scene_display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CurrentSceneStatus::set_scene_display_name(std::string&& value) {
+  
+  scene_display_name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.packets.CurrentSceneStatus.scene_display_name)
+}
+inline void CurrentSceneStatus::set_scene_display_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  scene_display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.packets.CurrentSceneStatus.scene_display_name)
+}
+inline void CurrentSceneStatus::set_scene_display_name(const char* value,
+    size_t size) {
+  
+  scene_display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.packets.CurrentSceneStatus.scene_display_name)
+}
+inline std::string* CurrentSceneStatus::_internal_mutable_scene_display_name() {
+  
+  return scene_display_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CurrentSceneStatus::release_scene_display_name() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.CurrentSceneStatus.scene_display_name)
+  return scene_display_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CurrentSceneStatus::set_allocated_scene_display_name(std::string* scene_display_name) {
+  if (scene_display_name != nullptr) {
+    
+  } else {
+    
+  }
+  scene_display_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), scene_display_name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.CurrentSceneStatus.scene_display_name)
 }
 
 // -------------------------------------------------------------------
@@ -14981,6 +17804,152 @@ inline ::ai::inworld::packets::Continuation* SessionControlEvent::mutable_contin
   return _internal_mutable_continuation();
 }
 
+// .ai.inworld.packets.SessionHistoryRequest session_history_request = 6;
+inline bool SessionControlEvent::_internal_has_session_history_request() const {
+  return session_control_case() == kSessionHistoryRequest;
+}
+inline bool SessionControlEvent::has_session_history_request() const {
+  return _internal_has_session_history_request();
+}
+inline void SessionControlEvent::set_has_session_history_request() {
+  _oneof_case_[0] = kSessionHistoryRequest;
+}
+inline void SessionControlEvent::clear_session_history_request() {
+  if (_internal_has_session_history_request()) {
+    if (GetArena() == nullptr) {
+      delete session_control_.session_history_request_;
+    }
+    clear_has_session_control();
+  }
+}
+inline ::ai::inworld::packets::SessionHistoryRequest* SessionControlEvent::release_session_history_request() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.SessionControlEvent.session_history_request)
+  if (_internal_has_session_history_request()) {
+    clear_has_session_control();
+      ::ai::inworld::packets::SessionHistoryRequest* temp = session_control_.session_history_request_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    session_control_.session_history_request_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::ai::inworld::packets::SessionHistoryRequest& SessionControlEvent::_internal_session_history_request() const {
+  return _internal_has_session_history_request()
+      ? *session_control_.session_history_request_
+      : reinterpret_cast< ::ai::inworld::packets::SessionHistoryRequest&>(::ai::inworld::packets::_SessionHistoryRequest_default_instance_);
+}
+inline const ::ai::inworld::packets::SessionHistoryRequest& SessionControlEvent::session_history_request() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.SessionControlEvent.session_history_request)
+  return _internal_session_history_request();
+}
+inline ::ai::inworld::packets::SessionHistoryRequest* SessionControlEvent::unsafe_arena_release_session_history_request() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:ai.inworld.packets.SessionControlEvent.session_history_request)
+  if (_internal_has_session_history_request()) {
+    clear_has_session_control();
+    ::ai::inworld::packets::SessionHistoryRequest* temp = session_control_.session_history_request_;
+    session_control_.session_history_request_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void SessionControlEvent::unsafe_arena_set_allocated_session_history_request(::ai::inworld::packets::SessionHistoryRequest* session_history_request) {
+  clear_session_control();
+  if (session_history_request) {
+    set_has_session_history_request();
+    session_control_.session_history_request_ = session_history_request;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.packets.SessionControlEvent.session_history_request)
+}
+inline ::ai::inworld::packets::SessionHistoryRequest* SessionControlEvent::_internal_mutable_session_history_request() {
+  if (!_internal_has_session_history_request()) {
+    clear_session_control();
+    set_has_session_history_request();
+    session_control_.session_history_request_ = CreateMaybeMessage< ::ai::inworld::packets::SessionHistoryRequest >(GetArena());
+  }
+  return session_control_.session_history_request_;
+}
+inline ::ai::inworld::packets::SessionHistoryRequest* SessionControlEvent::mutable_session_history_request() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.SessionControlEvent.session_history_request)
+  return _internal_mutable_session_history_request();
+}
+
+// .ai.inworld.packets.SessionConfigurationPayload session_configuration_payload = 7;
+inline bool SessionControlEvent::_internal_has_session_configuration_payload() const {
+  return session_control_case() == kSessionConfigurationPayload;
+}
+inline bool SessionControlEvent::has_session_configuration_payload() const {
+  return _internal_has_session_configuration_payload();
+}
+inline void SessionControlEvent::set_has_session_configuration_payload() {
+  _oneof_case_[0] = kSessionConfigurationPayload;
+}
+inline void SessionControlEvent::clear_session_configuration_payload() {
+  if (_internal_has_session_configuration_payload()) {
+    if (GetArena() == nullptr) {
+      delete session_control_.session_configuration_payload_;
+    }
+    clear_has_session_control();
+  }
+}
+inline ::ai::inworld::packets::SessionConfigurationPayload* SessionControlEvent::release_session_configuration_payload() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.SessionControlEvent.session_configuration_payload)
+  if (_internal_has_session_configuration_payload()) {
+    clear_has_session_control();
+      ::ai::inworld::packets::SessionConfigurationPayload* temp = session_control_.session_configuration_payload_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    session_control_.session_configuration_payload_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::ai::inworld::packets::SessionConfigurationPayload& SessionControlEvent::_internal_session_configuration_payload() const {
+  return _internal_has_session_configuration_payload()
+      ? *session_control_.session_configuration_payload_
+      : reinterpret_cast< ::ai::inworld::packets::SessionConfigurationPayload&>(::ai::inworld::packets::_SessionConfigurationPayload_default_instance_);
+}
+inline const ::ai::inworld::packets::SessionConfigurationPayload& SessionControlEvent::session_configuration_payload() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.SessionControlEvent.session_configuration_payload)
+  return _internal_session_configuration_payload();
+}
+inline ::ai::inworld::packets::SessionConfigurationPayload* SessionControlEvent::unsafe_arena_release_session_configuration_payload() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:ai.inworld.packets.SessionControlEvent.session_configuration_payload)
+  if (_internal_has_session_configuration_payload()) {
+    clear_has_session_control();
+    ::ai::inworld::packets::SessionConfigurationPayload* temp = session_control_.session_configuration_payload_;
+    session_control_.session_configuration_payload_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void SessionControlEvent::unsafe_arena_set_allocated_session_configuration_payload(::ai::inworld::packets::SessionConfigurationPayload* session_configuration_payload) {
+  clear_session_control();
+  if (session_configuration_payload) {
+    set_has_session_configuration_payload();
+    session_control_.session_configuration_payload_ = session_configuration_payload;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.packets.SessionControlEvent.session_configuration_payload)
+}
+inline ::ai::inworld::packets::SessionConfigurationPayload* SessionControlEvent::_internal_mutable_session_configuration_payload() {
+  if (!_internal_has_session_configuration_payload()) {
+    clear_session_control();
+    set_has_session_configuration_payload();
+    session_control_.session_configuration_payload_ = CreateMaybeMessage< ::ai::inworld::packets::SessionConfigurationPayload >(GetArena());
+  }
+  return session_control_.session_configuration_payload_;
+}
+inline ::ai::inworld::packets::SessionConfigurationPayload* SessionControlEvent::mutable_session_configuration_payload() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.SessionControlEvent.session_configuration_payload)
+  return _internal_mutable_session_configuration_payload();
+}
+
 inline bool SessionControlEvent::has_session_control() const {
   return session_control_case() != SESSION_CONTROL_NOT_SET;
 }
@@ -14990,6 +17959,401 @@ inline void SessionControlEvent::clear_has_session_control() {
 inline SessionControlEvent::SessionControlCase SessionControlEvent::session_control_case() const {
   return SessionControlEvent::SessionControlCase(_oneof_case_[0]);
 }
+// -------------------------------------------------------------------
+
+// SessionConfigurationPayload
+
+// .ai.inworld.engine.configuration.SessionConfiguration session_configuration = 1;
+inline bool SessionConfigurationPayload::_internal_has_session_configuration() const {
+  return this != internal_default_instance() && session_configuration_ != nullptr;
+}
+inline bool SessionConfigurationPayload::has_session_configuration() const {
+  return _internal_has_session_configuration();
+}
+inline const ::ai::inworld::engine::configuration::SessionConfiguration& SessionConfigurationPayload::_internal_session_configuration() const {
+  const ::ai::inworld::engine::configuration::SessionConfiguration* p = session_configuration_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ai::inworld::engine::configuration::SessionConfiguration&>(
+      ::ai::inworld::engine::configuration::_SessionConfiguration_default_instance_);
+}
+inline const ::ai::inworld::engine::configuration::SessionConfiguration& SessionConfigurationPayload::session_configuration() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.SessionConfigurationPayload.session_configuration)
+  return _internal_session_configuration();
+}
+inline void SessionConfigurationPayload::unsafe_arena_set_allocated_session_configuration(
+    ::ai::inworld::engine::configuration::SessionConfiguration* session_configuration) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(session_configuration_);
+  }
+  session_configuration_ = session_configuration;
+  if (session_configuration) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.packets.SessionConfigurationPayload.session_configuration)
+}
+inline ::ai::inworld::engine::configuration::SessionConfiguration* SessionConfigurationPayload::release_session_configuration() {
+  
+  ::ai::inworld::engine::configuration::SessionConfiguration* temp = session_configuration_;
+  session_configuration_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::ai::inworld::engine::configuration::SessionConfiguration* SessionConfigurationPayload::unsafe_arena_release_session_configuration() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.SessionConfigurationPayload.session_configuration)
+  
+  ::ai::inworld::engine::configuration::SessionConfiguration* temp = session_configuration_;
+  session_configuration_ = nullptr;
+  return temp;
+}
+inline ::ai::inworld::engine::configuration::SessionConfiguration* SessionConfigurationPayload::_internal_mutable_session_configuration() {
+  
+  if (session_configuration_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ai::inworld::engine::configuration::SessionConfiguration>(GetArena());
+    session_configuration_ = p;
+  }
+  return session_configuration_;
+}
+inline ::ai::inworld::engine::configuration::SessionConfiguration* SessionConfigurationPayload::mutable_session_configuration() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.SessionConfigurationPayload.session_configuration)
+  return _internal_mutable_session_configuration();
+}
+inline void SessionConfigurationPayload::set_allocated_session_configuration(::ai::inworld::engine::configuration::SessionConfiguration* session_configuration) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(session_configuration_);
+  }
+  if (session_configuration) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(session_configuration)->GetArena();
+    if (message_arena != submessage_arena) {
+      session_configuration = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, session_configuration, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  session_configuration_ = session_configuration;
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.SessionConfigurationPayload.session_configuration)
+}
+
+// .ai.inworld.engine.configuration.UserConfiguration user_configuration = 2;
+inline bool SessionConfigurationPayload::_internal_has_user_configuration() const {
+  return this != internal_default_instance() && user_configuration_ != nullptr;
+}
+inline bool SessionConfigurationPayload::has_user_configuration() const {
+  return _internal_has_user_configuration();
+}
+inline const ::ai::inworld::engine::configuration::UserConfiguration& SessionConfigurationPayload::_internal_user_configuration() const {
+  const ::ai::inworld::engine::configuration::UserConfiguration* p = user_configuration_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ai::inworld::engine::configuration::UserConfiguration&>(
+      ::ai::inworld::engine::configuration::_UserConfiguration_default_instance_);
+}
+inline const ::ai::inworld::engine::configuration::UserConfiguration& SessionConfigurationPayload::user_configuration() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.SessionConfigurationPayload.user_configuration)
+  return _internal_user_configuration();
+}
+inline void SessionConfigurationPayload::unsafe_arena_set_allocated_user_configuration(
+    ::ai::inworld::engine::configuration::UserConfiguration* user_configuration) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(user_configuration_);
+  }
+  user_configuration_ = user_configuration;
+  if (user_configuration) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.packets.SessionConfigurationPayload.user_configuration)
+}
+inline ::ai::inworld::engine::configuration::UserConfiguration* SessionConfigurationPayload::release_user_configuration() {
+  
+  ::ai::inworld::engine::configuration::UserConfiguration* temp = user_configuration_;
+  user_configuration_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::ai::inworld::engine::configuration::UserConfiguration* SessionConfigurationPayload::unsafe_arena_release_user_configuration() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.SessionConfigurationPayload.user_configuration)
+  
+  ::ai::inworld::engine::configuration::UserConfiguration* temp = user_configuration_;
+  user_configuration_ = nullptr;
+  return temp;
+}
+inline ::ai::inworld::engine::configuration::UserConfiguration* SessionConfigurationPayload::_internal_mutable_user_configuration() {
+  
+  if (user_configuration_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ai::inworld::engine::configuration::UserConfiguration>(GetArena());
+    user_configuration_ = p;
+  }
+  return user_configuration_;
+}
+inline ::ai::inworld::engine::configuration::UserConfiguration* SessionConfigurationPayload::mutable_user_configuration() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.SessionConfigurationPayload.user_configuration)
+  return _internal_mutable_user_configuration();
+}
+inline void SessionConfigurationPayload::set_allocated_user_configuration(::ai::inworld::engine::configuration::UserConfiguration* user_configuration) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(user_configuration_);
+  }
+  if (user_configuration) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(user_configuration)->GetArena();
+    if (message_arena != submessage_arena) {
+      user_configuration = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, user_configuration, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  user_configuration_ = user_configuration;
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.SessionConfigurationPayload.user_configuration)
+}
+
+// .ai.inworld.engine.configuration.ClientConfiguration client_configuration = 3;
+inline bool SessionConfigurationPayload::_internal_has_client_configuration() const {
+  return this != internal_default_instance() && client_configuration_ != nullptr;
+}
+inline bool SessionConfigurationPayload::has_client_configuration() const {
+  return _internal_has_client_configuration();
+}
+inline const ::ai::inworld::engine::configuration::ClientConfiguration& SessionConfigurationPayload::_internal_client_configuration() const {
+  const ::ai::inworld::engine::configuration::ClientConfiguration* p = client_configuration_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ai::inworld::engine::configuration::ClientConfiguration&>(
+      ::ai::inworld::engine::configuration::_ClientConfiguration_default_instance_);
+}
+inline const ::ai::inworld::engine::configuration::ClientConfiguration& SessionConfigurationPayload::client_configuration() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.SessionConfigurationPayload.client_configuration)
+  return _internal_client_configuration();
+}
+inline void SessionConfigurationPayload::unsafe_arena_set_allocated_client_configuration(
+    ::ai::inworld::engine::configuration::ClientConfiguration* client_configuration) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(client_configuration_);
+  }
+  client_configuration_ = client_configuration;
+  if (client_configuration) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.packets.SessionConfigurationPayload.client_configuration)
+}
+inline ::ai::inworld::engine::configuration::ClientConfiguration* SessionConfigurationPayload::release_client_configuration() {
+  
+  ::ai::inworld::engine::configuration::ClientConfiguration* temp = client_configuration_;
+  client_configuration_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::ai::inworld::engine::configuration::ClientConfiguration* SessionConfigurationPayload::unsafe_arena_release_client_configuration() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.SessionConfigurationPayload.client_configuration)
+  
+  ::ai::inworld::engine::configuration::ClientConfiguration* temp = client_configuration_;
+  client_configuration_ = nullptr;
+  return temp;
+}
+inline ::ai::inworld::engine::configuration::ClientConfiguration* SessionConfigurationPayload::_internal_mutable_client_configuration() {
+  
+  if (client_configuration_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ai::inworld::engine::configuration::ClientConfiguration>(GetArena());
+    client_configuration_ = p;
+  }
+  return client_configuration_;
+}
+inline ::ai::inworld::engine::configuration::ClientConfiguration* SessionConfigurationPayload::mutable_client_configuration() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.SessionConfigurationPayload.client_configuration)
+  return _internal_mutable_client_configuration();
+}
+inline void SessionConfigurationPayload::set_allocated_client_configuration(::ai::inworld::engine::configuration::ClientConfiguration* client_configuration) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(client_configuration_);
+  }
+  if (client_configuration) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(client_configuration)->GetArena();
+    if (message_arena != submessage_arena) {
+      client_configuration = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, client_configuration, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  client_configuration_ = client_configuration;
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.SessionConfigurationPayload.client_configuration)
+}
+
+// .ai.inworld.engine.configuration.CapabilitiesConfiguration capabilities_configuration = 4;
+inline bool SessionConfigurationPayload::_internal_has_capabilities_configuration() const {
+  return this != internal_default_instance() && capabilities_configuration_ != nullptr;
+}
+inline bool SessionConfigurationPayload::has_capabilities_configuration() const {
+  return _internal_has_capabilities_configuration();
+}
+inline const ::ai::inworld::engine::configuration::CapabilitiesConfiguration& SessionConfigurationPayload::_internal_capabilities_configuration() const {
+  const ::ai::inworld::engine::configuration::CapabilitiesConfiguration* p = capabilities_configuration_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ai::inworld::engine::configuration::CapabilitiesConfiguration&>(
+      ::ai::inworld::engine::configuration::_CapabilitiesConfiguration_default_instance_);
+}
+inline const ::ai::inworld::engine::configuration::CapabilitiesConfiguration& SessionConfigurationPayload::capabilities_configuration() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.SessionConfigurationPayload.capabilities_configuration)
+  return _internal_capabilities_configuration();
+}
+inline void SessionConfigurationPayload::unsafe_arena_set_allocated_capabilities_configuration(
+    ::ai::inworld::engine::configuration::CapabilitiesConfiguration* capabilities_configuration) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(capabilities_configuration_);
+  }
+  capabilities_configuration_ = capabilities_configuration;
+  if (capabilities_configuration) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.packets.SessionConfigurationPayload.capabilities_configuration)
+}
+inline ::ai::inworld::engine::configuration::CapabilitiesConfiguration* SessionConfigurationPayload::release_capabilities_configuration() {
+  
+  ::ai::inworld::engine::configuration::CapabilitiesConfiguration* temp = capabilities_configuration_;
+  capabilities_configuration_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::ai::inworld::engine::configuration::CapabilitiesConfiguration* SessionConfigurationPayload::unsafe_arena_release_capabilities_configuration() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.SessionConfigurationPayload.capabilities_configuration)
+  
+  ::ai::inworld::engine::configuration::CapabilitiesConfiguration* temp = capabilities_configuration_;
+  capabilities_configuration_ = nullptr;
+  return temp;
+}
+inline ::ai::inworld::engine::configuration::CapabilitiesConfiguration* SessionConfigurationPayload::_internal_mutable_capabilities_configuration() {
+  
+  if (capabilities_configuration_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ai::inworld::engine::configuration::CapabilitiesConfiguration>(GetArena());
+    capabilities_configuration_ = p;
+  }
+  return capabilities_configuration_;
+}
+inline ::ai::inworld::engine::configuration::CapabilitiesConfiguration* SessionConfigurationPayload::mutable_capabilities_configuration() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.SessionConfigurationPayload.capabilities_configuration)
+  return _internal_mutable_capabilities_configuration();
+}
+inline void SessionConfigurationPayload::set_allocated_capabilities_configuration(::ai::inworld::engine::configuration::CapabilitiesConfiguration* capabilities_configuration) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(capabilities_configuration_);
+  }
+  if (capabilities_configuration) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(capabilities_configuration)->GetArena();
+    if (message_arena != submessage_arena) {
+      capabilities_configuration = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, capabilities_configuration, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  capabilities_configuration_ = capabilities_configuration;
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.SessionConfigurationPayload.capabilities_configuration)
+}
+
+// .ai.inworld.packets.Continuation continuation = 5;
+inline bool SessionConfigurationPayload::_internal_has_continuation() const {
+  return this != internal_default_instance() && continuation_ != nullptr;
+}
+inline bool SessionConfigurationPayload::has_continuation() const {
+  return _internal_has_continuation();
+}
+inline void SessionConfigurationPayload::clear_continuation() {
+  if (GetArena() == nullptr && continuation_ != nullptr) {
+    delete continuation_;
+  }
+  continuation_ = nullptr;
+}
+inline const ::ai::inworld::packets::Continuation& SessionConfigurationPayload::_internal_continuation() const {
+  const ::ai::inworld::packets::Continuation* p = continuation_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ai::inworld::packets::Continuation&>(
+      ::ai::inworld::packets::_Continuation_default_instance_);
+}
+inline const ::ai::inworld::packets::Continuation& SessionConfigurationPayload::continuation() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.SessionConfigurationPayload.continuation)
+  return _internal_continuation();
+}
+inline void SessionConfigurationPayload::unsafe_arena_set_allocated_continuation(
+    ::ai::inworld::packets::Continuation* continuation) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(continuation_);
+  }
+  continuation_ = continuation;
+  if (continuation) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.packets.SessionConfigurationPayload.continuation)
+}
+inline ::ai::inworld::packets::Continuation* SessionConfigurationPayload::release_continuation() {
+  
+  ::ai::inworld::packets::Continuation* temp = continuation_;
+  continuation_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::ai::inworld::packets::Continuation* SessionConfigurationPayload::unsafe_arena_release_continuation() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.SessionConfigurationPayload.continuation)
+  
+  ::ai::inworld::packets::Continuation* temp = continuation_;
+  continuation_ = nullptr;
+  return temp;
+}
+inline ::ai::inworld::packets::Continuation* SessionConfigurationPayload::_internal_mutable_continuation() {
+  
+  if (continuation_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ai::inworld::packets::Continuation>(GetArena());
+    continuation_ = p;
+  }
+  return continuation_;
+}
+inline ::ai::inworld::packets::Continuation* SessionConfigurationPayload::mutable_continuation() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.SessionConfigurationPayload.continuation)
+  return _internal_mutable_continuation();
+}
+inline void SessionConfigurationPayload::set_allocated_continuation(::ai::inworld::packets::Continuation* continuation) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete continuation_;
+  }
+  if (continuation) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(continuation);
+    if (message_arena != submessage_arena) {
+      continuation = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, continuation, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  continuation_ = continuation;
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.SessionConfigurationPayload.continuation)
+}
+
 // -------------------------------------------------------------------
 
 // Audio2FaceAnimationEvent
@@ -15891,9 +19255,304 @@ Relations::relations() const {
   return relations_;
 }
 
+// -------------------------------------------------------------------
+
+// SessionHistoryRequest
+
+// -------------------------------------------------------------------
+
+// SessionHistoryResponse_SessionHistoryItem
+
+// .ai.inworld.packets.Agent agent = 1;
+inline bool SessionHistoryResponse_SessionHistoryItem::_internal_has_agent() const {
+  return this != internal_default_instance() && agent_ != nullptr;
+}
+inline bool SessionHistoryResponse_SessionHistoryItem::has_agent() const {
+  return _internal_has_agent();
+}
+inline void SessionHistoryResponse_SessionHistoryItem::clear_agent() {
+  if (GetArena() == nullptr && agent_ != nullptr) {
+    delete agent_;
+  }
+  agent_ = nullptr;
+}
+inline const ::ai::inworld::packets::Agent& SessionHistoryResponse_SessionHistoryItem::_internal_agent() const {
+  const ::ai::inworld::packets::Agent* p = agent_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ai::inworld::packets::Agent&>(
+      ::ai::inworld::packets::_Agent_default_instance_);
+}
+inline const ::ai::inworld::packets::Agent& SessionHistoryResponse_SessionHistoryItem::agent() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem.agent)
+  return _internal_agent();
+}
+inline void SessionHistoryResponse_SessionHistoryItem::unsafe_arena_set_allocated_agent(
+    ::ai::inworld::packets::Agent* agent) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(agent_);
+  }
+  agent_ = agent;
+  if (agent) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem.agent)
+}
+inline ::ai::inworld::packets::Agent* SessionHistoryResponse_SessionHistoryItem::release_agent() {
+  
+  ::ai::inworld::packets::Agent* temp = agent_;
+  agent_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::ai::inworld::packets::Agent* SessionHistoryResponse_SessionHistoryItem::unsafe_arena_release_agent() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem.agent)
+  
+  ::ai::inworld::packets::Agent* temp = agent_;
+  agent_ = nullptr;
+  return temp;
+}
+inline ::ai::inworld::packets::Agent* SessionHistoryResponse_SessionHistoryItem::_internal_mutable_agent() {
+  
+  if (agent_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ai::inworld::packets::Agent>(GetArena());
+    agent_ = p;
+  }
+  return agent_;
+}
+inline ::ai::inworld::packets::Agent* SessionHistoryResponse_SessionHistoryItem::mutable_agent() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem.agent)
+  return _internal_mutable_agent();
+}
+inline void SessionHistoryResponse_SessionHistoryItem::set_allocated_agent(::ai::inworld::packets::Agent* agent) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete agent_;
+  }
+  if (agent) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(agent);
+    if (message_arena != submessage_arena) {
+      agent = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, agent, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  agent_ = agent;
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem.agent)
+}
+
+// repeated .ai.inworld.packets.InworldPacket packets = 2;
+inline int SessionHistoryResponse_SessionHistoryItem::_internal_packets_size() const {
+  return packets_.size();
+}
+inline int SessionHistoryResponse_SessionHistoryItem::packets_size() const {
+  return _internal_packets_size();
+}
+inline void SessionHistoryResponse_SessionHistoryItem::clear_packets() {
+  packets_.Clear();
+}
+inline ::ai::inworld::packets::InworldPacket* SessionHistoryResponse_SessionHistoryItem::mutable_packets(int index) {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem.packets)
+  return packets_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::InworldPacket >*
+SessionHistoryResponse_SessionHistoryItem::mutable_packets() {
+  // @@protoc_insertion_point(field_mutable_list:ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem.packets)
+  return &packets_;
+}
+inline const ::ai::inworld::packets::InworldPacket& SessionHistoryResponse_SessionHistoryItem::_internal_packets(int index) const {
+  return packets_.Get(index);
+}
+inline const ::ai::inworld::packets::InworldPacket& SessionHistoryResponse_SessionHistoryItem::packets(int index) const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem.packets)
+  return _internal_packets(index);
+}
+inline ::ai::inworld::packets::InworldPacket* SessionHistoryResponse_SessionHistoryItem::_internal_add_packets() {
+  return packets_.Add();
+}
+inline ::ai::inworld::packets::InworldPacket* SessionHistoryResponse_SessionHistoryItem::add_packets() {
+  // @@protoc_insertion_point(field_add:ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem.packets)
+  return _internal_add_packets();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::InworldPacket >&
+SessionHistoryResponse_SessionHistoryItem::packets() const {
+  // @@protoc_insertion_point(field_list:ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem.packets)
+  return packets_;
+}
+
+// -------------------------------------------------------------------
+
+// SessionHistoryResponse
+
+// repeated .ai.inworld.packets.SessionHistoryResponse.SessionHistoryItem session_history_items = 1;
+inline int SessionHistoryResponse::_internal_session_history_items_size() const {
+  return session_history_items_.size();
+}
+inline int SessionHistoryResponse::session_history_items_size() const {
+  return _internal_session_history_items_size();
+}
+inline void SessionHistoryResponse::clear_session_history_items() {
+  session_history_items_.Clear();
+}
+inline ::ai::inworld::packets::SessionHistoryResponse_SessionHistoryItem* SessionHistoryResponse::mutable_session_history_items(int index) {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.SessionHistoryResponse.session_history_items)
+  return session_history_items_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::SessionHistoryResponse_SessionHistoryItem >*
+SessionHistoryResponse::mutable_session_history_items() {
+  // @@protoc_insertion_point(field_mutable_list:ai.inworld.packets.SessionHistoryResponse.session_history_items)
+  return &session_history_items_;
+}
+inline const ::ai::inworld::packets::SessionHistoryResponse_SessionHistoryItem& SessionHistoryResponse::_internal_session_history_items(int index) const {
+  return session_history_items_.Get(index);
+}
+inline const ::ai::inworld::packets::SessionHistoryResponse_SessionHistoryItem& SessionHistoryResponse::session_history_items(int index) const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.SessionHistoryResponse.session_history_items)
+  return _internal_session_history_items(index);
+}
+inline ::ai::inworld::packets::SessionHistoryResponse_SessionHistoryItem* SessionHistoryResponse::_internal_add_session_history_items() {
+  return session_history_items_.Add();
+}
+inline ::ai::inworld::packets::SessionHistoryResponse_SessionHistoryItem* SessionHistoryResponse::add_session_history_items() {
+  // @@protoc_insertion_point(field_add:ai.inworld.packets.SessionHistoryResponse.session_history_items)
+  return _internal_add_session_history_items();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::SessionHistoryResponse_SessionHistoryItem >&
+SessionHistoryResponse::session_history_items() const {
+  // @@protoc_insertion_point(field_list:ai.inworld.packets.SessionHistoryResponse.session_history_items)
+  return session_history_items_;
+}
+
+// -------------------------------------------------------------------
+
+// ConversationUpdatePayload
+
+// repeated .ai.inworld.packets.Actor participants = 1;
+inline int ConversationUpdatePayload::_internal_participants_size() const {
+  return participants_.size();
+}
+inline int ConversationUpdatePayload::participants_size() const {
+  return _internal_participants_size();
+}
+inline void ConversationUpdatePayload::clear_participants() {
+  participants_.Clear();
+}
+inline ::ai::inworld::packets::Actor* ConversationUpdatePayload::mutable_participants(int index) {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.ConversationUpdatePayload.participants)
+  return participants_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Actor >*
+ConversationUpdatePayload::mutable_participants() {
+  // @@protoc_insertion_point(field_mutable_list:ai.inworld.packets.ConversationUpdatePayload.participants)
+  return &participants_;
+}
+inline const ::ai::inworld::packets::Actor& ConversationUpdatePayload::_internal_participants(int index) const {
+  return participants_.Get(index);
+}
+inline const ::ai::inworld::packets::Actor& ConversationUpdatePayload::participants(int index) const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.ConversationUpdatePayload.participants)
+  return _internal_participants(index);
+}
+inline ::ai::inworld::packets::Actor* ConversationUpdatePayload::_internal_add_participants() {
+  return participants_.Add();
+}
+inline ::ai::inworld::packets::Actor* ConversationUpdatePayload::add_participants() {
+  // @@protoc_insertion_point(field_add:ai.inworld.packets.ConversationUpdatePayload.participants)
+  return _internal_add_participants();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Actor >&
+ConversationUpdatePayload::participants() const {
+  // @@protoc_insertion_point(field_list:ai.inworld.packets.ConversationUpdatePayload.participants)
+  return participants_;
+}
+
+// -------------------------------------------------------------------
+
+// ConversationEventPayload
+
+// repeated .ai.inworld.packets.Actor participants = 1;
+inline int ConversationEventPayload::_internal_participants_size() const {
+  return participants_.size();
+}
+inline int ConversationEventPayload::participants_size() const {
+  return _internal_participants_size();
+}
+inline void ConversationEventPayload::clear_participants() {
+  participants_.Clear();
+}
+inline ::ai::inworld::packets::Actor* ConversationEventPayload::mutable_participants(int index) {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.ConversationEventPayload.participants)
+  return participants_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Actor >*
+ConversationEventPayload::mutable_participants() {
+  // @@protoc_insertion_point(field_mutable_list:ai.inworld.packets.ConversationEventPayload.participants)
+  return &participants_;
+}
+inline const ::ai::inworld::packets::Actor& ConversationEventPayload::_internal_participants(int index) const {
+  return participants_.Get(index);
+}
+inline const ::ai::inworld::packets::Actor& ConversationEventPayload::participants(int index) const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.ConversationEventPayload.participants)
+  return _internal_participants(index);
+}
+inline ::ai::inworld::packets::Actor* ConversationEventPayload::_internal_add_participants() {
+  return participants_.Add();
+}
+inline ::ai::inworld::packets::Actor* ConversationEventPayload::add_participants() {
+  // @@protoc_insertion_point(field_add:ai.inworld.packets.ConversationEventPayload.participants)
+  return _internal_add_participants();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::Actor >&
+ConversationEventPayload::participants() const {
+  // @@protoc_insertion_point(field_list:ai.inworld.packets.ConversationEventPayload.participants)
+  return participants_;
+}
+
+// .ai.inworld.packets.ConversationEventPayload.ConversationEventType event_type = 2;
+inline void ConversationEventPayload::clear_event_type() {
+  event_type_ = 0;
+}
+inline ::ai::inworld::packets::ConversationEventPayload_ConversationEventType ConversationEventPayload::_internal_event_type() const {
+  return static_cast< ::ai::inworld::packets::ConversationEventPayload_ConversationEventType >(event_type_);
+}
+inline ::ai::inworld::packets::ConversationEventPayload_ConversationEventType ConversationEventPayload::event_type() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.ConversationEventPayload.event_type)
+  return _internal_event_type();
+}
+inline void ConversationEventPayload::_internal_set_event_type(::ai::inworld::packets::ConversationEventPayload_ConversationEventType value) {
+  
+  event_type_ = value;
+}
+inline void ConversationEventPayload::set_event_type(::ai::inworld::packets::ConversationEventPayload_ConversationEventType value) {
+  _internal_set_event_type(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.ConversationEventPayload.event_type)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -16002,6 +19661,11 @@ template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ai::inworld::packets::ControlEvent_Action>() {
   return ::ai::inworld::packets::ControlEvent_Action_descriptor();
 }
+template <> struct is_proto_enum< ::ai::inworld::packets::AudioSessionStartPayload_MicrophoneMode> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ai::inworld::packets::AudioSessionStartPayload_MicrophoneMode>() {
+  return ::ai::inworld::packets::AudioSessionStartPayload_MicrophoneMode_descriptor();
+}
 template <> struct is_proto_enum< ::ai::inworld::packets::EmotionEvent_SpaffCode> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ai::inworld::packets::EmotionEvent_SpaffCode>() {
@@ -16026,6 +19690,11 @@ template <> struct is_proto_enum< ::ai::inworld::packets::Continuation_Continuat
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ai::inworld::packets::Continuation_ContinuationType>() {
   return ::ai::inworld::packets::Continuation_ContinuationType_descriptor();
+}
+template <> struct is_proto_enum< ::ai::inworld::packets::ConversationEventPayload_ConversationEventType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ai::inworld::packets::ConversationEventPayload_ConversationEventType>() {
+  return ::ai::inworld::packets::ConversationEventPayload_ConversationEventType_descriptor();
 }
 template <> struct is_proto_enum< ::ai::inworld::packets::Playback> : ::std::true_type {};
 template <>

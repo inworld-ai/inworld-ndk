@@ -21,7 +21,7 @@ extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fengine_2fworld_2dengine_2eproto :
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fengine_2fworld_2dengine_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_CapabilitiesRequest_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fengine_2fworld_2dengine_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ClientRequest_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fengine_2fworld_2dengine_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ConversationState_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fengine_2fworld_2dengine_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ConversationState_ConversationSettings_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fengine_2fworld_2dengine_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ConversationState_ConversationSettings_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fengine_2fworld_2dengine_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_LoadSceneResponse_Agent_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fengine_2fworld_2dengine_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_LoadSceneResponse_Agent_CharacterAssets_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fengine_2fworld_2dengine_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_PreviousDialog_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
@@ -34,8 +34,9 @@ extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fengine_2fworld_2dengine_2eproto :
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fengine_2fworld_2dengine_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_UserSettings_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fengine_2fworld_2dengine_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_UserSettings_PlayerProfile_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fengine_2fworld_2dengine_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_UserSettings_PlayerProfile_PlayerField_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Actor_ai_2finworld_2fpackets_2fpackets_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_EmotionEvent_ai_2finworld_2fpackets_2fpackets_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<17> scc_info_InworldPacket_ai_2finworld_2fpackets_2fpackets_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<19> scc_info_InworldPacket_ai_2finworld_2fpackets_2fpackets_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fvoices_2fbase_5fvoice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_BaseVoice_ai_2finworld_2fvoices_2fbase_5fvoice_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fvoices_2fvoices_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_Voice_ai_2finworld_2fvoices_2fvoices_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_google_2fprotobuf_2ftimestamp_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Timestamp_google_2fprotobuf_2ftimestamp_2eproto;
@@ -261,8 +262,9 @@ static void InitDefaultsscc_info_ConversationState_ConversationSettings_ai_2finw
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ConversationState_ConversationSettings_ai_2finworld_2fengine_2fworld_2dengine_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ConversationState_ConversationSettings_ai_2finworld_2fengine_2fworld_2dengine_2eproto}, {}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ConversationState_ConversationSettings_ai_2finworld_2fengine_2fworld_2dengine_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ConversationState_ConversationSettings_ai_2finworld_2fengine_2fworld_2dengine_2eproto}, {
+      &scc_info_Actor_ai_2finworld_2fpackets_2fpackets_2eproto.base,}};
 
 static void InitDefaultsscc_info_GenerateTokenRequest_ai_2finworld_2fengine_2fworld_2dengine_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -779,6 +781,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fengine_2fworld_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::ConversationState_ConversationSettings, conversation_id_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::ConversationState_ConversationSettings, participants_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::ConversationState_ConversationSettings, spectators_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::ConversationState_ConversationSettings, participating_actors_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::ConversationState, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -814,7 +817,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 206, -1, sizeof(::ai::inworld::engine::ActorRelations_Relation)},
   { 213, -1, sizeof(::ai::inworld::engine::ActorRelations)},
   { 220, -1, sizeof(::ai::inworld::engine::ConversationState_ConversationSettings)},
-  { 228, -1, sizeof(::ai::inworld::engine::ConversationState)},
+  { 229, -1, sizeof(::ai::inworld::engine::ConversationState)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -951,69 +954,70 @@ const char descriptor_table_protodef_ai_2finworld_2fengine_2fworld_2dengine_2epr
   "torRelations\022\020\n\010actor_id\030\001 \001(\t\022=\n\trelati"
   "ons\030\002 \003(\0132*.ai.inworld.engine.ActorRelat"
   "ions.Relation\032\'\n\010Relation\022\014\n\004type\030\001 \001(\t\022"
-  "\r\n\005label\030\002 \001(\t\"\307\001\n\021ConversationState\022W\n\024"
+  "\r\n\005label\030\002 \001(\t\"\211\002\n\021ConversationState\022W\n\024"
   "conversationSettings\030\001 \003(\01329.ai.inworld."
   "engine.ConversationState.ConversationSet"
-  "tings\032Y\n\024ConversationSettings\022\027\n\017convers"
-  "ation_id\030\001 \001(\t\022\024\n\014participants\030\002 \003(\t\022\022\n\n"
-  "spectators\030\003 \003(\t*\251\t\n\013VoicePreset\022\034\n\030VOIC"
-  "E_PRESET_UNSPECIFIED\020\000\022\031\n\025VOICE_PRESET_F"
-  "EMALE_1\020\001\022\031\n\025VOICE_PRESET_FEMALE_2\020\002\022\031\n\025"
-  "VOICE_PRESET_FEMALE_3\020\003\022\031\n\025VOICE_PRESET_"
-  "FEMALE_4\020\004\022\031\n\025VOICE_PRESET_FEMALE_5\020\005\022\027\n"
-  "\023VOICE_PRESET_MALE_1\020\006\022\027\n\023VOICE_PRESET_M"
-  "ALE_2\020\007\022\027\n\023VOICE_PRESET_MALE_3\020\010\022\027\n\023VOIC"
-  "E_PRESET_MALE_4\020\t\022\027\n\023VOICE_PRESET_MALE_5"
-  "\020\n\022\037\n\033INWORLD_VOICE_PRESET_MALE_1\020\013\022\037\n\033I"
-  "NWORLD_VOICE_PRESET_MALE_2\020\014\022!\n\035INWORLD_"
-  "VOICE_PRESET_FEMALE_1\020\r\022!\n\035INWORLD_VOICE"
-  "_PRESET_FEMALE_2\020\016\022\037\n\033INWORLD_VOICE_PRES"
-  "ET_MALE_3\020\017\022\037\n\033INWORLD_VOICE_PRESET_MALE"
-  "_4\020\020\022\037\n\033INWORLD_VOICE_PRESET_MALE_5\020\021\022!\n"
-  "\035INWORLD_VOICE_PRESET_FEMALE_3\020\022\022!\n\035INWO"
-  "RLD_VOICE_PRESET_FEMALE_4\020\023\022%\n!INWORLD_V"
-  "OICE_PRESET_ROBOT_MALE_1\020\024\022%\n!INWORLD_VO"
-  "ICE_PRESET_ROBOT_MALE_2\020\025\022%\n!INWORLD_VOI"
-  "CE_PRESET_ROBOT_MALE_3\020\026\022%\n!INWORLD_VOIC"
-  "E_PRESET_ROBOT_MALE_4\020\027\022%\n!INWORLD_VOICE"
-  "_PRESET_ROBOT_MALE_5\020\030\022\'\n#INWORLD_VOICE_"
-  "PRESET_ROBOT_FEMALE_1\020\031\022\'\n#INWORLD_VOICE"
-  "_PRESET_ROBOT_FEMALE_2\020\032\022\'\n#INWORLD_VOIC"
-  "E_PRESET_ROBOT_FEMALE_3\020\033\022\'\n#INWORLD_VOI"
-  "CE_PRESET_ROBOT_FEMALE_4\020\034\022\036\n\032INWORLD_VO"
-  "ICE_PRESET_SPIKE\020\035\022!\n\035INWORLD_VOICE_PRES"
-  "ET_TWILIGHT\020\036\022#\n\037INWORLD_VOICE_PRESET_FL"
-  "UTTERSHY\020\037\022$\n INWORLD_VOICE_PRESET_ROBOT"
-  "_SPIKE\020 \022\'\n#INWORLD_VOICE_PRESET_ROBOT_T"
-  "WILIGHT\020!\022)\n%INWORLD_VOICE_PRESET_ROBOT_"
-  "FLUTTERSHY\020\"2\242\007\n\013WorldEngine\022\177\n\007Session\022"
-  "!.ai.inworld.packets.InworldPacket\032!.ai."
-  "inworld.packets.InworldPacket\"*\202\323\344\223\002$\022\023/"
-  "v1/session/defaultZ\r\022\013/v1/session(\0010\001\022q\n"
-  "\013OpenSession\022!.ai.inworld.packets.Inworl"
-  "dPacket\032!.ai.inworld.packets.InworldPack"
-  "et\"\030\202\323\344\223\002\022\022\020/v1/session/open(\0010\001\022\270\001\n\tLoa"
-  "dScene\022#.ai.inworld.engine.LoadSceneRequ"
-  "est\032$.ai.inworld.engine.LoadSceneRespons"
-  "e\"`\202\323\344\223\002Z\"%/v1/{name=workspaces/*/scenes"
-  "/*}:load:\001*Z.\")/v1/{name=workspaces/*/ch"
-  "aracters/*}:load:\001*\022`\n\010LogError\022\".ai.inw"
-  "orld.engine.LogErrorRequest\032\026.google.pro"
-  "tobuf.Empty\"\030\202\323\344\223\002\022\"\r/v1/log:error:\001*\022}\n"
-  "\014VoicePreview\022&.ai.inworld.engine.VoiceP"
-  "reviewRequest\032\'.ai.inworld.engine.VoiceP"
-  "reviewResponse\"\034\202\323\344\223\002\026\"\021/v1/voice:previe"
-  "w:\001*\022}\n\016ListBaseVoices\022(.ai.inworld.engi"
-  "ne.ListBaseVoicesRequest\032).ai.inworld.en"
-  "gine.ListBaseVoicesResponce\"\026\202\323\344\223\002\020\022\016/v1"
-  "/voice:base\022\203\001\n\rGenerateToken\022\'.ai.inwor"
-  "ld.engine.GenerateTokenRequest\032\036.ai.inwo"
-  "rld.engine.AccessToken\")\202\323\344\223\002#\"\036/auth/v1"
-  "/tokens/token:generate:\001*B\210\001\n\017ai.inworld"
-  ".grpcB\027WorldEngineGrpcProtocolZMgithub.c"
-  "om/inworld-ai/inworld/serving/grpc-gatew"
-  "ay/build/proto/engine/v1alpha\252\002\014Inworld."
-  "Grpcb\006proto3"
+  "tings\032\232\001\n\024ConversationSettings\022\027\n\017conver"
+  "sation_id\030\001 \001(\t\022\030\n\014participants\030\002 \003(\tB\002\030"
+  "\001\022\026\n\nspectators\030\003 \003(\tB\002\030\001\0227\n\024participati"
+  "ng_actors\030\004 \003(\0132\031.ai.inworld.packets.Act"
+  "or*\251\t\n\013VoicePreset\022\034\n\030VOICE_PRESET_UNSPE"
+  "CIFIED\020\000\022\031\n\025VOICE_PRESET_FEMALE_1\020\001\022\031\n\025V"
+  "OICE_PRESET_FEMALE_2\020\002\022\031\n\025VOICE_PRESET_F"
+  "EMALE_3\020\003\022\031\n\025VOICE_PRESET_FEMALE_4\020\004\022\031\n\025"
+  "VOICE_PRESET_FEMALE_5\020\005\022\027\n\023VOICE_PRESET_"
+  "MALE_1\020\006\022\027\n\023VOICE_PRESET_MALE_2\020\007\022\027\n\023VOI"
+  "CE_PRESET_MALE_3\020\010\022\027\n\023VOICE_PRESET_MALE_"
+  "4\020\t\022\027\n\023VOICE_PRESET_MALE_5\020\n\022\037\n\033INWORLD_"
+  "VOICE_PRESET_MALE_1\020\013\022\037\n\033INWORLD_VOICE_P"
+  "RESET_MALE_2\020\014\022!\n\035INWORLD_VOICE_PRESET_F"
+  "EMALE_1\020\r\022!\n\035INWORLD_VOICE_PRESET_FEMALE"
+  "_2\020\016\022\037\n\033INWORLD_VOICE_PRESET_MALE_3\020\017\022\037\n"
+  "\033INWORLD_VOICE_PRESET_MALE_4\020\020\022\037\n\033INWORL"
+  "D_VOICE_PRESET_MALE_5\020\021\022!\n\035INWORLD_VOICE"
+  "_PRESET_FEMALE_3\020\022\022!\n\035INWORLD_VOICE_PRES"
+  "ET_FEMALE_4\020\023\022%\n!INWORLD_VOICE_PRESET_RO"
+  "BOT_MALE_1\020\024\022%\n!INWORLD_VOICE_PRESET_ROB"
+  "OT_MALE_2\020\025\022%\n!INWORLD_VOICE_PRESET_ROBO"
+  "T_MALE_3\020\026\022%\n!INWORLD_VOICE_PRESET_ROBOT"
+  "_MALE_4\020\027\022%\n!INWORLD_VOICE_PRESET_ROBOT_"
+  "MALE_5\020\030\022\'\n#INWORLD_VOICE_PRESET_ROBOT_F"
+  "EMALE_1\020\031\022\'\n#INWORLD_VOICE_PRESET_ROBOT_"
+  "FEMALE_2\020\032\022\'\n#INWORLD_VOICE_PRESET_ROBOT"
+  "_FEMALE_3\020\033\022\'\n#INWORLD_VOICE_PRESET_ROBO"
+  "T_FEMALE_4\020\034\022\036\n\032INWORLD_VOICE_PRESET_SPI"
+  "KE\020\035\022!\n\035INWORLD_VOICE_PRESET_TWILIGHT\020\036\022"
+  "#\n\037INWORLD_VOICE_PRESET_FLUTTERSHY\020\037\022$\n "
+  "INWORLD_VOICE_PRESET_ROBOT_SPIKE\020 \022\'\n#IN"
+  "WORLD_VOICE_PRESET_ROBOT_TWILIGHT\020!\022)\n%I"
+  "NWORLD_VOICE_PRESET_ROBOT_FLUTTERSHY\020\"2\242"
+  "\007\n\013WorldEngine\022\177\n\007Session\022!.ai.inworld.p"
+  "ackets.InworldPacket\032!.ai.inworld.packet"
+  "s.InworldPacket\"*\202\323\344\223\002$\022\023/v1/session/def"
+  "aultZ\r\022\013/v1/session(\0010\001\022q\n\013OpenSession\022!"
+  ".ai.inworld.packets.InworldPacket\032!.ai.i"
+  "nworld.packets.InworldPacket\"\030\202\323\344\223\002\022\022\020/v"
+  "1/session/open(\0010\001\022\270\001\n\tLoadScene\022#.ai.in"
+  "world.engine.LoadSceneRequest\032$.ai.inwor"
+  "ld.engine.LoadSceneResponse\"`\202\323\344\223\002Z\"%/v1"
+  "/{name=workspaces/*/scenes/*}:load:\001*Z.\""
+  ")/v1/{name=workspaces/*/characters/*}:lo"
+  "ad:\001*\022`\n\010LogError\022\".ai.inworld.engine.Lo"
+  "gErrorRequest\032\026.google.protobuf.Empty\"\030\202"
+  "\323\344\223\002\022\"\r/v1/log:error:\001*\022}\n\014VoicePreview\022"
+  "&.ai.inworld.engine.VoicePreviewRequest\032"
+  "\'.ai.inworld.engine.VoicePreviewResponse"
+  "\"\034\202\323\344\223\002\026\"\021/v1/voice:preview:\001*\022}\n\016ListBa"
+  "seVoices\022(.ai.inworld.engine.ListBaseVoi"
+  "cesRequest\032).ai.inworld.engine.ListBaseV"
+  "oicesResponce\"\026\202\323\344\223\002\020\022\016/v1/voice:base\022\203\001"
+  "\n\rGenerateToken\022\'.ai.inworld.engine.Gene"
+  "rateTokenRequest\032\036.ai.inworld.engine.Acc"
+  "essToken\")\202\323\344\223\002#\"\036/auth/v1/tokens/token:"
+  "generate:\001*B\210\001\n\017ai.inworld.grpcB\027WorldEn"
+  "gineGrpcProtocolZMgithub.com/inworld-ai/"
+  "inworld/serving/grpc-gateway/build/proto"
+  "/engine/v1alpha\252\002\014Inworld.Grpcb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto_deps[7] = {
   &::descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto,
@@ -1056,7 +1060,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2fengine_2fworld_2dengine_2eproto, "ai/inworld/engine/world-engine.proto", 6572,
+  false, false, descriptor_table_protodef_ai_2finworld_2fengine_2fworld_2dengine_2eproto, "ai/inworld/engine/world-engine.proto", 6638,
   &descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto_once, descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto_sccs, descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto_deps, 28, 7,
   schemas, file_default_instances, TableStruct_ai_2finworld_2fengine_2fworld_2dengine_2eproto::offsets,
   file_level_metadata_ai_2finworld_2fengine_2fworld_2dengine_2eproto, 28, file_level_enum_descriptors_ai_2finworld_2fengine_2fworld_2dengine_2eproto, file_level_service_descriptors_ai_2finworld_2fengine_2fworld_2dengine_2eproto,
@@ -8602,10 +8606,14 @@ class ConversationState_ConversationSettings::_Internal {
  public:
 };
 
+void ConversationState_ConversationSettings::clear_participating_actors() {
+  participating_actors_.Clear();
+}
 ConversationState_ConversationSettings::ConversationState_ConversationSettings(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
   participants_(arena),
-  spectators_(arena) {
+  spectators_(arena),
+  participating_actors_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.engine.ConversationState.ConversationSettings)
@@ -8613,7 +8621,8 @@ ConversationState_ConversationSettings::ConversationState_ConversationSettings(:
 ConversationState_ConversationSettings::ConversationState_ConversationSettings(const ConversationState_ConversationSettings& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       participants_(from.participants_),
-      spectators_(from.spectators_) {
+      spectators_(from.spectators_),
+      participating_actors_(from.participating_actors_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   conversation_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_conversation_id().empty()) {
@@ -8662,6 +8671,7 @@ void ConversationState_ConversationSettings::Clear() {
 
   participants_.Clear();
   spectators_.Clear();
+  participating_actors_.Clear();
   conversation_id_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -8682,7 +8692,7 @@ const char* ConversationState_ConversationSettings::_InternalParse(const char* p
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated string participants = 2;
+      // repeated string participants = 2 [deprecated = true];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr -= 1;
@@ -8696,7 +8706,7 @@ const char* ConversationState_ConversationSettings::_InternalParse(const char* p
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
         } else goto handle_unusual;
         continue;
-      // repeated string spectators = 3;
+      // repeated string spectators = 3 [deprecated = true];
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr -= 1;
@@ -8708,6 +8718,18 @@ const char* ConversationState_ConversationSettings::_InternalParse(const char* p
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
+        } else goto handle_unusual;
+        continue;
+      // repeated .ai.inworld.packets.Actor participating_actors = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_participating_actors(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
         } else goto handle_unusual;
         continue;
       default: {
@@ -8748,7 +8770,7 @@ failure:
         1, this->_internal_conversation_id(), target);
   }
 
-  // repeated string participants = 2;
+  // repeated string participants = 2 [deprecated = true];
   for (int i = 0, n = this->_internal_participants_size(); i < n; i++) {
     const auto& s = this->_internal_participants(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
@@ -8758,7 +8780,7 @@ failure:
     target = stream->WriteString(2, s, target);
   }
 
-  // repeated string spectators = 3;
+  // repeated string spectators = 3 [deprecated = true];
   for (int i = 0, n = this->_internal_spectators_size(); i < n; i++) {
     const auto& s = this->_internal_spectators(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
@@ -8766,6 +8788,14 @@ failure:
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "ai.inworld.engine.ConversationState.ConversationSettings.spectators");
     target = stream->WriteString(3, s, target);
+  }
+
+  // repeated .ai.inworld.packets.Actor participating_actors = 4;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_participating_actors_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(4, this->_internal_participating_actors(i), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -8784,7 +8814,7 @@ size_t ConversationState_ConversationSettings::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated string participants = 2;
+  // repeated string participants = 2 [deprecated = true];
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(participants_.size());
   for (int i = 0, n = participants_.size(); i < n; i++) {
@@ -8792,12 +8822,19 @@ size_t ConversationState_ConversationSettings::ByteSizeLong() const {
       participants_.Get(i));
   }
 
-  // repeated string spectators = 3;
+  // repeated string spectators = 3 [deprecated = true];
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(spectators_.size());
   for (int i = 0, n = spectators_.size(); i < n; i++) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
       spectators_.Get(i));
+  }
+
+  // repeated .ai.inworld.packets.Actor participating_actors = 4;
+  total_size += 1UL * this->_internal_participating_actors_size();
+  for (const auto& msg : this->participating_actors_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
   // string conversation_id = 1;
@@ -8840,6 +8877,7 @@ void ConversationState_ConversationSettings::MergeFrom(const ConversationState_C
 
   participants_.MergeFrom(from.participants_);
   spectators_.MergeFrom(from.spectators_);
+  participating_actors_.MergeFrom(from.participating_actors_);
   if (from.conversation_id().size() > 0) {
     _internal_set_conversation_id(from._internal_conversation_id());
   }
@@ -8868,6 +8906,7 @@ void ConversationState_ConversationSettings::InternalSwap(ConversationState_Conv
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   participants_.InternalSwap(&other->participants_);
   spectators_.InternalSwap(&other->spectators_);
+  participating_actors_.InternalSwap(&other->participating_actors_);
   conversation_id_.Swap(&other->conversation_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 

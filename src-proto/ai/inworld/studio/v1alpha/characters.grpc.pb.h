@@ -157,13 +157,21 @@ class Characters final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse>> PrepareAsyncCheckDeployInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse>>(PrepareAsyncCheckDeployInfoRaw(context, request, cq));
     }
-    // RPC to create character.
+    // RPC to get character advanced settings.
     virtual ::grpc::Status GetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest& request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>> AsyncGetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>>(AsyncGetCharacterAdvancedSettingsRaw(context, request, cq));
     }
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>> PrepareAsyncGetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>>(PrepareAsyncGetCharacterAdvancedSettingsRaw(context, request, cq));
+    }
+    // RPC to batch get character advanced settings
+    virtual ::grpc::Status BatchGetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest& request, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse>> AsyncBatchGetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse>>(AsyncBatchGetCharacterAdvancedSettingsRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse>> PrepareAsyncBatchGetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse>>(PrepareAsyncBatchGetCharacterAdvancedSettingsRaw(context, request, cq));
     }
     // RPC to update a character advanced settings.
     virtual ::grpc::Status UpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest& request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response) = 0;
@@ -172,6 +180,14 @@ class Characters final {
     }
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>> PrepareAsyncUpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>>(PrepareAsyncUpdateCharacterAdvancedSettingsRaw(context, request, cq));
+    }
+    // RPC to batch get character advanced settings
+    virtual ::grpc::Status BatchUpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest& request, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse>> AsyncBatchUpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse>>(AsyncBatchUpdateCharacterAdvancedSettingsRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse>> PrepareAsyncBatchUpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse>>(PrepareAsyncBatchUpdateCharacterAdvancedSettingsRaw(context, request, cq));
     }
     // RPC to share the character with listed of external ids
     virtual ::grpc::Status ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::google::protobuf_inworld::Empty* response) = 0;
@@ -322,12 +338,19 @@ class Characters final {
       #else
       virtual void CheckDeployInfo(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest* request, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
-      // RPC to create character.
+      // RPC to get character advanced settings.
       virtual void GetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void GetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
       virtual void GetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      // RPC to batch get character advanced settings
+      virtual void BatchGetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void BatchGetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void BatchGetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
       // RPC to update a character advanced settings.
       virtual void UpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, std::function<void(::grpc::Status)>) = 0;
@@ -335,6 +358,13 @@ class Characters final {
       virtual void UpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
       virtual void UpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      // RPC to batch get character advanced settings
+      virtual void BatchUpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void BatchUpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void BatchUpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
       // RPC to share the character with listed of external ids
       virtual void ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) = 0;
@@ -407,8 +437,12 @@ class Characters final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse>* PrepareAsyncCheckDeployInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* AsyncGetCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* PrepareAsyncGetCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse>* AsyncBatchGetCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse>* PrepareAsyncBatchGetCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* AsyncUpdateCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* PrepareAsyncUpdateCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse>* AsyncBatchUpdateCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse>* PrepareAsyncBatchUpdateCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* AsyncShareCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* PrepareAsyncShareCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf_inworld::Empty>* AsyncShareCharacterPortalRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -514,12 +548,26 @@ class Characters final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>> PrepareAsyncGetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>>(PrepareAsyncGetCharacterAdvancedSettingsRaw(context, request, cq));
     }
+    ::grpc::Status BatchGetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest& request, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse>> AsyncBatchGetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse>>(AsyncBatchGetCharacterAdvancedSettingsRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse>> PrepareAsyncBatchGetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse>>(PrepareAsyncBatchGetCharacterAdvancedSettingsRaw(context, request, cq));
+    }
     ::grpc::Status UpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest& request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>> AsyncUpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>>(AsyncUpdateCharacterAdvancedSettingsRaw(context, request, cq));
     }
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>> PrepareAsyncUpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>>(PrepareAsyncUpdateCharacterAdvancedSettingsRaw(context, request, cq));
+    }
+    ::grpc::Status BatchUpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest& request, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse>> AsyncBatchUpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse>>(AsyncBatchUpdateCharacterAdvancedSettingsRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse>> PrepareAsyncBatchUpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse>>(PrepareAsyncBatchUpdateCharacterAdvancedSettingsRaw(context, request, cq));
     }
     ::grpc::Status ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::google::protobuf_inworld::Empty* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>> AsyncShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::grpc::CompletionQueue* cq) {
@@ -637,11 +685,23 @@ class Characters final {
       #else
       void GetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
+      void BatchGetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void BatchGetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void BatchGetCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void UpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void UpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
       void UpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void BatchUpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void BatchUpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void BatchUpdateCharacterAdvancedSettings(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
       void ShareCharacter(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf_inworld::Empty* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -710,8 +770,12 @@ class Characters final {
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse>* PrepareAsyncCheckDeployInfoRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* AsyncGetCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* PrepareAsyncGetCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse>* AsyncBatchGetCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse>* PrepareAsyncBatchGetCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* AsyncUpdateCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* PrepareAsyncUpdateCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse>* AsyncBatchUpdateCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse>* PrepareAsyncBatchUpdateCharacterAdvancedSettingsRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* AsyncShareCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* PrepareAsyncShareCharacterRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf_inworld::Empty>* AsyncShareCharacterPortalRaw(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -735,7 +799,9 @@ class Characters final {
     const ::grpc::internal::RpcMethod rpcmethod_PreviewPromptTemplate_;
     const ::grpc::internal::RpcMethod rpcmethod_CheckDeployInfo_;
     const ::grpc::internal::RpcMethod rpcmethod_GetCharacterAdvancedSettings_;
+    const ::grpc::internal::RpcMethod rpcmethod_BatchGetCharacterAdvancedSettings_;
     const ::grpc::internal::RpcMethod rpcmethod_UpdateCharacterAdvancedSettings_;
+    const ::grpc::internal::RpcMethod rpcmethod_BatchUpdateCharacterAdvancedSettings_;
     const ::grpc::internal::RpcMethod rpcmethod_ShareCharacter_;
     const ::grpc::internal::RpcMethod rpcmethod_ShareCharacterPortal_;
     const ::grpc::internal::RpcMethod rpcmethod_UnshareCharacterPortal_;
@@ -793,10 +859,14 @@ class Characters final {
     // Returns deployment information about character. For now
     // only is fresh or not
     virtual ::grpc::Status CheckDeployInfo(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::CheckDeployInfoRequest* request, ::ai::inworld::studio::v1alpha::CheckDeployInfoResponse* response);
-    // RPC to create character.
+    // RPC to get character advanced settings.
     virtual ::grpc::Status GetCharacterAdvancedSettings(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response);
+    // RPC to batch get character advanced settings
+    virtual ::grpc::Status BatchGetCharacterAdvancedSettings(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse* response);
     // RPC to update a character advanced settings.
     virtual ::grpc::Status UpdateCharacterAdvancedSettings(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* response);
+    // RPC to batch get character advanced settings
+    virtual ::grpc::Status BatchUpdateCharacterAdvancedSettings(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse* response);
     // RPC to share the character with listed of external ids
     virtual ::grpc::Status ShareCharacter(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::google::protobuf_inworld::Empty* response);
     // RPC to share the character with portal users
@@ -1070,12 +1140,32 @@ class Characters final {
     }
   };
   template <class BaseClass>
+  class WithAsyncMethod_BatchGetCharacterAdvancedSettings : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_BatchGetCharacterAdvancedSettings() {
+      ::grpc::Service::MarkMethodAsync(13);
+    }
+    ~WithAsyncMethod_BatchGetCharacterAdvancedSettings() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status BatchGetCharacterAdvancedSettings(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest* /*request*/, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestBatchGetCharacterAdvancedSettings(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest* request, ::grpc::ServerAsyncResponseWriter< ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithAsyncMethod_UpdateCharacterAdvancedSettings : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_UpdateCharacterAdvancedSettings() {
-      ::grpc::Service::MarkMethodAsync(13);
+      ::grpc::Service::MarkMethodAsync(14);
     }
     ~WithAsyncMethod_UpdateCharacterAdvancedSettings() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1086,7 +1176,27 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestUpdateCharacterAdvancedSettings(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* request, ::grpc::ServerAsyncResponseWriter< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(14, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_BatchUpdateCharacterAdvancedSettings : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_BatchUpdateCharacterAdvancedSettings() {
+      ::grpc::Service::MarkMethodAsync(15);
+    }
+    ~WithAsyncMethod_BatchUpdateCharacterAdvancedSettings() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status BatchUpdateCharacterAdvancedSettings(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest* /*request*/, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestBatchUpdateCharacterAdvancedSettings(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest* request, ::grpc::ServerAsyncResponseWriter< ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(15, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1095,7 +1205,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_ShareCharacter() {
-      ::grpc::Service::MarkMethodAsync(14);
+      ::grpc::Service::MarkMethodAsync(16);
     }
     ~WithAsyncMethod_ShareCharacter() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1106,7 +1216,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestShareCharacter(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::ShareCharacterRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf_inworld::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(14, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(16, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1115,7 +1225,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_ShareCharacterPortal() {
-      ::grpc::Service::MarkMethodAsync(15);
+      ::grpc::Service::MarkMethodAsync(17);
     }
     ~WithAsyncMethod_ShareCharacterPortal() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1126,7 +1236,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestShareCharacterPortal(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf_inworld::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(15, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(17, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1135,7 +1245,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_UnshareCharacterPortal() {
-      ::grpc::Service::MarkMethodAsync(16);
+      ::grpc::Service::MarkMethodAsync(18);
     }
     ~WithAsyncMethod_UnshareCharacterPortal() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1146,7 +1256,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestUnshareCharacterPortal(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf_inworld::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(16, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(18, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1155,7 +1265,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_ListSharedCharacters() {
-      ::grpc::Service::MarkMethodAsync(17);
+      ::grpc::Service::MarkMethodAsync(19);
     }
     ~WithAsyncMethod_ListSharedCharacters() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1166,7 +1276,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestListSharedCharacters(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest* request, ::grpc::ServerAsyncResponseWriter< ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(17, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(19, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1175,7 +1285,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_GetCharacterShareInfo() {
-      ::grpc::Service::MarkMethodAsync(18);
+      ::grpc::Service::MarkMethodAsync(20);
     }
     ~WithAsyncMethod_GetCharacterShareInfo() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1186,10 +1296,10 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetCharacterShareInfo(::grpc::ServerContext* context, ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest* request, ::grpc::ServerAsyncResponseWriter< ::ai::inworld::studio::v1alpha::CharacterShareInfo>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(18, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(20, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_DeployCharacter<WithAsyncMethod_CloneCharacter<WithAsyncMethod_DeployCharacterAsynchronously<WithAsyncMethod_GetCharacter<WithAsyncMethod_ListCharacters<WithAsyncMethod_UpdateCharacter<WithAsyncMethod_CreateCharacter<WithAsyncMethod_DeleteCharacter<WithAsyncMethod_ReplaceCharacterRpmModel<WithAsyncMethod_ReplaceCharacterImage<WithAsyncMethod_PreviewPromptTemplate<WithAsyncMethod_CheckDeployInfo<WithAsyncMethod_GetCharacterAdvancedSettings<WithAsyncMethod_UpdateCharacterAdvancedSettings<WithAsyncMethod_ShareCharacter<WithAsyncMethod_ShareCharacterPortal<WithAsyncMethod_UnshareCharacterPortal<WithAsyncMethod_ListSharedCharacters<WithAsyncMethod_GetCharacterShareInfo<Service > > > > > > > > > > > > > > > > > > > AsyncService;
+  typedef WithAsyncMethod_DeployCharacter<WithAsyncMethod_CloneCharacter<WithAsyncMethod_DeployCharacterAsynchronously<WithAsyncMethod_GetCharacter<WithAsyncMethod_ListCharacters<WithAsyncMethod_UpdateCharacter<WithAsyncMethod_CreateCharacter<WithAsyncMethod_DeleteCharacter<WithAsyncMethod_ReplaceCharacterRpmModel<WithAsyncMethod_ReplaceCharacterImage<WithAsyncMethod_PreviewPromptTemplate<WithAsyncMethod_CheckDeployInfo<WithAsyncMethod_GetCharacterAdvancedSettings<WithAsyncMethod_BatchGetCharacterAdvancedSettings<WithAsyncMethod_UpdateCharacterAdvancedSettings<WithAsyncMethod_BatchUpdateCharacterAdvancedSettings<WithAsyncMethod_ShareCharacter<WithAsyncMethod_ShareCharacterPortal<WithAsyncMethod_UnshareCharacterPortal<WithAsyncMethod_ListSharedCharacters<WithAsyncMethod_GetCharacterShareInfo<Service > > > > > > > > > > > > > > > > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_DeployCharacter : public BaseClass {
    private:
@@ -1802,6 +1912,53 @@ class Characters final {
       { return nullptr; }
   };
   template <class BaseClass>
+  class ExperimentalWithCallbackMethod_BatchGetCharacterAdvancedSettings : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_BatchGetCharacterAdvancedSettings() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(13,
+          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse* response) { return this->BatchGetCharacterAdvancedSettings(context, request, response); }));}
+    void SetMessageAllocatorFor_BatchGetCharacterAdvancedSettings(
+        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(13);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(13);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_BatchGetCharacterAdvancedSettings() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status BatchGetCharacterAdvancedSettings(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest* /*request*/, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* BatchGetCharacterAdvancedSettings(
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest* /*request*/, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* BatchGetCharacterAdvancedSettings(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest* /*request*/, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
   class ExperimentalWithCallbackMethod_UpdateCharacterAdvancedSettings : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -1812,7 +1969,7 @@ class Characters final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(13,
+        MarkMethodCallback(14,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1824,9 +1981,9 @@ class Characters final {
     void SetMessageAllocatorFor_UpdateCharacterAdvancedSettings(
         ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(13);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(14);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(13);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(14);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1849,6 +2006,53 @@ class Characters final {
       { return nullptr; }
   };
   template <class BaseClass>
+  class ExperimentalWithCallbackMethod_BatchUpdateCharacterAdvancedSettings : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_BatchUpdateCharacterAdvancedSettings() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(15,
+          new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest* request, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse* response) { return this->BatchUpdateCharacterAdvancedSettings(context, request, response); }));}
+    void SetMessageAllocatorFor_BatchUpdateCharacterAdvancedSettings(
+        ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(15);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(15);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_BatchUpdateCharacterAdvancedSettings() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status BatchUpdateCharacterAdvancedSettings(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest* /*request*/, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* BatchUpdateCharacterAdvancedSettings(
+      ::grpc::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest* /*request*/, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* BatchUpdateCharacterAdvancedSettings(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest* /*request*/, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
   class ExperimentalWithCallbackMethod_ShareCharacter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -1859,7 +2063,7 @@ class Characters final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(14,
+        MarkMethodCallback(16,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf_inworld::Empty>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1871,9 +2075,9 @@ class Characters final {
     void SetMessageAllocatorFor_ShareCharacter(
         ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf_inworld::Empty>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(14);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(16);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(14);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(16);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf_inworld::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1906,7 +2110,7 @@ class Characters final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(15,
+        MarkMethodCallback(17,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf_inworld::Empty>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1918,9 +2122,9 @@ class Characters final {
     void SetMessageAllocatorFor_ShareCharacterPortal(
         ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf_inworld::Empty>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(15);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(17);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(15);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(17);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf_inworld::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -1953,7 +2157,7 @@ class Characters final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(16,
+        MarkMethodCallback(18,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf_inworld::Empty>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1965,9 +2169,9 @@ class Characters final {
     void SetMessageAllocatorFor_UnshareCharacterPortal(
         ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf_inworld::Empty>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(16);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(18);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(16);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(18);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf_inworld::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -2000,7 +2204,7 @@ class Characters final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(17,
+        MarkMethodCallback(19,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -2012,9 +2216,9 @@ class Characters final {
     void SetMessageAllocatorFor_ListSharedCharacters(
         ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(17);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(19);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(17);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(19);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -2047,7 +2251,7 @@ class Characters final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(18,
+        MarkMethodCallback(20,
           new ::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest, ::ai::inworld::studio::v1alpha::CharacterShareInfo>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -2059,9 +2263,9 @@ class Characters final {
     void SetMessageAllocatorFor_GetCharacterShareInfo(
         ::grpc::experimental::MessageAllocator< ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest, ::ai::inworld::studio::v1alpha::CharacterShareInfo>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(18);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(20);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(18);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(20);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest, ::ai::inworld::studio::v1alpha::CharacterShareInfo>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -2084,10 +2288,10 @@ class Characters final {
       { return nullptr; }
   };
   #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_DeployCharacter<ExperimentalWithCallbackMethod_CloneCharacter<ExperimentalWithCallbackMethod_DeployCharacterAsynchronously<ExperimentalWithCallbackMethod_GetCharacter<ExperimentalWithCallbackMethod_ListCharacters<ExperimentalWithCallbackMethod_UpdateCharacter<ExperimentalWithCallbackMethod_CreateCharacter<ExperimentalWithCallbackMethod_DeleteCharacter<ExperimentalWithCallbackMethod_ReplaceCharacterRpmModel<ExperimentalWithCallbackMethod_ReplaceCharacterImage<ExperimentalWithCallbackMethod_PreviewPromptTemplate<ExperimentalWithCallbackMethod_CheckDeployInfo<ExperimentalWithCallbackMethod_GetCharacterAdvancedSettings<ExperimentalWithCallbackMethod_UpdateCharacterAdvancedSettings<ExperimentalWithCallbackMethod_ShareCharacter<ExperimentalWithCallbackMethod_ShareCharacterPortal<ExperimentalWithCallbackMethod_UnshareCharacterPortal<ExperimentalWithCallbackMethod_ListSharedCharacters<ExperimentalWithCallbackMethod_GetCharacterShareInfo<Service > > > > > > > > > > > > > > > > > > > CallbackService;
+  typedef ExperimentalWithCallbackMethod_DeployCharacter<ExperimentalWithCallbackMethod_CloneCharacter<ExperimentalWithCallbackMethod_DeployCharacterAsynchronously<ExperimentalWithCallbackMethod_GetCharacter<ExperimentalWithCallbackMethod_ListCharacters<ExperimentalWithCallbackMethod_UpdateCharacter<ExperimentalWithCallbackMethod_CreateCharacter<ExperimentalWithCallbackMethod_DeleteCharacter<ExperimentalWithCallbackMethod_ReplaceCharacterRpmModel<ExperimentalWithCallbackMethod_ReplaceCharacterImage<ExperimentalWithCallbackMethod_PreviewPromptTemplate<ExperimentalWithCallbackMethod_CheckDeployInfo<ExperimentalWithCallbackMethod_GetCharacterAdvancedSettings<ExperimentalWithCallbackMethod_BatchGetCharacterAdvancedSettings<ExperimentalWithCallbackMethod_UpdateCharacterAdvancedSettings<ExperimentalWithCallbackMethod_BatchUpdateCharacterAdvancedSettings<ExperimentalWithCallbackMethod_ShareCharacter<ExperimentalWithCallbackMethod_ShareCharacterPortal<ExperimentalWithCallbackMethod_UnshareCharacterPortal<ExperimentalWithCallbackMethod_ListSharedCharacters<ExperimentalWithCallbackMethod_GetCharacterShareInfo<Service > > > > > > > > > > > > > > > > > > > > > CallbackService;
   #endif
 
-  typedef ExperimentalWithCallbackMethod_DeployCharacter<ExperimentalWithCallbackMethod_CloneCharacter<ExperimentalWithCallbackMethod_DeployCharacterAsynchronously<ExperimentalWithCallbackMethod_GetCharacter<ExperimentalWithCallbackMethod_ListCharacters<ExperimentalWithCallbackMethod_UpdateCharacter<ExperimentalWithCallbackMethod_CreateCharacter<ExperimentalWithCallbackMethod_DeleteCharacter<ExperimentalWithCallbackMethod_ReplaceCharacterRpmModel<ExperimentalWithCallbackMethod_ReplaceCharacterImage<ExperimentalWithCallbackMethod_PreviewPromptTemplate<ExperimentalWithCallbackMethod_CheckDeployInfo<ExperimentalWithCallbackMethod_GetCharacterAdvancedSettings<ExperimentalWithCallbackMethod_UpdateCharacterAdvancedSettings<ExperimentalWithCallbackMethod_ShareCharacter<ExperimentalWithCallbackMethod_ShareCharacterPortal<ExperimentalWithCallbackMethod_UnshareCharacterPortal<ExperimentalWithCallbackMethod_ListSharedCharacters<ExperimentalWithCallbackMethod_GetCharacterShareInfo<Service > > > > > > > > > > > > > > > > > > > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_DeployCharacter<ExperimentalWithCallbackMethod_CloneCharacter<ExperimentalWithCallbackMethod_DeployCharacterAsynchronously<ExperimentalWithCallbackMethod_GetCharacter<ExperimentalWithCallbackMethod_ListCharacters<ExperimentalWithCallbackMethod_UpdateCharacter<ExperimentalWithCallbackMethod_CreateCharacter<ExperimentalWithCallbackMethod_DeleteCharacter<ExperimentalWithCallbackMethod_ReplaceCharacterRpmModel<ExperimentalWithCallbackMethod_ReplaceCharacterImage<ExperimentalWithCallbackMethod_PreviewPromptTemplate<ExperimentalWithCallbackMethod_CheckDeployInfo<ExperimentalWithCallbackMethod_GetCharacterAdvancedSettings<ExperimentalWithCallbackMethod_BatchGetCharacterAdvancedSettings<ExperimentalWithCallbackMethod_UpdateCharacterAdvancedSettings<ExperimentalWithCallbackMethod_BatchUpdateCharacterAdvancedSettings<ExperimentalWithCallbackMethod_ShareCharacter<ExperimentalWithCallbackMethod_ShareCharacterPortal<ExperimentalWithCallbackMethod_UnshareCharacterPortal<ExperimentalWithCallbackMethod_ListSharedCharacters<ExperimentalWithCallbackMethod_GetCharacterShareInfo<Service > > > > > > > > > > > > > > > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_DeployCharacter : public BaseClass {
    private:
@@ -2310,12 +2514,29 @@ class Characters final {
     }
   };
   template <class BaseClass>
+  class WithGenericMethod_BatchGetCharacterAdvancedSettings : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_BatchGetCharacterAdvancedSettings() {
+      ::grpc::Service::MarkMethodGeneric(13);
+    }
+    ~WithGenericMethod_BatchGetCharacterAdvancedSettings() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status BatchGetCharacterAdvancedSettings(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest* /*request*/, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
   class WithGenericMethod_UpdateCharacterAdvancedSettings : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_UpdateCharacterAdvancedSettings() {
-      ::grpc::Service::MarkMethodGeneric(13);
+      ::grpc::Service::MarkMethodGeneric(14);
     }
     ~WithGenericMethod_UpdateCharacterAdvancedSettings() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2327,12 +2548,29 @@ class Characters final {
     }
   };
   template <class BaseClass>
+  class WithGenericMethod_BatchUpdateCharacterAdvancedSettings : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_BatchUpdateCharacterAdvancedSettings() {
+      ::grpc::Service::MarkMethodGeneric(15);
+    }
+    ~WithGenericMethod_BatchUpdateCharacterAdvancedSettings() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status BatchUpdateCharacterAdvancedSettings(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest* /*request*/, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
   class WithGenericMethod_ShareCharacter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_ShareCharacter() {
-      ::grpc::Service::MarkMethodGeneric(14);
+      ::grpc::Service::MarkMethodGeneric(16);
     }
     ~WithGenericMethod_ShareCharacter() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2349,7 +2587,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_ShareCharacterPortal() {
-      ::grpc::Service::MarkMethodGeneric(15);
+      ::grpc::Service::MarkMethodGeneric(17);
     }
     ~WithGenericMethod_ShareCharacterPortal() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2366,7 +2604,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_UnshareCharacterPortal() {
-      ::grpc::Service::MarkMethodGeneric(16);
+      ::grpc::Service::MarkMethodGeneric(18);
     }
     ~WithGenericMethod_UnshareCharacterPortal() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2383,7 +2621,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_ListSharedCharacters() {
-      ::grpc::Service::MarkMethodGeneric(17);
+      ::grpc::Service::MarkMethodGeneric(19);
     }
     ~WithGenericMethod_ListSharedCharacters() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2400,7 +2638,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_GetCharacterShareInfo() {
-      ::grpc::Service::MarkMethodGeneric(18);
+      ::grpc::Service::MarkMethodGeneric(20);
     }
     ~WithGenericMethod_GetCharacterShareInfo() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2672,12 +2910,32 @@ class Characters final {
     }
   };
   template <class BaseClass>
+  class WithRawMethod_BatchGetCharacterAdvancedSettings : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_BatchGetCharacterAdvancedSettings() {
+      ::grpc::Service::MarkMethodRaw(13);
+    }
+    ~WithRawMethod_BatchGetCharacterAdvancedSettings() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status BatchGetCharacterAdvancedSettings(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest* /*request*/, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestBatchGetCharacterAdvancedSettings(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithRawMethod_UpdateCharacterAdvancedSettings : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_UpdateCharacterAdvancedSettings() {
-      ::grpc::Service::MarkMethodRaw(13);
+      ::grpc::Service::MarkMethodRaw(14);
     }
     ~WithRawMethod_UpdateCharacterAdvancedSettings() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2688,7 +2946,27 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestUpdateCharacterAdvancedSettings(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(14, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_BatchUpdateCharacterAdvancedSettings : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_BatchUpdateCharacterAdvancedSettings() {
+      ::grpc::Service::MarkMethodRaw(15);
+    }
+    ~WithRawMethod_BatchUpdateCharacterAdvancedSettings() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status BatchUpdateCharacterAdvancedSettings(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest* /*request*/, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestBatchUpdateCharacterAdvancedSettings(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(15, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -2697,7 +2975,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_ShareCharacter() {
-      ::grpc::Service::MarkMethodRaw(14);
+      ::grpc::Service::MarkMethodRaw(16);
     }
     ~WithRawMethod_ShareCharacter() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2708,7 +2986,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestShareCharacter(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(14, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(16, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -2717,7 +2995,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_ShareCharacterPortal() {
-      ::grpc::Service::MarkMethodRaw(15);
+      ::grpc::Service::MarkMethodRaw(17);
     }
     ~WithRawMethod_ShareCharacterPortal() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2728,7 +3006,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestShareCharacterPortal(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(15, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(17, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -2737,7 +3015,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_UnshareCharacterPortal() {
-      ::grpc::Service::MarkMethodRaw(16);
+      ::grpc::Service::MarkMethodRaw(18);
     }
     ~WithRawMethod_UnshareCharacterPortal() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2748,7 +3026,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestUnshareCharacterPortal(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(16, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(18, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -2757,7 +3035,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_ListSharedCharacters() {
-      ::grpc::Service::MarkMethodRaw(17);
+      ::grpc::Service::MarkMethodRaw(19);
     }
     ~WithRawMethod_ListSharedCharacters() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2768,7 +3046,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestListSharedCharacters(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(17, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(19, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -2777,7 +3055,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_GetCharacterShareInfo() {
-      ::grpc::Service::MarkMethodRaw(18);
+      ::grpc::Service::MarkMethodRaw(20);
     }
     ~WithRawMethod_GetCharacterShareInfo() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2788,7 +3066,7 @@ class Characters final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetCharacterShareInfo(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(18, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(20, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3286,6 +3564,44 @@ class Characters final {
       { return nullptr; }
   };
   template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_BatchGetCharacterAdvancedSettings : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_BatchGetCharacterAdvancedSettings() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(13,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->BatchGetCharacterAdvancedSettings(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_BatchGetCharacterAdvancedSettings() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status BatchGetCharacterAdvancedSettings(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest* /*request*/, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* BatchGetCharacterAdvancedSettings(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* BatchGetCharacterAdvancedSettings(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_UpdateCharacterAdvancedSettings : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -3296,7 +3612,7 @@ class Characters final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(13,
+        MarkMethodRawCallback(14,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -3324,6 +3640,44 @@ class Characters final {
       { return nullptr; }
   };
   template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_BatchUpdateCharacterAdvancedSettings : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_BatchUpdateCharacterAdvancedSettings() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(15,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->BatchUpdateCharacterAdvancedSettings(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_BatchUpdateCharacterAdvancedSettings() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status BatchUpdateCharacterAdvancedSettings(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest* /*request*/, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* BatchUpdateCharacterAdvancedSettings(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* BatchUpdateCharacterAdvancedSettings(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_ShareCharacter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -3334,7 +3688,7 @@ class Characters final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(14,
+        MarkMethodRawCallback(16,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -3372,7 +3726,7 @@ class Characters final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(15,
+        MarkMethodRawCallback(17,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -3410,7 +3764,7 @@ class Characters final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(16,
+        MarkMethodRawCallback(18,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -3448,7 +3802,7 @@ class Characters final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(17,
+        MarkMethodRawCallback(19,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -3486,7 +3840,7 @@ class Characters final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(18,
+        MarkMethodRawCallback(20,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -3865,12 +4219,39 @@ class Characters final {
     virtual ::grpc::Status StreamedGetCharacterAdvancedSettings(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::GetCharacterAdvancedSettingsRequest,::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
+  class WithStreamedUnaryMethod_BatchGetCharacterAdvancedSettings : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_BatchGetCharacterAdvancedSettings() {
+      ::grpc::Service::MarkMethodStreamed(13,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse>* streamer) {
+                       return this->StreamedBatchGetCharacterAdvancedSettings(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_BatchGetCharacterAdvancedSettings() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status BatchGetCharacterAdvancedSettings(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest* /*request*/, ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedBatchGetCharacterAdvancedSettings(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest,::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_UpdateCharacterAdvancedSettings : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_UpdateCharacterAdvancedSettings() {
-      ::grpc::Service::MarkMethodStreamed(13,
+      ::grpc::Service::MarkMethodStreamed(14,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>(
             [this](::grpc::ServerContext* context,
@@ -3892,12 +4273,39 @@ class Characters final {
     virtual ::grpc::Status StreamedUpdateCharacterAdvancedSettings(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest,::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
+  class WithStreamedUnaryMethod_BatchUpdateCharacterAdvancedSettings : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_BatchUpdateCharacterAdvancedSettings() {
+      ::grpc::Service::MarkMethodStreamed(15,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse>* streamer) {
+                       return this->StreamedBatchUpdateCharacterAdvancedSettings(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_BatchUpdateCharacterAdvancedSettings() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status BatchUpdateCharacterAdvancedSettings(::grpc::ServerContext* /*context*/, const ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest* /*request*/, ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedBatchUpdateCharacterAdvancedSettings(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest,::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_ShareCharacter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_ShareCharacter() {
-      ::grpc::Service::MarkMethodStreamed(14,
+      ::grpc::Service::MarkMethodStreamed(16,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ai::inworld::studio::v1alpha::ShareCharacterRequest, ::google::protobuf_inworld::Empty>(
             [this](::grpc::ServerContext* context,
@@ -3924,7 +4332,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_ShareCharacterPortal() {
-      ::grpc::Service::MarkMethodStreamed(15,
+      ::grpc::Service::MarkMethodStreamed(17,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ai::inworld::studio::v1alpha::ShareCharacterPortalRequest, ::google::protobuf_inworld::Empty>(
             [this](::grpc::ServerContext* context,
@@ -3951,7 +4359,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_UnshareCharacterPortal() {
-      ::grpc::Service::MarkMethodStreamed(16,
+      ::grpc::Service::MarkMethodStreamed(18,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ai::inworld::studio::v1alpha::UnshareCharacterPortalRequest, ::google::protobuf_inworld::Empty>(
             [this](::grpc::ServerContext* context,
@@ -3978,7 +4386,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_ListSharedCharacters() {
-      ::grpc::Service::MarkMethodStreamed(17,
+      ::grpc::Service::MarkMethodStreamed(19,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ai::inworld::studio::v1alpha::ListSharedCharactersRequest, ::ai::inworld::studio::v1alpha::ListSharedCharactersResponse>(
             [this](::grpc::ServerContext* context,
@@ -4005,7 +4413,7 @@ class Characters final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_GetCharacterShareInfo() {
-      ::grpc::Service::MarkMethodStreamed(18,
+      ::grpc::Service::MarkMethodStreamed(20,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest, ::ai::inworld::studio::v1alpha::CharacterShareInfo>(
             [this](::grpc::ServerContext* context,
@@ -4026,9 +4434,9 @@ class Characters final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedGetCharacterShareInfo(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ai::inworld::studio::v1alpha::GetCharacterShareInfoRequest,::ai::inworld::studio::v1alpha::CharacterShareInfo>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_DeployCharacter<WithStreamedUnaryMethod_CloneCharacter<WithStreamedUnaryMethod_DeployCharacterAsynchronously<WithStreamedUnaryMethod_GetCharacter<WithStreamedUnaryMethod_ListCharacters<WithStreamedUnaryMethod_UpdateCharacter<WithStreamedUnaryMethod_CreateCharacter<WithStreamedUnaryMethod_DeleteCharacter<WithStreamedUnaryMethod_ReplaceCharacterRpmModel<WithStreamedUnaryMethod_ReplaceCharacterImage<WithStreamedUnaryMethod_PreviewPromptTemplate<WithStreamedUnaryMethod_CheckDeployInfo<WithStreamedUnaryMethod_GetCharacterAdvancedSettings<WithStreamedUnaryMethod_UpdateCharacterAdvancedSettings<WithStreamedUnaryMethod_ShareCharacter<WithStreamedUnaryMethod_ShareCharacterPortal<WithStreamedUnaryMethod_UnshareCharacterPortal<WithStreamedUnaryMethod_ListSharedCharacters<WithStreamedUnaryMethod_GetCharacterShareInfo<Service > > > > > > > > > > > > > > > > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_DeployCharacter<WithStreamedUnaryMethod_CloneCharacter<WithStreamedUnaryMethod_DeployCharacterAsynchronously<WithStreamedUnaryMethod_GetCharacter<WithStreamedUnaryMethod_ListCharacters<WithStreamedUnaryMethod_UpdateCharacter<WithStreamedUnaryMethod_CreateCharacter<WithStreamedUnaryMethod_DeleteCharacter<WithStreamedUnaryMethod_ReplaceCharacterRpmModel<WithStreamedUnaryMethod_ReplaceCharacterImage<WithStreamedUnaryMethod_PreviewPromptTemplate<WithStreamedUnaryMethod_CheckDeployInfo<WithStreamedUnaryMethod_GetCharacterAdvancedSettings<WithStreamedUnaryMethod_BatchGetCharacterAdvancedSettings<WithStreamedUnaryMethod_UpdateCharacterAdvancedSettings<WithStreamedUnaryMethod_BatchUpdateCharacterAdvancedSettings<WithStreamedUnaryMethod_ShareCharacter<WithStreamedUnaryMethod_ShareCharacterPortal<WithStreamedUnaryMethod_UnshareCharacterPortal<WithStreamedUnaryMethod_ListSharedCharacters<WithStreamedUnaryMethod_GetCharacterShareInfo<Service > > > > > > > > > > > > > > > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_DeployCharacter<WithStreamedUnaryMethod_CloneCharacter<WithStreamedUnaryMethod_DeployCharacterAsynchronously<WithStreamedUnaryMethod_GetCharacter<WithStreamedUnaryMethod_ListCharacters<WithStreamedUnaryMethod_UpdateCharacter<WithStreamedUnaryMethod_CreateCharacter<WithStreamedUnaryMethod_DeleteCharacter<WithStreamedUnaryMethod_ReplaceCharacterRpmModel<WithStreamedUnaryMethod_ReplaceCharacterImage<WithStreamedUnaryMethod_PreviewPromptTemplate<WithStreamedUnaryMethod_CheckDeployInfo<WithStreamedUnaryMethod_GetCharacterAdvancedSettings<WithStreamedUnaryMethod_UpdateCharacterAdvancedSettings<WithStreamedUnaryMethod_ShareCharacter<WithStreamedUnaryMethod_ShareCharacterPortal<WithStreamedUnaryMethod_UnshareCharacterPortal<WithStreamedUnaryMethod_ListSharedCharacters<WithStreamedUnaryMethod_GetCharacterShareInfo<Service > > > > > > > > > > > > > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_DeployCharacter<WithStreamedUnaryMethod_CloneCharacter<WithStreamedUnaryMethod_DeployCharacterAsynchronously<WithStreamedUnaryMethod_GetCharacter<WithStreamedUnaryMethod_ListCharacters<WithStreamedUnaryMethod_UpdateCharacter<WithStreamedUnaryMethod_CreateCharacter<WithStreamedUnaryMethod_DeleteCharacter<WithStreamedUnaryMethod_ReplaceCharacterRpmModel<WithStreamedUnaryMethod_ReplaceCharacterImage<WithStreamedUnaryMethod_PreviewPromptTemplate<WithStreamedUnaryMethod_CheckDeployInfo<WithStreamedUnaryMethod_GetCharacterAdvancedSettings<WithStreamedUnaryMethod_BatchGetCharacterAdvancedSettings<WithStreamedUnaryMethod_UpdateCharacterAdvancedSettings<WithStreamedUnaryMethod_BatchUpdateCharacterAdvancedSettings<WithStreamedUnaryMethod_ShareCharacter<WithStreamedUnaryMethod_ShareCharacterPortal<WithStreamedUnaryMethod_UnshareCharacterPortal<WithStreamedUnaryMethod_ListSharedCharacters<WithStreamedUnaryMethod_GetCharacterShareInfo<Service > > > > > > > > > > > > > > > > > > > > > StreamedService;
 };
 
 }  // namespace v1alpha
