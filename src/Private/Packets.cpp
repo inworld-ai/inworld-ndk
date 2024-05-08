@@ -139,6 +139,7 @@ namespace Inworld {
 	ControlEvent::ControlEvent(const InworldPackets::InworldPacket& GrpcPacket)
 		: Packet(GrpcPacket)
 		, _Action(GrpcPacket.control().action())
+		, _Description(GrpcPacket.control().description())
 	{}
 
 	void ControlEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
