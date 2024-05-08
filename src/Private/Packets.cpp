@@ -145,6 +145,11 @@ namespace Inworld {
 	void ControlEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
     {
         Proto.mutable_control()->set_action(_Action);
+
+		if (_Action == InworldPackets::ControlEvent_Action_AUDIO_SESSION_START && _MicrophoneMode.has_value())
+		{
+			Proto.mutable_control()->mutable_audio_session_start()->set_mode(_MicrophoneMode.value());
+		}
     }
 
 	DataEvent::DataEvent(const InworldPackets::InworldPacket& GrpcPacket)

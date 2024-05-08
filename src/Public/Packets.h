@@ -11,6 +11,7 @@
 #include "Types.h"
 
 #include <vector>
+#include <optional>
 #include <unordered_map>
 #include <chrono>
 
@@ -24,6 +25,7 @@ namespace ai { namespace inworld { namespace packets {
 	enum TextEvent_SourceType : int;
 	enum DataChunk_DataType : int;
 	enum ControlEvent_Action : int;
+	enum AudioSessionStartPayload_MicrophoneMode : int;
 	enum EmotionEvent_SpaffCode : int;
 	enum EmotionEvent_Strength : int;
 	enum Playback : int;
@@ -270,12 +272,16 @@ namespace Inworld {
         InworldPackets::ControlEvent_Action GetControlAction() const { return _Action; }
         const std::string& GetDescription() const { return _Description; }
 
+		void SetMicrophoneMode(InworldPackets::AudioSessionStartPayload_MicrophoneMode MicrophoneMode) { _MicrophoneMode = MicrophoneMode; }
+
     protected:
         virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 
 	private:
 		InworldPackets::ControlEvent_Action _Action;
 		std::string _Description;
+
+		std::optional<InworldPackets::AudioSessionStartPayload_MicrophoneMode> _MicrophoneMode;
     };
 
     class INWORLD_EXPORT ControlEventConversationUpdate : public ControlEvent
