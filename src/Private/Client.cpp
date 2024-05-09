@@ -599,11 +599,11 @@ void Inworld::Client::SaveSessionStateAsync(std::function<void(std::string, bool
 		));
 }
 
-bool Inworld::Client::GetConnectionError(std::string& OutErrorMessage, int32_t& OutErrorCode, ErrorDetails& OutErrorDetails) const
+bool Inworld::Client::GetConnectionError(const std::string*& OutErrorMessage, const int32_t*& OutErrorCode, const ErrorDetails*& OutErrorDetails) const
 {
-	OutErrorMessage = _ErrorMessage;
-	OutErrorCode = _ErrorCode;
-	OutErrorDetails = _ErrorDetails;
+	OutErrorMessage = &_ErrorMessage;
+	OutErrorCode = &_ErrorCode;
+	OutErrorDetails = &_ErrorDetails;
 	return _ErrorCode != grpc::StatusCode::OK;
 }
 

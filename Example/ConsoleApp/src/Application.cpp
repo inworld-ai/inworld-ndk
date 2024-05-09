@@ -457,10 +457,6 @@ void NDKApp::App::Run()
 		{},
 		[this](Inworld::Client::ConnectionState ConnectionState)
 		{
-			std::string Error;
-			int32_t Code;
-			_Client.Client().GetConnectionError(Error, Code);
-
 			std::string State;
 			switch (ConnectionState)
 			{
@@ -489,8 +485,15 @@ void NDKApp::App::Run()
 				State = "Unknown";
 				break;
 			}
-			
-			Inworld::Log("Connection state: %s. %s", State.c_str(), Error.empty() ? "" : (std::string(" Error: ") + Error).c_str());
+
+			const std::string* Error = nullptr;
+			const int32_t* Code = nullptr;
+			const Inworld::ErrorDetails* Details = nullptr;
+			_Client.Client().GetConnectionError(Error, Code, Details);
+			if (Error != nullptr)
+			{
+				Inworld::Log("Connection state: %s. %s", State.c_str(), Error->empty() ? "" : (std::string(" Error: ") + *Error).c_str());
+			}
 
 			if (ConnectionState == Inworld::Client::ConnectionState::Disconnected)
 			{
