@@ -73,6 +73,51 @@ namespace Inworld
 		std::string GameSessionId;
 	};
 
+	struct INWORLD_EXPORT ErrorDetails
+	{
+		ErrorDetails() = default;
+		ErrorDetails(const std::string& data);
+
+		enum class ErrorType : uint8_t
+		{
+			SessionTokenExpired,
+			SessionTokenInvalid,
+			SessionResourcesExhaused,
+			BillingTokensExhausted,
+			AccountDisabled,
+			SessionInvalid,
+			ResourceNotFound,
+			SafetyViolation,
+			SessionExpired
+		};
+		ErrorType Error = ErrorType::SessionTokenExpired;
+
+		enum class ReconnectionType : uint8_t
+		{
+			Undefined,
+			NoRetry,
+			Immediate,
+			Timeout
+		};
+		ReconnectionType Reconnect = ReconnectionType::Undefined;
+
+		int64_t ReconnectTime;
+
+		int32_t MaxRetries = 0;
+
+		struct ResourceNotFoundDetails
+		{
+			std::string Id;
+			enum class ResourceType : uint8_t
+			{
+				Undefined,
+				Conversation,
+			};
+			ResourceType Type;
+		};
+		ResourceNotFoundDetails ResourceNotFoundPayload;
+	};
+
 	// use for client lifecycle
 	class Client;
 	INWORLD_EXPORT void CreateClient();
@@ -157,7 +202,7 @@ namespace Inworld
 		void SetAudioDumpEnabled(bool bEnabled, const std::string& FileName);
 		
 		ConnectionState GetConnectionState() const { return _ConnectionState; }
-		bool GetConnectionError(std::string& OutErrorMessage, int32_t& OutErrorCode) const;
+		bool GetConnectionError(std::string& OutErrorMessage, int32_t& OutErrorCode, ErrorDetails& OutErrorDetails) const;
 
 		void SetPerceivedLatencyTrackerCallback(PerceivedLatencyCallback Cb) { _LatencyTracker.SetCallback(Cb); }
 		void ClearPerceivedLatencyTrackerCallback() { _LatencyTracker.ClearCallback(); }
@@ -219,6 +264,7 @@ namespace Inworld
 		ConnectionState _ConnectionState = ConnectionState::Idle;
 		std::string _ErrorMessage = std::string();
 		int32_t _ErrorCode = 0;
+		ErrorDetails _ErrorDetails;
 
 		AECFilter _EchoFilter;
 		PerceivedLatencyTracker _LatencyTracker;
