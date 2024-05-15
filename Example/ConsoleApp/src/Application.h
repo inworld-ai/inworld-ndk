@@ -35,6 +35,12 @@ namespace NDKApp
 	private:
 		Inworld::SharedQueue<std::function<void()>> _Tasks;
 	};
+
+	struct Conversation
+	{
+		std::string Id;
+		std::vector<std::string> Agents;
+	};
 	
 	class InworldClient
 	{
@@ -63,12 +69,14 @@ namespace NDKApp
 		void Run();
 
 	private:
-		void Error(std::string Msg);
+		void Error(const std::string& Msg);
 
 		void NextCharacter();
 		void PrevCharacter();
-		void SetCharacter(const std::vector<int32_t>& Idxs);
+		void SetCharacter(int32_t Idx);
 		void NotifyCurrentCharacter();
+		
+		std::string GetTargetStr(const Inworld::Routing& Routing);
 
 		virtual void Visit(const Inworld::TextEvent& Event) override;
 		virtual void Visit(const Inworld::DataEvent& Event) override;
@@ -81,10 +89,11 @@ namespace NDKApp
 		virtual void Visit(const Inworld::AudioDataEvent& Event) override;
 		virtual void Visit(const Inworld::SessionControlResponse_LoadScene& Event) override;
 		virtual void Visit(const Inworld::SessionControlResponse_LoadCharacters& Event) override;
+		virtual void Visit(const Inworld::ControlEventConversationUpdate& Event) override;
 		
 		std::string GetGivenName(const std::string& AgentId) const;
 
-		std::vector<std::string> GetCurrentAgentBrains() const;
+		bool GetRouting(Inworld::Routing& Routing);
 
 		Inworld::ClientOptions _Options;
 		CommandLineInterface _Cli;
@@ -92,6 +101,8 @@ namespace NDKApp
 		InworldClient _Client;
 		std::string _SavedSessionState;
 		std::vector<Inworld::AgentInfo> _AgentInfos;
-		std::vector<int32_t> _CurrentAgentIdxs;
+		std::vector<Conversation> _Conversations;
+		int32_t _CurrentAgentIdx = -1;
+		int32_t _CurrentConversationIdx = -1;
 	};
 }

@@ -83,10 +83,10 @@ void Inworld::LogError(const std::string& message)
 	#if defined(INWORLD_LOG_CALLBACK)
 		if (g_LoggerCallback) g_LoggerCallback(message.c_str(), 2);
 #elif defined(ANDROID)
-		const std::string error = Format("%s (SessionId: %s)", ARG_STR(message), ARG_STR(g_SessionId));
+		const std::string error = Format("%s (SessionId: %s)", message.c_str(), g_SessionId.c_str());
 		__android_log_print(ANDROID_LOG_ERROR, "inworld-ndk", "%s", error.c_str());
 #elif defined(INWORLD_LOG_SPD)
-		const std::string error = Format("%s (SessionId: %s)", ARG_STR(message), ARG_STR(g_SessionId));
+		const std::string error = Format("%s (SessionId: %s)", message.c_str(), g_SessionId.c_str());
 		spdlog::error(error);
 	#else
     std::cout << error << std::endl;

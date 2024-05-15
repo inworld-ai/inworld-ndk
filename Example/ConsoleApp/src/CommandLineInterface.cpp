@@ -20,7 +20,7 @@ void NDKApp::CommandLineInterface::SetCommands(const std::vector<ConsoleCommand>
 			{
 				for (auto& Command : _Commands)
 				{
-					Inworld::Log("%s - %s", ARG_STR(Command._Id), ARG_STR(Command._Desc));
+					Inworld::Log("%s - %s", Command._Id.c_str(), Command._Desc.c_str());
 				}
 			}
 		});
@@ -48,7 +48,7 @@ void NDKApp::CommandLineInterface::ExecuteCommands()
 
 		if (CmdName.empty() || CmdName[0] != '/')
 		{
-			Inworld::Log("Invalid command: %s", ARG_STR(CmdName));
+			Inworld::Log("Invalid command: %s", CmdName.c_str());
 			continue;
 		}
 
@@ -63,7 +63,7 @@ void NDKApp::CommandLineInterface::ExecuteCommands()
 
 		if (It == _Commands.end())
 		{
-			Inworld::Log("Invalid command: %s", ARG_STR(CmdName));
+			Inworld::Log("Invalid command: %s", CmdName.c_str());
 			continue;
 		}
 

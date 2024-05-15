@@ -71,7 +71,4 @@ namespace Inworld
 #endif
 	}
 
-	#define ARG_STR(str) str.c_str()
-	#define ARG_CHAR(str) str
-
 }

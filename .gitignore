@@ -35,6 +35,7 @@
 
 .vs/*
 .vscode/*
+.idea/*
 
 !inworld-aec/prebuilt/win64/webrtc_aec_plugin.dll
 !inworld-aec/prebuilt/mac/libwebrtc_aec_plugin.dylib

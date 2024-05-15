@@ -76,6 +76,7 @@ for file_name in [
     "ai/inworld/studio/v1alpha/impression_event_data.proto",
     "ai/inworld/studio/v1alpha/language_code.proto",
     "ai/inworld/studio/v1alpha/workspaces.proto",
+    "ai/inworld/common/status.proto",
 ]:
     generate(proto_path, file_name)
 
@@ -85,6 +86,7 @@ for file_name in [
     "google/api/field_behavior.proto",
     "google/api/http.proto",
     "google/api/resource.proto",
+    "google/api/visibility.proto",
     "google/longrunning/operations.proto",
     "google/rpc/status.proto"
 ]:

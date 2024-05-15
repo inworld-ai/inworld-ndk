@@ -53,14 +53,15 @@ namespace Inworld {
     InworldPackets::Routing Routing::ToProto() const
     {
         InworldPackets::Routing routing;
-        *routing.mutable_source() = _Source.ToProto();
-        *routing.mutable_target() = _Target.ToProto();
-
-        for (auto& T : _Targets)
+        if (_Source._Type != InworldPackets::Actor_Type_UNKNOWN)
         {
-            auto* Actor = routing.add_targets();
-            *Actor = T.ToProto();
+            *routing.mutable_source() = _Source.ToProto();
         }
+        if (_Target._Type != InworldPackets::Actor_Type_UNKNOWN)
+        {
+            *routing.mutable_target() = _Target.ToProto();
+        }
+
         return routing;
     }
 
@@ -68,33 +69,19 @@ namespace Inworld {
 		: _Source(Routing.source())
 		, _Target(Routing.target())
 	{
-        for (uint32_t i = 0; i < Routing.targets_size(); i++)
-        {
-            _Targets.emplace_back(Routing.targets(i));
-        }
 	}
 
 	Routing Routing::Player2Agent(const std::string& AgentId) {
         return { { InworldPackets::Actor_Type_PLAYER, "" }, { InworldPackets::Actor_Type_AGENT, AgentId} };
     }
 
-	Routing Routing::Player2Agents(const std::vector<std::string>& AgentIds)
+	Routing Routing::Player2Conversation(const std::string& ConversationId)
 	{
-        if (AgentIds.size() == 1)
-        {
-            return Player2Agent(AgentIds[0]);
-        }
-
-        std::vector<Actor> Actors;
-        for (auto& Id : AgentIds)
-        {
-            Actors.emplace_back(InworldPackets::Actor_Type_AGENT, Id);
-        }
-        return { { InworldPackets::Actor_Type_PLAYER, "" }, Actors };
+    	return { { InworldPackets::Actor_Type_PLAYER, "" }, ConversationId };
 	}
 
 	PacketId::PacketId(const InworldPackets::PacketId& Other)
-		: PacketId(Other.packet_id().c_str(), Other.utterance_id().c_str(), Other.interaction_id().c_str())
+		: PacketId(Other.packet_id(), Other.utterance_id(), Other.interaction_id())
 	{}
 
 	InworldPackets::PacketId PacketId::ToProto() const
@@ -110,7 +97,9 @@ namespace Inworld {
 		: _PacketId(GrpcPacket.packet_id())
 		, _Routing(GrpcPacket.routing())
 		, _Timestamp(std::chrono::system_clock::time_point(std::chrono::seconds(google::protobuf_inworld::util::TimeUtil::TimestampToTimeT(GrpcPacket.timestamp()))))
-	{}
+    {
+    	_Routing._ConversationId = GrpcPacket.packet_id().conversation_id();
+    }
 
 	InworldPackets::InworldPacket Packet::ToProto() const
     {
@@ -119,6 +108,7 @@ namespace Inworld {
         *Proto.mutable_routing() = _Routing.ToProto();
         *Proto.mutable_timestamp() = 
             ::google::protobuf_inworld::util::TimeUtil::TimeTToTimestamp(std::chrono::duration_cast<std::chrono::seconds>(_Timestamp.time_since_epoch()).count());
+    	*Proto.mutable_packet_id()->mutable_conversation_id() = _Routing._ConversationId;
         ToProtoInternal(Proto);
         return Proto;
     }
@@ -128,7 +118,9 @@ namespace Inworld {
 		, _Text(GrpcPacket.text().text().c_str())
 		, _Final(GrpcPacket.text().final())
 		, _SourceType(GrpcPacket.text().source_type())
-	{}
+    {
+    	
+    }
 
 	TextEvent::TextEvent(const std::string& InText, const Routing& Routing)
 		: Packet(Routing)
@@ -311,8 +303,8 @@ namespace Inworld {
 		Proto.mutable_session_control()->mutable_user_configuration()->set_id(_Data.Id);
 		Proto.mutable_session_control()->mutable_user_configuration()->set_name(_Data.Name);
 
-		Inworld::Log("SessionControlEvent_UserConfiguration User id: %s", ARG_STR(_Data.Id));
-		Inworld::Log("SessionControlEvent_UserConfiguration User name: %s", ARG_STR(_Data.Name));
+		Inworld::Log("SessionControlEvent_UserConfiguration User id: %s", _Data.Id.c_str());
+		Inworld::Log("SessionControlEvent_UserConfiguration User name: %s", _Data.Name.c_str());
 
 		auto* PlayerProfile = Proto.mutable_session_control()->mutable_user_configuration()->mutable_user_settings()->mutable_player_profile();
 		for (const auto& Field : _Data.Profile.Fields)
@@ -331,9 +323,9 @@ namespace Inworld {
         Config->set_version(_Data.Version);
 		Config->set_description(_Data.Description);
 
-		Inworld::Log("SessionControlEvent_ClientConfiguration Client id: %s", ARG_STR(_Data.Id));
-		Inworld::Log("SessionControlEvent_ClientConfiguration Client version: %s", ARG_STR(_Data.Version));
-		Inworld::Log("SessionControlEvent_ClientConfiguration Client description: %s", ARG_STR(_Data.Description));
+		Inworld::Log("SessionControlEvent_ClientConfiguration Client id: %s", _Data.Id.c_str());
+		Inworld::Log("SessionControlEvent_ClientConfiguration Client version: %s", _Data.Version.c_str());
+		Inworld::Log("SessionControlEvent_ClientConfiguration Client description: %s", _Data.Description.c_str());
 	}
 
 	void SessionControlEvent_SessionSave::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
@@ -404,4 +396,48 @@ namespace Inworld {
 		: MutationEvent(Routing{ { InworldPackets::Actor_Type_PLAYER, "" }, { InworldPackets::Actor_Type_WORLD, ""} }) 
 	{}
 
+	ControlEventConversationUpdate::ControlEventConversationUpdate(const InworldPackets::InworldPacket& GrpcPacket)
+		: ControlEvent(GrpcPacket)
+	{
+    	const auto& ConvEvent = GrpcPacket.control().conversation_event();
+    	for (const auto& Participant : ConvEvent.participants())
+		{
+			if (Participant.type() == InworldPackets::Actor_Type_AGENT)
+			{
+				_Agents.push_back(Participant.name());
+			}
+			else if (Participant.type() == InworldPackets::Actor_Type_PLAYER)
+			{
+				_bIncludePlayer = true;
+			}
+		}
+    	_EventType = ConvEvent.event_type();
+	}
+
+	ControlEventConversationUpdate::ControlEventConversationUpdate(const std::string& ConversationId, const std::vector<std::string>& Agents, bool bIncludePlayer)
+		: ControlEvent(InworldPackets::ControlEvent_Action_CONVERSATION_UPDATE, "",
+			Routing::Player2Conversation(ConversationId.empty() ? RandomUUID() : ConversationId))
+		, _Agents(Agents)
+		, _bIncludePlayer(bIncludePlayer)
+	{
+	}
+
+	void ControlEventConversationUpdate::ToProtoInternal(InworldPackets::InworldPacket& Proto) const {
+        ControlEvent::ToProtoInternal(Proto);
+
+        for (const auto& Participant : _Agents)
+        {
+            auto* ParticipantProto = Proto.mutable_control()->mutable_conversation_update()->add_participants();
+            ParticipantProto->set_type(InworldPackets::Actor_Type_AGENT);
+            ParticipantProto->set_name(Participant);
+    		Inworld::Log("ControlEventConversationUpdate::ToProtoInternal. Add character '%s' to conversation '%s'", Participant.c_str(), _Routing._ConversationId.c_str());
+        }
+
+        if (_bIncludePlayer)
+        {
+            auto* ParticipantProto = Proto.mutable_control()->mutable_conversation_update()->add_participants();
+            ParticipantProto->set_type(InworldPackets::Actor_Type_PLAYER);
+    		Inworld::Log("ControlEventConversationUpdate::ToProtoInternal. Add player to conversation '%s'", _Routing._ConversationId.c_str());
+        }
+    }
 }

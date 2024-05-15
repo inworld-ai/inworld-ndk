@@ -27,6 +27,7 @@ namespace ai { namespace inworld { namespace packets {
 	enum EmotionEvent_SpaffCode : int;
 	enum EmotionEvent_Strength : int;
 	enum Playback : int;
+    enum ConversationEventPayload_ConversationEventType : int;
 }}}
 namespace InworldPackets = ai::inworld::packets;
 
@@ -47,7 +48,7 @@ namespace Inworld {
         InworldPackets::Actor ToProto() const;
         
 		// Is Actor player or agent.
-        InworldPackets::Actor_Type _Type;
+        InworldPackets::Actor_Type _Type = static_cast<InworldPackets::Actor_Type>(0);;
         // agent id if this is agent.
         std::string _Name;
 	};
@@ -61,31 +62,31 @@ namespace Inworld {
 			: _Source(Source)
 			, _Target(Target) 
 		{}
-		Routing(const Actor & Source, const std::vector<Actor>& Targets)
+		Routing(const Actor& Source, const std::string& ConversationId) 
 			: _Source(Source)
-			, _Targets(Targets)
+			, _ConversationId(ConversationId) 
 		{}
 
 		static Routing Player2Agent(const std::string& AgentId);
-		static Routing Player2Agents(const std::vector<std::string>& AgentIds);
+		static Routing Player2Conversation(const std::string& ConversationId);
 
         InworldPackets::Routing ToProto() const;
         
 		Actor _Source;
         Actor _Target;
-		std::vector<Actor> _Targets;
+        std::string _ConversationId;
 	};
 
 	struct INWORLD_EXPORT PacketId {
 		// Constructs with all random parameters.
-        PacketId() 
-			: PacketId(RandomUUID(), std::string(RandomUUID()), std::string(RandomUUID())) 
+        PacketId()
+			: PacketId(RandomUUID(), RandomUUID(), RandomUUID())
 		{}
         PacketId(const InworldPackets::PacketId& Other);
 		PacketId(const std::string& UID, const std::string& UtteranceId, const std::string& InteractionId) 
 			: _UID(UID)
 			, _UtteranceId(UtteranceId)
-			, _InteractionId(InteractionId) 
+			, _InteractionId(InteractionId)
 		{}
 
         InworldPackets::PacketId ToProto() const;
@@ -103,6 +104,7 @@ namespace Inworld {
     class AudioDataEvent;
     class SilenceEvent;
     class ControlEvent;
+	class ControlEventConversationUpdate;
     class EmotionEvent;
     class CancelResponseEvent;
     class CustomGestureEvent;
@@ -120,6 +122,7 @@ namespace Inworld {
         virtual void Visit(const AudioDataEvent& Event) {  }
         virtual void Visit(const SilenceEvent& Event) {  }
         virtual void Visit(const ControlEvent& Event) {  }
+        virtual void Visit(const ControlEventConversationUpdate& Event) {  }
         virtual void Visit(const EmotionEvent& Event) {  }
         virtual void Visit(const CancelResponseEvent& Event) {  }
         virtual void Visit(const CustomGestureEvent& Event) {  }
@@ -163,7 +166,7 @@ namespace Inworld {
 	public:
 		TextEvent() = default;
         TextEvent(const InworldPackets::InworldPacket& GrpcPacket);
-        TextEvent(const std::string& InText, const Routing& Routing);
+        TextEvent(const std::string& Text, const Routing& Routing);
 
 		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
 
@@ -273,6 +276,28 @@ namespace Inworld {
 	private:
 		InworldPackets::ControlEvent_Action _Action;
 		std::string _Description;
+    };
+
+    class INWORLD_EXPORT ControlEventConversationUpdate : public ControlEvent
+    {
+    public:
+        ControlEventConversationUpdate() = default;
+        ControlEventConversationUpdate(const InworldPackets::InworldPacket& GrpcPacket);
+    	ControlEventConversationUpdate(const std::string& ConversationId, const std::vector<std::string>& Agents, bool bIncludePlayer);
+
+        virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
+
+    	InworldPackets::ConversationEventPayload_ConversationEventType GetType() const { return _EventType; }
+    	const std::vector<std::string>& GetAgents() const { return _Agents; }
+    	bool GetIncludePlayer() const { return _bIncludePlayer; }
+
+    protected:
+        virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
+
+    private:
+        std::vector<std::string> _Agents;
+        bool _bIncludePlayer;
+        InworldPackets::ConversationEventPayload_ConversationEventType _EventType;
     };
 
     class INWORLD_EXPORT EmotionEvent : public Packet

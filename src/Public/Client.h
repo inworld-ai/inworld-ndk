@@ -96,6 +96,7 @@ namespace Inworld
 		Client() = default;
 		~Client() { DestroyClient(); }
 
+#pragma region Lifetime
 		// callbacks will not be called on calling thread
 		void InitClientAsync(const SdkInfo& SdkInfo, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback);
 		void StartClient(const ClientOptions& Options, const SessionInfo& Info);
@@ -103,36 +104,53 @@ namespace Inworld
 		void ResumeClient();
 		void StopClient();
 		void DestroyClient();
-		
-		void SendPacket(std::shared_ptr<Inworld::Packet> Packet);
+#pragma endregion
 
+#pragma region Conversations
+		std::shared_ptr<ControlEventConversationUpdate> UpdateConversation(const std::vector<std::string>& AgentIds, const std::string& ConversationId = "", bool bIncludePlayer = true);
+
+		std::shared_ptr<TextEvent> SendTextMessage(const Inworld::Routing& Routing, const std::string& Text);
 		std::shared_ptr<TextEvent> SendTextMessage(const std::string& AgentId, const std::string& Text);
-		std::shared_ptr<TextEvent> SendTextMessage(const std::vector<std::string>& AgentIds, const std::string& Text);
+		std::shared_ptr<TextEvent> SendTextMessageToConversation(const std::string& ConversationId, const std::string& Text);
+
+		std::shared_ptr<DataEvent> SendSoundMessage(const Inworld::Routing& Routing, const std::string& Data);
 		std::shared_ptr<DataEvent> SendSoundMessage(const std::string& AgentId, const std::string& Data);
-		std::shared_ptr<DataEvent> SendSoundMessage(const std::vector<std::string>& AgentIds, const std::string& Data);
+		std::shared_ptr<DataEvent> SendSoundMessageToConversation(const std::string& ConversationId, const std::string& Data);
+		
+		std::shared_ptr<DataEvent> SendSoundMessageWithAEC(const Inworld::Routing& Routing, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
 		std::shared_ptr<DataEvent> SendSoundMessageWithAEC(const std::string& AgentId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
-		std::shared_ptr<DataEvent> SendSoundMessageWithAEC(const std::vector<std::string>& AgentIds, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
-		std::shared_ptr<CustomEvent> SendCustomEvent(std::string AgentId, const std::string& Name, const std::unordered_map<std::string, std::string>& Params);
-		std::shared_ptr<CustomEvent> SendCustomEvent(const std::vector<std::string>& AgentIds, const std::string& Name, const std::unordered_map<std::string, std::string>& Params);
+		std::shared_ptr<DataEvent> SendSoundMessageWithAECToConversation(const std::string& ConversationId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
+
+		std::shared_ptr<CustomEvent> SendCustomEvent(const Inworld::Routing& Routing, const std::string& Name, const std::unordered_map<std::string, std::string>& Params);
+		std::shared_ptr<CustomEvent> SendCustomEvent(const std::string& AgentId, const std::string& Name, const std::unordered_map<std::string, std::string>& Params);
+		std::shared_ptr<CustomEvent> SendCustomEventToConversation(const std::string& ConversationId, const std::string& Name, const std::unordered_map<std::string, std::string>& Params);
 		
-		std::shared_ptr<ActionEvent> SendNarrationEvent(std::string AgentId, const std::string& Content);
+		std::shared_ptr<ActionEvent> SendNarrationEvent(const Inworld::Routing& Routing, const std::string& Content);
+		std::shared_ptr<ActionEvent> SendNarrationEvent(const std::string& AgentId, const std::string& Content);
+
+		std::shared_ptr<CancelResponseEvent> CancelResponse(const Inworld::Routing& Routing, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds);
+		std::shared_ptr<CancelResponseEvent> CancelResponse(const std::string& AgentId, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds);
 		
+		std::shared_ptr<ControlEvent> StartAudioSession(const Inworld::Routing& Routing);
+		std::shared_ptr<ControlEvent> StartAudioSession(const std::string& AgentId);
+		std::shared_ptr<ControlEvent> StartAudioSessionInConversation(const std::string& ConversationId);
+		
+		std::shared_ptr<ControlEvent> StopAudioSession(const Inworld::Routing& Routing);
+		std::shared_ptr<ControlEvent> StopAudioSession(const std::string& AgentId);
+		std::shared_ptr<ControlEvent> StopAudioSessionInConversation(const std::string& ConversationId);
+#pragma endregion
+
+#pragma region Unitary Session
 		void LoadScene(const std::string& Scene);
 		void LoadCharacters(const std::vector<std::string>& Names);
 		void UnloadCharacters(const std::vector<std::string>& Names);
 		void LoadSavedState(const std::string& SavedState);
 		void LoadCapabilities(const Capabilities& Capabilities);
 		void LoadUserConfiguration(const UserConfiguration& UserConfig);
-
-		void CancelResponse(const std::string& AgentId, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds);
-
-		void StartAudioSession(const std::string& AgentId);
-		void StartAudioSession(const std::vector<std::string>& AgentIds);
-		void StopAudioSession(const std::string& AgentId);
-		void StopAudioSession(const std::vector<std::string>& AgentIds);
-
+		
 		// the callback is not called on calling thread for Async methods
 		void SaveSessionStateAsync(std::function<void(std::string, bool)> Callback);
+#pragma endregion
 
 		void GenerateToken(std::function<void()> RefreshTokenCallback);
 
@@ -151,14 +169,8 @@ namespace Inworld
 		virtual void Visit(const SessionControlResponse_LoadCharacters& Event) override;
 
 	protected:
+		void SendPacket(std::shared_ptr<Inworld::Packet> Packet);
 		void PushPacket(std::shared_ptr<Inworld::Packet> Packet);
-
-		std::shared_ptr<TextEvent> SendTextMessage(const Inworld::Routing& Routing, const std::string& Text);
-		std::shared_ptr<DataEvent> SendSoundMessage(const Inworld::Routing& Routing, const std::string& Data);
-		std::shared_ptr<DataEvent> SendSoundMessageWithAEC(const Inworld::Routing& Routing, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
-		std::shared_ptr<CustomEvent> SendCustomEvent(const Inworld::Routing& Routing, const std::string& Name, const std::unordered_map<std::string, std::string>& Params);
-		void StartAudioSession(const Inworld::Routing& Routing);
-		void StopAudioSession(const Inworld::Routing& Routing);
 
 		void StartClientStream();
 		void StopClientStream();

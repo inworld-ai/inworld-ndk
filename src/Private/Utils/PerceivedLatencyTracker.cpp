@@ -24,7 +24,7 @@ void Inworld::PerceivedLatencyTracker::Visit(const Inworld::TextEvent& Event)
 		const auto& Interaction = Event._PacketId._InteractionId;
 		if (_InteractionTimeMap.find(Interaction) != _InteractionTimeMap.end())
 		{
-			Inworld::LogError("PerceivedLatencyTracker visit TextEvent. Final player text already exists, Interaction: %s", ARG_STR(Interaction));
+			Inworld::LogError("PerceivedLatencyTracker visit TextEvent. Final player text already exists, Interaction: %s", Interaction.c_str());
 		}
 		else
 		{
@@ -55,7 +55,7 @@ void Inworld::PerceivedLatencyTracker::VisitReply(const Inworld::Packet& Event)
 		_InteractionTimeMap.erase(It);
 
 		const int32_t Ms = std::chrono::duration_cast<std::chrono::milliseconds>(Duration).count();
-		Inworld::Log("PerceivedLatencyTracker. Latency is %dms, Interaction: %s", Ms, ARG_STR(Interaction));
+		Inworld::Log("PerceivedLatencyTracker. Latency is %dms, Interaction: %s", Ms, Interaction.c_str());
 
 		if (_Callback)
 		{
@@ -75,7 +75,7 @@ void Inworld::PerceivedLatencyTracker::Visit(const Inworld::ControlEvent& Event)
 	const auto It = _InteractionTimeMap.find(Interaction);
 	if (It != _InteractionTimeMap.end())
 	{
-		Inworld::LogError("PerceivedLatencyTracker visit ControlEvent INTERACTION_END. Text timestamp is still in the map, Interaction: %s", ARG_STR(Interaction));
+		Inworld::LogError("PerceivedLatencyTracker visit ControlEvent INTERACTION_END. Text timestamp is still in the map, Interaction: %s", Interaction.c_str());
 		_InteractionTimeMap.erase(It);
 	}
 }
