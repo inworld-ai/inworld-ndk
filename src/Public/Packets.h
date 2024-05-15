@@ -272,17 +272,27 @@ namespace Inworld {
         InworldPackets::ControlEvent_Action GetControlAction() const { return _Action; }
         const std::string& GetDescription() const { return _Description; }
 
-		void SetMicrophoneMode(InworldPackets::AudioSessionStartPayload_MicrophoneMode MicrophoneMode) { _MicrophoneMode = MicrophoneMode; }
-
     protected:
         virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 
 	private:
 		InworldPackets::ControlEvent_Action _Action;
 		std::string _Description;
-
-		std::optional<InworldPackets::AudioSessionStartPayload_MicrophoneMode> _MicrophoneMode;
     };
+
+	class INWORLD_EXPORT ControlEventAudioSessionStart : public ControlEvent
+	{
+	public:
+		ControlEventAudioSessionStart() = default;
+		ControlEventAudioSessionStart(const InworldPackets::InworldPacket& GrpcPacket);
+		ControlEventAudioSessionStart(const Routing& Routing, InworldPackets::AudioSessionStartPayload_MicrophoneMode MicrophoneMode);
+
+	protected:
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
+
+	private:
+		InworldPackets::AudioSessionStartPayload_MicrophoneMode _MicrophoneMode;
+	};
 
     class INWORLD_EXPORT ControlEventConversationUpdate : public ControlEvent
     {
