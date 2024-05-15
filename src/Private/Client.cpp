@@ -433,6 +433,7 @@ void Inworld::Client::GenerateToken(std::function<void()> GenerateTokenCallback)
 					_ErrorMessage = Status.error_message();
 					_ErrorCode = Status.error_code();
 					_ErrorDetails = Status.error_details();
+
 					StopClientStream();
 					Inworld::LogError("Generate session token FALURE! %s, Code: %d", _ErrorMessage.c_str(), _ErrorCode);
 					SetConnectionState(ConnectionState::Failed);
@@ -763,6 +764,7 @@ void Inworld::Client::TryToStartReadTask()
 					_ErrorMessage = Status.error_message();
 					_ErrorCode = Status.error_code();
 					_ErrorDetails = Status.error_details();
+
 					StopClientStream();
 					Inworld::LogError("Message READ failed: %s. Code: %d", _ErrorMessage.c_str(), _ErrorCode);
 					SetConnectionState(ConnectionState::Disconnected);
@@ -803,6 +805,7 @@ void Inworld::Client::TryToStartWriteTask()
 						_ErrorMessage = Status.error_message();
 						_ErrorCode = Status.error_code();
 						_ErrorDetails = Status.error_details();
+
 						StopClientStream();
 						Inworld::LogError("Message WRITE failed: %s. Code: %d", _ErrorMessage.c_str(), _ErrorCode);
 						SetConnectionState(ConnectionState::Disconnected);
