@@ -397,6 +397,28 @@ namespace Inworld {
 		: MutationEvent(Routing{ { InworldPackets::Actor_Type_PLAYER, "" }, { InworldPackets::Actor_Type_WORLD, ""} }) 
 	{}
 
+	ControlEventAudioSessionStart::ControlEventAudioSessionStart(const InworldPackets::InworldPacket& GrpcPacket)
+		: ControlEvent(GrpcPacket)
+	{
+		const auto& AudioStartEvent = GrpcPacket.control().audio_session_start();
+		_MicrophoneMode = AudioStartEvent.mode();
+	}
+
+	ControlEventAudioSessionStart::ControlEventAudioSessionStart(const Routing& Routing, InworldPackets::AudioSessionStartPayload_MicrophoneMode MicrophoneMode)
+		: ControlEvent(InworldPackets::ControlEvent_Action_AUDIO_SESSION_START, "", Routing)
+		, _MicrophoneMode(MicrophoneMode)
+	{}
+
+	void ControlEventAudioSessionStart::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
+	{
+		ControlEvent::ToProtoInternal(Proto);
+
+		if (_MicrophoneMode != InworldPackets::AudioSessionStartPayload_MicrophoneMode::AudioSessionStartPayload_MicrophoneMode_UNSPECIFIED)
+		{
+			Proto.mutable_control()->mutable_audio_session_start()->set_mode(_MicrophoneMode);
+		}
+	}
+
 	ControlEventConversationUpdate::ControlEventConversationUpdate(const InworldPackets::InworldPacket& GrpcPacket)
 		: ControlEvent(GrpcPacket)
 	{
@@ -423,7 +445,8 @@ namespace Inworld {
 	{
 	}
 
-	void ControlEventConversationUpdate::ToProtoInternal(InworldPackets::InworldPacket& Proto) const {
+	void ControlEventConversationUpdate::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
+	{
         ControlEvent::ToProtoInternal(Proto);
 
         for (const auto& Participant : _Agents)

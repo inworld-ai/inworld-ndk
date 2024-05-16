@@ -197,9 +197,9 @@ std::shared_ptr<Inworld::CustomEvent> Inworld::Client::SendCustomEvent(const Inw
 	return Packet;
 }
 
-std::shared_ptr<Inworld::ControlEvent> Inworld::Client::StartAudioSession(const Inworld::Routing& Routing)
+std::shared_ptr<Inworld::ControlEvent> Inworld::Client::StartAudioSession(const Inworld::Routing& Routing, const AudioSessionStartPayload& Payload)
 {
-	auto Packet = std::make_shared<Inworld::ControlEvent>(ai::inworld::packets::ControlEvent_Action_AUDIO_SESSION_START, std::string{}, Routing);
+	auto Packet = std::make_shared<Inworld::ControlEventAudioSessionStart>(Routing, static_cast<ai::inworld::packets::AudioSessionStartPayload_MicrophoneMode>(Payload.MicMode));
 	SendPacket(Packet);
 	return Packet;
 }
@@ -211,9 +211,9 @@ std::shared_ptr<Inworld::ControlEvent> Inworld::Client::StopAudioSession(const I
 	return Packet;
 }
 
-std::shared_ptr<Inworld::ControlEvent> Inworld::Client::StartAudioSession(const std::string& AgentId)
+std::shared_ptr<Inworld::ControlEvent> Inworld::Client::StartAudioSession(const std::string& AgentId, const AudioSessionStartPayload& Payload)
 {
-	return StartAudioSession(Inworld::Routing::Player2Agent(AgentId));
+	return StartAudioSession(Inworld::Routing::Player2Agent(AgentId), Payload);
 }
 
 std::shared_ptr<Inworld::ControlEvent> Inworld::Client::StopAudioSession(const std::string& AgentId)
@@ -285,9 +285,9 @@ std::shared_ptr<Inworld::CancelResponseEvent> Inworld::Client::CancelResponse(co
 }
 
 std::shared_ptr<Inworld::ControlEvent> Inworld::Client::StartAudioSessionInConversation(
-	const std::string& ConversationId)
+	const std::string& ConversationId, const AudioSessionStartPayload& Payload)
 {
-	return StartAudioSession(Routing::Player2Conversation(ConversationId));
+	return StartAudioSession(Routing::Player2Conversation(ConversationId), Payload);
 }
 
 std::shared_ptr<Inworld::ControlEvent> Inworld::Client::StopAudioSessionInConversation(

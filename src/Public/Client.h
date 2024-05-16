@@ -73,6 +73,18 @@ namespace Inworld
 		std::string GameSessionId;
 	};
 
+	struct INWORLD_EXPORT AudioSessionStartPayload
+	{
+		enum class MicrophoneMode : uint8_t
+		{
+			Unspecified = 0,
+			OpenMic = 1,
+			ExpectAudioEnd = 2,
+		};
+
+		MicrophoneMode MicMode = MicrophoneMode::Unspecified;
+	};
+
 	// use for client lifecycle
 	class Client;
 	INWORLD_EXPORT void CreateClient();
@@ -131,9 +143,9 @@ namespace Inworld
 		std::shared_ptr<CancelResponseEvent> CancelResponse(const Inworld::Routing& Routing, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds);
 		std::shared_ptr<CancelResponseEvent> CancelResponse(const std::string& AgentId, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds);
 		
-		std::shared_ptr<ControlEvent> StartAudioSession(const Inworld::Routing& Routing);
-		std::shared_ptr<ControlEvent> StartAudioSession(const std::string& AgentId);
-		std::shared_ptr<ControlEvent> StartAudioSessionInConversation(const std::string& ConversationId);
+		std::shared_ptr<ControlEvent> StartAudioSession(const Inworld::Routing& Routing, const AudioSessionStartPayload& Payload);
+		std::shared_ptr<ControlEvent> StartAudioSession(const std::string& AgentId, const AudioSessionStartPayload& Payload);
+		std::shared_ptr<ControlEvent> StartAudioSessionInConversation(const std::string& ConversationId, const AudioSessionStartPayload& Payload);
 		
 		std::shared_ptr<ControlEvent> StopAudioSession(const Inworld::Routing& Routing);
 		std::shared_ptr<ControlEvent> StopAudioSession(const std::string& AgentId);
