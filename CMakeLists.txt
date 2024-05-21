@@ -417,8 +417,6 @@ if (WIN32)
         ${CMAKE_CURRENT_BINARY_DIR}/inworld-vad${ConfigDirName}/inworld-ndk-vad.dll.lib
         ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/third-party/onnxruntime/lib/onnxruntime.lib
         ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/third-party/onnxruntime/lib/onnxruntime.dll
-        ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/third-party/onnxruntime/lib/onnxruntime_providers_shared.lib
-        ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/third-party/onnxruntime/lib/onnxruntime_providers_shared.dll
     )
     add_custom_command(TARGET inworld-ndk POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy 
@@ -502,9 +500,6 @@ if (WIN32 OR MAC)
         add_custom_command(TARGET inworld-ndk-app POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy
             ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/third-party/onnxruntime/lib/onnxruntime.dll  ${PROJECT_SOURCE_DIR}/build${ConfigDirName})
-        add_custom_command(TARGET inworld-ndk-app POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy
-            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/third-party/onnxruntime/lib/onnxruntime_providers_shared.dll ${PROJECT_SOURCE_DIR}/build${ConfigDirName})
     endif()
 endif()
 
