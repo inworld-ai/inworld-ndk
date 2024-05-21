@@ -408,34 +408,32 @@ if (AEC)
     endif()
 endif()
 
+# VAD
+if (WIN32)
+    add_subdirectory(inworld-vad)
+    target_link_libraries(inworld-ndk PRIVATE inworld-ndk-vad)
+    list(APPEND LibFiles 
+        ${CMAKE_CURRENT_BINARY_DIR}/inworld-vad${ConfigDirName}/${LibPref}inworld-ndk-vad.${DynamicLibExt}
+        ${CMAKE_CURRENT_BINARY_DIR}/inworld-vad${ConfigDirName}/inworld-ndk-vad.dll.lib
+        ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/third-party/onnxruntime/lib/onnxruntime.lib
+        ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/third-party/onnxruntime/lib/onnxruntime.dll
+        ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/third-party/onnxruntime/lib/onnxruntime_providers_shared.lib
+        ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/third-party/onnxruntime/lib/onnxruntime_providers_shared.dll
+    )
+    add_custom_command(TARGET inworld-ndk POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy 
+        ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/src/InworldVAD.h  ${PackageDir}/include)
+endif()
+
 foreach(LibFile IN LISTS LibFiles)
     add_custom_command(TARGET inworld-ndk POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy ${LibFile} ${PackageLibDir})
     message("Copy lib to package: ${LibFile}")
 endforeach()
 
-function(CopyIncludeDir Path)
-    add_custom_command(TARGET inworld-ndk POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_directory 
-        ${Path}  ${PackageDir}/include)
-    message("Copy include dir to package: ${Path}")
-endfunction()
-
-CopyIncludeDir(${ThirdPartyDir}/include)
-CopyIncludeDir(${ThirdPartyDir}/grpc/include)
-if(INWORLD_LOG_SPD)
-    CopyIncludeDir(${ThirdPartyDir}/spdlog/include)
-endif()
-CopyIncludeDir(${OPENSSL_INCLUDE_DIR})
-CopyIncludeDir(${ZLIB_INCLUDE_DIR})
-
 add_custom_command(TARGET inworld-ndk POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory 
     ${PROJECT_SOURCE_DIR}/src  ${PackageDir}/src)
-
-add_custom_command(TARGET inworld-ndk POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory 
-    ${PROJECT_SOURCE_DIR}/src-proto  ${PackageDir}/src-proto)
 
 function(GroupSourcesByFolder target)
     set(SOURCE_GROUP_DELIMITER "/")
@@ -536,4 +534,5 @@ if(WIN32 AND INWORLD_CPPCHECK)
 
     AddCppCheck(inworld-ndk ${CMAKE_CURRENT_SOURCE_DIR}/src)
     AddCppCheck(inworld-ndk-app ${CMAKE_CURRENT_SOURCE_DIR}/Example/ConsoleApp/src)
+    #AddCppCheck(inworld-ndk-vad ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/src)
 endif()
