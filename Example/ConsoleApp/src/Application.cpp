@@ -9,6 +9,7 @@
 
 #include "Utils/Log.h"
 #include "Packets.h"
+#include "InworldVAD.h"
 
 // !!! Fill out this options !!!
 constexpr std::string_view g_SceneName = "";
