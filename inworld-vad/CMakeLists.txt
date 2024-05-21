@@ -20,5 +20,9 @@ set_target_properties(inworld-ndk-vad PROPERTIES
             IMPORT_SUFFIX ".dll.lib"
         )
 target_compile_features(inworld-ndk-vad PRIVATE cxx_std_20)
-target_link_libraries(inworld-ndk-vad PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/third-party/onnxruntime/lib/onnxruntime.lib)
-target_include_directories(inworld-ndk-vad PRIVATE third-party/onnxruntime/include)
+
+add_subdirectory(third-party/onnxruntime/cmake)
+target_link_libraries(inworld-ndk-vad PRIVATE 
+    onnxruntime
+)
+target_include_directories(inworld-ndk-vad PRIVATE third-party/onnxruntime/include/onnxruntime/core/session)
