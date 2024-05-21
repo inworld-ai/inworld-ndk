@@ -476,20 +476,35 @@ if (WIN32 OR MAC)
     add_executable(inworld-ndk-app ${FilesALL})
 
     target_compile_features(inworld-ndk-app PRIVATE cxx_std_20)
-    target_include_directories(inworld-ndk-app PUBLIC inworld-ndk/src/Public)
+    target_include_directories(inworld-ndk-app PRIVATE inworld-ndk/src/Public)
     target_link_libraries(inworld-ndk-app PRIVATE inworld-ndk)
 
     GroupSourcesByFolder(inworld-ndk-app)
 
+    if (INWORLD_SHARED)
+        add_custom_command(TARGET inworld-ndk-app POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy
+            ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}inworld-ndk.${DynamicLibExt}  ${PROJECT_SOURCE_DIR}/build${ConfigDirName})
+    endif()
+            
     if (AEC AND WIN32)
         add_custom_command(TARGET inworld-ndk-app POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy
             ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Win64/webrtc_aec_plugin.dll  ${PROJECT_SOURCE_DIR}/build${ConfigDirName})
-        if (INWORLD_SHARED)
-            add_custom_command(TARGET inworld-ndk-app POST_BUILD
-                COMMAND ${CMAKE_COMMAND} -E copy
-                ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}inworld-ndk.${DynamicLibExt}  ${PROJECT_SOURCE_DIR}/build${ConfigDirName})
-        endif()
+    endif()
+    
+    if (WIN32)
+        target_include_directories(inworld-ndk-app PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/src)
+        target_link_libraries(inworld-ndk-app PRIVATE inworld-ndk-vad)
+        add_custom_command(TARGET inworld-ndk-app POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy
+            ${CMAKE_CURRENT_BINARY_DIR}/inworld-vad${ConfigDirName}/inworld-ndk-vad.dll  ${PROJECT_SOURCE_DIR}/build${ConfigDirName})
+        add_custom_command(TARGET inworld-ndk-app POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy
+            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/third-party/onnxruntime/lib/onnxruntime.dll  ${PROJECT_SOURCE_DIR}/build${ConfigDirName})
+        add_custom_command(TARGET inworld-ndk-app POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy
+            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/third-party/onnxruntime/lib/onnxruntime_providers_shared.dll ${PROJECT_SOURCE_DIR}/build${ConfigDirName})
     endif()
 endif()
 
