@@ -413,10 +413,8 @@ if (WIN32)
     add_subdirectory(inworld-vad)
     target_link_libraries(inworld-ndk PRIVATE inworld-ndk-vad)
     list(APPEND LibFiles 
-        ${CMAKE_CURRENT_BINARY_DIR}/inworld-vad${ConfigDirName}/${LibPref}inworld-ndk-vad.${DynamicLibExt}
-        ${CMAKE_CURRENT_BINARY_DIR}/inworld-vad${ConfigDirName}/inworld-ndk-vad.dll.lib
-        ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/third-party/onnxruntime/lib/onnxruntime.lib
-        ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/third-party/onnxruntime/lib/onnxruntime.dll
+        ${CMAKE_CURRENT_BINARY_DIR}/inworld-vad/prebuilt/Win64/${LibPref}inworld-ndk-vad.${DynamicLibExt}
+        ${CMAKE_CURRENT_BINARY_DIR}/inworld-vad/prebuilt/Win64/inworld-ndk-vad.dll.lib
     )
     add_custom_command(TARGET inworld-ndk POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy 
@@ -496,10 +494,7 @@ if (WIN32 OR MAC)
         target_link_libraries(inworld-ndk-app PRIVATE inworld-ndk-vad)
         add_custom_command(TARGET inworld-ndk-app POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy
-            ${CMAKE_CURRENT_BINARY_DIR}/inworld-vad${ConfigDirName}/inworld-ndk-vad.dll  ${PROJECT_SOURCE_DIR}/build${ConfigDirName})
-        add_custom_command(TARGET inworld-ndk-app POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy
-            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/third-party/onnxruntime/lib/onnxruntime.dll  ${PROJECT_SOURCE_DIR}/build${ConfigDirName})
+            ${CMAKE_CURRENT_BINARY_DIR}/inworld-vad/prebuilt/Win64/inworld-ndk-vad.dll  ${PROJECT_SOURCE_DIR}/build${ConfigDirName})
     endif()
 endif()
 
