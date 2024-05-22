@@ -11,9 +11,18 @@
 #include <vector>
 #include <string>
 
+#if __cplusplus
+extern "C"
+{
+#endif
+
 namespace Inworld
 {
-    INWORLD_EXPORT void VAD_Initialize(const std::string& Model);
+    INWORLD_EXPORT void VAD_Initialize(const char* model);
     INWORLD_EXPORT void VAD_Terminate();
-    INWORLD_EXPORT float VAD_Process(const std::vector<float>& AudioData);
+    INWORLD_EXPORT float VAD_Process(const float* audioData, size_t size);
 }
+
+#if __cplusplus
+}
+#endif

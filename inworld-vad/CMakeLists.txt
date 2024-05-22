@@ -8,13 +8,7 @@ else()
     message(FATAL_ERROR "VAD: unsupported platform")
 endif()
 
-file(GLOB_RECURSE srcFiles
-     src/*.h
-     src/*.cpp
-     src/*.cc
-     src/*.c
-)
-add_library(inworld-ndk-vad SHARED ${srcFiles})
+add_library(inworld-ndk-vad SHARED src/InworldVAD.h src/InworldVAD.cpp)
 set_target_properties(inworld-ndk-vad PROPERTIES
             LIBRARY_OUTPUT_NAME "inworld-ndk-vad.dll"
             IMPORT_SUFFIX ".dll.lib"
@@ -95,5 +89,8 @@ add_custom_command(TARGET inworld-ndk-vad POST_BUILD
 add_custom_command(TARGET inworld-ndk-vad POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy
     ${CMAKE_CURRENT_SOURCE_DIR}/build/$<CONFIGURATION>/inworld-ndk-vad.dll.lib ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Win64)
+
+add_executable(inworld-ndk-vad-app src/Main.cpp)
+target_link_libraries(inworld-ndk-vad-app PRIVATE inworld-ndk-vad)
 
     

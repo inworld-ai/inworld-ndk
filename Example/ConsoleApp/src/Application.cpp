@@ -438,8 +438,9 @@ void NDKApp::App::Run()
             {
                 Inworld::VAD_Initialize("model");
                 std::vector<float> AudioData(300000, 0.0f);
-                const float Res = Inworld::VAD_Process(AudioData);
+                const float Res = Inworld::VAD_Process(AudioData.data(), AudioData.size());
                 Inworld::Log("VAD result %f", Res);
+				Inworld::VAD_Terminate();
             }
         },
 	});

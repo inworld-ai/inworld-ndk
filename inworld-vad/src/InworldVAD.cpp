@@ -472,10 +472,11 @@ private:
 
 std::unique_ptr<VAD> g_VAD;
 
-void Inworld::VAD_Initialize(const std::string& Model)
+void Inworld::VAD_Initialize(const char* model)
 {
     if (!g_VAD)
     {
+        const std::string Model(model);
         g_VAD = std::make_unique<VAD>(Model);
     }
 }
@@ -485,12 +486,13 @@ void Inworld::VAD_Terminate()
     g_VAD.reset();
 }
 
-float Inworld::VAD_Process(const std::vector<float>& AudioData)
+float Inworld::VAD_Process(const float* audioData, size_t size)
 {
     if (!g_VAD)
     {
         return 0.f;
     }
 
+   const std::vector<float> AudioData(audioData, audioData + size);
     return g_VAD->ProcessAudioChunk(AudioData);
 }
