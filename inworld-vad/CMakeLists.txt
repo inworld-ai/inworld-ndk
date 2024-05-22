@@ -72,13 +72,13 @@ target_link_libraries(inworld-ndk-vad PRIVATE
     clog
     cpuinfo
     flatbuffers
-    libprotobuf-lite
+#    libprotobuf-lite
     onnx
     onnx_proto
     onnxruntime_common
     onnxruntime_flatbuffers
     onnxruntime_framework
-    #onnxruntime_generate_def
+#    onnxruntime_generate_def
     onnxruntime_graph
     onnxruntime_mlas
     onnxruntime_optimizer
