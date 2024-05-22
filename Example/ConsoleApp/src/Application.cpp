@@ -434,7 +434,7 @@ void NDKApp::App::Run()
         {
             "VadTest",
             "Test VAD",
-            [this, &bQuit](const std::vector<std::string>& Args)
+            [this](const std::vector<std::string>& Args)
             {
                 Inworld::VAD_Initialize("model");
                 std::vector<float> AudioData(300000, 0.0f);
