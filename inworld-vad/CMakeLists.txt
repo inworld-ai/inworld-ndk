@@ -89,5 +89,11 @@ target_link_libraries(inworld-ndk-vad PRIVATE
 )
 target_compile_definitions(onnxruntime_common PRIVATE -D_SILENCE_ALL_CXX23_DEPRECATION_WARNINGS)
 target_include_directories(inworld-ndk-vad PRIVATE third-party/onnxruntime/include/onnxruntime/core/session)
+add_custom_command(TARGET inworld-ndk-vad POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy
+    ${CMAKE_CURRENT_SOURCE_DIR}/build/$<CONFIGURATION>/inworld-ndk-vad.dll ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Win64)
+add_custom_command(TARGET inworld-ndk-vad POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy
+    ${CMAKE_CURRENT_SOURCE_DIR}/build/$<CONFIGURATION>/inworld-ndk-vad.dll.lib ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Win64)
 
     
