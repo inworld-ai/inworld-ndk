@@ -478,7 +478,7 @@ if (WIN32 OR MAC)
     add_executable(inworld-ndk-app ${FilesALL})
 
     target_compile_features(inworld-ndk-app PRIVATE cxx_std_20)
-    target_include_directories(inworld-ndk-app PUBLIC inworld-ndk/src/Public)
+    target_include_directories(inworld-ndk-app PRIVATE inworld-ndk/src/Public)
     target_link_libraries(inworld-ndk-app PRIVATE inworld-ndk)
 
     GroupSourcesByFolder(inworld-ndk-app)
@@ -492,6 +492,12 @@ if (WIN32 OR MAC)
                 COMMAND ${CMAKE_COMMAND} -E copy
                 ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}inworld-ndk.${DynamicLibExt}  ${PROJECT_SOURCE_DIR}/build${ConfigDirName})
         endif()
+    endif()
+
+    if (WIN32)
+        add_subdirectory(ThirdParty/rtaudio)
+        target_link_libraries(inworld-ndk-app PRIVATE rtaudio)
+        target_include_directories(inworld-ndk-app PRIVATE ThirdParty/rtaudio)
     endif()
 endif()
 
