@@ -334,8 +334,7 @@ std::shared_ptr<Inworld::CancelResponseEvent> Inworld::Client::CancelResponse(co
 	auto Packet = std::make_shared<Inworld::CancelResponseEvent>(
 		InteractionId, 
 		UtteranceIds, 
-		Inworld::Routing(Inworld::Actor(), 
-		Inworld::Actor(ai::inworld::packets::Actor_Type_AGENT, AgentId)));
+		Inworld::Routing::Player2Agent(AgentId));
 	SendPacket(Packet);
 	return Packet;
 }
