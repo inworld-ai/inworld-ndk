@@ -16,6 +16,7 @@
 #include <string>
 #include "onnxruntime_cxx_api.h"
 //#include "wav.h"
+#include <codecvt>
 #include <cstdio>
 #include <cstdarg>
 #if __cplusplus < 201703L
@@ -447,7 +448,9 @@ class VAD {
 public:
     VAD(const std::string& Model)
     {
-        _VadIterator = std::make_unique<VadIterator>(L"C:/Projects/inworld/TestEmpty52/DEV-services_ml-hosting_silero_vad_10_27_2022.onnx");
+        std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+        std::wstring wstr = converter.from_bytes(Model);
+        _VadIterator = std::make_unique<VadIterator>(wstr);
     }
 
     ~VAD()
