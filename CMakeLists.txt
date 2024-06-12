@@ -273,6 +273,8 @@ add_custom_command(TARGET inworld-ndk POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory  ${PackageDir}/src)
 add_custom_command(TARGET inworld-ndk POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory  ${PackageDir}/lib)
+add_custom_command(TARGET inworld-ndk POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E make_directory  ${PackageDir}/resource)
 
 if (WIN32)
     set(PackageLibDir  ${PackageDir}/lib/Win64)
@@ -418,6 +420,9 @@ if (WIN32)
     add_custom_command(TARGET inworld-ndk POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy 
         ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/src/InworldVAD.h  ${PackageDir}/include)
+    add_custom_command(TARGET inworld-ndk POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy 
+        ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/resource/silero_vad_10_27_2022.onnx  ${PackageDir}/resource)
 endif()
 
 foreach(LibFile IN LISTS LibFiles)
