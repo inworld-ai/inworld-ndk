@@ -123,21 +123,6 @@ private:
         session = std::make_shared<Ort::Session>(env, model_path.c_str(), session_options);
     };
 
-    void reset_states()
-    {
-        // Call reset before each audio start
-        std::memset(_h.data(), 0.0f, _h.size() * sizeof(float));
-        std::memset(_c.data(), 0.0f, _c.size() * sizeof(float));
-        triggered = false;
-        temp_end = 0;
-        current_sample = 0;
-
-        prev_end = next_start = 0;
-
-        speeches.clear();
-        current_speech = timestamp_t();
-    };
-
     void predict(const std::vector<float> &data)
     {
         // Infer
@@ -359,6 +344,21 @@ public:
         output_wav.insert(output_wav.end(), slice.begin(), slice.end());
     };
 
+    void reset_states()
+    {
+        // Call reset before each audio start
+        std::memset(_h.data(), 0.0f, _h.size() * sizeof(float));
+        std::memset(_c.data(), 0.0f, _c.size() * sizeof(float));
+        triggered = false;
+        temp_end = 0;
+        current_sample = 0;
+
+        prev_end = next_start = 0;
+
+        speeches.clear();
+        current_speech = timestamp_t();
+    };
+
 private:
     // model config
     int64_t window_size_samples;  // Assign when init, support 256 512 768 for 8k; 512 1024 1536 for 16k.
@@ -469,6 +469,14 @@ public:
         return _VadIterator->get_speech_probability();
     }
 
+    void ResetState()
+    {
+        if (_VadIterator)
+        {
+            _VadIterator->reset_states();
+        }
+    }
+
 private:
     std::unique_ptr<VadIterator> _VadIterator;
 };
@@ -498,4 +506,12 @@ float Inworld::VAD_Process(const float* audioData, size_t size)
 
    const std::vector<float> AudioData(audioData, audioData + size);
     return g_VAD->ProcessAudioChunk(AudioData);
+}
+
+void Inworld::VAD_ResetState()
+{
+    if (g_VAD)
+    {
+        g_VAD->ResetState();
+    }
 }

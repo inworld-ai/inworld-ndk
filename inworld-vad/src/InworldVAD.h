@@ -21,6 +21,7 @@ namespace Inworld
     INWORLD_EXPORT void VAD_Initialize(const char* model);
     INWORLD_EXPORT void VAD_Terminate();
     INWORLD_EXPORT float VAD_Process(const float* audioData, size_t size);
+    INWORLD_EXPORT void VAD_ResetState();
 }
 
 #if __cplusplus
