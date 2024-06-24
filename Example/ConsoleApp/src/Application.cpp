@@ -9,6 +9,7 @@
 
 #include "Utils/Log.h"
 #include "Packets.h"
+#include "InworldVAD.h"
 
 // !!! Fill out this options !!!
 constexpr std::string_view g_SceneName = "";
@@ -429,7 +430,19 @@ void NDKApp::App::Run()
 			{
 				bQuit = true;
 			}
-		}
+		},
+        {
+            "VadTest",
+            "Test VAD",
+            [this](const std::vector<std::string>& Args)
+            {
+                Inworld::VAD_Initialize("model");
+                std::vector<float> AudioData(300000, 0.0f);
+                const float Res = Inworld::VAD_Process(AudioData.data(), AudioData.size());
+                Inworld::Log("VAD result %f", Res);
+				Inworld::VAD_Terminate();
+            }
+        },
 	});
 
 	_Options.ServerUrl = "api-engine.inworld.ai:443";
