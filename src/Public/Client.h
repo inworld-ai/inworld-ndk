@@ -214,7 +214,13 @@ namespace Inworld
 		void SetAudioDumpEnabled(bool bEnabled, const std::string& FileName);
 		
 		ConnectionState GetConnectionState() const { return _ConnectionState; }
-		bool GetConnectionError(const std::string*& OutErrorMessage, const int32_t*& OutErrorCode, const ErrorDetails*& OutErrorDetails) const;
+		inline bool GetConnectionError(std::string& OutErrorMessage, int32_t& OutErrorCode, ErrorDetails& OutErrorDetails) const
+		{
+			OutErrorMessage = _ErrorMessage;
+			OutErrorCode = _ErrorCode;
+			OutErrorDetails = _ErrorDetails;
+			return _ErrorCode != 0;
+		}
 
 		void SetPerceivedLatencyTrackerCallback(PerceivedLatencyCallback Cb) { _LatencyTracker.SetCallback(Cb); }
 		void ClearPerceivedLatencyTrackerCallback() { _LatencyTracker.ClearCallback(); }
