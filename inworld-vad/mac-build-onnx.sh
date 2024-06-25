@@ -1,0 +1,1 @@
+.third-party/onnxruntime/build.sh --config Release --build_shared_lib --parallel --compile_no_warning_as_error --skip_tests --cmake_extra_defines CMAKE_OSX_ARCHITECTURES="x86_64;arm64" FETCHCONTENT_TRY_FIND_PACKAGE_MODE=NEVER
