@@ -2,7 +2,7 @@ cmake_minimum_required (VERSION 3.22)
 
 project(inworld-ndk-vad VERSION 1.0.0)
 
-if(WIN32)
+if(WIN32 OR MAC)
     message("Build VAD")
 else()
     message(FATAL_ERROR "VAD: unsupported platform")
