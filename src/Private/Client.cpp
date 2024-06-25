@@ -11,6 +11,7 @@
 #include "base64/Base64.h"
 
 #include "grpc/impl/codegen/log.h"
+#include "ai/inworld/common/status.pb.h"
 
 #include <vector>
 #include <unordered_map>
@@ -99,8 +100,29 @@ namespace Inworld
 		std::unique_ptr<Inworld::ClientStream> _ClientStream;
 		std::unique_ptr<Inworld::ServiceSession> _SessionService;
 	};
+
+	ErrorDetails::ErrorDetails(const std::string& data)
+	{
+		google::rpc::Status status;
+		ai::inworld::common::InworldStatus InworldStatus;
+		if(status.ParseFromString(data) && status.details_size() > 0 && status.details(0).UnpackTo(&InworldStatus))
+		{
+			Error = static_cast<ErrorDetails::ErrorType>(InworldStatus.error_type());
+			Reconnect = static_cast<ErrorDetails::ReconnectionType>(InworldStatus.reconnect_type());
+			if (Reconnect == ErrorDetails::ReconnectionType::Timeout)
+			{
+				ReconnectTime = std::time(0) + std::max(InworldStatus.reconnect_time().seconds() - std::time(0), int64_t(0));
+			}
+			MaxRetries = InworldStatus.max_retries();
+			if (Error == ErrorDetails::ErrorType::ResourceNotFound)
+			{
+				ResourceNotFoundPayload.Id = InworldStatus.resource_not_found().resource_id();
+				ResourceNotFoundPayload.Type = static_cast<ErrorDetails::ResourceNotFoundDetails::ResourceType>(InworldStatus.resource_not_found().resource_type());
+			}
+		}
+	}
+
 }
- 
 
 const Inworld::SessionInfo& Inworld::Client::GetSessionInfo() const
 {
@@ -406,8 +428,9 @@ void Inworld::Client::GenerateToken(std::function<void()> GenerateTokenCallback)
 
 				if (!Status.ok())
 				{
-					_ErrorMessage = std::string(Status.error_message().c_str());
+					_ErrorMessage = Status.error_message().c_str();
 					_ErrorCode = Status.error_code();
+					_ErrorDetails = Status.error_details();
 					StopClientStream();
 					Inworld::LogError("Generate session token FALURE! %s, Code: %d", _ErrorMessage.c_str(), _ErrorCode);
 					SetConnectionState(ConnectionState::Failed);
@@ -574,13 +597,6 @@ void Inworld::Client::SaveSessionStateAsync(std::function<void(std::string, bool
 		));
 }
 
-bool Inworld::Client::GetConnectionError(std::string& OutErrorMessage, int32_t& OutErrorCode) const
-{
-	OutErrorMessage = _ErrorMessage;
-	OutErrorCode = _ErrorCode;
-	return _ErrorCode != grpc::StatusCode::OK;
-}
-
 void Inworld::Client::SetConnectionState(ConnectionState State)
 {
 	if (_ConnectionState == State)
@@ -594,6 +610,7 @@ void Inworld::Client::SetConnectionState(ConnectionState State)
 	{
 		_ErrorMessage = std::string();
 		_ErrorCode = grpc::StatusCode::OK;
+		_ErrorDetails = {};
 	}
 
 	if (_OnConnectionStateChangedCallback)
@@ -670,6 +687,7 @@ void Inworld::Client::StartClientStream()
 	{
 		_ErrorMessage = std::string();
 		_ErrorCode = grpc::StatusCode::OK;
+		_ErrorDetails = {};
 		_Service->OpenSession();
 		_bHasClientStreamFinished = false;
 		TryToStartReadTask();
@@ -732,8 +750,9 @@ void Inworld::Client::TryToStartReadTask()
 				},
 				[this](const grpc::Status& Status)
 				{
-					_ErrorMessage = std::string(Status.error_message().c_str());
+					_ErrorMessage = Status.error_message();
 					_ErrorCode = Status.error_code();
+					_ErrorDetails = Status.error_details();
 					StopClientStream();
 					Inworld::LogError("Message READ failed: %s. Code: %d", _ErrorMessage.c_str(), _ErrorCode);
 					SetConnectionState(ConnectionState::Disconnected);
@@ -771,8 +790,9 @@ void Inworld::Client::TryToStartWriteTask()
 					},
 					[this](const grpc::Status& Status)
 					{
-						_ErrorMessage = std::string(Status.error_message().c_str());
+						_ErrorMessage = Status.error_message();
 						_ErrorCode = Status.error_code();
+						_ErrorDetails = Status.error_details();
 						StopClientStream();
 						Inworld::LogError("Message WRITE failed: %s. Code: %d", _ErrorMessage.c_str(), _ErrorCode);
 						SetConnectionState(ConnectionState::Disconnected);

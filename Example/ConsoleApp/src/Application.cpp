@@ -472,7 +472,8 @@ void NDKApp::App::Run()
 		{
 			std::string Error;
 			int32_t Code;
-			_Client.Client().GetConnectionError(Error, Code);
+			Inworld::ErrorDetails Details;
+			_Client.Client().GetConnectionError(Error, Code, Details);
 
 			std::string State;
 			switch (ConnectionState)
