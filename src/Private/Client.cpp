@@ -605,7 +605,7 @@ void Inworld::Client::SendFeedbackAsync(std::string& InteractionId, const Intera
 			{
 				if (!Status.ok())
 				{
-					Inworld::LogError("Send Feedback FALURE! %s, Code: %d", Status.error_message(), (int32_t)Status.error_code());
+					Inworld::LogError("Send Feedback FALURE! %s, Code: %d", Status.error_message().c_str(), (int32_t)Status.error_code());
 					if(Callback) Callback({}, false);
 					return;
 				}
