@@ -83,12 +83,18 @@ target_link_libraries(inworld-ndk-vad PRIVATE
 )
 target_compile_definitions(onnxruntime_common PRIVATE -D_SILENCE_ALL_CXX23_DEPRECATION_WARNINGS)
 target_include_directories(inworld-ndk-vad PRIVATE third-party/onnxruntime/include/onnxruntime/core/session)
-add_custom_command(TARGET inworld-ndk-vad POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy
-    ${CMAKE_CURRENT_SOURCE_DIR}/build/$<CONFIGURATION>/inworld-ndk-vad.dll ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Win64)
-add_custom_command(TARGET inworld-ndk-vad POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy
-    ${CMAKE_CURRENT_SOURCE_DIR}/build/$<CONFIGURATION>/inworld-ndk-vad.dll.lib ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Win64)
+if (WIN32)
+    add_custom_command(TARGET inworld-ndk-vad POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy
+        ${CMAKE_CURRENT_SOURCE_DIR}/build/$<CONFIGURATION>/inworld-ndk-vad.dll ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Win64)
+    add_custom_command(TARGET inworld-ndk-vad POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy
+        ${CMAKE_CURRENT_SOURCE_DIR}/build/$<CONFIGURATION>/inworld-ndk-vad.dll.lib ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Win64)
+elseif(MAC)
+    add_custom_command(TARGET inworld-ndk-vad POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy
+        ${CMAKE_CURRENT_SOURCE_DIR}/build/$<CONFIGURATION>/libinworld-ndk-vad.dylib ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Mac)
+endif()
 
 add_executable(inworld-ndk-vad-app src/Main.cpp)
 target_link_libraries(inworld-ndk-vad-app PRIVATE inworld-ndk-vad)
