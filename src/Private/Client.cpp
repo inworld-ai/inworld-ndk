@@ -609,7 +609,7 @@ void Inworld::Client::SendFeedbackAsync(std::string& InteractionId, const Intera
 					if(Callback) Callback({}, false);
 					return;
 				}
-				Inworld::Log("Feedback %s sent!", Feedback.name());
+				Inworld::Log("Feedback %s sent!", Feedback.name().c_str());
 				if(Callback) Callback(Feedback.name(), true);
 			}
 		));
