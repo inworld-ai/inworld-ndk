@@ -43,9 +43,8 @@
 !ThirdParty/cppcheck/cppcheck.exe
 !ThirdParty/cppcheck/cppcheck-core.dll
 
-!inworld-vad/third-party/onnxruntime/lib/onnxruntime.dll
-!inworld-vad/third-party/onnxruntime/lib/onnxruntime_providers_shared.dll
 !inworld-vad/prebuilt/Win64/inworld-ndk-vad.dll
+!inworld-vad/prebuilt/Mac/libinworld-ndk-vad.dylib
 
 CMakeLists.txt.user
 CMakeCache.txt

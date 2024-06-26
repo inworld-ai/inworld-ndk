@@ -9,10 +9,12 @@ else()
 endif()
 
 add_library(inworld-ndk-vad SHARED src/InworldVAD.h src/InworldVAD.cpp)
-set_target_properties(inworld-ndk-vad PROPERTIES
-            LIBRARY_OUTPUT_NAME "inworld-ndk-vad.dll"
-            IMPORT_SUFFIX ".dll.lib"
-        )
+if (WIN32)
+    set_target_properties(inworld-ndk-vad PROPERTIES
+        LIBRARY_OUTPUT_NAME "inworld-ndk-vad.dll"
+        IMPORT_SUFFIX ".dll.lib"
+    )
+endif()
 
 add_subdirectory(third-party/onnxruntime/cmake)
 if (MAC)
@@ -97,7 +99,7 @@ if (WIN32)
 elseif(MAC)
     add_custom_command(TARGET inworld-ndk-vad POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy
-        ${CMAKE_CURRENT_SOURCE_DIR}/build/$<CONFIGURATION>/libinworld-ndk-vad.dylib ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Mac)
+        ${CMAKE_CURRENT_SOURCE_DIR}/build/$<CONFIGURATION>/libinworld-ndk-vad.dylib ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Mac/libinworld-ndk-vad.dylib)
 endif()
 
 #add_executable(inworld-ndk-vad-app src/Main.cpp)
