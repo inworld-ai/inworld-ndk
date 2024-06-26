@@ -13,9 +13,11 @@ set_target_properties(inworld-ndk-vad PROPERTIES
             LIBRARY_OUTPUT_NAME "inworld-ndk-vad.dll"
             IMPORT_SUFFIX ".dll.lib"
         )
-target_compile_features(inworld-ndk-vad PRIVATE cxx_std_20)
 
 add_subdirectory(third-party/onnxruntime/cmake)
+if (MAC)
+    target_link_libraries(inworld-ndk-vad PRIVATE nsync::nsync_cpp)
+endif()
 target_link_libraries(inworld-ndk-vad PRIVATE 
     absl_bad_optional_access
     absl_bad_variant_access
@@ -83,6 +85,8 @@ target_link_libraries(inworld-ndk-vad PRIVATE
 )
 target_compile_definitions(onnxruntime_common PRIVATE -D_SILENCE_ALL_CXX23_DEPRECATION_WARNINGS)
 target_include_directories(inworld-ndk-vad PRIVATE third-party/onnxruntime/include/onnxruntime/core/session)
+target_compile_features(inworld-ndk-vad PRIVATE cxx_std_17)
+target_compile_options(inworld-ndk-vad PRIVATE -std=c++17)
 if (WIN32)
     add_custom_command(TARGET inworld-ndk-vad POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy
@@ -96,7 +100,7 @@ elseif(MAC)
         ${CMAKE_CURRENT_SOURCE_DIR}/build/$<CONFIGURATION>/libinworld-ndk-vad.dylib ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Mac)
 endif()
 
-add_executable(inworld-ndk-vad-app src/Main.cpp)
-target_link_libraries(inworld-ndk-vad-app PRIVATE inworld-ndk-vad)
+#add_executable(inworld-ndk-vad-app src/Main.cpp)
+#target_link_libraries(inworld-ndk-vad-app PRIVATE inworld-ndk-vad)
 
     

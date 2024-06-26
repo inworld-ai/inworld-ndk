@@ -8,8 +8,7 @@
 #pragma once
 
 #include "Define.h"
-#include <vector>
-#include <string>
+#include <cstddef>
 
 #if __cplusplus
 extern "C"

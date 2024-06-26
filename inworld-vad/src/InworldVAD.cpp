@@ -5,14 +5,29 @@
  * that can be found in the LICENSE.md file or at https://www.inworld.ai/sdk-license
  */
 
+#if __cplusplus == 202002L
+    #pragma message("C++20")
+#elif __cplusplus == 201703L
+    #pragma message("C++17")
+#elif __cplusplus == 201402L
+    #pragma message("C++14")
+#elif __cplusplus == 201103L
+    #pragma message("C++11")
+#elif __cplusplus == 199711L
+    #pragma message("C++98")
+#else
+    #pragma message("Pre-standard C++")
+#endif
+
+
 #include "InworldVAD.h"
 
-#include <iostream>
+//#include <iostream>
 #include <vector>
 #include <cstring>
 #include <limits>
 #include <chrono>
-#include <memory>
+//#include <memory>
 #include <string>
 #include "onnxruntime_cxx_api.h"
 //#include "wav.h"
@@ -98,6 +113,13 @@ private:
 
 class VadIterator
 {
+public:
+#ifdef _WIN32
+    using ModelPath = std::wstring;
+#else
+    using ModelPath = std::string;
+#endif
+
 private:
     // OnnxRuntime resources
     Ort::Env env;
@@ -115,7 +137,7 @@ private:
         session_options.SetGraphOptimizationLevel(GraphOptimizationLevel::ORT_ENABLE_ALL);
     };
 
-    void init_onnx_model(const std::wstring& model_path)
+    void init_onnx_model(const ModelPath& model_path)
     {
         // Init threads = 1 for 
         init_engine_threads(1, 1);
@@ -406,8 +428,7 @@ private:
     std::vector<const char *> output_node_names = {"output", "hn", "cn"};
 
 public:
-    // Construction
-    VadIterator(const std::wstring ModelPath,
+    VadIterator(const ModelPath ModelPath,
         int Sample_rate = 16000, int windows_frame_size = 64,
         float Threshold = 0.5, int min_silence_duration_ms = 0,
         int speech_pad_ms = 64, int min_speech_duration_ms = 64,
@@ -448,9 +469,14 @@ class VAD {
 public:
     VAD(const std::string& Model)
     {
+#ifdef _WIN32
         std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
         std::wstring wstr = converter.from_bytes(Model);
         _VadIterator = std::make_unique<VadIterator>(wstr);
+#else
+        _VadIterator = std::make_unique<VadIterator>(Model);
+#endif
+        
     }
 
     ~VAD()
