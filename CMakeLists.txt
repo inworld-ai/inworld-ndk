@@ -411,12 +411,18 @@ if (AEC)
 endif()
 
 # VAD
-if (WIN32)
-    target_link_libraries(inworld-ndk PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Win64/inworld-ndk-vad.dll.lib)
-    list(APPEND LibFiles 
-        ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Win64/${LibPref}inworld-ndk-vad.${DynamicLibExt}
-        ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Win64/inworld-ndk-vad.dll.lib
-    )
+if (WIN32 OR MAC)
+    if (WIN32)
+        target_link_libraries(inworld-ndk PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Win64/inworld-ndk-vad.dll.lib)
+        list(APPEND LibFiles 
+            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Win64/inworld-ndk-vad.dll.lib
+            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Win64/${LibPref}inworld-ndk-vad.${DynamicLibExt}
+        )
+    else()
+        list(APPEND LibFiles 
+            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Mac/${LibPref}inworld-ndk-vad.${DynamicLibExt}
+        )
+    endif()
     add_custom_command(TARGET inworld-ndk POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy 
         ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/src/InworldVAD.h  ${PackageDir}/include)
