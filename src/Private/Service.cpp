@@ -250,6 +250,28 @@ grpc::Status Inworld::RunnableGetSessionState::RunProcess()
 	return CreateStub()->GetSessionState(Ctx.get(), Request, &_Response);
 }
 
+grpc::Status Inworld::RunnableCreateInteractionFeedback::RunProcess()
+{
+	InworldEngineV1::CreateInteractionFeedbackRequest FeedbackRequest;
+	FeedbackRequest.set_parent(_ResourceId);
+
+	auto InteractionFeedback = FeedbackRequest.mutable_interaction_feedback();
+	InteractionFeedback->set_is_like(_Feedback.bIsLike);
+
+	for(const InteractionFeedback::DislikeType& DislikeType : _Feedback.DislikeReasons)
+	{
+		InteractionFeedback->add_type(static_cast<InworldEngineV1::InteractionDislikeType>(DislikeType));
+	}
+
+	InteractionFeedback->set_comment(_Feedback.comment);
+
+	auto& Ctx = UpdateContext({
+				{ "authorization", std::string("Bearer ") + _Token },
+				{ "session-id", _SessionId}
+		});
+
+	return CreateStub()->CreateInteractionFeedback(Ctx.get(), FeedbackRequest, &_Response);
+}
 
 grpc::Status Inworld::RunnableListWorkspacesRequest::RunProcess()
 {
