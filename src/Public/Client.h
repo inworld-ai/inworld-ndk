@@ -164,6 +164,8 @@ namespace Inworld
 		void SaveSessionStateAsync(std::function<void(std::string, bool)> Callback);
 #pragma endregion
 
+		void SendFeedbackAsync(std::string& InteractionId, const InteractionFeedback& Feedback, std::function<void(std::string, bool)> Callback = nullptr);
+
 		void GenerateToken(std::function<void()> RefreshTokenCallback);
 
 		void SetAudioDumpEnabled(bool bEnabled, const std::string& FileName);
@@ -220,6 +222,7 @@ namespace Inworld
 		AsyncRoutine _AsyncWriteTask;
 		AsyncRoutine _AsyncGenerateTokenTask;
 		AsyncRoutine _AsyncGetSessionState;
+		AsyncRoutine _AsyncSendFeedback;
 		
 		std::unique_ptr<IClientService> _Service;
 
