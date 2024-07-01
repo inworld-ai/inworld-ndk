@@ -22,15 +22,12 @@
 
 #include "InworldVAD.h"
 
-//#include <iostream>
 #include <vector>
 #include <cstring>
 #include <limits>
 #include <chrono>
-//#include <memory>
 #include <string>
 #include "onnxruntime_cxx_api.h"
-//#include "wav.h"
 #include <codecvt>
 #include <cstdio>
 #include <cstdarg>
