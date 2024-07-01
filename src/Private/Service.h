@@ -23,6 +23,7 @@
 #include "ai/inworld/studio/v1alpha/scenes.grpc.pb.h"
 #include "ai/inworld/studio/v1alpha/characters.grpc.pb.h"
 #include "ai/inworld/studio/v1alpha/apikeys.grpc.pb.h"
+#include "ai/inworld/engine/v1/feedback.grpc.pb.h"
 #include "ai/inworld/engine/v1/state_serialization.grpc.pb.h"
 
 #include "Utils/Utils.h"
@@ -30,6 +31,7 @@
 #include "Define.h"
 #include "Packets.h"
 #include "Runnable.h"
+#include "Types.h"
 
 #ifdef INWORLD_AUDIO_DUMP
 #include "Utils/AudioSessionDumper.h"
@@ -213,6 +215,33 @@ namespace Inworld
 	private:
 		std::string _Token;
 		std::string _SessionName;
+	};
+
+class INWORLD_EXPORT RunnableCreateInteractionFeedback : public RunnableRequest<InworldEngineV1::Feedback, InworldEngineV1::InteractionFeedback>
+	{
+	public:
+		RunnableCreateInteractionFeedback(const std::string& ServerUrl, const std::string& SessionId, const std::string& Token, const std::string& ResourceId, const InteractionFeedback& Feedback, std::function<void(const grpc::Status&, const InworldEngineV1::InteractionFeedback&)> Callback = nullptr)
+			: RunnableRequest(ServerUrl, Callback)
+			, _SessionId(SessionId)
+			, _Token(Token)
+			, _ResourceId(ResourceId)
+			, _Feedback(Feedback)
+		{
+			if (_Feedback.DislikeReasons.size() == 0)
+			{
+				_Feedback.DislikeReasons.insert(InteractionFeedback::DislikeType::UNSPECIFIED);
+			}
+		}
+
+		virtual ~RunnableCreateInteractionFeedback() = default;
+
+		virtual grpc::Status RunProcess() override;
+
+	private:
+		std::string _SessionId;
+		std::string _Token;
+		std::string _ResourceId;
+		InteractionFeedback _Feedback;
 	};
 
 	class INWORLD_EXPORT ServiceSession : public Service<InworldEngine::WorldEngine>
