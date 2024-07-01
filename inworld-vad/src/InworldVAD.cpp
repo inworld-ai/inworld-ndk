@@ -481,7 +481,10 @@ public:
 
     ~VAD()
     {
-        _VadIterator.reset();
+        if (_VadIterator)
+        {
+            _VadIterator.reset();
+        }
     }
 
     float ProcessAudioChunk(const std::vector<float>& AudioData)
@@ -520,7 +523,10 @@ void Inworld::VAD_Initialize(const char* model)
 
 void Inworld::VAD_Terminate()
 {
-    g_VAD.reset();
+    if (g_VAD)
+    {
+        g_VAD.reset();
+    }
 }
 
 float Inworld::VAD_Process(const float* audioData, size_t size)
