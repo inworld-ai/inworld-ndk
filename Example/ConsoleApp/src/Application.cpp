@@ -573,8 +573,6 @@ void NDKApp::App::Run()
 	    {
 	        SendAudioData();
 	    }
-	    
-		//std::this_thread::sleep_for(std::chrono::milliseconds(30));
 	}
 }
 
