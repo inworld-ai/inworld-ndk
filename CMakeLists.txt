@@ -22,6 +22,7 @@ file(GLOB_RECURSE FilesALLProto
 )
 
 add_library(inworld-ndk-proto STATIC ${FilesALLProto})
+set_target_properties(inworld-ndk-proto PROPERTIES DEBUG_POSTFIX "")
 if (INWORLD_SHARED)
     add_library(inworld-ndk SHARED ${FilesALL})
     if (WIN32)
@@ -33,6 +34,7 @@ if (INWORLD_SHARED)
 else()
     add_library(inworld-ndk STATIC ${FilesALL})
 endif()
+set_target_properties(inworld-ndk PROPERTIES DEBUG_POSTFIX "")
 target_link_libraries(inworld-ndk PRIVATE inworld-ndk-proto)
 
 target_compile_definitions(inworld-ndk PRIVATE

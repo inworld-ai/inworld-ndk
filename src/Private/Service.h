@@ -330,7 +330,6 @@ namespace Inworld
 	    virtual void Deinitialize() override;
 
 	private:
-
 		AudioSessionDumper AudioDumper;
 		SharedQueue<std::string>& AudioChuncks;
 	};

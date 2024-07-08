@@ -554,7 +554,7 @@ void NDKApp::App::Run()
 
 	Inworld::SessionInfo SessionInfo;
 	_Client.Client().StartClient(_Options, SessionInfo);
-    _Client.Client().SetAudioDumpEnabled(true);
+    //_Client.Client().SetAudioDumpEnabled(true);
 
     _LastAudioSentTime = std::chrono::steady_clock::now();
 	while (!bQuit)

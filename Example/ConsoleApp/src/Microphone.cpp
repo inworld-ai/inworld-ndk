@@ -28,7 +28,7 @@ bool Inworld::Mic::StartCapture()
     parameters.nChannels = 1;
     parameters.firstChannel = 0;
     constexpr uint32_t sampleRate = 16000;
-    uint32_t bufferFrames = 256; // 256 sample frames
+    uint32_t bufferFrames = 256;
     
     if (_Audio.openStream(nullptr, &parameters, RTAUDIO_SINT16,
     sampleRate, &bufferFrames, RecordCallback)) 
@@ -85,8 +85,6 @@ int Inworld::Mic::RecordCallback(void *outputBuffer, void *inputBuffer, unsigned
     }
  
     _AudioChuncks.PushBack(std::string((char*)inputBuffer, nBufferFrames * sizeof(int16_t)));
-
-    //Inworld::Log("RecordCallback: %d, %.2f", nBufferFrames, streamTime);
 
     return 0;
 }
