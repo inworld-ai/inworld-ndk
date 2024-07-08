@@ -10,7 +10,6 @@
 #include "Microphone.h"
 #include "Utils/Log.h"
 #include "Packets.h"
-#include "Microphone.h"
 
 // !!! Fill out this options !!!
 constexpr std::string_view g_SceneName = "";
