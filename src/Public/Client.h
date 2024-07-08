@@ -16,6 +16,7 @@
 #include "Types.h"
 #include "Packets.h"
 #include "Utils/SharedQueue.h"
+#include "Utils/WaitQueue.h"
 #include "AsyncRoutine.h"
 #include "Utils/PerceivedLatencyTracker.h"
 #include "AECFilter.h"
@@ -206,7 +207,7 @@ namespace Inworld
 
 #ifdef INWORLD_AUDIO_DUMP
 		AsyncRoutine _AsyncAudioDumper;
-		SharedQueue<std::string> _AudioChunksToDump;
+		WaitQueue<std::string> _AudioChunksToDump;
 		bool bDumpAudio = false;
 		std::string _AudioDumpFileName = "C:/Tmp/AudioDump.wav";
 #endif

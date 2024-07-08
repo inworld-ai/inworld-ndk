@@ -16,9 +16,6 @@ namespace Inworld
 	class SharedQueue
 	{
 	public:
-		SharedQueue();
-		~SharedQueue();
-
 		T& Front();
 		void PopFront();
 		bool PopFront(T& Item);
@@ -34,12 +31,6 @@ namespace Inworld
 		std::deque<T> _Queue;
 		std::mutex _Mutex;
 	};
-
-	template <typename T>
-	SharedQueue<T>::SharedQueue() {}
-
-	template <typename T>
-	SharedQueue<T>::~SharedQueue() {}
 
 	template <typename T>
 	T& SharedQueue<T>::Front()

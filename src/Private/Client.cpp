@@ -142,7 +142,7 @@ void Inworld::Client::SendPacket(std::shared_ptr<Inworld::Packet> Packet)
 		return;
 	}
 
-	PushPacket(Packet);
+	PushPacket(std::move(Packet));
 }
 
 std::shared_ptr<Inworld::ControlEventConversationUpdate> Inworld::Client::UpdateConversation(
@@ -155,7 +155,7 @@ std::shared_ptr<Inworld::ControlEventConversationUpdate> Inworld::Client::Update
 
 void Inworld::Client::PushPacket(std::shared_ptr<Inworld::Packet> Packet)
 {
-	_OutgoingPackets.PushBack(Packet);
+	_OutgoingPackets.PushBack(std::move(Packet));
 
 	TryToStartWriteTask();
 }

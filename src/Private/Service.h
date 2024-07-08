@@ -27,6 +27,7 @@
 
 #include "Utils/Utils.h"
 #include "Utils/SharedQueue.h"
+#include "Utils/WaitQueue.h"
 #include "Define.h"
 #include "Packets.h"
 #include "Runnable.h"
@@ -320,7 +321,7 @@ namespace Inworld
 	class INWORLD_EXPORT RunnableAudioDumper : public Inworld::Runnable
 	{
 	public:
-		RunnableAudioDumper(SharedQueue<std::string>& InAudioChuncks, const std::string& InFileName)
+		RunnableAudioDumper(WaitQueue<std::string>& InAudioChuncks, const std::string& InFileName)
 			: FileName(InFileName)
 			  , AudioChuncks(InAudioChuncks)
 		{}
@@ -331,7 +332,7 @@ namespace Inworld
 
 	private:
 		AudioSessionDumper AudioDumper;
-		SharedQueue<std::string>& AudioChuncks;
+		WaitQueue<std::string>& AudioChuncks;
 	};
 #endif
 }
