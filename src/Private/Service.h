@@ -327,6 +327,7 @@ namespace Inworld
 
 		std::string FileName;
 		virtual void Run() override;
+	    virtual void Deinitialize() override;
 
 	private:
 

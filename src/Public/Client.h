@@ -166,7 +166,7 @@ namespace Inworld
 
 		void GenerateToken(std::function<void()> RefreshTokenCallback);
 
-		void SetAudioDumpEnabled(bool bEnabled, const std::string& FileName);
+		void SetAudioDumpEnabled(bool bEnabled, const std::string& FileName = "");
 		
 		ConnectionState GetConnectionState() const { return _ConnectionState; }
 		bool GetConnectionError(std::string& OutErrorMessage, int32_t& OutErrorCode) const;

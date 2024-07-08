@@ -142,6 +142,11 @@ void Inworld::RunnableAudioDumper::Run()
 
 	AudioDumper.OnSessionStop();
 }
+
+void Inworld::RunnableAudioDumper::Deinitialize()
+{
+    
+}
 #endif
 
 grpc::Status Inworld::RunnableGenerateSessionToken::RunProcess()

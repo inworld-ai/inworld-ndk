@@ -495,6 +495,8 @@ if (WIN32 OR MAC)
     endif()
 
     if (WIN32)
+        option(RTAUDIO_API_DS "Build DirectSound API" ON)
+        option(RTAUDIO_API_WASAPI "Build WASAPI API" OFF)
         add_subdirectory(ThirdParty/rtaudio)
         target_link_libraries(inworld-ndk-app PRIVATE rtaudio)
         target_include_directories(inworld-ndk-app PRIVATE ThirdParty/rtaudio)

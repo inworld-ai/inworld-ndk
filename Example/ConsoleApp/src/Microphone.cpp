@@ -6,15 +6,19 @@
  */
 
 #include "Microphone.h"
-#include <iostream>
-#include <cstdlib>
 
 #include "Log.h"
 
-bool Inworld::Mic::StartCapture(std::string& Error)
+bool Inworld::Mic::StartCapture()
 {
+    if (bStarted)
+    {
+        Inworld::LogError("Capture already started!");
+        return false;
+    }
+    
     std::vector<unsigned int> deviceIds = _Audio.getDeviceIds();
-    if ( deviceIds.size() < 1 ) {
+    if (deviceIds.size() < 1) {
         Inworld::LogError("No audio devices found!");
         return false;
     }
@@ -23,38 +27,66 @@ bool Inworld::Mic::StartCapture(std::string& Error)
     parameters.deviceId = _Audio.getDefaultInputDevice();
     parameters.nChannels = 1;
     parameters.firstChannel = 0;
-    unsigned int sampleRate = 16000;
-    unsigned int bufferFrames = 256; // 256 sample frames
+    constexpr uint32_t sampleRate = 16000;
+    uint32_t bufferFrames = 256; // 256 sample frames
     
-    if ( _Audio.openStream( NULL, &parameters, RTAUDIO_SINT16,
-    sampleRate, &bufferFrames, RecordCallback ) ) 
+    if (_Audio.openStream(nullptr, &parameters, RTAUDIO_SINT16,
+    sampleRate, &bufferFrames, RecordCallback)) 
     {
         Inworld::LogError(_Audio.getErrorText());
         return false;
     }
  
-    if ( _Audio.startStream() ) {
+    if (_Audio.startStream()) {
         Inworld::LogError(_Audio.getErrorText());
         return false;
     }
+
+    bStarted = true;
+
+    return true;
 }
 
-bool Inworld::Mic::StopCapture(std::string& Error)
+bool Inworld::Mic::StopCapture()
 {
-    if ( _Audio.isStreamRunning() )
+    if (!bStarted)
+    {
+        Inworld::LogError("Capture not started!");
+        return false;
+    }
+    
+    if (_Audio.isStreamRunning())
         _Audio.stopStream();
  
-     if ( _Audio.isStreamOpen() )
+     if (_Audio.isStreamOpen())
         _Audio.closeStream();
+
+    bStarted = false;
+
+    return true;
 }
 
-int Inworld::Mic::RecordCallback(void* outputBuffer, void* inputBuffer, unsigned nBufferFrames, double streamTime,
-    RtAudioStreamStatus status, void* userData)
+bool Inworld::Mic::GetAudio(std::string& Data)
 {
-    if ( status )
-        std::cout << "Stream overflow detected!" << std::endl;
+    std::deque<std::string> Chunks;
+    _AudioChuncks.PopAll(Chunks);
+    for (const auto& Chunk : Chunks)
+        Data.append(Chunk);
+
+    return !Data.empty();
+}
+
+int Inworld::Mic::RecordCallback(void *outputBuffer, void *inputBuffer, unsigned int nBufferFrames, double streamTime,
+    RtAudioStreamStatus status, void *userData)
+{
+    if (status)
+    {
+        Inworld::LogWarning("Stream overflow detected!");
+    }
  
-    // Do something with the data in the "inputBuffer" buffer.
-    _AudioChuncks.PushBack(std::string((char*)inputBuffer, nBufferFrames));
+    _AudioChuncks.PushBack(std::string((char*)inputBuffer, nBufferFrames * sizeof(int16_t)));
+
+    //Inworld::Log("RecordCallback: %d, %.2f", nBufferFrames, streamTime);
+
     return 0;
 }
