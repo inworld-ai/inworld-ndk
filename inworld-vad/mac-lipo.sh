@@ -1,0 +1,1 @@
+lipo -create -output ./prebuilt/Mac/libinworld-ndk-vad.dylib ./prebuilt/Mac/libinworld-ndk-vad-arm64.dylib ./prebuilt/Mac/libinworld-ndk-vad-x86_64.dylib

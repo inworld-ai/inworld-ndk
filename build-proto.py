@@ -60,6 +60,7 @@ proto_path = os.path.join(PROTO_REPO, "proto/")
 for file_name in [
     "ai/inworld/engine/world-engine.proto",
     "ai/inworld/engine/v1/state_serialization.proto",
+    "ai/inworld/engine/v1/feedback.proto",
     "ai/inworld/packets/packets.proto",
     "ai/inworld/voices/voices.proto",
     "ai/inworld/voices/base_voice.proto",

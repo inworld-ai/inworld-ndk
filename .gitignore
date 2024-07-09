@@ -43,6 +43,9 @@
 !ThirdParty/cppcheck/cppcheck.exe
 !ThirdParty/cppcheck/cppcheck-core.dll
 
+!inworld-vad/prebuilt/Win64/inworld-ndk-vad.dll
+!inworld-vad/prebuilt/Mac/libinworld-ndk-vad.dylib
+
 CMakeLists.txt.user
 CMakeCache.txt
 CMakeFiles

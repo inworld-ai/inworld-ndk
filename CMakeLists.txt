@@ -275,6 +275,8 @@ add_custom_command(TARGET inworld-ndk POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory  ${PackageDir}/src)
 add_custom_command(TARGET inworld-ndk POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory  ${PackageDir}/lib)
+add_custom_command(TARGET inworld-ndk POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E make_directory  ${PackageDir}/resource)
 
 if (WIN32)
     set(PackageLibDir  ${PackageDir}/lib/Win64)
@@ -410,34 +412,37 @@ if (AEC)
     endif()
 endif()
 
+# VAD
+if (WIN32 OR MAC)
+    if (WIN32)
+        target_link_libraries(inworld-ndk PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Win64/inworld-ndk-vad.dll.lib)
+        list(APPEND LibFiles 
+            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Win64/inworld-ndk-vad.dll.lib
+            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Win64/${LibPref}inworld-ndk-vad.${DynamicLibExt}
+        )
+    else()
+        target_link_libraries(inworld-ndk PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Mac/libinworld-ndk-vad.dylib)
+        list(APPEND LibFiles 
+            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Mac/${LibPref}inworld-ndk-vad.${DynamicLibExt}
+        )
+    endif()
+    add_custom_command(TARGET inworld-ndk POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy 
+        ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/src/InworldVAD.h  ${PackageDir}/include)
+    add_custom_command(TARGET inworld-ndk POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy 
+        ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/resource/silero_vad_10_27_2022.onnx  ${PackageDir}/resource)
+endif()
+
 foreach(LibFile IN LISTS LibFiles)
     add_custom_command(TARGET inworld-ndk POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy ${LibFile} ${PackageLibDir})
     message("Copy lib to package: ${LibFile}")
 endforeach()
 
-function(CopyIncludeDir Path)
-    add_custom_command(TARGET inworld-ndk POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_directory 
-        ${Path}  ${PackageDir}/include)
-    message("Copy include dir to package: ${Path}")
-endfunction()
-
-CopyIncludeDir(${ThirdPartyDir}/include)
-CopyIncludeDir(${ThirdPartyDir}/grpc/include)
-if(INWORLD_LOG_SPD)
-    CopyIncludeDir(${ThirdPartyDir}/spdlog/include)
-endif()
-CopyIncludeDir(${OPENSSL_INCLUDE_DIR})
-CopyIncludeDir(${ZLIB_INCLUDE_DIR})
-
 add_custom_command(TARGET inworld-ndk POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory 
     ${PROJECT_SOURCE_DIR}/src  ${PackageDir}/src)
-
-add_custom_command(TARGET inworld-ndk POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory 
-    ${PROJECT_SOURCE_DIR}/src-proto  ${PackageDir}/src-proto)
 
 function(GroupSourcesByFolder target)
     set(SOURCE_GROUP_DELIMITER "/")
@@ -485,15 +490,27 @@ if (WIN32 OR MAC)
 
     GroupSourcesByFolder(inworld-ndk-app)
 
+    if (INWORLD_SHARED)
+        add_custom_command(TARGET inworld-ndk-app POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy
+            ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}inworld-ndk.${DynamicLibExt}  ${PROJECT_SOURCE_DIR}/build${ConfigDirName})
+    endif()
+            
     if (AEC AND WIN32)
         add_custom_command(TARGET inworld-ndk-app POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy
             ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Win64/webrtc_aec_plugin.dll  ${PROJECT_SOURCE_DIR}/build${ConfigDirName})
-        if (INWORLD_SHARED)
-            add_custom_command(TARGET inworld-ndk-app POST_BUILD
-                COMMAND ${CMAKE_COMMAND} -E copy
-                ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}inworld-ndk.${DynamicLibExt}  ${PROJECT_SOURCE_DIR}/build${ConfigDirName})
-        endif()
+    endif()
+    
+    if (WIN32)
+        target_include_directories(inworld-ndk-app PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/src)
+        target_link_libraries(inworld-ndk-app PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Win64/inworld-ndk-vad.dll.lib)
+        add_custom_command(TARGET inworld-ndk-app POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy
+            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Win64/inworld-ndk-vad.dll  ${PROJECT_SOURCE_DIR}/build${ConfigDirName})
+    elseif(MAC)
+        target_include_directories(inworld-ndk-app PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/src)
+        target_link_libraries(inworld-ndk-app PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Mac/libinworld-ndk-vad.dylib)
     endif()
 
     if (WIN32)
@@ -546,4 +563,5 @@ if(WIN32 AND INWORLD_CPPCHECK)
 
     AddCppCheck(inworld-ndk ${CMAKE_CURRENT_SOURCE_DIR}/src)
     AddCppCheck(inworld-ndk-app ${CMAKE_CURRENT_SOURCE_DIR}/Example/ConsoleApp/src)
+    #AddCppCheck(inworld-ndk-vad ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/src)
 endif()
