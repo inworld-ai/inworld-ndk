@@ -356,9 +356,9 @@ class INWORLD_EXPORT RunnableCreateInteractionFeedback : public RunnableRequest<
 
 		std::string FileName;
 		virtual void Run() override;
+	    virtual void Deinitialize() override;
 
 	private:
-
 		AudioSessionDumper AudioDumper;
 		SharedQueue<std::string>& AudioChuncks;
 	};

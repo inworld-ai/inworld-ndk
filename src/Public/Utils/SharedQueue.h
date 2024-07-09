@@ -22,11 +22,12 @@ namespace Inworld
 		T& Front();
 		void PopFront();
 		bool PopFront(T& Item);
+	    void PopAll(std::deque<T>& Queue);
 
-		void PushBack(const T& Item);
-		void PushBack(T&& Item);
+	    template <typename U>
+		void PushBack(U&& Item);
 
-		int Size();
+		auto Size();
 		bool IsEmpty();
 
 	private:
@@ -55,7 +56,7 @@ namespace Inworld
 	}
 
 	template <typename T>
-	bool Inworld::SharedQueue<T>::PopFront(T& Item)
+	bool SharedQueue<T>::PopFront(T& Item)
 	{
 		std::unique_lock<std::mutex> Lock(_Mutex);
 		if (!_Queue.empty())
@@ -67,28 +68,27 @@ namespace Inworld
 		return false;
 	}
 
+    template <typename T>
+    void SharedQueue<T>::PopAll(std::deque<T>& Queue)
+    {
+        std::unique_lock<std::mutex> Lock(_Mutex);
+        Queue = std::move(_Queue);
+	    _Queue = {};
+    }
+
 	template <typename T>
-	void SharedQueue<T>::PushBack(const T& Item)
+    template <typename U>
+	void SharedQueue<T>::PushBack(U&& Item)
 	{
 		std::unique_lock<std::mutex> Lock(_Mutex);
-		_Queue.push_back(Item);
-		Lock.unlock();
+		_Queue.push_back(std::forward<U>(Item));
 	}
 
 	template <typename T>
-	void SharedQueue<T>::PushBack(T&& Item)
+	auto SharedQueue<T>::Size()
 	{
 		std::unique_lock<std::mutex> Lock(_Mutex);
-		_Queue.push_back(std::move(Item));
-
-	}
-
-	template <typename T>
-	int SharedQueue<T>::Size()
-	{
-		std::unique_lock<std::mutex> Lock(_Mutex);
-		int Size = _Queue.size();
-		return Size;
+		return _Queue.size();
 	}
 
 	template <typename T>

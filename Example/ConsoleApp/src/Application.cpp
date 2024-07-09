@@ -7,6 +7,7 @@
 
 #include "Application.h"
 
+#include "Microphone.h"
 #include "Utils/Log.h"
 #include "Packets.h"
 #include "InworldVAD.h"
@@ -443,6 +444,48 @@ void NDKApp::App::Run()
 				Inworld::VAD_Terminate();
             }
         },
+        {
+            "ba",
+            "Begin audio capture",
+            [this](const std::vector<std::string>& Args)
+            {
+                if (Inworld::Mic::IsCapturing())
+                {
+                    return;
+                }
+                
+                Inworld::Routing R;
+                if (!GetRouting(R))
+                {
+                    return;
+                }
+
+                Inworld::AudioSessionStartPayload Pl{Inworld::AudioSessionStartPayload::MicrophoneMode::OpenMic};
+                _Client.Client().StartAudioSession(R, Pl);
+                Inworld::Mic::StartCapture();
+            }
+        },
+        {
+            "ea",
+            "End audio capture",
+            [this](const std::vector<std::string>& Args)
+            {
+                if (!Inworld::Mic::IsCapturing())
+                {
+                    return;
+                }
+
+                Inworld::Routing R;
+                if (!GetRouting(R))
+                {
+                    return;
+                }
+                
+                _Client.Client().StopAudioSession(R);
+                Inworld::Mic::StopCapture();
+                SendAudioData();
+            }
+        }
 	});
 
 	_Options.ServerUrl = "api-engine.inworld.ai:443";
@@ -524,7 +567,9 @@ void NDKApp::App::Run()
 
 	Inworld::SessionInfo SessionInfo;
 	_Client.Client().StartClient(_Options, SessionInfo);
+    //_Client.Client().SetAudioDumpEnabled(true);
 
+    _LastAudioSentTime = std::chrono::steady_clock::now();
 	while (!bQuit)
 	{
 		_Client.TaskExec.Execute();
@@ -536,7 +581,12 @@ void NDKApp::App::Run()
 
 		_Cli.ExecuteCommands();
 
-		std::this_thread::sleep_for(std::chrono::milliseconds(30));
+	    std::chrono::steady_clock::time_point Now = std::chrono::steady_clock::now();
+	    if (Now - _LastAudioSentTime > std::chrono::milliseconds(100)
+	        && Inworld::Mic::IsCapturing())
+	    {
+	        SendAudioData();
+	    }
 	}
 }
 
@@ -586,6 +636,18 @@ void NDKApp::App::NotifyCurrentCharacter()
 	Inworld::Log("Current character: %d %s %s", _CurrentAgentIdx, Info.GivenName.c_str(), Info.AgentId.c_str());
 }
 
+void NDKApp::App::SendAudioData()
+{
+    std::string Data;
+    Inworld::Routing R;
+    if (GetRouting(R) && Inworld::Mic::GetAudio(Data))
+    {
+        _Client.Client().SendSoundMessage(R, Data);
+    }
+    
+    _LastAudioSentTime = std::chrono::steady_clock::now();
+}
+
 std::string NDKApp::App::GetTargetStr(const Inworld::Routing& Routing)
 {
 	std::string Target = Routing._Target._Name;
@@ -610,7 +672,8 @@ std::string NDKApp::App::GetTargetStr(const Inworld::Routing& Routing)
 
 void NDKApp::App::Visit(const Inworld::TextEvent& Event)
 {
-	Inworld::Log("%s to %s: Text: %s", GetGivenName(Event._Routing._Source._Name).c_str(), GetTargetStr(Event._Routing).c_str(), Event.GetText().c_str());
+    if (Event.IsFinal())
+	    Inworld::Log("%s to %s: Text: %s", GetGivenName(Event._Routing._Source._Name).c_str(), GetTargetStr(Event._Routing).c_str(), Event.GetText().c_str());
 }
 
 void NDKApp::App::Visit(const Inworld::CustomEvent& Event)

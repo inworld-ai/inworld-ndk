@@ -139,8 +139,11 @@ void Inworld::RunnableAudioDumper::Run()
 			AudioDumper.OnMessage(Chunk);
 		}
 	}
+}
 
-	AudioDumper.OnSessionStop();
+void Inworld::RunnableAudioDumper::Deinitialize()
+{
+    AudioDumper.OnSessionStop();
 }
 #endif
 

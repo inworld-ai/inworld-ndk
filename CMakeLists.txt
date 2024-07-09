@@ -22,6 +22,7 @@ file(GLOB_RECURSE FilesALLProto
 )
 
 add_library(inworld-ndk-proto STATIC ${FilesALLProto})
+set_target_properties(inworld-ndk-proto PROPERTIES DEBUG_POSTFIX "")
 if (INWORLD_SHARED)
     add_library(inworld-ndk SHARED ${FilesALL})
     if (WIN32)
@@ -33,6 +34,7 @@ if (INWORLD_SHARED)
 else()
     add_library(inworld-ndk STATIC ${FilesALL})
 endif()
+set_target_properties(inworld-ndk PROPERTIES DEBUG_POSTFIX "")
 target_link_libraries(inworld-ndk PRIVATE inworld-ndk-proto)
 
 target_compile_definitions(inworld-ndk PRIVATE
@@ -509,6 +511,14 @@ if (WIN32 OR MAC)
     elseif(MAC)
         target_include_directories(inworld-ndk-app PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/src)
         target_link_libraries(inworld-ndk-app PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Mac/libinworld-ndk-vad.dylib)
+    endif()
+
+    if (WIN32)
+        option(RTAUDIO_API_DS "Build DirectSound API" ON)
+        option(RTAUDIO_API_WASAPI "Build WASAPI API" OFF)
+        add_subdirectory(ThirdParty/rtaudio)
+        target_link_libraries(inworld-ndk-app PRIVATE rtaudio)
+        target_include_directories(inworld-ndk-app PRIVATE ThirdParty/rtaudio)
     endif()
 endif()
 

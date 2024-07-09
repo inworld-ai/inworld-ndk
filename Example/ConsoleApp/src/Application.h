@@ -27,7 +27,7 @@ namespace NDKApp
 			}
 		}
 
-		void Push(std::function<void()> Task)
+		void Push(const std::function<void()>& Task)
 		{
 			_Tasks.PushBack(Task);
 		}
@@ -75,6 +75,8 @@ namespace NDKApp
 		void PrevCharacter();
 		void SetCharacter(int32_t Idx);
 		void NotifyCurrentCharacter();
+
+	    void SendAudioData();
 		
 		std::string GetTargetStr(const Inworld::Routing& Routing);
 
@@ -95,6 +97,8 @@ namespace NDKApp
 
 		bool GetRouting(Inworld::Routing& Routing);
 
+	    std::chrono::steady_clock::time_point _LastAudioSentTime;
+	    
 		Inworld::ClientOptions _Options;
 		CommandLineInterface _Cli;
 

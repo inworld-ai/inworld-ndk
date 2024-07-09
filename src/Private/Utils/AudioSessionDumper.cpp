@@ -34,6 +34,13 @@ struct WavHeader
 
 void AudioSessionDumper::OnMessage(const std::string& Msg)
 {
+    std::unique_lock<std::mutex> Lock(_Mutex);
+
+    if (!_bStarted)
+    {
+        return;
+    }
+    
 	std::ofstream OutStream(_FileName, std::ios::binary | std::ios_base::app);
 	OutStream.write((const char*)Msg.data(), Msg.size());
 	OutStream.close();
@@ -41,8 +48,11 @@ void AudioSessionDumper::OnMessage(const std::string& Msg)
 
 void AudioSessionDumper::OnSessionStart(const std::string& InFileName)
 {
-	_FileName = InFileName;
+    std::unique_lock<std::mutex> Lock(_Mutex);
 
+    _bStarted = true;
+    
+	_FileName = InFileName;
 	std::ofstream OutStream(_FileName, std::ios::binary);
 	OutStream.clear();
 	OutStream.close();
@@ -52,6 +62,13 @@ void AudioSessionDumper::OnSessionStart(const std::string& InFileName)
 
 void AudioSessionDumper::OnSessionStop()
 {
+    std::unique_lock<std::mutex> Lock(_Mutex);
+
+    if (!_bStarted)
+    {
+        return;
+    }
+    
 	std::ifstream InStream(_FileName, std::ios::binary | std::ios::ate);
 	const int32_t WaveSize = InStream.tellg();
 	std::vector<uint8_t> WaveData(WaveSize);

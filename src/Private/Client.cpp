@@ -365,7 +365,10 @@ void Inworld::Client::SetAudioDumpEnabled(bool bEnabled, const std::string& File
 {
 #ifdef INWORLD_AUDIO_DUMP
 	bDumpAudio = bEnabled;
-	_AudioDumpFileName = FileName;
+    if (!FileName.empty())
+    {
+        _AudioDumpFileName = FileName;
+    }
 	_AsyncAudioDumper.Stop();
 	if (bDumpAudio)
 	{
@@ -557,11 +560,11 @@ void Inworld::Client::StopClient()
 
 void Inworld::Client::DestroyClient()
 {
-	StopClient();
 	_OnPacketCallback = nullptr;
 	_OnGenerateTokenCallback = nullptr;
 	_OnConnectionStateChangedCallback = nullptr;
 	_LatencyTracker.ClearCallback();
+	StopClient();
 	_Service.reset();
 }
 
