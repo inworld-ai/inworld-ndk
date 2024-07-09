@@ -426,6 +426,7 @@ if (WIN32 OR MAC)
             ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Mac/${LibPref}inworld-ndk-vad.${DynamicLibExt}
         )
     endif()
+    target_include_directories(inworld-ndk PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/src)
     add_custom_command(TARGET inworld-ndk POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy 
         ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/src/InworldVAD.h  ${PackageDir}/include)

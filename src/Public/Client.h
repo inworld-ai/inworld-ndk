@@ -19,6 +19,7 @@
 #include "AsyncRoutine.h"
 #include "Utils/PerceivedLatencyTracker.h"
 #include "AECFilter.h"
+#include "ClientSpeechProcessor.h"
 
 using PacketQueue = Inworld::SharedQueue<std::shared_ptr<Inworld::Packet>>;
 
@@ -63,6 +64,7 @@ namespace Inworld
 	{
 		Capabilities Capabilities;
 		UserConfiguration UserConfig;
+	    ClientSpeechSettings SpeechSettings;
 		std::string ServerUrl;
 		std::string SceneName;
 		std::string Resource;
@@ -116,18 +118,6 @@ namespace Inworld
 			ResourceType Type;
 		};
 		ResourceNotFoundDetails ResourceNotFoundPayload;
-	};
-
-	struct INWORLD_EXPORT AudioSessionStartPayload
-	{
-		enum class MicrophoneMode : uint8_t
-		{
-			Unspecified = 0,
-			OpenMic = 1,
-			ExpectAudioEnd = 2,
-		};
-
-		MicrophoneMode MicMode = MicrophoneMode::Unspecified;
 	};
 
 	// use for client lifecycle
@@ -287,7 +277,6 @@ namespace Inworld
 		int32_t _ErrorCode = 0;
 		ErrorDetails _ErrorDetails;
 
-		AECFilter _EchoFilter;
 		PerceivedLatencyTracker _LatencyTracker;
 	};
 }

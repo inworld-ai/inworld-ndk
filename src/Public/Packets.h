@@ -50,7 +50,7 @@ namespace Inworld {
         InworldPackets::Actor ToProto() const;
         
 		// Is Actor player or agent.
-        InworldPackets::Actor_Type _Type = static_cast<InworldPackets::Actor_Type>(0);;
+        InworldPackets::Actor_Type _Type = static_cast<InworldPackets::Actor_Type>(0);
         // agent id if this is agent.
         std::string _Name;
 	};
