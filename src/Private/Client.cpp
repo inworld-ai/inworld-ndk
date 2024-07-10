@@ -459,7 +459,11 @@ void Inworld::Client::StartClient(const ClientOptions& Options, const SessionInf
 
 	_LatencyTracker.TrackAudioReplies(Options.Capabilities.Audio);
 
-    _SpeechProcessor = std::make_unique<ClientSpeechProcessor>(Options.SpeechOptions);
+    _ClientOptions.SpeechOptions.PacketCb = [this](const std::shared_ptr<Inworld::Packet>& Packet)
+    {
+        SendPacket(Packet);
+    };
+    _SpeechProcessor = std::make_unique<ClientSpeechProcessor>(_ClientOptions.SpeechOptions);
 
 	SetConnectionState(ConnectionState::Connecting);
 

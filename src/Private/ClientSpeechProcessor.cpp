@@ -99,7 +99,7 @@ void Inworld::ClientSpeechProcessor::SendSoundMessage(const Inworld::Routing& Ro
 {
     if (Routing != _Routing)
     {
-        LogWarning("Inworld::ClientSpeechProcessor::SendSoundMessage invalid routing: Agent.");
+        LogWarning("Inworld::ClientSpeechProcessor::SendSoundMessage invalid routing.");
         return;
     }
 
@@ -187,10 +187,12 @@ void Inworld::ClientSpeechProcessor::ProcessAudio(const std::string& Data)
 		return;
 	}
 	
-	std::vector<float> FloatData(Data.size());
-	for (size_t i = 0; i < Data.size(); ++i)
+	std::vector<float> FloatData;
+    FloatData.reserve(Data.size() / 2);
+	for (size_t i = 0; i < Data.size(); i += 2)
 	{
-		FloatData[i] = static_cast<float>(Data[i]) / 32767.0f;
+	    const uint16_t Sample = *reinterpret_cast<const uint16_t*>(Data.data() + i);
+		FloatData.emplace_back(static_cast<float>(Sample) / 32767.0f);
 	}
 
 	const float SpeechProb = Inworld::VAD_Process(FloatData.data(), FloatData.size());

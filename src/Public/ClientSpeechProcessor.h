@@ -48,8 +48,8 @@ namespace Inworld
         std::string STTModelPath;
 
         float VADProbThreshhold = 0.3f;
-        int8_t VADPreviousChunks = 5;
-        int8_t VADSubsequentChunks = 5;
+        uint8_t VADPreviousChunks = 5;
+        uint8_t VADSubsequentChunks = 5;
 
         ClientSpeechPacketCallback PacketCb;
         ClientSpeechVADCallback VADCb;
@@ -89,7 +89,7 @@ namespace Inworld
 	    AudioSessionStartPayload _AudioSessionPayload;
 	    Routing _Routing;
 	    bool _bSessionActive = false;
-        int8_t _VADSilenceCounter = 0;
+        uint8_t _VADSilenceCounter = 0;
 
 #ifdef INWORLD_AUDIO_DUMP
         AsyncRoutine _AsyncAudioDumper;
