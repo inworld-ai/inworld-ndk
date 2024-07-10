@@ -238,6 +238,8 @@ namespace Inworld
 		void PushPacket(std::shared_ptr<Inworld::Packet> Packet);
 
 		void StartClientStream();
+		void PauseClientStream();
+		void ResumeClientStream();
 		void StopClientStream();
 		void SetConnectionState(ConnectionState State);
 
