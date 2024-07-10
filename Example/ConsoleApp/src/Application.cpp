@@ -12,6 +12,8 @@
 #include "Packets.h"
 #include "InworldVAD.h"
 
+#include <filesystem>
+
 // !!! Fill out this options !!!
 constexpr std::string_view g_SceneName = "";
 constexpr std::string_view g_Base64 = "";
