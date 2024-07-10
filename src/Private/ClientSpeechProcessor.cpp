@@ -9,6 +9,7 @@
 
 #include "InworldVAD.h"
 #include "Log.h"
+#include "Service.h"
 #include "ai/inworld/packets/packets.pb.h"
 
 Inworld::ClientSpeechProcessor::ClientSpeechProcessor(const ClientSpeechOptions& Options)
@@ -49,7 +50,15 @@ Inworld::ClientSpeechProcessor::ClientSpeechProcessor(const ClientSpeechOptions&
 Inworld::ClientSpeechProcessor::~ClientSpeechProcessor()
 {
 	ClearState();
+    DisableAudioDump();
+}
 
+void Inworld::ClientSpeechProcessor::SendSoundMessageWithAEC(const Inworld::Routing& Routing,
+    const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData)
+{
+    std::vector<int16_t> FilteredData = _EchoFilter.FilterAudio(InputData, OutputData);
+    const std::string Data((char*)FilteredData.data(), FilteredData.size() * 2);
+    SendSoundMessage(Routing, Data);
 }
 
 void Inworld::ClientSpeechProcessor::ClearState()
@@ -65,90 +74,57 @@ void Inworld::ClientSpeechProcessor::ClearState()
     }
 }
 
-void Inworld::ClientSpeechProcessor::StartAudioSession(const std::string& AgentId, const AudioSessionStartPayload& Payload, const std::string& OwnerId)
+void Inworld::ClientSpeechProcessor::StartAudioSession(const Inworld::Routing& Routing,
+    const AudioSessionStartPayload& Payload)
 {
-	ClearState();
-	_Routing = Routing::Player2Agent(AgentId);
-	_AudioSessionPayload = Payload;
-	_SessionOwnerId = OwnerId;
-	if (_Options.Mode == ClientSpeechOptions::Mode::Default)
-	{
-		StartActualAudioSession();
-	}
+    ClearState();
+    _Routing = Routing;
+    _AudioSessionPayload = Payload;
+    if (_Options.Mode == ClientSpeechOptions::Mode::Default)
+    {
+        StartActualAudioSession();
+    }
 }
 
-void Inworld::ClientSpeechProcessor::StartAudioSessionInConversation(const std::string& ConversationId, const AudioSessionStartPayload& Payload, const std::string& OwnerId)
+void Inworld::ClientSpeechProcessor::StopAudioSession(const Inworld::Routing& Routing)
 {
-	ClearState();
-	_Routing = Routing::Player2Conversation(ConversationId);
-	_AudioSessionPayload = Payload;
-	_SessionOwnerId = OwnerId;
-	if (_Options.Mode == ClientSpeechOptions::Mode::Default)
-	{
-		StartActualAudioSession();
-	}
+    if (_Options.Mode == ClientSpeechOptions::Mode::Default)
+    {
+        StopActualAudioSession();
+    }
+    ClearState();
 }
 
-void Inworld::ClientSpeechProcessor::StopAudioSession(const std::string& AgentId)
+void Inworld::ClientSpeechProcessor::SendSoundMessage(const Inworld::Routing& Routing, const std::string& Data)
 {
-	if (_Options.Mode == ClientSpeechOptions::Mode::Default)
-	{
-		StopActualAudioSession();
-	}
-	ClearState();
+    if (Routing != _Routing)
+    {
+        LogWarning("Inworld::ClientSpeechProcessor::SendSoundMessage invalid routing: Agent.");
+        return;
+    }
+
+    ProcessAudio(Data);
 }
 
-void Inworld::ClientSpeechProcessor::StopAudioSessionInConversation(const std::string& ConversationId)
+void Inworld::ClientSpeechProcessor::EnableAudioDump(const std::string& FileName)
 {
-	if (_Options.Mode == ClientSpeechOptions::Mode::Default)
-	{
-		StopActualAudioSession();
-	}
-	ClearState();
+#ifdef INWORLD_AUDIO_DUMP
+    _bDumpAudio = true;
+    if (!FileName.empty())
+    {
+        _AudioDumpFileName = FileName;
+    }
+    _AsyncAudioDumper.Stop();
+    _AsyncAudioDumper.Start("InworldAudioDumper", std::make_unique<RunnableAudioDumper>(_AudioChunksToDump, _AudioDumpFileName));
+    Inworld::Log("ASYNC audio dump STARTING");
+#endif
 }
 
-void Inworld::ClientSpeechProcessor::SendSoundMessage(const std::string& AgentId, const std::vector<int16_t>& InputData)
+void Inworld::ClientSpeechProcessor::DisableAudioDump()
 {
-	if (_Routing._Target._Type != InworldPackets::Actor_Type::Actor_Type_AGENT || _Routing._Target._Name != AgentId)
-	{
-		LogWarning("Inworld::ClientSpeechProcessor::SendSoundMessage invalid routing: Agent %hs.", AgentId.c_str());
-		return;
-	}
-
-	ProcessAudio(InputData, {});
-}
-
-void Inworld::ClientSpeechProcessor::SendSoundMessageToConversation(const std::string& ConversationId, const std::vector<int16_t>& InputData)
-{
-	if (_Routing._ConversationId != ConversationId)
-	{
-		LogWarning("Inworld::ClientSpeechProcessor::SendSoundMessage invalid routing: Conversation %hs.", ConversationId.c_str());
-		return;
-	}
-
-	ProcessAudio(InputData, {});
-}
-
-void Inworld::ClientSpeechProcessor::SendSoundMessageWithAEC(const std::string& AgentId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData)
-{
-	if (_Routing._Target._Type != InworldPackets::Actor_Type::Actor_Type_AGENT || _Routing._Target._Name != AgentId)
-	{
-		LogWarning("Inworld::ClientSpeechProcessor::SendSoundMessage invalid routing: Agent %hs.", AgentId.c_str());
-		return;
-	}
-
-	ProcessAudio(InputData, OutputData);
-}
-
-void Inworld::ClientSpeechProcessor::SendSoundMessageWithAECToConversation(const std::string& ConversationId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData)
-{
-	if (_Routing._ConversationId != ConversationId)
-	{
-		LogWarning("Inworld::ClientSpeechProcessor::SendSoundMessage invalid routing: Conversation %hs.", ConversationId.c_str());
-		return;
-	}
-
-	ProcessAudio(InputData, OutputData);
+#ifdef INWORLD_AUDIO_DUMP
+    _AsyncAudioDumper.Stop();
+#endif
 }
 
 bool Inworld::ClientSpeechProcessor::StartActualAudioSession()
@@ -160,7 +136,7 @@ bool Inworld::ClientSpeechProcessor::StartActualAudioSession()
 
     if (_Options.VADCb)
     {
-        _Options.VADCb(_SessionOwnerId, true);
+        _Options.VADCb(true);
     }
 
     if (_Options.PacketCb)
@@ -186,7 +162,7 @@ bool Inworld::ClientSpeechProcessor::StopActualAudioSession()
 	
     if (_Options.VADCb)
     {
-        _Options.VADCb(_SessionOwnerId, false);
+        _Options.VADCb(false);
     }
 
     if (_Options.PacketCb)
@@ -203,21 +179,18 @@ bool Inworld::ClientSpeechProcessor::StopActualAudioSession()
 	return true;
 }
 
-void Inworld::ClientSpeechProcessor::ProcessAudio(const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData)
+void Inworld::ClientSpeechProcessor::ProcessAudio(const std::string& Data)
 {
-    std::vector<int16_t> FilteredData = _EchoFilter.FilterAudio(InputData, OutputData);
-	const std::string Data((char*)FilteredData.data(), FilteredData.size() * 2);
-
 	if (_Options.Mode == ClientSpeechOptions::Mode::Default)
 	{
 		SendAudio(Data);
 		return;
 	}
 	
-	std::vector<float> FloatData(FilteredData.size());
-	for (size_t i = 0; i < FilteredData.size(); ++i)
+	std::vector<float> FloatData(Data.size());
+	for (size_t i = 0; i < Data.size(); ++i)
 	{
-		FloatData[i] = static_cast<float>(FilteredData[i]) / 32767.0f;
+		FloatData[i] = static_cast<float>(Data[i]) / 32767.0f;
 	}
 
 	const float SpeechProb = Inworld::VAD_Process(FloatData.data(), FloatData.size());
@@ -267,6 +240,11 @@ void Inworld::ClientSpeechProcessor::SendAudio(const std::string& Data)
 	if (_Options.PacketCb)
     {
         _Options.PacketCb(Packet);
+	    
+#ifdef INWORLD_AUDIO_DUMP
+	    if (_bDumpAudio)
+	        _AudioChunksToDump.PushBack(Data);
+#endif
     }
 }
 

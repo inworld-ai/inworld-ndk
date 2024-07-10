@@ -13,7 +13,9 @@
 #include <vector>
 
 #include "AECFilter.h"
+#include "AsyncRoutine.h"
 #include "Packets.h"
+#include "SharedQueue.h"
 
 namespace Inworld
 {
@@ -30,7 +32,7 @@ namespace Inworld
     };
 
     using ClientSpeechPacketCallback = std::function<void(const std::shared_ptr<Packet>& Packet)>;
-    using ClientSpeechVADCallback = std::function<void(const std::string& OwnerId, bool bVoiceDetected)>;
+    using ClientSpeechVADCallback = std::function<void(bool bVoiceDetected)>;
     
     struct ClientSpeechOptions
     {
@@ -57,30 +59,26 @@ namespace Inworld
     {
     public:
         
-	    ClientSpeechProcessor() = delete;
+	    ClientSpeechProcessor() = default;
         ClientSpeechProcessor(const ClientSpeechOptions& Options);
         ClientSpeechProcessor(const ClientSpeechProcessor&) = delete;
         ClientSpeechProcessor& operator=(const ClientSpeechProcessor&) = delete;
-        ClientSpeechProcessor(ClientSpeechProcessor&&) = delete;
-        ClientSpeechProcessor& operator=(ClientSpeechProcessor&&) = delete;
+        ClientSpeechProcessor(ClientSpeechProcessor&&) = default;
+        ClientSpeechProcessor& operator=(ClientSpeechProcessor&&) = default;
 	    ~ClientSpeechProcessor();
 
-	    void StartAudioSession(const std::string& AgentId, const AudioSessionStartPayload& Payload, const std::string& OwnerId);
-	    void StartAudioSessionInConversation(const std::string& ConversationId, const AudioSessionStartPayload& Payload, const std::string& OwnerId);
-		    
-	    void StopAudioSession(const std::string& AgentId);
-	    void StopAudioSessionInConversation(const std::string& ConversationId);
+        void StartAudioSession(const Inworld::Routing& Routing, const AudioSessionStartPayload& Payload);
+        void StopAudioSession(const Inworld::Routing& Routing);
+        void SendSoundMessage(const Inworld::Routing& Routing, const std::string& Data);
+        void SendSoundMessageWithAEC(const Inworld::Routing& Routing, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
 
-	    void SendSoundMessage(const std::string& AgentId, const std::vector<int16_t>& InputData);
-	    void SendSoundMessageToConversation(const std::string& ConversationId, const std::vector<int16_t>& InputData);
-		    
-	    void SendSoundMessageWithAEC(const std::string& AgentId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
-	    void SendSoundMessageWithAECToConversation(const std::string& ConversationId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
+        void EnableAudioDump(const std::string& FileName);
+        void DisableAudioDump();
 	    
     private:
 	    bool StartActualAudioSession();
 	    bool StopActualAudioSession();
-	    void ProcessAudio(const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
+	    void ProcessAudio(const std::string& InputData);
 	    void SendAudio(const std::string& Data);
 	    void SendBufferedAudio();
 	    void ClearState();
@@ -90,9 +88,14 @@ namespace Inworld
 	    std::queue<std::string> _AudioQueue;
 	    AudioSessionStartPayload _AudioSessionPayload;
 	    Routing _Routing;
-        std::string _SessionOwnerId;
 	    bool _bSessionActive = false;
-	    int8_t _VADSilenceCounter = 0;
-    };
+        int8_t _VADSilenceCounter = 0;
 
+#ifdef INWORLD_AUDIO_DUMP
+        AsyncRoutine _AsyncAudioDumper;
+        SharedQueue<std::string> _AudioChunksToDump;
+        bool _bDumpAudio = false;
+        std::string _AudioDumpFileName = "C:/Tmp/AudioDump.wav";
+#endif
+    };
 }

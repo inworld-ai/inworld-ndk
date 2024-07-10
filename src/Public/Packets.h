@@ -48,6 +48,9 @@ namespace Inworld {
 		{}
 
         InworldPackets::Actor ToProto() const;
+
+	    bool operator==(const Actor& Other) const { return _Type == Other._Type && _Name == Other._Name; }
+	    bool operator!=(const Actor& Other) const { return !(*this == Other); }
         
 		// Is Actor player or agent.
         InworldPackets::Actor_Type _Type = static_cast<InworldPackets::Actor_Type>(0);
@@ -68,6 +71,9 @@ namespace Inworld {
 			: _Source(Source)
 			, _ConversationId(ConversationId) 
 		{}
+
+	    bool operator==(const Routing& Other) const { return _Source == Other._Source && _Target == Other._Target && _ConversationId == Other._ConversationId; }
+	    bool operator!=(const Routing& Other) const { return !(*this == Other); }
 
 		static Routing Player2Agent(const std::string& AgentId);
 		static Routing Player2Conversation(const std::string& ConversationId);

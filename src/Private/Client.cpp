@@ -190,26 +190,26 @@ std::shared_ptr<Inworld::TextEvent> Inworld::Client::SendTextMessage(const Inwor
 	return Packet;
 }
 
-std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessage(const Inworld::Routing& Routing, const std::string& Data)
+void Inworld::Client::StartAudioSessionInConversation(
+    const std::string& ConversationId, const AudioSessionStartPayload& Payload)
 {
-	auto Packet = std::make_shared<AudioDataEvent>(Data, Routing);
-	SendPacket(Packet);
-#ifdef INWORLD_AUDIO_DUMP
-	if (bDumpAudio)
-		_AudioChunksToDump.PushBack(Data);
-#endif
-	return Packet;
+    return StartAudioSession(Routing::Player2Conversation(ConversationId), Payload);
 }
 
-std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessageWithAEC(const Inworld::Routing& Routing, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData)
+void Inworld::Client::StopAudioSessionInConversation(
+    const std::string& ConversationId)
 {
-	std::vector<int16_t> FilteredData = _EchoFilter.FilterAudio(InputData, OutputData);
+    return StopAudioSession(Routing::Player2Conversation(ConversationId));
+}
 
-	std::string Data;
-	Data.resize(FilteredData.size() * sizeof(int16_t));
-	std::memcpy((void*)Data.data(), (void*)FilteredData.data(), Data.size());
+void Inworld::Client::SendSoundMessage(const Inworld::Routing& Routing, const std::string& Data)
+{
+	_SpeechProcessor->SendSoundMessage(Routing, Data);
+}
 
-	return SendSoundMessage(Routing, Data);
+void Inworld::Client::SendSoundMessageWithAEC(const Inworld::Routing& Routing, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData)
+{
+	_SpeechProcessor->SendSoundMessageWithAEC(Routing, InputData, OutputData);
 }
 
 std::shared_ptr<Inworld::CustomEvent> Inworld::Client::SendCustomEvent(const Inworld::Routing& Routing, const std::string& Name, const std::unordered_map<std::string, std::string>& Params)
@@ -219,26 +219,22 @@ std::shared_ptr<Inworld::CustomEvent> Inworld::Client::SendCustomEvent(const Inw
 	return Packet;
 }
 
-std::shared_ptr<Inworld::ControlEvent> Inworld::Client::StartAudioSession(const Inworld::Routing& Routing, const AudioSessionStartPayload& Payload)
+void Inworld::Client::StartAudioSession(const Inworld::Routing& Routing, const AudioSessionStartPayload& Payload)
 {
-	auto Packet = std::make_shared<Inworld::ControlEventAudioSessionStart>(Routing, static_cast<ai::inworld::packets::AudioSessionStartPayload_MicrophoneMode>(Payload.MicMode));
-	SendPacket(Packet);
-	return Packet;
+	_SpeechProcessor->StartAudioSession(Routing, Payload);
 }
 
-std::shared_ptr<Inworld::ControlEvent> Inworld::Client::StopAudioSession(const Inworld::Routing& Routing)
+void Inworld::Client::StopAudioSession(const Inworld::Routing& Routing)
 {
-	auto Packet = std::make_shared<Inworld::ControlEvent>(ai::inworld::packets::ControlEvent_Action_AUDIO_SESSION_END, std::string{}, Routing);
-	SendPacket(Packet);
-	return Packet;
+	_SpeechProcessor->StopAudioSession(Routing);
 }
 
-std::shared_ptr<Inworld::ControlEvent> Inworld::Client::StartAudioSession(const std::string& AgentId, const AudioSessionStartPayload& Payload)
+void Inworld::Client::StartAudioSession(const std::string& AgentId, const AudioSessionStartPayload& Payload)
 {
 	return StartAudioSession(Inworld::Routing::Player2Agent(AgentId), Payload);
 }
 
-std::shared_ptr<Inworld::ControlEvent> Inworld::Client::StopAudioSession(const std::string& AgentId)
+void Inworld::Client::StopAudioSession(const std::string& AgentId)
 {
 	return StopAudioSession(Inworld::Routing::Player2Agent(AgentId));
 }
@@ -253,25 +249,25 @@ std::shared_ptr<Inworld::TextEvent> Inworld::Client::SendTextMessageToConversati
 	return SendTextMessage(Routing::Player2Conversation(ConversationId), Text);
 }
 
-std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessage(const std::string& AgentId, const std::string& Data)
+void Inworld::Client::SendSoundMessage(const std::string& AgentId, const std::string& Data)
 {
-	return SendSoundMessage(Routing::Player2Agent(AgentId), Data);
+	_SpeechProcessor->SendSoundMessage(Routing::Player2Agent(AgentId), Data);
 }
 
-std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessageToConversation(const std::string& ConversationId, const std::string& Data)
+void Inworld::Client::SendSoundMessageToConversation(const std::string& ConversationId, const std::string& Data)
 {
-	return SendSoundMessage(Routing::Player2Conversation(ConversationId), Data);
+	_SpeechProcessor->SendSoundMessage(Routing::Player2Conversation(ConversationId), Data);
 }
 
-std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessageWithAEC(const std::string& AgentId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData)
+void Inworld::Client::SendSoundMessageWithAEC(const std::string& AgentId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData)
 {
-	return SendSoundMessageWithAEC(Routing::Player2Agent(AgentId), InputData, OutputData);
+	_SpeechProcessor->SendSoundMessageWithAEC(Routing::Player2Agent(AgentId), InputData, OutputData);
 }
 
-std::shared_ptr<Inworld::DataEvent> Inworld::Client::SendSoundMessageWithAECToConversation(
+void Inworld::Client::SendSoundMessageWithAECToConversation(
 	const std::string& ConversationId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData)
 {
-	return SendSoundMessageWithAEC(Routing::Player2Conversation(ConversationId), InputData, OutputData);
+	_SpeechProcessor->SendSoundMessageWithAEC(Routing::Player2Conversation(ConversationId), InputData, OutputData);
 }
 
 std::shared_ptr<Inworld::CustomEvent> Inworld::Client::SendCustomEvent(const std::string& AgentId, const std::string& Name, const std::unordered_map<std::string, std::string>& Params)
@@ -304,18 +300,6 @@ std::shared_ptr<Inworld::CancelResponseEvent> Inworld::Client::CancelResponse(co
 	auto Packet = std::make_shared<Inworld::CancelResponseEvent>(InteractionId, UtteranceIds, Routing);
 	SendPacket(Packet);
 	return Packet;
-}
-
-std::shared_ptr<Inworld::ControlEvent> Inworld::Client::StartAudioSessionInConversation(
-	const std::string& ConversationId, const AudioSessionStartPayload& Payload)
-{
-	return StartAudioSession(Routing::Player2Conversation(ConversationId), Payload);
-}
-
-std::shared_ptr<Inworld::ControlEvent> Inworld::Client::StopAudioSessionInConversation(
-	const std::string& ConversationId)
-{
-	return StopAudioSession(Routing::Player2Conversation(ConversationId));
 }
 
 void Inworld::Client::LoadScene(const std::string& Scene)
@@ -361,21 +345,14 @@ std::shared_ptr<Inworld::CancelResponseEvent> Inworld::Client::CancelResponse(co
 	return Packet;
 }
 
-void Inworld::Client::SetAudioDumpEnabled(bool bEnabled, const std::string& FileName)
+void Inworld::Client::EnableAudioDump(const std::string& FileName)
 {
-#ifdef INWORLD_AUDIO_DUMP
-	bDumpAudio = bEnabled;
-    if (!FileName.empty())
-    {
-        _AudioDumpFileName = FileName;
-    }
-	_AsyncAudioDumper.Stop();
-	if (bDumpAudio)
-	{
-		_AsyncAudioDumper.Start("InworldAudioDumper", std::make_unique<RunnableAudioDumper>(_AudioChunksToDump, _AudioDumpFileName));
-		Inworld::Log("ASYNC audio dump STARTING");
-	}
-#endif
+    _SpeechProcessor->EnableAudioDump(FileName);
+}
+
+void Inworld::Client::DisableAudioDump()
+{
+    _SpeechProcessor->DisableAudioDump();
 }
 
 void Inworld::Client::InitClientAsync(const SdkInfo& SdkInfo, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback)
@@ -482,6 +459,8 @@ void Inworld::Client::StartClient(const ClientOptions& Options, const SessionInf
 
 	_LatencyTracker.TrackAudioReplies(Options.Capabilities.Audio);
 
+    _SpeechProcessor = std::make_unique<ClientSpeechProcessor>(Options.SpeechOptions);
+
 	SetConnectionState(ConnectionState::Connecting);
 
 	if (!_SessionInfo.IsValid())
@@ -543,15 +522,13 @@ void Inworld::Client::StopClient()
 	}
 
 	StopClientStream();
+    _SpeechProcessor.reset();
 	if (_Service->Session())
 	{
 		_Service->Session()->Cancel();
 	}
 	_AsyncGenerateTokenTask.Stop();
 	_AsyncGetSessionState.Stop();
-#ifdef INWORLD_AUDIO_DUMP
-	_AsyncAudioDumper.Stop();
-#endif
 	_ClientOptions = ClientOptions();
 	_SessionInfo = SessionInfo();
 	SetConnectionState(ConnectionState::Idle);

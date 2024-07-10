@@ -27,6 +27,11 @@ Inworld::AECFilter::~AECFilter()
 std::vector<int16_t> Inworld::AECFilter::FilterAudio(const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData)
 {
 #ifdef INWORLD_AEC
+    if (OutputData.empty())
+    {
+        return InputData;
+    }
+    
 	std::vector<int16_t> FilteredAudio = InputData;
 	constexpr int32_t NumSamples = 160;
 	const int32_t MaxSamples = std::min(InputData.size(), OutputData.size()) / NumSamples * NumSamples;
