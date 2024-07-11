@@ -15,35 +15,30 @@
 Inworld::ClientSpeechProcessor::ClientSpeechProcessor(const ClientSpeechOptions& Options)
     : _Options(Options)
 {
-    if (_Options.Mode >= ClientSpeechOptions::Mode::VAD)
+    if (_Options.Mode == ClientSpeechOptions::Mode::Default)
     {
-        if (_Options.VADModelPath.empty())
-        {
-            LogError("Inworld::ClientSpeechProcessor invalid VAD model path. Falling back to default mode.");
-            _Options.Mode = ClientSpeechOptions::Mode::Default;
-        }
-        else if (!_Options.VADCb)
-        {
-            LogError("Inworld::ClientSpeechProcessor invalid VAD callback. Falling back to default mode.");
-            _Options.Mode = ClientSpeechOptions::Mode::Default;
-        }
-        else
-        {
-            VAD_Initialize(_Options.VADModelPath.c_str());
-        }
+        return;
     }
+
+    if (_Options.VADModelPath.empty())
+    {
+        LogError("Inworld::ClientSpeechProcessor invalid VAD model path. Falling back to default mode.");
+        _Options.Mode = ClientSpeechOptions::Mode::Default;
+        return;
+    }
+
+    if (!_Options.VADCb)
+    {
+        LogError("Inworld::ClientSpeechProcessor invalid VAD callback. Falling back to default mode.");
+        _Options.Mode = ClientSpeechOptions::Mode::Default;
+        return;
+    }
+
+    VAD_Initialize(_Options.VADModelPath.c_str());
     
     if (_Options.Mode == ClientSpeechOptions::Mode::STT)
     {
-        /*if (_Options.STTModelPath.empty())
-        {
-            LogError("Inworld::ClientSpeechProcessor invalid STT model path. Falling back to default mode.");
-            _Options.Mode = ClientSpeechOptions::Mode::Default;
-        }
-        else
-        {
-            STT_Initialize(_Options.STTModelPath.c_str());
-        }*/
+        
     }
 }
 
