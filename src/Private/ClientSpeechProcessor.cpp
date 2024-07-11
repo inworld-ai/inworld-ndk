@@ -51,6 +51,7 @@ Inworld::ClientSpeechProcessor::~ClientSpeechProcessor()
 {
 	ClearState();
     DisableAudioDump();
+    VAD_Terminate();
 }
 
 void Inworld::ClientSpeechProcessor::SendSoundMessageWithAEC(const Inworld::Routing& Routing,
