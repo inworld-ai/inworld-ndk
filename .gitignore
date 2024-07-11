@@ -46,6 +46,11 @@
 !inworld-vad/prebuilt/Win64/inworld-ndk-vad.dll
 !inworld-vad/prebuilt/Mac/libinworld-ndk-vad.dylib
 
+!inworld-stt/prebuilt/Win64/inworld-ndk-stt.dll
+!inworld-stt/prebuilt/Win64/ctranslate2.dll
+!inworld-stt/prebuilt/Mac/libinworld-ndk-vad.dylib
+!inworld-stt/prebuilt/Mac/ctranslate2.dylib
+
 CMakeLists.txt.user
 CMakeCache.txt
 CMakeFiles

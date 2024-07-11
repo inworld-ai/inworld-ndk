@@ -28,7 +28,7 @@ option(ENABLE_CPU_DISPATCH "Compile CPU kernels for multiple ISA and dispatch at
 option(ENABLE_PROFILING "Compile with profiling support" OFF)
 option(BUILD_CLI "Compile the clients" ON)
 option(BUILD_TESTS "Compile the tests" OFF)
-option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
+option(BUILD_SHARED_LIBS "Build shared libraries" ON)
 option(WITH_TENSOR_PARALLEL "Compile with NCCL and MPI backend" OFF)
 set(OPENMP_RUNTIME "COMP" CACHE STRING "OpenMP runtime (INTEL, COMP, NONE)")
 set(OPENBLAS_INCLUDE_DIR "C:/Projects/inworld/OpenBLAS/include")
@@ -41,14 +41,25 @@ target_compile_features(inworld-ndk-stt PRIVATE cxx_std_17)
 if (WIN32)
     add_custom_command(TARGET inworld-ndk-stt POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy
-        ${CMAKE_CURRENT_SOURCE_DIR}/build/$<CONFIGURATION>/inworld-ndk-stt.dll ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Win64)
+        ${CMAKE_CURRENT_SOURCE_DIR}/build/$<CONFIGURATION>/inworld-ndk-stt.dll 
+        ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Win64/inworld-ndk-stt.dll)
     add_custom_command(TARGET inworld-ndk-stt POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy
-        ${CMAKE_CURRENT_SOURCE_DIR}/build/$<CONFIGURATION>/inworld-ndk-stt.dll.lib ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Win64)
+        ${CMAKE_CURRENT_SOURCE_DIR}/build/$<CONFIGURATION>/inworld-ndk-stt.dll.lib 
+        ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Win64/inworld-ndk-stt.dll.lib)
+    add_custom_command(TARGET inworld-ndk-stt POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy
+        ${CMAKE_CURRENT_SOURCE_DIR}/build/third-party/ctranslate2/$<CONFIGURATION>/ctranslate2.dll
+        ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Win64/ctranslate2.dll)
+    add_custom_command(TARGET inworld-ndk-stt POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy
+        ${CMAKE_CURRENT_SOURCE_DIR}/build/third-party/ctranslate2/$<CONFIGURATION>/ctranslate2.lib
+        ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Win64/ctranslate2.lib)
 elseif(MAC)
     add_custom_command(TARGET inworld-ndk-stt POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy
-        ${CMAKE_CURRENT_SOURCE_DIR}/build/$<CONFIGURATION>/libinworld-ndk-stt.dylib ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Mac/libinworld-ndk-stt.dylib)
+        ${CMAKE_CURRENT_SOURCE_DIR}/build/$<CONFIGURATION>/libinworld-ndk-stt.dylib 
+        ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Mac/libinworld-ndk-stt.dylib)
 endif()
 
     

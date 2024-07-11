@@ -92,14 +92,17 @@ target_compile_options(inworld-ndk-vad PRIVATE -std=c++17)
 if (WIN32)
     add_custom_command(TARGET inworld-ndk-vad POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy
-        ${CMAKE_CURRENT_SOURCE_DIR}/build/$<CONFIGURATION>/inworld-ndk-vad.dll ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Win64)
+        ${CMAKE_CURRENT_SOURCE_DIR}/build/$<CONFIGURATION>/inworld-ndk-vad.dll 
+        ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Win64/inworld-ndk-vad.dll )
     add_custom_command(TARGET inworld-ndk-vad POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy
-        ${CMAKE_CURRENT_SOURCE_DIR}/build/$<CONFIGURATION>/inworld-ndk-vad.dll.lib ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Win64)
+        ${CMAKE_CURRENT_SOURCE_DIR}/build/$<CONFIGURATION>/inworld-ndk-vad.dll.lib 
+        ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Win64/inworld-ndk-vad.dll.lib)
 elseif(MAC)
     add_custom_command(TARGET inworld-ndk-vad POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy
-        ${CMAKE_CURRENT_SOURCE_DIR}/build/$<CONFIGURATION>/libinworld-ndk-vad.dylib ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Mac/libinworld-ndk-vad.dylib)
+        ${CMAKE_CURRENT_SOURCE_DIR}/build/$<CONFIGURATION>/libinworld-ndk-vad.dylib 
+        ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Mac/libinworld-ndk-vad.dylib)
 endif()
 
 #add_executable(inworld-ndk-vad-app src/Main.cpp)

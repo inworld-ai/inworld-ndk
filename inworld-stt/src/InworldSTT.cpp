@@ -8,8 +8,15 @@
 
 #include "InworldSTT.h"
 
+#include <ctranslate2/translator.h>
+
+namespace ct = ctranslate2;
+
 void Inworld::STT_Initialize(const char* model)
 {
+    ct::Translator translator("", ct::Device::CPU);
+    std::vector<std::string> source;
+    auto results = translator.translate_batch({source});
 }
 
 void Inworld::STT_Terminate()
