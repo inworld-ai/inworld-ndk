@@ -14,3 +14,6 @@
 [submodule "inworld-vad/third-party/onnxruntime"]
 	path = inworld-vad/third-party/onnxruntime
 	url = https://github.com/microsoft/onnxruntime.git
+[submodule "inworld-stt/third-party/ctranslate2"]
+	path = inworld-stt/third-party/ctranslate2
+	url = https://github.com/OpenNMT/CTranslate2.git
