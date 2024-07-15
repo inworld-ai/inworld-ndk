@@ -467,6 +467,7 @@ class ApiKey PROTOBUF_FINAL :
     kKeyFieldNumber = 2,
     kSecretFieldNumber = 3,
     kUsageLimitsFieldNumber = 5,
+    kCreateTimeFieldNumber = 6,
     kStateFieldNumber = 4,
   };
   // string name = 1;
@@ -535,6 +536,24 @@ class ApiKey PROTOBUF_FINAL :
       ::ai::inworld::studio::v1alpha::ApiKey_UsageLimits* usage_limits);
   ::ai::inworld::studio::v1alpha::ApiKey_UsageLimits* unsafe_arena_release_usage_limits();
 
+  // .google.protobuf.Timestamp create_time = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];
+  bool has_create_time() const;
+  private:
+  bool _internal_has_create_time() const;
+  public:
+  void clear_create_time();
+  const PROTOBUF_NAMESPACE_ID::Timestamp& create_time() const;
+  PROTOBUF_NAMESPACE_ID::Timestamp* release_create_time();
+  PROTOBUF_NAMESPACE_ID::Timestamp* mutable_create_time();
+  void set_allocated_create_time(PROTOBUF_NAMESPACE_ID::Timestamp* create_time);
+  private:
+  const PROTOBUF_NAMESPACE_ID::Timestamp& _internal_create_time() const;
+  PROTOBUF_NAMESPACE_ID::Timestamp* _internal_mutable_create_time();
+  public:
+  void unsafe_arena_set_allocated_create_time(
+      PROTOBUF_NAMESPACE_ID::Timestamp* create_time);
+  PROTOBUF_NAMESPACE_ID::Timestamp* unsafe_arena_release_create_time();
+
   // .ai.inworld.studio.v1alpha.ApiKey.State state = 4;
   void clear_state();
   ::ai::inworld::studio::v1alpha::ApiKey_State state() const;
@@ -555,6 +574,7 @@ class ApiKey PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr key_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr secret_;
   ::ai::inworld::studio::v1alpha::ApiKey_UsageLimits* usage_limits_;
+  PROTOBUF_NAMESPACE_ID::Timestamp* create_time_;
   int state_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto;
@@ -1902,6 +1922,83 @@ inline void ApiKey::set_allocated_usage_limits(::ai::inworld::studio::v1alpha::A
   }
   usage_limits_ = usage_limits;
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.ApiKey.usage_limits)
+}
+
+// .google.protobuf.Timestamp create_time = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];
+inline bool ApiKey::_internal_has_create_time() const {
+  return this != internal_default_instance() && create_time_ != nullptr;
+}
+inline bool ApiKey::has_create_time() const {
+  return _internal_has_create_time();
+}
+inline const PROTOBUF_NAMESPACE_ID::Timestamp& ApiKey::_internal_create_time() const {
+  const PROTOBUF_NAMESPACE_ID::Timestamp* p = create_time_;
+  return p != nullptr ? *p : reinterpret_cast<const PROTOBUF_NAMESPACE_ID::Timestamp&>(
+      PROTOBUF_NAMESPACE_ID::_Timestamp_default_instance_);
+}
+inline const PROTOBUF_NAMESPACE_ID::Timestamp& ApiKey::create_time() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.ApiKey.create_time)
+  return _internal_create_time();
+}
+inline void ApiKey::unsafe_arena_set_allocated_create_time(
+    PROTOBUF_NAMESPACE_ID::Timestamp* create_time) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(create_time_);
+  }
+  create_time_ = create_time;
+  if (create_time) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.studio.v1alpha.ApiKey.create_time)
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* ApiKey::release_create_time() {
+  
+  PROTOBUF_NAMESPACE_ID::Timestamp* temp = create_time_;
+  create_time_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* ApiKey::unsafe_arena_release_create_time() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.ApiKey.create_time)
+  
+  PROTOBUF_NAMESPACE_ID::Timestamp* temp = create_time_;
+  create_time_ = nullptr;
+  return temp;
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* ApiKey::_internal_mutable_create_time() {
+  
+  if (create_time_ == nullptr) {
+    auto* p = CreateMaybeMessage<PROTOBUF_NAMESPACE_ID::Timestamp>(GetArena());
+    create_time_ = p;
+  }
+  return create_time_;
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* ApiKey::mutable_create_time() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.ApiKey.create_time)
+  return _internal_mutable_create_time();
+}
+inline void ApiKey::set_allocated_create_time(PROTOBUF_NAMESPACE_ID::Timestamp* create_time) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(create_time_);
+  }
+  if (create_time) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(create_time)->GetArena();
+    if (message_arena != submessage_arena) {
+      create_time = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, create_time, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  create_time_ = create_time;
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.ApiKey.create_time)
 }
 
 // -------------------------------------------------------------------

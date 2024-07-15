@@ -65,12 +65,13 @@ enum LanguageCode : int {
   ZH_CN = 2,
   KO_KR = 3,
   JA_JP = 4,
+  RU_RU = 5,
   LanguageCode_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   LanguageCode_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
 bool LanguageCode_IsValid(int value);
 constexpr LanguageCode LanguageCode_MIN = LANGUAGE_CODE_UNSPECIFIED;
-constexpr LanguageCode LanguageCode_MAX = JA_JP;
+constexpr LanguageCode LanguageCode_MAX = RU_RU;
 constexpr int LanguageCode_ARRAYSIZE = LanguageCode_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* LanguageCode_descriptor();

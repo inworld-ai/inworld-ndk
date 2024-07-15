@@ -127,11 +127,11 @@ const char descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2ferrors_2e
   "description\030\002 \001(\t\022T\n\010metadata\030\003 \003(\0132B.ai"
   ".inworld.studio.v1alpha.BadRequest.Field"
   "Violation.MetadataEntry\032/\n\rMetadataEntry"
-  "\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001B\225\001\n\031ai."
-  "inworld.studio.v1alphaB\013ErrorsProtoP\001ZMg"
-  "ithub.com/inworld-ai/inworld/serving/grp"
-  "c-gateway/build/proto/studio/v1alpha\252\002\031A"
-  "i.Inworld.Studio.V1Alphab\006proto3"
+  "\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001B\223\001\n\031ai."
+  "inworld.studio.v1alphaB\013ErrorsProtoP\001ZKg"
+  "ithub.com/inworld-ai/inworld-proto-golan"
+  "g/src/go/ai/inworld/studio/v1alpha\252\002\031Ai."
+  "Inworld.Studio.V1Alphab\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2ferrors_2eproto_deps[1] = {
 };
@@ -142,7 +142,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2ferrors_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2ferrors_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2ferrors_2eproto, "ai/inworld/studio/v1alpha/errors.proto", 512,
+  false, false, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2ferrors_2eproto, "ai/inworld/studio/v1alpha/errors.proto", 510,
   &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2ferrors_2eproto_once, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2ferrors_2eproto_sccs, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2ferrors_2eproto_deps, 3, 0,
   schemas, file_default_instances, TableStruct_ai_2finworld_2fstudio_2fv1alpha_2ferrors_2eproto::offsets,
   file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2ferrors_2eproto, 3, file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2ferrors_2eproto, file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2ferrors_2eproto,
