@@ -29,7 +29,7 @@ static bool IsConfigValid()
 	// cppcheck-suppress redundantCondition
 	// cppcheck-suppress knownConditionTrueFalse
 	// cppcheck-suppress identicalConditionAfterEarlyExit
-	return !g_Base64.empty() || (g_ApiKey.empty() && g_ApiSecret.empty());
+	return !g_Base64.empty() || (!g_ApiKey.empty() && !g_ApiSecret.empty());
 }
 
 void NDKApp::App::Run()
@@ -460,9 +460,13 @@ void NDKApp::App::Run()
                     return;
                 }
 
-                Inworld::AudioSessionStartPayload Pl{Inworld::AudioSessionStartPayload::MicrophoneMode::OpenMic};
+                Inworld::AudioSessionStartPayload Pl{
+                    Inworld::AudioSessionStartPayload::MicrophoneMode::OpenMic,
+                    Inworld::AudioSessionStartPayload::UnderstandingMode::Full
+                };
                 _Client.Client().StartAudioSession(R, Pl);
                 Inworld::Mic::StartCapture();
+                Inworld::Log("Audio capture started");
             }
         },
         {
@@ -484,6 +488,7 @@ void NDKApp::App::Run()
                 _Client.Client().StopAudioSession(R);
                 Inworld::Mic::StopCapture();
                 SendAudioData();
+                Inworld::Log("Audio capture stopped");
             }
         }
 	});
