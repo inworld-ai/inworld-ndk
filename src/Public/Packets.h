@@ -26,6 +26,7 @@ namespace ai { namespace inworld { namespace packets {
 	enum DataChunk_DataType : int;
 	enum ControlEvent_Action : int;
 	enum AudioSessionStartPayload_MicrophoneMode : int;
+	enum AudioSessionStartPayload_UnderstandingMode : int;
 	enum EmotionEvent_SpaffCode : int;
 	enum EmotionEvent_Strength : int;
 	enum Playback : int;
@@ -285,13 +286,16 @@ namespace Inworld {
 	public:
 		ControlEventAudioSessionStart() = default;
 		ControlEventAudioSessionStart(const InworldPackets::InworldPacket& GrpcPacket);
-		ControlEventAudioSessionStart(const Routing& Routing, InworldPackets::AudioSessionStartPayload_MicrophoneMode MicrophoneMode);
+		ControlEventAudioSessionStart(const Routing& Routing,
+		    InworldPackets::AudioSessionStartPayload_MicrophoneMode MicrophoneMode,
+		    InworldPackets::AudioSessionStartPayload_UnderstandingMode UnderstandingMode);
 
 	protected:
 		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 
 	private:
 		InworldPackets::AudioSessionStartPayload_MicrophoneMode _MicrophoneMode;
+		InworldPackets::AudioSessionStartPayload_UnderstandingMode _UnderstandingMode;
 	};
 
     class INWORLD_EXPORT ControlEventConversationUpdate : public ControlEvent

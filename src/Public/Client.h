@@ -126,8 +126,15 @@ namespace Inworld
 			OpenMic = 1,
 			ExpectAudioEnd = 2,
 		};
+	    enum class UnderstandingMode : uint8_t
+	    {
+	        Unspecified = 0,
+            Full = 1,
+            SpeechRecognitionOnly = 2,
+        };
 
 		MicrophoneMode MicMode = MicrophoneMode::Unspecified;
+	    UnderstandingMode UnderstandingMode = UnderstandingMode::Unspecified;
 	};
 
 	// use for client lifecycle
