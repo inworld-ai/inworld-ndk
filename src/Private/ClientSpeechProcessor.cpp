@@ -182,7 +182,7 @@ void Inworld::ClientSpeechProcessor::ProcessAudio(const std::string& Data)
     FloatData.reserve(Data.size() / 2);
 	for (size_t i = 0; i < Data.size(); i += 2)
 	{
-	    const uint16_t Sample = *reinterpret_cast<const uint16_t*>(Data.data() + i);
+	    const int16_t Sample = *reinterpret_cast<const int16_t*>(Data.data() + i);
 		FloatData.emplace_back(static_cast<float>(Sample) / 32767.0f);
 	}
 
