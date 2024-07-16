@@ -9,14 +9,20 @@
 #include "InworldSTT.h"
 
 #include <ctranslate2/translator.h>
-
-namespace ct = ctranslate2;
+#include <ctranslate2/models/whisper.h>
 
 void Inworld::STT_Initialize(const char* model)
 {
-    ct::Translator translator("", ct::Device::CPU);
-    std::vector<std::string> source;
-    auto results = translator.translate_batch({source});
+    ctranslate2::Translator translator("ende_ctranslate2/", ctranslate2::Device::CPU);
+
+    const std::vector<std::vector<std::string>> batch = {{"▁H", "ello", "▁world", "!"}};
+    const std::vector<ctranslate2::TranslationResult> results = translator.translate_batch(batch);
+
+    std::string result;
+    for (const auto& token : results[0].output())
+        result += token + " ";
+
+    auto res = result;
 }
 
 void Inworld::STT_Terminate()

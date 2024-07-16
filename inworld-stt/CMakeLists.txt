@@ -62,4 +62,7 @@ elseif(MAC)
         ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Mac/libinworld-ndk-stt.dylib)
 endif()
 
+add_executable(inworld-ndk-stt-app src/Main.cpp)
+target_link_libraries(inworld-ndk-stt-app PRIVATE inworld-ndk-stt)
+target_link_libraries(inworld-ndk-stt-app PRIVATE ctranslate2)
     
