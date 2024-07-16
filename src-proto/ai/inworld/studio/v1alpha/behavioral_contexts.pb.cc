@@ -311,11 +311,11 @@ const char descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fbehaviora
   "NESS\020\n\022\013\n\007WHINING\020\013\022\013\n\007SADNESS\020\014\022\020\n\014STON"
   "EWALLING\020\r\022\014\n\010INTEREST\020\016\022\016\n\nVALIDATION\020\017"
   "\022\r\n\tAFFECTION\020\020\022\t\n\005HUMOR\020\021\022\014\n\010SURPRISE\020\022"
-  "\022\007\n\003JOY\020\023B\241\001\n\031ai.inworld.studio.v1alphaB"
-  "\027BehavioralContextsProtoP\001ZMgithub.com/i"
-  "nworld-ai/inworld/serving/grpc-gateway/b"
-  "uild/proto/studio/v1alpha\252\002\031Ai.Inworld.S"
-  "tudio.V1Alphab\006proto3"
+  "\022\007\n\003JOY\020\023B\237\001\n\031ai.inworld.studio.v1alphaB"
+  "\027BehavioralContextsProtoP\001ZKgithub.com/i"
+  "nworld-ai/inworld-proto-golang/src/go/ai"
+  "/inworld/studio/v1alpha\252\002\031Ai.Inworld.Stu"
+  "dio.V1Alphab\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fbehavioral_5fcontexts_2eproto_deps[2] = {
   &::descriptor_table_google_2fapi_2ffield_5fbehavior_2eproto,
@@ -333,7 +333,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fbehavioral_5fcontexts_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fbehavioral_5fcontexts_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fbehavioral_5fcontexts_2eproto, "ai/inworld/studio/v1alpha/behavioral_contexts.proto", 2101,
+  false, false, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fbehavioral_5fcontexts_2eproto, "ai/inworld/studio/v1alpha/behavioral_contexts.proto", 2099,
   &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fbehavioral_5fcontexts_2eproto_once, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fbehavioral_5fcontexts_2eproto_sccs, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fbehavioral_5fcontexts_2eproto_deps, 8, 2,
   schemas, file_default_instances, TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fbehavioral_5fcontexts_2eproto::offsets,
   file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fbehavioral_5fcontexts_2eproto, 8, file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fbehavioral_5fcontexts_2eproto, file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fbehavioral_5fcontexts_2eproto,

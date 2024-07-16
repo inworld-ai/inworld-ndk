@@ -222,6 +222,12 @@ std::shared_ptr<Inworld::CustomEvent> Inworld::Client::SendCustomEvent(const Inw
 void Inworld::Client::StartAudioSession(const Inworld::Routing& Routing, const AudioSessionStartPayload& Payload)
 {
 	_SpeechProcessor->StartAudioSession(Routing, Payload);
+	/*auto Packet =
+	    std::make_shared<Inworld::ControlEventAudioSessionStart>(Routing,
+	        static_cast<ai::inworld::packets::AudioSessionStartPayload_MicrophoneMode>(Payload.MicMode),
+	        static_cast<ai::inworld::packets::AudioSessionStartPayload_UnderstandingMode>(Payload.UnderstandingMode));
+	SendPacket(Packet);
+	return Packet;*/
 }
 
 void Inworld::Client::StopAudioSession(const Inworld::Routing& Routing)

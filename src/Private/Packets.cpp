@@ -404,9 +404,12 @@ namespace Inworld {
 		_MicrophoneMode = AudioStartEvent.mode();
 	}
 
-	ControlEventAudioSessionStart::ControlEventAudioSessionStart(const Routing& Routing, InworldPackets::AudioSessionStartPayload_MicrophoneMode MicrophoneMode)
+	ControlEventAudioSessionStart::ControlEventAudioSessionStart(const Routing& Routing,
+	    InworldPackets::AudioSessionStartPayload_MicrophoneMode MicrophoneMode,
+	    InworldPackets::AudioSessionStartPayload_UnderstandingMode UnderstandingMode)
 		: ControlEvent(InworldPackets::ControlEvent_Action_AUDIO_SESSION_START, "", Routing)
 		, _MicrophoneMode(MicrophoneMode)
+		, _UnderstandingMode(UnderstandingMode)
 	{}
 
 	void ControlEventAudioSessionStart::ToProtoInternal(InworldPackets::InworldPacket& Proto) const

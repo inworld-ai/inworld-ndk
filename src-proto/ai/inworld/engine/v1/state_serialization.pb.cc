@@ -15,6 +15,7 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
+extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_SessionState_Version_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_google_2fprotobuf_2ftimestamp_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Timestamp_google_2fprotobuf_2ftimestamp_2eproto;
 namespace ai {
 namespace inworld {
@@ -24,6 +25,10 @@ class GetSessionStateRequestDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<GetSessionStateRequest> _instance;
 } _GetSessionStateRequest_default_instance_;
+class SessionState_VersionDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<SessionState_Version> _instance;
+} _SessionState_Version_default_instance_;
 class SessionStateDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<SessionState> _instance;
@@ -55,11 +60,25 @@ static void InitDefaultsscc_info_SessionState_ai_2finworld_2fengine_2fv1_2fstate
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_SessionState_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_SessionState_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto}, {
-      &scc_info_Timestamp_google_2fprotobuf_2ftimestamp_2eproto.base,}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_SessionState_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_SessionState_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto}, {
+      &scc_info_Timestamp_google_2fprotobuf_2ftimestamp_2eproto.base,
+      &scc_info_SessionState_Version_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto.base,}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto[2];
+static void InitDefaultsscc_info_SessionState_Version_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ai::inworld::engine::v1::_SessionState_Version_default_instance_;
+    new (ptr) ::ai::inworld::engine::v1::SessionState_Version();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_SessionState_Version_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_SessionState_Version_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto}, {}};
+
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto[3];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto = nullptr;
 
@@ -71,20 +90,29 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fengine_2fv1_2fs
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::v1::GetSessionStateRequest, name_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::v1::SessionState_Version, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::v1::SessionState_Version, interaction_id_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::v1::SessionState, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::v1::SessionState, state_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::v1::SessionState, creation_time_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::v1::SessionState, version_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::ai::inworld::engine::v1::GetSessionStateRequest)},
-  { 6, -1, sizeof(::ai::inworld::engine::v1::SessionState)},
+  { 6, -1, sizeof(::ai::inworld::engine::v1::SessionState_Version)},
+  { 12, -1, sizeof(::ai::inworld::engine::v1::SessionState)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::engine::v1::_GetSessionStateRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::engine::v1::_SessionState_Version_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::engine::v1::_SessionState_default_instance_),
 };
 
@@ -96,18 +124,20 @@ const char descriptor_table_protodef_ai_2finworld_2fengine_2fv1_2fstate_5fserial
   "google/api/resource.proto\032\037google/protob"
   "uf/timestamp.proto\"Q\n\026GetSessionStateReq"
   "uest\0227\n\004name\030\001 \001(\tB)\340A\002\372A#\n!ai.inworld.e"
-  "ngine.v1/SessionState\"P\n\014SessionState\022\r\n"
-  "\005state\030\001 \001(\014\0221\n\rcreation_time\030\002 \001(\0132\032.go"
-  "ogle.protobuf.Timestamp2\263\001\n\022StateSeriali"
-  "zation\022\234\001\n\017GetSessionState\022,.ai.inworld."
-  "engine.v1.GetSessionStateRequest\032\".ai.in"
-  "world.engine.v1.SessionState\"7\202\323\344\223\002*\022(/v"
-  "1/{name=workspaces/*/sessions/*}/state\332A"
-  "\004nameB\222\001\n\024ai.inworld.engine.v1B\027StateSer"
-  "ializationProtoP\001ZHgithub.com/inworld-ai"
-  "/inworld/serving/grpc-gateway/build/prot"
-  "o/engine/v1\252\002\024Ai.Inworld.Engine.V1b\006prot"
-  "o3"
+  "ngine.v1/SessionState\"\260\001\n\014SessionState\022\r"
+  "\n\005state\030\001 \001(\014\0221\n\rcreation_time\030\002 \001(\0132\032.g"
+  "oogle.protobuf.Timestamp\022;\n\007version\030\003 \001("
+  "\0132*.ai.inworld.engine.v1.SessionState.Ve"
+  "rsion\032!\n\007Version\022\026\n\016interaction_id\030\001 \001(\t"
+  "2\263\001\n\022StateSerialization\022\234\001\n\017GetSessionSt"
+  "ate\022,.ai.inworld.engine.v1.GetSessionSta"
+  "teRequest\032\".ai.inworld.engine.v1.Session"
+  "State\"7\202\323\344\223\002*\022(/v1/{name=workspaces/*/se"
+  "ssions/*}/state\332A\004nameB\220\001\n\024ai.inworld.en"
+  "gine.v1B\027StateSerializationProtoP\001ZFgith"
+  "ub.com/inworld-ai/inworld-proto-golang/s"
+  "rc/go/ai/inworld/engine/v1\252\002\024Ai.Inworld."
+  "Engine.V1b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto_deps[5] = {
   &::descriptor_table_google_2fapi_2fannotations_2eproto,
@@ -116,16 +146,17 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
   &::descriptor_table_google_2fapi_2fresource_2eproto,
   &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto,
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto_sccs[2] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto_sccs[3] = {
   &scc_info_GetSessionStateRequest_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto.base,
   &scc_info_SessionState_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto.base,
+  &scc_info_SessionState_Version_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto, "ai/inworld/engine/v1/state_serialization.proto", 722,
-  &descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto_once, descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto_sccs, descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto_deps, 2, 5,
+  false, false, descriptor_table_protodef_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto, "ai/inworld/engine/v1/state_serialization.proto", 817,
+  &descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto_once, descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto_sccs, descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto_deps, 3, 5,
   schemas, file_default_instances, TableStruct_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto::offsets,
-  file_level_metadata_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto, 2, file_level_enum_descriptors_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto, file_level_service_descriptors_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto,
+  file_level_metadata_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto, 3, file_level_enum_descriptors_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto, file_level_service_descriptors_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -343,14 +374,225 @@ void GetSessionStateRequest::InternalSwap(GetSessionStateRequest* other) {
 
 // ===================================================================
 
+class SessionState_Version::_Internal {
+ public:
+};
+
+SessionState_Version::SessionState_Version(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:ai.inworld.engine.v1.SessionState.Version)
+}
+SessionState_Version::SessionState_Version(const SessionState_Version& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  interaction_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_interaction_id().empty()) {
+    interaction_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_interaction_id(), 
+      GetArena());
+  }
+  // @@protoc_insertion_point(copy_constructor:ai.inworld.engine.v1.SessionState.Version)
+}
+
+void SessionState_Version::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_SessionState_Version_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto.base);
+  interaction_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+SessionState_Version::~SessionState_Version() {
+  // @@protoc_insertion_point(destructor:ai.inworld.engine.v1.SessionState.Version)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void SessionState_Version::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  interaction_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void SessionState_Version::ArenaDtor(void* object) {
+  SessionState_Version* _this = reinterpret_cast< SessionState_Version* >(object);
+  (void)_this;
+}
+void SessionState_Version::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SessionState_Version::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const SessionState_Version& SessionState_Version::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_SessionState_Version_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void SessionState_Version::Clear() {
+// @@protoc_insertion_point(message_clear_start:ai.inworld.engine.v1.SessionState.Version)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  interaction_id_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SessionState_Version::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string interaction_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_interaction_id();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.engine.v1.SessionState.Version.interaction_id"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* SessionState_Version::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.engine.v1.SessionState.Version)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string interaction_id = 1;
+  if (this->interaction_id().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_interaction_id().data(), static_cast<int>(this->_internal_interaction_id().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.engine.v1.SessionState.Version.interaction_id");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_interaction_id(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.engine.v1.SessionState.Version)
+  return target;
+}
+
+size_t SessionState_Version::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ai.inworld.engine.v1.SessionState.Version)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string interaction_id = 1;
+  if (this->interaction_id().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_interaction_id());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void SessionState_Version::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.engine.v1.SessionState.Version)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SessionState_Version* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SessionState_Version>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.engine.v1.SessionState.Version)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.engine.v1.SessionState.Version)
+    MergeFrom(*source);
+  }
+}
+
+void SessionState_Version::MergeFrom(const SessionState_Version& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.engine.v1.SessionState.Version)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.interaction_id().size() > 0) {
+    _internal_set_interaction_id(from._internal_interaction_id());
+  }
+}
+
+void SessionState_Version::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.engine.v1.SessionState.Version)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SessionState_Version::CopyFrom(const SessionState_Version& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ai.inworld.engine.v1.SessionState.Version)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SessionState_Version::IsInitialized() const {
+  return true;
+}
+
+void SessionState_Version::InternalSwap(SessionState_Version* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  interaction_id_.Swap(&other->interaction_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SessionState_Version::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class SessionState::_Internal {
  public:
   static const PROTOBUF_NAMESPACE_ID::Timestamp& creation_time(const SessionState* msg);
+  static const ::ai::inworld::engine::v1::SessionState_Version& version(const SessionState* msg);
 };
 
 const PROTOBUF_NAMESPACE_ID::Timestamp&
 SessionState::_Internal::creation_time(const SessionState* msg) {
   return *msg->creation_time_;
+}
+const ::ai::inworld::engine::v1::SessionState_Version&
+SessionState::_Internal::version(const SessionState* msg) {
+  return *msg->version_;
 }
 void SessionState::clear_creation_time() {
   if (GetArena() == nullptr && creation_time_ != nullptr) {
@@ -377,13 +619,21 @@ SessionState::SessionState(const SessionState& from)
   } else {
     creation_time_ = nullptr;
   }
+  if (from._internal_has_version()) {
+    version_ = new ::ai::inworld::engine::v1::SessionState_Version(*from.version_);
+  } else {
+    version_ = nullptr;
+  }
   // @@protoc_insertion_point(copy_constructor:ai.inworld.engine.v1.SessionState)
 }
 
 void SessionState::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_SessionState_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto.base);
   state_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  creation_time_ = nullptr;
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&creation_time_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&version_) -
+      reinterpret_cast<char*>(&creation_time_)) + sizeof(version_));
 }
 
 SessionState::~SessionState() {
@@ -396,6 +646,7 @@ void SessionState::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   state_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete creation_time_;
+  if (this != internal_default_instance()) delete version_;
 }
 
 void SessionState::ArenaDtor(void* object) {
@@ -424,6 +675,10 @@ void SessionState::Clear() {
     delete creation_time_;
   }
   creation_time_ = nullptr;
+  if (GetArena() == nullptr && version_ != nullptr) {
+    delete version_;
+  }
+  version_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -446,6 +701,13 @@ const char* SessionState::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_creation_time(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .ai.inworld.engine.v1.SessionState.Version version = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_version(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -491,6 +753,14 @@ failure:
         2, _Internal::creation_time(this), target, stream);
   }
 
+  // .ai.inworld.engine.v1.SessionState.Version version = 3;
+  if (this->has_version()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        3, _Internal::version(this), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -519,6 +789,13 @@ size_t SessionState::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *creation_time_);
+  }
+
+  // .ai.inworld.engine.v1.SessionState.Version version = 3;
+  if (this->has_version()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *version_);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -558,6 +835,9 @@ void SessionState::MergeFrom(const SessionState& from) {
   if (from.has_creation_time()) {
     _internal_mutable_creation_time()->PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(from._internal_creation_time());
   }
+  if (from.has_version()) {
+    _internal_mutable_version()->::ai::inworld::engine::v1::SessionState_Version::MergeFrom(from._internal_version());
+  }
 }
 
 void SessionState::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -582,7 +862,12 @@ void SessionState::InternalSwap(SessionState* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   state_.Swap(&other->state_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  swap(creation_time_, other->creation_time_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(SessionState, version_)
+      + sizeof(SessionState::version_)
+      - PROTOBUF_FIELD_OFFSET(SessionState, creation_time_)>(
+          reinterpret_cast<char*>(&creation_time_),
+          reinterpret_cast<char*>(&other->creation_time_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SessionState::GetMetadata() const {
@@ -598,6 +883,9 @@ void SessionState::InternalSwap(SessionState* other) {
 PROTOBUF_NAMESPACE_OPEN
 template<> PROTOBUF_NOINLINE ::ai::inworld::engine::v1::GetSessionStateRequest* Arena::CreateMaybeMessage< ::ai::inworld::engine::v1::GetSessionStateRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ai::inworld::engine::v1::GetSessionStateRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ai::inworld::engine::v1::SessionState_Version* Arena::CreateMaybeMessage< ::ai::inworld::engine::v1::SessionState_Version >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ai::inworld::engine::v1::SessionState_Version >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ai::inworld::engine::v1::SessionState* Arena::CreateMaybeMessage< ::ai::inworld::engine::v1::SessionState >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ai::inworld::engine::v1::SessionState >(arena);

@@ -1262,6 +1262,8 @@ class User PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kGamesFieldNumber = 11,
+    kCharactersFieldNumber = 12,
     kNameFieldNumber = 1,
     kOculusIdFieldNumber = 3,
     kFirebaseIdFieldNumber = 4,
@@ -1272,6 +1274,54 @@ class User PROTOBUF_FINAL :
     kMarketingConsentFieldNumber = 6,
     kMarketingPlatformPurposeFieldNumber = 7,
   };
+  // repeated string games = 11;
+  int games_size() const;
+  private:
+  int _internal_games_size() const;
+  public:
+  void clear_games();
+  const std::string& games(int index) const;
+  std::string* mutable_games(int index);
+  void set_games(int index, const std::string& value);
+  void set_games(int index, std::string&& value);
+  void set_games(int index, const char* value);
+  void set_games(int index, const char* value, size_t size);
+  std::string* add_games();
+  void add_games(const std::string& value);
+  void add_games(std::string&& value);
+  void add_games(const char* value);
+  void add_games(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& games() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_games();
+  private:
+  const std::string& _internal_games(int index) const;
+  std::string* _internal_add_games();
+  public:
+
+  // repeated string characters = 12;
+  int characters_size() const;
+  private:
+  int _internal_characters_size() const;
+  public:
+  void clear_characters();
+  const std::string& characters(int index) const;
+  std::string* mutable_characters(int index);
+  void set_characters(int index, const std::string& value);
+  void set_characters(int index, std::string&& value);
+  void set_characters(int index, const char* value);
+  void set_characters(int index, const char* value, size_t size);
+  std::string* add_characters();
+  void add_characters(const std::string& value);
+  void add_characters(std::string&& value);
+  void add_characters(const char* value);
+  void add_characters(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& characters() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_characters();
+  private:
+  const std::string& _internal_characters(int index) const;
+  std::string* _internal_add_characters();
+  public:
+
   // string name = 1 [(.google.api.field_behavior) = REQUIRED];
   void clear_name();
   const std::string& name() const;
@@ -1402,6 +1452,8 @@ class User PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> games_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> characters_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr oculus_id_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr firebase_id_;
@@ -2720,6 +2772,154 @@ inline void User::set_allocated_application(std::string* application) {
   application_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), application,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.User.application)
+}
+
+// repeated string games = 11;
+inline int User::_internal_games_size() const {
+  return games_.size();
+}
+inline int User::games_size() const {
+  return _internal_games_size();
+}
+inline void User::clear_games() {
+  games_.Clear();
+}
+inline std::string* User::add_games() {
+  // @@protoc_insertion_point(field_add_mutable:ai.inworld.studio.v1alpha.User.games)
+  return _internal_add_games();
+}
+inline const std::string& User::_internal_games(int index) const {
+  return games_.Get(index);
+}
+inline const std::string& User::games(int index) const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.User.games)
+  return _internal_games(index);
+}
+inline std::string* User::mutable_games(int index) {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.User.games)
+  return games_.Mutable(index);
+}
+inline void User::set_games(int index, const std::string& value) {
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.User.games)
+  games_.Mutable(index)->assign(value);
+}
+inline void User::set_games(int index, std::string&& value) {
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.User.games)
+  games_.Mutable(index)->assign(std::move(value));
+}
+inline void User::set_games(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  games_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:ai.inworld.studio.v1alpha.User.games)
+}
+inline void User::set_games(int index, const char* value, size_t size) {
+  games_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.studio.v1alpha.User.games)
+}
+inline std::string* User::_internal_add_games() {
+  return games_.Add();
+}
+inline void User::add_games(const std::string& value) {
+  games_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:ai.inworld.studio.v1alpha.User.games)
+}
+inline void User::add_games(std::string&& value) {
+  games_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:ai.inworld.studio.v1alpha.User.games)
+}
+inline void User::add_games(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  games_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:ai.inworld.studio.v1alpha.User.games)
+}
+inline void User::add_games(const char* value, size_t size) {
+  games_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:ai.inworld.studio.v1alpha.User.games)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+User::games() const {
+  // @@protoc_insertion_point(field_list:ai.inworld.studio.v1alpha.User.games)
+  return games_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+User::mutable_games() {
+  // @@protoc_insertion_point(field_mutable_list:ai.inworld.studio.v1alpha.User.games)
+  return &games_;
+}
+
+// repeated string characters = 12;
+inline int User::_internal_characters_size() const {
+  return characters_.size();
+}
+inline int User::characters_size() const {
+  return _internal_characters_size();
+}
+inline void User::clear_characters() {
+  characters_.Clear();
+}
+inline std::string* User::add_characters() {
+  // @@protoc_insertion_point(field_add_mutable:ai.inworld.studio.v1alpha.User.characters)
+  return _internal_add_characters();
+}
+inline const std::string& User::_internal_characters(int index) const {
+  return characters_.Get(index);
+}
+inline const std::string& User::characters(int index) const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.User.characters)
+  return _internal_characters(index);
+}
+inline std::string* User::mutable_characters(int index) {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.User.characters)
+  return characters_.Mutable(index);
+}
+inline void User::set_characters(int index, const std::string& value) {
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.User.characters)
+  characters_.Mutable(index)->assign(value);
+}
+inline void User::set_characters(int index, std::string&& value) {
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.User.characters)
+  characters_.Mutable(index)->assign(std::move(value));
+}
+inline void User::set_characters(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  characters_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:ai.inworld.studio.v1alpha.User.characters)
+}
+inline void User::set_characters(int index, const char* value, size_t size) {
+  characters_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.studio.v1alpha.User.characters)
+}
+inline std::string* User::_internal_add_characters() {
+  return characters_.Add();
+}
+inline void User::add_characters(const std::string& value) {
+  characters_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:ai.inworld.studio.v1alpha.User.characters)
+}
+inline void User::add_characters(std::string&& value) {
+  characters_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:ai.inworld.studio.v1alpha.User.characters)
+}
+inline void User::add_characters(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  characters_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:ai.inworld.studio.v1alpha.User.characters)
+}
+inline void User::add_characters(const char* value, size_t size) {
+  characters_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:ai.inworld.studio.v1alpha.User.characters)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+User::characters() const {
+  // @@protoc_insertion_point(field_list:ai.inworld.studio.v1alpha.User.characters)
+  return characters_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+User::mutable_characters() {
+  // @@protoc_insertion_point(field_mutable_list:ai.inworld.studio.v1alpha.User.characters)
+  return &characters_;
 }
 
 // -------------------------------------------------------------------

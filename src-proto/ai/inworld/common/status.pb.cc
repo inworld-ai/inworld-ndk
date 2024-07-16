@@ -106,20 +106,22 @@ const char descriptor_table_protodef_ai_2finworld_2fcommon_2fstatus_2eproto[] PR
   "B\017\n\rerror_details\"f\n\027ResourceNotFoundDet"
   "ails\022\023\n\013resource_id\030\001 \001(\t\0226\n\rresource_ty"
   "pe\030\002 \001(\0162\037.ai.inworld.common.ResourceTyp"
-  "e*\211\002\n\tErrorType\022\031\n\025SESSION_TOKEN_EXPIRED"
+  "e*\263\002\n\tErrorType\022\031\n\025SESSION_TOKEN_EXPIRED"
   "\020\000\022\031\n\025SESSION_TOKEN_INVALID\020\001\022\037\n\033SESSION"
   "_RESOURCES_EXHAUSTED\020\002\022\034\n\030BILLING_TOKENS"
   "_EXHAUSTED\020\003\022\024\n\020ACCOUNT_DISABLED\020\004\022\023\n\017SE"
   "SSION_INVALID\020\005\022\026\n\022RESOURCE_NOT_FOUND\020\006\022"
   "\024\n\020SAFETY_VIOLATION\020\007\022\023\n\017SESSION_EXPIRED"
-  "\020\010\022\031\n\025AUDIO_SESSION_EXPIRED\020\t*K\n\020Reconne"
-  "ctionType\022\r\n\tUNDEFINED\020\000\022\014\n\010NO_RETRY\020\001\022\r"
-  "\n\tIMMEDIATE\020\002\022\013\n\007TIMEOUT\020\003*K\n\014ResourceTy"
-  "pe\022\033\n\027RESOURCE_TYPE_UNDEFINED\020\000\022\036\n\032RESOU"
-  "RCE_TYPE_CONVERSATION\020\001B}\n\030ai.inworld.en"
-  "gine.statusB\022InworldStatusProtoP\001Z3githu"
-  "b.com/inworld-ai/inworld/engine/inworld-"
-  "status\252\002\025Inworld.Engine.Statusb\006proto3"
+  "\020\010\022\031\n\025AUDIO_SESSION_EXPIRED\020\t\022\022\n\016SESSION"
+  "_PAUSED\020\n\022\024\n\020VERSION_CONFLICT\020\013*K\n\020Recon"
+  "nectionType\022\r\n\tUNDEFINED\020\000\022\014\n\010NO_RETRY\020\001"
+  "\022\r\n\tIMMEDIATE\020\002\022\013\n\007TIMEOUT\020\003*K\n\014Resource"
+  "Type\022\033\n\027RESOURCE_TYPE_UNDEFINED\020\000\022\036\n\032RES"
+  "OURCE_TYPE_CONVERSATION\020\001B\234\001\n\030ai.inworld"
+  ".engine.statusB\022InworldStatusProtoP\001ZRgi"
+  "thub.com/inworld-ai/inworld-proto-golang"
+  "/src/go/ai/inworld/engine/inworld-status"
+  "\252\002\025Inworld.Engine.Statusb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2fcommon_2fstatus_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto,
@@ -130,7 +132,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2fcommon_2fstatus_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2fcommon_2fstatus_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2fcommon_2fstatus_2eproto, "ai/inworld/common/status.proto", 1038,
+  false, false, descriptor_table_protodef_ai_2finworld_2fcommon_2fstatus_2eproto, "ai/inworld/common/status.proto", 1112,
   &descriptor_table_ai_2finworld_2fcommon_2fstatus_2eproto_once, descriptor_table_ai_2finworld_2fcommon_2fstatus_2eproto_sccs, descriptor_table_ai_2finworld_2fcommon_2fstatus_2eproto_deps, 2, 1,
   schemas, file_default_instances, TableStruct_ai_2finworld_2fcommon_2fstatus_2eproto::offsets,
   file_level_metadata_ai_2finworld_2fcommon_2fstatus_2eproto, 2, file_level_enum_descriptors_ai_2finworld_2fcommon_2fstatus_2eproto, file_level_service_descriptors_ai_2finworld_2fcommon_2fstatus_2eproto,
@@ -157,6 +159,8 @@ bool ErrorType_IsValid(int value) {
     case 7:
     case 8:
     case 9:
+    case 10:
+    case 11:
       return true;
     default:
       return false;
