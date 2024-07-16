@@ -35,11 +35,6 @@ Inworld::ClientSpeechProcessor::ClientSpeechProcessor(const ClientSpeechOptions&
     }
 
     VAD_Initialize(_Options.VADModelPath.c_str());
-    
-    if (_Options.Mode == ClientSpeechOptions::Mode::STT)
-    {
-        
-    }
 }
 
 Inworld::ClientSpeechProcessor::~ClientSpeechProcessor()
@@ -112,7 +107,6 @@ void Inworld::ClientSpeechProcessor::EnableAudioDump(const std::string& FileName
     }
     _AsyncAudioDumper.Stop();
     _AsyncAudioDumper.Start("InworldAudioDumper", std::make_unique<RunnableAudioDumper>(_AudioChunksToDump, _AudioDumpFileName));
-    Inworld::Log("ASYNC audio dump STARTING");
 #endif
 }
 
@@ -137,8 +131,9 @@ bool Inworld::ClientSpeechProcessor::StartActualAudioSession()
 
     if (_Options.PacketCb)
     {
-        const auto Packet = std::make_shared<Inworld::ControlEventAudioSessionStart>
-            (_Routing, static_cast<ai::inworld::packets::AudioSessionStartPayload_MicrophoneMode>(_AudioSessionPayload.MicMode));
+        const auto Packet = std::make_shared<Inworld::ControlEventAudioSessionStart>(_Routing,
+            static_cast<ai::inworld::packets::AudioSessionStartPayload_MicrophoneMode>(_AudioSessionPayload.MicMode),
+            static_cast<ai::inworld::packets::AudioSessionStartPayload_UnderstandingMode>(_AudioSessionPayload.UndMode));
         _Options.PacketCb(Packet);
 
         Log("ClientSpeechProcessor: start actual audio session.");

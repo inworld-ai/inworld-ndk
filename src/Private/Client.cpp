@@ -193,13 +193,13 @@ std::shared_ptr<Inworld::TextEvent> Inworld::Client::SendTextMessage(const Inwor
 void Inworld::Client::StartAudioSessionInConversation(
     const std::string& ConversationId, const AudioSessionStartPayload& Payload)
 {
-    return StartAudioSession(Routing::Player2Conversation(ConversationId), Payload);
+    StartAudioSession(Routing::Player2Conversation(ConversationId), Payload);
 }
 
 void Inworld::Client::StopAudioSessionInConversation(
     const std::string& ConversationId)
 {
-    return StopAudioSession(Routing::Player2Conversation(ConversationId));
+    StopAudioSession(Routing::Player2Conversation(ConversationId));
 }
 
 void Inworld::Client::SendSoundMessage(const Inworld::Routing& Routing, const std::string& Data)
@@ -222,12 +222,6 @@ std::shared_ptr<Inworld::CustomEvent> Inworld::Client::SendCustomEvent(const Inw
 void Inworld::Client::StartAudioSession(const Inworld::Routing& Routing, const AudioSessionStartPayload& Payload)
 {
 	_SpeechProcessor->StartAudioSession(Routing, Payload);
-	/*auto Packet =
-	    std::make_shared<Inworld::ControlEventAudioSessionStart>(Routing,
-	        static_cast<ai::inworld::packets::AudioSessionStartPayload_MicrophoneMode>(Payload.MicMode),
-	        static_cast<ai::inworld::packets::AudioSessionStartPayload_UnderstandingMode>(Payload.UnderstandingMode));
-	SendPacket(Packet);
-	return Packet;*/
 }
 
 void Inworld::Client::StopAudioSession(const Inworld::Routing& Routing)
@@ -237,12 +231,12 @@ void Inworld::Client::StopAudioSession(const Inworld::Routing& Routing)
 
 void Inworld::Client::StartAudioSession(const std::string& AgentId, const AudioSessionStartPayload& Payload)
 {
-	return StartAudioSession(Inworld::Routing::Player2Agent(AgentId), Payload);
+	StartAudioSession(Inworld::Routing::Player2Agent(AgentId), Payload);
 }
 
 void Inworld::Client::StopAudioSession(const std::string& AgentId)
 {
-	return StopAudioSession(Inworld::Routing::Player2Agent(AgentId));
+	StopAudioSession(Inworld::Routing::Player2Agent(AgentId));
 }
 
 std::shared_ptr<Inworld::TextEvent> Inworld::Client::SendTextMessage(const std::string& AgentId, const std::string& Text)

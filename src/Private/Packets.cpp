@@ -420,6 +420,10 @@ namespace Inworld {
 		{
 			Proto.mutable_control()->mutable_audio_session_start()->set_mode(_MicrophoneMode);
 		}
+        if (_UnderstandingMode != InworldPackets::AudioSessionStartPayload_UnderstandingMode::AudioSessionStartPayload_UnderstandingMode_UNSPECIFIED_UNDERSTANDING_MODE)
+        {
+            Proto.mutable_control()->mutable_audio_session_start()->set_understanding_mode(_UnderstandingMode);
+        }
 	}
 
 	ControlEventConversationUpdate::ControlEventConversationUpdate(const InworldPackets::InworldPacket& GrpcPacket)
