@@ -36,14 +36,14 @@ Inworld::ClientSpeechProcessor::ClientSpeechProcessor(const ClientSpeechOptions&
         return;
     }
 
-    VAD_Initialize(_Options.VADModelPath.c_str());
+    //VAD_Initialize(_Options.VADModelPath.c_str());
 }
 
 Inworld::ClientSpeechProcessor::~ClientSpeechProcessor()
 {
 	ClearState();
     DisableAudioDump();
-    VAD_Terminate();
+    //VAD_Terminate();
 }
 
 void Inworld::ClientSpeechProcessor::SendSoundMessageWithAEC(const Inworld::Routing& Routing,
@@ -63,7 +63,7 @@ void Inworld::ClientSpeechProcessor::ClearState()
 	_VADSilenceCounter = 0;
     if (_Options.Mode >= ClientSpeechOptions::Mode::VAD)
     {
-        VAD_ResetState();
+        //VAD_ResetState();
     }
 }
 
@@ -222,7 +222,7 @@ void Inworld::ClientSpeechProcessor::ProcessAudio(const std::string& Data)
 		FloatData.emplace_back(static_cast<float>(Sample) / 32767.0f);
 	}
 
-	const float SpeechProb = Inworld::VAD_Process(FloatData.data(), FloatData.size());
+	const float SpeechProb = 0.f;//Inworld::VAD_Process(FloatData.data(), FloatData.size());
 	if (SpeechProb > _Options.VADProbThreshhold)
 	{
 		_VADSilenceCounter = 0;
