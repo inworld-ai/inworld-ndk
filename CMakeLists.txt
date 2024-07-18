@@ -375,10 +375,6 @@ else()
     )
 endif()
 
-if (WIN32 AND INWORLD_DEBUG)
-    list(APPEND LibFiles ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}inworld-ndk.pdb)
-endif()
-
 if (INWORLD_LOG_SPD AND NOT INWORLD_SHARED)
     list(APPEND LibFiles
         ${CMAKE_CURRENT_SOURCE_DIR}/build/ThirdParty/spdlog${ConfigDirName}/${LibPref}${LibSpglogName}.${LibExt})
