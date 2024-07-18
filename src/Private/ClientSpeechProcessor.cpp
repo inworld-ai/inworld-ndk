@@ -105,7 +105,7 @@ bool IsValidFileName(const std::string& filename) {
 }
 
 bool IsValidPath(const std::string& path) {
-    namespace fs = std::filesystem;
+    /*namespace fs = std::filesystem;
     const fs::path filePath(path);
 
     if (!filePath.has_parent_path()) {
@@ -124,7 +124,7 @@ bool IsValidPath(const std::string& path) {
 
     if (filename.find('.', dotPosition + 1) != std::string::npos) {
         return false;
-    }
+    }*/
 
     return true;
 }
@@ -137,9 +137,10 @@ void Inworld::ClientSpeechProcessor::EnableAudioDump(const std::string& FilePath
     {
         _AudioDumpFileName = FilePath;
     }
-    else
+    else if (!IsValidPath(_AudioDumpFileName))
     {
-        LogError("Inworld::ClientSpeechProcessor::EnableAudioDump invalid file path. Falling back to default: %s", FilePath.c_str());
+        Inworld::LogError("Inworld::ClientSpeechProcessor::EnableAudioDump invalid file path.");
+        return;
     }
     _AsyncAudioDumper.Stop();
     _AsyncAudioDumper.Start("InworldAudioDumper", std::make_unique<RunnableAudioDumper>(_AudioChunksToDump, _AudioDumpFileName));
