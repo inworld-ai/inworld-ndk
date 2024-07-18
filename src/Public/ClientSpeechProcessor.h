@@ -15,7 +15,7 @@
 #include "AECFilter.h"
 #include "AsyncRoutine.h"
 #include "Packets.h"
-#include "SharedQueue.h"
+#include "Utils/SharedQueue.h"
 
 namespace Inworld
 {
@@ -80,7 +80,7 @@ namespace Inworld
         void SendSoundMessage(const Inworld::Routing& Routing, const std::string& Data);
         void SendSoundMessageWithAEC(const Inworld::Routing& Routing, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
 
-        void EnableAudioDump(const std::string& FileName);
+        void EnableAudioDump(const std::string& FilePath);
         void DisableAudioDump();
 	    
     private:

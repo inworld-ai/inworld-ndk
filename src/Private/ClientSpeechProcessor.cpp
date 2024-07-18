@@ -7,6 +7,8 @@
 
 #include "ClientSpeechProcessor.h"
 
+#include <filesystem>
+
 #include "InworldVAD.h"
 #include "Log.h"
 #include "Service.h"
@@ -97,13 +99,47 @@ void Inworld::ClientSpeechProcessor::SendSoundMessage(const Inworld::Routing& Ro
     ProcessAudio(Data);
 }
 
-void Inworld::ClientSpeechProcessor::EnableAudioDump(const std::string& FileName)
+bool IsValidFileName(const std::string& filename) {
+
+    return true;
+}
+
+bool IsValidPath(const std::string& path) {
+    namespace fs = std::filesystem;
+    const fs::path filePath(path);
+
+    if (!filePath.has_parent_path()) {
+        return false;
+    }
+
+    if (!fs::exists(filePath.parent_path())) {
+        return false;
+    }
+
+    const std::string filename = filePath.filename().string();
+    const size_t dotPosition = filename.find_last_of('.');
+    if (dotPosition == std::string::npos || dotPosition == 0 || dotPosition == filename.length() - 1) {
+        return false;
+    }
+
+    if (filename.find('.', dotPosition + 1) != std::string::npos) {
+        return false;
+    }
+
+    return true;
+}
+
+void Inworld::ClientSpeechProcessor::EnableAudioDump(const std::string& FilePath)
 {
 #ifdef INWORLD_AUDIO_DUMP
     _bDumpAudio = true;
-    if (!FileName.empty())
+    if (IsValidPath(FilePath))
     {
-        _AudioDumpFileName = FileName;
+        _AudioDumpFileName = FilePath;
+    }
+    else
+    {
+        LogError("Inworld::ClientSpeechProcessor::EnableAudioDump invalid file path. Falling back to default: %s", FilePath.c_str());
     }
     _AsyncAudioDumper.Stop();
     _AsyncAudioDumper.Start("InworldAudioDumper", std::make_unique<RunnableAudioDumper>(_AudioChunksToDump, _AudioDumpFileName));
