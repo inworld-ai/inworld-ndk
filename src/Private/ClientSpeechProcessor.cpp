@@ -9,7 +9,7 @@
 
 #include <filesystem>
 
-#include "InworldVAD.h"
+//#include "InworldVAD.h"
 #include "Log.h"
 #include "Service.h"
 #include "ai/inworld/packets/packets.pb.h"
