@@ -9,7 +9,9 @@
 
 #include <filesystem>
 
+#ifdef INWORLD_VAD
 #include "InworldVAD.h"
+#endif
 #include "Log.h"
 #include "Service.h"
 #include "ai/inworld/packets/packets.pb.h"  
@@ -17,6 +19,10 @@
 Inworld::ClientSpeechProcessor::ClientSpeechProcessor(const ClientSpeechOptions& Options)
     : _Options(Options)
 {
+#ifndef INWORLD_VAD
+    _Options.Mode = ClientSpeechOptions::SpeechMode::Default;
+#endif
+    
     if (_Options.Mode == ClientSpeechOptions::SpeechMode::Default)
     {
         return;
@@ -36,14 +42,18 @@ Inworld::ClientSpeechProcessor::ClientSpeechProcessor(const ClientSpeechOptions&
         return;
     }
 
+#ifdef INWORLD_VAD
     VAD_Initialize(_Options.VADModelPath.c_str());
+#endif
 }
 
 Inworld::ClientSpeechProcessor::~ClientSpeechProcessor()
 {
 	ClearState();
     DisableAudioDump();
+#ifdef INWORLD_VAD
     VAD_Terminate();
+#endif
 }
 
 void Inworld::ClientSpeechProcessor::SendSoundMessageWithAEC(const Inworld::Routing& Routing,
@@ -63,7 +73,9 @@ void Inworld::ClientSpeechProcessor::ClearState()
 	_VADSilenceCounter = 0;
     if (_Options.Mode >= ClientSpeechOptions::SpeechMode::VAD)
     {
+#ifdef INWORLD_VAD
         VAD_ResetState();
+#endif
     }
 }
 
@@ -223,7 +235,11 @@ void Inworld::ClientSpeechProcessor::ProcessAudio(const std::string& Data)
 		FloatData.emplace_back(static_cast<float>(Sample) / 32767.0f);
 	}
 
-	const float SpeechProb = 0.f;//Inworld::VAD_Process(FloatData.data(), FloatData.size());
+#ifdef INWORLD_VAD
+	const float SpeechProb = Inworld::VAD_Process(FloatData.data(), FloatData.size());
+#else
+    constexpr float SpeechProb = 1.f;
+#endif
 	if (SpeechProb > _Options.VADProbThreshhold)
 	{
 		_VADSilenceCounter = 0;

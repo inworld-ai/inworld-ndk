@@ -429,6 +429,7 @@ if (WIN32 OR MAC)
     add_custom_command(TARGET inworld-ndk POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy 
         ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/resource/silero_vad_10_27_2022.onnx  ${PackageDir}/resource)
+    target_compile_definitions(inworld-ndk PRIVATE INWORLD_VAD)
 endif()
 
 foreach(LibFile IN LISTS LibFiles)
