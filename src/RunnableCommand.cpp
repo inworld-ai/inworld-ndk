@@ -153,8 +153,12 @@ grpc::Status Inworld::RunnableGenerateSessionToken::RunProcess()
 	{
 			AuthRequest.add_resources(_Resource);
 	}
+	std::vector<FHeader> Headers = { {"authorization", GenerateHeader() } };
+	for (auto& data : _Metadata) {
+		Headers.push_back({ data.first, data.second });
+	}
 
-	auto& AuthCtx = UpdateContext({ {"authorization", GenerateHeader() } });
+	auto& AuthCtx = UpdateContext(Headers);
 
 	return CreateStub()->GenerateToken(AuthCtx.get(), AuthRequest, &_Response);
 }
@@ -214,21 +218,28 @@ grpc::Status Inworld::RunnableLoadScene::RunProcess()
 		PlayerField->set_field_id(Field.Id);
 		PlayerField->set_field_value(Field.Value);
 	}
-
-	auto& Ctx = UpdateContext({
+	std::vector<FHeader> Headers = {
 		{ "authorization", std::string("Bearer ") + _Token },
 		{ "session-id", _SessionId }
-		});
+	};
+	for (auto& data : _Metadata) {
+		Headers.push_back({data.first, data.second});
+	}
+	auto& Ctx = UpdateContext(Headers);
 
 	return CreateStub()->LoadScene(Ctx.get(), LoadSceneRequest, &_Response);
 }
 
 std::unique_ptr<Inworld::ReaderWriter> Inworld::RunnableLoadScene::Session()
 {
-	auto& Ctx = UpdateContext({
-			{ "authorization", std::string("Bearer ") + _Token },
-			{ "session-id", _SessionId }
-		});
+	std::vector<FHeader> Headers = {
+		{ "authorization", std::string("Bearer ") + _Token },
+		{ "session-id", _SessionId }
+	};
+	for (auto& data : _Metadata) {
+		Headers.push_back({ data.first, data.second });
+	}
+	auto& Ctx = UpdateContext(Headers);
 	return _Stub->Session(Ctx.get());
 }
 

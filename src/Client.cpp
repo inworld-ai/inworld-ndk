@@ -268,6 +268,7 @@ void Inworld::ClientBase::GenerateToken(std::function<void()> GenerateTokenCallb
 			_ClientOptions.Resource,
 			_ClientOptions.ApiKey,
 			_ClientOptions.ApiSecret,
+			_ClientOptions.Metadata,
 			[this](const grpc::Status& Status, const InworldEngine::AccessToken& Token) mutable
 			{
 				if (_SessionInfo.SessionId.empty())
@@ -515,6 +516,7 @@ void Inworld::ClientBase::LoadScene()
 			SdkDesc,
 			_SessionInfo.SessionSavedState,
 			_ClientOptions.Capabilities,
+			_ClientOptions.Metadata,
 			[this](const grpc::Status& Status, const InworldEngine::LoadSceneResponse& Response)
 			{
 				AddTaskToMainThread([this, Status, Response]() {

@@ -45,6 +45,7 @@ namespace Inworld
 		std::string PlayerName;
 		std::string ProjectName;
 		std::string UserId;
+		std::unordered_map<std::string, std::string> Metadata;
 	};
 
 	class INWORLD_EXPORT ClientBase

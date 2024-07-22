@@ -181,11 +181,12 @@ namespace Inworld
 	class INWORLD_EXPORT RunnableGenerateSessionToken : public RunnableRequest<InworldEngine::WorldEngine, InworldEngine::AccessToken>
 	{
 	public:
-		RunnableGenerateSessionToken(const std::string& ServerUrl, const std::string& Resource, const std::string& ApiKey, const std::string& ApiSecret, std::function<void(const grpc::Status&, const InworldEngine::AccessToken&)> Callback = nullptr)
+		RunnableGenerateSessionToken(const std::string& ServerUrl, const std::string& Resource, const std::string& ApiKey, const std::string& ApiSecret, const std::unordered_map<std::string, std::string>& Metadata, std::function<void(const grpc::Status&, const InworldEngine::AccessToken&)> Callback = nullptr)
 			: RunnableRequest(ServerUrl, Callback)
 			, _Resource(Resource)
 			, _ApiKey(ApiKey)
 			, _ApiSecret(ApiSecret)
+			, _Metadata(Metadata)
 		{}
 
 		virtual ~RunnableGenerateSessionToken() = default;
@@ -198,6 +199,7 @@ namespace Inworld
 		std::string _Resource;
 		std::string _ApiKey;
 		std::string _ApiSecret;
+		std::unordered_map<std::string, std::string> _Metadata;
 	};
 
 	class INWORLD_EXPORT RunnableGetSessionState : public RunnableRequest<InworldEngineV1::StateSerialization, InworldEngineV1::SessionState>
@@ -258,7 +260,7 @@ namespace Inworld
 	class INWORLD_EXPORT RunnableLoadScene : public RunnableRequest<InworldEngine::WorldEngine, InworldEngine::LoadSceneResponse>
 	{
 	public:
-		RunnableLoadScene(const std::string& Token, const std::string& SessionId, const std::string& ServerUrl, const std::string& SceneName, const std::string& PlayerName, const std::string& UserId, const UserSettings& UserSettings, const std::string& ClientId, const std::string& ClientVersion, const std::string& ClientDescription, const std::string& SessionState, const CapabilitySet& Capabilities, std::function<void(const grpc::Status&, const InworldEngine::LoadSceneResponse&)> Callback = nullptr)
+		RunnableLoadScene(const std::string& Token, const std::string& SessionId, const std::string& ServerUrl, const std::string& SceneName, const std::string& PlayerName, const std::string& UserId, const UserSettings& UserSettings, const std::string& ClientId, const std::string& ClientVersion, const std::string& ClientDescription, const std::string& SessionState, const CapabilitySet& Capabilities, const std::unordered_map<std::string, std::string>& Metadata, std::function<void(const grpc::Status&, const InworldEngine::LoadSceneResponse&)> Callback = nullptr)
 			: RunnableRequest(ServerUrl, Callback)
 			, _Token(Token)
 			, _SessionId(SessionId)
@@ -271,6 +273,7 @@ namespace Inworld
 			, _ClientDescription(ClientDescription)
 			, _SessionState(SessionState)
 			, _Capabilities(Capabilities)
+			, _Metadata(Metadata)
 		{}
 
 		virtual ~RunnableLoadScene() = default;
@@ -297,6 +300,7 @@ namespace Inworld
 		std::string _ClientDescription;
 		std::string _SessionState;
 		CapabilitySet _Capabilities;
+		std::unordered_map<std::string, std::string> _Metadata;
 	};
 
 	class INWORLD_EXPORT RunnableGenerateUserTokenRequest : public RunnableRequest<InworldV1alpha::Users, InworldV1alpha::GenerateTokenUserResponse>
