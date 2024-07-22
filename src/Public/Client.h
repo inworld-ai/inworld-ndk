@@ -141,7 +141,7 @@ namespace Inworld
 		};
 
 		Client() = default;
-		~Client() { DestroyClient(); }
+		virtual ~Client() { DestroyClient(); }
 
 #pragma region Lifetime
 		// callbacks will not be called on calling thread

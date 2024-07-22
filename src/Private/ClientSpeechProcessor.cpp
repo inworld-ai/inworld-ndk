@@ -12,12 +12,12 @@
 #include "InworldVAD.h"
 #include "Log.h"
 #include "Service.h"
-#include "ai/inworld/packets/packets.pb.h"
+#include "ai/inworld/packets/packets.pb.h"  
 
 Inworld::ClientSpeechProcessor::ClientSpeechProcessor(const ClientSpeechOptions& Options)
     : _Options(Options)
 {
-    if (_Options.Mode == ClientSpeechOptions::Mode::Default)
+    if (_Options.Mode == ClientSpeechOptions::SpeechMode::Default)
     {
         return;
     }
@@ -25,14 +25,14 @@ Inworld::ClientSpeechProcessor::ClientSpeechProcessor(const ClientSpeechOptions&
     if (_Options.VADModelPath.empty())
     {
         LogError("Inworld::ClientSpeechProcessor invalid VAD model path. Falling back to default mode.");
-        _Options.Mode = ClientSpeechOptions::Mode::Default;
+        _Options.Mode = ClientSpeechOptions::SpeechMode::Default;
         return;
     }
 
     if (!_Options.VADCb)
     {
         LogError("Inworld::ClientSpeechProcessor invalid VAD callback. Falling back to default mode.");
-        _Options.Mode = ClientSpeechOptions::Mode::Default;
+        _Options.Mode = ClientSpeechOptions::SpeechMode::Default;
         return;
     }
 
@@ -61,7 +61,7 @@ void Inworld::ClientSpeechProcessor::ClearState()
 	_AudioQueue = {};
 	_AudioSessionPayload = {};
 	_VADSilenceCounter = 0;
-    if (_Options.Mode >= ClientSpeechOptions::Mode::VAD)
+    if (_Options.Mode >= ClientSpeechOptions::SpeechMode::VAD)
     {
         VAD_ResetState();
     }
@@ -73,7 +73,7 @@ void Inworld::ClientSpeechProcessor::StartAudioSession(const Inworld::Routing& R
     ClearState();
     _Routing = Routing;
     _AudioSessionPayload = Payload;
-    if (_Options.Mode == ClientSpeechOptions::Mode::Default)
+    if (_Options.Mode == ClientSpeechOptions::SpeechMode::Default)
     {
         StartActualAudioSession();
     }
@@ -81,7 +81,7 @@ void Inworld::ClientSpeechProcessor::StartAudioSession(const Inworld::Routing& R
 
 void Inworld::ClientSpeechProcessor::StopAudioSession(const Inworld::Routing& Routing)
 {
-    if (_Options.Mode == ClientSpeechOptions::Mode::Default)
+    if (_Options.Mode == ClientSpeechOptions::SpeechMode::Default)
     {
         StopActualAudioSession();
     }
@@ -209,7 +209,7 @@ bool Inworld::ClientSpeechProcessor::StopActualAudioSession()
 
 void Inworld::ClientSpeechProcessor::ProcessAudio(const std::string& Data)
 {
-	if (_Options.Mode == ClientSpeechOptions::Mode::Default)
+	if (_Options.Mode == ClientSpeechOptions::SpeechMode::Default)
 	{
 		SendAudio(Data);
 		return;

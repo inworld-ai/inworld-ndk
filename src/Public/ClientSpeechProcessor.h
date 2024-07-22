@@ -44,13 +44,13 @@ namespace Inworld
     
     struct ClientSpeechOptions
     {
-        enum class Mode : uint8_t
+        enum class SpeechMode : uint8_t
         {
             Default = 0,
             VAD = 1,
             STT = 2,
         };  
-        Mode Mode = Mode::Default;
+        SpeechMode Mode = SpeechMode::Default;
 
         std::string VADModelPath;
         std::string STTModelPath;
