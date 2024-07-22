@@ -17,14 +17,14 @@
 #include "grpcpp/impl/codegen/status.h"
 #include "grpcpp/impl/codegen/sync_stream.h"
 #include "grpcpp/create_channel.h"
-#include "world-engine.grpc.pb.h"
+#include "ai/inworld/engine/world-engine.grpc.pb.h"
 #include "ai/inworld/studio/v1alpha/tokens.grpc.pb.h"
 #include "ai/inworld/studio/v1alpha/users.grpc.pb.h"
 #include "ai/inworld/studio/v1alpha/workspaces.grpc.pb.h"
 #include "ai/inworld/studio/v1alpha/scenes.grpc.pb.h"
 #include "ai/inworld/studio/v1alpha/characters.grpc.pb.h"
 #include "ai/inworld/studio/v1alpha/apikeys.grpc.pb.h"
-#include "grpc-stub/platform-public/src/main/proto/ai/inworld/engine/v1/state_serialization.grpc.pb.h"
+#include "ai/inworld/engine/v1/state_serialization.grpc.pb.h"
 
 #include "Utils/Utils.h"
 #include "Utils/SharedQueue.h"
@@ -151,9 +151,10 @@ namespace Inworld
 
 		std::unique_ptr<typename TService::Stub>& CreateStub()
 		{
-            grpc::SslCredentialsOptions SslCredentialsOptions;
-            SslCredentialsOptions.pem_root_certs = Utils::GetSslRootCerts();
-			_Stub = TService::NewStub(grpc::CreateChannel(_ServerUrl, grpc::SslCredentials(SslCredentialsOptions)));
+            //grpc::SslCredentialsOptions SslCredentialsOptions;
+            //SslCredentialsOptions.pem_root_certs = Utils::GetSslRootCerts();
+			//_Stub = TService::NewStub(grpc::CreateChannel(_ServerUrl, grpc::SslCredentials(SslCredentialsOptions)));
+			_Stub = TService::NewStub(grpc::CreateChannel(_ServerUrl, grpc::InsecureChannelCredentials()));
 			return _Stub;
 		}
 
@@ -234,6 +235,8 @@ namespace Inworld
 		bool TurnBasedSTT = true;
 		bool NarratedActions = true;
 		bool Relations = true;
+		bool Multiagent = true;
+		bool Audio2Face = true;
 	};
 
 	struct INWORLD_EXPORT UserSettings

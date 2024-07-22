@@ -44,14 +44,40 @@ namespace Inworld {
         InworldPakets::Routing routing;
         *routing.mutable_source() = _Source.ToProto();
         *routing.mutable_target() = _Target.ToProto();
+
+        for (auto& T : _Targets)
+        {
+            auto* Actor = routing.add_targets();
+            *Actor = T.ToProto();
+        }
         return routing;
     }
 
-    Routing Routing::Player2Agent(const std::string& AgentId) {
-        return Routing(Actor(InworldPakets::Actor_Type_PLAYER, ""), Actor(InworldPakets::Actor_Type_AGENT, AgentId));
+	Routing::Routing(const InworldPakets::Routing& Routing)
+		: _Source(Routing.source())
+		, _Target(Routing.target())
+	{
+        for (uint32_t i = 0; i < Routing.targets_size(); i++)
+        {
+            _Targets.emplace_back(Routing.targets(i));
+        }
+	}
+
+	Routing Routing::Player2Agent(const std::string& AgentId) {
+        return { { InworldPakets::Actor_Type_PLAYER, "" }, { InworldPakets::Actor_Type_AGENT, AgentId} };
     }
 
-    InworldPakets::PacketId PacketId::ToProto() const
+	Routing Routing::Player2Agents(const std::vector<std::string>& AgentIds)
+	{
+        std::vector<Actor> Actors;
+        for (auto& Id : AgentIds)
+        {
+            Actors.emplace_back(InworldPakets::Actor_Type_AGENT, Id);
+        }
+        return { { InworldPakets::Actor_Type_PLAYER, "" }, Actors };
+	}
+
+	InworldPakets::PacketId PacketId::ToProto() const
     {
         InworldPakets::PacketId proto;
         proto.set_packet_id(_UID);
@@ -81,6 +107,10 @@ namespace Inworld {
     void ControlEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
     {
         Proto.mutable_control()->set_action(_Action);
+        if (mode == 2)
+        {
+            Proto.mutable_control()->mutable_audio_session_start()->set_mode(ai::inworld::packets::AudioSessionStartPayload_MicrophoneMode_EXPECT_AUDIO_END);
+        }
     }
 
     void DataEvent::ToProtoInternal(InworldPakets::InworldPacket& Proto) const
@@ -112,6 +142,44 @@ namespace Inworld {
             PhonemeInfo& back = _PhonemeInfos.back();
             back.Code = phoneme_info.phoneme();
             back.Timestamp = phoneme_info.start_offset().seconds() + (phoneme_info.start_offset().nanos() / 1000000000.f);
+        }
+    }
+
+    A2FAnimationHeaderEvent::A2FAnimationHeaderEvent(const InworldPakets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
+    {
+        nvidia::ace::controller::v1::AnimationDataStream AnimationDataStream;
+        AnimationDataStream.ParseFromString(GrpcPacket.data_chunk().chunk());
+
+        nvidia::ace::controller::v1::AnimationDataStreamHeader AnimationDataStreamHeader = AnimationDataStream.animation_data_stream_header();
+        _ChannelCount = AnimationDataStreamHeader.audio_header().channel_count();
+        _SamplesPerSecond = AnimationDataStreamHeader.audio_header().samples_per_second();
+        _BitsPerSample = AnimationDataStreamHeader.audio_header().bits_per_sample();
+
+        for (const auto& BlendShape : AnimationDataStreamHeader.skel_animation_header().blend_shapes())
+        {
+            _BlendShapes.push_back(BlendShape.c_str());
+        }
+    }
+
+    A2FAnimationContentEvent::A2FAnimationContentEvent(const InworldPakets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
+    {
+
+        nvidia::ace::controller::v1::AnimationDataStream AnimationDataStream;
+        AnimationDataStream.ParseFromString(GrpcPacket.data_chunk().chunk());
+
+        nvidia::ace::animation_data::v1::AnimationData AnimationData = AnimationDataStream.animation_data();
+
+        _AudioInfo._Audio = AnimationData.audio().audio_buffer();
+        _AudioInfo._TimeCode = AnimationData.audio().time_code();
+
+        for (const auto& BlendShapeWeight : AnimationData.skel_animation().blend_shape_weights())
+        {
+            auto& _BlendShapeWeight = _SkeletalAnimInfo._BlendShapeWeights.emplace_back();
+            _BlendShapeWeight._TimeCode = BlendShapeWeight.time_code();
+            for (const auto& Value : BlendShapeWeight.values())
+            {
+                _BlendShapeWeight._Values.push_back(Value);
+            }
         }
     }
 

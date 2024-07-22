@@ -51,6 +51,14 @@ void Inworld::RunnableRead::Run()
 			{
 				Packet = std::make_shared<Inworld::AudioDataEvent>(IncomingPacket);
 			}
+			else if (IncomingPacket.data_chunk().type() == ai::inworld::packets::DataChunk_DataType_NVIDIA_A2F_ANIMATION_HEADER)
+			{
+				Packet = std::make_shared<Inworld::A2FAnimationHeaderEvent>(IncomingPacket);
+			}
+			else if (IncomingPacket.data_chunk().type() == ai::inworld::packets::DataChunk_DataType_NVIDIA_A2F_ANIMATION)
+			{
+				Packet = std::make_shared<Inworld::A2FAnimationContentEvent>(IncomingPacket);
+			}
 		}
 		else if (IncomingPacket.has_control())
 		{
@@ -178,6 +186,8 @@ grpc::Status Inworld::RunnableLoadScene::RunProcess()
 	Capabilities->set_turn_based_stt(_Capabilities.TurnBasedSTT);
 	Capabilities->set_relations(_Capabilities.Relations);
 	Capabilities->set_debug_info(_Capabilities.Relations); // YAN: Relations also requires debug info for now.
+	Capabilities->set_multi_agent(_Capabilities.Multiagent);
+	Capabilities->set_audio_2_face(_Capabilities.Audio2Face);
 
 	auto* User = LoadSceneRequest.mutable_user();
 	User->set_id(_UserId);

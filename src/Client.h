@@ -67,16 +67,22 @@ namespace Inworld
 		void SendPacket(std::shared_ptr<Inworld::Packet> Packet);
 
 		virtual std::shared_ptr<TextEvent> SendTextMessage(const std::string& AgentId, const std::string& Text);
+		virtual std::shared_ptr<TextEvent> SendTextMessage(const std::vector<std::string>& AgentIds, const std::string& Text);
 		virtual std::shared_ptr<DataEvent> SendSoundMessage(const std::string& AgentId, const std::string& Data);
+		virtual std::shared_ptr<DataEvent> SendSoundMessage(const std::vector<std::string>& AgentIds, const std::string& Data);
 		virtual std::shared_ptr<DataEvent> SendSoundMessageWithAEC(const std::string& AgentId, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
+		virtual std::shared_ptr<DataEvent> SendSoundMessageWithAEC(const std::vector<std::string>& AgentIds, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
 		virtual std::shared_ptr<CustomEvent> SendCustomEvent(std::string AgentId, const std::string& Name, const std::unordered_map<std::string, std::string>& Params);
+		virtual std::shared_ptr<CustomEvent> SendCustomEvent(const std::vector<std::string>& AgentIds, const std::string& Name, const std::unordered_map<std::string, std::string>& Params);
 		
 		virtual std::shared_ptr<ChangeSceneEvent> SendChangeSceneEvent(const std::string& Scene);
 
 		virtual void CancelResponse(const std::string& AgentId, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds);
 
-		virtual void StartAudioSession(const std::string& AgentId);
+		virtual void StartAudioSession(const std::string& AgentId, int mode = 2);
+		virtual void StartAudioSession(const std::vector<std::string>& AgentIds, int mode = 2);
 		virtual void StopAudioSession(const std::string& AgentId);
+		virtual void StopAudioSession(const std::vector<std::string>& AgentIds);
 
 		virtual void InitClient(const SdkInfo& SdkInfo, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback);
 		virtual void StartClient(const ClientOptions& Options, const SessionInfo& Info, std::function<void(const std::vector<AgentInfo>&)> LoadSceneCallback);
@@ -103,6 +109,13 @@ namespace Inworld
 		void SetOptions(const ClientOptions& options);		
 
 	protected:
+		virtual std::shared_ptr<TextEvent> SendTextMessage(const Inworld::Routing& Routing, const std::string& Text);
+		virtual std::shared_ptr<DataEvent> SendSoundMessage(const Inworld::Routing& Routing, const std::string& Data);
+		virtual std::shared_ptr<DataEvent> SendSoundMessageWithAEC(const Inworld::Routing& Routing, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
+		virtual std::shared_ptr<CustomEvent> SendCustomEvent(const Inworld::Routing& Routing, const std::string& Name, const std::unordered_map<std::string, std::string>& Params);
+		virtual void StartAudioSession(const Inworld::Routing& Routing, int mode = 2);
+		virtual void StopAudioSession(const Inworld::Routing& Routing);
+
 		virtual void AddTaskToMainThread(std::function<void()> Task) = 0;
 
 		template<typename TAsyncRoutine>
@@ -113,7 +126,7 @@ namespace Inworld
 			_AsyncLoadSceneTask = std::make_unique<TAsyncRoutine>();
 			_AsyncGenerateTokenTask = std::make_unique<TAsyncRoutine>();
 			_AsyncGetSessionState = std::make_unique<TAsyncRoutine>();
-#ifdef  INWORLD_AUDIO_DUMP
+#ifdef INWORLD_AUDIO_DUMP
 			_AsyncAudioDumper = std::make_unique<TAsyncRoutine>();
 #endif			
 		}

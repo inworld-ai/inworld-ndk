@@ -39,14 +39,15 @@
 #include "google/api/client.pb.h"
 #include "google/api/field_behavior.pb.h"
 #include "google/api/resource.pb.h"
+#include "google/api/visibility.pb.h"
 #include "google/longrunning/operations.pb.h"
 #include <google/protobuf/empty.pb.h>
 #include <google/protobuf/field_mask.pb.h>
-#include "options.pb.h"
+#include "ai/inworld/options/options.pb.h"
 #include "ai/inworld/studio/v1alpha/behavioral_contexts.pb.h"
 #include "ai/inworld/studio/v1alpha/scenes.pb.h"
-#include "language_codes.pb.h"
-#include "voices.pb.h"
+#include "ai/inworld/voices/voices.pb.h"
+#include "ai/inworld/language_codes/language_codes.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto
@@ -62,7 +63,7 @@ struct TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[43]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[47]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -73,6 +74,18 @@ namespace ai {
 namespace inworld {
 namespace studio {
 namespace v1alpha {
+class BatchGetCharacterAdvancedSettingsRequest;
+class BatchGetCharacterAdvancedSettingsRequestDefaultTypeInternal;
+extern BatchGetCharacterAdvancedSettingsRequestDefaultTypeInternal _BatchGetCharacterAdvancedSettingsRequest_default_instance_;
+class BatchGetCharacterAdvancedSettingsResponse;
+class BatchGetCharacterAdvancedSettingsResponseDefaultTypeInternal;
+extern BatchGetCharacterAdvancedSettingsResponseDefaultTypeInternal _BatchGetCharacterAdvancedSettingsResponse_default_instance_;
+class BatchUpdateCharacterAdvancedSettingsRequest;
+class BatchUpdateCharacterAdvancedSettingsRequestDefaultTypeInternal;
+extern BatchUpdateCharacterAdvancedSettingsRequestDefaultTypeInternal _BatchUpdateCharacterAdvancedSettingsRequest_default_instance_;
+class BatchUpdateCharacterAdvancedSettingsResponse;
+class BatchUpdateCharacterAdvancedSettingsResponseDefaultTypeInternal;
+extern BatchUpdateCharacterAdvancedSettingsResponseDefaultTypeInternal _BatchUpdateCharacterAdvancedSettingsResponse_default_instance_;
 class Character;
 class CharacterDefaultTypeInternal;
 extern CharacterDefaultTypeInternal _Character_default_instance_;
@@ -207,6 +220,10 @@ extern UpdateCharacterRequestDefaultTypeInternal _UpdateCharacterRequest_default
 }  // namespace inworld
 }  // namespace ai
 PROTOBUF_NAMESPACE_OPEN
+template<> ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsRequest>(Arena*);
+template<> ::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::BatchGetCharacterAdvancedSettingsResponse>(Arena*);
+template<> ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsRequest>(Arena*);
+template<> ::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::BatchUpdateCharacterAdvancedSettingsResponse>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::Character* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::Character>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_ConversationConfig* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_ConversationConfig>(Arena*);
@@ -4166,6 +4183,320 @@ class GetCharacterAdvancedSettingsRequest PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class BatchGetCharacterAdvancedSettingsRequest PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsRequest) */ {
+ public:
+  inline BatchGetCharacterAdvancedSettingsRequest() : BatchGetCharacterAdvancedSettingsRequest(nullptr) {}
+  virtual ~BatchGetCharacterAdvancedSettingsRequest();
+
+  BatchGetCharacterAdvancedSettingsRequest(const BatchGetCharacterAdvancedSettingsRequest& from);
+  BatchGetCharacterAdvancedSettingsRequest(BatchGetCharacterAdvancedSettingsRequest&& from) noexcept
+    : BatchGetCharacterAdvancedSettingsRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline BatchGetCharacterAdvancedSettingsRequest& operator=(const BatchGetCharacterAdvancedSettingsRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline BatchGetCharacterAdvancedSettingsRequest& operator=(BatchGetCharacterAdvancedSettingsRequest&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const BatchGetCharacterAdvancedSettingsRequest& default_instance();
+
+  static inline const BatchGetCharacterAdvancedSettingsRequest* internal_default_instance() {
+    return reinterpret_cast<const BatchGetCharacterAdvancedSettingsRequest*>(
+               &_BatchGetCharacterAdvancedSettingsRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    15;
+
+  friend void swap(BatchGetCharacterAdvancedSettingsRequest& a, BatchGetCharacterAdvancedSettingsRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(BatchGetCharacterAdvancedSettingsRequest* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(BatchGetCharacterAdvancedSettingsRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline BatchGetCharacterAdvancedSettingsRequest* New() const final {
+    return CreateMaybeMessage<BatchGetCharacterAdvancedSettingsRequest>(nullptr);
+  }
+
+  BatchGetCharacterAdvancedSettingsRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<BatchGetCharacterAdvancedSettingsRequest>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const BatchGetCharacterAdvancedSettingsRequest& from);
+  void MergeFrom(const BatchGetCharacterAdvancedSettingsRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(BatchGetCharacterAdvancedSettingsRequest* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsRequest";
+  }
+  protected:
+  explicit BatchGetCharacterAdvancedSettingsRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+    return ::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNamesFieldNumber = 2,
+    kParentFieldNumber = 1,
+  };
+  // repeated string names = 2 [(.google.api.field_behavior) = REQUIRED];
+  int names_size() const;
+  private:
+  int _internal_names_size() const;
+  public:
+  void clear_names();
+  const std::string& names(int index) const;
+  std::string* mutable_names(int index);
+  void set_names(int index, const std::string& value);
+  void set_names(int index, std::string&& value);
+  void set_names(int index, const char* value);
+  void set_names(int index, const char* value, size_t size);
+  std::string* add_names();
+  void add_names(const std::string& value);
+  void add_names(std::string&& value);
+  void add_names(const char* value);
+  void add_names(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& names() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_names();
+  private:
+  const std::string& _internal_names(int index) const;
+  std::string* _internal_add_names();
+  public:
+
+  // string parent = 1 [(.google.api.resource_reference) = {
+  void clear_parent();
+  const std::string& parent() const;
+  void set_parent(const std::string& value);
+  void set_parent(std::string&& value);
+  void set_parent(const char* value);
+  void set_parent(const char* value, size_t size);
+  std::string* mutable_parent();
+  std::string* release_parent();
+  void set_allocated_parent(std::string* parent);
+  private:
+  const std::string& _internal_parent() const;
+  void _internal_set_parent(const std::string& value);
+  std::string* _internal_mutable_parent();
+  public:
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> names_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr parent_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
+};
+// -------------------------------------------------------------------
+
+class BatchGetCharacterAdvancedSettingsResponse PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsResponse) */ {
+ public:
+  inline BatchGetCharacterAdvancedSettingsResponse() : BatchGetCharacterAdvancedSettingsResponse(nullptr) {}
+  virtual ~BatchGetCharacterAdvancedSettingsResponse();
+
+  BatchGetCharacterAdvancedSettingsResponse(const BatchGetCharacterAdvancedSettingsResponse& from);
+  BatchGetCharacterAdvancedSettingsResponse(BatchGetCharacterAdvancedSettingsResponse&& from) noexcept
+    : BatchGetCharacterAdvancedSettingsResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline BatchGetCharacterAdvancedSettingsResponse& operator=(const BatchGetCharacterAdvancedSettingsResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline BatchGetCharacterAdvancedSettingsResponse& operator=(BatchGetCharacterAdvancedSettingsResponse&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const BatchGetCharacterAdvancedSettingsResponse& default_instance();
+
+  static inline const BatchGetCharacterAdvancedSettingsResponse* internal_default_instance() {
+    return reinterpret_cast<const BatchGetCharacterAdvancedSettingsResponse*>(
+               &_BatchGetCharacterAdvancedSettingsResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    16;
+
+  friend void swap(BatchGetCharacterAdvancedSettingsResponse& a, BatchGetCharacterAdvancedSettingsResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(BatchGetCharacterAdvancedSettingsResponse* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(BatchGetCharacterAdvancedSettingsResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline BatchGetCharacterAdvancedSettingsResponse* New() const final {
+    return CreateMaybeMessage<BatchGetCharacterAdvancedSettingsResponse>(nullptr);
+  }
+
+  BatchGetCharacterAdvancedSettingsResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<BatchGetCharacterAdvancedSettingsResponse>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const BatchGetCharacterAdvancedSettingsResponse& from);
+  void MergeFrom(const BatchGetCharacterAdvancedSettingsResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(BatchGetCharacterAdvancedSettingsResponse* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsResponse";
+  }
+  protected:
+  explicit BatchGetCharacterAdvancedSettingsResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+    return ::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCharacterAdvancedSettingsFieldNumber = 1,
+  };
+  // repeated .ai.inworld.studio.v1alpha.CharacterAdvancedSettings character_advanced_settings = 1;
+  int character_advanced_settings_size() const;
+  private:
+  int _internal_character_advanced_settings_size() const;
+  public:
+  void clear_character_advanced_settings();
+  ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* mutable_character_advanced_settings(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings >*
+      mutable_character_advanced_settings();
+  private:
+  const ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings& _internal_character_advanced_settings(int index) const;
+  ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* _internal_add_character_advanced_settings();
+  public:
+  const ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings& character_advanced_settings(int index) const;
+  ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* add_character_advanced_settings();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings >&
+      character_advanced_settings() const;
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings > character_advanced_settings_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
+};
+// -------------------------------------------------------------------
+
 class UpdateCharacterAdvancedSettingsRequest PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.UpdateCharacterAdvancedSettingsRequest) */ {
  public:
@@ -4207,7 +4538,7 @@ class UpdateCharacterAdvancedSettingsRequest PROTOBUF_FINAL :
                &_UpdateCharacterAdvancedSettingsRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    17;
 
   friend void swap(UpdateCharacterAdvancedSettingsRequest& a, UpdateCharacterAdvancedSettingsRequest& b) {
     a.Swap(&b);
@@ -4331,6 +4662,314 @@ class UpdateCharacterAdvancedSettingsRequest PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class BatchUpdateCharacterAdvancedSettingsRequest PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.BatchUpdateCharacterAdvancedSettingsRequest) */ {
+ public:
+  inline BatchUpdateCharacterAdvancedSettingsRequest() : BatchUpdateCharacterAdvancedSettingsRequest(nullptr) {}
+  virtual ~BatchUpdateCharacterAdvancedSettingsRequest();
+
+  BatchUpdateCharacterAdvancedSettingsRequest(const BatchUpdateCharacterAdvancedSettingsRequest& from);
+  BatchUpdateCharacterAdvancedSettingsRequest(BatchUpdateCharacterAdvancedSettingsRequest&& from) noexcept
+    : BatchUpdateCharacterAdvancedSettingsRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline BatchUpdateCharacterAdvancedSettingsRequest& operator=(const BatchUpdateCharacterAdvancedSettingsRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline BatchUpdateCharacterAdvancedSettingsRequest& operator=(BatchUpdateCharacterAdvancedSettingsRequest&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const BatchUpdateCharacterAdvancedSettingsRequest& default_instance();
+
+  static inline const BatchUpdateCharacterAdvancedSettingsRequest* internal_default_instance() {
+    return reinterpret_cast<const BatchUpdateCharacterAdvancedSettingsRequest*>(
+               &_BatchUpdateCharacterAdvancedSettingsRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    18;
+
+  friend void swap(BatchUpdateCharacterAdvancedSettingsRequest& a, BatchUpdateCharacterAdvancedSettingsRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(BatchUpdateCharacterAdvancedSettingsRequest* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(BatchUpdateCharacterAdvancedSettingsRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline BatchUpdateCharacterAdvancedSettingsRequest* New() const final {
+    return CreateMaybeMessage<BatchUpdateCharacterAdvancedSettingsRequest>(nullptr);
+  }
+
+  BatchUpdateCharacterAdvancedSettingsRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<BatchUpdateCharacterAdvancedSettingsRequest>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const BatchUpdateCharacterAdvancedSettingsRequest& from);
+  void MergeFrom(const BatchUpdateCharacterAdvancedSettingsRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(BatchUpdateCharacterAdvancedSettingsRequest* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.studio.v1alpha.BatchUpdateCharacterAdvancedSettingsRequest";
+  }
+  protected:
+  explicit BatchUpdateCharacterAdvancedSettingsRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+    return ::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRequestsFieldNumber = 2,
+    kParentFieldNumber = 1,
+  };
+  // repeated .ai.inworld.studio.v1alpha.UpdateCharacterAdvancedSettingsRequest requests = 2 [(.google.api.field_behavior) = REQUIRED];
+  int requests_size() const;
+  private:
+  int _internal_requests_size() const;
+  public:
+  void clear_requests();
+  ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* mutable_requests(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest >*
+      mutable_requests();
+  private:
+  const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest& _internal_requests(int index) const;
+  ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* _internal_add_requests();
+  public:
+  const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest& requests(int index) const;
+  ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* add_requests();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest >&
+      requests() const;
+
+  // string parent = 1 [(.google.api.resource_reference) = {
+  void clear_parent();
+  const std::string& parent() const;
+  void set_parent(const std::string& value);
+  void set_parent(std::string&& value);
+  void set_parent(const char* value);
+  void set_parent(const char* value, size_t size);
+  std::string* mutable_parent();
+  std::string* release_parent();
+  void set_allocated_parent(std::string* parent);
+  private:
+  const std::string& _internal_parent() const;
+  void _internal_set_parent(const std::string& value);
+  std::string* _internal_mutable_parent();
+  public:
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.BatchUpdateCharacterAdvancedSettingsRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest > requests_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr parent_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
+};
+// -------------------------------------------------------------------
+
+class BatchUpdateCharacterAdvancedSettingsResponse PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.BatchUpdateCharacterAdvancedSettingsResponse) */ {
+ public:
+  inline BatchUpdateCharacterAdvancedSettingsResponse() : BatchUpdateCharacterAdvancedSettingsResponse(nullptr) {}
+  virtual ~BatchUpdateCharacterAdvancedSettingsResponse();
+
+  BatchUpdateCharacterAdvancedSettingsResponse(const BatchUpdateCharacterAdvancedSettingsResponse& from);
+  BatchUpdateCharacterAdvancedSettingsResponse(BatchUpdateCharacterAdvancedSettingsResponse&& from) noexcept
+    : BatchUpdateCharacterAdvancedSettingsResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline BatchUpdateCharacterAdvancedSettingsResponse& operator=(const BatchUpdateCharacterAdvancedSettingsResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline BatchUpdateCharacterAdvancedSettingsResponse& operator=(BatchUpdateCharacterAdvancedSettingsResponse&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const BatchUpdateCharacterAdvancedSettingsResponse& default_instance();
+
+  static inline const BatchUpdateCharacterAdvancedSettingsResponse* internal_default_instance() {
+    return reinterpret_cast<const BatchUpdateCharacterAdvancedSettingsResponse*>(
+               &_BatchUpdateCharacterAdvancedSettingsResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    19;
+
+  friend void swap(BatchUpdateCharacterAdvancedSettingsResponse& a, BatchUpdateCharacterAdvancedSettingsResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(BatchUpdateCharacterAdvancedSettingsResponse* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(BatchUpdateCharacterAdvancedSettingsResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline BatchUpdateCharacterAdvancedSettingsResponse* New() const final {
+    return CreateMaybeMessage<BatchUpdateCharacterAdvancedSettingsResponse>(nullptr);
+  }
+
+  BatchUpdateCharacterAdvancedSettingsResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<BatchUpdateCharacterAdvancedSettingsResponse>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const BatchUpdateCharacterAdvancedSettingsResponse& from);
+  void MergeFrom(const BatchUpdateCharacterAdvancedSettingsResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(BatchUpdateCharacterAdvancedSettingsResponse* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.studio.v1alpha.BatchUpdateCharacterAdvancedSettingsResponse";
+  }
+  protected:
+  explicit BatchUpdateCharacterAdvancedSettingsResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+    return ::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCharacterAdvancedSettingsFieldNumber = 1,
+  };
+  // repeated .ai.inworld.studio.v1alpha.CharacterAdvancedSettings character_advanced_settings = 1;
+  int character_advanced_settings_size() const;
+  private:
+  int _internal_character_advanced_settings_size() const;
+  public:
+  void clear_character_advanced_settings();
+  ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* mutable_character_advanced_settings(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings >*
+      mutable_character_advanced_settings();
+  private:
+  const ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings& _internal_character_advanced_settings(int index) const;
+  ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* _internal_add_character_advanced_settings();
+  public:
+  const ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings& character_advanced_settings(int index) const;
+  ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* add_character_advanced_settings();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings >&
+      character_advanced_settings() const;
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.BatchUpdateCharacterAdvancedSettingsResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings > character_advanced_settings_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
+};
+// -------------------------------------------------------------------
+
 class ListCharactersRequest PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.ListCharactersRequest) */ {
  public:
@@ -4372,7 +5011,7 @@ class ListCharactersRequest PROTOBUF_FINAL :
                &_ListCharactersRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    20;
 
   friend void swap(ListCharactersRequest& a, ListCharactersRequest& b) {
     a.Swap(&b);
@@ -4573,7 +5212,7 @@ class CreateCharacterRequest PROTOBUF_FINAL :
                &_CreateCharacterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    21;
 
   friend void swap(CreateCharacterRequest& a, CreateCharacterRequest& b) {
     a.Swap(&b);
@@ -4747,7 +5386,7 @@ class UpdateCharacterRequest PROTOBUF_FINAL :
                &_UpdateCharacterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    22;
 
   friend void swap(UpdateCharacterRequest& a, UpdateCharacterRequest& b) {
     a.Swap(&b);
@@ -4912,7 +5551,7 @@ class DeleteCharacterRequest PROTOBUF_FINAL :
                &_DeleteCharacterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    23;
 
   friend void swap(DeleteCharacterRequest& a, DeleteCharacterRequest& b) {
     a.Swap(&b);
@@ -5055,7 +5694,7 @@ class DeployCharacterRequest PROTOBUF_FINAL :
                &_DeployCharacterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    24;
 
   friend void swap(DeployCharacterRequest& a, DeployCharacterRequest& b) {
     a.Swap(&b);
@@ -5198,7 +5837,7 @@ class CloneCharacterRequest PROTOBUF_FINAL :
                &_CloneCharacterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    25;
 
   friend void swap(CloneCharacterRequest& a, CloneCharacterRequest& b) {
     a.Swap(&b);
@@ -5377,7 +6016,7 @@ class ListCharactersResponse PROTOBUF_FINAL :
                &_ListCharactersResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    26;
 
   friend void swap(ListCharactersResponse& a, ListCharactersResponse& b) {
     a.Swap(&b);
@@ -5540,7 +6179,7 @@ class ReplaceCharacterRpmModelRequest PROTOBUF_FINAL :
                &_ReplaceCharacterRpmModelRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    27;
 
   friend void swap(ReplaceCharacterRpmModelRequest& a, ReplaceCharacterRpmModelRequest& b) {
     a.Swap(&b);
@@ -5701,7 +6340,7 @@ class ReplaceCharacterImageRequest PROTOBUF_FINAL :
                &_ReplaceCharacterImageRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    28;
 
   friend void swap(ReplaceCharacterImageRequest& a, ReplaceCharacterImageRequest& b) {
     a.Swap(&b);
@@ -5873,7 +6512,7 @@ class PreviewPromptTemplateRequest PROTOBUF_FINAL :
                &_PreviewPromptTemplateRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    29;
 
   friend void swap(PreviewPromptTemplateRequest& a, PreviewPromptTemplateRequest& b) {
     a.Swap(&b);
@@ -6034,7 +6673,7 @@ class PreviewPromptTempalteResponse PROTOBUF_FINAL :
                &_PreviewPromptTempalteResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    30;
 
   friend void swap(PreviewPromptTempalteResponse& a, PreviewPromptTempalteResponse& b) {
     a.Swap(&b);
@@ -6203,7 +6842,7 @@ class ShareCharacterRequest PROTOBUF_FINAL :
                &_ShareCharacterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    31;
 
   friend void swap(ShareCharacterRequest& a, ShareCharacterRequest& b) {
     a.Swap(&b);
@@ -6372,7 +7011,7 @@ class ShareCharacterPortalRequest PROTOBUF_FINAL :
                &_ShareCharacterPortalRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    32;
 
   friend void swap(ShareCharacterPortalRequest& a, ShareCharacterPortalRequest& b) {
     a.Swap(&b);
@@ -6562,7 +7201,7 @@ class UnshareCharacterPortalRequest PROTOBUF_FINAL :
                &_UnshareCharacterPortalRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    33;
 
   friend void swap(UnshareCharacterPortalRequest& a, UnshareCharacterPortalRequest& b) {
     a.Swap(&b);
@@ -6705,7 +7344,7 @@ class ListSharedCharactersRequest PROTOBUF_FINAL :
                &_ListSharedCharactersRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    34;
 
   friend void swap(ListSharedCharactersRequest& a, ListSharedCharactersRequest& b) {
     a.Swap(&b);
@@ -6877,7 +7516,7 @@ class ListSharedCharactersResponse PROTOBUF_FINAL :
                &_ListSharedCharactersResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    35;
 
   friend void swap(ListSharedCharactersResponse& a, ListSharedCharactersResponse& b) {
     a.Swap(&b);
@@ -7040,7 +7679,7 @@ class CharacterAdvancedSettings_ConversationConfig_EngineSpec PROTOBUF_FINAL :
                &_CharacterAdvancedSettings_ConversationConfig_EngineSpec_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    36;
 
   friend void swap(CharacterAdvancedSettings_ConversationConfig_EngineSpec& a, CharacterAdvancedSettings_ConversationConfig_EngineSpec& b) {
     a.Swap(&b);
@@ -7249,7 +7888,7 @@ class CharacterAdvancedSettings_ConversationConfig PROTOBUF_FINAL :
                &_CharacterAdvancedSettings_ConversationConfig_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    37;
 
   friend void swap(CharacterAdvancedSettings_ConversationConfig& a, CharacterAdvancedSettings_ConversationConfig& b) {
     a.Swap(&b);
@@ -7396,7 +8035,7 @@ class CharacterAdvancedSettings_SafetySpec PROTOBUF_FINAL :
                &_CharacterAdvancedSettings_SafetySpec_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    38;
 
   friend void swap(CharacterAdvancedSettings_SafetySpec& a, CharacterAdvancedSettings_SafetySpec& b) {
     a.Swap(&b);
@@ -7541,7 +8180,7 @@ class CharacterAdvancedSettings PROTOBUF_FINAL :
                &_CharacterAdvancedSettings_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    39;
 
   friend void swap(CharacterAdvancedSettings& a, CharacterAdvancedSettings& b) {
     a.Swap(&b);
@@ -7809,7 +8448,7 @@ class GetCharacterShareInfoRequest PROTOBUF_FINAL :
                &_GetCharacterShareInfoRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    40;
 
   friend void swap(GetCharacterShareInfoRequest& a, GetCharacterShareInfoRequest& b) {
     a.Swap(&b);
@@ -7963,7 +8602,7 @@ class CharacterShareInfo PROTOBUF_FINAL :
                &_CharacterShareInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    41;
 
   friend void swap(CharacterShareInfo& a, CharacterShareInfo& b) {
     a.Swap(&b);
@@ -8114,7 +8753,7 @@ class CheckDeployInfoRequest PROTOBUF_FINAL :
                &_CheckDeployInfoRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    42;
 
   friend void swap(CheckDeployInfoRequest& a, CheckDeployInfoRequest& b) {
     a.Swap(&b);
@@ -8257,7 +8896,7 @@ class DeployCharacterAsyncMetadata PROTOBUF_FINAL :
                &_DeployCharacterAsyncMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    43;
 
   friend void swap(DeployCharacterAsyncMetadata& a, DeployCharacterAsyncMetadata& b) {
     a.Swap(&b);
@@ -8380,7 +9019,7 @@ class DeployCharacterAsyncResponse PROTOBUF_FINAL :
                &_DeployCharacterAsyncResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    44;
 
   friend void swap(DeployCharacterAsyncResponse& a, DeployCharacterAsyncResponse& b) {
     a.Swap(&b);
@@ -8503,7 +9142,7 @@ class CreateCharacterMetadata PROTOBUF_FINAL :
                &_CreateCharacterMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    45;
 
   friend void swap(CreateCharacterMetadata& a, CreateCharacterMetadata& b) {
     a.Swap(&b);
@@ -8626,7 +9265,7 @@ class CheckDeployInfoResponse PROTOBUF_FINAL :
                &_CheckDeployInfoResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    46;
 
   friend void swap(CheckDeployInfoResponse& a, CheckDeployInfoResponse& b) {
     a.Swap(&b);
@@ -12725,6 +13364,188 @@ inline void GetCharacterAdvancedSettingsRequest::set_allocated_name(std::string*
 
 // -------------------------------------------------------------------
 
+// BatchGetCharacterAdvancedSettingsRequest
+
+// string parent = 1 [(.google.api.resource_reference) = {
+inline void BatchGetCharacterAdvancedSettingsRequest::clear_parent() {
+  parent_.ClearToEmpty();
+}
+inline const std::string& BatchGetCharacterAdvancedSettingsRequest::parent() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsRequest.parent)
+  return _internal_parent();
+}
+inline void BatchGetCharacterAdvancedSettingsRequest::set_parent(const std::string& value) {
+  _internal_set_parent(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsRequest.parent)
+}
+inline std::string* BatchGetCharacterAdvancedSettingsRequest::mutable_parent() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsRequest.parent)
+  return _internal_mutable_parent();
+}
+inline const std::string& BatchGetCharacterAdvancedSettingsRequest::_internal_parent() const {
+  return parent_.Get();
+}
+inline void BatchGetCharacterAdvancedSettingsRequest::_internal_set_parent(const std::string& value) {
+  
+  parent_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void BatchGetCharacterAdvancedSettingsRequest::set_parent(std::string&& value) {
+  
+  parent_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsRequest.parent)
+}
+inline void BatchGetCharacterAdvancedSettingsRequest::set_parent(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  parent_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsRequest.parent)
+}
+inline void BatchGetCharacterAdvancedSettingsRequest::set_parent(const char* value,
+    size_t size) {
+  
+  parent_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsRequest.parent)
+}
+inline std::string* BatchGetCharacterAdvancedSettingsRequest::_internal_mutable_parent() {
+  
+  return parent_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* BatchGetCharacterAdvancedSettingsRequest::release_parent() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsRequest.parent)
+  return parent_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void BatchGetCharacterAdvancedSettingsRequest::set_allocated_parent(std::string* parent) {
+  if (parent != nullptr) {
+    
+  } else {
+    
+  }
+  parent_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), parent,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsRequest.parent)
+}
+
+// repeated string names = 2 [(.google.api.field_behavior) = REQUIRED];
+inline int BatchGetCharacterAdvancedSettingsRequest::_internal_names_size() const {
+  return names_.size();
+}
+inline int BatchGetCharacterAdvancedSettingsRequest::names_size() const {
+  return _internal_names_size();
+}
+inline void BatchGetCharacterAdvancedSettingsRequest::clear_names() {
+  names_.Clear();
+}
+inline std::string* BatchGetCharacterAdvancedSettingsRequest::add_names() {
+  // @@protoc_insertion_point(field_add_mutable:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsRequest.names)
+  return _internal_add_names();
+}
+inline const std::string& BatchGetCharacterAdvancedSettingsRequest::_internal_names(int index) const {
+  return names_.Get(index);
+}
+inline const std::string& BatchGetCharacterAdvancedSettingsRequest::names(int index) const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsRequest.names)
+  return _internal_names(index);
+}
+inline std::string* BatchGetCharacterAdvancedSettingsRequest::mutable_names(int index) {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsRequest.names)
+  return names_.Mutable(index);
+}
+inline void BatchGetCharacterAdvancedSettingsRequest::set_names(int index, const std::string& value) {
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsRequest.names)
+  names_.Mutable(index)->assign(value);
+}
+inline void BatchGetCharacterAdvancedSettingsRequest::set_names(int index, std::string&& value) {
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsRequest.names)
+  names_.Mutable(index)->assign(std::move(value));
+}
+inline void BatchGetCharacterAdvancedSettingsRequest::set_names(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  names_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsRequest.names)
+}
+inline void BatchGetCharacterAdvancedSettingsRequest::set_names(int index, const char* value, size_t size) {
+  names_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsRequest.names)
+}
+inline std::string* BatchGetCharacterAdvancedSettingsRequest::_internal_add_names() {
+  return names_.Add();
+}
+inline void BatchGetCharacterAdvancedSettingsRequest::add_names(const std::string& value) {
+  names_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsRequest.names)
+}
+inline void BatchGetCharacterAdvancedSettingsRequest::add_names(std::string&& value) {
+  names_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsRequest.names)
+}
+inline void BatchGetCharacterAdvancedSettingsRequest::add_names(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  names_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsRequest.names)
+}
+inline void BatchGetCharacterAdvancedSettingsRequest::add_names(const char* value, size_t size) {
+  names_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsRequest.names)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+BatchGetCharacterAdvancedSettingsRequest::names() const {
+  // @@protoc_insertion_point(field_list:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsRequest.names)
+  return names_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+BatchGetCharacterAdvancedSettingsRequest::mutable_names() {
+  // @@protoc_insertion_point(field_mutable_list:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsRequest.names)
+  return &names_;
+}
+
+// -------------------------------------------------------------------
+
+// BatchGetCharacterAdvancedSettingsResponse
+
+// repeated .ai.inworld.studio.v1alpha.CharacterAdvancedSettings character_advanced_settings = 1;
+inline int BatchGetCharacterAdvancedSettingsResponse::_internal_character_advanced_settings_size() const {
+  return character_advanced_settings_.size();
+}
+inline int BatchGetCharacterAdvancedSettingsResponse::character_advanced_settings_size() const {
+  return _internal_character_advanced_settings_size();
+}
+inline void BatchGetCharacterAdvancedSettingsResponse::clear_character_advanced_settings() {
+  character_advanced_settings_.Clear();
+}
+inline ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* BatchGetCharacterAdvancedSettingsResponse::mutable_character_advanced_settings(int index) {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsResponse.character_advanced_settings)
+  return character_advanced_settings_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings >*
+BatchGetCharacterAdvancedSettingsResponse::mutable_character_advanced_settings() {
+  // @@protoc_insertion_point(field_mutable_list:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsResponse.character_advanced_settings)
+  return &character_advanced_settings_;
+}
+inline const ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings& BatchGetCharacterAdvancedSettingsResponse::_internal_character_advanced_settings(int index) const {
+  return character_advanced_settings_.Get(index);
+}
+inline const ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings& BatchGetCharacterAdvancedSettingsResponse::character_advanced_settings(int index) const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsResponse.character_advanced_settings)
+  return _internal_character_advanced_settings(index);
+}
+inline ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* BatchGetCharacterAdvancedSettingsResponse::_internal_add_character_advanced_settings() {
+  return character_advanced_settings_.Add();
+}
+inline ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* BatchGetCharacterAdvancedSettingsResponse::add_character_advanced_settings() {
+  // @@protoc_insertion_point(field_add:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsResponse.character_advanced_settings)
+  return _internal_add_character_advanced_settings();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings >&
+BatchGetCharacterAdvancedSettingsResponse::character_advanced_settings() const {
+  // @@protoc_insertion_point(field_list:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsResponse.character_advanced_settings)
+  return character_advanced_settings_;
+}
+
+// -------------------------------------------------------------------
+
 // UpdateCharacterAdvancedSettingsRequest
 
 // .ai.inworld.studio.v1alpha.CharacterAdvancedSettings character_advanced_settings = 1 [(.google.api.field_behavior) = REQUIRED];
@@ -12885,6 +13706,153 @@ inline void UpdateCharacterAdvancedSettingsRequest::set_allocated_update_mask(PR
   }
   update_mask_ = update_mask;
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.UpdateCharacterAdvancedSettingsRequest.update_mask)
+}
+
+// -------------------------------------------------------------------
+
+// BatchUpdateCharacterAdvancedSettingsRequest
+
+// string parent = 1 [(.google.api.resource_reference) = {
+inline void BatchUpdateCharacterAdvancedSettingsRequest::clear_parent() {
+  parent_.ClearToEmpty();
+}
+inline const std::string& BatchUpdateCharacterAdvancedSettingsRequest::parent() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.BatchUpdateCharacterAdvancedSettingsRequest.parent)
+  return _internal_parent();
+}
+inline void BatchUpdateCharacterAdvancedSettingsRequest::set_parent(const std::string& value) {
+  _internal_set_parent(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.BatchUpdateCharacterAdvancedSettingsRequest.parent)
+}
+inline std::string* BatchUpdateCharacterAdvancedSettingsRequest::mutable_parent() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.BatchUpdateCharacterAdvancedSettingsRequest.parent)
+  return _internal_mutable_parent();
+}
+inline const std::string& BatchUpdateCharacterAdvancedSettingsRequest::_internal_parent() const {
+  return parent_.Get();
+}
+inline void BatchUpdateCharacterAdvancedSettingsRequest::_internal_set_parent(const std::string& value) {
+  
+  parent_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void BatchUpdateCharacterAdvancedSettingsRequest::set_parent(std::string&& value) {
+  
+  parent_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.studio.v1alpha.BatchUpdateCharacterAdvancedSettingsRequest.parent)
+}
+inline void BatchUpdateCharacterAdvancedSettingsRequest::set_parent(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  parent_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.studio.v1alpha.BatchUpdateCharacterAdvancedSettingsRequest.parent)
+}
+inline void BatchUpdateCharacterAdvancedSettingsRequest::set_parent(const char* value,
+    size_t size) {
+  
+  parent_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.studio.v1alpha.BatchUpdateCharacterAdvancedSettingsRequest.parent)
+}
+inline std::string* BatchUpdateCharacterAdvancedSettingsRequest::_internal_mutable_parent() {
+  
+  return parent_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* BatchUpdateCharacterAdvancedSettingsRequest::release_parent() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.BatchUpdateCharacterAdvancedSettingsRequest.parent)
+  return parent_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void BatchUpdateCharacterAdvancedSettingsRequest::set_allocated_parent(std::string* parent) {
+  if (parent != nullptr) {
+    
+  } else {
+    
+  }
+  parent_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), parent,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.BatchUpdateCharacterAdvancedSettingsRequest.parent)
+}
+
+// repeated .ai.inworld.studio.v1alpha.UpdateCharacterAdvancedSettingsRequest requests = 2 [(.google.api.field_behavior) = REQUIRED];
+inline int BatchUpdateCharacterAdvancedSettingsRequest::_internal_requests_size() const {
+  return requests_.size();
+}
+inline int BatchUpdateCharacterAdvancedSettingsRequest::requests_size() const {
+  return _internal_requests_size();
+}
+inline void BatchUpdateCharacterAdvancedSettingsRequest::clear_requests() {
+  requests_.Clear();
+}
+inline ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* BatchUpdateCharacterAdvancedSettingsRequest::mutable_requests(int index) {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.BatchUpdateCharacterAdvancedSettingsRequest.requests)
+  return requests_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest >*
+BatchUpdateCharacterAdvancedSettingsRequest::mutable_requests() {
+  // @@protoc_insertion_point(field_mutable_list:ai.inworld.studio.v1alpha.BatchUpdateCharacterAdvancedSettingsRequest.requests)
+  return &requests_;
+}
+inline const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest& BatchUpdateCharacterAdvancedSettingsRequest::_internal_requests(int index) const {
+  return requests_.Get(index);
+}
+inline const ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest& BatchUpdateCharacterAdvancedSettingsRequest::requests(int index) const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.BatchUpdateCharacterAdvancedSettingsRequest.requests)
+  return _internal_requests(index);
+}
+inline ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* BatchUpdateCharacterAdvancedSettingsRequest::_internal_add_requests() {
+  return requests_.Add();
+}
+inline ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest* BatchUpdateCharacterAdvancedSettingsRequest::add_requests() {
+  // @@protoc_insertion_point(field_add:ai.inworld.studio.v1alpha.BatchUpdateCharacterAdvancedSettingsRequest.requests)
+  return _internal_add_requests();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::UpdateCharacterAdvancedSettingsRequest >&
+BatchUpdateCharacterAdvancedSettingsRequest::requests() const {
+  // @@protoc_insertion_point(field_list:ai.inworld.studio.v1alpha.BatchUpdateCharacterAdvancedSettingsRequest.requests)
+  return requests_;
+}
+
+// -------------------------------------------------------------------
+
+// BatchUpdateCharacterAdvancedSettingsResponse
+
+// repeated .ai.inworld.studio.v1alpha.CharacterAdvancedSettings character_advanced_settings = 1;
+inline int BatchUpdateCharacterAdvancedSettingsResponse::_internal_character_advanced_settings_size() const {
+  return character_advanced_settings_.size();
+}
+inline int BatchUpdateCharacterAdvancedSettingsResponse::character_advanced_settings_size() const {
+  return _internal_character_advanced_settings_size();
+}
+inline void BatchUpdateCharacterAdvancedSettingsResponse::clear_character_advanced_settings() {
+  character_advanced_settings_.Clear();
+}
+inline ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* BatchUpdateCharacterAdvancedSettingsResponse::mutable_character_advanced_settings(int index) {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.BatchUpdateCharacterAdvancedSettingsResponse.character_advanced_settings)
+  return character_advanced_settings_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings >*
+BatchUpdateCharacterAdvancedSettingsResponse::mutable_character_advanced_settings() {
+  // @@protoc_insertion_point(field_mutable_list:ai.inworld.studio.v1alpha.BatchUpdateCharacterAdvancedSettingsResponse.character_advanced_settings)
+  return &character_advanced_settings_;
+}
+inline const ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings& BatchUpdateCharacterAdvancedSettingsResponse::_internal_character_advanced_settings(int index) const {
+  return character_advanced_settings_.Get(index);
+}
+inline const ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings& BatchUpdateCharacterAdvancedSettingsResponse::character_advanced_settings(int index) const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.BatchUpdateCharacterAdvancedSettingsResponse.character_advanced_settings)
+  return _internal_character_advanced_settings(index);
+}
+inline ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* BatchUpdateCharacterAdvancedSettingsResponse::_internal_add_character_advanced_settings() {
+  return character_advanced_settings_.Add();
+}
+inline ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* BatchUpdateCharacterAdvancedSettingsResponse::add_character_advanced_settings() {
+  // @@protoc_insertion_point(field_add:ai.inworld.studio.v1alpha.BatchUpdateCharacterAdvancedSettingsResponse.character_advanced_settings)
+  return _internal_add_character_advanced_settings();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings >&
+BatchUpdateCharacterAdvancedSettingsResponse::character_advanced_settings() const {
+  // @@protoc_insertion_point(field_list:ai.inworld.studio.v1alpha.BatchUpdateCharacterAdvancedSettingsResponse.character_advanced_settings)
+  return character_advanced_settings_;
 }
 
 // -------------------------------------------------------------------
@@ -16004,6 +16972,14 @@ inline void CheckDeployInfoResponse::set_is_fresh(bool value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -356,6 +356,8 @@ if (ANDROID AND INWORLD_LOG_SPD)
     ${CMAKE_CURRENT_SOURCE_DIR}/build/ThirdParty/spdlog/${LibPref}${LibSpglogName}.${LibExt})
 endif()
 
+target_compile_definitions(InworldNDK PUBLIC INWORLD_AUDIO_DUMP)
+
 # webrtc aec setup
 if (AEC)
     if (WIN32 OR MAC)

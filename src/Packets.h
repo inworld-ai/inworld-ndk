@@ -7,8 +7,9 @@
 
 #pragma once
 
-#include "proto/ProtoDisableWarning.h"
-#include "proto/packets.pb.h"
+#include "ProtoDisableWarning.h"
+#include "ai/inworld/packets/packets.pb.h"
+#include "nvidia/animation-controller-interface-proto/nvidia.ace.controller.v1.pb.h"
 
 #include "Define.h"
 #include "Types.h"
@@ -49,21 +50,24 @@ namespace Inworld {
 	struct INWORLD_EXPORT Routing
 	{
 		Routing() = default;
-		Routing(const InworldPakets::Routing& Routing) 
-			: _Source(Routing.source())
-			, _Target(Routing.target()) 
-		{}
+		Routing(const InworldPakets::Routing& Routing);
 		Routing(const Actor& Source, const Actor& Target) 
 			: _Source(Source)
 			, _Target(Target) 
 		{}
+		Routing(const Actor & Source, const std::vector<Actor>& Targets)
+			: _Source(Source)
+			, _Targets(Targets)
+		{}
 
 		static Routing Player2Agent(const std::string& AgentId);
+		static Routing Player2Agents(const std::vector<std::string>& AgentIds);
 
         InworldPakets::Routing ToProto() const;
         
 		Actor _Source;
         Actor _Target;
+		std::vector<Actor> _Targets;
 	};
 
 	struct INWORLD_EXPORT PacketId {
@@ -93,6 +97,8 @@ namespace Inworld {
     class TextEvent;
     class DataEvent;
     class AudioDataEvent;
+	class A2FAnimationHeaderEvent;
+	class A2FAnimationContentEvent;
     class SilenceEvent;
     class ControlEvent;
     class EmotionEvent;
@@ -109,6 +115,8 @@ namespace Inworld {
         virtual void Visit(const TextEvent& Event) {  }
         virtual void Visit(const DataEvent& Event) {  }
         virtual void Visit(const AudioDataEvent& Event) {  }
+		virtual void Visit(const A2FAnimationHeaderEvent& Event) {  }
+		virtual void Visit(const A2FAnimationContentEvent& Event) {  }
         virtual void Visit(const SilenceEvent& Event) {  }
         virtual void Visit(const ControlEvent& Event) {  }
         virtual void Visit(const EmotionEvent& Event) {  }
@@ -237,6 +245,71 @@ namespace Inworld {
 		std::vector<PhonemeInfo> _PhonemeInfos;
 	};
 
+	class INWORLD_EXPORT A2FAnimationHeaderEvent : public Packet
+	{
+	public:
+		A2FAnimationHeaderEvent() = default;
+		A2FAnimationHeaderEvent(const InworldPakets::InworldPacket& GrpcPacket);
+		A2FAnimationHeaderEvent(const Routing& Routing)
+			: Packet(Routing)
+		{}
+
+		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
+
+		int32_t GetChannelCount() const { return _ChannelCount; }
+		int32_t GetSamplesPerSecond() const { return _SamplesPerSecond; }
+		int32_t GetBitsPerSample() const { return _BitsPerSample; }
+		const std::vector<std::string>& GetBlendShapes() const { return _BlendShapes; }
+
+	protected:
+		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override{}
+
+	private:
+		int32_t _ChannelCount = 0;
+		int32_t _SamplesPerSecond = 0;
+		int32_t _BitsPerSample = 0;
+		std::vector<std::string> _BlendShapes;
+	};
+
+	class INWORLD_EXPORT A2FAnimationContentEvent : public Packet
+	{
+	public:
+		A2FAnimationContentEvent() = default;
+		A2FAnimationContentEvent(const InworldPakets::InworldPacket& GrpcPacket);
+		A2FAnimationContentEvent(const std::string& Data, const Routing& Routing)
+			: Packet(Routing)
+		{}
+
+		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
+
+		struct FAudioInfo
+		{
+			double _TimeCode;
+			std::string _Audio;
+		};
+
+		struct FSkeletalAnim
+		{
+			struct FBlendShapeWeights
+			{
+				double _TimeCode;
+				std::vector<float> _Values;
+			};
+
+			std::vector<FBlendShapeWeights> _BlendShapeWeights;
+		};
+
+		const FAudioInfo& GetAudioInfo() const { return _AudioInfo; }
+		const FSkeletalAnim& GetSkeletalAnim() const { return _SkeletalAnimInfo; }
+
+	protected:
+		virtual void ToProtoInternal(InworldPakets::InworldPacket& Proto) const override{}
+
+	private:
+		FAudioInfo _AudioInfo;
+		FSkeletalAnim _SkeletalAnimInfo;
+	};
+
 	class INWORLD_EXPORT SilenceEvent : public Packet
 	{
 	public:
@@ -273,6 +346,8 @@ namespace Inworld {
 			: Packet(Routing)
 			, _Action(Action)
 		{}
+
+		int mode = 0;
 
 		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
 
