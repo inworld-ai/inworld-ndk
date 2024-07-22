@@ -9,7 +9,7 @@
 
 #include <filesystem>
 
-//#include "InworldVAD.h"
+#include "InworldVAD.h"
 #include "Log.h"
 #include "Service.h"
 #include "ai/inworld/packets/packets.pb.h"
@@ -36,14 +36,14 @@ Inworld::ClientSpeechProcessor::ClientSpeechProcessor(const ClientSpeechOptions&
         return;
     }
 
-    //VAD_Initialize(_Options.VADModelPath.c_str());
+    VAD_Initialize(_Options.VADModelPath.c_str());
 }
 
 Inworld::ClientSpeechProcessor::~ClientSpeechProcessor()
 {
 	ClearState();
     DisableAudioDump();
-    //VAD_Terminate();
+    VAD_Terminate();
 }
 
 void Inworld::ClientSpeechProcessor::SendSoundMessageWithAEC(const Inworld::Routing& Routing,
@@ -63,7 +63,7 @@ void Inworld::ClientSpeechProcessor::ClearState()
 	_VADSilenceCounter = 0;
     if (_Options.Mode >= ClientSpeechOptions::Mode::VAD)
     {
-        //VAD_ResetState();
+        VAD_ResetState();
     }
 }
 
@@ -105,7 +105,7 @@ bool IsValidFileName(const std::string& filename) {
 }
 
 bool IsValidPath(const std::string& path) {
-    /*namespace fs = std::filesystem;
+    namespace fs = std::filesystem;
     const fs::path filePath(path);
 
     if (!filePath.has_parent_path()) {
@@ -124,7 +124,7 @@ bool IsValidPath(const std::string& path) {
 
     if (filename.find('.', dotPosition + 1) != std::string::npos) {
         return false;
-    }*/
+    }
 
     return true;
 }
