@@ -337,10 +337,10 @@ void Inworld::ClientBase::StartClient(const ClientOptions& Options, const Sessio
 
 	if (!_SessionInfo.IsValid())
 	{
-		//GenerateToken([this]()
-		//{
+		GenerateToken([this]()
+		{
 			LoadScene();
-		//});
+		});
 	}
 	else
 	{
@@ -480,7 +480,7 @@ void Inworld::ClientBase::LoadScene()
 {
 	if (!_SessionInfo.IsValid())
 	{
-		//return;
+		return;
 	}
 
 	Inworld::LogSetSessionId(_SessionInfo.SessionId);
