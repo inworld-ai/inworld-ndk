@@ -226,6 +226,10 @@ class CapabilitiesConfiguration PROTOBUF_FINAL :
     kTtsMp3FieldNumber = 15,
     kMultiAgentFieldNumber = 20,
     kAudio2FaceFieldNumber = 21,
+    kInspectFieldNumber = 22,
+    kPingPongReportFieldNumber = 23,
+    kPercievedLatencyReportFieldNumber = 24,
+    kMultiModalActionPlanningFieldNumber = 25,
   };
   // bool audio = 1;
   void clear_audio();
@@ -371,6 +375,42 @@ class CapabilitiesConfiguration PROTOBUF_FINAL :
   void _internal_set_audio2face(bool value);
   public:
 
+  // bool inspect = 22;
+  void clear_inspect();
+  bool inspect() const;
+  void set_inspect(bool value);
+  private:
+  bool _internal_inspect() const;
+  void _internal_set_inspect(bool value);
+  public:
+
+  // bool ping_pong_report = 23;
+  void clear_ping_pong_report();
+  bool ping_pong_report() const;
+  void set_ping_pong_report(bool value);
+  private:
+  bool _internal_ping_pong_report() const;
+  void _internal_set_ping_pong_report(bool value);
+  public:
+
+  // bool percieved_latency_report = 24;
+  void clear_percieved_latency_report();
+  bool percieved_latency_report() const;
+  void set_percieved_latency_report(bool value);
+  private:
+  bool _internal_percieved_latency_report() const;
+  void _internal_set_percieved_latency_report(bool value);
+  public:
+
+  // bool multi_modal_action_planning = 25;
+  void clear_multi_modal_action_planning();
+  bool multi_modal_action_planning() const;
+  void set_multi_modal_action_planning(bool value);
+  private:
+  bool _internal_multi_modal_action_planning() const;
+  void _internal_set_multi_modal_action_planning(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:ai.inworld.engine.configuration.CapabilitiesConfiguration)
  private:
   class _Internal;
@@ -394,6 +434,10 @@ class CapabilitiesConfiguration PROTOBUF_FINAL :
   bool tts_mp3_;
   bool multi_agent_;
   bool audio2face_;
+  bool inspect_;
+  bool ping_pong_report_;
+  bool percieved_latency_report_;
+  bool multi_modal_action_planning_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto;
 };
@@ -1697,6 +1741,86 @@ inline void CapabilitiesConfiguration::_internal_set_audio2face(bool value) {
 inline void CapabilitiesConfiguration::set_audio2face(bool value) {
   _internal_set_audio2face(value);
   // @@protoc_insertion_point(field_set:ai.inworld.engine.configuration.CapabilitiesConfiguration.audio2face)
+}
+
+// bool inspect = 22;
+inline void CapabilitiesConfiguration::clear_inspect() {
+  inspect_ = false;
+}
+inline bool CapabilitiesConfiguration::_internal_inspect() const {
+  return inspect_;
+}
+inline bool CapabilitiesConfiguration::inspect() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.configuration.CapabilitiesConfiguration.inspect)
+  return _internal_inspect();
+}
+inline void CapabilitiesConfiguration::_internal_set_inspect(bool value) {
+  
+  inspect_ = value;
+}
+inline void CapabilitiesConfiguration::set_inspect(bool value) {
+  _internal_set_inspect(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.configuration.CapabilitiesConfiguration.inspect)
+}
+
+// bool ping_pong_report = 23;
+inline void CapabilitiesConfiguration::clear_ping_pong_report() {
+  ping_pong_report_ = false;
+}
+inline bool CapabilitiesConfiguration::_internal_ping_pong_report() const {
+  return ping_pong_report_;
+}
+inline bool CapabilitiesConfiguration::ping_pong_report() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.configuration.CapabilitiesConfiguration.ping_pong_report)
+  return _internal_ping_pong_report();
+}
+inline void CapabilitiesConfiguration::_internal_set_ping_pong_report(bool value) {
+  
+  ping_pong_report_ = value;
+}
+inline void CapabilitiesConfiguration::set_ping_pong_report(bool value) {
+  _internal_set_ping_pong_report(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.configuration.CapabilitiesConfiguration.ping_pong_report)
+}
+
+// bool percieved_latency_report = 24;
+inline void CapabilitiesConfiguration::clear_percieved_latency_report() {
+  percieved_latency_report_ = false;
+}
+inline bool CapabilitiesConfiguration::_internal_percieved_latency_report() const {
+  return percieved_latency_report_;
+}
+inline bool CapabilitiesConfiguration::percieved_latency_report() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.configuration.CapabilitiesConfiguration.percieved_latency_report)
+  return _internal_percieved_latency_report();
+}
+inline void CapabilitiesConfiguration::_internal_set_percieved_latency_report(bool value) {
+  
+  percieved_latency_report_ = value;
+}
+inline void CapabilitiesConfiguration::set_percieved_latency_report(bool value) {
+  _internal_set_percieved_latency_report(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.configuration.CapabilitiesConfiguration.percieved_latency_report)
+}
+
+// bool multi_modal_action_planning = 25;
+inline void CapabilitiesConfiguration::clear_multi_modal_action_planning() {
+  multi_modal_action_planning_ = false;
+}
+inline bool CapabilitiesConfiguration::_internal_multi_modal_action_planning() const {
+  return multi_modal_action_planning_;
+}
+inline bool CapabilitiesConfiguration::multi_modal_action_planning() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.configuration.CapabilitiesConfiguration.multi_modal_action_planning)
+  return _internal_multi_modal_action_planning();
+}
+inline void CapabilitiesConfiguration::_internal_set_multi_modal_action_planning(bool value) {
+  
+  multi_modal_action_planning_ = value;
+}
+inline void CapabilitiesConfiguration::set_multi_modal_action_planning(bool value) {
+  _internal_set_multi_modal_action_planning(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.configuration.CapabilitiesConfiguration.multi_modal_action_planning)
 }
 
 // -------------------------------------------------------------------

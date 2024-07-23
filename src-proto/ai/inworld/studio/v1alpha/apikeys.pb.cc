@@ -15,7 +15,7 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
-extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ApiKey_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_ApiKey_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ApiKey_UsageLimits_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_google_2fprotobuf_2ftimestamp_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Timestamp_google_2fprotobuf_2ftimestamp_2eproto;
 namespace ai {
@@ -81,9 +81,10 @@ static void InitDefaultsscc_info_ApiKey_ai_2finworld_2fstudio_2fv1alpha_2fapikey
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ApiKey_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ApiKey_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto}, {
-      &scc_info_ApiKey_UsageLimits_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base,}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_ApiKey_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_ApiKey_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto}, {
+      &scc_info_ApiKey_UsageLimits_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto.base,
+      &scc_info_Timestamp_google_2fprotobuf_2ftimestamp_2eproto.base,}};
 
 static void InitDefaultsscc_info_ApiKey_UsageLimits_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -189,6 +190,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fstudio_2fv1alph
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey, secret_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey, state_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey, usage_limits_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::ApiKey, create_time_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::GenerateApiKeyRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -232,12 +234,12 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fstudio_2fv1alph
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::ai::inworld::studio::v1alpha::ApiKey_UsageLimits)},
   { 9, -1, sizeof(::ai::inworld::studio::v1alpha::ApiKey)},
-  { 19, -1, sizeof(::ai::inworld::studio::v1alpha::GenerateApiKeyRequest)},
-  { 25, -1, sizeof(::ai::inworld::studio::v1alpha::ListApiKeysRequest)},
-  { 33, -1, sizeof(::ai::inworld::studio::v1alpha::SuspendApiKeyRequest)},
-  { 39, -1, sizeof(::ai::inworld::studio::v1alpha::ActivateApiKeyRequest)},
-  { 45, -1, sizeof(::ai::inworld::studio::v1alpha::DeleteApiKeyRequest)},
-  { 51, -1, sizeof(::ai::inworld::studio::v1alpha::ListApiKeysResponse)},
+  { 20, -1, sizeof(::ai::inworld::studio::v1alpha::GenerateApiKeyRequest)},
+  { 26, -1, sizeof(::ai::inworld::studio::v1alpha::ListApiKeysRequest)},
+  { 34, -1, sizeof(::ai::inworld::studio::v1alpha::SuspendApiKeyRequest)},
+  { 40, -1, sizeof(::ai::inworld::studio::v1alpha::ActivateApiKeyRequest)},
+  { 46, -1, sizeof(::ai::inworld::studio::v1alpha::DeleteApiKeyRequest)},
+  { 52, -1, sizeof(::ai::inworld::studio::v1alpha::ListApiKeysResponse)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -259,64 +261,65 @@ const char descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2
   "ogle/api/resource.proto\032\033google/protobuf"
   "/empty.proto\032\037google/protobuf/timestamp."
   "proto\032 ai/inworld/options/options.proto\""
-  "\377\003\n\006ApiKey\022\014\n\004name\030\001 \001(\t\022\013\n\003key\030\002 \001(\t\022\016\n"
+  "\265\004\n\006ApiKey\022\014\n\004name\030\001 \001(\t\022\013\n\003key\030\002 \001(\t\022\016\n"
   "\006secret\030\003 \001(\t\0226\n\005state\030\004 \001(\0162\'.ai.inworl"
   "d.studio.v1alpha.ApiKey.State\022C\n\014usage_l"
   "imits\030\005 \001(\0132-.ai.inworld.studio.v1alpha."
-  "ApiKey.UsageLimits\032\277\001\n\013UsageLimits\022$\n\027ma"
-  "x_concurrent_sessions\030\001 \001(\005B\003\340A\001\022\'\n\032dail"
-  "y_limit_seconds_amount\030\002 \001(\003B\003\340A\001\022\'\n\032tot"
-  "al_limit_seconds_amount\030\003 \001(\003B\003\340A\001\0228\n\017ex"
-  "piration_time\030\004 \001(\0132\032.google.protobuf.Ti"
-  "mestampB\003\340A\001\"F\n\005State\022\025\n\021STATE_UNSPECIFI"
-  "ED\020\000\022\n\n\006ACTIVE\020\001\022\r\n\tSUSPENDED\020\002\022\013\n\007DELET"
-  "ED\020\003:C\352A@\n\025api.inworld.ai/ApiKey\022\'worksp"
-  "aces/{workspace}/apikeys/{apikey}\"d\n\025Gen"
-  "erateApiKeyRequest\022K\n\006parent\030\001 \001(\tB;\340A\002\372"
-  "A\027\022\025api.inworld.ai/ApiKey\242\317\"\032\n\030\032\026workspa"
-  "ces/workspace-1\"\210\001\n\022ListApiKeysRequest\022K"
-  "\n\006parent\030\001 \001(\tB;\340A\002\372A\027\022\025api.inworld.ai/A"
-  "piKey\242\317\"\032\n\030\032\026workspaces/workspace-1\022\021\n\tp"
-  "age_size\030\002 \001(\005\022\022\n\npage_token\030\003 \001(\t\"\217\001\n\024S"
-  "uspendApiKeyRequest\022w\n\004name\030\001 \001(\tBi\340A\002\372A"
-  "\027\n\025api.inworld.ai/ApiKey\242\317\"H\nF\032Dworkspac"
-  "es/workspace-1/apikeys/00000000-0000-000"
-  "0-0000-1000000000000\"\220\001\n\025ActivateApiKeyR"
-  "equest\022w\n\004name\030\001 \001(\tBi\340A\002\372A\027\n\025api.inworl"
-  "d.ai/ApiKey\242\317\"H\nF\032Dworkspaces/workspace-"
-  "1/apikeys/00000000-0000-0000-0000-100000"
-  "0000000\"\216\001\n\023DeleteApiKeyRequest\022w\n\004name\030"
-  "\001 \001(\tBi\340A\002\372A\027\n\025api.inworld.ai/ApiKey\242\317\"H"
-  "\nF\032Dworkspaces/workspace-1/apikeys/00000"
-  "000-0000-0000-0000-1000000000000\"c\n\023List"
-  "ApiKeysResponse\0223\n\010api_keys\030\001 \003(\0132!.ai.i"
-  "nworld.studio.v1alpha.ApiKey\022\027\n\017next_pag"
-  "e_token\030\002 \001(\t2\300\006\n\007ApiKeys\022\245\001\n\013ListApiKey"
-  "s\022-.ai.inworld.studio.v1alpha.ListApiKey"
-  "sRequest\032..ai.inworld.studio.v1alpha.Lis"
-  "tApiKeysResponse\"7\202\323\344\223\002(\022&/v1alpha/{pare"
-  "nt=workspaces/*}/apikeys\332A\006parent\022\245\001\n\rSu"
-  "spendApiKey\022/.ai.inworld.studio.v1alpha."
-  "SuspendApiKeyRequest\032!.ai.inworld.studio"
-  ".v1alpha.ApiKey\"@\202\323\344\223\0023\"./v1alpha/{name="
-  "workspaces/*/apikeys/*}:suspend:\001*\332A\004nam"
-  "e\022\250\001\n\016ActivateApiKey\0220.ai.inworld.studio"
-  ".v1alpha.ActivateApiKeyRequest\032!.ai.inwo"
-  "rld.studio.v1alpha.ApiKey\"A\202\323\344\223\0024\"//v1al"
-  "pha/{name=workspaces/*/apikeys/*}:activa"
-  "te:\001*\332A\004name\022\215\001\n\014DeleteApiKey\022..ai.inwor"
-  "ld.studio.v1alpha.DeleteApiKeyRequest\032\026."
-  "google.protobuf.Empty\"5\202\323\344\223\002(*&/v1alpha/"
-  "{name=workspaces/*/apikeys/*}\332A\004name\022\251\001\n"
-  "\016GenerateApiKey\0220.ai.inworld.studio.v1al"
-  "pha.GenerateApiKeyRequest\032!.ai.inworld.s"
-  "tudio.v1alpha.ApiKey\"B\202\323\344\223\0023\"./v1alpha/{"
-  "parent=workspaces/*}/apikey:generate:\001*\332"
-  "A\006parentB\226\001\n\031ai.inworld.studio.v1alphaB\014"
-  "ApiKeysProtoP\001ZMgithub.com/inworld-ai/in"
-  "world/serving/grpc-gateway/build/proto/s"
-  "tudio/v1alpha\252\002\031Ai.Inworld.Studio.V1Alph"
-  "ab\006proto3"
+  "ApiKey.UsageLimits\0224\n\013create_time\030\006 \001(\0132"
+  "\032.google.protobuf.TimestampB\003\340A\003\032\277\001\n\013Usa"
+  "geLimits\022$\n\027max_concurrent_sessions\030\001 \001("
+  "\005B\003\340A\001\022\'\n\032daily_limit_seconds_amount\030\002 \001"
+  "(\003B\003\340A\001\022\'\n\032total_limit_seconds_amount\030\003 "
+  "\001(\003B\003\340A\001\0228\n\017expiration_time\030\004 \001(\0132\032.goog"
+  "le.protobuf.TimestampB\003\340A\001\"F\n\005State\022\025\n\021S"
+  "TATE_UNSPECIFIED\020\000\022\n\n\006ACTIVE\020\001\022\r\n\tSUSPEN"
+  "DED\020\002\022\013\n\007DELETED\020\003:C\352A@\n\025api.inworld.ai/"
+  "ApiKey\022\'workspaces/{workspace}/apikeys/{"
+  "apikey}\"d\n\025GenerateApiKeyRequest\022K\n\006pare"
+  "nt\030\001 \001(\tB;\340A\002\372A\027\022\025api.inworld.ai/ApiKey\242"
+  "\317\"\032\n\030\032\026workspaces/workspace-1\"\210\001\n\022ListAp"
+  "iKeysRequest\022K\n\006parent\030\001 \001(\tB;\340A\002\372A\027\022\025ap"
+  "i.inworld.ai/ApiKey\242\317\"\032\n\030\032\026workspaces/wo"
+  "rkspace-1\022\021\n\tpage_size\030\002 \001(\005\022\022\n\npage_tok"
+  "en\030\003 \001(\t\"\217\001\n\024SuspendApiKeyRequest\022w\n\004nam"
+  "e\030\001 \001(\tBi\340A\002\372A\027\n\025api.inworld.ai/ApiKey\242\317"
+  "\"H\nF\032Dworkspaces/workspace-1/apikeys/000"
+  "00000-0000-0000-0000-1000000000000\"\220\001\n\025A"
+  "ctivateApiKeyRequest\022w\n\004name\030\001 \001(\tBi\340A\002\372"
+  "A\027\n\025api.inworld.ai/ApiKey\242\317\"H\nF\032Dworkspa"
+  "ces/workspace-1/apikeys/00000000-0000-00"
+  "00-0000-1000000000000\"\216\001\n\023DeleteApiKeyRe"
+  "quest\022w\n\004name\030\001 \001(\tBi\340A\002\372A\027\n\025api.inworld"
+  ".ai/ApiKey\242\317\"H\nF\032Dworkspaces/workspace-1"
+  "/apikeys/00000000-0000-0000-0000-1000000"
+  "000000\"c\n\023ListApiKeysResponse\0223\n\010api_key"
+  "s\030\001 \003(\0132!.ai.inworld.studio.v1alpha.ApiK"
+  "ey\022\027\n\017next_page_token\030\002 \001(\t2\300\006\n\007ApiKeys\022"
+  "\245\001\n\013ListApiKeys\022-.ai.inworld.studio.v1al"
+  "pha.ListApiKeysRequest\032..ai.inworld.stud"
+  "io.v1alpha.ListApiKeysResponse\"7\202\323\344\223\002(\022&"
+  "/v1alpha/{parent=workspaces/*}/apikeys\332A"
+  "\006parent\022\245\001\n\rSuspendApiKey\022/.ai.inworld.s"
+  "tudio.v1alpha.SuspendApiKeyRequest\032!.ai."
+  "inworld.studio.v1alpha.ApiKey\"@\202\323\344\223\0023\"./"
+  "v1alpha/{name=workspaces/*/apikeys/*}:su"
+  "spend:\001*\332A\004name\022\250\001\n\016ActivateApiKey\0220.ai."
+  "inworld.studio.v1alpha.ActivateApiKeyReq"
+  "uest\032!.ai.inworld.studio.v1alpha.ApiKey\""
+  "A\202\323\344\223\0024\"//v1alpha/{name=workspaces/*/api"
+  "keys/*}:activate:\001*\332A\004name\022\215\001\n\014DeleteApi"
+  "Key\022..ai.inworld.studio.v1alpha.DeleteAp"
+  "iKeyRequest\032\026.google.protobuf.Empty\"5\202\323\344"
+  "\223\002(*&/v1alpha/{name=workspaces/*/apikeys"
+  "/*}\332A\004name\022\251\001\n\016GenerateApiKey\0220.ai.inwor"
+  "ld.studio.v1alpha.GenerateApiKeyRequest\032"
+  "!.ai.inworld.studio.v1alpha.ApiKey\"B\202\323\344\223"
+  "\0023\"./v1alpha/{parent=workspaces/*}/apike"
+  "y:generate:\001*\332A\006parentB\224\001\n\031ai.inworld.st"
+  "udio.v1alphaB\014ApiKeysProtoP\001ZKgithub.com"
+  "/inworld-ai/inworld-proto-golang/src/go/"
+  "ai/inworld/studio/v1alpha\252\002\031Ai.Inworld.S"
+  "tudio.V1Alphab\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_deps[7] = {
   &::descriptor_table_ai_2finworld_2foptions_2foptions_2eproto,
@@ -339,7 +342,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto, "ai/inworld/studio/v1alpha/apikeys.proto", 2569,
+  false, false, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto, "ai/inworld/studio/v1alpha/apikeys.proto", 2621,
   &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_once, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_sccs, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto_deps, 8, 7,
   schemas, file_default_instances, TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto::offsets,
   file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto, 8, file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto, file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fapikeys_2eproto,
@@ -681,11 +684,22 @@ void ApiKey_UsageLimits::InternalSwap(ApiKey_UsageLimits* other) {
 class ApiKey::_Internal {
  public:
   static const ::ai::inworld::studio::v1alpha::ApiKey_UsageLimits& usage_limits(const ApiKey* msg);
+  static const PROTOBUF_NAMESPACE_ID::Timestamp& create_time(const ApiKey* msg);
 };
 
 const ::ai::inworld::studio::v1alpha::ApiKey_UsageLimits&
 ApiKey::_Internal::usage_limits(const ApiKey* msg) {
   return *msg->usage_limits_;
+}
+const PROTOBUF_NAMESPACE_ID::Timestamp&
+ApiKey::_Internal::create_time(const ApiKey* msg) {
+  return *msg->create_time_;
+}
+void ApiKey::clear_create_time() {
+  if (GetArena() == nullptr && create_time_ != nullptr) {
+    delete create_time_;
+  }
+  create_time_ = nullptr;
 }
 ApiKey::ApiKey(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
@@ -716,6 +730,11 @@ ApiKey::ApiKey(const ApiKey& from)
   } else {
     usage_limits_ = nullptr;
   }
+  if (from._internal_has_create_time()) {
+    create_time_ = new PROTOBUF_NAMESPACE_ID::Timestamp(*from.create_time_);
+  } else {
+    create_time_ = nullptr;
+  }
   state_ = from.state_;
   // @@protoc_insertion_point(copy_constructor:ai.inworld.studio.v1alpha.ApiKey)
 }
@@ -743,6 +762,7 @@ void ApiKey::SharedDtor() {
   key_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   secret_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete usage_limits_;
+  if (this != internal_default_instance()) delete create_time_;
 }
 
 void ApiKey::ArenaDtor(void* object) {
@@ -773,6 +793,10 @@ void ApiKey::Clear() {
     delete usage_limits_;
   }
   usage_limits_ = nullptr;
+  if (GetArena() == nullptr && create_time_ != nullptr) {
+    delete create_time_;
+  }
+  create_time_ = nullptr;
   state_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -823,6 +847,13 @@ const char* ApiKey::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::int
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           ptr = ctx->ParseMessage(_internal_mutable_usage_limits(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .google.protobuf.Timestamp create_time = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+          ptr = ctx->ParseMessage(_internal_mutable_create_time(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -899,6 +930,14 @@ failure:
         5, _Internal::usage_limits(this), target, stream);
   }
 
+  // .google.protobuf.Timestamp create_time = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];
+  if (this->has_create_time()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        6, _Internal::create_time(this), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -941,6 +980,13 @@ size_t ApiKey::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *usage_limits_);
+  }
+
+  // .google.protobuf.Timestamp create_time = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];
+  if (this->has_create_time()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *create_time_);
   }
 
   // .ai.inworld.studio.v1alpha.ApiKey.State state = 4;
@@ -991,6 +1037,9 @@ void ApiKey::MergeFrom(const ApiKey& from) {
   }
   if (from.has_usage_limits()) {
     _internal_mutable_usage_limits()->::ai::inworld::studio::v1alpha::ApiKey_UsageLimits::MergeFrom(from._internal_usage_limits());
+  }
+  if (from.has_create_time()) {
+    _internal_mutable_create_time()->PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(from._internal_create_time());
   }
   if (from.state() != 0) {
     _internal_set_state(from._internal_state());

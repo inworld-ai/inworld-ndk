@@ -578,11 +578,11 @@ const char descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2e
   "\022-.ai.inworld.studio.v1alpha.DeleteScene"
   "Request\032\026.google.protobuf.Empty\"4\202\323\344\223\002\'*"
   "%/v1alpha/{name=workspaces/*/scenes/*}\332A"
-  "\004nameB\225\001\n\031ai.inworld.studio.v1alphaB\013Sce"
-  "nesProtoP\001ZMgithub.com/inworld-ai/inworl"
-  "d/serving/grpc-gateway/build/proto/studi"
-  "o/v1alpha\252\002\031Ai.Inworld.Studio.V1Alphab\006p"
-  "roto3"
+  "\004nameB\223\001\n\031ai.inworld.studio.v1alphaB\013Sce"
+  "nesProtoP\001ZKgithub.com/inworld-ai/inworl"
+  "d-proto-golang/src/go/ai/inworld/studio/"
+  "v1alpha\252\002\031Ai.Inworld.Studio.V1Alphab\006pro"
+  "to3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto_deps[8] = {
   &::descriptor_table_ai_2finworld_2foptions_2foptions_2eproto,
@@ -614,7 +614,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto, "ai/inworld/studio/v1alpha/scenes.proto", 4125,
+  false, false, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto, "ai/inworld/studio/v1alpha/scenes.proto", 4123,
   &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto_once, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto_sccs, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto_deps, 16, 8,
   schemas, file_default_instances, TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto::offsets,
   file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto, 16, file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto, file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fscenes_2eproto,

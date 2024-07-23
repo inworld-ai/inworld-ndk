@@ -72,10 +72,10 @@ const char descriptor_table_protodef_ai_2finworld_2foptions_2foptions_2eproto[] 
   " .ai.inworld.options.ExampleValue\210\001\001:R\n\n"
   "field_mode\022\035.google.protobuf.FieldOption"
   "s\030\201\361\004 \003(\0162\035.ai.inworld.options.FieldMode"
-  "Bt\n\022ai.inworld.optionsB\017OptionsProtocolZ"
-  "Mgithub.com/inworld-ai/inworld/serving/g"
-  "rpc-gateway/build/proto/engine/v1alphab\006"
-  "proto3"
+  "Br\n\022ai.inworld.optionsB\017OptionsProtocolZ"
+  "Kgithub.com/inworld-ai/inworld-proto-gol"
+  "ang/src/go/ai/inworld/engine/v1alphab\006pr"
+  "oto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2foptions_2foptions_2eproto_deps[2] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -86,7 +86,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2foptions_2foptions_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2foptions_2foptions_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2foptions_2foptions_2eproto, "ai/inworld/options/options.proto", 526,
+  false, false, descriptor_table_protodef_ai_2finworld_2foptions_2foptions_2eproto, "ai/inworld/options/options.proto", 524,
   &descriptor_table_ai_2finworld_2foptions_2foptions_2eproto_once, descriptor_table_ai_2finworld_2foptions_2foptions_2eproto_sccs, descriptor_table_ai_2finworld_2foptions_2foptions_2eproto_deps, 1, 2,
   schemas, file_default_instances, TableStruct_ai_2finworld_2foptions_2foptions_2eproto::offsets,
   file_level_metadata_ai_2finworld_2foptions_2foptions_2eproto, 1, file_level_enum_descriptors_ai_2finworld_2foptions_2foptions_2eproto, file_level_service_descriptors_ai_2finworld_2foptions_2foptions_2eproto,
