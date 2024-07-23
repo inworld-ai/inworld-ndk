@@ -1,4 +1,3 @@
 cstyleCast
 useStlAlgorithm
 knownConditionTrueFalse
-preprocessorErrorDirective
