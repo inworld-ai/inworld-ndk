@@ -178,6 +178,7 @@ private:
 
         probability = speech_prob;
 
+#ifdef SAVE_SPEECH_TIMESTAMPS
         // Push forward sample index
         current_sample += window_size_samples;
 
@@ -293,6 +294,7 @@ private:
             }
             return;
         }
+#endif
     };
 public:
     void process(const std::vector<float>& input_wav)
@@ -309,6 +311,7 @@ public:
             predict(r);
         }
 
+#ifdef SAVE_SPEECH_TIMESTAMPS
         if (current_speech.start >= 0) {
             current_speech.end = audio_length_samples;
             speeches.push_back(current_speech);
@@ -318,6 +321,7 @@ public:
             temp_end = 0;
             triggered = false;
         }
+#endif
     };
 
     void process(const std::vector<float>& input_wav, std::vector<float>& output_wav)
@@ -395,7 +399,7 @@ private:
     bool triggered = false;
     unsigned int temp_end = 0;
     unsigned int current_sample = 0;
-    float probability = 0.0f;;
+    float probability = 0.0f;
     // MAX 4294967295 samples / 8sample per ms / 1000 / 60 = 8947 minutes  
     int prev_end;
     int next_start = 0;

@@ -12,6 +12,8 @@
 #include "Packets.h"
 #include "InworldVAD.h"
 
+#include <filesystem>
+
 // !!! Fill out this options !!!
 constexpr std::string_view g_SceneName = "";
 constexpr std::string_view g_Base64 = "";
@@ -29,7 +31,7 @@ static bool IsConfigValid()
 	// cppcheck-suppress redundantCondition
 	// cppcheck-suppress knownConditionTrueFalse
 	// cppcheck-suppress identicalConditionAfterEarlyExit
-	return !g_Base64.empty() || (g_ApiKey.empty() && g_ApiSecret.empty());
+	return !g_Base64.empty() || (!g_ApiKey.empty() && !g_ApiSecret.empty());
 }
 
 void NDKApp::App::Run()
@@ -460,9 +462,13 @@ void NDKApp::App::Run()
                     return;
                 }
 
-                Inworld::AudioSessionStartPayload Pl{Inworld::AudioSessionStartPayload::MicrophoneMode::OpenMic};
+                Inworld::AudioSessionStartPayload Pl{
+                    Inworld::AudioSessionStartPayload::MicrophoneMode::OpenMic,
+                    Inworld::AudioSessionStartPayload::UnderstandingMode::Full
+                };
                 _Client.Client().StartAudioSession(R, Pl);
                 Inworld::Mic::StartCapture();
+                Inworld::Log("Audio capture started");
             }
         },
         {
@@ -484,6 +490,7 @@ void NDKApp::App::Run()
                 _Client.Client().StopAudioSession(R);
                 Inworld::Mic::StopCapture();
                 SendAudioData();
+                Inworld::Log("Audio capture stopped");
             }
         }
 	});
@@ -506,6 +513,13 @@ void NDKApp::App::Run()
 	_Options.Capabilities.PhonemeInfo = true;
 	_Options.Capabilities.NarratedActions = true;
 	_Options.Capabilities.Multiagent = true;
+
+    _Options.SpeechOptions.Mode = Inworld::ClientSpeechOptions::SpeechMode::VAD;
+    _Options.SpeechOptions.VADModelPath = std::filesystem::canonical("Package/resource/silero_vad_10_27_2022.onnx").string();
+    _Options.SpeechOptions.VADCb = [this](bool bVoiceDetected)
+    {
+        //Inworld::Log("VAD: %s", bVoiceDetected ? "Voice detected" : "Silence");
+    };
 
 	std::vector<Inworld::AgentInfo> AgentInfos;
 
@@ -567,7 +581,7 @@ void NDKApp::App::Run()
 
 	Inworld::SessionInfo SessionInfo;
 	_Client.Client().StartClient(_Options, SessionInfo);
-    //_Client.Client().SetAudioDumpEnabled(true);
+    _Client.Client().EnableAudioDump();
 
     _LastAudioSentTime = std::chrono::steady_clock::now();
 	while (!bQuit)

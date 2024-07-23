@@ -51,7 +51,7 @@ struct TableStruct_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[2]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[3]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -68,6 +68,9 @@ extern GetSessionStateRequestDefaultTypeInternal _GetSessionStateRequest_default
 class SessionState;
 class SessionStateDefaultTypeInternal;
 extern SessionStateDefaultTypeInternal _SessionState_default_instance_;
+class SessionState_Version;
+class SessionState_VersionDefaultTypeInternal;
+extern SessionState_VersionDefaultTypeInternal _SessionState_Version_default_instance_;
 }  // namespace v1
 }  // namespace engine
 }  // namespace inworld
@@ -75,6 +78,7 @@ extern SessionStateDefaultTypeInternal _SessionState_default_instance_;
 PROTOBUF_NAMESPACE_OPEN
 template<> ::ai::inworld::engine::v1::GetSessionStateRequest* Arena::CreateMaybeMessage<::ai::inworld::engine::v1::GetSessionStateRequest>(Arena*);
 template<> ::ai::inworld::engine::v1::SessionState* Arena::CreateMaybeMessage<::ai::inworld::engine::v1::SessionState>(Arena*);
+template<> ::ai::inworld::engine::v1::SessionState_Version* Arena::CreateMaybeMessage<::ai::inworld::engine::v1::SessionState_Version>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace ai {
 namespace inworld {
@@ -226,6 +230,149 @@ class GetSessionStateRequest PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class SessionState_Version PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.engine.v1.SessionState.Version) */ {
+ public:
+  inline SessionState_Version() : SessionState_Version(nullptr) {}
+  virtual ~SessionState_Version();
+
+  SessionState_Version(const SessionState_Version& from);
+  SessionState_Version(SessionState_Version&& from) noexcept
+    : SessionState_Version() {
+    *this = ::std::move(from);
+  }
+
+  inline SessionState_Version& operator=(const SessionState_Version& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SessionState_Version& operator=(SessionState_Version&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const SessionState_Version& default_instance();
+
+  static inline const SessionState_Version* internal_default_instance() {
+    return reinterpret_cast<const SessionState_Version*>(
+               &_SessionState_Version_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(SessionState_Version& a, SessionState_Version& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SessionState_Version* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SessionState_Version* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SessionState_Version* New() const final {
+    return CreateMaybeMessage<SessionState_Version>(nullptr);
+  }
+
+  SessionState_Version* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<SessionState_Version>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const SessionState_Version& from);
+  void MergeFrom(const SessionState_Version& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SessionState_Version* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.engine.v1.SessionState.Version";
+  }
+  protected:
+  explicit SessionState_Version(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto);
+    return ::descriptor_table_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kInteractionIdFieldNumber = 1,
+  };
+  // string interaction_id = 1;
+  void clear_interaction_id();
+  const std::string& interaction_id() const;
+  void set_interaction_id(const std::string& value);
+  void set_interaction_id(std::string&& value);
+  void set_interaction_id(const char* value);
+  void set_interaction_id(const char* value, size_t size);
+  std::string* mutable_interaction_id();
+  std::string* release_interaction_id();
+  void set_allocated_interaction_id(std::string* interaction_id);
+  private:
+  const std::string& _internal_interaction_id() const;
+  void _internal_set_interaction_id(const std::string& value);
+  std::string* _internal_mutable_interaction_id();
+  public:
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.engine.v1.SessionState.Version)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr interaction_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto;
+};
+// -------------------------------------------------------------------
+
 class SessionState PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.engine.v1.SessionState) */ {
  public:
@@ -267,7 +414,7 @@ class SessionState PROTOBUF_FINAL :
                &_SessionState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   friend void swap(SessionState& a, SessionState& b) {
     a.Swap(&b);
@@ -335,11 +482,14 @@ class SessionState PROTOBUF_FINAL :
 
   // nested types ----------------------------------------------------
 
+  typedef SessionState_Version Version;
+
   // accessors -------------------------------------------------------
 
   enum : int {
     kStateFieldNumber = 1,
     kCreationTimeFieldNumber = 2,
+    kVersionFieldNumber = 3,
   };
   // bytes state = 1;
   void clear_state();
@@ -375,6 +525,24 @@ class SessionState PROTOBUF_FINAL :
       PROTOBUF_NAMESPACE_ID::Timestamp* creation_time);
   PROTOBUF_NAMESPACE_ID::Timestamp* unsafe_arena_release_creation_time();
 
+  // .ai.inworld.engine.v1.SessionState.Version version = 3;
+  bool has_version() const;
+  private:
+  bool _internal_has_version() const;
+  public:
+  void clear_version();
+  const ::ai::inworld::engine::v1::SessionState_Version& version() const;
+  ::ai::inworld::engine::v1::SessionState_Version* release_version();
+  ::ai::inworld::engine::v1::SessionState_Version* mutable_version();
+  void set_allocated_version(::ai::inworld::engine::v1::SessionState_Version* version);
+  private:
+  const ::ai::inworld::engine::v1::SessionState_Version& _internal_version() const;
+  ::ai::inworld::engine::v1::SessionState_Version* _internal_mutable_version();
+  public:
+  void unsafe_arena_set_allocated_version(
+      ::ai::inworld::engine::v1::SessionState_Version* version);
+  ::ai::inworld::engine::v1::SessionState_Version* unsafe_arena_release_version();
+
   // @@protoc_insertion_point(class_scope:ai.inworld.engine.v1.SessionState)
  private:
   class _Internal;
@@ -384,6 +552,7 @@ class SessionState PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr state_;
   PROTOBUF_NAMESPACE_ID::Timestamp* creation_time_;
+  ::ai::inworld::engine::v1::SessionState_Version* version_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fengine_2fv1_2fstate_5fserialization_2eproto;
 };
@@ -457,6 +626,71 @@ inline void GetSessionStateRequest::set_allocated_name(std::string* name) {
   name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.engine.v1.GetSessionStateRequest.name)
+}
+
+// -------------------------------------------------------------------
+
+// SessionState_Version
+
+// string interaction_id = 1;
+inline void SessionState_Version::clear_interaction_id() {
+  interaction_id_.ClearToEmpty();
+}
+inline const std::string& SessionState_Version::interaction_id() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.v1.SessionState.Version.interaction_id)
+  return _internal_interaction_id();
+}
+inline void SessionState_Version::set_interaction_id(const std::string& value) {
+  _internal_set_interaction_id(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.v1.SessionState.Version.interaction_id)
+}
+inline std::string* SessionState_Version::mutable_interaction_id() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.engine.v1.SessionState.Version.interaction_id)
+  return _internal_mutable_interaction_id();
+}
+inline const std::string& SessionState_Version::_internal_interaction_id() const {
+  return interaction_id_.Get();
+}
+inline void SessionState_Version::_internal_set_interaction_id(const std::string& value) {
+  
+  interaction_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void SessionState_Version::set_interaction_id(std::string&& value) {
+  
+  interaction_id_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.engine.v1.SessionState.Version.interaction_id)
+}
+inline void SessionState_Version::set_interaction_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  interaction_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.engine.v1.SessionState.Version.interaction_id)
+}
+inline void SessionState_Version::set_interaction_id(const char* value,
+    size_t size) {
+  
+  interaction_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.engine.v1.SessionState.Version.interaction_id)
+}
+inline std::string* SessionState_Version::_internal_mutable_interaction_id() {
+  
+  return interaction_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* SessionState_Version::release_interaction_id() {
+  // @@protoc_insertion_point(field_release:ai.inworld.engine.v1.SessionState.Version.interaction_id)
+  return interaction_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void SessionState_Version::set_allocated_interaction_id(std::string* interaction_id) {
+  if (interaction_id != nullptr) {
+    
+  } else {
+    
+  }
+  interaction_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), interaction_id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.engine.v1.SessionState.Version.interaction_id)
 }
 
 // -------------------------------------------------------------------
@@ -601,9 +835,94 @@ inline void SessionState::set_allocated_creation_time(PROTOBUF_NAMESPACE_ID::Tim
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.engine.v1.SessionState.creation_time)
 }
 
+// .ai.inworld.engine.v1.SessionState.Version version = 3;
+inline bool SessionState::_internal_has_version() const {
+  return this != internal_default_instance() && version_ != nullptr;
+}
+inline bool SessionState::has_version() const {
+  return _internal_has_version();
+}
+inline void SessionState::clear_version() {
+  if (GetArena() == nullptr && version_ != nullptr) {
+    delete version_;
+  }
+  version_ = nullptr;
+}
+inline const ::ai::inworld::engine::v1::SessionState_Version& SessionState::_internal_version() const {
+  const ::ai::inworld::engine::v1::SessionState_Version* p = version_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ai::inworld::engine::v1::SessionState_Version&>(
+      ::ai::inworld::engine::v1::_SessionState_Version_default_instance_);
+}
+inline const ::ai::inworld::engine::v1::SessionState_Version& SessionState::version() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.v1.SessionState.version)
+  return _internal_version();
+}
+inline void SessionState::unsafe_arena_set_allocated_version(
+    ::ai::inworld::engine::v1::SessionState_Version* version) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(version_);
+  }
+  version_ = version;
+  if (version) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.engine.v1.SessionState.version)
+}
+inline ::ai::inworld::engine::v1::SessionState_Version* SessionState::release_version() {
+  
+  ::ai::inworld::engine::v1::SessionState_Version* temp = version_;
+  version_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::ai::inworld::engine::v1::SessionState_Version* SessionState::unsafe_arena_release_version() {
+  // @@protoc_insertion_point(field_release:ai.inworld.engine.v1.SessionState.version)
+  
+  ::ai::inworld::engine::v1::SessionState_Version* temp = version_;
+  version_ = nullptr;
+  return temp;
+}
+inline ::ai::inworld::engine::v1::SessionState_Version* SessionState::_internal_mutable_version() {
+  
+  if (version_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ai::inworld::engine::v1::SessionState_Version>(GetArena());
+    version_ = p;
+  }
+  return version_;
+}
+inline ::ai::inworld::engine::v1::SessionState_Version* SessionState::mutable_version() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.engine.v1.SessionState.version)
+  return _internal_mutable_version();
+}
+inline void SessionState::set_allocated_version(::ai::inworld::engine::v1::SessionState_Version* version) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete version_;
+  }
+  if (version) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(version);
+    if (message_arena != submessage_arena) {
+      version = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, version, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  version_ = version;
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.engine.v1.SessionState.version)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 

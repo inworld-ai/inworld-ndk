@@ -41,11 +41,11 @@ const char descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2flanguage_
   "ode_string\022!.google.protobuf.EnumValueOp"
   "tions\030\225\232\357: \001(\t\210\001\001:>\n\rlanguage_name\022!.goo"
   "gle.protobuf.EnumValueOptions\030\226\232\357: \001(\t\210\001"
-  "\001B\236\001\n\031ai.inworld.studio.v1alphaB\021Languag"
-  "eCodeProtoP\001ZMgithub.com/inworld-ai/inwo"
-  "rld/serving/grpc-gateway/build/proto/stu"
-  "dio/v1alpha\270\001\001\252\002\031Ai.Inworld.Studio.V1Alp"
-  "hab\006proto3"
+  "\001B\234\001\n\031ai.inworld.studio.v1alphaB\021Languag"
+  "eCodeProtoP\001ZKgithub.com/inworld-ai/inwo"
+  "rld-proto-golang/src/go/ai/inworld/studi"
+  "o/v1alpha\270\001\001\252\002\031Ai.Inworld.Studio.V1Alpha"
+  "b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2flanguage_5fcode_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -54,7 +54,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2flanguage_5fcode_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2flanguage_5fcode_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2flanguage_5fcode_2eproto, "ai/inworld/studio/v1alpha/language_code.proto", 570,
+  false, false, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2flanguage_5fcode_2eproto, "ai/inworld/studio/v1alpha/language_code.proto", 568,
   &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2flanguage_5fcode_2eproto_once, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2flanguage_5fcode_2eproto_sccs, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2flanguage_5fcode_2eproto_deps, 0, 1,
   schemas, file_default_instances, TableStruct_ai_2finworld_2fstudio_2fv1alpha_2flanguage_5fcode_2eproto::offsets,
   file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2flanguage_5fcode_2eproto, 0, file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2flanguage_5fcode_2eproto, file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2flanguage_5fcode_2eproto,

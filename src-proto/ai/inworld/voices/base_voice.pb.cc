@@ -84,10 +84,10 @@ const char descriptor_table_protodef_ai_2finworld_2fvoices_2fbase_5fvoice_2eprot
   ".inworld.voices.Voice.ElevenLabsMetadata"
   "H\000\022C\n\023inworld_v2_metadata\030e \001(\0132$.ai.inw"
   "orld.voices.InworldV2MetadataH\000B\016\n\014tts_m"
-  "etadataB\214\001\n\024ai.inworld.BaseVoiceB\021BaseVo"
-  "iceProtocolZMgithub.com/inworld-ai/inwor"
-  "ld/serving/grpc-gateway/build/proto/engi"
-  "ne/v1alpha\252\002\021Ai.Inworld.Voicesb\006proto3"
+  "etadataB\212\001\n\024ai.inworld.BaseVoiceB\021BaseVo"
+  "iceProtocolZKgithub.com/inworld-ai/inwor"
+  "ld-proto-golang/src/go/ai/inworld/engine"
+  "/v1alpha\252\002\021Ai.Inworld.Voicesb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2fvoices_2fbase_5fvoice_2eproto_deps[2] = {
   &::descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto,
@@ -98,7 +98,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2fvoices_2fbase_5fvoice_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2fvoices_2fbase_5fvoice_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2fvoices_2fbase_5fvoice_2eproto, "ai/inworld/voices/base_voice.proto", 678,
+  false, false, descriptor_table_protodef_ai_2finworld_2fvoices_2fbase_5fvoice_2eproto, "ai/inworld/voices/base_voice.proto", 676,
   &descriptor_table_ai_2finworld_2fvoices_2fbase_5fvoice_2eproto_once, descriptor_table_ai_2finworld_2fvoices_2fbase_5fvoice_2eproto_sccs, descriptor_table_ai_2finworld_2fvoices_2fbase_5fvoice_2eproto_deps, 1, 2,
   schemas, file_default_instances, TableStruct_ai_2finworld_2fvoices_2fbase_5fvoice_2eproto::offsets,
   file_level_metadata_ai_2finworld_2fvoices_2fbase_5fvoice_2eproto, 1, file_level_enum_descriptors_ai_2finworld_2fvoices_2fbase_5fvoice_2eproto, file_level_service_descriptors_ai_2finworld_2fvoices_2fbase_5fvoice_2eproto,
