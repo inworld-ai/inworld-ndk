@@ -89,7 +89,7 @@ namespace Inworld
 		virtual std::unique_ptr<ServiceSession>& Session() override { return _SessionService; }
 		virtual std::unique_ptr<ClientStream>& Stream() override { return _ClientStream; }
 
-		virtual void OpenSession() override
+		virtual void OpenSession(const ClientHeaderData& Metadata) override
 		{
 			if (!_SessionService)
 			{
@@ -97,7 +97,7 @@ namespace Inworld
 				return;
 			}
 
-			_ClientStream = _SessionService->OpenSession();
+			_ClientStream = _SessionService->OpenSession(Metadata);
 		}
 
 	private:
@@ -717,7 +717,7 @@ void Inworld::Client::StartClientStream()
 		_ErrorMessage = std::string();
 		_ErrorCode = grpc::StatusCode::OK;
 		_ErrorDetails = {};
-		_Service->OpenSession();
+		_Service->OpenSession(_ClientOptions.Metadata);
 		_bHasClientStreamFinished = false;
 		TryToStartReadTask();
 		TryToStartWriteTask();
