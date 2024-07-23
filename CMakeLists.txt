@@ -67,7 +67,9 @@ target_compile_features(inworld-ndk PUBLIC cxx_std_20)
 target_compile_features(inworld-ndk-proto PUBLIC cxx_std_20)
 
 if (INWORLD_AUDIO_DUMP)
-    target_compile_definitions(inworld-ndk PRIVATE INWORLD_AUDIO_DUMP=1)
+    if (WIN32 OR MAC)
+        target_compile_definitions(inworld-ndk PRIVATE INWORLD_AUDIO_DUMP=1)
+    endif()
 endif()
 
 # grpc setup

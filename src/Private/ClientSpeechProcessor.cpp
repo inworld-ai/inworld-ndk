@@ -111,11 +111,7 @@ void Inworld::ClientSpeechProcessor::SendSoundMessage(const Inworld::Routing& Ro
     ProcessAudio(Data);
 }
 
-bool IsValidFileName(const std::string& filename) {
-
-    return true;
-}
-
+#ifdef INWORLD_AUDIO_DUMP
 bool IsValidPath(const std::string& path) {
     namespace fs = std::filesystem;
     const fs::path filePath(path);
@@ -140,6 +136,7 @@ bool IsValidPath(const std::string& path) {
 
     return true;
 }
+#endif
 
 void Inworld::ClientSpeechProcessor::EnableAudioDump(const std::string& FilePath)
 {
