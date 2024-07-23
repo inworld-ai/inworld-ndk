@@ -117,12 +117,12 @@ namespace Inworld
 			return _Stub;
 		}
 
-		std::unique_ptr<ClientContext>& UpdateContext(const std::vector<ClientMetadata>& Metadata)
+		std::unique_ptr<ClientContext>& UpdateContext(const ClientHeaderData& Metadata)
 		{
 			_Context = std::make_unique<ClientContext>();
-			for (auto& Header : Metadata)
+			for (auto& Data : Metadata)
 			{
-				_Context->AddMetadata(Header.first, Header.second);
+				_Context->AddMetadata(Data.first, Data.second);
 			}
 			return _Context;
 		}
@@ -247,7 +247,7 @@ class INWORLD_EXPORT RunnableCreateInteractionFeedback : public RunnableRequest<
 			, _SessionId(SessionId)
 		{}
 		
-		std::unique_ptr<ClientStream> OpenSession(const std::vector<ClientMetadata>& Metadata);
+		std::unique_ptr<ClientStream> OpenSession(const ClientHeaderData& Metadata);
 
 		void SetToken(const std::string& Token) { _Token = Token; }
 
