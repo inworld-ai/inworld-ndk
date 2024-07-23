@@ -491,9 +491,9 @@ void Inworld::Client::PauseClient()
 		return;
 	}
 
-	StopClientStream();
-
 	SetConnectionState(ConnectionState::Paused);
+
+	PauseClientStream();
 }
 
 void Inworld::Client::ResumeClient()
@@ -512,13 +512,13 @@ void Inworld::Client::ResumeClient()
 			if (_Service->Session())
 			{
 				_Service->Session()->SetToken(_SessionInfo.Token);
-				StartClientStream();
+				ResumeClientStream();
 			}
 		});
 	}
 	else
 	{
-		StartClientStream();
+		ResumeClientStream();
 	}
 }
 
@@ -718,6 +718,25 @@ void Inworld::Client::StartClientStream()
 		_ErrorCode = grpc::StatusCode::OK;
 		_ErrorDetails = {};
 		_Service->OpenSession(_ClientOptions.Metadata);
+		_bHasClientStreamFinished = false;
+		TryToStartReadTask();
+		TryToStartWriteTask();
+	}
+}
+
+void Inworld::Client::PauseClientStream()
+{
+	_bHasClientStreamFinished = true;
+}
+
+void Inworld::Client::ResumeClientStream()
+{
+	if (_ConnectionState == ConnectionState::Disconnected)
+	{
+		StartClientStream();
+	}
+	else
+	{
 		_bHasClientStreamFinished = false;
 		TryToStartReadTask();
 		TryToStartWriteTask();

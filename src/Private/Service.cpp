@@ -91,7 +91,10 @@ void Inworld::RunnableRead::Run()
 
 		_Packets.PushBack(Packet);
 
-		_ProcessedCallback(Packet);
+		if (!_HasReaderWriterFinished)
+		{
+			_ProcessedCallback(Packet);
+		}
 	}
 
 	_IsDone = true;
@@ -117,8 +120,10 @@ void Inworld::RunnableWrite::Run()
 		}
 
 		_Packets.PopFront();
-
-		_ProcessedCallback(Packet);
+		if (!_HasReaderWriterFinished)
+		{
+			_ProcessedCallback(Packet);
+		}
 	}
 
 	_IsDone = true;
