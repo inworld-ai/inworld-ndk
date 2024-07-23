@@ -31,19 +31,19 @@ static constexpr ::PROTOBUF_NAMESPACE_ID::Message* const* file_default_instances
 const char descriptor_table_protodef_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n.ai/inworld/language_codes/language_cod"
   "es.proto\022\031ai.inworld.language_codes\032 goo"
-  "gle/protobuf/descriptor.proto*\261\001\n\014Langua"
+  "gle/protobuf/descriptor.proto*\322\001\n\014Langua"
   "geCode\022\035\n\031LANGUAGE_CODE_UNSPECIFIED\020\000\022\037\n"
   "\005EN_US\020\001\032\024\212\3520\005en-US\222\3520\007English\022\037\n\005ZH_CN\020"
   "\002\032\024\212\3520\005zh-CN\222\3520\007Chinese\022\036\n\005KO_KR\020\003\032\023\212\3520\005"
   "ko-KR\222\3520\006Korean\022 \n\005JA_JP\020\004\032\025\212\3520\005ja-JP\222\3520"
-  "\010Japanese:D\n\024language_code_string\022!.goog"
-  "le.protobuf.EnumValueOptions\030\241\215\006 \001(\t\210\001\001:"
-  "=\n\rlanguage_name\022!.google.protobuf.EnumV"
-  "alueOptions\030\242\215\006 \001(\t\210\001\001B\200\001\n\031ai.inworld.la"
-  "nguage_codesB\022LanguageCodesProtoP\001ZMgith"
-  "ub.com/inworld-ai/inworld/serving/grpc-g"
-  "ateway/build/proto/engine/v1alphab\006proto"
-  "3"
+  "\010Japanese\022\037\n\005RU_RU\020\005\032\024\212\3520\005ru-RU\222\3520\007Russi"
+  "an:D\n\024language_code_string\022!.google.prot"
+  "obuf.EnumValueOptions\030\241\215\006 \001(\t\210\001\001:=\n\rlang"
+  "uage_name\022!.google.protobuf.EnumValueOpt"
+  "ions\030\242\215\006 \001(\t\210\001\001B~\n\031ai.inworld.language_c"
+  "odesB\022LanguageCodesProtoP\001ZKgithub.com/i"
+  "nworld-ai/inworld-proto-golang/src/go/ai"
+  "/inworld/engine/v1alphab\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -52,7 +52,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto, "ai/inworld/language_codes/language_codes.proto", 561,
+  false, false, descriptor_table_protodef_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto, "ai/inworld/language_codes/language_codes.proto", 591,
   &descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto_once, descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto_sccs, descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto_deps, 0, 1,
   schemas, file_default_instances, TableStruct_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto::offsets,
   file_level_metadata_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto, 0, file_level_enum_descriptors_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto, file_level_service_descriptors_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto,
@@ -74,6 +74,7 @@ bool LanguageCode_IsValid(int value) {
     case 2:
     case 3:
     case 4:
+    case 5:
       return true;
     default:
       return false;

@@ -404,9 +404,12 @@ namespace Inworld {
 		_MicrophoneMode = AudioStartEvent.mode();
 	}
 
-	ControlEventAudioSessionStart::ControlEventAudioSessionStart(const Routing& Routing, InworldPackets::AudioSessionStartPayload_MicrophoneMode MicrophoneMode)
+	ControlEventAudioSessionStart::ControlEventAudioSessionStart(const Routing& Routing,
+	    InworldPackets::AudioSessionStartPayload_MicrophoneMode MicrophoneMode,
+	    InworldPackets::AudioSessionStartPayload_UnderstandingMode UnderstandingMode)
 		: ControlEvent(InworldPackets::ControlEvent_Action_AUDIO_SESSION_START, "", Routing)
 		, _MicrophoneMode(MicrophoneMode)
+		, _UnderstandingMode(UnderstandingMode)
 	{}
 
 	void ControlEventAudioSessionStart::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
@@ -417,6 +420,12 @@ namespace Inworld {
 		{
 			Proto.mutable_control()->mutable_audio_session_start()->set_mode(_MicrophoneMode);
 		}
+        if (_UnderstandingMode != InworldPackets::AudioSessionStartPayload_UnderstandingMode::AudioSessionStartPayload_UnderstandingMode_UNSPECIFIED_UNDERSTANDING_MODE)
+        {
+            Proto.mutable_control()->mutable_audio_session_start()->set_understanding_mode(_UnderstandingMode);
+            const std::string Mode = _UnderstandingMode == InworldPackets::AudioSessionStartPayload_UnderstandingMode::AudioSessionStartPayload_UnderstandingMode_FULL ? "FULL" : "ASR";
+            Inworld::Log("ControlEventAudioSessionStart::ToProtoInternal. Set understanding mode to '%s'", Mode.c_str());
+        }
 	}
 
 	ControlEventConversationUpdate::ControlEventConversationUpdate(const InworldPackets::InworldPacket& GrpcPacket)

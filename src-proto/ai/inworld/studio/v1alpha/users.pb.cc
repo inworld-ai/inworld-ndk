@@ -226,6 +226,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fstudio_2fv1alph
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::User, display_name_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::User, role_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::User, application_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::User, games_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::User, characters_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::studio::v1alpha::DeleteUserRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -241,7 +243,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 29, -1, sizeof(::ai::inworld::studio::v1alpha::AcceptTosRequest)},
   { 35, -1, sizeof(::ai::inworld::studio::v1alpha::UpdateUserRequest)},
   { 42, -1, sizeof(::ai::inworld::studio::v1alpha::User)},
-  { 56, -1, sizeof(::ai::inworld::studio::v1alpha::DeleteUserRequest)},
+  { 58, -1, sizeof(::ai::inworld::studio::v1alpha::DeleteUserRequest)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -278,7 +280,7 @@ const char descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fusers_2ep
   "User\"}\n\021UpdateUserRequest\0222\n\004user\030\001 \001(\0132"
   "\037.ai.inworld.studio.v1alpha.UserB\003\340A\002\0224\n"
   "\013update_mask\030\002 \001(\0132\032.google.protobuf.Fie"
-  "ldMaskB\003\340A\002\"\234\003\n\004User\022\021\n\004name\030\001 \001(\tB\003\340A\002\022"
+  "ldMaskB\003\340A\002\"\277\003\n\004User\022\021\n\004name\030\001 \001(\tB\003\340A\002\022"
   "\026\n\toculus_id\030\003 \001(\tB\003\340A\003\022\030\n\013firebase_id\030\004"
   " \001(\tB\003\340A\003\022#\n\026tos_acceptance_version\030\005 \001("
   "\005B\003\340A\003\022F\n\021marketing_consent\030\006 \001(\0162+.ai.i"
@@ -287,49 +289,49 @@ const char descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fusers_2ep
   "inworld.studio.v1alpha.MarketingPlatform"
   "Purpose\022-\n\014display_name\030\010 \001(\tB\027\242\317\"\023\n\021\032\017d"
   "isplay name #1\022\014\n\004role\030\t \001(\t\022\023\n\013applicat"
-  "ion\030\n \001(\t:&\352A#\n\023api.inworld.ai/User\022\014use"
-  "rs/{user}J\004\010\002\020\003R\tgoogle_id\">\n\021DeleteUser"
-  "Request\022)\n\004name\030\001 \001(\tB\033\340A\002\372A\025\n\023api.inwor"
-  "ld.ai/User*t\n\020MarketingConsent\022!\n\035MARKET"
-  "ING_CONSENT_UNSPECIFIED\020\000\022\036\n\032MARKETING_C"
-  "ONSENT_DECLINED\020\001\022\035\n\031MARKETING_CONSENT_G"
-  "RANTED\020\002*\270\002\n\030MarketingPlatformPurpose\022*\n"
-  "&MARKETING_PLATFORM_PURPOSE_UNSPECIFIED\020"
-  "\000\0221\n-MARKETING_PLATFORM_PURPOSE_GAME_AND"
-  "_METAVERSE\020\001\022,\n(MARKETING_PLATFORM_PURPO"
-  "SE_ENTERTAINMENT\020\002\0222\n.MARKETING_PLATFORM"
-  "_PURPOSE_SALES_AND_MARKETING\020\003\0225\n1MARKET"
-  "ING_PLATFORM_PURPOSE_TRAINING_AND_EDUCAT"
-  "ION\020\004\022$\n MARKETING_PLATFORM_PURPOSE_OTHE"
-  "R\020\005*_\n\010AuthType\022\031\n\025AUTH_TYPE_UNSPECIFIED"
-  "\020\000\022\032\n\026AUTH_TYPE_OCULUS_NONCE\020\002\022\026\n\022AUTH_T"
-  "YPE_FIREBASE\020\003\"\004\010\001\020\0012\333\006\n\005Users\022\253\001\n\021Gener"
-  "ateTokenUser\0223.ai.inworld.studio.v1alpha"
-  ".GenerateTokenUserRequest\0324.ai.inworld.s"
-  "tudio.v1alpha.GenerateTokenUserResponse\""
-  "+\202\323\344\223\002%\" /v1alpha/users:generateTokenUse"
-  "r:\001*\022\201\001\n\017LinkAccountUser\022-.ai.inworld.st"
-  "udio.v1alpha.LinkAccountRequest\032\026.google"
-  ".protobuf.Empty\"\'\202\323\344\223\002!\"\034/v1alpha/{name="
-  "users/*}:link:\001*\022}\n\007GetUser\022).ai.inworld"
-  ".studio.v1alpha.GetUserRequest\032\037.ai.inwo"
-  "rld.studio.v1alpha.User\"&\202\323\344\223\002\031\022\027/v1alph"
-  "a/{name=users/*}\332A\004name\022\232\001\n\nUpdateUser\022,"
-  ".ai.inworld.studio.v1alpha.UpdateUserReq"
-  "uest\032\037.ai.inworld.studio.v1alpha.User\"=\202"
-  "\323\344\223\002$2\034/v1alpha/{user.name=users/*}:\004use"
-  "r\332A\020user,update_mask\022\207\001\n\tAcceptTos\022+.ai."
-  "inworld.studio.v1alpha.AcceptTosRequest\032"
-  "\037.ai.inworld.studio.v1alpha.User\",\202\323\344\223\002&"
-  "\"!/v1alpha/{user=users/*}:acceptTos:\001*\022z"
-  "\n\nDeleteUser\022,.ai.inworld.studio.v1alpha"
-  ".DeleteUserRequest\032\026.google.protobuf.Emp"
-  "ty\"&\202\323\344\223\002\031*\027/v1alpha/{name=users/*}\332A\004na"
-  "meB\224\001\n\031ai.inworld.studio.v1alphaB\nUsersP"
-  "rotoP\001ZMgithub.com/inworld-ai/inworld/se"
-  "rving/grpc-gateway/build/proto/studio/v1"
-  "alpha\252\002\031Ai.Inworld.Studio.V1Alphab\006proto"
-  "3"
+  "ion\030\n \001(\t\022\r\n\005games\030\013 \003(\t\022\022\n\ncharacters\030\014"
+  " \003(\t:&\352A#\n\023api.inworld.ai/User\022\014users/{u"
+  "ser}J\004\010\002\020\003R\tgoogle_id\">\n\021DeleteUserReque"
+  "st\022)\n\004name\030\001 \001(\tB\033\340A\002\372A\025\n\023api.inworld.ai"
+  "/User*t\n\020MarketingConsent\022!\n\035MARKETING_C"
+  "ONSENT_UNSPECIFIED\020\000\022\036\n\032MARKETING_CONSEN"
+  "T_DECLINED\020\001\022\035\n\031MARKETING_CONSENT_GRANTE"
+  "D\020\002*\270\002\n\030MarketingPlatformPurpose\022*\n&MARK"
+  "ETING_PLATFORM_PURPOSE_UNSPECIFIED\020\000\0221\n-"
+  "MARKETING_PLATFORM_PURPOSE_GAME_AND_META"
+  "VERSE\020\001\022,\n(MARKETING_PLATFORM_PURPOSE_EN"
+  "TERTAINMENT\020\002\0222\n.MARKETING_PLATFORM_PURP"
+  "OSE_SALES_AND_MARKETING\020\003\0225\n1MARKETING_P"
+  "LATFORM_PURPOSE_TRAINING_AND_EDUCATION\020\004"
+  "\022$\n MARKETING_PLATFORM_PURPOSE_OTHER\020\005*_"
+  "\n\010AuthType\022\031\n\025AUTH_TYPE_UNSPECIFIED\020\000\022\032\n"
+  "\026AUTH_TYPE_OCULUS_NONCE\020\002\022\026\n\022AUTH_TYPE_F"
+  "IREBASE\020\003\"\004\010\001\020\0012\333\006\n\005Users\022\253\001\n\021GenerateTo"
+  "kenUser\0223.ai.inworld.studio.v1alpha.Gene"
+  "rateTokenUserRequest\0324.ai.inworld.studio"
+  ".v1alpha.GenerateTokenUserResponse\"+\202\323\344\223"
+  "\002%\" /v1alpha/users:generateTokenUser:\001*\022"
+  "\201\001\n\017LinkAccountUser\022-.ai.inworld.studio."
+  "v1alpha.LinkAccountRequest\032\026.google.prot"
+  "obuf.Empty\"\'\202\323\344\223\002!\"\034/v1alpha/{name=users"
+  "/*}:link:\001*\022}\n\007GetUser\022).ai.inworld.stud"
+  "io.v1alpha.GetUserRequest\032\037.ai.inworld.s"
+  "tudio.v1alpha.User\"&\202\323\344\223\002\031\022\027/v1alpha/{na"
+  "me=users/*}\332A\004name\022\232\001\n\nUpdateUser\022,.ai.i"
+  "nworld.studio.v1alpha.UpdateUserRequest\032"
+  "\037.ai.inworld.studio.v1alpha.User\"=\202\323\344\223\002$"
+  "2\034/v1alpha/{user.name=users/*}:\004user\332A\020u"
+  "ser,update_mask\022\207\001\n\tAcceptTos\022+.ai.inwor"
+  "ld.studio.v1alpha.AcceptTosRequest\032\037.ai."
+  "inworld.studio.v1alpha.User\",\202\323\344\223\002&\"!/v1"
+  "alpha/{user=users/*}:acceptTos:\001*\022z\n\nDel"
+  "eteUser\022,.ai.inworld.studio.v1alpha.Dele"
+  "teUserRequest\032\026.google.protobuf.Empty\"&\202"
+  "\323\344\223\002\031*\027/v1alpha/{name=users/*}\332A\004nameB\222\001"
+  "\n\031ai.inworld.studio.v1alphaB\nUsersProtoP"
+  "\001ZKgithub.com/inworld-ai/inworld-proto-g"
+  "olang/src/go/ai/inworld/studio/v1alpha\252\002"
+  "\031Ai.Inworld.Studio.V1Alphab\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto_deps[8] = {
   &::descriptor_table_ai_2finworld_2foptions_2foptions_2eproto,
@@ -353,7 +355,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto, "ai/inworld/studio/v1alpha/users.proto", 2921,
+  false, false, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto, "ai/inworld/studio/v1alpha/users.proto", 2954,
   &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto_once, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto_sccs, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto_deps, 8, 8,
   schemas, file_default_instances, TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto::offsets,
   file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto, 8, file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto, file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fusers_2eproto,
@@ -1898,13 +1900,17 @@ class User::_Internal {
 };
 
 User::User(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  games_(arena),
+  characters_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:ai.inworld.studio.v1alpha.User)
 }
 User::User(const User& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      games_(from.games_),
+      characters_(from.characters_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
@@ -1993,6 +1999,8 @@ void User::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  games_.Clear();
+  characters_.Clear();
   name_.ClearToEmpty();
   oculus_id_.ClearToEmpty();
   firebase_id_.ClearToEmpty();
@@ -2087,6 +2095,34 @@ const char* User::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inter
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.User.application"));
           CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated string games = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 90)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_games();
+            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.User.games"));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<90>(ptr));
+        } else goto handle_unusual;
+        continue;
+      // repeated string characters = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 98)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_characters();
+            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ai.inworld.studio.v1alpha.User.characters"));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<98>(ptr));
         } else goto handle_unusual;
         continue;
       default: {
@@ -2197,6 +2233,26 @@ failure:
         10, this->_internal_application(), target);
   }
 
+  // repeated string games = 11;
+  for (int i = 0, n = this->_internal_games_size(); i < n; i++) {
+    const auto& s = this->_internal_games(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.studio.v1alpha.User.games");
+    target = stream->WriteString(11, s, target);
+  }
+
+  // repeated string characters = 12;
+  for (int i = 0, n = this->_internal_characters_size(); i < n; i++) {
+    const auto& s = this->_internal_characters(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ai.inworld.studio.v1alpha.User.characters");
+    target = stream->WriteString(12, s, target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2212,6 +2268,22 @@ size_t User::ByteSizeLong() const {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // repeated string games = 11;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(games_.size());
+  for (int i = 0, n = games_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      games_.Get(i));
+  }
+
+  // repeated string characters = 12;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(characters_.size());
+  for (int i = 0, n = characters_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      characters_.Get(i));
+  }
 
   // string name = 1 [(.google.api.field_behavior) = REQUIRED];
   if (this->name().size() > 0) {
@@ -2305,6 +2377,8 @@ void User::MergeFrom(const User& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  games_.MergeFrom(from.games_);
+  characters_.MergeFrom(from.characters_);
   if (from.name().size() > 0) {
     _internal_set_name(from._internal_name());
   }
@@ -2355,6 +2429,8 @@ bool User::IsInitialized() const {
 void User::InternalSwap(User* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  games_.InternalSwap(&other->games_);
+  characters_.InternalSwap(&other->characters_);
   name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   oculus_id_.Swap(&other->oculus_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   firebase_id_.Swap(&other->firebase_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());

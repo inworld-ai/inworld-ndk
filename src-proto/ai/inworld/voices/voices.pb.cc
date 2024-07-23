@@ -223,10 +223,10 @@ const char descriptor_table_protodef_ai_2finworld_2fvoices_2fvoices_2eproto[] PR
   "E_ADVANCED_V2\020\003*\205\001\n\006Accent\022\026\n\022ACCENT_UNS"
   "PECIFIED\020\000\022\022\n\016ACCENT_BRITISH\020\001\022\022\n\016ACCENT"
   "_RUSSIAN\020\002\022\025\n\021ACCENT_AUSTRALIAN\020\003\022\021\n\rACC"
-  "ENT_GERMAN\020\004\022\021\n\rACCENT_FRENCH\020\005Br\n\021ai.in"
-  "world.voicesB\016VoicesProtocolZMgithub.com"
-  "/inworld-ai/inworld/serving/grpc-gateway"
-  "/build/proto/engine/v1alphab\006proto3"
+  "ENT_GERMAN\020\004\022\021\n\rACCENT_FRENCH\020\005Bp\n\021ai.in"
+  "world.voicesB\016VoicesProtocolZKgithub.com"
+  "/inworld-ai/inworld-proto-golang/src/go/"
+  "ai/inworld/engine/v1alphab\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2fvoices_2fvoices_2eproto_deps[1] = {
   &::descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto,
@@ -240,7 +240,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2fvoices_2fvoices_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2fvoices_2fvoices_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2fvoices_2fvoices_2eproto, "ai/inworld/voices/voices.proto", 1635,
+  false, false, descriptor_table_protodef_ai_2finworld_2fvoices_2fvoices_2eproto, "ai/inworld/voices/voices.proto", 1633,
   &descriptor_table_ai_2finworld_2fvoices_2fvoices_2eproto_once, descriptor_table_ai_2finworld_2fvoices_2fvoices_2eproto_sccs, descriptor_table_ai_2finworld_2fvoices_2fvoices_2eproto_deps, 5, 1,
   schemas, file_default_instances, TableStruct_ai_2finworld_2fvoices_2fvoices_2eproto::offsets,
   file_level_metadata_ai_2finworld_2fvoices_2fvoices_2eproto, 5, file_level_enum_descriptors_ai_2finworld_2fvoices_2fvoices_2eproto, file_level_service_descriptors_ai_2finworld_2fvoices_2fvoices_2eproto,

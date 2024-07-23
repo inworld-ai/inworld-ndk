@@ -26,6 +26,7 @@ namespace ai { namespace inworld { namespace packets {
 	enum DataChunk_DataType : int;
 	enum ControlEvent_Action : int;
 	enum AudioSessionStartPayload_MicrophoneMode : int;
+	enum AudioSessionStartPayload_UnderstandingMode : int;
 	enum EmotionEvent_SpaffCode : int;
 	enum EmotionEvent_Strength : int;
 	enum Playback : int;
@@ -48,9 +49,12 @@ namespace Inworld {
 		{}
 
         InworldPackets::Actor ToProto() const;
+
+	    bool operator==(const Actor& Other) const { return _Type == Other._Type && _Name == Other._Name; }
+	    bool operator!=(const Actor& Other) const { return !(*this == Other); }
         
 		// Is Actor player or agent.
-        InworldPackets::Actor_Type _Type = static_cast<InworldPackets::Actor_Type>(0);;
+        InworldPackets::Actor_Type _Type = static_cast<InworldPackets::Actor_Type>(0);
         // agent id if this is agent.
         std::string _Name;
 	};
@@ -68,6 +72,9 @@ namespace Inworld {
 			: _Source(Source)
 			, _ConversationId(ConversationId) 
 		{}
+
+	    bool operator==(const Routing& Other) const { return _Source == Other._Source && _Target == Other._Target && _ConversationId == Other._ConversationId; }
+	    bool operator!=(const Routing& Other) const { return !(*this == Other); }
 
 		static Routing Player2Agent(const std::string& AgentId);
 		static Routing Player2Conversation(const std::string& ConversationId);
@@ -285,13 +292,16 @@ namespace Inworld {
 	public:
 		ControlEventAudioSessionStart() = default;
 		ControlEventAudioSessionStart(const InworldPackets::InworldPacket& GrpcPacket);
-		ControlEventAudioSessionStart(const Routing& Routing, InworldPackets::AudioSessionStartPayload_MicrophoneMode MicrophoneMode);
+		ControlEventAudioSessionStart(const Routing& Routing,
+		    InworldPackets::AudioSessionStartPayload_MicrophoneMode MicrophoneMode,
+		    InworldPackets::AudioSessionStartPayload_UnderstandingMode UnderstandingMode);
 
 	protected:
 		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 
 	private:
 		InworldPackets::AudioSessionStartPayload_MicrophoneMode _MicrophoneMode;
+		InworldPackets::AudioSessionStartPayload_UnderstandingMode _UnderstandingMode;
 	};
 
     class INWORLD_EXPORT ControlEventConversationUpdate : public ControlEvent

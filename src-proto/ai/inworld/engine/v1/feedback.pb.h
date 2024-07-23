@@ -95,12 +95,14 @@ enum InteractionDislikeType : int {
   INTERACTION_DISLIKE_TYPE_UNEXPECTED_ACTION = 5,
   INTERACTION_DISLIKE_TYPE_UNEXPECTED_GOAL_BEHAVIOR = 6,
   INTERACTION_DISLIKE_TYPE_REPETITION = 7,
+  INTERACTION_DISLIKE_TYPE_OUT_OF_CHARACTER = 8,
+  INTERACTION_DISLIKE_TYPE_TOO_LONG = 9,
   InteractionDislikeType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   InteractionDislikeType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
 bool InteractionDislikeType_IsValid(int value);
 constexpr InteractionDislikeType InteractionDislikeType_MIN = INTERACTION_DISLIKE_TYPE_UNSPECIFIED;
-constexpr InteractionDislikeType InteractionDislikeType_MAX = INTERACTION_DISLIKE_TYPE_REPETITION;
+constexpr InteractionDislikeType InteractionDislikeType_MAX = INTERACTION_DISLIKE_TYPE_TOO_LONG;
 constexpr int InteractionDislikeType_ARRAYSIZE = InteractionDislikeType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* InteractionDislikeType_descriptor();
