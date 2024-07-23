@@ -85,7 +85,7 @@ namespace Inworld
 		virtual std::unique_ptr<ServiceSession>& Session() override { return _SessionService; }
 		virtual std::unique_ptr<ClientStream>& Stream() override { return _ClientStream; }
 
-		virtual void OpenSession(const std::unordered_map<std::string, std::string>& Metadata) override
+		virtual void OpenSession(const std::vector<ClientMetadata>& Metadata) override
 		{
 			if (!_SessionService)
 			{

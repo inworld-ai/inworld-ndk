@@ -161,7 +161,7 @@ grpc::Status Inworld::RunnableGenerateSessionToken::RunProcess()
 	return CreateStub()->GenerateToken(AuthCtx.get(), AuthRequest, &_Response);
 }
 
-std::unique_ptr<Inworld::ClientStream> Inworld::ServiceSession::OpenSession(const std::unordered_map<std::string, std::string>& Metadata)
+std::unique_ptr<Inworld::ClientStream> Inworld::ServiceSession::OpenSession(const std::vector<ClientMetadata>& Metadata)
 {
 	std::unique_ptr<ClientContext>& ClientContext = Context();
 	for (const auto& Data : Metadata)

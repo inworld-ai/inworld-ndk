@@ -14,6 +14,8 @@
 
 namespace Inworld
 {
+	using ClientMetadata = std::pair<std::string, std::string>;
+
 	struct INWORLD_EXPORT SessionInfo
 	{
 		std::string SessionId;

@@ -11,7 +11,6 @@
 #include <functional>
 #include <type_traits>
 #include <memory>
-#include <unordered_map>
 
 #include "Define.h"
 #include "Types.h"
@@ -47,7 +46,7 @@ namespace Inworld
 		virtual ~IClientService() = default;
 		virtual std::unique_ptr<ServiceSession>& Session() = 0;
 		virtual std::unique_ptr<ClientStream>& Stream() = 0;
-		virtual void OpenSession(const std::unordered_map<std::string, std::string>& Metadata) = 0;
+		virtual void OpenSession(const std::vector<ClientMetadata>& Metadata) = 0;
 	};
 
 	struct INWORLD_EXPORT SdkInfo
@@ -72,7 +71,7 @@ namespace Inworld
 		std::string Base64;
 		std::string ProjectName;
 		std::string GameSessionId;
-		std::unordered_map<std::string, std::string> Metadata;
+		std::vector<ClientMetadata> Metadata;
 	};
 
 	struct INWORLD_EXPORT ErrorDetails

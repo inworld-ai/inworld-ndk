@@ -109,12 +109,6 @@ namespace Inworld
 		}
 
 	protected:
-		struct FHeader
-		{
-			std::string Key;
-			std::string Value;
-		};
-
 		std::unique_ptr<typename TService::Stub>& CreateStub()
 		{
 			grpc::SslCredentialsOptions SslCredentialsOptions;
@@ -123,12 +117,12 @@ namespace Inworld
 			return _Stub;
 		}
 
-		std::unique_ptr<ClientContext>& UpdateContext(const std::vector<FHeader>& Headers)
+		std::unique_ptr<ClientContext>& UpdateContext(const std::vector<ClientMetadata>& Metadata)
 		{
 			_Context = std::make_unique<ClientContext>();
-			for (auto& Header : Headers)
+			for (auto& Header : Metadata)
 			{
-				_Context->AddMetadata(Header.Key, Header.Value);
+				_Context->AddMetadata(Header.first, Header.second);
 			}
 			return _Context;
 		}
@@ -253,7 +247,7 @@ class INWORLD_EXPORT RunnableCreateInteractionFeedback : public RunnableRequest<
 			, _SessionId(SessionId)
 		{}
 		
-		std::unique_ptr<ClientStream> OpenSession(const std::unordered_map<std::string, std::string>& Metadata);
+		std::unique_ptr<ClientStream> OpenSession(const std::vector<ClientMetadata>& Metadata);
 
 		void SetToken(const std::string& Token) { _Token = Token; }
 
