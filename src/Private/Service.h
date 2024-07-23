@@ -253,7 +253,7 @@ class INWORLD_EXPORT RunnableCreateInteractionFeedback : public RunnableRequest<
 			, _SessionId(SessionId)
 		{}
 		
-		std::unique_ptr<ClientStream> OpenSession();
+		std::unique_ptr<ClientStream> OpenSession(const std::unordered_map<std::string, std::string>& Metadata);
 
 		void SetToken(const std::string& Token) { _Token = Token; }
 
