@@ -170,7 +170,7 @@ bool Inworld::ClientSpeechProcessor::StartActualAudioSession()
 		return false;
 	}
 
-    if (_Options.VADCb && _Options.Mode >= ClientSpeechOptions::SpeechMode::VAD)
+    if (_Options.VADCb && _Options.Mode == ClientSpeechOptions::SpeechMode::VAD)
     {
         _Options.VADCb(true);
     }
@@ -197,7 +197,7 @@ bool Inworld::ClientSpeechProcessor::StopActualAudioSession()
 		return false;
 	}
 	
-    if (_Options.VADCb)
+    if (_Options.VADCb && _Options.Mode == ClientSpeechOptions::SpeechMode::VAD)
     {
         _Options.VADCb(false);
     }
