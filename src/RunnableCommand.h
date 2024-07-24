@@ -151,10 +151,16 @@ namespace Inworld
 
 		std::unique_ptr<typename TService::Stub>& CreateStub()
 		{
-            grpc::SslCredentialsOptions SslCredentialsOptions;
-            SslCredentialsOptions.pem_root_certs = Utils::GetSslRootCerts();
-			_Stub = TService::NewStub(grpc::CreateChannel(_ServerUrl, grpc::SslCredentials(SslCredentialsOptions)));
-			//_Stub = TService::NewStub(grpc::CreateChannel(_ServerUrl, grpc::InsecureChannelCredentials()));
+			if (Inworld::g_RequireAuth)
+			{
+				grpc::SslCredentialsOptions SslCredentialsOptions;
+				SslCredentialsOptions.pem_root_certs = Utils::GetSslRootCerts();
+				_Stub = TService::NewStub(grpc::CreateChannel(_ServerUrl, grpc::SslCredentials(SslCredentialsOptions)));
+			}
+			else
+			{
+				_Stub = TService::NewStub(grpc::CreateChannel(_ServerUrl, grpc::InsecureChannelCredentials()));
+			}
 			return _Stub;
 		}
 

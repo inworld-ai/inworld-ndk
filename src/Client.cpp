@@ -336,7 +336,7 @@ void Inworld::ClientBase::StartClient(const ClientOptions& Options, const Sessio
 
 	SetConnectionState(ConnectionState::Connecting);
 
-	if (!_SessionInfo.IsValid())
+	if (Inworld::g_RequireAuth && !_SessionInfo.IsValid())
 	{
 		GenerateToken([this]()
 		{
@@ -370,7 +370,7 @@ void Inworld::ClientBase::ResumeClient()
 
 	SetConnectionState(ConnectionState::Reconnecting);
 
-	if (!_SessionInfo.IsValid())
+	if (Inworld::g_RequireAuth && !_SessionInfo.IsValid())
 	{
 		GenerateToken([this]()
 		{
@@ -479,7 +479,7 @@ void Inworld::ClientBase::SetConnectionState(ConnectionState State)
 
 void Inworld::ClientBase::LoadScene()
 {
-	if (!_SessionInfo.IsValid())
+	if (Inworld::g_RequireAuth && !_SessionInfo.IsValid())
 	{
 		return;
 	}

@@ -11,6 +11,7 @@
 #include <unordered_map>
 #include "../ThirdParty/HmacSha256/hmac_sha256.h"
 
+bool Inworld::g_RequireAuth = true;
 
 std::string Inworld::Utils::GetSslRootCerts()
 {

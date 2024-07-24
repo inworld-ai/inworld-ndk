@@ -14,6 +14,7 @@
 
 namespace Inworld
 {
+	INWORLD_EXPORT extern bool g_RequireAuth;
 	namespace Utils
 	{
 		INWORLD_EXPORT std::string GetSslRootCerts();
