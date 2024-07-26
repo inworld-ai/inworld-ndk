@@ -700,7 +700,7 @@ void NDKApp::App::Visit(const Inworld::AudioDataEvent& Event)
 	Inworld::Log("%s: Audio: %d", GetGivenName(Event._Routing._Source._Name).c_str(), Event.GetDataChunk().size());
 }
 
-void NDKApp::App::Visit(const Inworld::SessionControlResponse_LoadScene& Event)
+void NDKApp::App::Visit(const Inworld::ControlEventCurrentSceneStatus& Event)
 {
 	_Client.TaskExec.Push([this, AgentInfos = Event.GetAgentInfos()]()
 		{
@@ -710,16 +710,6 @@ void NDKApp::App::Visit(const Inworld::SessionControlResponse_LoadScene& Event)
 				_CurrentAgentIdx = 0;
 				NotifyCurrentCharacter();
 			}
-		});
-}
-
-void NDKApp::App::Visit(const Inworld::SessionControlResponse_LoadCharacters& Event)
-{
-	_Client.TaskExec.Push([this, AgentInfos = Event.GetAgentInfos()]()
-		{
-			Inworld::Log("LoadCharacters done.");
-
-			_AgentInfos.insert(_AgentInfos.end(), AgentInfos.begin(), AgentInfos.end());
 		});
 }
 

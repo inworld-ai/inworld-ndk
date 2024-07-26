@@ -58,8 +58,8 @@ namespace Inworld
 		std::string OS;
 	};
 
-	using Capabilities = SessionControlEvent_Capabilities::Data;
-	using UserConfiguration = SessionControlEvent_UserConfiguration::Data;
+	using Capabilities = ControlEventSessionConfiguration::Capabilities;
+	using UserConfiguration = ControlEventSessionConfiguration::UserConfiguration;
 	struct INWORLD_EXPORT ClientOptions
 	{
 		Capabilities Capabilities;
@@ -192,9 +192,6 @@ namespace Inworld
 		void LoadScene(const std::string& Scene);
 		void LoadCharacters(const std::vector<std::string>& Names);
 		void UnloadCharacters(const std::vector<std::string>& Names);
-		void LoadSavedState(const std::string& SavedState);
-		void LoadCapabilities(const Capabilities& Capabilities);
-		void LoadUserConfiguration(const UserConfiguration& UserConfig);
 		
 		// the callback is not called on calling thread for Async methods
 		void SaveSessionStateAsync(std::function<void(std::string, bool)> Callback);
@@ -222,8 +219,7 @@ namespace Inworld
 		const SessionInfo& GetSessionInfo() const;
 		void SetOptions(const ClientOptions& options);		
 
-		virtual void Visit(const SessionControlResponse_LoadScene& Event) override;
-		virtual void Visit(const SessionControlResponse_LoadCharacters& Event) override;
+		virtual void Visit(const ControlEventCurrentSceneStatus& Event) override;
 
 	protected:
 		void SendPacket(std::shared_ptr<Inworld::Packet> Packet);
