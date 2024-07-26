@@ -252,8 +252,8 @@ void NDKApp::App::Run()
 			}
 		},
 		{
-			"LoadSave",
-			"Load save",
+			"SetSave",
+			"Set save",
 			[this](const std::vector<std::string>& Args)
 			{
 				if (Args.size() != 1)
@@ -262,36 +262,33 @@ void NDKApp::App::Run()
 					return;
 				}
 
-				_Client.Client().LoadSavedState(Args[0]);
+				_SavedSessionState = Args[0];
 			}
 		},
 		{
-			"LoadCapabilities",
-			"Load capabilities",
+			"SetCapabilities",
+			"Set capabilities",
 			[this](const std::vector<std::string>& Args)
 			{
-				Inworld::Capabilities Capabilities;
-				Capabilities.Animations = false;
-				Capabilities.Audio = false;
-				Capabilities.Emotions = true;
-				Capabilities.Interruptions = true;
-				Capabilities.EmotionStreaming = true;
-				Capabilities.SilenceEvents = true;
-				Capabilities.PhonemeInfo = true;
-				Capabilities.NarratedActions = true;
-				Capabilities.Multiagent = true;
+				_Options.Capabilities.Animations = false;
+				_Options.Capabilities.Audio = false;
+				_Options.Capabilities.Emotions = true;
+				_Options.Capabilities.Interruptions = true;
+				_Options.Capabilities.EmotionStreaming = true;
+				_Options.Capabilities.SilenceEvents = true;
+				_Options.Capabilities.PhonemeInfo = true;
+				_Options.Capabilities.NarratedActions = true;
+				_Options.Capabilities.Multiagent = true;
 
 				if (!Args.empty() && Args[0] == "audio")
 				{
-					Capabilities.Audio = true;
+					_Options.Capabilities.Audio = true;
 				}
-				
-				_Client.Client().LoadCapabilities(Capabilities);
 			}
 		},
 		{
-			"LoadUserConfig",
-			"Load user config",
+			"SetUserConfig",
+			"Set user config",
 			[this](const std::vector<std::string>& Args)
 			{
 				if (Args.size() != 1)
@@ -300,10 +297,7 @@ void NDKApp::App::Run()
 					return;
 				}
 
-				Inworld::UserConfiguration Config;
-				Config.Name = Args[0];
-				
-				_Client.Client().LoadUserConfiguration(Config);
+				_Options.UserConfig.Name = Args[0];
 			}
 		},
 		{
