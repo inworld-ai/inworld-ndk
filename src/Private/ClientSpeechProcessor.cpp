@@ -18,6 +18,7 @@
 
 std::unique_ptr<Inworld::ClientSpeechProcessor> Inworld::ClientSpeechOptions::CreateSpeechProcessor()
 {
+#ifdef INWORLD_VAD
     if (Mode >= SpeechMode::VAD_DetectOnly)
     {
         if (VADModelPath.empty())
@@ -58,6 +59,10 @@ std::unique_ptr<Inworld::ClientSpeechProcessor> Inworld::ClientSpeechOptions::Cr
     }
 
     return nullptr;
+#else
+    Mode = SpeechMode::Default;
+    return std::make_unique<ClientSpeechProcessor_Default>(*this);
+#endif
 }
 
 Inworld::ClientSpeechProcessor::ClientSpeechProcessor(const ClientSpeechOptions& Options)
