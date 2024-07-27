@@ -57,8 +57,8 @@ namespace Inworld
         std::string VADModelPath;
 
         float VADProbThreshhold = 0.3f;
-        uint8_t VADPreviousChunks = 5;
-        uint8_t VADSubsequentChunks = 5;
+        uint8_t VADBufferChunksNum = 5;
+        uint8_t VADSilenceChunksNum = 5;
 
         ClientSpeechPacketCallback PacketCb;
         ClientSpeechVADCallback VADCb;
@@ -89,8 +89,8 @@ namespace Inworld
         void DisableAudioDump();
 	    
     protected:
-	    virtual bool StartActualAudioSession();
-	    virtual bool StopActualAudioSession();
+	    bool StartActualAudioSession();
+	    bool StopActualAudioSession();
 	    virtual void ProcessAudio(const std::string& Data) = 0;
 	    void SendAudio(const std::string& Data);
 	    virtual void ClearState();
@@ -128,10 +128,14 @@ namespace Inworld
 	    virtual ~ClientSpeechProcessor_VAD() override;
         
     protected:
-        virtual bool StartActualAudioSession() override;
-        virtual bool StopActualAudioSession() override;
+        virtual void ProcessAudio(const std::string& Data) override;
         virtual void ClearState() override;
+        virtual void HandleVoiceDetected(const std::string& Data) = 0;
+        virtual void HandleSilenceDetected(const std::string& Data) = 0;
+        virtual void BufferAudio(const std::string& Data) {}
         bool DetectVoice(const std::string& Data);
+        
+        uint8_t _VADSilenceCounter = 0;
     };
 
     class INWORLD_EXPORT ClientSpeechProcessor_VAD_DetectOnly : public ClientSpeechProcessor_VAD
@@ -144,6 +148,10 @@ namespace Inworld
 
     protected:
         virtual void ProcessAudio(const std::string& Data) override;
+        virtual void HandleVoiceDetected(const std::string& Data) override;
+        virtual void HandleSilenceDetected(const std::string& Data) override;
+
+        bool _bVoiceDetected = false;
     };
 
     class INWORLD_EXPORT ClientSpeechProcessor_VAD_DetectAndSendAudio : public ClientSpeechProcessor_VAD
@@ -152,10 +160,11 @@ namespace Inworld
         ClientSpeechProcessor_VAD_DetectAndSendAudio(const ClientSpeechOptions& Options) : ClientSpeechProcessor_VAD(Options) {}
         virtual ~ClientSpeechProcessor_VAD_DetectAndSendAudio() override = default;
     protected:
-        virtual void ProcessAudio(const std::string& Data) override;
+        virtual void HandleVoiceDetected(const std::string& Data) override;
+        virtual void HandleSilenceDetected(const std::string& Data) override;
+        virtual void BufferAudio(const std::string& Data) override;
         virtual void ClearState() override;
-
+        
         std::queue<std::string> _AudioQueue;
-        uint8_t _VADSilenceCounter = 0;
     };
 }

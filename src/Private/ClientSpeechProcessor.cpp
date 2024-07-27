@@ -288,73 +288,24 @@ bool Inworld::ClientSpeechProcessor_VAD::DetectVoice(const std::string& Data)
     return bVoiceDetected;
 }
 
-bool Inworld::ClientSpeechProcessor_VAD::StartActualAudioSession()
-{
-    const bool bSuccess = ClientSpeechProcessor::StartActualAudioSession();
-    if (bSuccess && _Options.VADCb)
-    {
-        _Options.VADCb(true);
-    }
-    return bSuccess;
-}
-
-bool Inworld::ClientSpeechProcessor_VAD::StopActualAudioSession()
-{
-    const bool bSuccess = ClientSpeechProcessor::StopActualAudioSession();
-    if (bSuccess && _Options.VADCb)
-    {
-        _Options.VADCb(false);
-    }
-    return bSuccess;
-}
-
-void Inworld::ClientSpeechProcessor_VAD_DetectAndSendAudio::ProcessAudio(const std::string& Data)
+void Inworld::ClientSpeechProcessor_VAD::ProcessAudio(const std::string& Data)
 {
     if (DetectVoice(Data))
     {
         _VADSilenceCounter = 0;
-        const bool bJustStarted = StartActualAudioSession();
-        if (!bJustStarted)
-        {
-            // audio session is already active
-            // send audio immediately
-            SendAudio(Data);
-        }
-        else
-        {
-            // audio session just started
-            // send buffered audio first
-            _AudioQueue.push(Data);
-            std::string DataToSend;
-            while (!_AudioQueue.empty())
-            {
-                DataToSend.append(_AudioQueue.front());
-                _AudioQueue.pop();
-            }
-
-            SendAudio(DataToSend);
-        }
+        HandleVoiceDetected(Data);
         return;
     }
 
     if (!_bSessionActive)
     {
-        // audio session is not active
-        // buffer audio
-        _AudioQueue.push(Data);
-        if (_AudioQueue.size() > _Options.VADPreviousChunks)
-        {
-            _AudioQueue.pop();
-        }
+        BufferAudio(Data);
         return;
     }
 
-    // audio session is active
-    // send audio and check for long silence
-    SendAudio(Data);
-    if (++_VADSilenceCounter > _Options.VADSubsequentChunks)
+    if (++_VADSilenceCounter > _Options.VADSilenceChunksNum)
     {
-        StopActualAudioSession();
+        HandleSilenceDetected(Data);
         _VADSilenceCounter = 0;
     }
 }
@@ -383,7 +334,81 @@ void Inworld::ClientSpeechProcessor_VAD_DetectOnly::StopAudioSession(const Inwor
 void Inworld::ClientSpeechProcessor_VAD_DetectOnly::ProcessAudio(const std::string& Data)
 {
     SendAudio(Data);
-    DetectVoice(Data);
+    ClientSpeechProcessor_VAD::ProcessAudio(Data);
+}
+
+void Inworld::ClientSpeechProcessor_VAD_DetectOnly::HandleVoiceDetected(const std::string& Data)
+{
+    if (!_bVoiceDetected)
+    {
+        _bVoiceDetected = true;
+        if (_Options.VADCb)
+        {
+            _Options.VADCb(true);
+        }
+    }
+}
+
+void Inworld::ClientSpeechProcessor_VAD_DetectOnly::HandleSilenceDetected(const std::string& Data)
+{
+    if (_bVoiceDetected)
+    {
+        _bVoiceDetected = false;
+        if (_Options.VADCb)
+        {
+            _Options.VADCb(false);
+        }
+    }
+}
+
+void Inworld::ClientSpeechProcessor_VAD_DetectAndSendAudio::HandleVoiceDetected(const std::string& Data)
+{
+    const bool bJustStarted = StartActualAudioSession();
+    if (!bJustStarted)
+    {
+        // audio session is already active
+        // send audio immediately
+        SendAudio(Data);
+    }
+    else
+    {
+        // audio session just started
+        // send buffered audio first
+        _AudioQueue.push(Data);
+        std::string DataToSend;
+        while (!_AudioQueue.empty())
+        {
+            DataToSend.append(_AudioQueue.front());
+            _AudioQueue.pop();
+        }
+
+        SendAudio(DataToSend);
+
+        if (_Options.VADCb)
+        {
+            _Options.VADCb(true);
+        }
+    }
+}
+
+void Inworld::ClientSpeechProcessor_VAD_DetectAndSendAudio::HandleSilenceDetected(const std::string& Data)
+{
+    StopActualAudioSession();
+    if (_Options.VADCb)
+    {
+        _Options.VADCb(false);
+    }
+}
+
+void Inworld::ClientSpeechProcessor_VAD_DetectAndSendAudio::BufferAudio(const std::string& Data)
+{
+    ClientSpeechProcessor_VAD::BufferAudio(Data);
+
+    _AudioQueue.push(Data);
+    if (_AudioQueue.size() > _Options.VADBufferChunksNum)
+    {
+        _AudioQueue.pop();
+    }
 }
 
 void Inworld::ClientSpeechProcessor_VAD_DetectAndSendAudio::ClearState()
