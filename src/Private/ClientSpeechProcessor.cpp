@@ -86,173 +86,6 @@ void Inworld::ClientSpeechProcessor::ClearState()
 	_AudioSessionPayload = {};
 }
 
-void Inworld::ClientSpeechProcessor_Default::StartAudioSession(const Inworld::Routing& Routing,
-    const AudioSessionStartPayload& Payload)
-{
-    ClientSpeechProcessor::StartAudioSession(Routing, Payload);
-    StartActualAudioSession();
-}
-
-void Inworld::ClientSpeechProcessor_Default::StopAudioSession(const Inworld::Routing& Routing)
-{
-    StopActualAudioSession();
-    ClientSpeechProcessor::StopAudioSession(Routing);
-}
-
-void Inworld::ClientSpeechProcessor_Default::ProcessAudio(const std::string& Data)
-{
-    SendAudio(Data);
-}
-
-Inworld::ClientSpeechProcessor_VAD::ClientSpeechProcessor_VAD(const ClientSpeechOptions& Options)
-    : ClientSpeechProcessor(Options)
-{
-#ifdef INWORLD_VAD
-    VAD_Initialize(_Options.VADModelPath.c_str());
-#endif
-}
-
-Inworld::ClientSpeechProcessor_VAD::~ClientSpeechProcessor_VAD()
-{
-#ifdef INWORLD_VAD
-    VAD_Terminate();
-#endif
-}
-
-void Inworld::ClientSpeechProcessor_VAD::SendBufferedAudio()
-{
-    if (_AudioQueue.empty())
-    {
-        return;
-    }
-	
-    std::string Data;
-    while (!_AudioQueue.empty())
-    {
-        Data.append(_AudioQueue.front());
-        _AudioQueue.pop();
-    }
-
-    SendAudio(Data);
-}
-
-void Inworld::ClientSpeechProcessor_VAD::ProcessAudio(const std::string& Data)
-{
-    std::vector<float> FloatData;
-    FloatData.reserve(Data.size() / 2);
-    for (size_t i = 0; i < Data.size(); i += 2)
-    {
-        const int16_t Sample = *reinterpret_cast<const int16_t*>(Data.data() + i);
-        FloatData.emplace_back(static_cast<float>(Sample) / 32767.0f);
-    }
-
-#ifdef INWORLD_VAD
-    const float SpeechProb = Inworld::VAD_Process(FloatData.data(), FloatData.size());
-#else
-    constexpr float SpeechProb = 1.f;
-#endif
-    const bool bVoiceDetected = SpeechProb > _Options.VADProbThreshhold;
-    if (_Options.VADImmediateCb && _Options.Mode >= ClientSpeechOptions::SpeechMode::VAD_DetectOnly)
-    {
-        _Options.VADImmediateCb(bVoiceDetected);
-    }
-    
-    if (bVoiceDetected)
-    {
-        _VADSilenceCounter = 0;
-        const bool bJustStarted = StartActualAudioSession();
-        if (bJustStarted)
-        {
-            _AudioQueue.push(Data);
-            SendBufferedAudio();
-        }
-        else
-        {
-            SendAudio(Data);
-        }
-        return;
-    }
-
-    if (!_bSessionActive)
-    {
-        _AudioQueue.push(Data);
-        if (_AudioQueue.size() > _Options.VADPreviousChunks)
-        {
-            _AudioQueue.pop();
-        }
-        return;
-    }
-
-    SendAudio(Data);
-    if (++_VADSilenceCounter > _Options.VADSubsequentChunks)
-    {
-        StopActualAudioSession();
-        _VADSilenceCounter = 0;
-    }
-}
-
-void Inworld::ClientSpeechProcessor_VAD::ClearState()
-{
-    ClientSpeechProcessor::ClearState();
-    _AudioQueue = {};
-    _VADSilenceCounter = 0;
-#ifdef INWORLD_VAD
-    VAD_ResetState();
-#endif
-}
-
-void Inworld::ClientSpeechProcessor_VAD_DetectOnly::StartAudioSession(const Inworld::Routing& Routing,
-                                                                      const AudioSessionStartPayload& Payload)
-{
-    ClientSpeechProcessor::StartAudioSession(Routing, Payload);
-    StartActualAudioSession();
-}
-
-void Inworld::ClientSpeechProcessor_VAD_DetectOnly::StopAudioSession(const Inworld::Routing& Routing)
-{
-    StopActualAudioSession();
-    ClientSpeechProcessor::StopAudioSession(Routing);
-}
-
-bool Inworld::ClientSpeechProcessor_VAD_DetectOnly::StartActualAudioSession()
-{
-    const bool bSuccess = ClientSpeechProcessor::StartActualAudioSession();
-    if (bSuccess && _Options.VADCb)
-    {
-        _Options.VADCb(true);
-    }
-    return bSuccess;
-}
-
-bool Inworld::ClientSpeechProcessor_VAD_DetectOnly::StopActualAudioSession()
-{
-    const bool bSuccess = ClientSpeechProcessor::StopActualAudioSession();
-    if (bSuccess && _Options.VADCb)
-    {
-        _Options.VADCb(false);
-    }
-    return bSuccess;
-}
-
-bool Inworld::ClientSpeechProcessor_VAD_DetectAndSendAudio::StartActualAudioSession()
-{
-    const bool bSuccess = ClientSpeechProcessor::StartActualAudioSession();
-    if (bSuccess && _Options.VADCb)
-    {
-        _Options.VADCb(true);
-    }
-    return bSuccess;
-}
-
-bool Inworld::ClientSpeechProcessor_VAD_DetectAndSendAudio::StopActualAudioSession()
-{
-    const bool bSuccess = ClientSpeechProcessor::StopActualAudioSession();
-    if (bSuccess && _Options.VADCb)
-    {
-        _Options.VADCb(false);
-    }
-    return bSuccess;
-}
 
 void Inworld::ClientSpeechProcessor::StartAudioSession(const Inworld::Routing& Routing,
                                                        const AudioSessionStartPayload& Payload)
@@ -391,4 +224,167 @@ void Inworld::ClientSpeechProcessor::SendAudio(const std::string& Data)
 	        _AudioChunksToDump.PushBack(Data);
 #endif
     }
+}
+
+void Inworld::ClientSpeechProcessor_Default::StartAudioSession(const Inworld::Routing& Routing,
+    const AudioSessionStartPayload& Payload)
+{
+    ClientSpeechProcessor::StartAudioSession(Routing, Payload);
+    StartActualAudioSession();
+}
+
+void Inworld::ClientSpeechProcessor_Default::StopAudioSession(const Inworld::Routing& Routing)
+{
+    StopActualAudioSession();
+    ClientSpeechProcessor::StopAudioSession(Routing);
+}
+
+void Inworld::ClientSpeechProcessor_Default::ProcessAudio(const std::string& Data)
+{
+    SendAudio(Data);
+}
+
+Inworld::ClientSpeechProcessor_VAD::ClientSpeechProcessor_VAD(const ClientSpeechOptions& Options)
+    : ClientSpeechProcessor(Options)
+{
+#ifdef INWORLD_VAD
+    VAD_Initialize(_Options.VADModelPath.c_str());
+#endif
+}
+
+Inworld::ClientSpeechProcessor_VAD::~ClientSpeechProcessor_VAD()
+{
+#ifdef INWORLD_VAD
+    VAD_Terminate();
+#endif
+}
+
+bool Inworld::ClientSpeechProcessor_VAD::DetectVoice(const std::string& Data)
+{
+    std::vector<float> FloatData;
+    FloatData.reserve(Data.size() / 2);
+    for (size_t i = 0; i < Data.size(); i += 2)
+    {
+        const int16_t Sample = *reinterpret_cast<const int16_t*>(Data.data() + i);
+        FloatData.emplace_back(static_cast<float>(Sample) / 32767.0f);
+    }
+
+#ifdef INWORLD_VAD
+    const float SpeechProb = Inworld::VAD_Process(FloatData.data(), FloatData.size());
+#else
+    constexpr float SpeechProb = 1.f;
+#endif
+    const bool bVoiceDetected = SpeechProb > _Options.VADProbThreshhold;
+    if (_Options.VADImmediateCb)
+    {
+        _Options.VADImmediateCb(bVoiceDetected);
+    }
+    
+    return bVoiceDetected;
+}
+
+bool Inworld::ClientSpeechProcessor_VAD::StartActualAudioSession()
+{
+    const bool bSuccess = ClientSpeechProcessor::StartActualAudioSession();
+    if (bSuccess && _Options.VADCb)
+    {
+        _Options.VADCb(true);
+    }
+    return bSuccess;
+}
+
+bool Inworld::ClientSpeechProcessor_VAD::StopActualAudioSession()
+{
+    const bool bSuccess = ClientSpeechProcessor::StopActualAudioSession();
+    if (bSuccess && _Options.VADCb)
+    {
+        _Options.VADCb(false);
+    }
+    return bSuccess;
+}
+
+void Inworld::ClientSpeechProcessor_VAD_DetectAndSendAudio::ProcessAudio(const std::string& Data)
+{
+    if (DetectVoice(Data))
+    {
+        _VADSilenceCounter = 0;
+        const bool bJustStarted = StartActualAudioSession();
+        if (!bJustStarted)
+        {
+            // audio session is already active
+            // send audio immediately
+            SendAudio(Data);
+        }
+        else
+        {
+            // audio session just started
+            // send buffered audio first
+            _AudioQueue.push(Data);
+            std::string DataToSend;
+            while (!_AudioQueue.empty())
+            {
+                DataToSend.append(_AudioQueue.front());
+                _AudioQueue.pop();
+            }
+
+            SendAudio(DataToSend);
+        }
+        return;
+    }
+
+    if (!_bSessionActive)
+    {
+        // audio session is not active
+        // buffer audio
+        _AudioQueue.push(Data);
+        if (_AudioQueue.size() > _Options.VADPreviousChunks)
+        {
+            _AudioQueue.pop();
+        }
+        return;
+    }
+
+    // audio session is active
+    // send audio and check for long silence
+    SendAudio(Data);
+    if (++_VADSilenceCounter > _Options.VADSubsequentChunks)
+    {
+        StopActualAudioSession();
+        _VADSilenceCounter = 0;
+    }
+}
+
+void Inworld::ClientSpeechProcessor_VAD::ClearState()
+{
+    ClientSpeechProcessor::ClearState();
+#ifdef INWORLD_VAD
+    VAD_ResetState();
+#endif
+}
+
+void Inworld::ClientSpeechProcessor_VAD_DetectOnly::StartAudioSession(const Inworld::Routing& Routing,
+                                                                      const AudioSessionStartPayload& Payload)
+{
+    ClientSpeechProcessor::StartAudioSession(Routing, Payload);
+    StartActualAudioSession();
+}
+
+void Inworld::ClientSpeechProcessor_VAD_DetectOnly::StopAudioSession(const Inworld::Routing& Routing)
+{
+    StopActualAudioSession();
+    ClientSpeechProcessor::StopAudioSession(Routing);
+}
+
+void Inworld::ClientSpeechProcessor_VAD_DetectOnly::ProcessAudio(const std::string& Data)
+{
+    SendAudio(Data);
+    DetectVoice(Data);
+}
+
+void Inworld::ClientSpeechProcessor_VAD_DetectAndSendAudio::ClearState()
+{
+    ClientSpeechProcessor_VAD::ClearState();
+    
+    _AudioQueue = {};
+    _VADSilenceCounter = 0;
 }
