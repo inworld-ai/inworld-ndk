@@ -63,14 +63,14 @@ void Inworld::PerceivedLatencyTracker::VisitReply(const Inworld::Packet& Event)
 	    {
 	        const auto Duration = std::chrono::system_clock::now() - _LastVoice;
 	        const int64_t Ms = std::chrono::duration_cast<std::chrono::milliseconds>(Duration).count();
-	        Inworld::Log("PerceivedLatencyTracker. Player local VAD to character reply latency is %dms, Interaction: %s", Ms, Interaction.c_str());
+	        Inworld::Log("PerceivedLatencyTracker. Player local VAD to character reply latency is %d ms, Interaction: %s", Ms, Interaction.c_str());
 	    }
 	    
 		const auto Duration = std::chrono::system_clock::now() - It->second;
 		_InteractionTimeMap.erase(It);
 
 		const int32_t Ms = std::chrono::duration_cast<std::chrono::milliseconds>(Duration).count();
-	    Inworld::Log("PerceivedLatencyTracker. Player server STT to character reply latency is %dms, Interaction: %s", Ms, Interaction.c_str());
+	    Inworld::Log("PerceivedLatencyTracker. Player server STT to character reply latency is %d ms, Interaction: %s", Ms, Interaction.c_str());
 
 	    if (_Callback)
 	    {
