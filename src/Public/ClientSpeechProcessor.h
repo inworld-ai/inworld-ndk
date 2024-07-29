@@ -15,7 +15,7 @@
 #include "AECFilter.h"
 #include "AsyncRoutine.h"
 #include "Packets.h"
-#include "SharedQueue.h"
+#include "Utils/SharedQueue.h"
 
 namespace Inworld
 {
@@ -28,7 +28,15 @@ namespace Inworld
             ExpectAudioEnd = 2,
         };
 
+        enum class UnderstandingMode : uint8_t
+        {
+            Unspecified = 0,
+            Full = 1,
+            SpeechRecognitionOnly = 2,
+        };
+
         MicrophoneMode MicMode = MicrophoneMode::Unspecified;
+        UnderstandingMode UndMode = UnderstandingMode::Unspecified;
     };
 
     using ClientSpeechPacketCallback = std::function<void(const std::shared_ptr<Packet>& Packet)>;
@@ -36,13 +44,13 @@ namespace Inworld
     
     struct ClientSpeechOptions
     {
-        enum class Mode : uint8_t
+        enum class SpeechMode : uint8_t
         {
             Default = 0,
             VAD = 1,
             STT = 2,
         };  
-        Mode Mode = Mode::Default;
+        SpeechMode Mode = SpeechMode::Default;
 
         std::string VADModelPath;
         std::string STTModelPath;
@@ -63,8 +71,8 @@ namespace Inworld
         ClientSpeechProcessor(const ClientSpeechOptions& Options);
         ClientSpeechProcessor(const ClientSpeechProcessor&) = delete;
         ClientSpeechProcessor& operator=(const ClientSpeechProcessor&) = delete;
-        ClientSpeechProcessor(ClientSpeechProcessor&&) = default;
-        ClientSpeechProcessor& operator=(ClientSpeechProcessor&&) = default;
+        ClientSpeechProcessor(ClientSpeechProcessor&&) = delete;
+        ClientSpeechProcessor& operator=(ClientSpeechProcessor&&) = delete;
 	    ~ClientSpeechProcessor();
 
         void StartAudioSession(const Inworld::Routing& Routing, const AudioSessionStartPayload& Payload);
@@ -72,7 +80,7 @@ namespace Inworld
         void SendSoundMessage(const Inworld::Routing& Routing, const std::string& Data);
         void SendSoundMessageWithAEC(const Inworld::Routing& Routing, const std::vector<int16_t>& InputData, const std::vector<int16_t>& OutputData);
 
-        void EnableAudioDump(const std::string& FileName);
+        void EnableAudioDump(const std::string& FilePath);
         void DisableAudioDump();
 	    
     private:

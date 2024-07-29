@@ -63,7 +63,7 @@ struct TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[47]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[49]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -98,6 +98,12 @@ extern CharacterAdvancedSettings_ConversationConfigDefaultTypeInternal _Characte
 class CharacterAdvancedSettings_ConversationConfig_EngineSpec;
 class CharacterAdvancedSettings_ConversationConfig_EngineSpecDefaultTypeInternal;
 extern CharacterAdvancedSettings_ConversationConfig_EngineSpecDefaultTypeInternal _CharacterAdvancedSettings_ConversationConfig_EngineSpec_default_instance_;
+class CharacterAdvancedSettings_CustomPrompt;
+class CharacterAdvancedSettings_CustomPromptDefaultTypeInternal;
+extern CharacterAdvancedSettings_CustomPromptDefaultTypeInternal _CharacterAdvancedSettings_CustomPrompt_default_instance_;
+class CharacterAdvancedSettings_CustomPrompt_PromptBlock;
+class CharacterAdvancedSettings_CustomPrompt_PromptBlockDefaultTypeInternal;
+extern CharacterAdvancedSettings_CustomPrompt_PromptBlockDefaultTypeInternal _CharacterAdvancedSettings_CustomPrompt_PromptBlock_default_instance_;
 class CharacterAdvancedSettings_SafetySpec;
 class CharacterAdvancedSettings_SafetySpecDefaultTypeInternal;
 extern CharacterAdvancedSettings_SafetySpecDefaultTypeInternal _CharacterAdvancedSettings_SafetySpec_default_instance_;
@@ -228,6 +234,8 @@ template<> ::ai::inworld::studio::v1alpha::Character* Arena::CreateMaybeMessage<
 template<> ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::CharacterAdvancedSettings>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_ConversationConfig* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_ConversationConfig>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_ConversationConfig_EngineSpec* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_ConversationConfig_EngineSpec>(Arena*);
+template<> ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt>(Arena*);
+template<> ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt_PromptBlock* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt_PromptBlock>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_SafetySpec* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_SafetySpec>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::CharacterShareInfo* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::CharacterShareInfo>(Arena*);
 template<> ::ai::inworld::studio::v1alpha::Character_CharacterAssets* Arena::CreateMaybeMessage<::ai::inworld::studio::v1alpha::Character_CharacterAssets>(Arena*);
@@ -4298,7 +4306,7 @@ class BatchGetCharacterAdvancedSettingsRequest PROTOBUF_FINAL :
     kNamesFieldNumber = 2,
     kParentFieldNumber = 1,
   };
-  // repeated string names = 2 [(.google.api.field_behavior) = REQUIRED];
+  // repeated string names = 2 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
   int names_size() const;
   private:
   int _internal_names_size() const;
@@ -8139,6 +8147,332 @@ class CharacterAdvancedSettings_SafetySpec PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class CharacterAdvancedSettings_CustomPrompt_PromptBlock PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.PromptBlock) */ {
+ public:
+  inline CharacterAdvancedSettings_CustomPrompt_PromptBlock() : CharacterAdvancedSettings_CustomPrompt_PromptBlock(nullptr) {}
+  virtual ~CharacterAdvancedSettings_CustomPrompt_PromptBlock();
+
+  CharacterAdvancedSettings_CustomPrompt_PromptBlock(const CharacterAdvancedSettings_CustomPrompt_PromptBlock& from);
+  CharacterAdvancedSettings_CustomPrompt_PromptBlock(CharacterAdvancedSettings_CustomPrompt_PromptBlock&& from) noexcept
+    : CharacterAdvancedSettings_CustomPrompt_PromptBlock() {
+    *this = ::std::move(from);
+  }
+
+  inline CharacterAdvancedSettings_CustomPrompt_PromptBlock& operator=(const CharacterAdvancedSettings_CustomPrompt_PromptBlock& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CharacterAdvancedSettings_CustomPrompt_PromptBlock& operator=(CharacterAdvancedSettings_CustomPrompt_PromptBlock&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CharacterAdvancedSettings_CustomPrompt_PromptBlock& default_instance();
+
+  static inline const CharacterAdvancedSettings_CustomPrompt_PromptBlock* internal_default_instance() {
+    return reinterpret_cast<const CharacterAdvancedSettings_CustomPrompt_PromptBlock*>(
+               &_CharacterAdvancedSettings_CustomPrompt_PromptBlock_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    39;
+
+  friend void swap(CharacterAdvancedSettings_CustomPrompt_PromptBlock& a, CharacterAdvancedSettings_CustomPrompt_PromptBlock& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CharacterAdvancedSettings_CustomPrompt_PromptBlock* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CharacterAdvancedSettings_CustomPrompt_PromptBlock* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CharacterAdvancedSettings_CustomPrompt_PromptBlock* New() const final {
+    return CreateMaybeMessage<CharacterAdvancedSettings_CustomPrompt_PromptBlock>(nullptr);
+  }
+
+  CharacterAdvancedSettings_CustomPrompt_PromptBlock* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CharacterAdvancedSettings_CustomPrompt_PromptBlock>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CharacterAdvancedSettings_CustomPrompt_PromptBlock& from);
+  void MergeFrom(const CharacterAdvancedSettings_CustomPrompt_PromptBlock& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CharacterAdvancedSettings_CustomPrompt_PromptBlock* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.PromptBlock";
+  }
+  protected:
+  explicit CharacterAdvancedSettings_CustomPrompt_PromptBlock(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+    return ::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNameFieldNumber = 1,
+    kContentFieldNumber = 2,
+  };
+  // string name = 1 [(.google.api.field_behavior) = REQUIRED];
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // string content = 2 [(.google.api.field_behavior) = REQUIRED];
+  void clear_content();
+  const std::string& content() const;
+  void set_content(const std::string& value);
+  void set_content(std::string&& value);
+  void set_content(const char* value);
+  void set_content(const char* value, size_t size);
+  std::string* mutable_content();
+  std::string* release_content();
+  void set_allocated_content(std::string* content);
+  private:
+  const std::string& _internal_content() const;
+  void _internal_set_content(const std::string& value);
+  std::string* _internal_mutable_content();
+  public:
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.PromptBlock)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr content_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CharacterAdvancedSettings_CustomPrompt PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt) */ {
+ public:
+  inline CharacterAdvancedSettings_CustomPrompt() : CharacterAdvancedSettings_CustomPrompt(nullptr) {}
+  virtual ~CharacterAdvancedSettings_CustomPrompt();
+
+  CharacterAdvancedSettings_CustomPrompt(const CharacterAdvancedSettings_CustomPrompt& from);
+  CharacterAdvancedSettings_CustomPrompt(CharacterAdvancedSettings_CustomPrompt&& from) noexcept
+    : CharacterAdvancedSettings_CustomPrompt() {
+    *this = ::std::move(from);
+  }
+
+  inline CharacterAdvancedSettings_CustomPrompt& operator=(const CharacterAdvancedSettings_CustomPrompt& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CharacterAdvancedSettings_CustomPrompt& operator=(CharacterAdvancedSettings_CustomPrompt&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CharacterAdvancedSettings_CustomPrompt& default_instance();
+
+  static inline const CharacterAdvancedSettings_CustomPrompt* internal_default_instance() {
+    return reinterpret_cast<const CharacterAdvancedSettings_CustomPrompt*>(
+               &_CharacterAdvancedSettings_CustomPrompt_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    40;
+
+  friend void swap(CharacterAdvancedSettings_CustomPrompt& a, CharacterAdvancedSettings_CustomPrompt& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CharacterAdvancedSettings_CustomPrompt* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CharacterAdvancedSettings_CustomPrompt* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CharacterAdvancedSettings_CustomPrompt* New() const final {
+    return CreateMaybeMessage<CharacterAdvancedSettings_CustomPrompt>(nullptr);
+  }
+
+  CharacterAdvancedSettings_CustomPrompt* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CharacterAdvancedSettings_CustomPrompt>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CharacterAdvancedSettings_CustomPrompt& from);
+  void MergeFrom(const CharacterAdvancedSettings_CustomPrompt& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CharacterAdvancedSettings_CustomPrompt* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt";
+  }
+  protected:
+  explicit CharacterAdvancedSettings_CustomPrompt(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto);
+    return ::descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  typedef CharacterAdvancedSettings_CustomPrompt_PromptBlock PromptBlock;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kChildBlocksFieldNumber = 2,
+    kBaseTemplateFieldNumber = 1,
+  };
+  // repeated .ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.PromptBlock child_blocks = 2 [(.google.api.field_behavior) = OPTIONAL];
+  int child_blocks_size() const;
+  private:
+  int _internal_child_blocks_size() const;
+  public:
+  void clear_child_blocks();
+  ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt_PromptBlock* mutable_child_blocks(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt_PromptBlock >*
+      mutable_child_blocks();
+  private:
+  const ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt_PromptBlock& _internal_child_blocks(int index) const;
+  ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt_PromptBlock* _internal_add_child_blocks();
+  public:
+  const ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt_PromptBlock& child_blocks(int index) const;
+  ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt_PromptBlock* add_child_blocks();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt_PromptBlock >&
+      child_blocks() const;
+
+  // string base_template = 1 [(.google.api.field_behavior) = OPTIONAL];
+  void clear_base_template();
+  const std::string& base_template() const;
+  void set_base_template(const std::string& value);
+  void set_base_template(std::string&& value);
+  void set_base_template(const char* value);
+  void set_base_template(const char* value, size_t size);
+  std::string* mutable_base_template();
+  std::string* release_base_template();
+  void set_allocated_base_template(std::string* base_template);
+  private:
+  const std::string& _internal_base_template() const;
+  void _internal_set_base_template(const std::string& value);
+  std::string* _internal_mutable_base_template();
+  public:
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt_PromptBlock > child_blocks_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr base_template_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CharacterAdvancedSettings PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.studio.v1alpha.CharacterAdvancedSettings) */ {
  public:
@@ -8180,7 +8514,7 @@ class CharacterAdvancedSettings PROTOBUF_FINAL :
                &_CharacterAdvancedSettings_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    41;
 
   friend void swap(CharacterAdvancedSettings& a, CharacterAdvancedSettings& b) {
     a.Swap(&b);
@@ -8250,6 +8584,7 @@ class CharacterAdvancedSettings PROTOBUF_FINAL :
 
   typedef CharacterAdvancedSettings_ConversationConfig ConversationConfig;
   typedef CharacterAdvancedSettings_SafetySpec SafetySpec;
+  typedef CharacterAdvancedSettings_CustomPrompt CustomPrompt;
 
   typedef CharacterAdvancedSettings_SafetyTopicName SafetyTopicName;
   static constexpr SafetyTopicName SAFETY_TOPIC_NAME_UNSPECIFIED =
@@ -8305,6 +8640,8 @@ class CharacterAdvancedSettings PROTOBUF_FINAL :
     kAdditionalAgentInfoFieldNumber = 6,
     kConversationConfigFieldNumber = 2,
     kSpeechSafetySpecFieldNumber = 5,
+    kCustomPromptFieldNumber = 7,
+    kVersionFieldNumber = 8,
   };
   // string name = 1 [(.ai.inworld.options.examples) = {
   void clear_name();
@@ -8322,16 +8659,16 @@ class CharacterAdvancedSettings PROTOBUF_FINAL :
   std::string* _internal_mutable_name();
   public:
 
-  // string custom_prompt_template = 4;
-  void clear_custom_prompt_template();
-  const std::string& custom_prompt_template() const;
-  void set_custom_prompt_template(const std::string& value);
-  void set_custom_prompt_template(std::string&& value);
-  void set_custom_prompt_template(const char* value);
-  void set_custom_prompt_template(const char* value, size_t size);
-  std::string* mutable_custom_prompt_template();
-  std::string* release_custom_prompt_template();
-  void set_allocated_custom_prompt_template(std::string* custom_prompt_template);
+  // string custom_prompt_template = 4 [deprecated = true];
+  PROTOBUF_DEPRECATED void clear_custom_prompt_template();
+  PROTOBUF_DEPRECATED const std::string& custom_prompt_template() const;
+  PROTOBUF_DEPRECATED void set_custom_prompt_template(const std::string& value);
+  PROTOBUF_DEPRECATED void set_custom_prompt_template(std::string&& value);
+  PROTOBUF_DEPRECATED void set_custom_prompt_template(const char* value);
+  PROTOBUF_DEPRECATED void set_custom_prompt_template(const char* value, size_t size);
+  PROTOBUF_DEPRECATED std::string* mutable_custom_prompt_template();
+  PROTOBUF_DEPRECATED std::string* release_custom_prompt_template();
+  PROTOBUF_DEPRECATED void set_allocated_custom_prompt_template(std::string* custom_prompt_template);
   private:
   const std::string& _internal_custom_prompt_template() const;
   void _internal_set_custom_prompt_template(const std::string& value);
@@ -8390,6 +8727,33 @@ class CharacterAdvancedSettings PROTOBUF_FINAL :
       ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_SafetySpec* speech_safety_spec);
   ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_SafetySpec* unsafe_arena_release_speech_safety_spec();
 
+  // .ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt custom_prompt = 7;
+  bool has_custom_prompt() const;
+  private:
+  bool _internal_has_custom_prompt() const;
+  public:
+  void clear_custom_prompt();
+  const ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt& custom_prompt() const;
+  ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt* release_custom_prompt();
+  ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt* mutable_custom_prompt();
+  void set_allocated_custom_prompt(::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt* custom_prompt);
+  private:
+  const ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt& _internal_custom_prompt() const;
+  ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt* _internal_mutable_custom_prompt();
+  public:
+  void unsafe_arena_set_allocated_custom_prompt(
+      ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt* custom_prompt);
+  ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt* unsafe_arena_release_custom_prompt();
+
+  // int32 version = 8 [(.google.api.field_behavior) = OUTPUT_ONLY];
+  void clear_version();
+  ::PROTOBUF_NAMESPACE_ID::int32 version() const;
+  void set_version(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_version() const;
+  void _internal_set_version(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:ai.inworld.studio.v1alpha.CharacterAdvancedSettings)
  private:
   class _Internal;
@@ -8402,6 +8766,8 @@ class CharacterAdvancedSettings PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr additional_agent_info_;
   ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_ConversationConfig* conversation_config_;
   ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_SafetySpec* speech_safety_spec_;
+  ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt* custom_prompt_;
+  ::PROTOBUF_NAMESPACE_ID::int32 version_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fcharacters_2eproto;
 };
@@ -8448,7 +8814,7 @@ class GetCharacterShareInfoRequest PROTOBUF_FINAL :
                &_GetCharacterShareInfoRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    42;
 
   friend void swap(GetCharacterShareInfoRequest& a, GetCharacterShareInfoRequest& b) {
     a.Swap(&b);
@@ -8602,7 +8968,7 @@ class CharacterShareInfo PROTOBUF_FINAL :
                &_CharacterShareInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    43;
 
   friend void swap(CharacterShareInfo& a, CharacterShareInfo& b) {
     a.Swap(&b);
@@ -8753,7 +9119,7 @@ class CheckDeployInfoRequest PROTOBUF_FINAL :
                &_CheckDeployInfoRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    44;
 
   friend void swap(CheckDeployInfoRequest& a, CheckDeployInfoRequest& b) {
     a.Swap(&b);
@@ -8896,7 +9262,7 @@ class DeployCharacterAsyncMetadata PROTOBUF_FINAL :
                &_DeployCharacterAsyncMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    45;
 
   friend void swap(DeployCharacterAsyncMetadata& a, DeployCharacterAsyncMetadata& b) {
     a.Swap(&b);
@@ -9019,7 +9385,7 @@ class DeployCharacterAsyncResponse PROTOBUF_FINAL :
                &_DeployCharacterAsyncResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    46;
 
   friend void swap(DeployCharacterAsyncResponse& a, DeployCharacterAsyncResponse& b) {
     a.Swap(&b);
@@ -9142,7 +9508,7 @@ class CreateCharacterMetadata PROTOBUF_FINAL :
                &_CreateCharacterMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    47;
 
   friend void swap(CreateCharacterMetadata& a, CreateCharacterMetadata& b) {
     a.Swap(&b);
@@ -9265,7 +9631,7 @@ class CheckDeployInfoResponse PROTOBUF_FINAL :
                &_CheckDeployInfoResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    48;
 
   friend void swap(CheckDeployInfoResponse& a, CheckDeployInfoResponse& b) {
     a.Swap(&b);
@@ -13427,7 +13793,7 @@ inline void BatchGetCharacterAdvancedSettingsRequest::set_allocated_parent(std::
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.BatchGetCharacterAdvancedSettingsRequest.parent)
 }
 
-// repeated string names = 2 [(.google.api.field_behavior) = REQUIRED];
+// repeated string names = 2 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = {
 inline int BatchGetCharacterAdvancedSettingsRequest::_internal_names_size() const {
   return names_.size();
 }
@@ -16354,6 +16720,236 @@ CharacterAdvancedSettings_SafetySpec::mutable_allowed_topics() {
 
 // -------------------------------------------------------------------
 
+// CharacterAdvancedSettings_CustomPrompt_PromptBlock
+
+// string name = 1 [(.google.api.field_behavior) = REQUIRED];
+inline void CharacterAdvancedSettings_CustomPrompt_PromptBlock::clear_name() {
+  name_.ClearToEmpty();
+}
+inline const std::string& CharacterAdvancedSettings_CustomPrompt_PromptBlock::name() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.PromptBlock.name)
+  return _internal_name();
+}
+inline void CharacterAdvancedSettings_CustomPrompt_PromptBlock::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.PromptBlock.name)
+}
+inline std::string* CharacterAdvancedSettings_CustomPrompt_PromptBlock::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.PromptBlock.name)
+  return _internal_mutable_name();
+}
+inline const std::string& CharacterAdvancedSettings_CustomPrompt_PromptBlock::_internal_name() const {
+  return name_.Get();
+}
+inline void CharacterAdvancedSettings_CustomPrompt_PromptBlock::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CharacterAdvancedSettings_CustomPrompt_PromptBlock::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.PromptBlock.name)
+}
+inline void CharacterAdvancedSettings_CustomPrompt_PromptBlock::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.PromptBlock.name)
+}
+inline void CharacterAdvancedSettings_CustomPrompt_PromptBlock::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.PromptBlock.name)
+}
+inline std::string* CharacterAdvancedSettings_CustomPrompt_PromptBlock::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CharacterAdvancedSettings_CustomPrompt_PromptBlock::release_name() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.PromptBlock.name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CharacterAdvancedSettings_CustomPrompt_PromptBlock::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.PromptBlock.name)
+}
+
+// string content = 2 [(.google.api.field_behavior) = REQUIRED];
+inline void CharacterAdvancedSettings_CustomPrompt_PromptBlock::clear_content() {
+  content_.ClearToEmpty();
+}
+inline const std::string& CharacterAdvancedSettings_CustomPrompt_PromptBlock::content() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.PromptBlock.content)
+  return _internal_content();
+}
+inline void CharacterAdvancedSettings_CustomPrompt_PromptBlock::set_content(const std::string& value) {
+  _internal_set_content(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.PromptBlock.content)
+}
+inline std::string* CharacterAdvancedSettings_CustomPrompt_PromptBlock::mutable_content() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.PromptBlock.content)
+  return _internal_mutable_content();
+}
+inline const std::string& CharacterAdvancedSettings_CustomPrompt_PromptBlock::_internal_content() const {
+  return content_.Get();
+}
+inline void CharacterAdvancedSettings_CustomPrompt_PromptBlock::_internal_set_content(const std::string& value) {
+  
+  content_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CharacterAdvancedSettings_CustomPrompt_PromptBlock::set_content(std::string&& value) {
+  
+  content_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.PromptBlock.content)
+}
+inline void CharacterAdvancedSettings_CustomPrompt_PromptBlock::set_content(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  content_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.PromptBlock.content)
+}
+inline void CharacterAdvancedSettings_CustomPrompt_PromptBlock::set_content(const char* value,
+    size_t size) {
+  
+  content_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.PromptBlock.content)
+}
+inline std::string* CharacterAdvancedSettings_CustomPrompt_PromptBlock::_internal_mutable_content() {
+  
+  return content_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CharacterAdvancedSettings_CustomPrompt_PromptBlock::release_content() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.PromptBlock.content)
+  return content_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CharacterAdvancedSettings_CustomPrompt_PromptBlock::set_allocated_content(std::string* content) {
+  if (content != nullptr) {
+    
+  } else {
+    
+  }
+  content_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), content,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.PromptBlock.content)
+}
+
+// -------------------------------------------------------------------
+
+// CharacterAdvancedSettings_CustomPrompt
+
+// string base_template = 1 [(.google.api.field_behavior) = OPTIONAL];
+inline void CharacterAdvancedSettings_CustomPrompt::clear_base_template() {
+  base_template_.ClearToEmpty();
+}
+inline const std::string& CharacterAdvancedSettings_CustomPrompt::base_template() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.base_template)
+  return _internal_base_template();
+}
+inline void CharacterAdvancedSettings_CustomPrompt::set_base_template(const std::string& value) {
+  _internal_set_base_template(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.base_template)
+}
+inline std::string* CharacterAdvancedSettings_CustomPrompt::mutable_base_template() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.base_template)
+  return _internal_mutable_base_template();
+}
+inline const std::string& CharacterAdvancedSettings_CustomPrompt::_internal_base_template() const {
+  return base_template_.Get();
+}
+inline void CharacterAdvancedSettings_CustomPrompt::_internal_set_base_template(const std::string& value) {
+  
+  base_template_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CharacterAdvancedSettings_CustomPrompt::set_base_template(std::string&& value) {
+  
+  base_template_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.base_template)
+}
+inline void CharacterAdvancedSettings_CustomPrompt::set_base_template(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  base_template_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.base_template)
+}
+inline void CharacterAdvancedSettings_CustomPrompt::set_base_template(const char* value,
+    size_t size) {
+  
+  base_template_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.base_template)
+}
+inline std::string* CharacterAdvancedSettings_CustomPrompt::_internal_mutable_base_template() {
+  
+  return base_template_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CharacterAdvancedSettings_CustomPrompt::release_base_template() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.base_template)
+  return base_template_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CharacterAdvancedSettings_CustomPrompt::set_allocated_base_template(std::string* base_template) {
+  if (base_template != nullptr) {
+    
+  } else {
+    
+  }
+  base_template_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), base_template,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.base_template)
+}
+
+// repeated .ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.PromptBlock child_blocks = 2 [(.google.api.field_behavior) = OPTIONAL];
+inline int CharacterAdvancedSettings_CustomPrompt::_internal_child_blocks_size() const {
+  return child_blocks_.size();
+}
+inline int CharacterAdvancedSettings_CustomPrompt::child_blocks_size() const {
+  return _internal_child_blocks_size();
+}
+inline void CharacterAdvancedSettings_CustomPrompt::clear_child_blocks() {
+  child_blocks_.Clear();
+}
+inline ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt_PromptBlock* CharacterAdvancedSettings_CustomPrompt::mutable_child_blocks(int index) {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.child_blocks)
+  return child_blocks_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt_PromptBlock >*
+CharacterAdvancedSettings_CustomPrompt::mutable_child_blocks() {
+  // @@protoc_insertion_point(field_mutable_list:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.child_blocks)
+  return &child_blocks_;
+}
+inline const ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt_PromptBlock& CharacterAdvancedSettings_CustomPrompt::_internal_child_blocks(int index) const {
+  return child_blocks_.Get(index);
+}
+inline const ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt_PromptBlock& CharacterAdvancedSettings_CustomPrompt::child_blocks(int index) const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.child_blocks)
+  return _internal_child_blocks(index);
+}
+inline ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt_PromptBlock* CharacterAdvancedSettings_CustomPrompt::_internal_add_child_blocks() {
+  return child_blocks_.Add();
+}
+inline ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt_PromptBlock* CharacterAdvancedSettings_CustomPrompt::add_child_blocks() {
+  // @@protoc_insertion_point(field_add:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.child_blocks)
+  return _internal_add_child_blocks();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt_PromptBlock >&
+CharacterAdvancedSettings_CustomPrompt::child_blocks() const {
+  // @@protoc_insertion_point(field_list:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt.child_blocks)
+  return child_blocks_;
+}
+
+// -------------------------------------------------------------------
+
 // CharacterAdvancedSettings
 
 // string name = 1 [(.ai.inworld.options.examples) = {
@@ -16500,7 +17096,7 @@ inline void CharacterAdvancedSettings::set_allocated_conversation_config(::ai::i
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.conversation_config)
 }
 
-// string custom_prompt_template = 4;
+// string custom_prompt_template = 4 [deprecated = true];
 inline void CharacterAdvancedSettings::clear_custom_prompt_template() {
   custom_prompt_template_.ClearToEmpty();
 }
@@ -16703,6 +17299,109 @@ inline void CharacterAdvancedSettings::set_allocated_additional_agent_info(std::
   additional_agent_info_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), additional_agent_info,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.additional_agent_info)
+}
+
+// .ai.inworld.studio.v1alpha.CharacterAdvancedSettings.CustomPrompt custom_prompt = 7;
+inline bool CharacterAdvancedSettings::_internal_has_custom_prompt() const {
+  return this != internal_default_instance() && custom_prompt_ != nullptr;
+}
+inline bool CharacterAdvancedSettings::has_custom_prompt() const {
+  return _internal_has_custom_prompt();
+}
+inline void CharacterAdvancedSettings::clear_custom_prompt() {
+  if (GetArena() == nullptr && custom_prompt_ != nullptr) {
+    delete custom_prompt_;
+  }
+  custom_prompt_ = nullptr;
+}
+inline const ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt& CharacterAdvancedSettings::_internal_custom_prompt() const {
+  const ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt* p = custom_prompt_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt&>(
+      ::ai::inworld::studio::v1alpha::_CharacterAdvancedSettings_CustomPrompt_default_instance_);
+}
+inline const ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt& CharacterAdvancedSettings::custom_prompt() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.custom_prompt)
+  return _internal_custom_prompt();
+}
+inline void CharacterAdvancedSettings::unsafe_arena_set_allocated_custom_prompt(
+    ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt* custom_prompt) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(custom_prompt_);
+  }
+  custom_prompt_ = custom_prompt;
+  if (custom_prompt) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.custom_prompt)
+}
+inline ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt* CharacterAdvancedSettings::release_custom_prompt() {
+  
+  ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt* temp = custom_prompt_;
+  custom_prompt_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt* CharacterAdvancedSettings::unsafe_arena_release_custom_prompt() {
+  // @@protoc_insertion_point(field_release:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.custom_prompt)
+  
+  ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt* temp = custom_prompt_;
+  custom_prompt_ = nullptr;
+  return temp;
+}
+inline ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt* CharacterAdvancedSettings::_internal_mutable_custom_prompt() {
+  
+  if (custom_prompt_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt>(GetArena());
+    custom_prompt_ = p;
+  }
+  return custom_prompt_;
+}
+inline ::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt* CharacterAdvancedSettings::mutable_custom_prompt() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.custom_prompt)
+  return _internal_mutable_custom_prompt();
+}
+inline void CharacterAdvancedSettings::set_allocated_custom_prompt(::ai::inworld::studio::v1alpha::CharacterAdvancedSettings_CustomPrompt* custom_prompt) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete custom_prompt_;
+  }
+  if (custom_prompt) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(custom_prompt);
+    if (message_arena != submessage_arena) {
+      custom_prompt = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, custom_prompt, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  custom_prompt_ = custom_prompt;
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.custom_prompt)
+}
+
+// int32 version = 8 [(.google.api.field_behavior) = OUTPUT_ONLY];
+inline void CharacterAdvancedSettings::clear_version() {
+  version_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CharacterAdvancedSettings::_internal_version() const {
+  return version_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CharacterAdvancedSettings::version() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.version)
+  return _internal_version();
+}
+inline void CharacterAdvancedSettings::_internal_set_version(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  version_ = value;
+}
+inline void CharacterAdvancedSettings::set_version(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_version(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.studio.v1alpha.CharacterAdvancedSettings.version)
 }
 
 // -------------------------------------------------------------------
@@ -16972,6 +17671,10 @@ inline void CheckDeployInfoResponse::set_is_fresh(bool value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

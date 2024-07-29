@@ -47,7 +47,7 @@ namespace Inworld
 		virtual ~IClientService() = default;
 		virtual std::unique_ptr<ServiceSession>& Session() = 0;
 		virtual std::unique_ptr<ClientStream>& Stream() = 0;
-		virtual void OpenSession() = 0;
+		virtual void OpenSession(const ClientHeaderData& Metadata) = 0;
 	};
 
 	struct INWORLD_EXPORT SdkInfo
@@ -73,6 +73,7 @@ namespace Inworld
 		std::string Base64;
 		std::string ProjectName;
 		std::string GameSessionId;
+		ClientHeaderData Metadata;
 	};
 
 	struct INWORLD_EXPORT ErrorDetails
@@ -141,7 +142,7 @@ namespace Inworld
 		};
 
 		Client() = default;
-		~Client() { DestroyClient(); }
+		virtual ~Client() { DestroyClient(); }
 
 #pragma region Lifetime
 		// callbacks will not be called on calling thread
@@ -229,6 +230,8 @@ namespace Inworld
 		void PushPacket(std::shared_ptr<Inworld::Packet> Packet);
 
 		void StartClientStream();
+		void PauseClientStream();
+		void ResumeClientStream();
 		void StopClientStream();
 		void SetConnectionState(ConnectionState State);
 

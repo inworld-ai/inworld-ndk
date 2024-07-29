@@ -91,7 +91,10 @@ void Inworld::RunnableRead::Run()
 
 		_Packets.PushBack(Packet);
 
-		_ProcessedCallback(Packet);
+		if (!_HasReaderWriterFinished)
+		{
+			_ProcessedCallback(Packet);
+		}
 	}
 
 	_IsDone = true;
@@ -117,8 +120,10 @@ void Inworld::RunnableWrite::Run()
 		}
 
 		_Packets.PopFront();
-
-		_ProcessedCallback(Packet);
+		if (!_HasReaderWriterFinished)
+		{
+			_ProcessedCallback(Packet);
+		}
 	}
 
 	_IsDone = true;
@@ -161,9 +166,14 @@ grpc::Status Inworld::RunnableGenerateSessionToken::RunProcess()
 	return CreateStub()->GenerateToken(AuthCtx.get(), AuthRequest, &_Response);
 }
 
-std::unique_ptr<Inworld::ClientStream> Inworld::ServiceSession::OpenSession()
+std::unique_ptr<Inworld::ClientStream> Inworld::ServiceSession::OpenSession(const ClientHeaderData& Metadata)
 {
-	return CreateStub()->OpenSession(Context().get());
+	std::unique_ptr<ClientContext>& ClientContext = Context();
+	for (const auto& Data : Metadata)
+	{
+		ClientContext->AddMetadata(Data.first, Data.second);
+	}
+	return CreateStub()->OpenSession(ClientContext.get());
 }
 
 std::unique_ptr<ClientContext>& Inworld::ServiceSession::Context()

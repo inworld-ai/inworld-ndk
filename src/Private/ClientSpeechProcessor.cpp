@@ -7,15 +7,23 @@
 
 #include "ClientSpeechProcessor.h"
 
+#include <filesystem>
+
+#ifdef INWORLD_VAD
 #include "InworldVAD.h"
+#endif
 #include "Log.h"
 #include "Service.h"
-#include "ai/inworld/packets/packets.pb.h"
+#include "ai/inworld/packets/packets.pb.h"  
 
 Inworld::ClientSpeechProcessor::ClientSpeechProcessor(const ClientSpeechOptions& Options)
     : _Options(Options)
 {
-    if (_Options.Mode == ClientSpeechOptions::Mode::Default)
+#ifndef INWORLD_VAD
+    _Options.Mode = ClientSpeechOptions::SpeechMode::Default;
+#endif
+    
+    if (_Options.Mode == ClientSpeechOptions::SpeechMode::Default)
     {
         return;
     }
@@ -23,30 +31,29 @@ Inworld::ClientSpeechProcessor::ClientSpeechProcessor(const ClientSpeechOptions&
     if (_Options.VADModelPath.empty())
     {
         LogError("Inworld::ClientSpeechProcessor invalid VAD model path. Falling back to default mode.");
-        _Options.Mode = ClientSpeechOptions::Mode::Default;
+        _Options.Mode = ClientSpeechOptions::SpeechMode::Default;
         return;
     }
 
     if (!_Options.VADCb)
     {
         LogError("Inworld::ClientSpeechProcessor invalid VAD callback. Falling back to default mode.");
-        _Options.Mode = ClientSpeechOptions::Mode::Default;
+        _Options.Mode = ClientSpeechOptions::SpeechMode::Default;
         return;
     }
 
+#ifdef INWORLD_VAD
     VAD_Initialize(_Options.VADModelPath.c_str());
-    
-    if (_Options.Mode == ClientSpeechOptions::Mode::STT)
-    {
-        
-    }
+#endif
 }
 
 Inworld::ClientSpeechProcessor::~ClientSpeechProcessor()
 {
 	ClearState();
     DisableAudioDump();
+#ifdef INWORLD_VAD
     VAD_Terminate();
+#endif
 }
 
 void Inworld::ClientSpeechProcessor::SendSoundMessageWithAEC(const Inworld::Routing& Routing,
@@ -64,9 +71,11 @@ void Inworld::ClientSpeechProcessor::ClearState()
 	_AudioQueue = {};
 	_AudioSessionPayload = {};
 	_VADSilenceCounter = 0;
-    if (_Options.Mode >= ClientSpeechOptions::Mode::VAD)
+    if (_Options.Mode >= ClientSpeechOptions::SpeechMode::VAD)
     {
+#ifdef INWORLD_VAD
         VAD_ResetState();
+#endif
     }
 }
 
@@ -76,7 +85,7 @@ void Inworld::ClientSpeechProcessor::StartAudioSession(const Inworld::Routing& R
     ClearState();
     _Routing = Routing;
     _AudioSessionPayload = Payload;
-    if (_Options.Mode == ClientSpeechOptions::Mode::Default)
+    if (_Options.Mode == ClientSpeechOptions::SpeechMode::Default)
     {
         StartActualAudioSession();
     }
@@ -84,7 +93,7 @@ void Inworld::ClientSpeechProcessor::StartAudioSession(const Inworld::Routing& R
 
 void Inworld::ClientSpeechProcessor::StopAudioSession(const Inworld::Routing& Routing)
 {
-    if (_Options.Mode == ClientSpeechOptions::Mode::Default)
+    if (_Options.Mode == ClientSpeechOptions::SpeechMode::Default)
     {
         StopActualAudioSession();
     }
@@ -102,17 +111,48 @@ void Inworld::ClientSpeechProcessor::SendSoundMessage(const Inworld::Routing& Ro
     ProcessAudio(Data);
 }
 
-void Inworld::ClientSpeechProcessor::EnableAudioDump(const std::string& FileName)
+#ifdef INWORLD_AUDIO_DUMP
+bool IsValidPath(const std::string& path) {
+    namespace fs = std::filesystem;
+    const fs::path filePath(path);
+
+    if (!filePath.has_parent_path()) {
+        return false;
+    }
+
+    if (!fs::exists(filePath.parent_path())) {
+        return false;
+    }
+
+    const std::string filename = filePath.filename().string();
+    const size_t dotPosition = filename.find_last_of('.');
+    if (dotPosition == std::string::npos || dotPosition == 0 || dotPosition == filename.length() - 1) {
+        return false;
+    }
+
+    if (filename.find('.', dotPosition + 1) != std::string::npos) {
+        return false;
+    }
+
+    return true;
+}
+#endif
+
+void Inworld::ClientSpeechProcessor::EnableAudioDump(const std::string& FilePath)
 {
 #ifdef INWORLD_AUDIO_DUMP
     _bDumpAudio = true;
-    if (!FileName.empty())
+    if (IsValidPath(FilePath))
     {
-        _AudioDumpFileName = FileName;
+        _AudioDumpFileName = FilePath;
+    }
+    else if (!IsValidPath(_AudioDumpFileName))
+    {
+        Inworld::LogError("Inworld::ClientSpeechProcessor::EnableAudioDump invalid file path.");
+        return;
     }
     _AsyncAudioDumper.Stop();
     _AsyncAudioDumper.Start("InworldAudioDumper", std::make_unique<RunnableAudioDumper>(_AudioChunksToDump, _AudioDumpFileName));
-    Inworld::Log("ASYNC audio dump STARTING");
 #endif
 }
 
@@ -130,15 +170,16 @@ bool Inworld::ClientSpeechProcessor::StartActualAudioSession()
 		return false;
 	}
 
-    if (_Options.VADCb)
+    if (_Options.VADCb && _Options.Mode == ClientSpeechOptions::SpeechMode::VAD)
     {
         _Options.VADCb(true);
     }
 
     if (_Options.PacketCb)
     {
-        const auto Packet = std::make_shared<Inworld::ControlEventAudioSessionStart>
-            (_Routing, static_cast<ai::inworld::packets::AudioSessionStartPayload_MicrophoneMode>(_AudioSessionPayload.MicMode));
+        const auto Packet = std::make_shared<Inworld::ControlEventAudioSessionStart>(_Routing,
+            static_cast<ai::inworld::packets::AudioSessionStartPayload_MicrophoneMode>(_AudioSessionPayload.MicMode),
+            static_cast<ai::inworld::packets::AudioSessionStartPayload_UnderstandingMode>(_AudioSessionPayload.UndMode));
         _Options.PacketCb(Packet);
 
         Log("ClientSpeechProcessor: start actual audio session.");
@@ -156,7 +197,7 @@ bool Inworld::ClientSpeechProcessor::StopActualAudioSession()
 		return false;
 	}
 	
-    if (_Options.VADCb)
+    if (_Options.VADCb && _Options.Mode == ClientSpeechOptions::SpeechMode::VAD)
     {
         _Options.VADCb(false);
     }
@@ -177,7 +218,7 @@ bool Inworld::ClientSpeechProcessor::StopActualAudioSession()
 
 void Inworld::ClientSpeechProcessor::ProcessAudio(const std::string& Data)
 {
-	if (_Options.Mode == ClientSpeechOptions::Mode::Default)
+	if (_Options.Mode == ClientSpeechOptions::SpeechMode::Default)
 	{
 		SendAudio(Data);
 		return;
@@ -187,11 +228,15 @@ void Inworld::ClientSpeechProcessor::ProcessAudio(const std::string& Data)
     FloatData.reserve(Data.size() / 2);
 	for (size_t i = 0; i < Data.size(); i += 2)
 	{
-	    const uint16_t Sample = *reinterpret_cast<const uint16_t*>(Data.data() + i);
+	    const int16_t Sample = *reinterpret_cast<const int16_t*>(Data.data() + i);
 		FloatData.emplace_back(static_cast<float>(Sample) / 32767.0f);
 	}
 
+#ifdef INWORLD_VAD
 	const float SpeechProb = Inworld::VAD_Process(FloatData.data(), FloatData.size());
+#else
+    constexpr float SpeechProb = 1.f;
+#endif
 	if (SpeechProb > _Options.VADProbThreshhold)
 	{
 		_VADSilenceCounter = 0;

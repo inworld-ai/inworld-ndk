@@ -76,11 +76,11 @@ const char descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fimpressio
   "feature\030\001 \001(\t\022\017\n\007variant\030\002 \001(\t\022\017\n\007payloa"
   "d\030\003 \001(\t\022\022\n\nstickiness\030\004 \001(\t\022.\n\nevent_tim"
   "e\030\005 \001(\0132\032.google.protobuf.Timestamp\022\024\n\014w"
-  "orkspace_id\030\006 \001(\tB\242\001\n\031ai.inworld.studio."
-  "v1alphaB\030ImpressionEventDataProtoP\001ZMgit"
-  "hub.com/inworld-ai/inworld/serving/grpc-"
-  "gateway/build/proto/studio/v1alpha\252\002\031Ai."
-  "Inworld.Studio.V1Alphab\006proto3"
+  "orkspace_id\030\006 \001(\tB\240\001\n\031ai.inworld.studio."
+  "v1alphaB\030ImpressionEventDataProtoP\001ZKgit"
+  "hub.com/inworld-ai/inworld-proto-golang/"
+  "src/go/ai/inworld/studio/v1alpha\252\002\031Ai.In"
+  "world.Studio.V1Alphab\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto_deps[3] = {
   &::descriptor_table_google_2fapi_2fannotations_2eproto,
@@ -92,7 +92,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto, "ai/inworld/studio/v1alpha/impression_event_data.proto", 510,
+  false, false, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto, "ai/inworld/studio/v1alpha/impression_event_data.proto", 508,
   &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto_once, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto_sccs, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto_deps, 1, 3,
   schemas, file_default_instances, TableStruct_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto::offsets,
   file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto, 1, file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto, file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2fimpression_5fevent_5fdata_2eproto,

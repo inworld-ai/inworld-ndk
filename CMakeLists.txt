@@ -67,7 +67,9 @@ target_compile_features(inworld-ndk PUBLIC cxx_std_20)
 target_compile_features(inworld-ndk-proto PUBLIC cxx_std_20)
 
 if (INWORLD_AUDIO_DUMP)
-    target_compile_definitions(inworld-ndk PRIVATE INWORLD_AUDIO_DUMP=1)
+    if (WIN32 OR MAC)
+        target_compile_definitions(inworld-ndk PRIVATE INWORLD_AUDIO_DUMP=1)
+    endif()
 endif()
 
 # grpc setup
@@ -375,10 +377,6 @@ else()
     )
 endif()
 
-if (WIN32 AND INWORLD_DEBUG)
-    list(APPEND LibFiles ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}inworld-ndk.pdb)
-endif()
-
 if (INWORLD_LOG_SPD AND NOT INWORLD_SHARED)
     list(APPEND LibFiles
         ${CMAKE_CURRENT_SOURCE_DIR}/build/ThirdParty/spdlog${ConfigDirName}/${LibPref}${LibSpglogName}.${LibExt})
@@ -433,6 +431,7 @@ if (WIN32 OR MAC)
     add_custom_command(TARGET inworld-ndk POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy 
         ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/resource/silero_vad_10_27_2022.onnx  ${PackageDir}/resource)
+    target_compile_definitions(inworld-ndk PRIVATE INWORLD_VAD)
 endif()
 
 foreach(LibFile IN LISTS LibFiles)
@@ -514,9 +513,11 @@ if (WIN32 OR MAC)
         target_link_libraries(inworld-ndk-app PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Mac/libinworld-ndk-vad.dylib)
     endif()
 
-    if (WIN32)
-        option(RTAUDIO_API_DS "Build DirectSound API" ON)
-        option(RTAUDIO_API_WASAPI "Build WASAPI API" OFF)
+    if (WIN32 OR MAC)
+        if (WIN32)
+            option(RTAUDIO_API_DS "Build DirectSound API" ON)
+            option(RTAUDIO_API_WASAPI "Build WASAPI API" OFF)
+        endif()
         add_subdirectory(ThirdParty/rtaudio)
         target_link_libraries(inworld-ndk-app PRIVATE rtaudio)
         target_include_directories(inworld-ndk-app PRIVATE ThirdParty/rtaudio)

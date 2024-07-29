@@ -130,24 +130,24 @@ const char descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2ftokens_2e
   "Request\022\213\001\n\006parent\030\001 \001(\tB{\340A\002\242\317\"t\n\030\032\026wor"
   "kspaces/workspace-1\n\'\032%workspaces/worksp"
   "ace-1/scenes/scene-1\n/\032-workspaces/works"
-  "pace-1/characters/character-12\213\004\n\006Tokens"
-  "\022\257\001\n\024GenerateSessionToken\0226.ai.inworld.s"
+  "pace-1/characters/character-12\221\004\n\006Tokens"
+  "\022\262\001\n\024GenerateSessionToken\0226.ai.inworld.s"
   "tudio.v1alpha.GenerateSessionTokenReques"
   "t\032-.ai.inworld.studio.v1alpha.SessionAcc"
-  "essToken\"0\202\323\344\223\002*\"%/v1alpha/tokens/sessio"
-  "nToken:generate:\001*\022\316\002\n\033GenerateDefaultSe"
-  "ssionToken\022=.ai.inworld.studio.v1alpha.G"
-  "enerateDefaultSessionTokenRequest\032-.ai.i"
-  "nworld.studio.v1alpha.SessionAccessToken"
-  "\"\300\001\202\323\344\223\002\260\001\"-/v1alpha/{parent=workspaces/"
-  "*}/token:generate:\001*Z;\"6/v1alpha/{parent"
-  "=workspaces/*/scenes/*}/token:generate:\001"
-  "*Z\?\":/v1alpha/{parent=workspaces/*/chara"
-  "cters/*}/token:generate:\001*\332A\006parentB\225\001\n\031"
-  "ai.inworld.studio.v1alphaB\013TokensProtoP\001"
-  "ZMgithub.com/inworld-ai/inworld/serving/"
-  "grpc-gateway/build/proto/studio/v1alpha\252"
-  "\002\031Ai.Inworld.Studio.V1Alphab\006proto3"
+  "essToken\"3\210\002\001\202\323\344\223\002*\"%/v1alpha/tokens/ses"
+  "sionToken:generate:\001*\022\321\002\n\033GenerateDefaul"
+  "tSessionToken\022=.ai.inworld.studio.v1alph"
+  "a.GenerateDefaultSessionTokenRequest\032-.a"
+  "i.inworld.studio.v1alpha.SessionAccessTo"
+  "ken\"\303\001\210\002\001\202\323\344\223\002\260\001\"-/v1alpha/{parent=works"
+  "paces/*}/token:generate:\001*Z;\"6/v1alpha/{"
+  "parent=workspaces/*/scenes/*}/token:gene"
+  "rate:\001*Z\?\":/v1alpha/{parent=workspaces/*"
+  "/characters/*}/token:generate:\001*\332A\006paren"
+  "tB\223\001\n\031ai.inworld.studio.v1alphaB\013TokensP"
+  "rotoP\001ZKgithub.com/inworld-ai/inworld-pr"
+  "oto-golang/src/go/ai/inworld/studio/v1al"
+  "pha\252\002\031Ai.Inworld.Studio.V1Alphab\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2ftokens_2eproto_deps[5] = {
   &::descriptor_table_ai_2finworld_2foptions_2foptions_2eproto,
@@ -163,7 +163,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2ftokens_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2ftokens_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2ftokens_2eproto, "ai/inworld/studio/v1alpha/tokens.proto", 1275,
+  false, false, descriptor_table_protodef_ai_2finworld_2fstudio_2fv1alpha_2ftokens_2eproto, "ai/inworld/studio/v1alpha/tokens.proto", 1279,
   &descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2ftokens_2eproto_once, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2ftokens_2eproto_sccs, descriptor_table_ai_2finworld_2fstudio_2fv1alpha_2ftokens_2eproto_deps, 3, 5,
   schemas, file_default_instances, TableStruct_ai_2finworld_2fstudio_2fv1alpha_2ftokens_2eproto::offsets,
   file_level_metadata_ai_2finworld_2fstudio_2fv1alpha_2ftokens_2eproto, 3, file_level_enum_descriptors_ai_2finworld_2fstudio_2fv1alpha_2ftokens_2eproto, file_level_service_descriptors_ai_2finworld_2fstudio_2fv1alpha_2ftokens_2eproto,
