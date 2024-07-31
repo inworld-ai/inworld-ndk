@@ -566,7 +566,7 @@ std::string GetSessionName(const std::string& SceneName, const std::string& Sess
 	return SceneName.substr(0, Pos) + "sessions/" + SessionId;
 }
 
-void Inworld::Client::SaveSessionStateAsync(std::function<void(std::string, bool)> Callback)
+void Inworld::Client::SaveSessionStateAsync(std::function<void(const std::string&, bool)> Callback)
 {
 	const std::string SessionName = GetSessionName(_ClientOptions.SceneName, _SessionInfo.SessionId);
 	if (SessionName.empty())
@@ -595,7 +595,7 @@ void Inworld::Client::SaveSessionStateAsync(std::function<void(std::string, bool
 		));
 }
 
-void Inworld::Client::SendFeedbackAsync(std::string& InteractionId, const InteractionFeedback& Feedback, std::function<void(std::string, bool)> Callback)
+void Inworld::Client::SendFeedbackAsync(std::string& InteractionId, const InteractionFeedback& Feedback, std::function<void(const std::string&, bool)> Callback)
 {
 	const std::string SessionName = GetSessionName(_ClientOptions.SceneName, _SessionInfo.SessionId);
 	if (SessionName.empty())
