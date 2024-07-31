@@ -38,6 +38,19 @@ add_subdirectory(third-party/ctranslate2)
 target_link_libraries(inworld-ndk-stt PRIVATE ctranslate2)
 target_include_directories(inworld-ndk-stt PRIVATE third-party/ctranslate2/include)
 target_compile_features(inworld-ndk-stt PRIVATE cxx_std_17)
+
+add_executable(inworld-ndk-stt-app src/Main.cpp)
+target_link_libraries(inworld-ndk-stt-app PRIVATE inworld-ndk-stt)
+target_link_libraries(inworld-ndk-stt-app PRIVATE ctranslate2)
+
+if (MSVC)
+    target_compile_options(inworld-ndk-stt PRIVATE $<$<CONFIG:RelWithDebInfo>:/Od>)
+    target_compile_options(inworld-ndk-stt-app PRIVATE $<$<CONFIG:RelWithDebInfo>:/Od>)
+else()
+    target_compile_options(inworld-ndk-stt PRIVATE $<$<CONFIG:RelWithDebInfo>:-O0>)
+    target_compile_options(inworld-ndk-stt-app PRIVATE $<$<CONFIG:RelWithDebInfo>:-O0>)
+endif()
+
 if (WIN32)
     add_custom_command(TARGET inworld-ndk-stt POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy
@@ -55,14 +68,14 @@ if (WIN32)
         COMMAND ${CMAKE_COMMAND} -E copy
         ${CMAKE_CURRENT_SOURCE_DIR}/build/third-party/ctranslate2/$<CONFIGURATION>/ctranslate2.lib
         ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Win64/ctranslate2.lib)
+    add_custom_command(TARGET inworld-ndk-stt POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy
+        ${CMAKE_CURRENT_SOURCE_DIR}/build/third-party/ctranslate2/$<CONFIGURATION>/ctranslate2.dll
+        ${CMAKE_CURRENT_SOURCE_DIR}/build/$<CONFIGURATION>/ctranslate2.dll)
 elseif(MAC)
     add_custom_command(TARGET inworld-ndk-stt POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy
         ${CMAKE_CURRENT_SOURCE_DIR}/build/$<CONFIGURATION>/libinworld-ndk-stt.dylib 
         ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/Mac/libinworld-ndk-stt.dylib)
 endif()
-
-add_executable(inworld-ndk-stt-app src/Main.cpp)
-target_link_libraries(inworld-ndk-stt-app PRIVATE inworld-ndk-stt)
-target_link_libraries(inworld-ndk-stt-app PRIVATE ctranslate2)
     

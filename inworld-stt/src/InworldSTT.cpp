@@ -13,14 +13,17 @@
 
 void Inworld::STT_Initialize(const char* model)
 {
-    ctranslate2::Translator translator("ende_ctranslate2/", ctranslate2::Device::CPU);
+    const std::string model_path("opus-mt-en-de");
+    const ctranslate2::models::ModelLoader model_loader(model_path);
 
-    const std::vector<std::vector<std::string>> batch = {{"▁H", "ello", "▁world", "!"}};
-    const std::vector<ctranslate2::TranslationResult> results = translator.translate_batch(batch);
+    ctranslate2::Translator translator(model_loader);
+
+    const std::vector<std::vector<std::string>> batch = {{"▁How", "▁are", "▁you", "▁doing", "?", "</s>"}};
+    const auto translation = translator.translate_batch(batch);
 
     std::string result;
-    for (const auto& token : results[0].output())
-        result += token + " ";
+    for (const auto& token : translation[0].output())
+        result += token + ' ';
 
     auto res = result;
 }
