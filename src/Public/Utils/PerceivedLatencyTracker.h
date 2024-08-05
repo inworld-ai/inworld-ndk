@@ -28,19 +28,21 @@ namespace Inworld {
 		bool HasCallback() const { return _Callback != nullptr; }
 
 		void HandlePacket(std::shared_ptr<Inworld::Packet> Packet);
+	    void HandleVAD(bool bVoiceDetected);
 
 		virtual void Visit(const Inworld::TextEvent& Event) override;
 		virtual void Visit(const Inworld::AudioDataEvent& Event) override;
 		virtual void Visit(const Inworld::ControlEvent& Event) override;
 
-		void TrackAudioReplies(bool bVal) { _TrackAudioReplies = bVal; }
+		void TrackAudioReplies(bool bVal) { _bTrackAudioReplies = bVal; }
 
 	private:
 		void VisitReply(const Inworld::Packet& Event);
 
 		std::unordered_map<std::string, TimeStamp> _InteractionTimeMap;
 		PerceivedLatencyCallback _Callback = nullptr;
-		bool _TrackAudioReplies = false;
+	    TimeStamp _LastVoice;
+		bool _bTrackAudioReplies = false;
 	};
 
 }

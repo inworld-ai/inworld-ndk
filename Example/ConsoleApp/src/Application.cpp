@@ -514,11 +514,11 @@ void NDKApp::App::Run()
 	_Options.Capabilities.NarratedActions = true;
 	_Options.Capabilities.Multiagent = true;
 
-    _Options.SpeechOptions.Mode = Inworld::ClientSpeechOptions::SpeechMode::VAD;
+    _Options.SpeechOptions.Mode = Inworld::ClientSpeechOptions::SpeechMode::VAD_DetectAndSendAudio;
     _Options.SpeechOptions.VADModelPath = std::filesystem::canonical("Package/resource/silero_vad_10_27_2022.onnx").string();
     _Options.SpeechOptions.VADCb = [this](bool bVoiceDetected)
     {
-        //Inworld::Log("VAD: %s", bVoiceDetected ? "Voice detected" : "Silence");
+        Inworld::Log("VAD: %s", bVoiceDetected ? "Voice detected" : "Silence detected");
     };
 
 	std::vector<Inworld::AgentInfo> AgentInfos;

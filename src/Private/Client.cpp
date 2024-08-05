@@ -29,7 +29,7 @@ const std::string DefaultTargetUrl = "api-engine.inworld.ai:443";
 
 #define SPEECH_PROCESSOR_CALL(METHOD) \
     if (_SpeechProcessor) _SpeechProcessor->METHOD; \
-    else Inworld::LogError("SpeechProcessor is not initialized");
+    else Inworld::LogError("SpeechProcessor is not initialized (File: %s, Line: %d)", __FILE__, __LINE__);
 
 static void GrpcLog(gpr_log_func_args* args)
 {
@@ -467,7 +467,11 @@ void Inworld::Client::StartClient(const ClientOptions& Options, const SessionInf
     {
         SendPacket(Packet);
     };
-    _SpeechProcessor = std::make_unique<ClientSpeechProcessor>(_ClientOptions.SpeechOptions);
+    _ClientOptions.SpeechOptions.VADImmediateCb = [this](bool bVoiceDetected)
+    {
+        _LatencyTracker.HandleVAD(bVoiceDetected);
+    };
+    _SpeechProcessor = _ClientOptions.SpeechOptions.CreateSpeechProcessor();
 
 	SetConnectionState(ConnectionState::Connecting);
 
