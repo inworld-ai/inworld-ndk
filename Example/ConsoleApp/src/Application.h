@@ -89,8 +89,7 @@ namespace NDKApp
 		virtual void Visit(const Inworld::CustomGestureEvent& Event) override;
 		virtual void Visit(const Inworld::CustomEvent& Event) override;
 		virtual void Visit(const Inworld::AudioDataEvent& Event) override;
-		virtual void Visit(const Inworld::SessionControlResponse_LoadScene& Event) override;
-		virtual void Visit(const Inworld::SessionControlResponse_LoadCharacters& Event) override;
+		virtual void Visit(const Inworld::ControlEventCurrentSceneStatus& Event) override;
 		virtual void Visit(const Inworld::ControlEventConversationUpdate& Event) override;
 		
 		std::string GetGivenName(const std::string& AgentId) const;
