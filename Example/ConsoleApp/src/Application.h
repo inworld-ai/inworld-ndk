@@ -45,11 +45,10 @@ namespace NDKApp
 	class InworldClient
 	{
 	public:
-		InworldClient() 
-		{
-			_Client = Inworld::CreateClient();
-			_StudioClient = Inworld::CreateStudioClient();
-		}
+		InworldClient()
+			: _Client(Inworld::CreateClient())
+			, _StudioClient(Inworld::CreateStudioClient())
+		{}
 
 		~InworldClient()
 		{
