@@ -35,6 +35,13 @@ else()
     add_library(inworld-ndk STATIC ${FilesALL})
 endif()
 set_target_properties(inworld-ndk PROPERTIES DEBUG_POSTFIX "")
+
+if (MSVC)
+    target_compile_options(inworld-ndk PRIVATE $<$<CONFIG:RelWithDebInfo>:/Od>)
+else()
+    target_compile_options(inworld-ndk PRIVATE $<$<CONFIG:RelWithDebInfo>:-O0>)
+endif()
+
 target_link_libraries(inworld-ndk PRIVATE inworld-ndk-proto)
 
 target_compile_definitions(inworld-ndk PRIVATE
@@ -487,6 +494,11 @@ if (WIN32 OR MAC)
     target_compile_features(inworld-ndk-app PRIVATE cxx_std_20)
     target_include_directories(inworld-ndk-app PRIVATE inworld-ndk/src/Public)
     target_link_libraries(inworld-ndk-app PRIVATE inworld-ndk)
+    if (MSVC)
+        target_compile_options(inworld-ndk-app PRIVATE $<$<CONFIG:RelWithDebInfo>:/Od>)
+    else()
+        target_compile_options(inworld-ndk-app PRIVATE $<$<CONFIG:RelWithDebInfo>:-O0>)
+    endif()
 
     GroupSourcesByFolder(inworld-ndk-app)
 
