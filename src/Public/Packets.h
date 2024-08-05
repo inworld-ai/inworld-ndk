@@ -78,6 +78,7 @@ namespace Inworld {
 
 		static Routing Player2Agent(const std::string& AgentId);
 		static Routing Player2Conversation(const std::string& ConversationId);
+		static Routing Player2World();
 
         InworldPackets::Routing ToProto() const;
         
@@ -114,14 +115,13 @@ namespace Inworld {
     class SilenceEvent;
     class ControlEvent;
 	class ControlEventConversationUpdate;
+	class ControlEventCurrentSceneStatus;
     class EmotionEvent;
     class CancelResponseEvent;
     class CustomGestureEvent;
     class CustomEvent;
 	class ActionEvent;
 	class RelationEvent;
-	class SessionControlResponse_LoadScene;
-	class SessionControlResponse_LoadCharacters;
 
     class INWORLD_EXPORT PacketVisitor
     {
@@ -132,14 +132,13 @@ namespace Inworld {
         virtual void Visit(const SilenceEvent& Event) {  }
         virtual void Visit(const ControlEvent& Event) {  }
         virtual void Visit(const ControlEventConversationUpdate& Event) {  }
+		virtual void Visit(const ControlEventCurrentSceneStatus& Event) {  }
         virtual void Visit(const EmotionEvent& Event) {  }
         virtual void Visit(const CancelResponseEvent& Event) {  }
         virtual void Visit(const CustomGestureEvent& Event) {  }
         virtual void Visit(const CustomEvent& Event) {  }
     	virtual void Visit(const ActionEvent& Event) { }
     	virtual void Visit(const RelationEvent& Event) { }
-    	virtual void Visit(const SessionControlResponse_LoadScene& Event) { }
-    	virtual void Visit(const SessionControlResponse_LoadCharacters& Event) { }
     };
 
 	struct EmotionalState;
@@ -287,6 +286,82 @@ namespace Inworld {
 		std::string _Description;
     };
 
+	class INWORLD_EXPORT ControlEventSessionConfiguration : public ControlEvent
+	{
+	public:
+		struct INWORLD_EXPORT SessionConfiguration
+		{
+			std::string Id;
+		};
+
+		struct INWORLD_EXPORT Capabilities
+		{
+			bool Animations = false;
+			bool Audio = false;
+			bool Emotions = false;
+			bool Interruptions = false;
+			bool EmotionStreaming = false;
+			bool SilenceEvents = false;
+			bool PhonemeInfo = false;
+			bool Continuation = true;
+			bool TurnBasedSTT = true;
+			bool NarratedActions = true;
+			bool Relations = true;
+			bool Multiagent = true;
+		};
+
+		struct INWORLD_EXPORT UserConfiguration
+		{
+			struct PlayerProfile
+			{
+				struct PlayerField
+				{
+					std::string Id;
+					std::string Value;
+				};
+
+				std::vector<PlayerField> Fields;
+			};
+
+			PlayerProfile Profile;
+
+			std::string Name;
+			std::string Id;
+		};
+
+		struct INWORLD_EXPORT ClientConfiguration
+		{
+			std::string Id;
+			std::string Version;
+			std::string Description;
+		};
+
+		struct INWORLD_EXPORT Continuation
+		{
+			std::string ExternallySavedState;
+		};
+
+	public:
+		ControlEventSessionConfiguration() = default;
+		ControlEventSessionConfiguration(
+			const SessionConfiguration& SessionConfiguration,
+			const Capabilities& Capabilities,
+			const UserConfiguration& UserConfiguration,
+			const ClientConfiguration& ClientConfiguration,
+			const Continuation& Continuation
+		);
+
+	protected:
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
+
+	private:
+		SessionConfiguration _SessionConfiguration;
+		Capabilities _Capabilities;
+		UserConfiguration _UserConfiguration;
+		ClientConfiguration _ClientConfiguration;
+		Continuation _Continuation;
+	};
+
 	class INWORLD_EXPORT ControlEventAudioSessionStart : public ControlEvent
 	{
 	public:
@@ -325,6 +400,20 @@ namespace Inworld {
         bool _bIncludePlayer;
         InworldPackets::ConversationEventPayload_ConversationEventType _EventType;
     };
+
+	class INWORLD_EXPORT ControlEventCurrentSceneStatus : public ControlEvent
+	{
+	public:
+		ControlEventCurrentSceneStatus() = default;
+		ControlEventCurrentSceneStatus(const InworldPackets::InworldPacket& GrpcPacket);
+
+		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
+
+		const std::vector<AgentInfo>& GetAgentInfos() const { return _AgentInfos; }
+
+	private:
+		std::vector<AgentInfo> _AgentInfos;
+	};
 
     class INWORLD_EXPORT EmotionEvent : public Packet
     {
@@ -479,133 +568,6 @@ namespace Inworld {
 		SessionControlEvent();
 	};
 
-	class INWORLD_EXPORT SessionControlEvent_SessionConfiguration : public SessionControlEvent
-	{
-	public:
-		struct INWORLD_EXPORT Data
-		{
-			std::string Id;
-		};
-
-		SessionControlEvent_SessionConfiguration(const Data& Data)
-			: SessionControlEvent()
-			, _Data(Data)
-		{}
-
-	protected:
-		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
-
-	private:
-		Data _Data;
-	};
-
-	class INWORLD_EXPORT SessionControlEvent_Capabilities : public SessionControlEvent
-	{
-	public:
-		struct INWORLD_EXPORT Data
-		{
-			bool Animations = false;
-			bool Audio = false;
-			bool Emotions = false;
-			bool Interruptions = false;
-			bool EmotionStreaming = false;
-			bool SilenceEvents = false;
-			bool PhonemeInfo = false;
-			bool Continuation = true;
-			bool TurnBasedSTT = true;
-			bool NarratedActions = true;
-			bool Relations = true;
-			bool Multiagent = true;
-		};
-
-		SessionControlEvent_Capabilities(const Data& Data)
-			: SessionControlEvent()
-			, _Data(Data)
-		{}
-
-	protected:
-		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
-
-	private:
-		Data _Data;
-	};
-
-	class INWORLD_EXPORT SessionControlEvent_UserConfiguration : public SessionControlEvent
-	{
-	public:
-		struct INWORLD_EXPORT Data
-		{
-			struct PlayerProfile
-			{
-				struct PlayerField
-				{
-					std::string Id;
-					std::string Value;
-				};
-
-				std::vector<PlayerField> Fields;
-			};
-
-			PlayerProfile Profile;
-
-			std::string Name;
-			std::string Id;
-		};
-
-		SessionControlEvent_UserConfiguration(const Data& Data)
-			: SessionControlEvent()
-			, _Data(Data)
-		{}
-
-	protected:
-		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
-
-	private:
-		Data _Data;
-	};
-
-	class INWORLD_EXPORT SessionControlEvent_ClientConfiguration : public SessionControlEvent
-	{
-	public:
-		struct INWORLD_EXPORT Data
-		{
-			std::string Id;
-			std::string Version;
-			std::string Description;
-		};
-
-		SessionControlEvent_ClientConfiguration(const Data& Data)
-			: SessionControlEvent()
-			, _Data(Data)
-		{}
-
-	protected:
-		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
-
-	private:
-		Data _Data;
-	};
-
-	class INWORLD_EXPORT SessionControlEvent_SessionSave : public SessionControlEvent
-	{
-	public:
-		struct INWORLD_EXPORT Data
-		{
-			std::string Bytes;
-		};
-
-		SessionControlEvent_SessionSave(const Data& Data)
-			: SessionControlEvent()
-			, _Data(Data)
-		{}
-
-	protected:
-		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
-
-	private:
-		Data _Data;
-	};
-
 	class INWORLD_EXPORT SessionControlEvent_LoadScene : public SessionControlEvent
 	{
 	public:
@@ -666,29 +628,4 @@ namespace Inworld {
 		Data _Data;
 	};
 
-	class INWORLD_EXPORT SessionControlResponse_LoadScene : public Packet
-	{
-	public:
-		SessionControlResponse_LoadScene(const InworldPackets::InworldPacket& GrpcPacket);
-
-		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
-
-		const std::vector<AgentInfo>& GetAgentInfos() const { return _AgentInfos; }
-
-	private:
-		std::vector<AgentInfo> _AgentInfos;
-	};
-
-	class INWORLD_EXPORT SessionControlResponse_LoadCharacters : public Packet
-	{
-	public:
-		SessionControlResponse_LoadCharacters(const InworldPackets::InworldPacket& GrpcPacket);
-
-		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
-
-		const std::vector<AgentInfo>& GetAgentInfos() const { return _AgentInfos; }
-
-	private:
-		std::vector<AgentInfo> _AgentInfos;
-	};
 }

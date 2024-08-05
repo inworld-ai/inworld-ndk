@@ -51,6 +51,10 @@ void Inworld::RunnableRead::Run()
 			{
 				Packet = std::make_shared<Inworld::ControlEventConversationUpdate>(IncomingPacket);
 			}
+			else if (IncomingPacket.control().has_current_scene_status())
+			{
+				Packet = std::make_shared<Inworld::ControlEventCurrentSceneStatus>(IncomingPacket);
+			}
 			else
 			{
 				Packet = std::make_shared<Inworld::ControlEvent>(IncomingPacket);
@@ -71,17 +75,6 @@ void Inworld::RunnableRead::Run()
 		else if (IncomingPacket.has_debug_info())
 		{
 			Packet = std::make_shared<Inworld::RelationEvent>(IncomingPacket);
-		}
-		else if (IncomingPacket.has_session_control_response())
-		{
-			if (IncomingPacket.session_control_response().has_loaded_scene())
-			{
-				Packet = std::make_shared<Inworld::SessionControlResponse_LoadScene>(IncomingPacket);
-			}
-			else if (IncomingPacket.session_control_response().has_loaded_characters())
-			{
-				Packet = std::make_shared<Inworld::SessionControlResponse_LoadCharacters>(IncomingPacket);
-			}
 		}
 		else
 		{
