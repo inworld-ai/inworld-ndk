@@ -19,39 +19,31 @@
 
 #endif
 
-std::string Inworld::g_SessionId = "Unknown";
-
-const std::string& Inworld::GetSessionId()
-{
-	return g_SessionId;
-}
-
-void Inworld::LogSetSessionId(const std::string Id)
-{
-    g_SessionId = Id;
-}
-
-void Inworld::LogClearSessionId()
-{
-    g_SessionId = "Unknown";
-}
-
 #ifdef INWORLD_LOG_CALLBACK
-std::function<void(const char * message, int severity)> Inworld::g_LoggerCallback = nullptr;
+std::function<void(const char* message)> Inworld::g_LogInfoCallback = nullptr;
+std::function<void(const char* message)> Inworld::g_LogWarnCallback = nullptr;
+std::function<void(const char* message)> Inworld::g_LogErrorCallback = nullptr;
 
-void Inworld::LogSetLoggerCallback(LoggerCallBack callBack)
+void Inworld::SetLogCallbacks(LogCallback info, LogCallback warn, LogCallback error)
 {
-    g_LoggerCallback = callBack;
+    g_LogInfoCallback = info;
+	g_LogWarnCallback = warn;
+	g_LogErrorCallback = error;
 }
 
-void Inworld::LogClearLoggerCallback() { g_LoggerCallback = nullptr; }
+void Inworld::ClearLogCallbacks()
+{
+	g_LogInfoCallback = nullptr;
+	g_LogWarnCallback = nullptr;
+	g_LogErrorCallback = nullptr;
+}
 #endif
 
 void Inworld::Log(const std::string& message)
 {
 #ifdef INWORLD_LOG
 	#if  defined(INWORLD_LOG_CALLBACK)
-		if (g_LoggerCallback) g_LoggerCallback(message.c_str(), 0);
+		if (g_LogInfoCallback) g_LogInfoCallback(message.c_str());
 	#elif defined(ANDROID)
 		__android_log_print(ANDROID_LOG_INFO, "inworld-ndk", "%s", message.c_str());
 	#elif defined(INWORLD_LOG_SPD)
@@ -66,7 +58,7 @@ void Inworld::LogWarning(const std::string& message)
 {
 #ifdef INWORLD_LOG
 	#if defined(INWORLD_LOG_CALLBACK)
-		if (g_LoggerCallback) g_LoggerCallback(message.c_str(), 1);
+		if (g_LogWarnCallback) g_LogWarnCallback(message.c_str());
 	#elif defined(ANDROID)
 		__android_log_print(ANDROID_LOG_WARN, "inworld-ndk", "%s", message.c_str());
   #elif defined(INWORLD_LOG_SPD)
@@ -81,15 +73,13 @@ void Inworld::LogError(const std::string& message)
 {
 #ifdef INWORLD_LOG
 	#if defined(INWORLD_LOG_CALLBACK)
-		if (g_LoggerCallback) g_LoggerCallback(message.c_str(), 2);
-#elif defined(ANDROID)
-		const std::string error = Format("%s (SessionId: %s)", message.c_str(), g_SessionId.c_str());
-		__android_log_print(ANDROID_LOG_ERROR, "inworld-ndk", "%s", error.c_str());
-#elif defined(INWORLD_LOG_SPD)
-		const std::string error = Format("%s (SessionId: %s)", message.c_str(), g_SessionId.c_str());
-		spdlog::error(error);
-	#else
-    std::cout << error << std::endl;
+		if (g_LogErrorCallback) g_LogErrorCallback(message.c_str());
+	#elif defined(ANDROID)
+		__android_log_print(ANDROID_LOG_ERROR, "inworld-ndk", "%s", message.c_str());
+  #elif defined(INWORLD_LOG_SPD)
+    spdlog::error(message);
+  #else
+    std::cout << message << std::endl;
 	#endif
 #endif
 }

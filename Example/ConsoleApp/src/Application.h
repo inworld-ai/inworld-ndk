@@ -47,20 +47,24 @@ namespace NDKApp
 	public:
 		InworldClient() 
 		{
-			Inworld::CreateClient();
-			Inworld::CreateStudioClient();
+			_Client = Inworld::CreateClient();
+			_StudioClient = Inworld::CreateStudioClient();
 		}
 
 		~InworldClient()
 		{
-			Inworld::DestroyClient();
-			Inworld::DestroyStudioClient();
+			Inworld::DestroyClient(std::move(_Client));
+			Inworld::DestroyStudioClient(std::move(_StudioClient));
 		}
 
-		Inworld::Client& Client() { return *Inworld::GetClient(); }
-		Inworld::StudioClient& Studio() { return *Inworld::GetStudioClient(); }
+		Inworld::Client& Client() { return *_Client; }
+		Inworld::StudioClient& Studio() { return *_StudioClient; }
 
 		TaskExecutor TaskExec;
+
+	private:
+		std::unique_ptr<Inworld::Client> _Client;
+		std::unique_ptr<Inworld::StudioClient> _StudioClient;
 	};
 	
 	class App : public Inworld::PacketVisitor

@@ -243,19 +243,12 @@ void Inworld::StudioClient::ClearError()
 	_ErrorMessage.clear();
 }
 
-static std::unique_ptr<Inworld::StudioClient> g_ClientPtr;
-
-INWORLD_EXPORT void Inworld::CreateStudioClient()
+std::unique_ptr<Inworld::StudioClient> Inworld::CreateStudioClient()
 {
-	g_ClientPtr = std::make_unique<Inworld::StudioClient>();
+	return std::make_unique<Inworld::StudioClient>();
 }
 
-INWORLD_EXPORT void Inworld::DestroyStudioClient()
+void Inworld::DestroyStudioClient(std::unique_ptr<Inworld::StudioClient> client)
 {
-	g_ClientPtr.reset();
-}
-
-INWORLD_EXPORT std::unique_ptr<Inworld::StudioClient>& Inworld::GetStudioClient()
-{
-	return g_ClientPtr;
+	client.reset();
 }
