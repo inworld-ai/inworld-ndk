@@ -194,10 +194,10 @@ namespace Inworld
 		void UnloadCharacters(const std::vector<std::string>& Names);
 		
 		// the callback is not called on calling thread for Async methods
-		void SaveSessionStateAsync(std::function<void(std::string, bool)> Callback);
+		void SaveSessionStateAsync(std::function<void(const std::string&, bool)> Callback);
 #pragma endregion
 
-		void SendFeedbackAsync(std::string& InteractionId, const InteractionFeedback& Feedback, std::function<void(std::string, bool)> Callback = nullptr);
+		void SendFeedbackAsync(std::string& InteractionId, const InteractionFeedback& Feedback, std::function<void(const std::string&, bool)> Callback = nullptr);
 
 		void GenerateToken(std::function<void()> RefreshTokenCallback);
 
