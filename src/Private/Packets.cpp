@@ -447,8 +447,6 @@ namespace Inworld {
         if (_UnderstandingMode != InworldPackets::AudioSessionStartPayload_UnderstandingMode::AudioSessionStartPayload_UnderstandingMode_UNSPECIFIED_UNDERSTANDING_MODE)
         {
             Proto.mutable_control()->mutable_audio_session_start()->set_understanding_mode(_UnderstandingMode);
-            const std::string Mode = _UnderstandingMode == InworldPackets::AudioSessionStartPayload_UnderstandingMode::AudioSessionStartPayload_UnderstandingMode_FULL ? "FULL" : "ASR";
-            Inworld::Log("ControlEventAudioSessionStart::ToProtoInternal. Set understanding mode to '%s'", Mode.c_str());
         }
 	}
 

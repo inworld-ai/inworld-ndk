@@ -123,9 +123,8 @@ namespace Inworld
 
 	// use for client lifecycle
 	class Client;
-	INWORLD_EXPORT void CreateClient();
-	INWORLD_EXPORT void DestroyClient();
-	INWORLD_EXPORT std::unique_ptr<Client>& GetClient();
+	INWORLD_EXPORT std::unique_ptr<Client> CreateClient();
+	INWORLD_EXPORT void DestroyClient(std::unique_ptr<Client> client);
 
 	class INWORLD_EXPORT Client final : public PacketVisitor
 	{
@@ -194,10 +193,10 @@ namespace Inworld
 		void UnloadCharacters(const std::vector<std::string>& Names);
 		
 		// the callback is not called on calling thread for Async methods
-		void SaveSessionStateAsync(std::function<void(std::string, bool)> Callback);
+		void SaveSessionStateAsync(std::function<void(const std::string&, bool)> Callback);
 #pragma endregion
 
-		void SendFeedbackAsync(std::string& InteractionId, const InteractionFeedback& Feedback, std::function<void(std::string, bool)> Callback = nullptr);
+		void SendFeedbackAsync(std::string& InteractionId, const InteractionFeedback& Feedback, std::function<void(const std::string&, bool)> Callback = nullptr);
 
 		void GenerateToken(std::function<void()> RefreshTokenCallback);
 

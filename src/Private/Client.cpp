@@ -29,7 +29,7 @@ const std::string DefaultTargetUrl = "api-engine.inworld.ai:443";
 
 #define SPEECH_PROCESSOR_CALL(METHOD) \
     if (_SpeechProcessor) _SpeechProcessor->METHOD; \
-    else Inworld::LogError("SpeechProcessor is not initialized");
+    else Inworld::LogError("SpeechProcessor is not initialized (File: %s, Line: %d)", __FILE__, __LINE__);
 
 static void GrpcLog(gpr_log_func_args* args)
 {
@@ -60,21 +60,14 @@ static void GrpcLog(gpr_log_func_args* args)
 namespace Inworld
 {
 
-	static std::unique_ptr<Client> g_ClientPtr;
-
-	void CreateClient()
+	std::unique_ptr<Client> CreateClient()
 	{
-		g_ClientPtr = std::make_unique<Client>();
+		return std::make_unique<Client>();
 	}
 
-	void DestroyClient()
+	void DestroyClient(std::unique_ptr<Client> client)
 	{
-		g_ClientPtr.reset();
-	}
-
-	std::unique_ptr<Inworld::Client>& GetClient()
-	{
-		return g_ClientPtr;
+		client.reset();
 	}
 
 	class ClientService : public IClientService
@@ -441,7 +434,11 @@ void Inworld::Client::StartClient(const ClientOptions& Options, const SessionInf
     {
         SendPacket(Packet);
     };
-    _SpeechProcessor = std::make_unique<ClientSpeechProcessor>(_ClientOptions.SpeechOptions);
+    _ClientOptions.SpeechOptions.VADImmediateCb = [this](bool bVoiceDetected)
+    {
+        _LatencyTracker.HandleVAD(bVoiceDetected);
+    };
+    _SpeechProcessor = _ClientOptions.SpeechOptions.CreateSpeechProcessor();
 
 	SetConnectionState(ConnectionState::Connecting);
 
@@ -515,7 +512,6 @@ void Inworld::Client::StopClient()
 	_ClientOptions = ClientOptions();
 	_SessionInfo = SessionInfo();
 	SetConnectionState(ConnectionState::Idle);
-	Inworld::LogClearSessionId();
 }
 
 void Inworld::Client::DestroyClient()
@@ -541,7 +537,7 @@ std::string GetSessionName(const std::string& SceneName, const std::string& Sess
 	return SceneName.substr(0, Pos) + "sessions/" + SessionId;
 }
 
-void Inworld::Client::SaveSessionStateAsync(std::function<void(std::string, bool)> Callback)
+void Inworld::Client::SaveSessionStateAsync(std::function<void(const std::string&, bool)> Callback)
 {
 	const std::string SessionName = GetSessionName(_ClientOptions.SceneName, _SessionInfo.SessionId);
 	if (SessionName.empty())
@@ -561,7 +557,7 @@ void Inworld::Client::SaveSessionStateAsync(std::function<void(std::string, bool
 			{
 				if (!Status.ok())
 				{
-					Inworld::LogError("Save session state FALURE! %s, Code: %d", Status.error_message().c_str(), (int32_t)Status.error_code());
+					Inworld::LogError("Save session state FALURE! %s, Code: %d, Session Id: %s", Status.error_message().c_str(), (int32_t)Status.error_code(), _SessionInfo.SessionId.c_str());
 					Callback({}, false);
 					return;
 				}
@@ -570,7 +566,7 @@ void Inworld::Client::SaveSessionStateAsync(std::function<void(std::string, bool
 		));
 }
 
-void Inworld::Client::SendFeedbackAsync(std::string& InteractionId, const InteractionFeedback& Feedback, std::function<void(std::string, bool)> Callback)
+void Inworld::Client::SendFeedbackAsync(std::string& InteractionId, const InteractionFeedback& Feedback, std::function<void(const std::string&, bool)> Callback)
 {
 	const std::string SessionName = GetSessionName(_ClientOptions.SceneName, _SessionInfo.SessionId);
 	if (SessionName.empty())
@@ -591,7 +587,7 @@ void Inworld::Client::SendFeedbackAsync(std::string& InteractionId, const Intera
 			{
 				if (!Status.ok())
 				{
-					Inworld::LogError("Send Feedback FALURE! %s, Code: %d", Status.error_message().c_str(), (int32_t)Status.error_code());
+					Inworld::LogError("Send Feedback FALURE! %s, Code: %d, Session Id: %s", Status.error_message().c_str(), (int32_t)Status.error_code(), _SessionInfo.SessionId.c_str());
 					if(Callback) Callback({}, false);
 					return;
 				}
@@ -636,7 +632,6 @@ void Inworld::Client::StartSession()
 		return;
 	}
 
-	Inworld::LogSetSessionId(_SessionInfo.SessionId);
 	Inworld::Log("Session Id: %s", _SessionInfo.SessionId.c_str());
 
 	_Service->Session() = std::make_unique<ServiceSession>(
@@ -771,7 +766,7 @@ void Inworld::Client::TryToStartReadTask()
 					_ErrorCode = Status.error_code();
 					_ErrorDetails = Status.error_details();
 					StopClientStream();
-					Inworld::LogError("Message READ failed: %s. Code: %d", _ErrorMessage.c_str(), _ErrorCode);
+					Inworld::LogError("Message READ failed: %s. Code: %d, Session Id: %s", _ErrorMessage.c_str(), _ErrorCode, _SessionInfo.SessionId.c_str());
 					SetConnectionState(ConnectionState::Disconnected);
 				}
 			)
@@ -811,7 +806,7 @@ void Inworld::Client::TryToStartWriteTask()
 						_ErrorCode = Status.error_code();
 						_ErrorDetails = Status.error_details();
 						StopClientStream();
-						Inworld::LogError("Message WRITE failed: %s. Code: %d", _ErrorMessage.c_str(), _ErrorCode);
+						Inworld::LogError("Message WRITE failed: %s. Code: %d, Session Id: %s", _ErrorMessage.c_str(), _ErrorCode, _SessionInfo.SessionId.c_str());
 						SetConnectionState(ConnectionState::Disconnected);
 					}
 				)

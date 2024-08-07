@@ -15,17 +15,13 @@
 
 namespace Inworld
 {
-	extern std::string g_SessionId;
-	INWORLD_EXPORT const std::string& GetSessionId();
-
-	INWORLD_EXPORT void LogSetSessionId(const std::string Id);
-	INWORLD_EXPORT void LogClearSessionId();
-
 #ifdef INWORLD_LOG_CALLBACK
-	using LoggerCallBack = void(*)(const char* message, int severity);
-	INWORLD_EXPORT void LogSetLoggerCallback(LoggerCallBack callback);
-	INWORLD_EXPORT void LogClearLoggerCallback();
-	INWORLD_EXPORT extern std::function<void(const char * message, int severity)> g_LoggerCallback;
+	using LogCallback = void(*)(const char* message);
+	INWORLD_EXPORT void SetLogCallbacks(LogCallback info, LogCallback warning, LogCallback error);
+	INWORLD_EXPORT void ClearLogCallbacks();
+	extern std::function<void(const char* message)> g_LogInfoCallback;
+	extern std::function<void(const char* message)> g_LogWarnCallback;
+	extern std::function<void(const char* message)> g_LogErrorCallback;
 #endif
 
 	template<typename... Args>
