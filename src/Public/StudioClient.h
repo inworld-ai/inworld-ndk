@@ -81,9 +81,8 @@ namespace Inworld
 
 	// use for studio client lifecycle
 	class StudioClient;
-	INWORLD_EXPORT void CreateStudioClient();
-	INWORLD_EXPORT void DestroyStudioClient();
-	INWORLD_EXPORT std::unique_ptr<StudioClient>& GetStudioClient();
+	INWORLD_EXPORT std::unique_ptr<StudioClient> CreateStudioClient();
+	INWORLD_EXPORT void DestroyStudioClient(std::unique_ptr<StudioClient> client);
 
 	class INWORLD_EXPORT StudioClient final
 	{

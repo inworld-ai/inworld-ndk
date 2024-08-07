@@ -123,9 +123,8 @@ namespace Inworld
 
 	// use for client lifecycle
 	class Client;
-	INWORLD_EXPORT void CreateClient();
-	INWORLD_EXPORT void DestroyClient();
-	INWORLD_EXPORT std::unique_ptr<Client>& GetClient();
+	INWORLD_EXPORT std::unique_ptr<Client> CreateClient();
+	INWORLD_EXPORT void DestroyClient(std::unique_ptr<Client> client);
 
 	class INWORLD_EXPORT Client final : public PacketVisitor
 	{
