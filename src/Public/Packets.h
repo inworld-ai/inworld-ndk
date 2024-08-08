@@ -371,7 +371,7 @@ namespace Inworld {
 			bool NarratedActions = true;
 			bool Relations = true;
 			bool MultiAgent = true;
-			bool Audio2Face = true;
+			bool Audio2Face = false;
 		};
 
 		struct INWORLD_EXPORT UserConfiguration
