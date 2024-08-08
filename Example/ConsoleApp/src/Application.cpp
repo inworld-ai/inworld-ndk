@@ -278,7 +278,7 @@ void NDKApp::App::Run()
 				_Options.Capabilities.SilenceEvents = true;
 				_Options.Capabilities.PhonemeInfo = true;
 				_Options.Capabilities.NarratedActions = true;
-				_Options.Capabilities.Multiagent = true;
+				_Options.Capabilities.MultiAgent = true;
 
 				if (!Args.empty() && Args[0] == "audio")
 				{
@@ -506,7 +506,7 @@ void NDKApp::App::Run()
 	_Options.Capabilities.SilenceEvents = true;
 	_Options.Capabilities.PhonemeInfo = true;
 	_Options.Capabilities.NarratedActions = true;
-	_Options.Capabilities.Multiagent = true;
+	_Options.Capabilities.MultiAgent = true;
 
     _Options.SpeechOptions.Mode = Inworld::ClientSpeechOptions::SpeechMode::VAD_DetectAndSendAudio;
     _Options.SpeechOptions.VADModelPath = std::filesystem::canonical("Package/resource/silero_vad_10_27_2022.onnx").string();

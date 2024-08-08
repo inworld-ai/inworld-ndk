@@ -216,7 +216,8 @@ namespace Inworld
 		void ClearPerceivedLatencyTrackerCallback() { _LatencyTracker.ClearCallback(); }
 		
 		const SessionInfo& GetSessionInfo() const;
-		void SetOptions(const ClientOptions& options);		
+		void SetOptions(const ClientOptions& options);	
+		const ClientOptions& GetOptions() const;
 
 		virtual void Visit(const ControlEventCurrentSceneStatus& Event) override;
 

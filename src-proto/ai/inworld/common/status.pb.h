@@ -48,7 +48,7 @@ struct TableStruct_ai_2finworld_2fcommon_2fstatus_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[2]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[3]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -64,12 +64,16 @@ extern InworldStatusDefaultTypeInternal _InworldStatus_default_instance_;
 class ResourceNotFoundDetails;
 class ResourceNotFoundDetailsDefaultTypeInternal;
 extern ResourceNotFoundDetailsDefaultTypeInternal _ResourceNotFoundDetails_default_instance_;
+class VersionConflictDetails;
+class VersionConflictDetailsDefaultTypeInternal;
+extern VersionConflictDetailsDefaultTypeInternal _VersionConflictDetails_default_instance_;
 }  // namespace common
 }  // namespace inworld
 }  // namespace ai
 PROTOBUF_NAMESPACE_OPEN
 template<> ::ai::inworld::common::InworldStatus* Arena::CreateMaybeMessage<::ai::inworld::common::InworldStatus>(Arena*);
 template<> ::ai::inworld::common::ResourceNotFoundDetails* Arena::CreateMaybeMessage<::ai::inworld::common::ResourceNotFoundDetails>(Arena*);
+template<> ::ai::inworld::common::VersionConflictDetails* Arena::CreateMaybeMessage<::ai::inworld::common::VersionConflictDetails>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace ai {
 namespace inworld {
@@ -202,6 +206,7 @@ class InworldStatus PROTOBUF_FINAL :
 
   enum ErrorDetailsCase {
     kResourceNotFound = 5,
+    kVersionConflict = 6,
     ERROR_DETAILS_NOT_SET = 0,
   };
 
@@ -286,6 +291,7 @@ class InworldStatus PROTOBUF_FINAL :
     kReconnectTypeFieldNumber = 2,
     kMaxRetriesFieldNumber = 4,
     kResourceNotFoundFieldNumber = 5,
+    kVersionConflictFieldNumber = 6,
   };
   // .google.protobuf.Timestamp reconnect_time = 3;
   bool has_reconnect_time() const;
@@ -350,12 +356,31 @@ class InworldStatus PROTOBUF_FINAL :
       ::ai::inworld::common::ResourceNotFoundDetails* resource_not_found);
   ::ai::inworld::common::ResourceNotFoundDetails* unsafe_arena_release_resource_not_found();
 
+  // .ai.inworld.common.VersionConflictDetails version_conflict = 6;
+  bool has_version_conflict() const;
+  private:
+  bool _internal_has_version_conflict() const;
+  public:
+  void clear_version_conflict();
+  const ::ai::inworld::common::VersionConflictDetails& version_conflict() const;
+  ::ai::inworld::common::VersionConflictDetails* release_version_conflict();
+  ::ai::inworld::common::VersionConflictDetails* mutable_version_conflict();
+  void set_allocated_version_conflict(::ai::inworld::common::VersionConflictDetails* version_conflict);
+  private:
+  const ::ai::inworld::common::VersionConflictDetails& _internal_version_conflict() const;
+  ::ai::inworld::common::VersionConflictDetails* _internal_mutable_version_conflict();
+  public:
+  void unsafe_arena_set_allocated_version_conflict(
+      ::ai::inworld::common::VersionConflictDetails* version_conflict);
+  ::ai::inworld::common::VersionConflictDetails* unsafe_arena_release_version_conflict();
+
   void clear_error_details();
   ErrorDetailsCase error_details_case() const;
   // @@protoc_insertion_point(class_scope:ai.inworld.common.InworldStatus)
  private:
   class _Internal;
   void set_has_resource_not_found();
+  void set_has_version_conflict();
 
   inline bool has_error_details() const;
   inline void clear_has_error_details();
@@ -370,6 +395,7 @@ class InworldStatus PROTOBUF_FINAL :
   union ErrorDetailsUnion {
     ErrorDetailsUnion() {}
     ::ai::inworld::common::ResourceNotFoundDetails* resource_not_found_;
+    ::ai::inworld::common::VersionConflictDetails* version_conflict_;
   } error_details_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
@@ -527,6 +553,164 @@ class ResourceNotFoundDetails PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr resource_id_;
   int resource_type_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fcommon_2fstatus_2eproto;
+};
+// -------------------------------------------------------------------
+
+class VersionConflictDetails PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.common.VersionConflictDetails) */ {
+ public:
+  inline VersionConflictDetails() : VersionConflictDetails(nullptr) {}
+  virtual ~VersionConflictDetails();
+
+  VersionConflictDetails(const VersionConflictDetails& from);
+  VersionConflictDetails(VersionConflictDetails&& from) noexcept
+    : VersionConflictDetails() {
+    *this = ::std::move(from);
+  }
+
+  inline VersionConflictDetails& operator=(const VersionConflictDetails& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline VersionConflictDetails& operator=(VersionConflictDetails&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const VersionConflictDetails& default_instance();
+
+  static inline const VersionConflictDetails* internal_default_instance() {
+    return reinterpret_cast<const VersionConflictDetails*>(
+               &_VersionConflictDetails_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(VersionConflictDetails& a, VersionConflictDetails& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(VersionConflictDetails* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(VersionConflictDetails* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline VersionConflictDetails* New() const final {
+    return CreateMaybeMessage<VersionConflictDetails>(nullptr);
+  }
+
+  VersionConflictDetails* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<VersionConflictDetails>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const VersionConflictDetails& from);
+  void MergeFrom(const VersionConflictDetails& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(VersionConflictDetails* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.common.VersionConflictDetails";
+  }
+  protected:
+  explicit VersionConflictDetails(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fcommon_2fstatus_2eproto);
+    return ::descriptor_table_ai_2finworld_2fcommon_2fstatus_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kClientVersionFieldNumber = 1,
+    kServerVersionFieldNumber = 2,
+    kRequestIndexFieldNumber = 3,
+  };
+  // int32 client_version = 1;
+  void clear_client_version();
+  ::PROTOBUF_NAMESPACE_ID::int32 client_version() const;
+  void set_client_version(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_client_version() const;
+  void _internal_set_client_version(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int32 server_version = 2;
+  void clear_server_version();
+  ::PROTOBUF_NAMESPACE_ID::int32 server_version() const;
+  void set_server_version(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_server_version() const;
+  void _internal_set_server_version(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int32 request_index = 3;
+  void clear_request_index();
+  ::PROTOBUF_NAMESPACE_ID::int32 request_index() const;
+  void set_request_index(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_request_index() const;
+  void _internal_set_request_index(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.common.VersionConflictDetails)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::int32 client_version_;
+  ::PROTOBUF_NAMESPACE_ID::int32 server_version_;
+  ::PROTOBUF_NAMESPACE_ID::int32 request_index_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fcommon_2fstatus_2eproto;
 };
@@ -751,6 +935,79 @@ inline ::ai::inworld::common::ResourceNotFoundDetails* InworldStatus::mutable_re
   return _internal_mutable_resource_not_found();
 }
 
+// .ai.inworld.common.VersionConflictDetails version_conflict = 6;
+inline bool InworldStatus::_internal_has_version_conflict() const {
+  return error_details_case() == kVersionConflict;
+}
+inline bool InworldStatus::has_version_conflict() const {
+  return _internal_has_version_conflict();
+}
+inline void InworldStatus::set_has_version_conflict() {
+  _oneof_case_[0] = kVersionConflict;
+}
+inline void InworldStatus::clear_version_conflict() {
+  if (_internal_has_version_conflict()) {
+    if (GetArena() == nullptr) {
+      delete error_details_.version_conflict_;
+    }
+    clear_has_error_details();
+  }
+}
+inline ::ai::inworld::common::VersionConflictDetails* InworldStatus::release_version_conflict() {
+  // @@protoc_insertion_point(field_release:ai.inworld.common.InworldStatus.version_conflict)
+  if (_internal_has_version_conflict()) {
+    clear_has_error_details();
+      ::ai::inworld::common::VersionConflictDetails* temp = error_details_.version_conflict_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    error_details_.version_conflict_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::ai::inworld::common::VersionConflictDetails& InworldStatus::_internal_version_conflict() const {
+  return _internal_has_version_conflict()
+      ? *error_details_.version_conflict_
+      : reinterpret_cast< ::ai::inworld::common::VersionConflictDetails&>(::ai::inworld::common::_VersionConflictDetails_default_instance_);
+}
+inline const ::ai::inworld::common::VersionConflictDetails& InworldStatus::version_conflict() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.common.InworldStatus.version_conflict)
+  return _internal_version_conflict();
+}
+inline ::ai::inworld::common::VersionConflictDetails* InworldStatus::unsafe_arena_release_version_conflict() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:ai.inworld.common.InworldStatus.version_conflict)
+  if (_internal_has_version_conflict()) {
+    clear_has_error_details();
+    ::ai::inworld::common::VersionConflictDetails* temp = error_details_.version_conflict_;
+    error_details_.version_conflict_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void InworldStatus::unsafe_arena_set_allocated_version_conflict(::ai::inworld::common::VersionConflictDetails* version_conflict) {
+  clear_error_details();
+  if (version_conflict) {
+    set_has_version_conflict();
+    error_details_.version_conflict_ = version_conflict;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.common.InworldStatus.version_conflict)
+}
+inline ::ai::inworld::common::VersionConflictDetails* InworldStatus::_internal_mutable_version_conflict() {
+  if (!_internal_has_version_conflict()) {
+    clear_error_details();
+    set_has_version_conflict();
+    error_details_.version_conflict_ = CreateMaybeMessage< ::ai::inworld::common::VersionConflictDetails >(GetArena());
+  }
+  return error_details_.version_conflict_;
+}
+inline ::ai::inworld::common::VersionConflictDetails* InworldStatus::mutable_version_conflict() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.common.InworldStatus.version_conflict)
+  return _internal_mutable_version_conflict();
+}
+
 inline bool InworldStatus::has_error_details() const {
   return error_details_case() != ERROR_DETAILS_NOT_SET;
 }
@@ -845,9 +1102,75 @@ inline void ResourceNotFoundDetails::set_resource_type(::ai::inworld::common::Re
   // @@protoc_insertion_point(field_set:ai.inworld.common.ResourceNotFoundDetails.resource_type)
 }
 
+// -------------------------------------------------------------------
+
+// VersionConflictDetails
+
+// int32 client_version = 1;
+inline void VersionConflictDetails::clear_client_version() {
+  client_version_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 VersionConflictDetails::_internal_client_version() const {
+  return client_version_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 VersionConflictDetails::client_version() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.common.VersionConflictDetails.client_version)
+  return _internal_client_version();
+}
+inline void VersionConflictDetails::_internal_set_client_version(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  client_version_ = value;
+}
+inline void VersionConflictDetails::set_client_version(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_client_version(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.common.VersionConflictDetails.client_version)
+}
+
+// int32 server_version = 2;
+inline void VersionConflictDetails::clear_server_version() {
+  server_version_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 VersionConflictDetails::_internal_server_version() const {
+  return server_version_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 VersionConflictDetails::server_version() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.common.VersionConflictDetails.server_version)
+  return _internal_server_version();
+}
+inline void VersionConflictDetails::_internal_set_server_version(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  server_version_ = value;
+}
+inline void VersionConflictDetails::set_server_version(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_server_version(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.common.VersionConflictDetails.server_version)
+}
+
+// int32 request_index = 3;
+inline void VersionConflictDetails::clear_request_index() {
+  request_index_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 VersionConflictDetails::_internal_request_index() const {
+  return request_index_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 VersionConflictDetails::request_index() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.common.VersionConflictDetails.request_index)
+  return _internal_request_index();
+}
+inline void VersionConflictDetails::_internal_set_request_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  request_index_ = value;
+}
+inline void VersionConflictDetails::set_request_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_request_index(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.common.VersionConflictDetails.request_index)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 

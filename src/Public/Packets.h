@@ -112,6 +112,8 @@ namespace Inworld {
     class TextEvent;
     class DataEvent;
     class AudioDataEvent;
+	class A2FHeaderEvent;
+	class A2FContentEvent;
     class SilenceEvent;
     class ControlEvent;
 	class ControlEventConversationUpdate;
@@ -129,6 +131,8 @@ namespace Inworld {
         virtual void Visit(const TextEvent& Event) {  }
         virtual void Visit(const DataEvent& Event) {  }
         virtual void Visit(const AudioDataEvent& Event) {  }
+		virtual void Visit(const A2FHeaderEvent& Event) {  }
+		virtual void Visit(const A2FContentEvent& Event) {  }
         virtual void Visit(const SilenceEvent& Event) {  }
         virtual void Visit(const ControlEvent& Event) {  }
         virtual void Visit(const ControlEventConversationUpdate& Event) {  }
@@ -241,6 +245,65 @@ namespace Inworld {
 		std::vector<PhonemeInfo> _PhonemeInfos;
 	};
 
+	class INWORLD_EXPORT A2FHeaderEvent : public Packet
+	{
+	public:
+		A2FHeaderEvent() = default;
+		A2FHeaderEvent(const InworldPackets::InworldPacket& GrpcPacket);
+
+		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
+
+		int32_t GetChannelCount() const { return _ChannelCount; }
+		int32_t GetSamplesPerSecond() const { return _SamplesPerSecond; }
+		int32_t GetBitsPerSample() const { return _BitsPerSample; }
+		const std::vector<std::string>& GetBlendShapes() const { return _BlendShapes; }
+
+	protected:
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override {}
+
+	private:
+		int32_t _ChannelCount = 0;
+		int32_t _SamplesPerSecond = 0;
+		int32_t _BitsPerSample = 0;
+		std::vector<std::string> _BlendShapes;
+	};
+
+	class INWORLD_EXPORT A2FContentEvent : public Packet
+	{
+	public:
+		A2FContentEvent() = default;
+		A2FContentEvent(const InworldPackets::InworldPacket& GrpcPacket);
+
+		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
+
+		struct FAudioInfo
+		{
+			double _TimeCode;
+			std::string _Audio;
+		};
+
+		struct FSkeletalAnim
+		{
+			struct FBlendShapeWeights
+			{
+				double _TimeCode;
+				std::vector<float> _Values;
+			};
+
+			std::vector<FBlendShapeWeights> _BlendShapeWeights;
+		};
+
+		const FAudioInfo& GetAudioInfo() const { return _AudioInfo; }
+		const FSkeletalAnim& GetSkeletalAnim() const { return _SkeletalAnimInfo; }
+
+	protected:
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override {}
+
+	private:
+		FAudioInfo _AudioInfo;
+		FSkeletalAnim _SkeletalAnimInfo;
+	};
+
 	class INWORLD_EXPORT SilenceEvent : public Packet
 	{
 	public:
@@ -307,7 +370,8 @@ namespace Inworld {
 			bool TurnBasedSTT = true;
 			bool NarratedActions = true;
 			bool Relations = true;
-			bool Multiagent = true;
+			bool MultiAgent = true;
+			bool Audio2Face = false;
 		};
 
 		struct INWORLD_EXPORT UserConfiguration

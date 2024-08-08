@@ -656,6 +656,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fengine_2fworld_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::CapabilitiesRequest, inspect_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::CapabilitiesRequest, multi_modal_action_planning_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::CapabilitiesRequest, ping_pong_report_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::CapabilitiesRequest, perceived_latency_report_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::UserRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -907,37 +908,37 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fengine_2fworld_
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::ai::inworld::engine::CapabilitiesRequest)},
-  { 28, -1, sizeof(::ai::inworld::engine::UserRequest)},
-  { 35, -1, sizeof(::ai::inworld::engine::ClientRequest)},
-  { 43, -1, sizeof(::ai::inworld::engine::LoadSceneRequest)},
-  { 55, -1, sizeof(::ai::inworld::engine::AudioSettings)},
-  { 62, -1, sizeof(::ai::inworld::engine::UserSettings_PlayerProfile_PlayerField)},
-  { 69, -1, sizeof(::ai::inworld::engine::UserSettings_PlayerProfile)},
-  { 75, -1, sizeof(::ai::inworld::engine::UserSettings)},
-  { 82, -1, sizeof(::ai::inworld::engine::SessionContinuation_ContinuationInfo)},
-  { 88, -1, sizeof(::ai::inworld::engine::SessionContinuation)},
-  { 96, -1, sizeof(::ai::inworld::engine::PreviousDialog_Phrase)},
-  { 106, -1, sizeof(::ai::inworld::engine::PreviousDialog)},
-  { 112, -1, sizeof(::ai::inworld::engine::PreviousState_StateHolder)},
-  { 123, 130, sizeof(::ai::inworld::engine::PreviousState_EntitiesState_EntityItem_PropertiesEntry_DoNotUse)},
-  { 132, -1, sizeof(::ai::inworld::engine::PreviousState_EntitiesState_EntityItem)},
-  { 142, -1, sizeof(::ai::inworld::engine::PreviousState_EntitiesState_Entity)},
-  { 150, -1, sizeof(::ai::inworld::engine::PreviousState_EntitiesState)},
-  { 157, -1, sizeof(::ai::inworld::engine::PreviousState)},
-  { 166, -1, sizeof(::ai::inworld::engine::LoadSceneResponse_Agent_CharacterAssets)},
-  { 176, -1, sizeof(::ai::inworld::engine::LoadSceneResponse_Agent)},
-  { 185, -1, sizeof(::ai::inworld::engine::LoadSceneResponse)},
-  { 193, -1, sizeof(::ai::inworld::engine::LogErrorRequest)},
-  { 200, -1, sizeof(::ai::inworld::engine::VoicePreviewRequest)},
-  { 208, -1, sizeof(::ai::inworld::engine::VoicePreviewResponse)},
-  { 214, -1, sizeof(::ai::inworld::engine::ListBaseVoicesRequest)},
-  { 222, -1, sizeof(::ai::inworld::engine::ListBaseVoicesResponce)},
-  { 231, -1, sizeof(::ai::inworld::engine::AccessToken)},
-  { 240, -1, sizeof(::ai::inworld::engine::GenerateTokenRequest)},
-  { 247, -1, sizeof(::ai::inworld::engine::ActorRelations_Relation)},
-  { 254, -1, sizeof(::ai::inworld::engine::ActorRelations)},
-  { 261, -1, sizeof(::ai::inworld::engine::ConversationState_ConversationSettings)},
-  { 270, -1, sizeof(::ai::inworld::engine::ConversationState)},
+  { 29, -1, sizeof(::ai::inworld::engine::UserRequest)},
+  { 36, -1, sizeof(::ai::inworld::engine::ClientRequest)},
+  { 44, -1, sizeof(::ai::inworld::engine::LoadSceneRequest)},
+  { 56, -1, sizeof(::ai::inworld::engine::AudioSettings)},
+  { 63, -1, sizeof(::ai::inworld::engine::UserSettings_PlayerProfile_PlayerField)},
+  { 70, -1, sizeof(::ai::inworld::engine::UserSettings_PlayerProfile)},
+  { 76, -1, sizeof(::ai::inworld::engine::UserSettings)},
+  { 83, -1, sizeof(::ai::inworld::engine::SessionContinuation_ContinuationInfo)},
+  { 89, -1, sizeof(::ai::inworld::engine::SessionContinuation)},
+  { 97, -1, sizeof(::ai::inworld::engine::PreviousDialog_Phrase)},
+  { 107, -1, sizeof(::ai::inworld::engine::PreviousDialog)},
+  { 113, -1, sizeof(::ai::inworld::engine::PreviousState_StateHolder)},
+  { 124, 131, sizeof(::ai::inworld::engine::PreviousState_EntitiesState_EntityItem_PropertiesEntry_DoNotUse)},
+  { 133, -1, sizeof(::ai::inworld::engine::PreviousState_EntitiesState_EntityItem)},
+  { 143, -1, sizeof(::ai::inworld::engine::PreviousState_EntitiesState_Entity)},
+  { 151, -1, sizeof(::ai::inworld::engine::PreviousState_EntitiesState)},
+  { 158, -1, sizeof(::ai::inworld::engine::PreviousState)},
+  { 167, -1, sizeof(::ai::inworld::engine::LoadSceneResponse_Agent_CharacterAssets)},
+  { 177, -1, sizeof(::ai::inworld::engine::LoadSceneResponse_Agent)},
+  { 186, -1, sizeof(::ai::inworld::engine::LoadSceneResponse)},
+  { 194, -1, sizeof(::ai::inworld::engine::LogErrorRequest)},
+  { 201, -1, sizeof(::ai::inworld::engine::VoicePreviewRequest)},
+  { 209, -1, sizeof(::ai::inworld::engine::VoicePreviewResponse)},
+  { 215, -1, sizeof(::ai::inworld::engine::ListBaseVoicesRequest)},
+  { 223, -1, sizeof(::ai::inworld::engine::ListBaseVoicesResponce)},
+  { 232, -1, sizeof(::ai::inworld::engine::AccessToken)},
+  { 241, -1, sizeof(::ai::inworld::engine::GenerateTokenRequest)},
+  { 248, -1, sizeof(::ai::inworld::engine::ActorRelations_Relation)},
+  { 255, -1, sizeof(::ai::inworld::engine::ActorRelations)},
+  { 262, -1, sizeof(::ai::inworld::engine::ConversationState_ConversationSettings)},
+  { 271, -1, sizeof(::ai::inworld::engine::ConversationState)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -983,7 +984,7 @@ const char descriptor_table_protodef_ai_2finworld_2fengine_2fworld_2dengine_2epr
   "d/packets/packets.proto\032\036ai/inworld/voic"
   "es/voices.proto\032\"ai/inworld/voices/base_"
   "voice.proto\032.ai/inworld/language_codes/l"
-  "anguage_codes.proto\"\253\004\n\023CapabilitiesRequ"
+  "anguage_codes.proto\"\315\004\n\023CapabilitiesRequ"
   "est\022\r\n\005audio\030\001 \001(\010\022\014\n\004text\030\002 \001(\010\022\024\n\010gest"
   "ures\030\003 \001(\010B\002\030\001\022\025\n\rinterruptions\030\004 \001(\010\022\024\n"
   "\010triggers\030\005 \001(\010B\002\030\001\022\020\n\010emotions\030\006 \001(\010\022\026\n"
@@ -997,169 +998,170 @@ const char descriptor_table_protodef_ai_2finworld_2fengine_2fworld_2dengine_2epr
   "p3\030\023 \001(\010\022\023\n\013multi_agent\030\024 \001(\010\022\024\n\014audio_2"
   "_face\030\025 \001(\010\022\017\n\007inspect\030\026 \001(\010\022#\n\033multi_mo"
   "dal_action_planning\030\027 \001(\010\022\030\n\020ping_pong_r"
-  "eport\030\030 \001(\010J\004\010\007\020\010\"\'\n\013UserRequest\022\014\n\004name"
-  "\030\001 \001(\t\022\n\n\002id\030\002 \001(\t\"A\n\rClientRequest\022\n\n\002i"
-  "d\030\001 \001(\t\022\017\n\007version\030\002 \001(\t\022\023\n\013description\030"
-  "\003 \001(\t\"\366\002\n\020LoadSceneRequest\022\014\n\004name\030\001 \001(\t"
-  "\022<\n\014capabilities\030\002 \001(\0132&.ai.inworld.engi"
-  "ne.CapabilitiesRequest\022,\n\004user\030\003 \001(\0132\036.a"
-  "i.inworld.engine.UserRequest\0220\n\006client\030\004"
-  " \001(\0132 .ai.inworld.engine.ClientRequest\0228"
-  "\n\016audio_settings\030\005 \001(\0132 .ai.inworld.engi"
-  "ne.AudioSettings\0226\n\ruser_settings\030\006 \001(\0132"
-  "\037.ai.inworld.engine.UserSettings\022D\n\024sess"
-  "ion_continuation\030\007 \001(\0132&.ai.inworld.engi"
-  "ne.SessionContinuation\"M\n\rAudioSettings\022"
-  "\035\n\025stt_sample_rate_hertz\030\001 \001(\r\022\035\n\025tts_sa"
-  "mple_rate_hertz\030\002 \001(\r\"\211\002\n\014UserSettings\022\037"
-  "\n\027view_transcript_consent\030\001 \001(\010\022E\n\016playe"
-  "r_profile\030\002 \001(\0132-.ai.inworld.engine.User"
-  "Settings.PlayerProfile\032\220\001\n\rPlayerProfile"
-  "\022I\n\006fields\030\003 \003(\01329.ai.inworld.engine.Use"
-  "rSettings.PlayerProfile.PlayerField\0324\n\013P"
-  "layerField\022\020\n\010field_id\030\001 \001(\t\022\023\n\013field_va"
-  "lue\030\002 \001(\t\"\350\001\n\023SessionContinuation\022R\n\021con"
-  "tinuation_info\030\001 \001(\01327.ai.inworld.engine"
-  ".SessionContinuation.ContinuationInfo\022:\n"
-  "\017previous_dialog\030\002 \001(\0132!.ai.inworld.engi"
-  "ne.PreviousDialog\022\026\n\016previous_state\030\003 \001("
-  "\014\032)\n\020ContinuationInfo\022\025\n\rmillis_passed\030\001"
-  " \001(\003\"\271\002\n\016PreviousDialog\0229\n\007phrases\030\001 \003(\013"
-  "2(.ai.inworld.engine.PreviousDialog.Phra"
-  "se\032\243\001\n\006Phrase\022C\n\006talker\030\001 \001(\01623.ai.inwor"
-  "ld.engine.PreviousDialog.DialogParticipa"
-  "nt\022\033\n\023talker_display_name\030\004 \001(\t\022\020\n\006phras"
-  "e\030\002 \001(\tH\000\022\032\n\020narrative_action\030\005 \001(\tH\000B\t\n"
-  "\007payload\"F\n\021DialogParticipant\022\013\n\007UNKNOWN"
-  "\020\000\022\n\n\006PLAYER\020\001\022\r\n\tCHARACTER\020\002\022\t\n\005WORLD\020\003"
-  "\"\373\010\n\rPreviousState\022C\n\rstate_holders\030\001 \003("
-  "\0132,.ai.inworld.engine.PreviousState.Stat"
-  "eHolder\022\027\n\017game_session_id\030\002 \001(\t\022@\n\022conv"
-  "ersation_state\030\003 \001(\0132$.ai.inworld.engine"
-  ".ConversationState\022F\n\016entities_state\030\004 \001"
-  "(\0132..ai.inworld.engine.PreviousState.Ent"
-  "itiesState\032\252\003\n\013StateHolder\022\022\n\nbrain_name"
-  "\030\001 \001(\t\022\r\n\005state\030\002 \001(\014\022>\n\017previous_dialog"
-  "\030\003 \001(\0132!.ai.inworld.engine.PreviousDialo"
-  "gB\002\030\001\0222\n\007packets\030\004 \003(\0132!.ai.inworld.pack"
-  "ets.InworldPacket\022>\n\023relations_to_actors"
-  "\030\005 \003(\0132!.ai.inworld.engine.ActorRelation"
-  "s\022N\n\014state_format\030\006 \001(\01628.ai.inworld.eng"
-  "ine.PreviousState.StateHolder.StateForma"
-  "t\"t\n\013StateFormat\022\030\n\024STATE_FORMAT_UNKNOWN"
-  "\020\000\022$\n STATE_FORMAT_SESSION_BRAIN_STATE\020\001"
-  "\022%\n!STATE_FORMAT_EXTERNAL_BRAIN_STATE\020\002\032"
-  "\324\003\n\rEntitiesState\022O\n\014entity_items\030\001 \003(\0132"
-  "9.ai.inworld.engine.PreviousState.Entiti"
-  "esState.EntityItem\022G\n\010entities\030\002 \003(\01325.a"
+  "eport\030\030 \001(\010\022 \n\030perceived_latency_report\030"
+  "\031 \001(\010J\004\010\007\020\010\"\'\n\013UserRequest\022\014\n\004name\030\001 \001(\t"
+  "\022\n\n\002id\030\002 \001(\t\"A\n\rClientRequest\022\n\n\002id\030\001 \001("
+  "\t\022\017\n\007version\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\""
+  "\366\002\n\020LoadSceneRequest\022\014\n\004name\030\001 \001(\t\022<\n\014ca"
+  "pabilities\030\002 \001(\0132&.ai.inworld.engine.Cap"
+  "abilitiesRequest\022,\n\004user\030\003 \001(\0132\036.ai.inwo"
+  "rld.engine.UserRequest\0220\n\006client\030\004 \001(\0132 "
+  ".ai.inworld.engine.ClientRequest\0228\n\016audi"
+  "o_settings\030\005 \001(\0132 .ai.inworld.engine.Aud"
+  "ioSettings\0226\n\ruser_settings\030\006 \001(\0132\037.ai.i"
+  "nworld.engine.UserSettings\022D\n\024session_co"
+  "ntinuation\030\007 \001(\0132&.ai.inworld.engine.Ses"
+  "sionContinuation\"M\n\rAudioSettings\022\035\n\025stt"
+  "_sample_rate_hertz\030\001 \001(\r\022\035\n\025tts_sample_r"
+  "ate_hertz\030\002 \001(\r\"\211\002\n\014UserSettings\022\037\n\027view"
+  "_transcript_consent\030\001 \001(\010\022E\n\016player_prof"
+  "ile\030\002 \001(\0132-.ai.inworld.engine.UserSettin"
+  "gs.PlayerProfile\032\220\001\n\rPlayerProfile\022I\n\006fi"
+  "elds\030\003 \003(\01329.ai.inworld.engine.UserSetti"
+  "ngs.PlayerProfile.PlayerField\0324\n\013PlayerF"
+  "ield\022\020\n\010field_id\030\001 \001(\t\022\023\n\013field_value\030\002 "
+  "\001(\t\"\350\001\n\023SessionContinuation\022R\n\021continuat"
+  "ion_info\030\001 \001(\01327.ai.inworld.engine.Sessi"
+  "onContinuation.ContinuationInfo\022:\n\017previ"
+  "ous_dialog\030\002 \001(\0132!.ai.inworld.engine.Pre"
+  "viousDialog\022\026\n\016previous_state\030\003 \001(\014\032)\n\020C"
+  "ontinuationInfo\022\025\n\rmillis_passed\030\001 \001(\003\"\271"
+  "\002\n\016PreviousDialog\0229\n\007phrases\030\001 \003(\0132(.ai."
+  "inworld.engine.PreviousDialog.Phrase\032\243\001\n"
+  "\006Phrase\022C\n\006talker\030\001 \001(\01623.ai.inworld.eng"
+  "ine.PreviousDialog.DialogParticipant\022\033\n\023"
+  "talker_display_name\030\004 \001(\t\022\020\n\006phrase\030\002 \001("
+  "\tH\000\022\032\n\020narrative_action\030\005 \001(\tH\000B\t\n\007paylo"
+  "ad\"F\n\021DialogParticipant\022\013\n\007UNKNOWN\020\000\022\n\n\006"
+  "PLAYER\020\001\022\r\n\tCHARACTER\020\002\022\t\n\005WORLD\020\003\"\373\010\n\rP"
+  "reviousState\022C\n\rstate_holders\030\001 \003(\0132,.ai"
+  ".inworld.engine.PreviousState.StateHolde"
+  "r\022\027\n\017game_session_id\030\002 \001(\t\022@\n\022conversati"
+  "on_state\030\003 \001(\0132$.ai.inworld.engine.Conve"
+  "rsationState\022F\n\016entities_state\030\004 \001(\0132..a"
   "i.inworld.engine.PreviousState.EntitiesS"
-  "tate.Entity\032\347\001\n\nEntityItem\022\n\n\002id\030\001 \001(\t\022\024"
-  "\n\014display_name\030\002 \001(\t\022\023\n\013description\030\003 \001("
-  "\t\022]\n\nproperties\030\004 \003(\0132I.ai.inworld.engin"
-  "e.PreviousState.EntitiesState.EntityItem"
-  ".PropertiesEntry\022\020\n\010entities\030\005 \003(\t\0321\n\017Pr"
-  "opertiesEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001("
-  "\t:\0028\001\032\?\n\006Entity\022\n\n\002id\030\001 \001(\t\022\024\n\014display_n"
-  "ame\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\"\313\003\n\021LoadS"
-  "ceneResponse\022:\n\006agents\030\001 \003(\0132*.ai.inworl"
-  "d.engine.LoadSceneResponse.Agent\022\013\n\003key\030"
-  "\002 \001(\t\0228\n\016previous_state\030\003 \001(\0132 .ai.inwor"
-  "ld.engine.PreviousState\032\262\002\n\005Agent\022\020\n\010age"
-  "nt_id\030\001 \001(\t\022\022\n\nbrain_name\030\002 \001(\t\022\022\n\ngiven"
-  "_name\030\003 \001(\t\022T\n\020character_assets\030\004 \001(\0132:."
-  "ai.inworld.engine.LoadSceneResponse.Agen"
-  "t.CharacterAssets\032\230\001\n\017CharacterAssets\022\025\n"
-  "\rrpm_model_uri\030\001 \001(\t\022\036\n\026rpm_image_uri_po"
-  "rtrait\030\002 \001(\t\022\035\n\025rpm_image_uri_posture\030\003 "
-  "\001(\t\022\022\n\navatar_img\030\004 \001(\t\022\033\n\023avatar_img_or"
-  "iginal\030\005 \001(\t\"/\n\017LogErrorRequest\022\013\n\003key\030\001"
-  " \001(\t\022\017\n\007message\030\002 \001(\t\"\206\001\n\023VoicePreviewRe"
-  "quest\022\014\n\004text\030\001 \001(\t\0222\n\010emotions\030\002 \001(\0132 ."
-  "ai.inworld.packets.EmotionEvent\022\'\n\005voice"
-  "\030\003 \001(\0132\030.ai.inworld.voices.VoiceJ\004\010\004\020\005\"%"
-  "\n\024VoicePreviewResponse\022\r\n\005audio\030\001 \001(\014\"\234\001"
-  "\n\025ListBaseVoicesRequest\022\031\n\rlanguage_code"
-  "\030\001 \001(\tB\002\030\001\022-\n\ttts_types\030\002 \003(\0162\032.ai.inwor"
-  "ld.voices.TTSType\0229\n\010language\030\003 \001(\0162\'.ai"
-  ".inworld.language_codes.LanguageCode\"\366\001\n"
-  "\026ListBaseVoicesResponce\0223\n\rgoogle_voices"
-  "\030\001 \003(\0132\034.ai.inworld.voices.BaseVoice\0224\n\016"
-  "inworld_voices\030\002 \003(\0132\034.ai.inworld.voices"
-  ".BaseVoice\0228\n\022eleven_labs_voices\030\003 \003(\0132\034"
-  ".ai.inworld.voices.BaseVoice\0227\n\021inworld_"
-  "v2_voices\030\004 \003(\0132\034.ai.inworld.voices.Base"
-  "Voice\"s\n\013AccessToken\022\r\n\005token\030\001 \001(\t\022\014\n\004t"
-  "ype\030\002 \001(\t\0223\n\017expiration_time\030\003 \001(\0132\032.goo"
-  "gle.protobuf.Timestamp\022\022\n\nsession_id\030\004 \001"
-  "(\t\"6\n\024GenerateTokenRequest\022\013\n\003key\030\001 \001(\t\022"
-  "\021\n\tresources\030\002 \003(\t\"\212\001\n\016ActorRelations\022\020\n"
-  "\010actor_id\030\001 \001(\t\022=\n\trelations\030\002 \003(\0132*.ai."
-  "inworld.engine.ActorRelations.Relation\032\'"
-  "\n\010Relation\022\014\n\004type\030\001 \001(\t\022\r\n\005label\030\002 \001(\t\""
-  "\211\002\n\021ConversationState\022W\n\024conversationSet"
-  "tings\030\001 \003(\01329.ai.inworld.engine.Conversa"
-  "tionState.ConversationSettings\032\232\001\n\024Conve"
-  "rsationSettings\022\027\n\017conversation_id\030\001 \001(\t"
-  "\022\030\n\014participants\030\002 \003(\tB\002\030\001\022\026\n\nspectators"
-  "\030\003 \003(\tB\002\030\001\0227\n\024participating_actors\030\004 \003(\013"
-  "2\031.ai.inworld.packets.Actor*\251\t\n\013VoicePre"
-  "set\022\034\n\030VOICE_PRESET_UNSPECIFIED\020\000\022\031\n\025VOI"
-  "CE_PRESET_FEMALE_1\020\001\022\031\n\025VOICE_PRESET_FEM"
-  "ALE_2\020\002\022\031\n\025VOICE_PRESET_FEMALE_3\020\003\022\031\n\025VO"
-  "ICE_PRESET_FEMALE_4\020\004\022\031\n\025VOICE_PRESET_FE"
-  "MALE_5\020\005\022\027\n\023VOICE_PRESET_MALE_1\020\006\022\027\n\023VOI"
-  "CE_PRESET_MALE_2\020\007\022\027\n\023VOICE_PRESET_MALE_"
-  "3\020\010\022\027\n\023VOICE_PRESET_MALE_4\020\t\022\027\n\023VOICE_PR"
-  "ESET_MALE_5\020\n\022\037\n\033INWORLD_VOICE_PRESET_MA"
-  "LE_1\020\013\022\037\n\033INWORLD_VOICE_PRESET_MALE_2\020\014\022"
-  "!\n\035INWORLD_VOICE_PRESET_FEMALE_1\020\r\022!\n\035IN"
-  "WORLD_VOICE_PRESET_FEMALE_2\020\016\022\037\n\033INWORLD"
-  "_VOICE_PRESET_MALE_3\020\017\022\037\n\033INWORLD_VOICE_"
-  "PRESET_MALE_4\020\020\022\037\n\033INWORLD_VOICE_PRESET_"
-  "MALE_5\020\021\022!\n\035INWORLD_VOICE_PRESET_FEMALE_"
-  "3\020\022\022!\n\035INWORLD_VOICE_PRESET_FEMALE_4\020\023\022%"
-  "\n!INWORLD_VOICE_PRESET_ROBOT_MALE_1\020\024\022%\n"
-  "!INWORLD_VOICE_PRESET_ROBOT_MALE_2\020\025\022%\n!"
-  "INWORLD_VOICE_PRESET_ROBOT_MALE_3\020\026\022%\n!I"
-  "NWORLD_VOICE_PRESET_ROBOT_MALE_4\020\027\022%\n!IN"
-  "WORLD_VOICE_PRESET_ROBOT_MALE_5\020\030\022\'\n#INW"
-  "ORLD_VOICE_PRESET_ROBOT_FEMALE_1\020\031\022\'\n#IN"
-  "WORLD_VOICE_PRESET_ROBOT_FEMALE_2\020\032\022\'\n#I"
-  "NWORLD_VOICE_PRESET_ROBOT_FEMALE_3\020\033\022\'\n#"
-  "INWORLD_VOICE_PRESET_ROBOT_FEMALE_4\020\034\022\036\n"
-  "\032INWORLD_VOICE_PRESET_SPIKE\020\035\022!\n\035INWORLD"
-  "_VOICE_PRESET_TWILIGHT\020\036\022#\n\037INWORLD_VOIC"
-  "E_PRESET_FLUTTERSHY\020\037\022$\n INWORLD_VOICE_P"
-  "RESET_ROBOT_SPIKE\020 \022\'\n#INWORLD_VOICE_PRE"
-  "SET_ROBOT_TWILIGHT\020!\022)\n%INWORLD_VOICE_PR"
-  "ESET_ROBOT_FLUTTERSHY\020\"2\242\007\n\013WorldEngine\022"
-  "\177\n\007Session\022!.ai.inworld.packets.InworldP"
-  "acket\032!.ai.inworld.packets.InworldPacket"
-  "\"*\202\323\344\223\002$\022\023/v1/session/defaultZ\r\022\013/v1/ses"
-  "sion(\0010\001\022q\n\013OpenSession\022!.ai.inworld.pac"
-  "kets.InworldPacket\032!.ai.inworld.packets."
-  "InworldPacket\"\030\202\323\344\223\002\022\022\020/v1/session/open("
-  "\0010\001\022\270\001\n\tLoadScene\022#.ai.inworld.engine.Lo"
-  "adSceneRequest\032$.ai.inworld.engine.LoadS"
-  "ceneResponse\"`\202\323\344\223\002Z\"%/v1/{name=workspac"
-  "es/*/scenes/*}:load:\001*Z.\")/v1/{name=work"
-  "spaces/*/characters/*}:load:\001*\022`\n\010LogErr"
-  "or\022\".ai.inworld.engine.LogErrorRequest\032\026"
-  ".google.protobuf.Empty\"\030\202\323\344\223\002\022\"\r/v1/log:"
-  "error:\001*\022}\n\014VoicePreview\022&.ai.inworld.en"
-  "gine.VoicePreviewRequest\032\'.ai.inworld.en"
-  "gine.VoicePreviewResponse\"\034\202\323\344\223\002\026\"\021/v1/v"
-  "oice:preview:\001*\022}\n\016ListBaseVoices\022(.ai.i"
-  "nworld.engine.ListBaseVoicesRequest\032).ai"
-  ".inworld.engine.ListBaseVoicesResponce\"\026"
-  "\202\323\344\223\002\020\022\016/v1/voice:base\022\203\001\n\rGenerateToken"
-  "\022\'.ai.inworld.engine.GenerateTokenReques"
-  "t\032\036.ai.inworld.engine.AccessToken\")\202\323\344\223\002"
-  "#\"\036/auth/v1/tokens/token:generate:\001*B\206\001\n"
-  "\017ai.inworld.grpcB\027WorldEngineGrpcProtoco"
-  "lZKgithub.com/inworld-ai/inworld-proto-g"
-  "olang/src/go/ai/inworld/engine/v1alpha\252\002"
-  "\014Inworld.Grpcb\006proto3"
+  "tate\032\252\003\n\013StateHolder\022\022\n\nbrain_name\030\001 \001(\t"
+  "\022\r\n\005state\030\002 \001(\014\022>\n\017previous_dialog\030\003 \001(\013"
+  "2!.ai.inworld.engine.PreviousDialogB\002\030\001\022"
+  "2\n\007packets\030\004 \003(\0132!.ai.inworld.packets.In"
+  "worldPacket\022>\n\023relations_to_actors\030\005 \003(\013"
+  "2!.ai.inworld.engine.ActorRelations\022N\n\014s"
+  "tate_format\030\006 \001(\01628.ai.inworld.engine.Pr"
+  "eviousState.StateHolder.StateFormat\"t\n\013S"
+  "tateFormat\022\030\n\024STATE_FORMAT_UNKNOWN\020\000\022$\n "
+  "STATE_FORMAT_SESSION_BRAIN_STATE\020\001\022%\n!ST"
+  "ATE_FORMAT_EXTERNAL_BRAIN_STATE\020\002\032\324\003\n\rEn"
+  "titiesState\022O\n\014entity_items\030\001 \003(\01329.ai.i"
+  "nworld.engine.PreviousState.EntitiesStat"
+  "e.EntityItem\022G\n\010entities\030\002 \003(\01325.ai.inwo"
+  "rld.engine.PreviousState.EntitiesState.E"
+  "ntity\032\347\001\n\nEntityItem\022\n\n\002id\030\001 \001(\t\022\024\n\014disp"
+  "lay_name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022]\n\np"
+  "roperties\030\004 \003(\0132I.ai.inworld.engine.Prev"
+  "iousState.EntitiesState.EntityItem.Prope"
+  "rtiesEntry\022\020\n\010entities\030\005 \003(\t\0321\n\017Properti"
+  "esEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032"
+  "\?\n\006Entity\022\n\n\002id\030\001 \001(\t\022\024\n\014display_name\030\002 "
+  "\001(\t\022\023\n\013description\030\003 \001(\t\"\313\003\n\021LoadSceneRe"
+  "sponse\022:\n\006agents\030\001 \003(\0132*.ai.inworld.engi"
+  "ne.LoadSceneResponse.Agent\022\013\n\003key\030\002 \001(\t\022"
+  "8\n\016previous_state\030\003 \001(\0132 .ai.inworld.eng"
+  "ine.PreviousState\032\262\002\n\005Agent\022\020\n\010agent_id\030"
+  "\001 \001(\t\022\022\n\nbrain_name\030\002 \001(\t\022\022\n\ngiven_name\030"
+  "\003 \001(\t\022T\n\020character_assets\030\004 \001(\0132:.ai.inw"
+  "orld.engine.LoadSceneResponse.Agent.Char"
+  "acterAssets\032\230\001\n\017CharacterAssets\022\025\n\rrpm_m"
+  "odel_uri\030\001 \001(\t\022\036\n\026rpm_image_uri_portrait"
+  "\030\002 \001(\t\022\035\n\025rpm_image_uri_posture\030\003 \001(\t\022\022\n"
+  "\navatar_img\030\004 \001(\t\022\033\n\023avatar_img_original"
+  "\030\005 \001(\t\"/\n\017LogErrorRequest\022\013\n\003key\030\001 \001(\t\022\017"
+  "\n\007message\030\002 \001(\t\"\206\001\n\023VoicePreviewRequest\022"
+  "\014\n\004text\030\001 \001(\t\0222\n\010emotions\030\002 \001(\0132 .ai.inw"
+  "orld.packets.EmotionEvent\022\'\n\005voice\030\003 \001(\013"
+  "2\030.ai.inworld.voices.VoiceJ\004\010\004\020\005\"%\n\024Voic"
+  "ePreviewResponse\022\r\n\005audio\030\001 \001(\014\"\234\001\n\025List"
+  "BaseVoicesRequest\022\031\n\rlanguage_code\030\001 \001(\t"
+  "B\002\030\001\022-\n\ttts_types\030\002 \003(\0162\032.ai.inworld.voi"
+  "ces.TTSType\0229\n\010language\030\003 \001(\0162\'.ai.inwor"
+  "ld.language_codes.LanguageCode\"\366\001\n\026ListB"
+  "aseVoicesResponce\0223\n\rgoogle_voices\030\001 \003(\013"
+  "2\034.ai.inworld.voices.BaseVoice\0224\n\016inworl"
+  "d_voices\030\002 \003(\0132\034.ai.inworld.voices.BaseV"
+  "oice\0228\n\022eleven_labs_voices\030\003 \003(\0132\034.ai.in"
+  "world.voices.BaseVoice\0227\n\021inworld_v2_voi"
+  "ces\030\004 \003(\0132\034.ai.inworld.voices.BaseVoice\""
+  "s\n\013AccessToken\022\r\n\005token\030\001 \001(\t\022\014\n\004type\030\002 "
+  "\001(\t\0223\n\017expiration_time\030\003 \001(\0132\032.google.pr"
+  "otobuf.Timestamp\022\022\n\nsession_id\030\004 \001(\t\"6\n\024"
+  "GenerateTokenRequest\022\013\n\003key\030\001 \001(\t\022\021\n\tres"
+  "ources\030\002 \003(\t\"\212\001\n\016ActorRelations\022\020\n\010actor"
+  "_id\030\001 \001(\t\022=\n\trelations\030\002 \003(\0132*.ai.inworl"
+  "d.engine.ActorRelations.Relation\032\'\n\010Rela"
+  "tion\022\014\n\004type\030\001 \001(\t\022\r\n\005label\030\002 \001(\t\"\211\002\n\021Co"
+  "nversationState\022W\n\024conversationSettings\030"
+  "\001 \003(\01329.ai.inworld.engine.ConversationSt"
+  "ate.ConversationSettings\032\232\001\n\024Conversatio"
+  "nSettings\022\027\n\017conversation_id\030\001 \001(\t\022\030\n\014pa"
+  "rticipants\030\002 \003(\tB\002\030\001\022\026\n\nspectators\030\003 \003(\t"
+  "B\002\030\001\0227\n\024participating_actors\030\004 \003(\0132\031.ai."
+  "inworld.packets.Actor*\251\t\n\013VoicePreset\022\034\n"
+  "\030VOICE_PRESET_UNSPECIFIED\020\000\022\031\n\025VOICE_PRE"
+  "SET_FEMALE_1\020\001\022\031\n\025VOICE_PRESET_FEMALE_2\020"
+  "\002\022\031\n\025VOICE_PRESET_FEMALE_3\020\003\022\031\n\025VOICE_PR"
+  "ESET_FEMALE_4\020\004\022\031\n\025VOICE_PRESET_FEMALE_5"
+  "\020\005\022\027\n\023VOICE_PRESET_MALE_1\020\006\022\027\n\023VOICE_PRE"
+  "SET_MALE_2\020\007\022\027\n\023VOICE_PRESET_MALE_3\020\010\022\027\n"
+  "\023VOICE_PRESET_MALE_4\020\t\022\027\n\023VOICE_PRESET_M"
+  "ALE_5\020\n\022\037\n\033INWORLD_VOICE_PRESET_MALE_1\020\013"
+  "\022\037\n\033INWORLD_VOICE_PRESET_MALE_2\020\014\022!\n\035INW"
+  "ORLD_VOICE_PRESET_FEMALE_1\020\r\022!\n\035INWORLD_"
+  "VOICE_PRESET_FEMALE_2\020\016\022\037\n\033INWORLD_VOICE"
+  "_PRESET_MALE_3\020\017\022\037\n\033INWORLD_VOICE_PRESET"
+  "_MALE_4\020\020\022\037\n\033INWORLD_VOICE_PRESET_MALE_5"
+  "\020\021\022!\n\035INWORLD_VOICE_PRESET_FEMALE_3\020\022\022!\n"
+  "\035INWORLD_VOICE_PRESET_FEMALE_4\020\023\022%\n!INWO"
+  "RLD_VOICE_PRESET_ROBOT_MALE_1\020\024\022%\n!INWOR"
+  "LD_VOICE_PRESET_ROBOT_MALE_2\020\025\022%\n!INWORL"
+  "D_VOICE_PRESET_ROBOT_MALE_3\020\026\022%\n!INWORLD"
+  "_VOICE_PRESET_ROBOT_MALE_4\020\027\022%\n!INWORLD_"
+  "VOICE_PRESET_ROBOT_MALE_5\020\030\022\'\n#INWORLD_V"
+  "OICE_PRESET_ROBOT_FEMALE_1\020\031\022\'\n#INWORLD_"
+  "VOICE_PRESET_ROBOT_FEMALE_2\020\032\022\'\n#INWORLD"
+  "_VOICE_PRESET_ROBOT_FEMALE_3\020\033\022\'\n#INWORL"
+  "D_VOICE_PRESET_ROBOT_FEMALE_4\020\034\022\036\n\032INWOR"
+  "LD_VOICE_PRESET_SPIKE\020\035\022!\n\035INWORLD_VOICE"
+  "_PRESET_TWILIGHT\020\036\022#\n\037INWORLD_VOICE_PRES"
+  "ET_FLUTTERSHY\020\037\022$\n INWORLD_VOICE_PRESET_"
+  "ROBOT_SPIKE\020 \022\'\n#INWORLD_VOICE_PRESET_RO"
+  "BOT_TWILIGHT\020!\022)\n%INWORLD_VOICE_PRESET_R"
+  "OBOT_FLUTTERSHY\020\"2\242\007\n\013WorldEngine\022\177\n\007Ses"
+  "sion\022!.ai.inworld.packets.InworldPacket\032"
+  "!.ai.inworld.packets.InworldPacket\"*\202\323\344\223"
+  "\002$\022\023/v1/session/defaultZ\r\022\013/v1/session(\001"
+  "0\001\022q\n\013OpenSession\022!.ai.inworld.packets.I"
+  "nworldPacket\032!.ai.inworld.packets.Inworl"
+  "dPacket\"\030\202\323\344\223\002\022\022\020/v1/session/open(\0010\001\022\270\001"
+  "\n\tLoadScene\022#.ai.inworld.engine.LoadScen"
+  "eRequest\032$.ai.inworld.engine.LoadSceneRe"
+  "sponse\"`\202\323\344\223\002Z\"%/v1/{name=workspaces/*/s"
+  "cenes/*}:load:\001*Z.\")/v1/{name=workspaces"
+  "/*/characters/*}:load:\001*\022`\n\010LogError\022\".a"
+  "i.inworld.engine.LogErrorRequest\032\026.googl"
+  "e.protobuf.Empty\"\030\202\323\344\223\002\022\"\r/v1/log:error:"
+  "\001*\022}\n\014VoicePreview\022&.ai.inworld.engine.V"
+  "oicePreviewRequest\032\'.ai.inworld.engine.V"
+  "oicePreviewResponse\"\034\202\323\344\223\002\026\"\021/v1/voice:p"
+  "review:\001*\022}\n\016ListBaseVoices\022(.ai.inworld"
+  ".engine.ListBaseVoicesRequest\032).ai.inwor"
+  "ld.engine.ListBaseVoicesResponce\"\026\202\323\344\223\002\020"
+  "\022\016/v1/voice:base\022\203\001\n\rGenerateToken\022\'.ai."
+  "inworld.engine.GenerateTokenRequest\032\036.ai"
+  ".inworld.engine.AccessToken\")\202\323\344\223\002#\"\036/au"
+  "th/v1/tokens/token:generate:\001*B\206\001\n\017ai.in"
+  "world.grpcB\027WorldEngineGrpcProtocolZKgit"
+  "hub.com/inworld-ai/inworld-proto-golang/"
+  "src/go/ai/inworld/engine/v1alpha\252\002\014Inwor"
+  "ld.Grpcb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto_deps[7] = {
   &::descriptor_table_ai_2finworld_2flanguage_5fcodes_2flanguage_5fcodes_2eproto,
@@ -1206,7 +1208,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2fengine_2fworld_2dengine_2eproto, "ai/inworld/engine/world-engine.proto", 7341,
+  false, false, descriptor_table_protodef_ai_2finworld_2fengine_2fworld_2dengine_2eproto, "ai/inworld/engine/world-engine.proto", 7375,
   &descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto_once, descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto_sccs, descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto_deps, 32, 7,
   schemas, file_default_instances, TableStruct_ai_2finworld_2fengine_2fworld_2dengine_2eproto::offsets,
   file_level_metadata_ai_2finworld_2fengine_2fworld_2dengine_2eproto, 32, file_level_enum_descriptors_ai_2finworld_2fengine_2fworld_2dengine_2eproto, file_level_service_descriptors_ai_2finworld_2fengine_2fworld_2dengine_2eproto,
@@ -1329,16 +1331,16 @@ CapabilitiesRequest::CapabilitiesRequest(const CapabilitiesRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&audio_, &from.audio_,
-    static_cast<size_t>(reinterpret_cast<char*>(&ping_pong_report_) -
-    reinterpret_cast<char*>(&audio_)) + sizeof(ping_pong_report_));
+    static_cast<size_t>(reinterpret_cast<char*>(&perceived_latency_report_) -
+    reinterpret_cast<char*>(&audio_)) + sizeof(perceived_latency_report_));
   // @@protoc_insertion_point(copy_constructor:ai.inworld.engine.CapabilitiesRequest)
 }
 
 void CapabilitiesRequest::SharedCtor() {
   ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
       reinterpret_cast<char*>(&audio_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&ping_pong_report_) -
-      reinterpret_cast<char*>(&audio_)) + sizeof(ping_pong_report_));
+      0, static_cast<size_t>(reinterpret_cast<char*>(&perceived_latency_report_) -
+      reinterpret_cast<char*>(&audio_)) + sizeof(perceived_latency_report_));
 }
 
 CapabilitiesRequest::~CapabilitiesRequest() {
@@ -1373,8 +1375,8 @@ void CapabilitiesRequest::Clear() {
   (void) cached_has_bits;
 
   ::memset(&audio_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&ping_pong_report_) -
-      reinterpret_cast<char*>(&audio_)) + sizeof(ping_pong_report_));
+      reinterpret_cast<char*>(&perceived_latency_report_) -
+      reinterpret_cast<char*>(&audio_)) + sizeof(perceived_latency_report_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1546,6 +1548,13 @@ const char* CapabilitiesRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAME
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // bool perceived_latency_report = 25;
+      case 25:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 200)) {
+          perceived_latency_report_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -1712,6 +1721,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(24, this->_internal_ping_pong_report(), target);
   }
 
+  // bool perceived_latency_report = 25;
+  if (this->perceived_latency_report() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(25, this->_internal_perceived_latency_report(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1843,6 +1858,11 @@ size_t CapabilitiesRequest::ByteSizeLong() const {
     total_size += 2 + 1;
   }
 
+  // bool perceived_latency_report = 25;
+  if (this->perceived_latency_report() != 0) {
+    total_size += 2 + 1;
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -1943,6 +1963,9 @@ void CapabilitiesRequest::MergeFrom(const CapabilitiesRequest& from) {
   if (from.ping_pong_report() != 0) {
     _internal_set_ping_pong_report(from._internal_ping_pong_report());
   }
+  if (from.perceived_latency_report() != 0) {
+    _internal_set_perceived_latency_report(from._internal_perceived_latency_report());
+  }
 }
 
 void CapabilitiesRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -1967,8 +1990,8 @@ void CapabilitiesRequest::InternalSwap(CapabilitiesRequest* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CapabilitiesRequest, ping_pong_report_)
-      + sizeof(CapabilitiesRequest::ping_pong_report_)
+      PROTOBUF_FIELD_OFFSET(CapabilitiesRequest, perceived_latency_report_)
+      + sizeof(CapabilitiesRequest::perceived_latency_report_)
       - PROTOBUF_FIELD_OFFSET(CapabilitiesRequest, audio_)>(
           reinterpret_cast<char*>(&audio_),
           reinterpret_cast<char*>(&other->audio_));

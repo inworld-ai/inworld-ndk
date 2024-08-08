@@ -452,6 +452,7 @@ class CapabilitiesRequest PROTOBUF_FINAL :
     kInspectFieldNumber = 22,
     kMultiModalActionPlanningFieldNumber = 23,
     kPingPongReportFieldNumber = 24,
+    kPerceivedLatencyReportFieldNumber = 25,
   };
   // bool audio = 1;
   void clear_audio();
@@ -660,6 +661,15 @@ class CapabilitiesRequest PROTOBUF_FINAL :
   void _internal_set_ping_pong_report(bool value);
   public:
 
+  // bool perceived_latency_report = 25;
+  void clear_perceived_latency_report();
+  bool perceived_latency_report() const;
+  void set_perceived_latency_report(bool value);
+  private:
+  bool _internal_perceived_latency_report() const;
+  void _internal_set_perceived_latency_report(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:ai.inworld.engine.CapabilitiesRequest)
  private:
   class _Internal;
@@ -690,6 +700,7 @@ class CapabilitiesRequest PROTOBUF_FINAL :
   bool inspect_;
   bool multi_modal_action_planning_;
   bool ping_pong_report_;
+  bool perceived_latency_report_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
 };
@@ -6695,6 +6706,26 @@ inline void CapabilitiesRequest::_internal_set_ping_pong_report(bool value) {
 inline void CapabilitiesRequest::set_ping_pong_report(bool value) {
   _internal_set_ping_pong_report(value);
   // @@protoc_insertion_point(field_set:ai.inworld.engine.CapabilitiesRequest.ping_pong_report)
+}
+
+// bool perceived_latency_report = 25;
+inline void CapabilitiesRequest::clear_perceived_latency_report() {
+  perceived_latency_report_ = false;
+}
+inline bool CapabilitiesRequest::_internal_perceived_latency_report() const {
+  return perceived_latency_report_;
+}
+inline bool CapabilitiesRequest::perceived_latency_report() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.CapabilitiesRequest.perceived_latency_report)
+  return _internal_perceived_latency_report();
+}
+inline void CapabilitiesRequest::_internal_set_perceived_latency_report(bool value) {
+  
+  perceived_latency_report_ = value;
+}
+inline void CapabilitiesRequest::set_perceived_latency_report(bool value) {
+  _internal_set_perceived_latency_report(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.CapabilitiesRequest.perceived_latency_report)
 }
 
 // -------------------------------------------------------------------
