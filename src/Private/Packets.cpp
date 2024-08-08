@@ -15,7 +15,7 @@
 
 #include "google/protobuf/util/time_util.h"
 #include "ai/inworld/packets/packets.pb.h"
-#include "nvidia/animation-controller-interface-proto/nvidia.ace.controller.v1.pb.h"
+#include "nvidia/a2f/nvidia_ace.controller.v1.pb.h"
 
 namespace Inworld {
 
@@ -196,10 +196,10 @@ namespace Inworld {
 
 	A2FHeaderEvent::A2FHeaderEvent(const InworldPackets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
 	{
-		nvidia::ace::controller::v1::AnimationDataStream AnimationDataStream;
+		nvidia_ace::controller::v1::AnimationDataStream AnimationDataStream;
 		AnimationDataStream.ParseFromString(GrpcPacket.data_chunk().chunk());
 
-		nvidia::ace::controller::v1::AnimationDataStreamHeader AnimationDataStreamHeader = AnimationDataStream.animation_data_stream_header();
+		nvidia_ace::controller::v1::AnimationDataStreamHeader AnimationDataStreamHeader = AnimationDataStream.animation_data_stream_header();
 		_ChannelCount = AnimationDataStreamHeader.audio_header().channel_count();
 		_SamplesPerSecond = AnimationDataStreamHeader.audio_header().samples_per_second();
 		_BitsPerSample = AnimationDataStreamHeader.audio_header().bits_per_sample();
@@ -212,10 +212,10 @@ namespace Inworld {
 
 	A2FContentEvent::A2FContentEvent(const InworldPackets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
 	{
-		nvidia::ace::controller::v1::AnimationDataStream AnimationDataStream;
+		nvidia_ace::controller::v1::AnimationDataStream AnimationDataStream;
 		AnimationDataStream.ParseFromString(GrpcPacket.data_chunk().chunk());
 
-		nvidia::ace::animation_data::v1::AnimationData AnimationData = AnimationDataStream.animation_data();
+		nvidia_ace::animation_data::v1::AnimationData AnimationData = AnimationDataStream.animation_data();
 
 		_AudioInfo._Audio = AnimationData.audio().audio_buffer();
 		_AudioInfo._TimeCode = AnimationData.audio().time_code();

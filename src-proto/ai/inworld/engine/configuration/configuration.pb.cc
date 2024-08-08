@@ -176,7 +176,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fengine_2fconfig
   PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, audio2face_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, inspect_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, ping_pong_report_),
-  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, percieved_latency_report_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, perceived_latency_report_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, multi_modal_action_planning_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile_PlayerField, _internal_metadata_),
@@ -255,7 +255,7 @@ const char descriptor_table_protodef_ai_2finworld_2fengine_2fconfiguration_2fcon
   "\001(\010\022\022\n\ndebug_info\030\016 \001(\010\022\017\n\007tts_mp3\030\017 \001(\010"
   "\022\023\n\013multi_agent\030\024 \001(\010\022\022\n\naudio2face\030\025 \001("
   "\010\022\017\n\007inspect\030\026 \001(\010\022\030\n\020ping_pong_report\030\027"
-  " \001(\010\022 \n\030percieved_latency_report\030\030 \001(\010\022#"
+  " \001(\010\022 \n\030perceived_latency_report\030\030 \001(\010\022#"
   "\n\033multi_modal_action_planning\030\031 \001(\010\"\321\003\n\021"
   "UserConfiguration\022\014\n\004name\030\001 \001(\t\022\n\n\002id\030\002 "
   "\001(\t\022V\n\ruser_settings\030\003 \001(\0132\?.ai.inworld."
@@ -502,10 +502,10 @@ const char* CapabilitiesConfiguration::_InternalParse(const char* ptr, ::PROTOBU
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // bool percieved_latency_report = 24;
+      // bool perceived_latency_report = 24;
       case 24:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 192)) {
-          percieved_latency_report_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          perceived_latency_report_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -652,10 +652,10 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(23, this->_internal_ping_pong_report(), target);
   }
 
-  // bool percieved_latency_report = 24;
-  if (this->percieved_latency_report() != 0) {
+  // bool perceived_latency_report = 24;
+  if (this->perceived_latency_report() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(24, this->_internal_percieved_latency_report(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(24, this->_internal_perceived_latency_report(), target);
   }
 
   // bool multi_modal_action_planning = 25;
@@ -770,8 +770,8 @@ size_t CapabilitiesConfiguration::ByteSizeLong() const {
     total_size += 2 + 1;
   }
 
-  // bool percieved_latency_report = 24;
-  if (this->percieved_latency_report() != 0) {
+  // bool perceived_latency_report = 24;
+  if (this->perceived_latency_report() != 0) {
     total_size += 2 + 1;
   }
 
@@ -865,8 +865,8 @@ void CapabilitiesConfiguration::MergeFrom(const CapabilitiesConfiguration& from)
   if (from.ping_pong_report() != 0) {
     _internal_set_ping_pong_report(from._internal_ping_pong_report());
   }
-  if (from.percieved_latency_report() != 0) {
-    _internal_set_percieved_latency_report(from._internal_percieved_latency_report());
+  if (from.perceived_latency_report() != 0) {
+    _internal_set_perceived_latency_report(from._internal_perceived_latency_report());
   }
   if (from.multi_modal_action_planning() != 0) {
     _internal_set_multi_modal_action_planning(from._internal_multi_modal_action_planning());

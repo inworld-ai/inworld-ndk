@@ -38,6 +38,7 @@ def generate(path, filepath):
     cmd_line += f" --grpc_out={out_path}"
     cmd_line += f" --cpp_out={out_path}"
     cmd_line += f" --plugin=protoc-gen-grpc={CPP_PLUGIN_PATH}"
+    cmd_line += f" --experimental_allow_proto3_optional=True"
     cmd_line += f" {os.path.join(path, filepath)}"
 
     print(cmd_line)
@@ -79,6 +80,18 @@ for file_name in [
     "ai/inworld/studio/v1alpha/language_code.proto",
     "ai/inworld/studio/v1alpha/workspaces.proto",
     "ai/inworld/common/status.proto",
+]:
+    generate(proto_path, file_name)
+
+for file_name in [
+    "nvidia/a2f/nvidia_ace.a2f.v1.proto",
+    "nvidia/a2f/nvidia_ace.animation_data.v1.proto",
+    "nvidia/a2f/nvidia_ace.animation_id.v1.proto",
+    "nvidia/a2f/nvidia_ace.audio.v1.proto",
+    "nvidia/a2f/nvidia_ace.controller.v1.proto",
+    "nvidia/a2f/nvidia_ace.emotion_with_timecode.v1.proto",
+    "nvidia/a2f/nvidia_ace.services.a2f_controller.v1.proto",
+    "nvidia/a2f/nvidia_ace.status.v1.proto"
 ]:
     generate(proto_path, file_name)
 
