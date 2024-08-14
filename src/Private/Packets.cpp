@@ -461,6 +461,11 @@ namespace Inworld {
 		: ControlEvent(GrpcPacket)
 	{
 		const auto& SceneStatus = GrpcPacket.control().current_scene_status();
+
+		_SceneName = SceneStatus.scene_name();
+		_SceneDescription = SceneStatus.scene_description();
+		_SceneDisplayName = SceneStatus.scene_display_name();
+
 		_AgentInfos.reserve(SceneStatus.agents_size());
 		for (int32_t i = 0; i < SceneStatus.agents_size(); i++)
 		{
