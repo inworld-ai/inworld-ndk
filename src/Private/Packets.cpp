@@ -15,6 +15,7 @@
 
 #include "google/protobuf/util/time_util.h"
 #include "ai/inworld/packets/packets.pb.h"
+#include "nvidia/a2f/nvidia_ace.controller.v1.pb.h"
 
 namespace Inworld {
 
@@ -193,6 +194,43 @@ namespace Inworld {
         return InworldPackets::DataChunk_DataType_AUDIO;
 	}
 
+	A2FHeaderEvent::A2FHeaderEvent(const InworldPackets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
+	{
+		nvidia_ace::controller::v1::AnimationDataStream AnimationDataStream;
+		AnimationDataStream.ParseFromString(GrpcPacket.data_chunk().chunk());
+
+		nvidia_ace::controller::v1::AnimationDataStreamHeader AnimationDataStreamHeader = AnimationDataStream.animation_data_stream_header();
+		_ChannelCount = AnimationDataStreamHeader.audio_header().channel_count();
+		_SamplesPerSecond = AnimationDataStreamHeader.audio_header().samples_per_second();
+		_BitsPerSample = AnimationDataStreamHeader.audio_header().bits_per_sample();
+
+		for (const auto& BlendShape : AnimationDataStreamHeader.skel_animation_header().blend_shapes())
+		{
+			_BlendShapes.push_back(BlendShape.c_str());
+		}
+	}
+
+	A2FContentEvent::A2FContentEvent(const InworldPackets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
+	{
+		nvidia_ace::controller::v1::AnimationDataStream AnimationDataStream;
+		AnimationDataStream.ParseFromString(GrpcPacket.data_chunk().chunk());
+
+		nvidia_ace::animation_data::v1::AnimationData AnimationData = AnimationDataStream.animation_data();
+
+		_AudioInfo._Audio = AnimationData.audio().audio_buffer();
+		_AudioInfo._TimeCode = AnimationData.audio().time_code();
+
+		for (const auto& BlendShapeWeight : AnimationData.skel_animation().blend_shape_weights())
+		{
+			auto& _BlendShapeWeight = _SkeletalAnimInfo._BlendShapeWeights.emplace_back();
+			_BlendShapeWeight._TimeCode = BlendShapeWeight.time_code();
+			for (const auto& Value : BlendShapeWeight.values())
+			{
+				_BlendShapeWeight._Values.push_back(Value);
+			}
+		}
+	}
+
 	EmotionEvent::EmotionEvent(const InworldPackets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
     {
         _Behavior = GrpcPacket.emotion().behavior();
@@ -343,7 +381,8 @@ namespace Inworld {
 		MutableCapabilities->set_turn_based_stt(_Capabilities.TurnBasedSTT);
 		MutableCapabilities->set_relations(_Capabilities.Relations);
 		MutableCapabilities->set_debug_info(_Capabilities.Relations);
-		MutableCapabilities->set_multi_agent(_Capabilities.Multiagent);
+		MutableCapabilities->set_multi_agent(_Capabilities.MultiAgent);
+		MutableCapabilities->set_audio2face(_Capabilities.Audio2Face);
 
 		auto* MutableUserConfiguration = MutableSessionConfiguration->mutable_user_configuration();
 		MutableUserConfiguration->set_id(_UserConfiguration.Id);
