@@ -217,11 +217,13 @@ namespace Inworld {
 
     CustomEvent::CustomEvent(const InworldPackets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
     {
-        _Name = GrpcPacket.custom().name().data();
-        for(const auto& Param : GrpcPacket.custom().parameters())
+		auto& Custom = GrpcPacket.custom();
+        _Name = Custom.name().data();
+        for(const auto& Param : Custom.parameters())
         {
             _Params.insert(std::make_pair<std::string, std::string>(Param.name().data(), Param.value().data()));
         }
+		_Type = Custom.type();
     }
 
 	void CustomEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
@@ -234,6 +236,7 @@ namespace Inworld {
             param->set_name(Param.first);
             param->set_value(Param.second);
         }
+		mutable_custom->set_type(_Type);
 	}
 
 	SilenceEvent::SilenceEvent(const InworldPackets::InworldPacket& GrpcPacket)
@@ -344,6 +347,7 @@ namespace Inworld {
 		MutableCapabilities->set_relations(_Capabilities.Relations);
 		MutableCapabilities->set_debug_info(_Capabilities.Relations);
 		MutableCapabilities->set_multi_agent(_Capabilities.Multiagent);
+		MutableCapabilities->set_multi_modal_action_planning(_Capabilities.MultiModalActionPlanning);
 
 		auto* MutableUserConfiguration = MutableSessionConfiguration->mutable_user_configuration();
 		MutableUserConfiguration->set_id(_UserConfiguration.Id);
@@ -479,5 +483,71 @@ namespace Inworld {
 				Info.BrainName = Normalized;
 			}
 		}
+	}
+
+	void CreateOrUpdateItemsOperationEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
+	{
+		auto* MutableCreateOrUpdateOperation = Proto.mutable_entities_items_operation()->mutable_create_or_update_items();
+		for (const EntityItem& Item : _Items)
+		{
+			auto* MutableItem = MutableCreateOrUpdateOperation->add_items();
+			MutableItem->set_id(Item.Id);
+			MutableItem->set_display_name(Item.DisplayName);
+			MutableItem->set_description(Item.Description);
+			auto* MutableProperties = MutableItem->mutable_properties();
+			for (const std::pair<std::string, std::string>& Property : Item.Properties)
+			{
+				MutableProperties->insert({ Property.first, Property.second });
+			}
+		}
+		for (const std::string& AddToEntity : _AddToEntities)
+		{
+			auto* MutableAddToEntity = MutableCreateOrUpdateOperation->add_add_to_entities();
+			*MutableAddToEntity = AddToEntity;
+		}
+	}
+
+	void RemoveItemsOperationEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
+	{
+		auto* MutableRemoveItemsOperation = Proto.mutable_entities_items_operation()->mutable_remove_items();
+		for (const std::string& ItemId : _ItemIds)
+		{
+			auto* MutableItemId = MutableRemoveItemsOperation->add_item_ids();
+			*MutableItemId = ItemId;
+		}
+	}
+
+	void ItemsInEntitiesOperationEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
+	{
+		auto* MutableItemsInEntitiesOperation = Proto.mutable_entities_items_operation()->mutable_items_in_entities();
+		
+		MutableItemsInEntitiesOperation->set_type(GetType());
+
+		for (const std::string& ItemId : _ItemIds)
+		{
+			auto* MutableItemId = MutableItemsInEntitiesOperation->add_item_ids();
+			*MutableItemId = ItemId;
+		}
+
+		for (const std::string& EntityName : _EntityNames)
+		{
+			auto* MutableEntityName = MutableItemsInEntitiesOperation->add_entity_names();
+			*MutableEntityName = EntityName;
+		}
+	}
+
+	InworldPackets::entities::ItemsInEntitiesOperation_Type AddItemsInEntitiesOperationEvent::GetType() const
+	{
+		return InworldPackets::entities::ItemsInEntitiesOperation_Type::ItemsInEntitiesOperation_Type_ADD;
+	}
+
+	InworldPackets::entities::ItemsInEntitiesOperation_Type RemoveItemsInEntitiesOperationEvent::GetType() const
+	{
+		return InworldPackets::entities::ItemsInEntitiesOperation_Type::ItemsInEntitiesOperation_Type_REMOVE;
+	}
+
+	InworldPackets::entities::ItemsInEntitiesOperation_Type ReplaceItemsInEntitiesOperationEvent::GetType() const
+	{
+		return InworldPackets::entities::ItemsInEntitiesOperation_Type::ItemsInEntitiesOperation_Type_REPLACE;
 	}
 }
