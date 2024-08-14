@@ -473,9 +473,17 @@ namespace Inworld {
 
 		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
 
+		const std::string& GetSceneName() const { return _SceneName; }
+		const std::string& GetSceneDescription() const { return _SceneDescription; }
+		const std::string& GetSceneDisplayName() const { return _SceneDisplayName; }
+
 		const std::vector<AgentInfo>& GetAgentInfos() const { return _AgentInfos; }
 
 	private:
+		std::string _SceneName;
+		std::string _SceneDescription;
+		std::string _SceneDisplayName;
+
 		std::vector<AgentInfo> _AgentInfos;
 	};
 
