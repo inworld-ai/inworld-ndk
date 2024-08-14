@@ -129,7 +129,11 @@ const Inworld::SessionInfo& Inworld::Client::GetSessionInfo() const
 void Inworld::Client::SetOptions(const ClientOptions& options)
 {
 	_ClientOptions = options;
+}
 
+const Inworld::ClientOptions& Inworld::Client::GetOptions() const
+{
+	return _ClientOptions;
 }
 
 void Inworld::Client::Visit(const ControlEventCurrentSceneStatus& Event)

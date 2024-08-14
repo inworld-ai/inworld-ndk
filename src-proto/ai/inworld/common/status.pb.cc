@@ -16,6 +16,7 @@
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fcommon_2fstatus_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ResourceNotFoundDetails_ai_2finworld_2fcommon_2fstatus_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fcommon_2fstatus_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_VersionConflictDetails_ai_2finworld_2fcommon_2fstatus_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_google_2fprotobuf_2ftimestamp_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Timestamp_google_2fprotobuf_2ftimestamp_2eproto;
 namespace ai {
 namespace inworld {
@@ -28,6 +29,10 @@ class ResourceNotFoundDetailsDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ResourceNotFoundDetails> _instance;
 } _ResourceNotFoundDetails_default_instance_;
+class VersionConflictDetailsDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<VersionConflictDetails> _instance;
+} _VersionConflictDetails_default_instance_;
 }  // namespace common
 }  // namespace inworld
 }  // namespace ai
@@ -41,10 +46,11 @@ static void InitDefaultsscc_info_InworldStatus_ai_2finworld_2fcommon_2fstatus_2e
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_InworldStatus_ai_2finworld_2fcommon_2fstatus_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_InworldStatus_ai_2finworld_2fcommon_2fstatus_2eproto}, {
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_InworldStatus_ai_2finworld_2fcommon_2fstatus_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 3, 0, InitDefaultsscc_info_InworldStatus_ai_2finworld_2fcommon_2fstatus_2eproto}, {
       &scc_info_Timestamp_google_2fprotobuf_2ftimestamp_2eproto.base,
-      &scc_info_ResourceNotFoundDetails_ai_2finworld_2fcommon_2fstatus_2eproto.base,}};
+      &scc_info_ResourceNotFoundDetails_ai_2finworld_2fcommon_2fstatus_2eproto.base,
+      &scc_info_VersionConflictDetails_ai_2finworld_2fcommon_2fstatus_2eproto.base,}};
 
 static void InitDefaultsscc_info_ResourceNotFoundDetails_ai_2finworld_2fcommon_2fstatus_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -59,7 +65,20 @@ static void InitDefaultsscc_info_ResourceNotFoundDetails_ai_2finworld_2fcommon_2
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ResourceNotFoundDetails_ai_2finworld_2fcommon_2fstatus_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ResourceNotFoundDetails_ai_2finworld_2fcommon_2fstatus_2eproto}, {}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_ai_2finworld_2fcommon_2fstatus_2eproto[2];
+static void InitDefaultsscc_info_VersionConflictDetails_ai_2finworld_2fcommon_2fstatus_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ai::inworld::common::_VersionConflictDetails_default_instance_;
+    new (ptr) ::ai::inworld::common::VersionConflictDetails();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_VersionConflictDetails_ai_2finworld_2fcommon_2fstatus_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_VersionConflictDetails_ai_2finworld_2fcommon_2fstatus_2eproto}, {}};
+
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_ai_2finworld_2fcommon_2fstatus_2eproto[3];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_ai_2finworld_2fcommon_2fstatus_2eproto[3];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_ai_2finworld_2fcommon_2fstatus_2eproto = nullptr;
 
@@ -74,6 +93,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fcommon_2fstatus
   PROTOBUF_FIELD_OFFSET(::ai::inworld::common::InworldStatus, reconnect_time_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::common::InworldStatus, max_retries_),
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::ai::inworld::common::InworldStatus, error_details_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::common::ResourceNotFoundDetails, _internal_metadata_),
@@ -82,60 +102,75 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fcommon_2fstatus
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::common::ResourceNotFoundDetails, resource_id_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::common::ResourceNotFoundDetails, resource_type_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::common::VersionConflictDetails, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::common::VersionConflictDetails, client_version_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::common::VersionConflictDetails, server_version_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::common::VersionConflictDetails, request_index_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::ai::inworld::common::InworldStatus)},
-  { 11, -1, sizeof(::ai::inworld::common::ResourceNotFoundDetails)},
+  { 12, -1, sizeof(::ai::inworld::common::ResourceNotFoundDetails)},
+  { 19, -1, sizeof(::ai::inworld::common::VersionConflictDetails)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::common::_InworldStatus_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::common::_ResourceNotFoundDetails_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ai::inworld::common::_VersionConflictDetails_default_instance_),
 };
 
 const char descriptor_table_protodef_ai_2finworld_2fcommon_2fstatus_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\036ai/inworld/common/status.proto\022\021ai.inw"
   "orld.common\032\037google/protobuf/timestamp.p"
-  "roto\"\242\002\n\rInworldStatus\0220\n\nerror_type\030\001 \001"
+  "roto\"\351\002\n\rInworldStatus\0220\n\nerror_type\030\001 \001"
   "(\0162\034.ai.inworld.common.ErrorType\022;\n\016reco"
   "nnect_type\030\002 \001(\0162#.ai.inworld.common.Rec"
   "onnectionType\0222\n\016reconnect_time\030\003 \001(\0132\032."
   "google.protobuf.Timestamp\022\023\n\013max_retries"
   "\030\004 \001(\005\022H\n\022resource_not_found\030\005 \001(\0132*.ai."
   "inworld.common.ResourceNotFoundDetailsH\000"
-  "B\017\n\rerror_details\"f\n\027ResourceNotFoundDet"
-  "ails\022\023\n\013resource_id\030\001 \001(\t\0226\n\rresource_ty"
-  "pe\030\002 \001(\0162\037.ai.inworld.common.ResourceTyp"
-  "e*\263\002\n\tErrorType\022\031\n\025SESSION_TOKEN_EXPIRED"
-  "\020\000\022\031\n\025SESSION_TOKEN_INVALID\020\001\022\037\n\033SESSION"
-  "_RESOURCES_EXHAUSTED\020\002\022\034\n\030BILLING_TOKENS"
-  "_EXHAUSTED\020\003\022\024\n\020ACCOUNT_DISABLED\020\004\022\023\n\017SE"
-  "SSION_INVALID\020\005\022\026\n\022RESOURCE_NOT_FOUND\020\006\022"
-  "\024\n\020SAFETY_VIOLATION\020\007\022\023\n\017SESSION_EXPIRED"
-  "\020\010\022\031\n\025AUDIO_SESSION_EXPIRED\020\t\022\022\n\016SESSION"
-  "_PAUSED\020\n\022\024\n\020VERSION_CONFLICT\020\013*K\n\020Recon"
-  "nectionType\022\r\n\tUNDEFINED\020\000\022\014\n\010NO_RETRY\020\001"
-  "\022\r\n\tIMMEDIATE\020\002\022\013\n\007TIMEOUT\020\003*K\n\014Resource"
-  "Type\022\033\n\027RESOURCE_TYPE_UNDEFINED\020\000\022\036\n\032RES"
-  "OURCE_TYPE_CONVERSATION\020\001B\234\001\n\030ai.inworld"
-  ".engine.statusB\022InworldStatusProtoP\001ZRgi"
-  "thub.com/inworld-ai/inworld-proto-golang"
-  "/src/go/ai/inworld/engine/inworld-status"
-  "\252\002\025Inworld.Engine.Statusb\006proto3"
+  "\022E\n\020version_conflict\030\006 \001(\0132).ai.inworld."
+  "common.VersionConflictDetailsH\000B\017\n\rerror"
+  "_details\"f\n\027ResourceNotFoundDetails\022\023\n\013r"
+  "esource_id\030\001 \001(\t\0226\n\rresource_type\030\002 \001(\0162"
+  "\037.ai.inworld.common.ResourceType\"_\n\026Vers"
+  "ionConflictDetails\022\026\n\016client_version\030\001 \001"
+  "(\005\022\026\n\016server_version\030\002 \001(\005\022\025\n\rrequest_in"
+  "dex\030\003 \001(\005*\263\002\n\tErrorType\022\031\n\025SESSION_TOKEN"
+  "_EXPIRED\020\000\022\031\n\025SESSION_TOKEN_INVALID\020\001\022\037\n"
+  "\033SESSION_RESOURCES_EXHAUSTED\020\002\022\034\n\030BILLIN"
+  "G_TOKENS_EXHAUSTED\020\003\022\024\n\020ACCOUNT_DISABLED"
+  "\020\004\022\023\n\017SESSION_INVALID\020\005\022\026\n\022RESOURCE_NOT_"
+  "FOUND\020\006\022\024\n\020SAFETY_VIOLATION\020\007\022\023\n\017SESSION"
+  "_EXPIRED\020\010\022\031\n\025AUDIO_SESSION_EXPIRED\020\t\022\022\n"
+  "\016SESSION_PAUSED\020\n\022\024\n\020VERSION_CONFLICT\020\013*"
+  "K\n\020ReconnectionType\022\r\n\tUNDEFINED\020\000\022\014\n\010NO"
+  "_RETRY\020\001\022\r\n\tIMMEDIATE\020\002\022\013\n\007TIMEOUT\020\003*K\n\014"
+  "ResourceType\022\033\n\027RESOURCE_TYPE_UNDEFINED\020"
+  "\000\022\036\n\032RESOURCE_TYPE_CONVERSATION\020\001B\234\001\n\030ai"
+  ".inworld.engine.statusB\022InworldStatusPro"
+  "toP\001ZRgithub.com/inworld-ai/inworld-prot"
+  "o-golang/src/go/ai/inworld/engine/inworl"
+  "d-status\252\002\025Inworld.Engine.Statusb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2fcommon_2fstatus_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto,
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_2finworld_2fcommon_2fstatus_2eproto_sccs[2] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_2finworld_2fcommon_2fstatus_2eproto_sccs[3] = {
   &scc_info_InworldStatus_ai_2finworld_2fcommon_2fstatus_2eproto.base,
   &scc_info_ResourceNotFoundDetails_ai_2finworld_2fcommon_2fstatus_2eproto.base,
+  &scc_info_VersionConflictDetails_ai_2finworld_2fcommon_2fstatus_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2fcommon_2fstatus_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2fcommon_2fstatus_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2fcommon_2fstatus_2eproto, "ai/inworld/common/status.proto", 1112,
-  &descriptor_table_ai_2finworld_2fcommon_2fstatus_2eproto_once, descriptor_table_ai_2finworld_2fcommon_2fstatus_2eproto_sccs, descriptor_table_ai_2finworld_2fcommon_2fstatus_2eproto_deps, 2, 1,
+  false, false, descriptor_table_protodef_ai_2finworld_2fcommon_2fstatus_2eproto, "ai/inworld/common/status.proto", 1280,
+  &descriptor_table_ai_2finworld_2fcommon_2fstatus_2eproto_once, descriptor_table_ai_2finworld_2fcommon_2fstatus_2eproto_sccs, descriptor_table_ai_2finworld_2fcommon_2fstatus_2eproto_deps, 3, 1,
   schemas, file_default_instances, TableStruct_ai_2finworld_2fcommon_2fstatus_2eproto::offsets,
-  file_level_metadata_ai_2finworld_2fcommon_2fstatus_2eproto, 2, file_level_enum_descriptors_ai_2finworld_2fcommon_2fstatus_2eproto, file_level_service_descriptors_ai_2finworld_2fcommon_2fstatus_2eproto,
+  file_level_metadata_ai_2finworld_2fcommon_2fstatus_2eproto, 3, file_level_enum_descriptors_ai_2finworld_2fcommon_2fstatus_2eproto, file_level_service_descriptors_ai_2finworld_2fcommon_2fstatus_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -204,6 +239,7 @@ class InworldStatus::_Internal {
  public:
   static const PROTOBUF_NAMESPACE_ID::Timestamp& reconnect_time(const InworldStatus* msg);
   static const ::ai::inworld::common::ResourceNotFoundDetails& resource_not_found(const InworldStatus* msg);
+  static const ::ai::inworld::common::VersionConflictDetails& version_conflict(const InworldStatus* msg);
 };
 
 const PROTOBUF_NAMESPACE_ID::Timestamp&
@@ -213,6 +249,10 @@ InworldStatus::_Internal::reconnect_time(const InworldStatus* msg) {
 const ::ai::inworld::common::ResourceNotFoundDetails&
 InworldStatus::_Internal::resource_not_found(const InworldStatus* msg) {
   return *msg->error_details_.resource_not_found_;
+}
+const ::ai::inworld::common::VersionConflictDetails&
+InworldStatus::_Internal::version_conflict(const InworldStatus* msg) {
+  return *msg->error_details_.version_conflict_;
 }
 void InworldStatus::clear_reconnect_time() {
   if (GetArena() == nullptr && reconnect_time_ != nullptr) {
@@ -235,6 +275,21 @@ void InworldStatus::set_allocated_resource_not_found(::ai::inworld::common::Reso
   }
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.common.InworldStatus.resource_not_found)
 }
+void InworldStatus::set_allocated_version_conflict(::ai::inworld::common::VersionConflictDetails* version_conflict) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  clear_error_details();
+  if (version_conflict) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(version_conflict);
+    if (message_arena != submessage_arena) {
+      version_conflict = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, version_conflict, submessage_arena);
+    }
+    set_has_version_conflict();
+    error_details_.version_conflict_ = version_conflict;
+  }
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.common.InworldStatus.version_conflict)
+}
 InworldStatus::InworldStatus(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
@@ -256,6 +311,10 @@ InworldStatus::InworldStatus(const InworldStatus& from)
   switch (from.error_details_case()) {
     case kResourceNotFound: {
       _internal_mutable_resource_not_found()->::ai::inworld::common::ResourceNotFoundDetails::MergeFrom(from._internal_resource_not_found());
+      break;
+    }
+    case kVersionConflict: {
+      _internal_mutable_version_conflict()->::ai::inworld::common::VersionConflictDetails::MergeFrom(from._internal_version_conflict());
       break;
     }
     case ERROR_DETAILS_NOT_SET: {
@@ -309,6 +368,12 @@ void InworldStatus::clear_error_details() {
     case kResourceNotFound: {
       if (GetArena() == nullptr) {
         delete error_details_.resource_not_found_;
+      }
+      break;
+    }
+    case kVersionConflict: {
+      if (GetArena() == nullptr) {
+        delete error_details_.version_conflict_;
       }
       break;
     }
@@ -381,6 +446,13 @@ const char* InworldStatus::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // .ai.inworld.common.VersionConflictDetails version_conflict = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+          ptr = ctx->ParseMessage(_internal_mutable_version_conflict(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -445,6 +517,14 @@ failure:
         5, _Internal::resource_not_found(this), target, stream);
   }
 
+  // .ai.inworld.common.VersionConflictDetails version_conflict = 6;
+  if (_internal_has_version_conflict()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        6, _Internal::version_conflict(this), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -493,6 +573,13 @@ size_t InworldStatus::ByteSizeLong() const {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *error_details_.resource_not_found_);
+      break;
+    }
+    // .ai.inworld.common.VersionConflictDetails version_conflict = 6;
+    case kVersionConflict: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *error_details_.version_conflict_);
       break;
     }
     case ERROR_DETAILS_NOT_SET: {
@@ -545,6 +632,10 @@ void InworldStatus::MergeFrom(const InworldStatus& from) {
   switch (from.error_details_case()) {
     case kResourceNotFound: {
       _internal_mutable_resource_not_found()->::ai::inworld::common::ResourceNotFoundDetails::MergeFrom(from._internal_resource_not_found());
+      break;
+    }
+    case kVersionConflict: {
+      _internal_mutable_version_conflict()->::ai::inworld::common::VersionConflictDetails::MergeFrom(from._internal_version_conflict());
       break;
     }
     case ERROR_DETAILS_NOT_SET: {
@@ -823,6 +914,258 @@ void ResourceNotFoundDetails::InternalSwap(ResourceNotFoundDetails* other) {
 }
 
 
+// ===================================================================
+
+class VersionConflictDetails::_Internal {
+ public:
+};
+
+VersionConflictDetails::VersionConflictDetails(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:ai.inworld.common.VersionConflictDetails)
+}
+VersionConflictDetails::VersionConflictDetails(const VersionConflictDetails& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&client_version_, &from.client_version_,
+    static_cast<size_t>(reinterpret_cast<char*>(&request_index_) -
+    reinterpret_cast<char*>(&client_version_)) + sizeof(request_index_));
+  // @@protoc_insertion_point(copy_constructor:ai.inworld.common.VersionConflictDetails)
+}
+
+void VersionConflictDetails::SharedCtor() {
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&client_version_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&request_index_) -
+      reinterpret_cast<char*>(&client_version_)) + sizeof(request_index_));
+}
+
+VersionConflictDetails::~VersionConflictDetails() {
+  // @@protoc_insertion_point(destructor:ai.inworld.common.VersionConflictDetails)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void VersionConflictDetails::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void VersionConflictDetails::ArenaDtor(void* object) {
+  VersionConflictDetails* _this = reinterpret_cast< VersionConflictDetails* >(object);
+  (void)_this;
+}
+void VersionConflictDetails::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void VersionConflictDetails::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const VersionConflictDetails& VersionConflictDetails::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_VersionConflictDetails_ai_2finworld_2fcommon_2fstatus_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void VersionConflictDetails::Clear() {
+// @@protoc_insertion_point(message_clear_start:ai.inworld.common.VersionConflictDetails)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&client_version_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&request_index_) -
+      reinterpret_cast<char*>(&client_version_)) + sizeof(request_index_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* VersionConflictDetails::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // int32 client_version = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          client_version_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int32 server_version = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          server_version_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int32 request_index = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          request_index_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* VersionConflictDetails::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ai.inworld.common.VersionConflictDetails)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 client_version = 1;
+  if (this->client_version() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_client_version(), target);
+  }
+
+  // int32 server_version = 2;
+  if (this->server_version() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_server_version(), target);
+  }
+
+  // int32 request_index = 3;
+  if (this->request_index() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(3, this->_internal_request_index(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ai.inworld.common.VersionConflictDetails)
+  return target;
+}
+
+size_t VersionConflictDetails::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ai.inworld.common.VersionConflictDetails)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // int32 client_version = 1;
+  if (this->client_version() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_client_version());
+  }
+
+  // int32 server_version = 2;
+  if (this->server_version() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_server_version());
+  }
+
+  // int32 request_index = 3;
+  if (this->request_index() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_request_index());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void VersionConflictDetails::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ai.inworld.common.VersionConflictDetails)
+  GOOGLE_DCHECK_NE(&from, this);
+  const VersionConflictDetails* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<VersionConflictDetails>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ai.inworld.common.VersionConflictDetails)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ai.inworld.common.VersionConflictDetails)
+    MergeFrom(*source);
+  }
+}
+
+void VersionConflictDetails::MergeFrom(const VersionConflictDetails& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ai.inworld.common.VersionConflictDetails)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.client_version() != 0) {
+    _internal_set_client_version(from._internal_client_version());
+  }
+  if (from.server_version() != 0) {
+    _internal_set_server_version(from._internal_server_version());
+  }
+  if (from.request_index() != 0) {
+    _internal_set_request_index(from._internal_request_index());
+  }
+}
+
+void VersionConflictDetails::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ai.inworld.common.VersionConflictDetails)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void VersionConflictDetails::CopyFrom(const VersionConflictDetails& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ai.inworld.common.VersionConflictDetails)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool VersionConflictDetails::IsInitialized() const {
+  return true;
+}
+
+void VersionConflictDetails::InternalSwap(VersionConflictDetails* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(VersionConflictDetails, request_index_)
+      + sizeof(VersionConflictDetails::request_index_)
+      - PROTOBUF_FIELD_OFFSET(VersionConflictDetails, client_version_)>(
+          reinterpret_cast<char*>(&client_version_),
+          reinterpret_cast<char*>(&other->client_version_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata VersionConflictDetails::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace common
 }  // namespace inworld
@@ -833,6 +1176,9 @@ template<> PROTOBUF_NOINLINE ::ai::inworld::common::InworldStatus* Arena::Create
 }
 template<> PROTOBUF_NOINLINE ::ai::inworld::common::ResourceNotFoundDetails* Arena::CreateMaybeMessage< ::ai::inworld::common::ResourceNotFoundDetails >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ai::inworld::common::ResourceNotFoundDetails >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ai::inworld::common::VersionConflictDetails* Arena::CreateMaybeMessage< ::ai::inworld::common::VersionConflictDetails >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ai::inworld::common::VersionConflictDetails >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 
