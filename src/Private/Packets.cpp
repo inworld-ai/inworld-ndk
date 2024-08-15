@@ -80,6 +80,11 @@ namespace Inworld {
     	return { { InworldPackets::Actor_Type_PLAYER, "" }, ConversationId };
 	}
 
+	Routing Routing::Player2World()
+	{
+		return { { InworldPackets::Actor_Type_PLAYER, "" }, { InworldPackets::Actor_Type_WORLD, ""} };
+	}
+
 	PacketId::PacketId(const InworldPackets::PacketId& Other)
 		: PacketId(Other.packet_id(), Other.utterance_id(), Other.interaction_id())
 	{}
@@ -213,11 +218,13 @@ namespace Inworld {
 
     CustomEvent::CustomEvent(const InworldPackets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
     {
-        _Name = GrpcPacket.custom().name().data();
-        for(const auto& Param : GrpcPacket.custom().parameters())
+		auto& Custom = GrpcPacket.custom();
+		_Name = Custom.name().data();
+		for (const auto& Param : Custom.parameters())
         {
             _Params.insert(std::make_pair<std::string, std::string>(Param.name().data(), Param.value().data()));
         }
+		_Type = Custom.type();
     }
 
 	void CustomEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
@@ -230,6 +237,7 @@ namespace Inworld {
             param->set_name(Param.first);
             param->set_value(Param.second);
         }
+		mutable_custom->set_type(_Type);
 	}
 
 	SilenceEvent::SilenceEvent(const InworldPackets::InworldPacket& GrpcPacket)
@@ -297,6 +305,7 @@ namespace Inworld {
 		Capabilities->set_relations(_Data.Relations);
 		Capabilities->set_debug_info(_Data.Relations);
 		Capabilities->set_multi_agent(_Data.Multiagent);
+		Capabilities->set_multi_modal_action_planning(_Data.MultiModalActionPlanning);
 	}
 
 	void SessionControlEvent_UserConfiguration::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
@@ -464,4 +473,70 @@ namespace Inworld {
     		Inworld::Log("ControlEventConversationUpdate::ToProtoInternal. Add player to conversation '%s'", _Routing._ConversationId.c_str());
         }
     }
+
+	void CreateOrUpdateItemsOperationEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
+	{
+		auto* MutableCreateOrUpdateOperation = Proto.mutable_entities_items_operation()->mutable_create_or_update_items();
+		for (const EntityItem& Item : _Items)
+		{
+			auto* MutableItem = MutableCreateOrUpdateOperation->add_items();
+			MutableItem->set_id(Item.Id);
+			MutableItem->set_display_name(Item.DisplayName);
+			MutableItem->set_description(Item.Description);
+			auto* MutableProperties = MutableItem->mutable_properties();
+			for (const std::pair<std::string, std::string>& Property : Item.Properties)
+			{
+				MutableProperties->insert({ Property.first, Property.second });
+			}
+		}
+		for (const std::string& AddToEntity : _AddToEntities)
+		{
+			auto* MutableAddToEntity = MutableCreateOrUpdateOperation->add_add_to_entities();
+			*MutableAddToEntity = AddToEntity;
+		}
+	}
+
+	void RemoveItemsOperationEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
+	{
+		auto* MutableRemoveItemsOperation = Proto.mutable_entities_items_operation()->mutable_remove_items();
+		for (const std::string& ItemId : _ItemIds)
+		{
+			auto* MutableItemId = MutableRemoveItemsOperation->add_item_ids();
+			*MutableItemId = ItemId;
+		}
+	}
+
+	void ItemsInEntitiesOperationEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
+	{
+		auto* MutableItemsInEntitiesOperation = Proto.mutable_entities_items_operation()->mutable_items_in_entities();
+
+		MutableItemsInEntitiesOperation->set_type(GetType());
+
+		for (const std::string& ItemId : _ItemIds)
+		{
+			auto* MutableItemId = MutableItemsInEntitiesOperation->add_item_ids();
+			*MutableItemId = ItemId;
+		}
+
+		for (const std::string& EntityName : _EntityNames)
+		{
+			auto* MutableEntityName = MutableItemsInEntitiesOperation->add_entity_names();
+			*MutableEntityName = EntityName;
+		}
+	}
+
+	InworldPackets::entities::ItemsInEntitiesOperation_Type AddItemsInEntitiesOperationEvent::GetType() const
+	{
+		return InworldPackets::entities::ItemsInEntitiesOperation_Type::ItemsInEntitiesOperation_Type_ADD;
+	}
+
+	InworldPackets::entities::ItemsInEntitiesOperation_Type RemoveItemsInEntitiesOperationEvent::GetType() const
+	{
+		return InworldPackets::entities::ItemsInEntitiesOperation_Type::ItemsInEntitiesOperation_Type_REMOVE;
+	}
+
+	InworldPackets::entities::ItemsInEntitiesOperation_Type ReplaceItemsInEntitiesOperationEvent::GetType() const
+	{
+		return InworldPackets::entities::ItemsInEntitiesOperation_Type::ItemsInEntitiesOperation_Type_REPLACE;
+	}
 }

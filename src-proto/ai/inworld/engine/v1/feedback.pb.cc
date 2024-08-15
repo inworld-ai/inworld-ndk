@@ -135,7 +135,7 @@ const char descriptor_table_protodef_ai_2finworld_2fengine_2fv1_2ffeedback_2epro
   " \001(\0132).ai.inworld.engine.v1.InteractionF"
   "eedbackB\003\340A\002\"Q\n DeleteInteractionFeedbac"
   "kRequest\022-\n\004name\030\001 \001(\tB\037\340A\002\372A\031\n\027api.inwo"
-  "rld.ai/Feedback*\373\002\n\026InteractionDislikeTy"
+  "rld.ai/Feedback*\321\003\n\026InteractionDislikeTy"
   "pe\022(\n$INTERACTION_DISLIKE_TYPE_UNSPECIFI"
   "ED\020\000\022\'\n#INTERACTION_DISLIKE_TYPE_IRRELEV"
   "ANT\020\001\022#\n\037INTERACTION_DISLIKE_TYPE_UNSAFE"
@@ -144,23 +144,25 @@ const char descriptor_table_protodef_ai_2finworld_2fengine_2fv1_2ffeedback_2epro
   "E_KNOWLEDGE\020\004\022.\n*INTERACTION_DISLIKE_TYP"
   "E_UNEXPECTED_ACTION\020\005\0225\n1INTERACTION_DIS"
   "LIKE_TYPE_UNEXPECTED_GOAL_BEHAVIOR\020\006\022\'\n#"
-  "INTERACTION_DISLIKE_TYPE_REPETITION\020\0072\347\003"
-  "\n\010Feedback\022\214\002\n\031CreateInteractionFeedback"
-  "\0226.ai.inworld.engine.v1.CreateInteractio"
-  "nFeedbackRequest\032).ai.inworld.engine.v1."
-  "InteractionFeedback\"\213\001\202\323\344\223\002g\"O/v1/feedba"
-  "ck/{parent=workspaces/*/sessions/*/inter"
-  "actions/*/groups/*}/feedbacks:\024interacti"
-  "on_feedback\332A\033parent,interaction_feedbac"
-  "k\022\313\001\n\031DeleteInteractionFeedback\0226.ai.inw"
-  "orld.engine.v1.DeleteInteractionFeedback"
-  "Request\032\026.google.protobuf.Empty\"^\202\323\344\223\002Q*"
-  "O/v1/feedback/{name=workspaces/*/session"
-  "s/*/interactions/*/groups/*/feedbacks/*}"
-  "\332A\004nameB\210\001\n\024ai.inworld.engine.v1B\rFeedba"
-  "ckProtoP\001ZHgithub.com/inworld-ai/inworld"
-  "/serving/grpc-gateway/build/proto/engine"
-  "/v1\252\002\024Ai.Inworld.Engine.V1b\006proto3"
+  "INTERACTION_DISLIKE_TYPE_REPETITION\020\007\022-\n"
+  ")INTERACTION_DISLIKE_TYPE_OUT_OF_CHARACT"
+  "ER\020\010\022%\n!INTERACTION_DISLIKE_TYPE_TOO_LON"
+  "G\020\t2\347\003\n\010Feedback\022\214\002\n\031CreateInteractionFe"
+  "edback\0226.ai.inworld.engine.v1.CreateInte"
+  "ractionFeedbackRequest\032).ai.inworld.engi"
+  "ne.v1.InteractionFeedback\"\213\001\202\323\344\223\002g\"O/v1/"
+  "feedback/{parent=workspaces/*/sessions/*"
+  "/interactions/*/groups/*}/feedbacks:\024int"
+  "eraction_feedback\332A\033parent,interaction_f"
+  "eedback\022\313\001\n\031DeleteInteractionFeedback\0226."
+  "ai.inworld.engine.v1.DeleteInteractionFe"
+  "edbackRequest\032\026.google.protobuf.Empty\"^\202"
+  "\323\344\223\002Q*O/v1/feedback/{name=workspaces/*/s"
+  "essions/*/interactions/*/groups/*/feedba"
+  "cks/*}\332A\004nameB\206\001\n\024ai.inworld.engine.v1B\r"
+  "FeedbackProtoP\001ZFgithub.com/inworld-ai/i"
+  "nworld-proto-golang/src/go/ai/inworld/en"
+  "gine/v1\252\002\024Ai.Inworld.Engine.V1b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2fengine_2fv1_2ffeedback_2eproto_deps[5] = {
   &::descriptor_table_google_2fapi_2fannotations_2eproto,
@@ -176,7 +178,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2fengine_2fv1_2ffeedback_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2fengine_2fv1_2ffeedback_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2fengine_2fv1_2ffeedback_2eproto, "ai/inworld/engine/v1/feedback.proto", 1754,
+  false, false, descriptor_table_protodef_ai_2finworld_2fengine_2fv1_2ffeedback_2eproto, "ai/inworld/engine/v1/feedback.proto", 1838,
   &descriptor_table_ai_2finworld_2fengine_2fv1_2ffeedback_2eproto_once, descriptor_table_ai_2finworld_2fengine_2fv1_2ffeedback_2eproto_sccs, descriptor_table_ai_2finworld_2fengine_2fv1_2ffeedback_2eproto_deps, 3, 5,
   schemas, file_default_instances, TableStruct_ai_2finworld_2fengine_2fv1_2ffeedback_2eproto::offsets,
   file_level_metadata_ai_2finworld_2fengine_2fv1_2ffeedback_2eproto, 3, file_level_enum_descriptors_ai_2finworld_2fengine_2fv1_2ffeedback_2eproto, file_level_service_descriptors_ai_2finworld_2fengine_2fv1_2ffeedback_2eproto,
@@ -202,6 +204,8 @@ bool InteractionDislikeType_IsValid(int value) {
     case 5:
     case 6:
     case 7:
+    case 8:
+    case 9:
       return true;
     default:
       return false;

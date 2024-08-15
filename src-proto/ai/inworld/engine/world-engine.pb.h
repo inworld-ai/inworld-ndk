@@ -30,6 +30,9 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/map.h>  // IWYU pragma: export
+#include <google/protobuf/map_entry.h>
+#include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "google/api/annotations.pb.h"
@@ -54,7 +57,7 @@ struct TableStruct_ai_2finworld_2fengine_2fworld_2dengine_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[28]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[32]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -121,6 +124,18 @@ extern PreviousDialog_PhraseDefaultTypeInternal _PreviousDialog_Phrase_default_i
 class PreviousState;
 class PreviousStateDefaultTypeInternal;
 extern PreviousStateDefaultTypeInternal _PreviousState_default_instance_;
+class PreviousState_EntitiesState;
+class PreviousState_EntitiesStateDefaultTypeInternal;
+extern PreviousState_EntitiesStateDefaultTypeInternal _PreviousState_EntitiesState_default_instance_;
+class PreviousState_EntitiesState_Entity;
+class PreviousState_EntitiesState_EntityDefaultTypeInternal;
+extern PreviousState_EntitiesState_EntityDefaultTypeInternal _PreviousState_EntitiesState_Entity_default_instance_;
+class PreviousState_EntitiesState_EntityItem;
+class PreviousState_EntitiesState_EntityItemDefaultTypeInternal;
+extern PreviousState_EntitiesState_EntityItemDefaultTypeInternal _PreviousState_EntitiesState_EntityItem_default_instance_;
+class PreviousState_EntitiesState_EntityItem_PropertiesEntry_DoNotUse;
+class PreviousState_EntitiesState_EntityItem_PropertiesEntry_DoNotUseDefaultTypeInternal;
+extern PreviousState_EntitiesState_EntityItem_PropertiesEntry_DoNotUseDefaultTypeInternal _PreviousState_EntitiesState_EntityItem_PropertiesEntry_DoNotUse_default_instance_;
 class PreviousState_StateHolder;
 class PreviousState_StateHolderDefaultTypeInternal;
 extern PreviousState_StateHolderDefaultTypeInternal _PreviousState_StateHolder_default_instance_;
@@ -171,6 +186,10 @@ template<> ::ai::inworld::engine::LogErrorRequest* Arena::CreateMaybeMessage<::a
 template<> ::ai::inworld::engine::PreviousDialog* Arena::CreateMaybeMessage<::ai::inworld::engine::PreviousDialog>(Arena*);
 template<> ::ai::inworld::engine::PreviousDialog_Phrase* Arena::CreateMaybeMessage<::ai::inworld::engine::PreviousDialog_Phrase>(Arena*);
 template<> ::ai::inworld::engine::PreviousState* Arena::CreateMaybeMessage<::ai::inworld::engine::PreviousState>(Arena*);
+template<> ::ai::inworld::engine::PreviousState_EntitiesState* Arena::CreateMaybeMessage<::ai::inworld::engine::PreviousState_EntitiesState>(Arena*);
+template<> ::ai::inworld::engine::PreviousState_EntitiesState_Entity* Arena::CreateMaybeMessage<::ai::inworld::engine::PreviousState_EntitiesState_Entity>(Arena*);
+template<> ::ai::inworld::engine::PreviousState_EntitiesState_EntityItem* Arena::CreateMaybeMessage<::ai::inworld::engine::PreviousState_EntitiesState_EntityItem>(Arena*);
+template<> ::ai::inworld::engine::PreviousState_EntitiesState_EntityItem_PropertiesEntry_DoNotUse* Arena::CreateMaybeMessage<::ai::inworld::engine::PreviousState_EntitiesState_EntityItem_PropertiesEntry_DoNotUse>(Arena*);
 template<> ::ai::inworld::engine::PreviousState_StateHolder* Arena::CreateMaybeMessage<::ai::inworld::engine::PreviousState_StateHolder>(Arena*);
 template<> ::ai::inworld::engine::SessionContinuation* Arena::CreateMaybeMessage<::ai::inworld::engine::SessionContinuation>(Arena*);
 template<> ::ai::inworld::engine::SessionContinuation_ContinuationInfo* Arena::CreateMaybeMessage<::ai::inworld::engine::SessionContinuation_ContinuationInfo>(Arena*);
@@ -189,12 +208,13 @@ enum PreviousDialog_DialogParticipant : int {
   PreviousDialog_DialogParticipant_UNKNOWN = 0,
   PreviousDialog_DialogParticipant_PLAYER = 1,
   PreviousDialog_DialogParticipant_CHARACTER = 2,
+  PreviousDialog_DialogParticipant_WORLD = 3,
   PreviousDialog_DialogParticipant_PreviousDialog_DialogParticipant_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   PreviousDialog_DialogParticipant_PreviousDialog_DialogParticipant_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
 bool PreviousDialog_DialogParticipant_IsValid(int value);
 constexpr PreviousDialog_DialogParticipant PreviousDialog_DialogParticipant_DialogParticipant_MIN = PreviousDialog_DialogParticipant_UNKNOWN;
-constexpr PreviousDialog_DialogParticipant PreviousDialog_DialogParticipant_DialogParticipant_MAX = PreviousDialog_DialogParticipant_CHARACTER;
+constexpr PreviousDialog_DialogParticipant PreviousDialog_DialogParticipant_DialogParticipant_MAX = PreviousDialog_DialogParticipant_WORLD;
 constexpr int PreviousDialog_DialogParticipant_DialogParticipant_ARRAYSIZE = PreviousDialog_DialogParticipant_DialogParticipant_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* PreviousDialog_DialogParticipant_descriptor();
@@ -429,6 +449,10 @@ class CapabilitiesRequest PROTOBUF_FINAL :
     kTtsMp3FieldNumber = 19,
     kMultiAgentFieldNumber = 20,
     kAudio2FaceFieldNumber = 21,
+    kInspectFieldNumber = 22,
+    kMultiModalActionPlanningFieldNumber = 23,
+    kPingPongReportFieldNumber = 24,
+    kPerceivedLatencyReportFieldNumber = 25,
   };
   // bool audio = 1;
   void clear_audio();
@@ -610,6 +634,42 @@ class CapabilitiesRequest PROTOBUF_FINAL :
   void _internal_set_audio_2_face(bool value);
   public:
 
+  // bool inspect = 22;
+  void clear_inspect();
+  bool inspect() const;
+  void set_inspect(bool value);
+  private:
+  bool _internal_inspect() const;
+  void _internal_set_inspect(bool value);
+  public:
+
+  // bool multi_modal_action_planning = 23;
+  void clear_multi_modal_action_planning();
+  bool multi_modal_action_planning() const;
+  void set_multi_modal_action_planning(bool value);
+  private:
+  bool _internal_multi_modal_action_planning() const;
+  void _internal_set_multi_modal_action_planning(bool value);
+  public:
+
+  // bool ping_pong_report = 24;
+  void clear_ping_pong_report();
+  bool ping_pong_report() const;
+  void set_ping_pong_report(bool value);
+  private:
+  bool _internal_ping_pong_report() const;
+  void _internal_set_ping_pong_report(bool value);
+  public:
+
+  // bool perceived_latency_report = 25;
+  void clear_perceived_latency_report();
+  bool perceived_latency_report() const;
+  void set_perceived_latency_report(bool value);
+  private:
+  bool _internal_perceived_latency_report() const;
+  void _internal_set_perceived_latency_report(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:ai.inworld.engine.CapabilitiesRequest)
  private:
   class _Internal;
@@ -637,6 +697,10 @@ class CapabilitiesRequest PROTOBUF_FINAL :
   bool tts_mp3_;
   bool multi_agent_;
   bool audio_2_face_;
+  bool inspect_;
+  bool multi_modal_action_planning_;
+  bool ping_pong_report_;
+  bool perceived_latency_report_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
 };
@@ -2215,6 +2279,12 @@ class PreviousDialog_Phrase PROTOBUF_FINAL :
   }
   static const PreviousDialog_Phrase& default_instance();
 
+  enum PayloadCase {
+    kPhrase = 2,
+    kNarrativeAction = 5,
+    PAYLOAD_NOT_SET = 0,
+  };
+
   static inline const PreviousDialog_Phrase* internal_default_instance() {
     return reinterpret_cast<const PreviousDialog_Phrase*>(
                &_PreviousDialog_Phrase_default_instance_);
@@ -2291,10 +2361,40 @@ class PreviousDialog_Phrase PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPhraseFieldNumber = 2,
+    kTalkerDisplayNameFieldNumber = 4,
     kTalkerFieldNumber = 1,
+    kPhraseFieldNumber = 2,
+    kNarrativeActionFieldNumber = 5,
   };
+  // string talker_display_name = 4;
+  void clear_talker_display_name();
+  const std::string& talker_display_name() const;
+  void set_talker_display_name(const std::string& value);
+  void set_talker_display_name(std::string&& value);
+  void set_talker_display_name(const char* value);
+  void set_talker_display_name(const char* value, size_t size);
+  std::string* mutable_talker_display_name();
+  std::string* release_talker_display_name();
+  void set_allocated_talker_display_name(std::string* talker_display_name);
+  private:
+  const std::string& _internal_talker_display_name() const;
+  void _internal_set_talker_display_name(const std::string& value);
+  std::string* _internal_mutable_talker_display_name();
+  public:
+
+  // .ai.inworld.engine.PreviousDialog.DialogParticipant talker = 1;
+  void clear_talker();
+  ::ai::inworld::engine::PreviousDialog_DialogParticipant talker() const;
+  void set_talker(::ai::inworld::engine::PreviousDialog_DialogParticipant value);
+  private:
+  ::ai::inworld::engine::PreviousDialog_DialogParticipant _internal_talker() const;
+  void _internal_set_talker(::ai::inworld::engine::PreviousDialog_DialogParticipant value);
+  public:
+
   // string phrase = 2;
+  private:
+  bool _internal_has_phrase() const;
+  public:
   void clear_phrase();
   const std::string& phrase() const;
   void set_phrase(const std::string& value);
@@ -2310,25 +2410,49 @@ class PreviousDialog_Phrase PROTOBUF_FINAL :
   std::string* _internal_mutable_phrase();
   public:
 
-  // .ai.inworld.engine.PreviousDialog.DialogParticipant talker = 1;
-  void clear_talker();
-  ::ai::inworld::engine::PreviousDialog_DialogParticipant talker() const;
-  void set_talker(::ai::inworld::engine::PreviousDialog_DialogParticipant value);
+  // string narrative_action = 5;
   private:
-  ::ai::inworld::engine::PreviousDialog_DialogParticipant _internal_talker() const;
-  void _internal_set_talker(::ai::inworld::engine::PreviousDialog_DialogParticipant value);
+  bool _internal_has_narrative_action() const;
+  public:
+  void clear_narrative_action();
+  const std::string& narrative_action() const;
+  void set_narrative_action(const std::string& value);
+  void set_narrative_action(std::string&& value);
+  void set_narrative_action(const char* value);
+  void set_narrative_action(const char* value, size_t size);
+  std::string* mutable_narrative_action();
+  std::string* release_narrative_action();
+  void set_allocated_narrative_action(std::string* narrative_action);
+  private:
+  const std::string& _internal_narrative_action() const;
+  void _internal_set_narrative_action(const std::string& value);
+  std::string* _internal_mutable_narrative_action();
   public:
 
+  void clear_payload();
+  PayloadCase payload_case() const;
   // @@protoc_insertion_point(class_scope:ai.inworld.engine.PreviousDialog.Phrase)
  private:
   class _Internal;
+  void set_has_phrase();
+  void set_has_narrative_action();
+
+  inline bool has_payload() const;
+  inline void clear_has_payload();
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr phrase_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr talker_display_name_;
   int talker_;
+  union PayloadUnion {
+    PayloadUnion() {}
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr phrase_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr narrative_action_;
+  } payload_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
+
   friend struct ::TableStruct_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
 };
 // -------------------------------------------------------------------
@@ -2451,6 +2575,8 @@ class PreviousDialog PROTOBUF_FINAL :
     PreviousDialog_DialogParticipant_PLAYER;
   static constexpr DialogParticipant CHARACTER =
     PreviousDialog_DialogParticipant_CHARACTER;
+  static constexpr DialogParticipant WORLD =
+    PreviousDialog_DialogParticipant_WORLD;
   static inline bool DialogParticipant_IsValid(int value) {
     return PreviousDialog_DialogParticipant_IsValid(value);
   }
@@ -2776,6 +2902,614 @@ class PreviousState_StateHolder PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class PreviousState_EntitiesState_EntityItem_PropertiesEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<PreviousState_EntitiesState_EntityItem_PropertiesEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<PreviousState_EntitiesState_EntityItem_PropertiesEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
+  PreviousState_EntitiesState_EntityItem_PropertiesEntry_DoNotUse();
+  explicit PreviousState_EntitiesState_EntityItem_PropertiesEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const PreviousState_EntitiesState_EntityItem_PropertiesEntry_DoNotUse& other);
+  static const PreviousState_EntitiesState_EntityItem_PropertiesEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const PreviousState_EntitiesState_EntityItem_PropertiesEntry_DoNotUse*>(&_PreviousState_EntitiesState_EntityItem_PropertiesEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "ai.inworld.engine.PreviousState.EntitiesState.EntityItem.PropertiesEntry.key");
+ }
+  static bool ValidateValue(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "ai.inworld.engine.PreviousState.EntitiesState.EntityItem.PropertiesEntry.value");
+ }
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& other) final;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto);
+    return ::descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto.file_level_metadata[13];
+  }
+
+  public:
+};
+
+// -------------------------------------------------------------------
+
+class PreviousState_EntitiesState_EntityItem PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.engine.PreviousState.EntitiesState.EntityItem) */ {
+ public:
+  inline PreviousState_EntitiesState_EntityItem() : PreviousState_EntitiesState_EntityItem(nullptr) {}
+  virtual ~PreviousState_EntitiesState_EntityItem();
+
+  PreviousState_EntitiesState_EntityItem(const PreviousState_EntitiesState_EntityItem& from);
+  PreviousState_EntitiesState_EntityItem(PreviousState_EntitiesState_EntityItem&& from) noexcept
+    : PreviousState_EntitiesState_EntityItem() {
+    *this = ::std::move(from);
+  }
+
+  inline PreviousState_EntitiesState_EntityItem& operator=(const PreviousState_EntitiesState_EntityItem& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline PreviousState_EntitiesState_EntityItem& operator=(PreviousState_EntitiesState_EntityItem&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const PreviousState_EntitiesState_EntityItem& default_instance();
+
+  static inline const PreviousState_EntitiesState_EntityItem* internal_default_instance() {
+    return reinterpret_cast<const PreviousState_EntitiesState_EntityItem*>(
+               &_PreviousState_EntitiesState_EntityItem_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    14;
+
+  friend void swap(PreviousState_EntitiesState_EntityItem& a, PreviousState_EntitiesState_EntityItem& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(PreviousState_EntitiesState_EntityItem* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(PreviousState_EntitiesState_EntityItem* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline PreviousState_EntitiesState_EntityItem* New() const final {
+    return CreateMaybeMessage<PreviousState_EntitiesState_EntityItem>(nullptr);
+  }
+
+  PreviousState_EntitiesState_EntityItem* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<PreviousState_EntitiesState_EntityItem>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const PreviousState_EntitiesState_EntityItem& from);
+  void MergeFrom(const PreviousState_EntitiesState_EntityItem& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(PreviousState_EntitiesState_EntityItem* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.engine.PreviousState.EntitiesState.EntityItem";
+  }
+  protected:
+  explicit PreviousState_EntitiesState_EntityItem(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto);
+    return ::descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPropertiesFieldNumber = 4,
+    kEntitiesFieldNumber = 5,
+    kIdFieldNumber = 1,
+    kDisplayNameFieldNumber = 2,
+    kDescriptionFieldNumber = 3,
+  };
+  // map<string, string> properties = 4;
+  int properties_size() const;
+  private:
+  int _internal_properties_size() const;
+  public:
+  void clear_properties();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      _internal_properties() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      _internal_mutable_properties();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      properties() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      mutable_properties();
+
+  // repeated string entities = 5;
+  int entities_size() const;
+  private:
+  int _internal_entities_size() const;
+  public:
+  void clear_entities();
+  const std::string& entities(int index) const;
+  std::string* mutable_entities(int index);
+  void set_entities(int index, const std::string& value);
+  void set_entities(int index, std::string&& value);
+  void set_entities(int index, const char* value);
+  void set_entities(int index, const char* value, size_t size);
+  std::string* add_entities();
+  void add_entities(const std::string& value);
+  void add_entities(std::string&& value);
+  void add_entities(const char* value);
+  void add_entities(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& entities() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_entities();
+  private:
+  const std::string& _internal_entities(int index) const;
+  std::string* _internal_add_entities();
+  public:
+
+  // string id = 1;
+  void clear_id();
+  const std::string& id() const;
+  void set_id(const std::string& value);
+  void set_id(std::string&& value);
+  void set_id(const char* value);
+  void set_id(const char* value, size_t size);
+  std::string* mutable_id();
+  std::string* release_id();
+  void set_allocated_id(std::string* id);
+  private:
+  const std::string& _internal_id() const;
+  void _internal_set_id(const std::string& value);
+  std::string* _internal_mutable_id();
+  public:
+
+  // string display_name = 2;
+  void clear_display_name();
+  const std::string& display_name() const;
+  void set_display_name(const std::string& value);
+  void set_display_name(std::string&& value);
+  void set_display_name(const char* value);
+  void set_display_name(const char* value, size_t size);
+  std::string* mutable_display_name();
+  std::string* release_display_name();
+  void set_allocated_display_name(std::string* display_name);
+  private:
+  const std::string& _internal_display_name() const;
+  void _internal_set_display_name(const std::string& value);
+  std::string* _internal_mutable_display_name();
+  public:
+
+  // string description = 3;
+  void clear_description();
+  const std::string& description() const;
+  void set_description(const std::string& value);
+  void set_description(std::string&& value);
+  void set_description(const char* value);
+  void set_description(const char* value, size_t size);
+  std::string* mutable_description();
+  std::string* release_description();
+  void set_allocated_description(std::string* description);
+  private:
+  const std::string& _internal_description() const;
+  void _internal_set_description(const std::string& value);
+  std::string* _internal_mutable_description();
+  public:
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.engine.PreviousState.EntitiesState.EntityItem)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+      PreviousState_EntitiesState_EntityItem_PropertiesEntry_DoNotUse,
+      std::string, std::string,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> properties_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> entities_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr display_name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr description_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
+};
+// -------------------------------------------------------------------
+
+class PreviousState_EntitiesState_Entity PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.engine.PreviousState.EntitiesState.Entity) */ {
+ public:
+  inline PreviousState_EntitiesState_Entity() : PreviousState_EntitiesState_Entity(nullptr) {}
+  virtual ~PreviousState_EntitiesState_Entity();
+
+  PreviousState_EntitiesState_Entity(const PreviousState_EntitiesState_Entity& from);
+  PreviousState_EntitiesState_Entity(PreviousState_EntitiesState_Entity&& from) noexcept
+    : PreviousState_EntitiesState_Entity() {
+    *this = ::std::move(from);
+  }
+
+  inline PreviousState_EntitiesState_Entity& operator=(const PreviousState_EntitiesState_Entity& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline PreviousState_EntitiesState_Entity& operator=(PreviousState_EntitiesState_Entity&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const PreviousState_EntitiesState_Entity& default_instance();
+
+  static inline const PreviousState_EntitiesState_Entity* internal_default_instance() {
+    return reinterpret_cast<const PreviousState_EntitiesState_Entity*>(
+               &_PreviousState_EntitiesState_Entity_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    15;
+
+  friend void swap(PreviousState_EntitiesState_Entity& a, PreviousState_EntitiesState_Entity& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(PreviousState_EntitiesState_Entity* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(PreviousState_EntitiesState_Entity* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline PreviousState_EntitiesState_Entity* New() const final {
+    return CreateMaybeMessage<PreviousState_EntitiesState_Entity>(nullptr);
+  }
+
+  PreviousState_EntitiesState_Entity* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<PreviousState_EntitiesState_Entity>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const PreviousState_EntitiesState_Entity& from);
+  void MergeFrom(const PreviousState_EntitiesState_Entity& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(PreviousState_EntitiesState_Entity* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.engine.PreviousState.EntitiesState.Entity";
+  }
+  protected:
+  explicit PreviousState_EntitiesState_Entity(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto);
+    return ::descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kIdFieldNumber = 1,
+    kDisplayNameFieldNumber = 2,
+    kDescriptionFieldNumber = 3,
+  };
+  // string id = 1;
+  void clear_id();
+  const std::string& id() const;
+  void set_id(const std::string& value);
+  void set_id(std::string&& value);
+  void set_id(const char* value);
+  void set_id(const char* value, size_t size);
+  std::string* mutable_id();
+  std::string* release_id();
+  void set_allocated_id(std::string* id);
+  private:
+  const std::string& _internal_id() const;
+  void _internal_set_id(const std::string& value);
+  std::string* _internal_mutable_id();
+  public:
+
+  // string display_name = 2;
+  void clear_display_name();
+  const std::string& display_name() const;
+  void set_display_name(const std::string& value);
+  void set_display_name(std::string&& value);
+  void set_display_name(const char* value);
+  void set_display_name(const char* value, size_t size);
+  std::string* mutable_display_name();
+  std::string* release_display_name();
+  void set_allocated_display_name(std::string* display_name);
+  private:
+  const std::string& _internal_display_name() const;
+  void _internal_set_display_name(const std::string& value);
+  std::string* _internal_mutable_display_name();
+  public:
+
+  // string description = 3;
+  void clear_description();
+  const std::string& description() const;
+  void set_description(const std::string& value);
+  void set_description(std::string&& value);
+  void set_description(const char* value);
+  void set_description(const char* value, size_t size);
+  std::string* mutable_description();
+  std::string* release_description();
+  void set_allocated_description(std::string* description);
+  private:
+  const std::string& _internal_description() const;
+  void _internal_set_description(const std::string& value);
+  std::string* _internal_mutable_description();
+  public:
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.engine.PreviousState.EntitiesState.Entity)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr display_name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr description_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
+};
+// -------------------------------------------------------------------
+
+class PreviousState_EntitiesState PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.engine.PreviousState.EntitiesState) */ {
+ public:
+  inline PreviousState_EntitiesState() : PreviousState_EntitiesState(nullptr) {}
+  virtual ~PreviousState_EntitiesState();
+
+  PreviousState_EntitiesState(const PreviousState_EntitiesState& from);
+  PreviousState_EntitiesState(PreviousState_EntitiesState&& from) noexcept
+    : PreviousState_EntitiesState() {
+    *this = ::std::move(from);
+  }
+
+  inline PreviousState_EntitiesState& operator=(const PreviousState_EntitiesState& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline PreviousState_EntitiesState& operator=(PreviousState_EntitiesState&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const PreviousState_EntitiesState& default_instance();
+
+  static inline const PreviousState_EntitiesState* internal_default_instance() {
+    return reinterpret_cast<const PreviousState_EntitiesState*>(
+               &_PreviousState_EntitiesState_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    16;
+
+  friend void swap(PreviousState_EntitiesState& a, PreviousState_EntitiesState& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(PreviousState_EntitiesState* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(PreviousState_EntitiesState* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline PreviousState_EntitiesState* New() const final {
+    return CreateMaybeMessage<PreviousState_EntitiesState>(nullptr);
+  }
+
+  PreviousState_EntitiesState* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<PreviousState_EntitiesState>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const PreviousState_EntitiesState& from);
+  void MergeFrom(const PreviousState_EntitiesState& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(PreviousState_EntitiesState* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.engine.PreviousState.EntitiesState";
+  }
+  protected:
+  explicit PreviousState_EntitiesState(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto);
+    return ::descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  typedef PreviousState_EntitiesState_EntityItem EntityItem;
+  typedef PreviousState_EntitiesState_Entity Entity;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kEntityItemsFieldNumber = 1,
+    kEntitiesFieldNumber = 2,
+  };
+  // repeated .ai.inworld.engine.PreviousState.EntitiesState.EntityItem entity_items = 1;
+  int entity_items_size() const;
+  private:
+  int _internal_entity_items_size() const;
+  public:
+  void clear_entity_items();
+  ::ai::inworld::engine::PreviousState_EntitiesState_EntityItem* mutable_entity_items(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::engine::PreviousState_EntitiesState_EntityItem >*
+      mutable_entity_items();
+  private:
+  const ::ai::inworld::engine::PreviousState_EntitiesState_EntityItem& _internal_entity_items(int index) const;
+  ::ai::inworld::engine::PreviousState_EntitiesState_EntityItem* _internal_add_entity_items();
+  public:
+  const ::ai::inworld::engine::PreviousState_EntitiesState_EntityItem& entity_items(int index) const;
+  ::ai::inworld::engine::PreviousState_EntitiesState_EntityItem* add_entity_items();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::engine::PreviousState_EntitiesState_EntityItem >&
+      entity_items() const;
+
+  // repeated .ai.inworld.engine.PreviousState.EntitiesState.Entity entities = 2;
+  int entities_size() const;
+  private:
+  int _internal_entities_size() const;
+  public:
+  void clear_entities();
+  ::ai::inworld::engine::PreviousState_EntitiesState_Entity* mutable_entities(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::engine::PreviousState_EntitiesState_Entity >*
+      mutable_entities();
+  private:
+  const ::ai::inworld::engine::PreviousState_EntitiesState_Entity& _internal_entities(int index) const;
+  ::ai::inworld::engine::PreviousState_EntitiesState_Entity* _internal_add_entities();
+  public:
+  const ::ai::inworld::engine::PreviousState_EntitiesState_Entity& entities(int index) const;
+  ::ai::inworld::engine::PreviousState_EntitiesState_Entity* add_entities();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::engine::PreviousState_EntitiesState_Entity >&
+      entities() const;
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.engine.PreviousState.EntitiesState)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::engine::PreviousState_EntitiesState_EntityItem > entity_items_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::engine::PreviousState_EntitiesState_Entity > entities_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
+};
+// -------------------------------------------------------------------
+
 class PreviousState PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.engine.PreviousState) */ {
  public:
@@ -2817,7 +3551,7 @@ class PreviousState PROTOBUF_FINAL :
                &_PreviousState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    17;
 
   friend void swap(PreviousState& a, PreviousState& b) {
     a.Swap(&b);
@@ -2886,6 +3620,7 @@ class PreviousState PROTOBUF_FINAL :
   // nested types ----------------------------------------------------
 
   typedef PreviousState_StateHolder StateHolder;
+  typedef PreviousState_EntitiesState EntitiesState;
 
   // accessors -------------------------------------------------------
 
@@ -2893,6 +3628,7 @@ class PreviousState PROTOBUF_FINAL :
     kStateHoldersFieldNumber = 1,
     kGameSessionIdFieldNumber = 2,
     kConversationStateFieldNumber = 3,
+    kEntitiesStateFieldNumber = 4,
   };
   // repeated .ai.inworld.engine.PreviousState.StateHolder state_holders = 1;
   int state_holders_size() const;
@@ -2946,6 +3682,24 @@ class PreviousState PROTOBUF_FINAL :
       ::ai::inworld::engine::ConversationState* conversation_state);
   ::ai::inworld::engine::ConversationState* unsafe_arena_release_conversation_state();
 
+  // .ai.inworld.engine.PreviousState.EntitiesState entities_state = 4;
+  bool has_entities_state() const;
+  private:
+  bool _internal_has_entities_state() const;
+  public:
+  void clear_entities_state();
+  const ::ai::inworld::engine::PreviousState_EntitiesState& entities_state() const;
+  ::ai::inworld::engine::PreviousState_EntitiesState* release_entities_state();
+  ::ai::inworld::engine::PreviousState_EntitiesState* mutable_entities_state();
+  void set_allocated_entities_state(::ai::inworld::engine::PreviousState_EntitiesState* entities_state);
+  private:
+  const ::ai::inworld::engine::PreviousState_EntitiesState& _internal_entities_state() const;
+  ::ai::inworld::engine::PreviousState_EntitiesState* _internal_mutable_entities_state();
+  public:
+  void unsafe_arena_set_allocated_entities_state(
+      ::ai::inworld::engine::PreviousState_EntitiesState* entities_state);
+  ::ai::inworld::engine::PreviousState_EntitiesState* unsafe_arena_release_entities_state();
+
   // @@protoc_insertion_point(class_scope:ai.inworld.engine.PreviousState)
  private:
   class _Internal;
@@ -2956,6 +3710,7 @@ class PreviousState PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::engine::PreviousState_StateHolder > state_holders_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr game_session_id_;
   ::ai::inworld::engine::ConversationState* conversation_state_;
+  ::ai::inworld::engine::PreviousState_EntitiesState* entities_state_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
 };
@@ -3002,7 +3757,7 @@ class LoadSceneResponse_Agent_CharacterAssets PROTOBUF_FINAL :
                &_LoadSceneResponse_Agent_CharacterAssets_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    18;
 
   friend void swap(LoadSceneResponse_Agent_CharacterAssets& a, LoadSceneResponse_Agent_CharacterAssets& b) {
     a.Swap(&b);
@@ -3217,7 +3972,7 @@ class LoadSceneResponse_Agent PROTOBUF_FINAL :
                &_LoadSceneResponse_Agent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    19;
 
   friend void swap(LoadSceneResponse_Agent& a, LoadSceneResponse_Agent& b) {
     a.Swap(&b);
@@ -3418,7 +4173,7 @@ class LoadSceneResponse PROTOBUF_FINAL :
                &_LoadSceneResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    20;
 
   friend void swap(LoadSceneResponse& a, LoadSceneResponse& b) {
     a.Swap(&b);
@@ -3603,7 +4358,7 @@ class LogErrorRequest PROTOBUF_FINAL :
                &_LogErrorRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    21;
 
   friend void swap(LogErrorRequest& a, LogErrorRequest& b) {
     a.Swap(&b);
@@ -3764,7 +4519,7 @@ class VoicePreviewRequest PROTOBUF_FINAL :
                &_VoicePreviewRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    22;
 
   friend void swap(VoicePreviewRequest& a, VoicePreviewRequest& b) {
     a.Swap(&b);
@@ -3947,7 +4702,7 @@ class VoicePreviewResponse PROTOBUF_FINAL :
                &_VoicePreviewResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    23;
 
   friend void swap(VoicePreviewResponse& a, VoicePreviewResponse& b) {
     a.Swap(&b);
@@ -4090,7 +4845,7 @@ class ListBaseVoicesRequest PROTOBUF_FINAL :
                &_ListBaseVoicesRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    24;
 
   friend void swap(ListBaseVoicesRequest& a, ListBaseVoicesRequest& b) {
     a.Swap(&b);
@@ -4264,7 +5019,7 @@ class ListBaseVoicesResponce PROTOBUF_FINAL :
                &_ListBaseVoicesResponce_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    25;
 
   friend void swap(ListBaseVoicesResponce& a, ListBaseVoicesResponce& b) {
     a.Swap(&b);
@@ -4469,7 +5224,7 @@ class AccessToken PROTOBUF_FINAL :
                &_AccessToken_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    26;
 
   friend void swap(AccessToken& a, AccessToken& b) {
     a.Swap(&b);
@@ -4668,7 +5423,7 @@ class GenerateTokenRequest PROTOBUF_FINAL :
                &_GenerateTokenRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    27;
 
   friend void swap(GenerateTokenRequest& a, GenerateTokenRequest& b) {
     a.Swap(&b);
@@ -4837,7 +5592,7 @@ class ActorRelations_Relation PROTOBUF_FINAL :
                &_ActorRelations_Relation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    28;
 
   friend void swap(ActorRelations_Relation& a, ActorRelations_Relation& b) {
     a.Swap(&b);
@@ -4998,7 +5753,7 @@ class ActorRelations PROTOBUF_FINAL :
                &_ActorRelations_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    29;
 
   friend void swap(ActorRelations& a, ActorRelations& b) {
     a.Swap(&b);
@@ -5163,7 +5918,7 @@ class ConversationState_ConversationSettings PROTOBUF_FINAL :
                &_ConversationState_ConversationSettings_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    30;
 
   friend void swap(ConversationState_ConversationSettings& a, ConversationState_ConversationSettings& b) {
     a.Swap(&b);
@@ -5378,7 +6133,7 @@ class ConversationState PROTOBUF_FINAL :
                &_ConversationState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    31;
 
   friend void swap(ConversationState& a, ConversationState& b) {
     a.Swap(&b);
@@ -5891,6 +6646,86 @@ inline void CapabilitiesRequest::_internal_set_audio_2_face(bool value) {
 inline void CapabilitiesRequest::set_audio_2_face(bool value) {
   _internal_set_audio_2_face(value);
   // @@protoc_insertion_point(field_set:ai.inworld.engine.CapabilitiesRequest.audio_2_face)
+}
+
+// bool inspect = 22;
+inline void CapabilitiesRequest::clear_inspect() {
+  inspect_ = false;
+}
+inline bool CapabilitiesRequest::_internal_inspect() const {
+  return inspect_;
+}
+inline bool CapabilitiesRequest::inspect() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.CapabilitiesRequest.inspect)
+  return _internal_inspect();
+}
+inline void CapabilitiesRequest::_internal_set_inspect(bool value) {
+  
+  inspect_ = value;
+}
+inline void CapabilitiesRequest::set_inspect(bool value) {
+  _internal_set_inspect(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.CapabilitiesRequest.inspect)
+}
+
+// bool multi_modal_action_planning = 23;
+inline void CapabilitiesRequest::clear_multi_modal_action_planning() {
+  multi_modal_action_planning_ = false;
+}
+inline bool CapabilitiesRequest::_internal_multi_modal_action_planning() const {
+  return multi_modal_action_planning_;
+}
+inline bool CapabilitiesRequest::multi_modal_action_planning() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.CapabilitiesRequest.multi_modal_action_planning)
+  return _internal_multi_modal_action_planning();
+}
+inline void CapabilitiesRequest::_internal_set_multi_modal_action_planning(bool value) {
+  
+  multi_modal_action_planning_ = value;
+}
+inline void CapabilitiesRequest::set_multi_modal_action_planning(bool value) {
+  _internal_set_multi_modal_action_planning(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.CapabilitiesRequest.multi_modal_action_planning)
+}
+
+// bool ping_pong_report = 24;
+inline void CapabilitiesRequest::clear_ping_pong_report() {
+  ping_pong_report_ = false;
+}
+inline bool CapabilitiesRequest::_internal_ping_pong_report() const {
+  return ping_pong_report_;
+}
+inline bool CapabilitiesRequest::ping_pong_report() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.CapabilitiesRequest.ping_pong_report)
+  return _internal_ping_pong_report();
+}
+inline void CapabilitiesRequest::_internal_set_ping_pong_report(bool value) {
+  
+  ping_pong_report_ = value;
+}
+inline void CapabilitiesRequest::set_ping_pong_report(bool value) {
+  _internal_set_ping_pong_report(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.CapabilitiesRequest.ping_pong_report)
+}
+
+// bool perceived_latency_report = 25;
+inline void CapabilitiesRequest::clear_perceived_latency_report() {
+  perceived_latency_report_ = false;
+}
+inline bool CapabilitiesRequest::_internal_perceived_latency_report() const {
+  return perceived_latency_report_;
+}
+inline bool CapabilitiesRequest::perceived_latency_report() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.CapabilitiesRequest.perceived_latency_report)
+  return _internal_perceived_latency_report();
+}
+inline void CapabilitiesRequest::_internal_set_perceived_latency_report(bool value) {
+  
+  perceived_latency_report_ = value;
+}
+inline void CapabilitiesRequest::set_perceived_latency_report(bool value) {
+  _internal_set_perceived_latency_report(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.CapabilitiesRequest.perceived_latency_report)
 }
 
 // -------------------------------------------------------------------
@@ -7368,9 +8203,79 @@ inline void PreviousDialog_Phrase::set_talker(::ai::inworld::engine::PreviousDia
   // @@protoc_insertion_point(field_set:ai.inworld.engine.PreviousDialog.Phrase.talker)
 }
 
+// string talker_display_name = 4;
+inline void PreviousDialog_Phrase::clear_talker_display_name() {
+  talker_display_name_.ClearToEmpty();
+}
+inline const std::string& PreviousDialog_Phrase::talker_display_name() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.PreviousDialog.Phrase.talker_display_name)
+  return _internal_talker_display_name();
+}
+inline void PreviousDialog_Phrase::set_talker_display_name(const std::string& value) {
+  _internal_set_talker_display_name(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.PreviousDialog.Phrase.talker_display_name)
+}
+inline std::string* PreviousDialog_Phrase::mutable_talker_display_name() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.engine.PreviousDialog.Phrase.talker_display_name)
+  return _internal_mutable_talker_display_name();
+}
+inline const std::string& PreviousDialog_Phrase::_internal_talker_display_name() const {
+  return talker_display_name_.Get();
+}
+inline void PreviousDialog_Phrase::_internal_set_talker_display_name(const std::string& value) {
+  
+  talker_display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void PreviousDialog_Phrase::set_talker_display_name(std::string&& value) {
+  
+  talker_display_name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.engine.PreviousDialog.Phrase.talker_display_name)
+}
+inline void PreviousDialog_Phrase::set_talker_display_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  talker_display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.engine.PreviousDialog.Phrase.talker_display_name)
+}
+inline void PreviousDialog_Phrase::set_talker_display_name(const char* value,
+    size_t size) {
+  
+  talker_display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.engine.PreviousDialog.Phrase.talker_display_name)
+}
+inline std::string* PreviousDialog_Phrase::_internal_mutable_talker_display_name() {
+  
+  return talker_display_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* PreviousDialog_Phrase::release_talker_display_name() {
+  // @@protoc_insertion_point(field_release:ai.inworld.engine.PreviousDialog.Phrase.talker_display_name)
+  return talker_display_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void PreviousDialog_Phrase::set_allocated_talker_display_name(std::string* talker_display_name) {
+  if (talker_display_name != nullptr) {
+    
+  } else {
+    
+  }
+  talker_display_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), talker_display_name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.engine.PreviousDialog.Phrase.talker_display_name)
+}
+
 // string phrase = 2;
+inline bool PreviousDialog_Phrase::_internal_has_phrase() const {
+  return payload_case() == kPhrase;
+}
+inline void PreviousDialog_Phrase::set_has_phrase() {
+  _oneof_case_[0] = kPhrase;
+}
 inline void PreviousDialog_Phrase::clear_phrase() {
-  phrase_.ClearToEmpty();
+  if (_internal_has_phrase()) {
+    payload_.phrase_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+    clear_has_payload();
+  }
 }
 inline const std::string& PreviousDialog_Phrase::phrase() const {
   // @@protoc_insertion_point(field_get:ai.inworld.engine.PreviousDialog.Phrase.phrase)
@@ -7385,50 +8290,203 @@ inline std::string* PreviousDialog_Phrase::mutable_phrase() {
   return _internal_mutable_phrase();
 }
 inline const std::string& PreviousDialog_Phrase::_internal_phrase() const {
-  return phrase_.Get();
+  if (_internal_has_phrase()) {
+    return payload_.phrase_.Get();
+  }
+  return ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
 }
 inline void PreviousDialog_Phrase::_internal_set_phrase(const std::string& value) {
-  
-  phrase_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+  if (!_internal_has_phrase()) {
+    clear_payload();
+    set_has_phrase();
+    payload_.phrase_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  payload_.phrase_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
 }
 inline void PreviousDialog_Phrase::set_phrase(std::string&& value) {
-  
-  phrase_.Set(
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.PreviousDialog.Phrase.phrase)
+  if (!_internal_has_phrase()) {
+    clear_payload();
+    set_has_phrase();
+    payload_.phrase_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  payload_.phrase_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
   // @@protoc_insertion_point(field_set_rvalue:ai.inworld.engine.PreviousDialog.Phrase.phrase)
 }
 inline void PreviousDialog_Phrase::set_phrase(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
-  
-  phrase_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  if (!_internal_has_phrase()) {
+    clear_payload();
+    set_has_phrase();
+    payload_.phrase_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  payload_.phrase_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{},
+      ::std::string(value), GetArena());
   // @@protoc_insertion_point(field_set_char:ai.inworld.engine.PreviousDialog.Phrase.phrase)
 }
 inline void PreviousDialog_Phrase::set_phrase(const char* value,
-    size_t size) {
-  
-  phrase_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
+                             size_t size) {
+  if (!_internal_has_phrase()) {
+    clear_payload();
+    set_has_phrase();
+    payload_.phrase_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  payload_.phrase_.Set(
+      ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size),
+      GetArena());
   // @@protoc_insertion_point(field_set_pointer:ai.inworld.engine.PreviousDialog.Phrase.phrase)
 }
 inline std::string* PreviousDialog_Phrase::_internal_mutable_phrase() {
-  
-  return phrase_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+  if (!_internal_has_phrase()) {
+    clear_payload();
+    set_has_phrase();
+    payload_.phrase_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  return payload_.phrase_.Mutable(
+      ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
 inline std::string* PreviousDialog_Phrase::release_phrase() {
   // @@protoc_insertion_point(field_release:ai.inworld.engine.PreviousDialog.Phrase.phrase)
-  return phrase_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  if (_internal_has_phrase()) {
+    clear_has_payload();
+    return payload_.phrase_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  } else {
+    return nullptr;
+  }
 }
 inline void PreviousDialog_Phrase::set_allocated_phrase(std::string* phrase) {
-  if (phrase != nullptr) {
-    
-  } else {
-    
+  if (has_payload()) {
+    clear_payload();
   }
-  phrase_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), phrase,
-      GetArena());
+  if (phrase != nullptr) {
+    set_has_phrase();
+    payload_.phrase_.UnsafeSetDefault(phrase);
+    ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena();
+    if (arena != nullptr) {
+      arena->Own(phrase);
+    }
+  }
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.engine.PreviousDialog.Phrase.phrase)
 }
 
+// string narrative_action = 5;
+inline bool PreviousDialog_Phrase::_internal_has_narrative_action() const {
+  return payload_case() == kNarrativeAction;
+}
+inline void PreviousDialog_Phrase::set_has_narrative_action() {
+  _oneof_case_[0] = kNarrativeAction;
+}
+inline void PreviousDialog_Phrase::clear_narrative_action() {
+  if (_internal_has_narrative_action()) {
+    payload_.narrative_action_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+    clear_has_payload();
+  }
+}
+inline const std::string& PreviousDialog_Phrase::narrative_action() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.PreviousDialog.Phrase.narrative_action)
+  return _internal_narrative_action();
+}
+inline void PreviousDialog_Phrase::set_narrative_action(const std::string& value) {
+  _internal_set_narrative_action(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.PreviousDialog.Phrase.narrative_action)
+}
+inline std::string* PreviousDialog_Phrase::mutable_narrative_action() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.engine.PreviousDialog.Phrase.narrative_action)
+  return _internal_mutable_narrative_action();
+}
+inline const std::string& PreviousDialog_Phrase::_internal_narrative_action() const {
+  if (_internal_has_narrative_action()) {
+    return payload_.narrative_action_.Get();
+  }
+  return ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
+}
+inline void PreviousDialog_Phrase::_internal_set_narrative_action(const std::string& value) {
+  if (!_internal_has_narrative_action()) {
+    clear_payload();
+    set_has_narrative_action();
+    payload_.narrative_action_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  payload_.narrative_action_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void PreviousDialog_Phrase::set_narrative_action(std::string&& value) {
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.PreviousDialog.Phrase.narrative_action)
+  if (!_internal_has_narrative_action()) {
+    clear_payload();
+    set_has_narrative_action();
+    payload_.narrative_action_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  payload_.narrative_action_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.engine.PreviousDialog.Phrase.narrative_action)
+}
+inline void PreviousDialog_Phrase::set_narrative_action(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  if (!_internal_has_narrative_action()) {
+    clear_payload();
+    set_has_narrative_action();
+    payload_.narrative_action_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  payload_.narrative_action_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{},
+      ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.engine.PreviousDialog.Phrase.narrative_action)
+}
+inline void PreviousDialog_Phrase::set_narrative_action(const char* value,
+                             size_t size) {
+  if (!_internal_has_narrative_action()) {
+    clear_payload();
+    set_has_narrative_action();
+    payload_.narrative_action_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  payload_.narrative_action_.Set(
+      ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size),
+      GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.engine.PreviousDialog.Phrase.narrative_action)
+}
+inline std::string* PreviousDialog_Phrase::_internal_mutable_narrative_action() {
+  if (!_internal_has_narrative_action()) {
+    clear_payload();
+    set_has_narrative_action();
+    payload_.narrative_action_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  return payload_.narrative_action_.Mutable(
+      ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* PreviousDialog_Phrase::release_narrative_action() {
+  // @@protoc_insertion_point(field_release:ai.inworld.engine.PreviousDialog.Phrase.narrative_action)
+  if (_internal_has_narrative_action()) {
+    clear_has_payload();
+    return payload_.narrative_action_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  } else {
+    return nullptr;
+  }
+}
+inline void PreviousDialog_Phrase::set_allocated_narrative_action(std::string* narrative_action) {
+  if (has_payload()) {
+    clear_payload();
+  }
+  if (narrative_action != nullptr) {
+    set_has_narrative_action();
+    payload_.narrative_action_.UnsafeSetDefault(narrative_action);
+    ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena();
+    if (arena != nullptr) {
+      arena->Own(narrative_action);
+    }
+  }
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.engine.PreviousDialog.Phrase.narrative_action)
+}
+
+inline bool PreviousDialog_Phrase::has_payload() const {
+  return payload_case() != PAYLOAD_NOT_SET;
+}
+inline void PreviousDialog_Phrase::clear_has_payload() {
+  _oneof_case_[0] = PAYLOAD_NOT_SET;
+}
+inline PreviousDialog_Phrase::PayloadCase PreviousDialog_Phrase::payload_case() const {
+  return PreviousDialog_Phrase::PayloadCase(_oneof_case_[0]);
+}
 // -------------------------------------------------------------------
 
 // PreviousDialog
@@ -7778,6 +8836,567 @@ inline void PreviousState_StateHolder::set_state_format(::ai::inworld::engine::P
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
+// PreviousState_EntitiesState_EntityItem
+
+// string id = 1;
+inline void PreviousState_EntitiesState_EntityItem::clear_id() {
+  id_.ClearToEmpty();
+}
+inline const std::string& PreviousState_EntitiesState_EntityItem::id() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.id)
+  return _internal_id();
+}
+inline void PreviousState_EntitiesState_EntityItem::set_id(const std::string& value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.id)
+}
+inline std::string* PreviousState_EntitiesState_EntityItem::mutable_id() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.id)
+  return _internal_mutable_id();
+}
+inline const std::string& PreviousState_EntitiesState_EntityItem::_internal_id() const {
+  return id_.Get();
+}
+inline void PreviousState_EntitiesState_EntityItem::_internal_set_id(const std::string& value) {
+  
+  id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void PreviousState_EntitiesState_EntityItem::set_id(std::string&& value) {
+  
+  id_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.id)
+}
+inline void PreviousState_EntitiesState_EntityItem::set_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.id)
+}
+inline void PreviousState_EntitiesState_EntityItem::set_id(const char* value,
+    size_t size) {
+  
+  id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.id)
+}
+inline std::string* PreviousState_EntitiesState_EntityItem::_internal_mutable_id() {
+  
+  return id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* PreviousState_EntitiesState_EntityItem::release_id() {
+  // @@protoc_insertion_point(field_release:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.id)
+  return id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void PreviousState_EntitiesState_EntityItem::set_allocated_id(std::string* id) {
+  if (id != nullptr) {
+    
+  } else {
+    
+  }
+  id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.id)
+}
+
+// string display_name = 2;
+inline void PreviousState_EntitiesState_EntityItem::clear_display_name() {
+  display_name_.ClearToEmpty();
+}
+inline const std::string& PreviousState_EntitiesState_EntityItem::display_name() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.display_name)
+  return _internal_display_name();
+}
+inline void PreviousState_EntitiesState_EntityItem::set_display_name(const std::string& value) {
+  _internal_set_display_name(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.display_name)
+}
+inline std::string* PreviousState_EntitiesState_EntityItem::mutable_display_name() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.display_name)
+  return _internal_mutable_display_name();
+}
+inline const std::string& PreviousState_EntitiesState_EntityItem::_internal_display_name() const {
+  return display_name_.Get();
+}
+inline void PreviousState_EntitiesState_EntityItem::_internal_set_display_name(const std::string& value) {
+  
+  display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void PreviousState_EntitiesState_EntityItem::set_display_name(std::string&& value) {
+  
+  display_name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.display_name)
+}
+inline void PreviousState_EntitiesState_EntityItem::set_display_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.display_name)
+}
+inline void PreviousState_EntitiesState_EntityItem::set_display_name(const char* value,
+    size_t size) {
+  
+  display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.display_name)
+}
+inline std::string* PreviousState_EntitiesState_EntityItem::_internal_mutable_display_name() {
+  
+  return display_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* PreviousState_EntitiesState_EntityItem::release_display_name() {
+  // @@protoc_insertion_point(field_release:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.display_name)
+  return display_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void PreviousState_EntitiesState_EntityItem::set_allocated_display_name(std::string* display_name) {
+  if (display_name != nullptr) {
+    
+  } else {
+    
+  }
+  display_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), display_name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.display_name)
+}
+
+// string description = 3;
+inline void PreviousState_EntitiesState_EntityItem::clear_description() {
+  description_.ClearToEmpty();
+}
+inline const std::string& PreviousState_EntitiesState_EntityItem::description() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.description)
+  return _internal_description();
+}
+inline void PreviousState_EntitiesState_EntityItem::set_description(const std::string& value) {
+  _internal_set_description(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.description)
+}
+inline std::string* PreviousState_EntitiesState_EntityItem::mutable_description() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.description)
+  return _internal_mutable_description();
+}
+inline const std::string& PreviousState_EntitiesState_EntityItem::_internal_description() const {
+  return description_.Get();
+}
+inline void PreviousState_EntitiesState_EntityItem::_internal_set_description(const std::string& value) {
+  
+  description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void PreviousState_EntitiesState_EntityItem::set_description(std::string&& value) {
+  
+  description_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.description)
+}
+inline void PreviousState_EntitiesState_EntityItem::set_description(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.description)
+}
+inline void PreviousState_EntitiesState_EntityItem::set_description(const char* value,
+    size_t size) {
+  
+  description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.description)
+}
+inline std::string* PreviousState_EntitiesState_EntityItem::_internal_mutable_description() {
+  
+  return description_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* PreviousState_EntitiesState_EntityItem::release_description() {
+  // @@protoc_insertion_point(field_release:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.description)
+  return description_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void PreviousState_EntitiesState_EntityItem::set_allocated_description(std::string* description) {
+  if (description != nullptr) {
+    
+  } else {
+    
+  }
+  description_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), description,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.description)
+}
+
+// map<string, string> properties = 4;
+inline int PreviousState_EntitiesState_EntityItem::_internal_properties_size() const {
+  return properties_.size();
+}
+inline int PreviousState_EntitiesState_EntityItem::properties_size() const {
+  return _internal_properties_size();
+}
+inline void PreviousState_EntitiesState_EntityItem::clear_properties() {
+  properties_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+PreviousState_EntitiesState_EntityItem::_internal_properties() const {
+  return properties_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+PreviousState_EntitiesState_EntityItem::properties() const {
+  // @@protoc_insertion_point(field_map:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.properties)
+  return _internal_properties();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+PreviousState_EntitiesState_EntityItem::_internal_mutable_properties() {
+  return properties_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+PreviousState_EntitiesState_EntityItem::mutable_properties() {
+  // @@protoc_insertion_point(field_mutable_map:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.properties)
+  return _internal_mutable_properties();
+}
+
+// repeated string entities = 5;
+inline int PreviousState_EntitiesState_EntityItem::_internal_entities_size() const {
+  return entities_.size();
+}
+inline int PreviousState_EntitiesState_EntityItem::entities_size() const {
+  return _internal_entities_size();
+}
+inline void PreviousState_EntitiesState_EntityItem::clear_entities() {
+  entities_.Clear();
+}
+inline std::string* PreviousState_EntitiesState_EntityItem::add_entities() {
+  // @@protoc_insertion_point(field_add_mutable:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.entities)
+  return _internal_add_entities();
+}
+inline const std::string& PreviousState_EntitiesState_EntityItem::_internal_entities(int index) const {
+  return entities_.Get(index);
+}
+inline const std::string& PreviousState_EntitiesState_EntityItem::entities(int index) const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.entities)
+  return _internal_entities(index);
+}
+inline std::string* PreviousState_EntitiesState_EntityItem::mutable_entities(int index) {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.entities)
+  return entities_.Mutable(index);
+}
+inline void PreviousState_EntitiesState_EntityItem::set_entities(int index, const std::string& value) {
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.entities)
+  entities_.Mutable(index)->assign(value);
+}
+inline void PreviousState_EntitiesState_EntityItem::set_entities(int index, std::string&& value) {
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.entities)
+  entities_.Mutable(index)->assign(std::move(value));
+}
+inline void PreviousState_EntitiesState_EntityItem::set_entities(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  entities_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.entities)
+}
+inline void PreviousState_EntitiesState_EntityItem::set_entities(int index, const char* value, size_t size) {
+  entities_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.entities)
+}
+inline std::string* PreviousState_EntitiesState_EntityItem::_internal_add_entities() {
+  return entities_.Add();
+}
+inline void PreviousState_EntitiesState_EntityItem::add_entities(const std::string& value) {
+  entities_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.entities)
+}
+inline void PreviousState_EntitiesState_EntityItem::add_entities(std::string&& value) {
+  entities_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.entities)
+}
+inline void PreviousState_EntitiesState_EntityItem::add_entities(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  entities_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.entities)
+}
+inline void PreviousState_EntitiesState_EntityItem::add_entities(const char* value, size_t size) {
+  entities_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.entities)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+PreviousState_EntitiesState_EntityItem::entities() const {
+  // @@protoc_insertion_point(field_list:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.entities)
+  return entities_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+PreviousState_EntitiesState_EntityItem::mutable_entities() {
+  // @@protoc_insertion_point(field_mutable_list:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.entities)
+  return &entities_;
+}
+
+// -------------------------------------------------------------------
+
+// PreviousState_EntitiesState_Entity
+
+// string id = 1;
+inline void PreviousState_EntitiesState_Entity::clear_id() {
+  id_.ClearToEmpty();
+}
+inline const std::string& PreviousState_EntitiesState_Entity::id() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.PreviousState.EntitiesState.Entity.id)
+  return _internal_id();
+}
+inline void PreviousState_EntitiesState_Entity::set_id(const std::string& value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.PreviousState.EntitiesState.Entity.id)
+}
+inline std::string* PreviousState_EntitiesState_Entity::mutable_id() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.engine.PreviousState.EntitiesState.Entity.id)
+  return _internal_mutable_id();
+}
+inline const std::string& PreviousState_EntitiesState_Entity::_internal_id() const {
+  return id_.Get();
+}
+inline void PreviousState_EntitiesState_Entity::_internal_set_id(const std::string& value) {
+  
+  id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void PreviousState_EntitiesState_Entity::set_id(std::string&& value) {
+  
+  id_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.engine.PreviousState.EntitiesState.Entity.id)
+}
+inline void PreviousState_EntitiesState_Entity::set_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.engine.PreviousState.EntitiesState.Entity.id)
+}
+inline void PreviousState_EntitiesState_Entity::set_id(const char* value,
+    size_t size) {
+  
+  id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.engine.PreviousState.EntitiesState.Entity.id)
+}
+inline std::string* PreviousState_EntitiesState_Entity::_internal_mutable_id() {
+  
+  return id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* PreviousState_EntitiesState_Entity::release_id() {
+  // @@protoc_insertion_point(field_release:ai.inworld.engine.PreviousState.EntitiesState.Entity.id)
+  return id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void PreviousState_EntitiesState_Entity::set_allocated_id(std::string* id) {
+  if (id != nullptr) {
+    
+  } else {
+    
+  }
+  id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.engine.PreviousState.EntitiesState.Entity.id)
+}
+
+// string display_name = 2;
+inline void PreviousState_EntitiesState_Entity::clear_display_name() {
+  display_name_.ClearToEmpty();
+}
+inline const std::string& PreviousState_EntitiesState_Entity::display_name() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.PreviousState.EntitiesState.Entity.display_name)
+  return _internal_display_name();
+}
+inline void PreviousState_EntitiesState_Entity::set_display_name(const std::string& value) {
+  _internal_set_display_name(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.PreviousState.EntitiesState.Entity.display_name)
+}
+inline std::string* PreviousState_EntitiesState_Entity::mutable_display_name() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.engine.PreviousState.EntitiesState.Entity.display_name)
+  return _internal_mutable_display_name();
+}
+inline const std::string& PreviousState_EntitiesState_Entity::_internal_display_name() const {
+  return display_name_.Get();
+}
+inline void PreviousState_EntitiesState_Entity::_internal_set_display_name(const std::string& value) {
+  
+  display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void PreviousState_EntitiesState_Entity::set_display_name(std::string&& value) {
+  
+  display_name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.engine.PreviousState.EntitiesState.Entity.display_name)
+}
+inline void PreviousState_EntitiesState_Entity::set_display_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.engine.PreviousState.EntitiesState.Entity.display_name)
+}
+inline void PreviousState_EntitiesState_Entity::set_display_name(const char* value,
+    size_t size) {
+  
+  display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.engine.PreviousState.EntitiesState.Entity.display_name)
+}
+inline std::string* PreviousState_EntitiesState_Entity::_internal_mutable_display_name() {
+  
+  return display_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* PreviousState_EntitiesState_Entity::release_display_name() {
+  // @@protoc_insertion_point(field_release:ai.inworld.engine.PreviousState.EntitiesState.Entity.display_name)
+  return display_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void PreviousState_EntitiesState_Entity::set_allocated_display_name(std::string* display_name) {
+  if (display_name != nullptr) {
+    
+  } else {
+    
+  }
+  display_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), display_name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.engine.PreviousState.EntitiesState.Entity.display_name)
+}
+
+// string description = 3;
+inline void PreviousState_EntitiesState_Entity::clear_description() {
+  description_.ClearToEmpty();
+}
+inline const std::string& PreviousState_EntitiesState_Entity::description() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.PreviousState.EntitiesState.Entity.description)
+  return _internal_description();
+}
+inline void PreviousState_EntitiesState_Entity::set_description(const std::string& value) {
+  _internal_set_description(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.PreviousState.EntitiesState.Entity.description)
+}
+inline std::string* PreviousState_EntitiesState_Entity::mutable_description() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.engine.PreviousState.EntitiesState.Entity.description)
+  return _internal_mutable_description();
+}
+inline const std::string& PreviousState_EntitiesState_Entity::_internal_description() const {
+  return description_.Get();
+}
+inline void PreviousState_EntitiesState_Entity::_internal_set_description(const std::string& value) {
+  
+  description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void PreviousState_EntitiesState_Entity::set_description(std::string&& value) {
+  
+  description_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.engine.PreviousState.EntitiesState.Entity.description)
+}
+inline void PreviousState_EntitiesState_Entity::set_description(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.engine.PreviousState.EntitiesState.Entity.description)
+}
+inline void PreviousState_EntitiesState_Entity::set_description(const char* value,
+    size_t size) {
+  
+  description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.engine.PreviousState.EntitiesState.Entity.description)
+}
+inline std::string* PreviousState_EntitiesState_Entity::_internal_mutable_description() {
+  
+  return description_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* PreviousState_EntitiesState_Entity::release_description() {
+  // @@protoc_insertion_point(field_release:ai.inworld.engine.PreviousState.EntitiesState.Entity.description)
+  return description_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void PreviousState_EntitiesState_Entity::set_allocated_description(std::string* description) {
+  if (description != nullptr) {
+    
+  } else {
+    
+  }
+  description_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), description,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.engine.PreviousState.EntitiesState.Entity.description)
+}
+
+// -------------------------------------------------------------------
+
+// PreviousState_EntitiesState
+
+// repeated .ai.inworld.engine.PreviousState.EntitiesState.EntityItem entity_items = 1;
+inline int PreviousState_EntitiesState::_internal_entity_items_size() const {
+  return entity_items_.size();
+}
+inline int PreviousState_EntitiesState::entity_items_size() const {
+  return _internal_entity_items_size();
+}
+inline void PreviousState_EntitiesState::clear_entity_items() {
+  entity_items_.Clear();
+}
+inline ::ai::inworld::engine::PreviousState_EntitiesState_EntityItem* PreviousState_EntitiesState::mutable_entity_items(int index) {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.engine.PreviousState.EntitiesState.entity_items)
+  return entity_items_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::engine::PreviousState_EntitiesState_EntityItem >*
+PreviousState_EntitiesState::mutable_entity_items() {
+  // @@protoc_insertion_point(field_mutable_list:ai.inworld.engine.PreviousState.EntitiesState.entity_items)
+  return &entity_items_;
+}
+inline const ::ai::inworld::engine::PreviousState_EntitiesState_EntityItem& PreviousState_EntitiesState::_internal_entity_items(int index) const {
+  return entity_items_.Get(index);
+}
+inline const ::ai::inworld::engine::PreviousState_EntitiesState_EntityItem& PreviousState_EntitiesState::entity_items(int index) const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.PreviousState.EntitiesState.entity_items)
+  return _internal_entity_items(index);
+}
+inline ::ai::inworld::engine::PreviousState_EntitiesState_EntityItem* PreviousState_EntitiesState::_internal_add_entity_items() {
+  return entity_items_.Add();
+}
+inline ::ai::inworld::engine::PreviousState_EntitiesState_EntityItem* PreviousState_EntitiesState::add_entity_items() {
+  // @@protoc_insertion_point(field_add:ai.inworld.engine.PreviousState.EntitiesState.entity_items)
+  return _internal_add_entity_items();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::engine::PreviousState_EntitiesState_EntityItem >&
+PreviousState_EntitiesState::entity_items() const {
+  // @@protoc_insertion_point(field_list:ai.inworld.engine.PreviousState.EntitiesState.entity_items)
+  return entity_items_;
+}
+
+// repeated .ai.inworld.engine.PreviousState.EntitiesState.Entity entities = 2;
+inline int PreviousState_EntitiesState::_internal_entities_size() const {
+  return entities_.size();
+}
+inline int PreviousState_EntitiesState::entities_size() const {
+  return _internal_entities_size();
+}
+inline void PreviousState_EntitiesState::clear_entities() {
+  entities_.Clear();
+}
+inline ::ai::inworld::engine::PreviousState_EntitiesState_Entity* PreviousState_EntitiesState::mutable_entities(int index) {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.engine.PreviousState.EntitiesState.entities)
+  return entities_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::engine::PreviousState_EntitiesState_Entity >*
+PreviousState_EntitiesState::mutable_entities() {
+  // @@protoc_insertion_point(field_mutable_list:ai.inworld.engine.PreviousState.EntitiesState.entities)
+  return &entities_;
+}
+inline const ::ai::inworld::engine::PreviousState_EntitiesState_Entity& PreviousState_EntitiesState::_internal_entities(int index) const {
+  return entities_.Get(index);
+}
+inline const ::ai::inworld::engine::PreviousState_EntitiesState_Entity& PreviousState_EntitiesState::entities(int index) const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.PreviousState.EntitiesState.entities)
+  return _internal_entities(index);
+}
+inline ::ai::inworld::engine::PreviousState_EntitiesState_Entity* PreviousState_EntitiesState::_internal_add_entities() {
+  return entities_.Add();
+}
+inline ::ai::inworld::engine::PreviousState_EntitiesState_Entity* PreviousState_EntitiesState::add_entities() {
+  // @@protoc_insertion_point(field_add:ai.inworld.engine.PreviousState.EntitiesState.entities)
+  return _internal_add_entities();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::engine::PreviousState_EntitiesState_Entity >&
+PreviousState_EntitiesState::entities() const {
+  // @@protoc_insertion_point(field_list:ai.inworld.engine.PreviousState.EntitiesState.entities)
+  return entities_;
+}
+
+// -------------------------------------------------------------------
+
 // PreviousState
 
 // repeated .ai.inworld.engine.PreviousState.StateHolder state_holders = 1;
@@ -7961,6 +9580,89 @@ inline void PreviousState::set_allocated_conversation_state(::ai::inworld::engin
   }
   conversation_state_ = conversation_state;
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.engine.PreviousState.conversation_state)
+}
+
+// .ai.inworld.engine.PreviousState.EntitiesState entities_state = 4;
+inline bool PreviousState::_internal_has_entities_state() const {
+  return this != internal_default_instance() && entities_state_ != nullptr;
+}
+inline bool PreviousState::has_entities_state() const {
+  return _internal_has_entities_state();
+}
+inline void PreviousState::clear_entities_state() {
+  if (GetArena() == nullptr && entities_state_ != nullptr) {
+    delete entities_state_;
+  }
+  entities_state_ = nullptr;
+}
+inline const ::ai::inworld::engine::PreviousState_EntitiesState& PreviousState::_internal_entities_state() const {
+  const ::ai::inworld::engine::PreviousState_EntitiesState* p = entities_state_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ai::inworld::engine::PreviousState_EntitiesState&>(
+      ::ai::inworld::engine::_PreviousState_EntitiesState_default_instance_);
+}
+inline const ::ai::inworld::engine::PreviousState_EntitiesState& PreviousState::entities_state() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.PreviousState.entities_state)
+  return _internal_entities_state();
+}
+inline void PreviousState::unsafe_arena_set_allocated_entities_state(
+    ::ai::inworld::engine::PreviousState_EntitiesState* entities_state) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(entities_state_);
+  }
+  entities_state_ = entities_state;
+  if (entities_state) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.engine.PreviousState.entities_state)
+}
+inline ::ai::inworld::engine::PreviousState_EntitiesState* PreviousState::release_entities_state() {
+  
+  ::ai::inworld::engine::PreviousState_EntitiesState* temp = entities_state_;
+  entities_state_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::ai::inworld::engine::PreviousState_EntitiesState* PreviousState::unsafe_arena_release_entities_state() {
+  // @@protoc_insertion_point(field_release:ai.inworld.engine.PreviousState.entities_state)
+  
+  ::ai::inworld::engine::PreviousState_EntitiesState* temp = entities_state_;
+  entities_state_ = nullptr;
+  return temp;
+}
+inline ::ai::inworld::engine::PreviousState_EntitiesState* PreviousState::_internal_mutable_entities_state() {
+  
+  if (entities_state_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ai::inworld::engine::PreviousState_EntitiesState>(GetArena());
+    entities_state_ = p;
+  }
+  return entities_state_;
+}
+inline ::ai::inworld::engine::PreviousState_EntitiesState* PreviousState::mutable_entities_state() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.engine.PreviousState.entities_state)
+  return _internal_mutable_entities_state();
+}
+inline void PreviousState::set_allocated_entities_state(::ai::inworld::engine::PreviousState_EntitiesState* entities_state) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete entities_state_;
+  }
+  if (entities_state) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(entities_state);
+    if (message_arena != submessage_arena) {
+      entities_state = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, entities_state, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  entities_state_ = entities_state;
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.engine.PreviousState.entities_state)
 }
 
 // -------------------------------------------------------------------
@@ -10343,6 +12045,14 @@ ConversationState::conversationsettings() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

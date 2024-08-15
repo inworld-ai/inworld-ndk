@@ -53,6 +53,7 @@ class Tokens final {
     }
     // Generates a JWT with the default API key for the given workspace
     // This method is meant to be used by UI tools with user authorization such as Google or Oculus
+    // DEPRECATED: Use ai.inworld.studio.portal.v1alpha.GenerateSessionToken
     virtual ::grpc::Status GenerateDefaultSessionToken(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateDefaultSessionTokenRequest& request, ::ai::inworld::studio::v1alpha::SessionAccessToken* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::SessionAccessToken>> AsyncGenerateDefaultSessionToken(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateDefaultSessionTokenRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ai::inworld::studio::v1alpha::SessionAccessToken>>(AsyncGenerateDefaultSessionTokenRaw(context, request, cq));
@@ -75,6 +76,7 @@ class Tokens final {
       #endif
       // Generates a JWT with the default API key for the given workspace
       // This method is meant to be used by UI tools with user authorization such as Google or Oculus
+      // DEPRECATED: Use ai.inworld.studio.portal.v1alpha.GenerateSessionToken
       virtual void GenerateDefaultSessionToken(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateDefaultSessionTokenRequest* request, ::ai::inworld::studio::v1alpha::SessionAccessToken* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void GenerateDefaultSessionToken(::grpc::ClientContext* context, const ::ai::inworld::studio::v1alpha::GenerateDefaultSessionTokenRequest* request, ::ai::inworld::studio::v1alpha::SessionAccessToken* response, ::grpc::ClientUnaryReactor* reactor) = 0;
@@ -158,6 +160,7 @@ class Tokens final {
     virtual ::grpc::Status GenerateSessionToken(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::GenerateSessionTokenRequest* request, ::ai::inworld::studio::v1alpha::SessionAccessToken* response);
     // Generates a JWT with the default API key for the given workspace
     // This method is meant to be used by UI tools with user authorization such as Google or Oculus
+    // DEPRECATED: Use ai.inworld.studio.portal.v1alpha.GenerateSessionToken
     virtual ::grpc::Status GenerateDefaultSessionToken(::grpc::ServerContext* context, const ::ai::inworld::studio::v1alpha::GenerateDefaultSessionTokenRequest* request, ::ai::inworld::studio::v1alpha::SessionAccessToken* response);
   };
   template <class BaseClass>
