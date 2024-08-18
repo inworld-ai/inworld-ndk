@@ -22,6 +22,8 @@ void Inworld::PerceivedLatencyTracker::HandleVAD(bool bVoiceDetected)
     if (bVoiceDetected)
     {
         _LastVoice = std::chrono::system_clock::now();
+        const auto Milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(_LastVoice.time_since_epoch()).count();
+        Inworld::Log("PerceivedLatencyTracker. Player local VAD detected voice at %lld ms", Milliseconds);
     }
 }
 
@@ -64,6 +66,9 @@ void Inworld::PerceivedLatencyTracker::VisitReply(const Inworld::Packet& Event)
 	        const auto Duration = std::chrono::system_clock::now() - _LastVoice;
 	        const int64_t Ms = std::chrono::duration_cast<std::chrono::milliseconds>(Duration).count();
 	        Inworld::Log("PerceivedLatencyTracker. Player local VAD to character reply latency is %d ms, Interaction: %s", Ms, Interaction.c_str());
+
+	        const auto Milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+	        Inworld::Log("PerceivedLatencyTracker. Character reply detected at %lld ms", Milliseconds);
 	    }
 	    
 		const auto Duration = std::chrono::system_clock::now() - It->second;
