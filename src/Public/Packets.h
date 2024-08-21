@@ -31,6 +31,12 @@ namespace ai { namespace inworld { namespace packets {
 	enum EmotionEvent_Strength : int;
 	enum Playback : int;
     enum ConversationEventPayload_ConversationEventType : int;
+	enum CustomEvent_Type : int;
+
+	namespace entities {
+		enum ItemsInEntitiesOperation_Type : int;
+	}
+
 }}}
 namespace InworldPackets = ai::inworld::packets;
 
@@ -372,6 +378,7 @@ namespace Inworld {
 			bool Relations = true;
 			bool MultiAgent = true;
 			bool Audio2Face = false;
+			bool MultiModalActionPlanning = false;
 		};
 
 		struct INWORLD_EXPORT UserConfiguration
@@ -550,6 +557,7 @@ namespace Inworld {
 	private:
 		std::string _Name;
 		std::unordered_map<std::string, std::string> _Params;
+		InworldPackets::CustomEvent_Type _Type;
 	};
 
 	class INWORLD_EXPORT RelationEvent : public Packet
@@ -700,4 +708,106 @@ namespace Inworld {
 		Data _Data;
 	};
 
+	class INWORLD_EXPORT EntitiesItemsOperationEvent : public Packet
+	{
+	public:
+		EntitiesItemsOperationEvent()
+			: EntitiesItemsOperationEvent(Routing::Player2World())
+		{}
+		EntitiesItemsOperationEvent(const InworldPackets::InworldPacket& GrpcPacket)
+			: Packet(GrpcPacket)
+		{}
+		EntitiesItemsOperationEvent(const Routing& Routing)
+			: Packet(Routing)
+		{}
+
+	protected:
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const = 0;
+	};
+
+	class INWORLD_EXPORT CreateOrUpdateItemsOperationEvent : public EntitiesItemsOperationEvent
+	{
+	public:
+		struct INWORLD_EXPORT EntityItem
+		{
+			std::string Id;
+			std::string DisplayName;
+			std::string Description;
+			std::unordered_map<std::string, std::string> Properties;
+		};
+
+		CreateOrUpdateItemsOperationEvent(const std::vector<EntityItem>& Items, const std::vector<std::string>& AddToEntities)
+			: EntitiesItemsOperationEvent()
+			, _Items(Items)
+			, _AddToEntities(AddToEntities)
+		{}
+
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const;
+
+	private:
+		std::vector<EntityItem> _Items;
+		std::vector<std::string> _AddToEntities;
+	};
+
+	class INWORLD_EXPORT RemoveItemsOperationEvent : public EntitiesItemsOperationEvent
+	{
+	public:
+		RemoveItemsOperationEvent(const std::vector<std::string>& ItemIds)
+			: EntitiesItemsOperationEvent()
+			, _ItemIds(ItemIds)
+		{}
+
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const;
+
+	private:
+		std::vector<std::string> _ItemIds;
+	};
+
+	class INWORLD_EXPORT ItemsInEntitiesOperationEvent : public EntitiesItemsOperationEvent
+	{
+	public:
+		ItemsInEntitiesOperationEvent(const std::vector<std::string>& ItemIds, const std::vector<std::string>& EntityNames)
+			: EntitiesItemsOperationEvent()
+			, _ItemIds(ItemIds)
+			, _EntityNames(EntityNames)
+		{}
+
+		virtual InworldPackets::entities::ItemsInEntitiesOperation_Type GetType() const = 0;
+
+		virtual void ToProtoInternal(InworldPackets::InworldPacket & Proto) const override;
+
+	private:
+		std::vector<std::string> _ItemIds;
+		std::vector<std::string> _EntityNames;
+	};
+
+	class INWORLD_EXPORT AddItemsInEntitiesOperationEvent : public ItemsInEntitiesOperationEvent
+	{
+	public:
+		AddItemsInEntitiesOperationEvent(const std::vector<std::string>& ItemIds, const std::vector<std::string>& EntityNames)
+			: ItemsInEntitiesOperationEvent(ItemIds, EntityNames)
+		{}
+
+		virtual InworldPackets::entities::ItemsInEntitiesOperation_Type GetType() const override;
+	};
+
+	class INWORLD_EXPORT RemoveItemsInEntitiesOperationEvent : public ItemsInEntitiesOperationEvent
+	{
+	public:
+		RemoveItemsInEntitiesOperationEvent(const std::vector<std::string>& ItemIds, const std::vector<std::string>& EntityNames)
+			: ItemsInEntitiesOperationEvent(ItemIds, EntityNames)
+		{}
+
+		virtual InworldPackets::entities::ItemsInEntitiesOperation_Type GetType() const override;
+	};
+
+	class INWORLD_EXPORT ReplaceItemsInEntitiesOperationEvent : public ItemsInEntitiesOperationEvent
+	{
+	public:
+		ReplaceItemsInEntitiesOperationEvent(const std::vector<std::string>& ItemIds, const std::vector<std::string>& EntityNames)
+			: ItemsInEntitiesOperationEvent(ItemIds, EntityNames)
+		{}
+
+		virtual InworldPackets::entities::ItemsInEntitiesOperation_Type GetType() const override;
+	};
 }

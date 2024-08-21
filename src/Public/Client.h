@@ -187,6 +187,14 @@ namespace Inworld
 		std::shared_ptr<CancelResponseEvent> CancelResponse(const std::string& AgentId, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds);
 #pragma endregion
 
+#pragma region Entities
+		void CreateOrUpdateItems(const std::vector<CreateOrUpdateItemsOperationEvent::EntityItem>& Items, const std::vector<std::string>& AddToEntities);
+		void RemoveItems(const std::vector<std::string>& ItemIds);
+		void AddItemsInEntities(const std::vector<std::string>& ItemIds, const std::vector<std::string>& EntityNames);
+		void RemoveItemsInEntities(const std::vector<std::string>& ItemIds, const std::vector<std::string>& EntityNames);
+		void ReplaceItemsInEntities(const std::vector<std::string>& ItemIds, const std::vector<std::string>& EntityNames);
+#pragma endregion
+
 #pragma region Unitary Session
 		void LoadScene(const std::string& Scene);
 		void LoadCharacters(const std::vector<std::string>& Names);

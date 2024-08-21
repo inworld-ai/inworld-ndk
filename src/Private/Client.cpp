@@ -291,6 +291,36 @@ std::shared_ptr<Inworld::CancelResponseEvent> Inworld::Client::CancelResponse(co
 	return Packet;
 }
 
+void Inworld::Client::CreateOrUpdateItems(const std::vector<Inworld::CreateOrUpdateItemsOperationEvent::EntityItem>& Items, const std::vector<std::string>& AddToEntities)
+{
+	auto Packet = std::make_shared<Inworld::CreateOrUpdateItemsOperationEvent>(Items, AddToEntities);
+	SendPacket(Packet);
+}
+
+void Inworld::Client::RemoveItems(const std::vector<std::string>& ItemIds)
+{
+	auto Packet = std::make_shared<Inworld::RemoveItemsOperationEvent>(ItemIds);
+	SendPacket(Packet);
+}
+
+void Inworld::Client::AddItemsInEntities(const std::vector<std::string>& ItemIds, const std::vector<std::string>& EntityNames)
+{
+	auto Packet = std::make_shared<Inworld::AddItemsInEntitiesOperationEvent>(ItemIds, EntityNames);
+	SendPacket(Packet);
+}
+
+void Inworld::Client::RemoveItemsInEntities(const std::vector<std::string>& ItemIds, const std::vector<std::string>& EntityNames)
+{
+	auto Packet = std::make_shared<Inworld::RemoveItemsInEntitiesOperationEvent>(ItemIds, EntityNames);
+	SendPacket(Packet);
+}
+
+void Inworld::Client::ReplaceItemsInEntities(const std::vector<std::string>& ItemIds, const std::vector<std::string>& EntityNames)
+{
+	auto Packet = std::make_shared<Inworld::ReplaceItemsInEntitiesOperationEvent>(ItemIds, EntityNames);
+	SendPacket(Packet);
+}
+
 void Inworld::Client::LoadScene(const std::string& Scene)
 {
 	ControlSession<SessionControlEvent_LoadScene>({ Scene });
