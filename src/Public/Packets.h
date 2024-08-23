@@ -110,6 +110,7 @@ namespace Inworld {
 	};
 
     class TextEvent;
+	class VADEvent;
     class DataEvent;
     class AudioDataEvent;
     class SilenceEvent;
@@ -127,6 +128,7 @@ namespace Inworld {
     {
     public:
         virtual void Visit(const TextEvent& Event) {  }
+		virtual void Visit(const VADEvent& Event) {  }
         virtual void Visit(const DataEvent& Event) {  }
         virtual void Visit(const AudioDataEvent& Event) {  }
         virtual void Visit(const SilenceEvent& Event) {  }
@@ -154,7 +156,7 @@ namespace Inworld {
 		{}
 		virtual ~Packet() = default;
 
-		virtual void Accept(PacketVisitor& Visitor) {}
+		virtual void Accept(PacketVisitor& Visitor) = 0;
 
 		InworldPackets::InworldPacket ToProto() const;
 
@@ -239,6 +241,23 @@ namespace Inworld {
 		
 	private:
 		std::vector<PhonemeInfo> _PhonemeInfos;
+	};
+
+	class INWORLD_EXPORT VADEvent : public Packet
+	{
+	public:
+		VADEvent() = default;
+		VADEvent(bool VoiceDetected, const Routing& Routing)
+			: Packet(Routing)
+			, _VoiceDetected(VoiceDetected)
+		{}
+
+		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
+
+		bool IsVoiceDetected() const { return _VoiceDetected; }
+
+	private:
+		bool _VoiceDetected;
 	};
 
 	class INWORLD_EXPORT SilenceEvent : public Packet
@@ -566,6 +585,8 @@ namespace Inworld {
 	{
 	public:
 		SessionControlEvent();
+
+		virtual void Accept(PacketVisitor& Visitor) override { /* Outgoing Only */ }
 	};
 
 	class INWORLD_EXPORT SessionControlEvent_LoadScene : public SessionControlEvent
