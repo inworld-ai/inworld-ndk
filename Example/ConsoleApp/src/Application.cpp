@@ -278,7 +278,7 @@ void NDKApp::App::Run()
 				_Options.Capabilities.SilenceEvents = true;
 				_Options.Capabilities.PhonemeInfo = true;
 				_Options.Capabilities.NarratedActions = true;
-				_Options.Capabilities.Multiagent = true;
+				_Options.Capabilities.MultiAgent = true;
 
 				if (!Args.empty() && Args[0] == "audio")
 				{
@@ -506,7 +506,7 @@ void NDKApp::App::Run()
 	_Options.Capabilities.SilenceEvents = true;
 	_Options.Capabilities.PhonemeInfo = true;
 	_Options.Capabilities.NarratedActions = true;
-	_Options.Capabilities.Multiagent = true;
+	_Options.Capabilities.MultiAgent = true;
 
 	std::vector<Inworld::AgentInfo> AgentInfos;
 

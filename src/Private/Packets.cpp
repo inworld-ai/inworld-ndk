@@ -15,6 +15,7 @@
 
 #include "google/protobuf/util/time_util.h"
 #include "ai/inworld/packets/packets.pb.h"
+#include "nvidia/a2f/nvidia_ace.controller.v1.pb.h"
 
 namespace Inworld {
 
@@ -193,6 +194,43 @@ namespace Inworld {
         return InworldPackets::DataChunk_DataType_AUDIO;
 	}
 
+	A2FHeaderEvent::A2FHeaderEvent(const InworldPackets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
+	{
+		nvidia_ace::controller::v1::AnimationDataStream AnimationDataStream;
+		AnimationDataStream.ParseFromString(GrpcPacket.data_chunk().chunk());
+
+		nvidia_ace::controller::v1::AnimationDataStreamHeader AnimationDataStreamHeader = AnimationDataStream.animation_data_stream_header();
+		_ChannelCount = AnimationDataStreamHeader.audio_header().channel_count();
+		_SamplesPerSecond = AnimationDataStreamHeader.audio_header().samples_per_second();
+		_BitsPerSample = AnimationDataStreamHeader.audio_header().bits_per_sample();
+
+		for (const auto& BlendShape : AnimationDataStreamHeader.skel_animation_header().blend_shapes())
+		{
+			_BlendShapes.push_back(BlendShape.c_str());
+		}
+	}
+
+	A2FContentEvent::A2FContentEvent(const InworldPackets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
+	{
+		nvidia_ace::controller::v1::AnimationDataStream AnimationDataStream;
+		AnimationDataStream.ParseFromString(GrpcPacket.data_chunk().chunk());
+
+		nvidia_ace::animation_data::v1::AnimationData AnimationData = AnimationDataStream.animation_data();
+
+		_AudioInfo._Audio = AnimationData.audio().audio_buffer();
+		_AudioInfo._TimeCode = AnimationData.audio().time_code();
+
+		for (const auto& BlendShapeWeight : AnimationData.skel_animation().blend_shape_weights())
+		{
+			auto& _BlendShapeWeight = _SkeletalAnimInfo._BlendShapeWeights.emplace_back();
+			_BlendShapeWeight._TimeCode = BlendShapeWeight.time_code();
+			for (const auto& Value : BlendShapeWeight.values())
+			{
+				_BlendShapeWeight._Values.push_back(Value);
+			}
+		}
+	}
+
 	EmotionEvent::EmotionEvent(const InworldPackets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
     {
         _Behavior = GrpcPacket.emotion().behavior();
@@ -217,11 +255,13 @@ namespace Inworld {
 
     CustomEvent::CustomEvent(const InworldPackets::InworldPacket& GrpcPacket) : Packet(GrpcPacket)
     {
-        _Name = GrpcPacket.custom().name().data();
-        for(const auto& Param : GrpcPacket.custom().parameters())
+		auto& Custom = GrpcPacket.custom();
+        _Name = Custom.name().data();
+        for(const auto& Param : Custom.parameters())
         {
             _Params.insert(std::make_pair<std::string, std::string>(Param.name().data(), Param.value().data()));
         }
+		_Type = Custom.type();
     }
 
 	void CustomEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
@@ -234,6 +274,7 @@ namespace Inworld {
             param->set_name(Param.first);
             param->set_value(Param.second);
         }
+		mutable_custom->set_type(_Type);
 	}
 
 	SilenceEvent::SilenceEvent(const InworldPackets::InworldPacket& GrpcPacket)
@@ -343,7 +384,9 @@ namespace Inworld {
 		MutableCapabilities->set_turn_based_stt(_Capabilities.TurnBasedSTT);
 		MutableCapabilities->set_relations(_Capabilities.Relations);
 		MutableCapabilities->set_debug_info(_Capabilities.Relations);
-		MutableCapabilities->set_multi_agent(_Capabilities.Multiagent);
+		MutableCapabilities->set_multi_agent(_Capabilities.MultiAgent);
+		MutableCapabilities->set_audio2face(_Capabilities.Audio2Face);
+		MutableCapabilities->set_multi_modal_action_planning(_Capabilities.MultiModalActionPlanning);
 
 		auto* MutableUserConfiguration = MutableSessionConfiguration->mutable_user_configuration();
 		MutableUserConfiguration->set_id(_UserConfiguration.Id);
@@ -461,6 +504,11 @@ namespace Inworld {
 		: ControlEvent(GrpcPacket)
 	{
 		const auto& SceneStatus = GrpcPacket.control().current_scene_status();
+
+		_SceneName = SceneStatus.scene_name();
+		_SceneDescription = SceneStatus.scene_description();
+		_SceneDisplayName = SceneStatus.scene_display_name();
+
 		_AgentInfos.reserve(SceneStatus.agents_size());
 		for (int32_t i = 0; i < SceneStatus.agents_size(); i++)
 		{
@@ -479,5 +527,71 @@ namespace Inworld {
 				Info.BrainName = Normalized;
 			}
 		}
+	}
+
+	void CreateOrUpdateItemsOperationEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
+	{
+		auto* MutableCreateOrUpdateOperation = Proto.mutable_entities_items_operation()->mutable_create_or_update_items();
+		for (const EntityItem& Item : _Items)
+		{
+			auto* MutableItem = MutableCreateOrUpdateOperation->add_items();
+			MutableItem->set_id(Item.Id);
+			MutableItem->set_display_name(Item.DisplayName);
+			MutableItem->set_description(Item.Description);
+			auto* MutableProperties = MutableItem->mutable_properties();
+			for (const std::pair<std::string, std::string>& Property : Item.Properties)
+			{
+				MutableProperties->insert({ Property.first, Property.second });
+			}
+		}
+		for (const std::string& AddToEntity : _AddToEntities)
+		{
+			auto* MutableAddToEntity = MutableCreateOrUpdateOperation->add_add_to_entities();
+			*MutableAddToEntity = AddToEntity;
+		}
+	}
+
+	void RemoveItemsOperationEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
+	{
+		auto* MutableRemoveItemsOperation = Proto.mutable_entities_items_operation()->mutable_remove_items();
+		for (const std::string& ItemId : _ItemIds)
+		{
+			auto* MutableItemId = MutableRemoveItemsOperation->add_item_ids();
+			*MutableItemId = ItemId;
+		}
+	}
+
+	void ItemsInEntitiesOperationEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
+	{
+		auto* MutableItemsInEntitiesOperation = Proto.mutable_entities_items_operation()->mutable_items_in_entities();
+		
+		MutableItemsInEntitiesOperation->set_type(GetType());
+
+		for (const std::string& ItemId : _ItemIds)
+		{
+			auto* MutableItemId = MutableItemsInEntitiesOperation->add_item_ids();
+			*MutableItemId = ItemId;
+		}
+
+		for (const std::string& EntityName : _EntityNames)
+		{
+			auto* MutableEntityName = MutableItemsInEntitiesOperation->add_entity_names();
+			*MutableEntityName = EntityName;
+		}
+	}
+
+	InworldPackets::entities::ItemsInEntitiesOperation_Type AddItemsInEntitiesOperationEvent::GetType() const
+	{
+		return InworldPackets::entities::ItemsInEntitiesOperation_Type::ItemsInEntitiesOperation_Type_ADD;
+	}
+
+	InworldPackets::entities::ItemsInEntitiesOperation_Type RemoveItemsInEntitiesOperationEvent::GetType() const
+	{
+		return InworldPackets::entities::ItemsInEntitiesOperation_Type::ItemsInEntitiesOperation_Type_REMOVE;
+	}
+
+	InworldPackets::entities::ItemsInEntitiesOperation_Type ReplaceItemsInEntitiesOperationEvent::GetType() const
+	{
+		return InworldPackets::entities::ItemsInEntitiesOperation_Type::ItemsInEntitiesOperation_Type_REPLACE;
 	}
 }
