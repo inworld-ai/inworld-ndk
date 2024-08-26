@@ -1,29 +1,36 @@
 import os
-import sys
 import subprocess
+import sys
 
 PROTO_REPO = "C:/Projects/inworld/inworld-proto/"
 CURRENT_DIR = os.getcwd()
-PROTOC_PATH = os.path.join(CURRENT_DIR, "build/ThirdParty/grpc/third_party/protobuf/Release/protoc.exe")
-CPP_PLUGIN_PATH = os.path.join(CURRENT_DIR, "build/ThirdParty/grpc/Release/grpc_cpp_plugin.exe")
+PROTOC_PATH = os.path.join(
+    CURRENT_DIR, "build/ThirdParty/grpc/third_party/protobuf/Release/protoc.exe"
+)
+CPP_PLUGIN_PATH = os.path.join(
+    CURRENT_DIR, "build/ThirdParty/grpc/Release/grpc_cpp_plugin.exe"
+)
 COMMON_PROTO_PATH = os.path.join(CURRENT_DIR, "ThirdParty/api-common-protos/")
+
 
 def add_line_to_file_start(filename, line):
     print(f"Adding {line} to {filename}")
-    with open(filename, 'r+') as file:
+    with open(filename, "r+") as file:
         content = file.read()
-        content_start = content[:len(line)]
+        content_start = content[: len(line)]
         if line != content_start:
             file.seek(0, 0)
-            file.write(line.rstrip('\r\n') + '\n' + content)
+            file.write(line.rstrip("\r\n") + "\n" + content)
+
 
 def replace_protobuf_namespace(filename):
     print(f"Replacing protobuf namespace in file {filename}")
     with open(filename, "r+") as file:
         data = file.read()
-        data = data.replace('protobuf::', 'protobuf_inworld::')
+        data = data.replace("protobuf::", "protobuf_inworld::")
         file.seek(0)
         file.write(data)
+
 
 def generate(path, filepath):
     print("------------------------------------------")
@@ -49,37 +56,30 @@ def generate(path, filepath):
         raise subprocess.CalledProcessError(process.returncode, process.args)
 
     out_filename = os.path.join(out_path, os.path.splitext(filepath)[0])
-    add_line_to_file_start(out_filename + ".pb.cc", "#include \"ProtoDisableWarning.h\"")
-    add_line_to_file_start(out_filename + ".grpc.pb.cc", "#include \"ProtoDisableWarning.h\"")
+    add_line_to_file_start(out_filename + ".pb.cc", '#include "ProtoDisableWarning.h"')
+    add_line_to_file_start(
+        out_filename + ".grpc.pb.cc", '#include "ProtoDisableWarning.h"'
+    )
 
     for file_extension in [".pb.h", ".pb.cc", ".grpc.pb.h", ".grpc.pb.cc"]:
         replace_protobuf_namespace(out_filename + file_extension)
 
     print("------------------------------------------")
 
+
 proto_path = os.path.join(PROTO_REPO, "proto/")
 for file_name in [
+    "ai/inworld/common/status.proto",
+    "ai/inworld/engine/configuration/configuration.proto",
     "ai/inworld/engine/world-engine.proto",
-    "ai/inworld/engine/v1/state_serialization.proto",
     "ai/inworld/engine/v1/feedback.proto",
+    "ai/inworld/engine/v1/state_serialization.proto",
+    "ai/inworld/language_codes/language_codes.proto",
     "ai/inworld/packets/packets.proto",
     "ai/inworld/packets/entities_packets.proto",
-    "ai/inworld/voices/voices.proto",
-    "ai/inworld/voices/base_voice.proto",
     "ai/inworld/options/options.proto",
-    "ai/inworld/engine/configuration/configuration.proto",
-    "ai/inworld/language_codes/language_codes.proto",
-    "ai/inworld/studio/v1alpha/apikeys.proto",
-    "ai/inworld/studio/v1alpha/behavioral_contexts.proto",
-    "ai/inworld/studio/v1alpha/characters.proto",
-    "ai/inworld/studio/v1alpha/errors.proto",
-    "ai/inworld/studio/v1alpha/scenes.proto",
-    "ai/inworld/studio/v1alpha/tokens.proto",
-    "ai/inworld/studio/v1alpha/users.proto",
-    "ai/inworld/studio/v1alpha/impression_event_data.proto",
-    "ai/inworld/studio/v1alpha/language_code.proto",
-    "ai/inworld/studio/v1alpha/workspaces.proto",
-    "ai/inworld/common/status.proto",
+    "ai/inworld/voices/base_voice.proto",
+    "ai/inworld/voices/voices.proto",
 ]:
     generate(proto_path, file_name)
 
@@ -91,7 +91,7 @@ for file_name in [
     "nvidia/a2f/nvidia_ace.controller.v1.proto",
     "nvidia/a2f/nvidia_ace.emotion_with_timecode.v1.proto",
     "nvidia/a2f/nvidia_ace.services.a2f_controller.v1.proto",
-    "nvidia/a2f/nvidia_ace.status.v1.proto"
+    "nvidia/a2f/nvidia_ace.status.v1.proto",
 ]:
     generate(proto_path, file_name)
 
@@ -101,10 +101,6 @@ for file_name in [
     "google/api/field_behavior.proto",
     "google/api/http.proto",
     "google/api/resource.proto",
-    "google/api/visibility.proto",
-    "google/longrunning/operations.proto",
-    "google/rpc/status.proto"
+    "google/rpc/status.proto",
 ]:
     generate(COMMON_PROTO_PATH, file_name)
-
-print("Great success!")

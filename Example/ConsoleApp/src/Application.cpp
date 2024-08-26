@@ -372,55 +372,6 @@ void NDKApp::App::Run()
 			}
 		},
 		{
-			"StudioRequest",
-			"Request studio data",
-			[this](const std::vector<std::string>& Args)
-			{
-				if (Args.size() != 1)
-				{
-					Error("Invalid args");
-					return;
-				}
-
-				_Client.Studio().RequestStudioUserDataAsync(Args[0], "api-studio.inworld.ai:443", [this](bool bSuccess)
-					{
-						_Client.TaskExec.Push([this, bSuccess]()
-							{
-								if (!bSuccess)
-								{
-									Error("Secure token failure");
-									return;
-								}
-
-								Inworld::Log("Studio data success");
-								const auto& Data = _Client.Studio().GetStudioUserData();
-								for (auto& W : Data.Workspaces)
-								{
-									Inworld::Log("Workspace %s", W.ShortName.c_str());
-
-									Inworld::Log(" Characters:");
-									for (auto& _Client : W.Characters)
-									{
-										Inworld::Log("  %s", _Client.ShortName.c_str());
-									}
-
-									Inworld::Log(" Scenes:");
-									for (auto& S : W.Scenes)
-									{
-										Inworld::Log("  %s", S.ShortName.c_str());
-									}
-
-									Inworld::Log(" ApiKeys:");
-									for (auto& A : W.ApiKeys)
-									{
-										Inworld::Log("  %s", A.Name.c_str());
-									}
-								}
-						});
-				});
-			}
-		},
-		{
 			"Quit",
 			"Quit app",
 			[this, &bQuit](const std::vector<std::string>& Args)
