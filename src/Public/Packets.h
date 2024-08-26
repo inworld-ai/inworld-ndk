@@ -741,6 +741,8 @@ namespace Inworld {
 		EntitiesItemsOperationEvent(const Routing& Routing)
 			: Packet(Routing)
 		{}
+		
+		virtual void Accept(PacketVisitor & Visitor) override { /* Outgoing Only */ }
 
 	protected:
 		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const = 0;
