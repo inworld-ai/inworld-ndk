@@ -15,33 +15,43 @@
 
 namespace Inworld {
 
-	using PerceivedLatencyCallback = std::function<void(const std::string& InteractionId, uint32_t LatancyMs)>;
 	using TimeStamp = std::chrono::system_clock::time_point;
 
-	class INWORLD_EXPORT PerceivedLatencyTracker : Inworld::PacketVisitor
+	class INWORLD_EXPORT PerceivedLatencyTracker : public Inworld::PacketVisitor
 	{
 	public:
+		enum class PerceivedFromType : uint8_t
+		{
+			VoiceActivity,
+			TextToSpeech,
+			AudioSession,
+			TypedIn,
+			Trigger,
+			MAX,
+		};
+
+		using ReportCallback = std::function<void(const std::string& InteractionId, uint32_t LatencyMs, PerceivedFromType PerceivedFrom)>;
+
 		virtual ~PerceivedLatencyTracker() = default;
 
-		void SetCallback(PerceivedLatencyCallback Cb) { _Callback = Cb; }
-		void ClearCallback() { _Callback = nullptr; }
-		bool HasCallback() const { return _Callback != nullptr; }
-
-		void HandlePacket(std::shared_ptr<Inworld::Packet> Packet);
+		void SetCallback(ReportCallback Cb) { _Callback = Cb; }
 
 		virtual void Visit(const Inworld::TextEvent& Event) override;
+		virtual void Visit(const Inworld::CustomEvent& Event) override;
 		virtual void Visit(const Inworld::VADEvent& Event) override;
 		virtual void Visit(const Inworld::AudioDataEvent& Event) override;
 		virtual void Visit(const Inworld::ControlEvent& Event) override;
 
 		void TrackAudioReplies(bool bVal) { _bTrackAudioReplies = bVal; }
 
-	private:
-		void VisitReply(const Inworld::Packet& Event);
 
-		std::unordered_map<std::string, TimeStamp> _InteractionTimeMap;
-		PerceivedLatencyCallback _Callback = nullptr;
-	    TimeStamp _LastVoice;
+	private:
+		void ReceiveReply(const std::string& InteractionId);
+
+		std::unordered_map<std::string, std::pair<TimeStamp, PerceivedFromType>> _InteractionTimeMap;
+		std::optional<std::pair<TimeStamp, PerceivedFromType>> _PerceivedEnd;
+
+		ReportCallback _Callback = nullptr;
 		bool _bTrackAudioReplies = false;
 	};
 

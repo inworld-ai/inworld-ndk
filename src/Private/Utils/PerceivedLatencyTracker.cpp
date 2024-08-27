@@ -9,14 +9,6 @@
 #include "Log.h"
 #include "ai/inworld/packets/packets.pb.h"
 
-void Inworld::PerceivedLatencyTracker::HandlePacket(std::shared_ptr<Inworld::Packet> Packet)
-{
-	if (Packet)
-	{
-		Packet->Accept(*this);
-	}
-}
-
 void Inworld::PerceivedLatencyTracker::Visit(const Inworld::TextEvent& Event)
 {
 	if (Event._Routing._Source._Type == InworldPackets::Actor_Type_PLAYER && Event.IsFinal())
@@ -28,69 +20,93 @@ void Inworld::PerceivedLatencyTracker::Visit(const Inworld::TextEvent& Event)
 		}
 		else
 		{
-			_InteractionTimeMap.emplace(Interaction, std::chrono::system_clock::now());
+			if (Event.GetSourceType() == InworldPackets::TextEvent_SourceType::TextEvent_SourceType_TYPED_IN)
+			{
+				_PerceivedEnd = { std::chrono::system_clock::now(), PerceivedFromType::TypedIn };
+			}
+			else
+			{
+				if (!_PerceivedEnd.has_value())
+				{
+					_PerceivedEnd = { std::chrono::system_clock::now(), PerceivedFromType::TextToSpeech };
+				}
+			}
+			_InteractionTimeMap.emplace(Interaction, _PerceivedEnd.value());
+			_PerceivedEnd = {};
 		}
 	}
-	else if (Event._Routing._Source._Type == InworldPackets::Actor_Type_AGENT && !_bTrackAudioReplies)
+	else if (!_bTrackAudioReplies && Event._Routing._Source._Type == InworldPackets::Actor_Type_AGENT)
 	{
-		VisitReply(Event);
+		ReceiveReply(Event._PacketId._InteractionId);
+	}
+}
+
+void Inworld::PerceivedLatencyTracker::Visit(const Inworld::CustomEvent& Event)
+{
+	if (Event._Routing._Source._Type == InworldPackets::Actor_Type_PLAYER)
+	{
+		const auto& Interaction = Event._PacketId._InteractionId;
+		const std::pair<TimeStamp, PerceivedFromType> Instant = { std::chrono::system_clock::now(), PerceivedFromType::Trigger };
+		_InteractionTimeMap.emplace(Interaction, Instant);
 	}
 }
 
 void Inworld::PerceivedLatencyTracker::Visit(const Inworld::VADEvent& Event)
 {
-	if (Event.IsVoiceDetected())
+	if (!Event.IsVoiceDetected())
 	{
-		_LastVoice = std::chrono::system_clock::now();
+		if (!_PerceivedEnd.has_value() || _PerceivedEnd.value().second == PerceivedFromType::VoiceActivity)
+		{
+			_PerceivedEnd = { std::chrono::system_clock::now(), PerceivedFromType::VoiceActivity };
+		}
 	}
 }
 
 void Inworld::PerceivedLatencyTracker::Visit(const Inworld::AudioDataEvent& Event)
 {
-	if (_bTrackAudioReplies)
+	if (_bTrackAudioReplies && Event._Routing._Source._Type == InworldPackets::Actor_Type_AGENT)
 	{
-		VisitReply(Event);
+		ReceiveReply(Event._PacketId._InteractionId);
 	}
 }
 
-void Inworld::PerceivedLatencyTracker::VisitReply(const Inworld::Packet& Event)
+void Inworld::PerceivedLatencyTracker::ReceiveReply(const std::string& InteractionId)
 {
-	const auto& Interaction = Event._PacketId._InteractionId;
-	const auto It = _InteractionTimeMap.find(Interaction);
+	const auto It = _InteractionTimeMap.find(InteractionId);
 	if (It != _InteractionTimeMap.end())
 	{
-	    if (_LastVoice != std::chrono::system_clock::time_point{})
-	    {
-	        const auto Duration = std::chrono::system_clock::now() - _LastVoice;
-	        const int64_t Ms = std::chrono::duration_cast<std::chrono::milliseconds>(Duration).count();
-	        Inworld::Log("PerceivedLatencyTracker. Player local VAD to character reply latency is %d ms, Interaction: %s", Ms, Interaction.c_str());
-	    }
-	    
-		const auto Duration = std::chrono::system_clock::now() - It->second;
+		const auto Duration = std::chrono::system_clock::now() - It->second.first;
 		_InteractionTimeMap.erase(It);
-
 		const int32_t Ms = std::chrono::duration_cast<std::chrono::milliseconds>(Duration).count();
-	    Inworld::Log("PerceivedLatencyTracker. Player server STT to character reply latency is %d ms, Interaction: %s", Ms, Interaction.c_str());
+
+		PerceivedFromType Type = It->second.second;
+		
+	    Inworld::Log("PerceivedLatencyTracker: %d ms, Interaction: %s", Ms, InteractionId.c_str());
 
 	    if (_Callback)
 	    {
-	        _Callback(Interaction, Ms);
+	        _Callback(InteractionId, Ms, Type);
 	    }
 	}
 }
 
 void Inworld::PerceivedLatencyTracker::Visit(const Inworld::ControlEvent& Event)
 {
-	if (Event.GetControlAction() != InworldPackets::ControlEvent_Action_INTERACTION_END)
+	if (Event.GetControlAction() == InworldPackets::ControlEvent_Action_INTERACTION_END)
 	{
-		return;
+		const auto& Interaction = Event._PacketId._InteractionId;
+		const auto It = _InteractionTimeMap.find(Interaction);
+		if (It != _InteractionTimeMap.end())
+		{
+			Inworld::LogWarning("PerceivedLatencyTracker visit ControlEvent INTERACTION_END. Text timestamp is still in the map, Interaction: %s", Interaction.c_str());
+			_InteractionTimeMap.erase(It);
+		}
 	}
-
-	const auto& Interaction = Event._PacketId._InteractionId;
-	const auto It = _InteractionTimeMap.find(Interaction);
-	if (It != _InteractionTimeMap.end())
+	if (Event.GetControlAction() == InworldPackets::ControlEvent_Action_AUDIO_SESSION_END)
 	{
-		Inworld::LogWarning("PerceivedLatencyTracker visit ControlEvent INTERACTION_END. Text timestamp is still in the map, Interaction: %s", Interaction.c_str());
-		_InteractionTimeMap.erase(It);
+		if (!_PerceivedEnd.has_value())
+		{
+			_PerceivedEnd = { std::chrono::system_clock::now(), PerceivedFromType::AudioSession };
+		}
 	}
 }

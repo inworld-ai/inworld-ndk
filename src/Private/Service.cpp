@@ -31,7 +31,7 @@ void Inworld::RunnableRead::Run()
 			return;
 		}
 
-		std::shared_ptr<Inworld::Packet> Packet;
+		std::shared_ptr<Inworld::Packet> Packet = nullptr;
 		// Text event
 		if (IncomingPacket.has_text())
 		{
@@ -84,7 +84,15 @@ void Inworld::RunnableRead::Run()
 		{
 			Packet = std::make_shared<Inworld::RelationEvent>(IncomingPacket);
 		}
-		else
+		else if (IncomingPacket.has_latency_report())
+		{
+			if (IncomingPacket.latency_report().has_ping_pong())
+			{
+				Packet = std::make_shared<Inworld::PingEvent>(IncomingPacket);
+			}
+		}
+
+		if(Packet == nullptr)
 		{
 			// Unknown packet type
 			continue;

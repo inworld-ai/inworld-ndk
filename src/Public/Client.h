@@ -139,8 +139,8 @@ namespace Inworld
 			Reconnecting
 		};
 
-		Client() = default;
-		virtual ~Client() { DestroyClient(); }
+		Client();
+		virtual ~Client();
 
 #pragma region Lifetime
 		// callbacks will not be called on calling thread
@@ -232,14 +232,15 @@ namespace Inworld
 			return _ErrorCode != 0;
 		}
 
-		void SetPerceivedLatencyTrackerCallback(PerceivedLatencyCallback Cb) { _LatencyTracker.SetCallback(Cb); }
-		void ClearPerceivedLatencyTrackerCallback() { _LatencyTracker.ClearCallback(); }
+		void SetPerceivedLatencyTrackerCallback(std::function<void(const std::string&, uint32_t)> PerceivedLatencyCallback) { _OnPerceivedLatencyCallback = PerceivedLatencyCallback; }
+		void ClearPerceivedLatencyTrackerCallback() { _OnPerceivedLatencyCallback = nullptr; }
 		
 		const SessionInfo& GetSessionInfo() const;
 		void SetOptions(const ClientOptions& options);	
 		const ClientOptions& GetOptions() const;
 
 		virtual void Visit(const ControlEventCurrentSceneStatus& Event) override;
+		virtual void Visit(const PingEvent& Event) override;
 
 	protected:
 		void SendPacket(std::shared_ptr<Inworld::Packet> Packet);
@@ -271,6 +272,7 @@ namespace Inworld
 
 		std::function<void()> _OnGenerateTokenCallback;
 		std::function<void(ConnectionState)> _OnConnectionStateChangedCallback;
+		std::function<void(const std::string&, uint32_t)> _OnPerceivedLatencyCallback;
 
 		std::atomic<bool> _bHasClientStreamFinished = false;
 
