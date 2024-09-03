@@ -404,6 +404,17 @@ InitSpeechProcessor<ClientSpeechOptions_Default, ClientSpeechProcessor_Default>(
 #endif
 }
 
+void Inworld::Client::DestroySpeechProcessor()
+{
+	if (!_SpeechProcessor)
+	{
+		LogWarning("SpeechProcessor is not initialized, cannot be destroyed.");
+		return;
+	}
+
+	_SpeechProcessor.reset();
+}
+
 void Inworld::Client::EnableAudioDump(const std::string& FileName)
 {
     SPEECH_PROCESSOR_CALL(EnableAudioDump(FileName))

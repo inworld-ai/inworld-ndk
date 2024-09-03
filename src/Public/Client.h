@@ -220,6 +220,8 @@ namespace Inworld
 		template<>
 		void InitSpeechProcessor(const ClientSpeechOptions_VAD_DetectAndFilterAudio& Options);
 
+		void DestroySpeechProcessor();
+
 	    void EnableAudioDump(const std::string& FileName = "");
 	    void DisableAudioDump();
 		
