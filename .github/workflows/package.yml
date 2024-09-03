@@ -116,23 +116,23 @@ jobs:
     runs-on: ubuntu-latest
     needs: [ upload-ndk-win, upload-ndk-mac, upload-ndk-ios, upload-ndk-android ]
     steps:
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4.1.7
         with:
           name: NDK-Source
           path: Package
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4.1.7
         with:
           name: Win-NDK-lib
           path: Package/lib/Win64
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4.1.7
         with:
           name: Mac-NDK-lib
           path: Package/lib/Mac
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4.1.7
         with:
           name: iOS-NDK-lib
           path: Package/lib/iOS
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4.1.7
         with:
           name: Android-NDK-lib
           path: Package/lib/Android
