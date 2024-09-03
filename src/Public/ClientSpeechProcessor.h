@@ -154,15 +154,15 @@ namespace Inworld
         bool _bVoiceDetected = false;
     };
 
-    struct ClientSpeechOptions_VAD_DetectAndSendAudio : public ClientSpeechOptions_VAD {};
+    struct ClientSpeechOptions_VAD_DetectAndFilterAudio : public ClientSpeechOptions_VAD {};
 
-    class INWORLD_EXPORT ClientSpeechProcessor_VAD_DetectAndSendAudio : public ClientSpeechProcessor_VAD
+    class INWORLD_EXPORT ClientSpeechProcessor_VAD_DetectAndFilterAudio : public ClientSpeechProcessor_VAD
     {
     public:
-        ClientSpeechProcessor_VAD_DetectAndSendAudio(const ClientSpeechOptions_VAD_DetectAndSendAudio& Options, ClientSpeechPacketCallback OutgoingPacketCb, ClientSpeechPacketCallback IncomingPacketCb)
+        ClientSpeechProcessor_VAD_DetectAndFilterAudio(const ClientSpeechOptions_VAD_DetectAndFilterAudio& Options, ClientSpeechPacketCallback OutgoingPacketCb, ClientSpeechPacketCallback IncomingPacketCb)
             : ClientSpeechProcessor_VAD(Options, OutgoingPacketCb, IncomingPacketCb)
         {}
-        virtual ~ClientSpeechProcessor_VAD_DetectAndSendAudio() override = default;
+        virtual ~ClientSpeechProcessor_VAD_DetectAndFilterAudio() override = default;
     protected:
         virtual void HandleVoiceDetected(const std::string& Data) override;
         virtual void HandleSilenceDetected(const std::string& Data) override;
