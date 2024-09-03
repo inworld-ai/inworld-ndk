@@ -557,7 +557,6 @@ namespace Inworld {
 	private:
 		std::string _Name;
 		std::unordered_map<std::string, std::string> _Params;
-		InworldPackets::CustomEvent_Type _Type;
 	};
 
 	class INWORLD_EXPORT RelationEvent : public Packet
