@@ -11,6 +11,3 @@
 [submodule "ThirdParty/rtaudio"]
 	path = ThirdParty/rtaudio
 	url = https://github.com/thestk/rtaudio.git
-[submodule "inworld-vad/third-party/onnxruntime"]
-	path = inworld-vad/third-party/onnxruntime
-	url = https://github.com/microsoft/onnxruntime.git
