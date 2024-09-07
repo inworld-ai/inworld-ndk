@@ -312,7 +312,7 @@ void Inworld::ClientSpeechProcessor_VAD_DetectOnly::HandleSilenceDetected(const 
     }
 }
 
-void Inworld::ClientSpeechProcessor_VAD_DetectAndSendAudio::HandleVoiceDetected(const std::string& Data)
+void Inworld::ClientSpeechProcessor_VAD_DetectAndFilterAudio::HandleVoiceDetected(const std::string& Data)
 {
     const bool bJustStarted = StartActualAudioSession();
     if (!bJustStarted)
@@ -344,7 +344,7 @@ void Inworld::ClientSpeechProcessor_VAD_DetectAndSendAudio::HandleVoiceDetected(
     }
 }
 
-void Inworld::ClientSpeechProcessor_VAD_DetectAndSendAudio::HandleSilenceDetected(const std::string& Data)
+void Inworld::ClientSpeechProcessor_VAD_DetectAndFilterAudio::HandleSilenceDetected(const std::string& Data)
 {
     StopActualAudioSession();
 
@@ -356,7 +356,7 @@ void Inworld::ClientSpeechProcessor_VAD_DetectAndSendAudio::HandleSilenceDetecte
     }
 }
 
-void Inworld::ClientSpeechProcessor_VAD_DetectAndSendAudio::BufferAudio(const std::string& Data)
+void Inworld::ClientSpeechProcessor_VAD_DetectAndFilterAudio::BufferAudio(const std::string& Data)
 {
     ClientSpeechProcessor_VAD::BufferAudio(Data);
 
@@ -367,7 +367,7 @@ void Inworld::ClientSpeechProcessor_VAD_DetectAndSendAudio::BufferAudio(const st
     }
 }
 
-void Inworld::ClientSpeechProcessor_VAD_DetectAndSendAudio::ClearState()
+void Inworld::ClientSpeechProcessor_VAD_DetectAndFilterAudio::ClearState()
 {
     ClientSpeechProcessor_VAD::ClearState();
 

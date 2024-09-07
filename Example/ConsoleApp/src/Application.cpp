@@ -10,7 +10,9 @@
 #include "Microphone.h"
 #include "Utils/Log.h"
 #include "Packets.h"
+#ifdef INWORLD_VAD
 #include "InworldVAD.h"
+#endif
 
 #include <filesystem>
 
@@ -428,6 +430,7 @@ void NDKApp::App::Run()
 				bQuit = true;
 			}
 		},
+#ifdef INWORLD_VAD
         {
             "VadTest",
             "Test VAD",
@@ -440,6 +443,7 @@ void NDKApp::App::Run()
 				Inworld::VAD_Terminate();
             }
         },
+#endif
         {
             "ba",
             "Begin audio capture",
@@ -562,7 +566,7 @@ void NDKApp::App::Run()
 		);
 
 #if INWORLD_VAD
-	Inworld::ClientSpeechOptions_VAD_DetectAndSendAudio ClientSpeechOptions;
+	Inworld::ClientSpeechOptions_VAD_DetectAndFilterAudio ClientSpeechOptions;
 	ClientSpeechOptions.VADModelPath = std::filesystem::canonical("Package/resource/silero_vad_10_27_2022.onnx").string();
 #else
 	Inworld::ClientSpeechOptions_Default ClientSpeechOptions;

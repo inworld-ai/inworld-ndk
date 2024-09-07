@@ -399,13 +399,34 @@ void Inworld::Client::InitSpeechProcessor(const ClientSpeechOptions_Default& Opt
 template<>
 void Inworld::Client::InitSpeechProcessor(const ClientSpeechOptions_VAD_DetectOnly& Options)
 {
+#ifdef INWORLD_VAD
 	InitSpeechProcessor<ClientSpeechOptions_VAD_DetectOnly, ClientSpeechProcessor_VAD_DetectOnly>(Options);
+#else
+	Inworld::LogWarning("Attempting to use VAD on unsupported platform, using default instead!");
+	InitSpeechProcessor<ClientSpeechOptions_Default, ClientSpeechProcessor_Default>({});
+#endif
 }
 
 template<>
-void Inworld::Client::InitSpeechProcessor(const ClientSpeechOptions_VAD_DetectAndSendAudio& Options)
+void Inworld::Client::InitSpeechProcessor(const ClientSpeechOptions_VAD_DetectAndFilterAudio& Options)
 {
-	InitSpeechProcessor<ClientSpeechOptions_VAD_DetectAndSendAudio, ClientSpeechProcessor_VAD_DetectAndSendAudio>(Options);
+#ifdef INWORLD_VAD
+	InitSpeechProcessor<ClientSpeechOptions_VAD_DetectAndFilterAudio, ClientSpeechProcessor_VAD_DetectAndFilterAudio>(Options);
+#else
+Inworld::LogWarning("Attempting to use VAD on unsupported platform, using default instead!");
+InitSpeechProcessor<ClientSpeechOptions_Default, ClientSpeechProcessor_Default>({});
+#endif
+}
+
+void Inworld::Client::DestroySpeechProcessor()
+{
+	if (!_SpeechProcessor)
+	{
+		LogWarning("SpeechProcessor is not initialized, cannot be destroyed.");
+		return;
+	}
+
+	_SpeechProcessor.reset();
 }
 
 void Inworld::Client::EnableAudioDump(const std::string& FileName)
