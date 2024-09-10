@@ -171,6 +171,16 @@ void Inworld::Client::PushPacket(std::shared_ptr<Inworld::Packet> Packet)
 	TryToStartWriteTask();
 }
 
+void Inworld::Client::RecvPacket(std::shared_ptr<Inworld::Packet> Packet)
+{
+	Packet->Accept(*this);
+	_LatencyTracker.HandlePacket(Packet);
+	if (_OnPacketCallback)
+	{
+		_OnPacketCallback(Packet);
+	}
+}
+
 std::shared_ptr<Inworld::TextEvent> Inworld::Client::SendTextMessage(const Inworld::Routing& Routing, const std::string& Text)
 {
 	auto Packet = std::make_shared<TextEvent>(Text, Routing);
@@ -346,6 +356,65 @@ std::shared_ptr<Inworld::CancelResponseEvent> Inworld::Client::CancelResponse(co
 	return Packet;
 }
 
+template<class T, class U>
+void Inworld::Client::InitSpeechProcessor(const T& Options)
+{
+	if (_SpeechProcessor)
+	{
+		LogWarning("SpeechProcessor is already initialized! Options will be ignored.");
+		return;
+	}
+	_SpeechProcessor = std::make_unique<U>(Options,
+		[this](const std::shared_ptr<Inworld::Packet>& Packet)
+		{
+			SendPacket(Packet);
+		},
+		[this](const std::shared_ptr<Inworld::Packet>& Packet)
+		{
+			RecvPacket(Packet);
+		}
+	);
+}
+
+template<>
+void Inworld::Client::InitSpeechProcessor(const ClientSpeechOptions_Default& Options)
+{
+	InitSpeechProcessor<ClientSpeechOptions_Default, ClientSpeechProcessor_Default>(Options);
+}
+
+template<>
+void Inworld::Client::InitSpeechProcessor(const ClientSpeechOptions_VAD_DetectOnly& Options)
+{
+#ifdef INWORLD_VAD
+	InitSpeechProcessor<ClientSpeechOptions_VAD_DetectOnly, ClientSpeechProcessor_VAD_DetectOnly>(Options);
+#else
+	Inworld::LogWarning("Attempting to use VAD on unsupported platform, using default instead!");
+	InitSpeechProcessor<ClientSpeechOptions_Default, ClientSpeechProcessor_Default>({});
+#endif
+}
+
+template<>
+void Inworld::Client::InitSpeechProcessor(const ClientSpeechOptions_VAD_DetectAndFilterAudio& Options)
+{
+#ifdef INWORLD_VAD
+	InitSpeechProcessor<ClientSpeechOptions_VAD_DetectAndFilterAudio, ClientSpeechProcessor_VAD_DetectAndFilterAudio>(Options);
+#else
+Inworld::LogWarning("Attempting to use VAD on unsupported platform, using default instead!");
+InitSpeechProcessor<ClientSpeechOptions_Default, ClientSpeechProcessor_Default>({});
+#endif
+}
+
+void Inworld::Client::DestroySpeechProcessor()
+{
+	if (!_SpeechProcessor)
+	{
+		LogWarning("SpeechProcessor is not initialized, cannot be destroyed.");
+		return;
+	}
+
+	_SpeechProcessor.reset();
+}
+
 void Inworld::Client::EnableAudioDump(const std::string& FileName)
 {
     SPEECH_PROCESSOR_CALL(EnableAudioDump(FileName))
@@ -459,16 +528,6 @@ void Inworld::Client::StartClient(const ClientOptions& Options, const SessionInf
 	_SessionInfo = Info;
 
 	_LatencyTracker.TrackAudioReplies(Options.Capabilities.Audio);
-
-    _ClientOptions.SpeechOptions.PacketCb = [this](const std::shared_ptr<Inworld::Packet>& Packet)
-    {
-        SendPacket(Packet);
-    };
-    _ClientOptions.SpeechOptions.VADImmediateCb = [this](bool bVoiceDetected)
-    {
-        _LatencyTracker.HandleVAD(bVoiceDetected);
-    };
-    _SpeechProcessor = _ClientOptions.SpeechOptions.CreateSpeechProcessor();
 
 	SetConnectionState(ConnectionState::Connecting);
 
@@ -775,12 +834,7 @@ void Inworld::Client::TryToStartReadTask()
 						{
 							if (Packet)
 							{
-								Packet->Accept(*this);
-								_LatencyTracker.HandlePacket(Packet);
-								if (_OnPacketCallback)
-								{
-									_OnPacketCallback(Packet);
-								}
+								RecvPacket(Packet);
 							}
 						}
 						_bPendingIncomingPacketFlush = false;
