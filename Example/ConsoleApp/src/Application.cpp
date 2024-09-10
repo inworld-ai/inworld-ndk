@@ -10,7 +10,9 @@
 #include "Microphone.h"
 #include "Utils/Log.h"
 #include "Packets.h"
+#ifdef INWORLD_VAD
 #include "InworldVAD.h"
+#endif
 
 #include <filesystem>
 
@@ -379,6 +381,7 @@ void NDKApp::App::Run()
 				bQuit = true;
 			}
 		},
+#ifdef INWORLD_VAD
         {
             "VadTest",
             "Test VAD",
@@ -391,6 +394,7 @@ void NDKApp::App::Run()
 				Inworld::VAD_Terminate();
             }
         },
+#endif
         {
             "ba",
             "Begin audio capture",
@@ -459,13 +463,6 @@ void NDKApp::App::Run()
 	_Options.Capabilities.NarratedActions = true;
 	_Options.Capabilities.MultiAgent = true;
 
-    _Options.SpeechOptions.Mode = Inworld::ClientSpeechOptions::SpeechMode::VAD_DetectAndSendAudio;
-    _Options.SpeechOptions.VADModelPath = std::filesystem::canonical("Package/resource/silero_vad_10_27_2022.onnx").string();
-    _Options.SpeechOptions.VADCb = [this](bool bVoiceDetected)
-    {
-        Inworld::Log("VAD: %s", bVoiceDetected ? "Voice detected" : "Silence detected");
-    };
-
 	std::vector<Inworld::AgentInfo> AgentInfos;
 
 	_Client.Client().InitClientAsync(
@@ -518,6 +515,14 @@ void NDKApp::App::Run()
 			Packet->Accept(*this);
 		}
 		);
+
+#if INWORLD_VAD
+	Inworld::ClientSpeechOptions_VAD_DetectAndFilterAudio ClientSpeechOptions;
+	ClientSpeechOptions.VADModelPath = std::filesystem::canonical("Package/resource/silero_vad_10_27_2022.onnx").string();
+#else
+	Inworld::ClientSpeechOptions_Default ClientSpeechOptions;
+#endif
+	_Client.Client().InitSpeechProcessor(ClientSpeechOptions);
 
 	_Client.Client().SetPerceivedLatencyTrackerCallback([](const std::string& InteractonId, int32_t Latency)
 		{

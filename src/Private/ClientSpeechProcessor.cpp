@@ -14,59 +14,11 @@
 #endif
 #include "Log.h"
 #include "Service.h"
-#include "ai/inworld/packets/packets.pb.h"  
+#include "ai/inworld/packets/packets.pb.h"
 
-std::unique_ptr<Inworld::ClientSpeechProcessor> Inworld::ClientSpeechOptions::CreateSpeechProcessor()
-{
-#ifdef INWORLD_VAD
-    if (Mode >= SpeechMode::VAD_DetectOnly)
-    {
-        if (VADModelPath.empty())
-        {
-            LogError("Inworld::ClientSpeechOptions::Validate VADModelPath is empty. Mode set to Default.");
-            Mode = SpeechMode::Default;
-        }
-
-        if (VADCb == nullptr)
-        {
-            LogError("Inworld::ClientSpeechOptions::Validate VADCb is nullptr. Mode set to Default.");
-            Mode = SpeechMode::Default;
-        }
-
-        if (VADImmediateCb == nullptr)
-        {
-            LogError("Inworld::ClientSpeechOptions::Validate VADImmediateCb is nullptr. Mode set to Default.");
-            Mode = SpeechMode::Default;
-        }
-    }
-        
-    if (PacketCb == nullptr)
-    {
-        LogError("Inworld::ClientSpeechOptions::Validate PacketCb is nullptr. The audio will not be sent.");
-    }
-
-    if (Mode == SpeechMode::Default)
-    {
-        return std::make_unique<ClientSpeechProcessor_Default>(*this);
-    }
-    else if (Mode == SpeechMode::VAD_DetectOnly)
-    {
-        return std::make_unique<ClientSpeechProcessor_VAD_DetectOnly>(*this);
-    }
-    else if (Mode == SpeechMode::VAD_DetectAndSendAudio)
-    {
-        return std::make_unique<ClientSpeechProcessor_VAD_DetectAndSendAudio>(*this);
-    }
-
-    return nullptr;
-#else
-    Mode = SpeechMode::Default;
-    return std::make_unique<ClientSpeechProcessor_Default>(*this);
-#endif
-}
-
-Inworld::ClientSpeechProcessor::ClientSpeechProcessor(const ClientSpeechOptions& Options)
-    : _Options(Options)
+Inworld::ClientSpeechProcessor::ClientSpeechProcessor(const ClientSpeechOptions& Options, ClientSpeechPacketCallback OutgoingPacketCb, ClientSpeechPacketCallback IncomingPacketCb)
+    : _OutgoingPacketCb(OutgoingPacketCb)
+    , _IncomingPacketCb(IncomingPacketCb)
 {
 }
 
@@ -175,12 +127,12 @@ bool Inworld::ClientSpeechProcessor::StartActualAudioSession()
 		return false;
 	}
 
-    if (_Options.PacketCb)
+    if (_OutgoingPacketCb)
     {
         const auto Packet = std::make_shared<Inworld::ControlEventAudioSessionStart>(_Routing,
             static_cast<ai::inworld::packets::AudioSessionStartPayload_MicrophoneMode>(_AudioSessionPayload.MicMode),
             static_cast<ai::inworld::packets::AudioSessionStartPayload_UnderstandingMode>(_AudioSessionPayload.UndMode));
-        _Options.PacketCb(Packet);
+        _OutgoingPacketCb(Packet);
 
         Log("ClientSpeechProcessor: start actual audio session.");
     }
@@ -197,11 +149,11 @@ bool Inworld::ClientSpeechProcessor::StopActualAudioSession()
 		return false;
 	}
 
-    if (_Options.PacketCb)
+    if (_OutgoingPacketCb)
     {
         const auto Packet
             = std::make_shared<Inworld::ControlEvent>(ai::inworld::packets::ControlEvent_Action_AUDIO_SESSION_END, std::string{}, _Routing);
-        _Options.PacketCb(Packet);
+        _OutgoingPacketCb(Packet);
 
         Log("ClientSpeechProcessor: stop actual audio session.");
     }
@@ -220,9 +172,9 @@ void Inworld::ClientSpeechProcessor::SendAudio(const std::string& Data)
 	}
 
     const auto Packet = std::make_shared<AudioDataEvent>(Data, _Routing);
-	if (_Options.PacketCb)
+	if (_OutgoingPacketCb)
     {
-        _Options.PacketCb(Packet);
+        _OutgoingPacketCb(Packet);
 	    
 #ifdef INWORLD_AUDIO_DUMP
 	    if (_bDumpAudio)
@@ -249,11 +201,14 @@ void Inworld::ClientSpeechProcessor_Default::ProcessAudio(const std::string& Dat
     SendAudio(Data);
 }
 
-Inworld::ClientSpeechProcessor_VAD::ClientSpeechProcessor_VAD(const ClientSpeechOptions& Options)
-    : ClientSpeechProcessor(Options)
+Inworld::ClientSpeechProcessor_VAD::ClientSpeechProcessor_VAD(const ClientSpeechOptions_VAD& Options, ClientSpeechPacketCallback OutgoingPacketCb, ClientSpeechPacketCallback IncomingPacketCb)
+    : Inworld::ClientSpeechProcessor(Options, OutgoingPacketCb, IncomingPacketCb)
+    , VADProbThreshhold(Options.VADProbThreshhold)
+    , VADBufferChunksNum(Options.VADBufferChunksNum)
+    , VADSilenceChunksNum(Options.VADSilenceChunksNum)
 {
 #ifdef INWORLD_VAD
-    VAD_Initialize(_Options.VADModelPath.c_str());
+    VAD_Initialize(Options.VADModelPath.c_str());
 #endif
 }
 
@@ -279,11 +234,7 @@ bool Inworld::ClientSpeechProcessor_VAD::DetectVoice(const std::string& Data)
 #else
     constexpr float SpeechProb = 1.f;
 #endif
-    const bool bVoiceDetected = SpeechProb > _Options.VADProbThreshhold;
-    if (_Options.VADImmediateCb)
-    {
-        _Options.VADImmediateCb(bVoiceDetected);
-    }
+    const bool bVoiceDetected = SpeechProb > VADProbThreshhold;
     
     return bVoiceDetected;
 }
@@ -303,7 +254,7 @@ void Inworld::ClientSpeechProcessor_VAD::ProcessAudio(const std::string& Data)
         return;
     }
 
-    if (++_VADSilenceCounter > _Options.VADSilenceChunksNum)
+    if (++_VADSilenceCounter > VADSilenceChunksNum)
     {
         HandleSilenceDetected(Data);
         _VADSilenceCounter = 0;
@@ -342,9 +293,10 @@ void Inworld::ClientSpeechProcessor_VAD_DetectOnly::HandleVoiceDetected(const st
     if (!_bVoiceDetected)
     {
         _bVoiceDetected = true;
-        if (_Options.VADCb)
+        if (_IncomingPacketCb)
         {
-            _Options.VADCb(true);
+            auto Packet = std::make_shared<Inworld::VADEvent>(_bVoiceDetected, _Routing);
+            _IncomingPacketCb(Packet);
         }
     }
 }
@@ -354,14 +306,15 @@ void Inworld::ClientSpeechProcessor_VAD_DetectOnly::HandleSilenceDetected(const 
     if (_bVoiceDetected)
     {
         _bVoiceDetected = false;
-        if (_Options.VADCb)
+        if (_IncomingPacketCb)
         {
-            _Options.VADCb(false);
+            auto Packet = std::make_shared<Inworld::VADEvent>(_bVoiceDetected, _Routing);
+            _IncomingPacketCb(Packet);
         }
     }
 }
 
-void Inworld::ClientSpeechProcessor_VAD_DetectAndSendAudio::HandleVoiceDetected(const std::string& Data)
+void Inworld::ClientSpeechProcessor_VAD_DetectAndFilterAudio::HandleVoiceDetected(const std::string& Data)
 {
     const bool bJustStarted = StartActualAudioSession();
     if (!bJustStarted)
@@ -384,37 +337,42 @@ void Inworld::ClientSpeechProcessor_VAD_DetectAndSendAudio::HandleVoiceDetected(
 
         SendAudio(DataToSend);
 
-        if (_Options.VADCb)
+        if (_IncomingPacketCb)
         {
-            _Options.VADCb(true);
+            const bool bVoiceDetected = true;
+            auto Packet = std::make_shared<Inworld::VADEvent>(bVoiceDetected, _Routing);
+            _IncomingPacketCb(Packet);
         }
     }
 }
 
-void Inworld::ClientSpeechProcessor_VAD_DetectAndSendAudio::HandleSilenceDetected(const std::string& Data)
+void Inworld::ClientSpeechProcessor_VAD_DetectAndFilterAudio::HandleSilenceDetected(const std::string& Data)
 {
     StopActualAudioSession();
-    if (_Options.VADCb)
+
+    if (_IncomingPacketCb)
     {
-        _Options.VADCb(false);
+        const bool bVoiceDetected = false;
+        auto Packet = std::make_shared<Inworld::VADEvent>(bVoiceDetected, _Routing);
+        _IncomingPacketCb(Packet);
     }
 }
 
-void Inworld::ClientSpeechProcessor_VAD_DetectAndSendAudio::BufferAudio(const std::string& Data)
+void Inworld::ClientSpeechProcessor_VAD_DetectAndFilterAudio::BufferAudio(const std::string& Data)
 {
     ClientSpeechProcessor_VAD::BufferAudio(Data);
 
     _AudioQueue.push(Data);
-    if (_AudioQueue.size() > _Options.VADBufferChunksNum)
+    if (_AudioQueue.size() > VADBufferChunksNum)
     {
         _AudioQueue.pop();
     }
 }
 
-void Inworld::ClientSpeechProcessor_VAD_DetectAndSendAudio::ClearState()
+void Inworld::ClientSpeechProcessor_VAD_DetectAndFilterAudio::ClearState()
 {
     ClientSpeechProcessor_VAD::ClearState();
-    
+
     _AudioQueue = {};
     _VADSilenceCounter = 0;
 }
