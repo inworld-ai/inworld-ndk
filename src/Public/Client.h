@@ -64,7 +64,6 @@ namespace Inworld
 	{
 		Capabilities Capabilities;
 		UserConfiguration UserConfig;
-	    ClientSpeechOptions SpeechOptions;
 		std::string ServerUrl;
 		std::string SceneName;
 		std::string Resource;
@@ -208,6 +207,21 @@ namespace Inworld
 
 		void GenerateToken(std::function<void()> RefreshTokenCallback);
 
+	private:
+		template<class T, class U>
+		void InitSpeechProcessor(const T& Options);
+	public:
+		template<class T>
+		void InitSpeechProcessor(const T& Options);
+		template<>
+		void InitSpeechProcessor(const ClientSpeechOptions_Default& Options);
+		template<>
+		void InitSpeechProcessor(const ClientSpeechOptions_VAD_DetectOnly& Options);
+		template<>
+		void InitSpeechProcessor(const ClientSpeechOptions_VAD_DetectAndFilterAudio& Options);
+
+		void DestroySpeechProcessor();
+
 	    void EnableAudioDump(const std::string& FileName = "");
 	    void DisableAudioDump();
 		
@@ -232,6 +246,7 @@ namespace Inworld
 	protected:
 		void SendPacket(std::shared_ptr<Inworld::Packet> Packet);
 		void PushPacket(std::shared_ptr<Inworld::Packet> Packet);
+		void RecvPacket(std::shared_ptr<Inworld::Packet> Packet);
 
 		void StartClientStream();
 		void PauseClientStream();
@@ -243,6 +258,7 @@ namespace Inworld
 		ClientOptions _ClientOptions;
 		SessionInfo _SessionInfo;
 		SdkInfo _SdkInfo;
+
 	private:
 		void StartSession();
 		void TryToStartReadTask();
