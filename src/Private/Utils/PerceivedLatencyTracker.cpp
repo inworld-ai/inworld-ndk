@@ -17,14 +17,6 @@ void Inworld::PerceivedLatencyTracker::HandlePacket(std::shared_ptr<Inworld::Pac
 	}
 }
 
-void Inworld::PerceivedLatencyTracker::HandleVAD(bool bVoiceDetected)
-{
-    if (bVoiceDetected)
-    {
-        _LastVoice = std::chrono::system_clock::now();
-    }
-}
-
 void Inworld::PerceivedLatencyTracker::Visit(const Inworld::TextEvent& Event)
 {
 	if (Event._Routing._Source._Type == InworldPackets::Actor_Type_PLAYER && Event.IsFinal())
@@ -42,6 +34,14 @@ void Inworld::PerceivedLatencyTracker::Visit(const Inworld::TextEvent& Event)
 	else if (Event._Routing._Source._Type == InworldPackets::Actor_Type_AGENT && !_bTrackAudioReplies)
 	{
 		VisitReply(Event);
+	}
+}
+
+void Inworld::PerceivedLatencyTracker::Visit(const Inworld::VADEvent& Event)
+{
+	if (Event.IsVoiceDetected())
+	{
+		_LastVoice = std::chrono::system_clock::now();
 	}
 }
 

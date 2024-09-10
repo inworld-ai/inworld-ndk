@@ -28,9 +28,9 @@ namespace Inworld {
 		bool HasCallback() const { return _Callback != nullptr; }
 
 		void HandlePacket(std::shared_ptr<Inworld::Packet> Packet);
-	    void HandleVAD(bool bVoiceDetected);
 
 		virtual void Visit(const Inworld::TextEvent& Event) override;
+		virtual void Visit(const Inworld::VADEvent& Event) override;
 		virtual void Visit(const Inworld::AudioDataEvent& Event) override;
 		virtual void Visit(const Inworld::ControlEvent& Event) override;
 
