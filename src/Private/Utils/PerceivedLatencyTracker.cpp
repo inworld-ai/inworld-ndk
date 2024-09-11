@@ -31,7 +31,7 @@ void Inworld::PerceivedLatencyTracker::Visit(const Inworld::TextEvent& Event)
 					_PerceivedEnd = { std::chrono::system_clock::now(), PerceivedFromType::TextToSpeech };
 				}
 			}
-			_InteractionTimeMap.emplace(Interaction, _PerceivedEnd.value());
+			_InteractionTimeMap.emplace(Interaction, *_PerceivedEnd);
 			_PerceivedEnd = {};
 		}
 	}
@@ -55,7 +55,7 @@ void Inworld::PerceivedLatencyTracker::Visit(const Inworld::VADEvent& Event)
 {
 	if (!Event.IsVoiceDetected())
 	{
-		if (!_PerceivedEnd.has_value() || _PerceivedEnd.value().second == PerceivedFromType::VoiceActivity)
+		if (!_PerceivedEnd.has_value() || (*_PerceivedEnd).second == PerceivedFromType::VoiceActivity)
 		{
 			_PerceivedEnd = { std::chrono::system_clock::now(), PerceivedFromType::VoiceActivity };
 		}
