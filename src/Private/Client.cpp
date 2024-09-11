@@ -184,6 +184,7 @@ void Inworld::Client::RecvPacket(std::shared_ptr<Inworld::Packet> Packet)
 {
 	Packet->Accept(*this);
 	Packet->Accept(_LatencyTracker);
+
 	if (_OnPacketCallback)
 	{
 		_OnPacketCallback(Packet);
@@ -375,6 +376,7 @@ void Inworld::Client::InitSpeechProcessor(const T& Options)
 		LogWarning("SpeechProcessor is already initialized! Options will be ignored.");
 		return;
 	}
+
 	_SpeechProcessor = std::make_unique<U>(Options);
 	_SpeechProcessor->SetIncomingPacketCallback(
 		[this](const std::shared_ptr<Inworld::Packet>& Packet)

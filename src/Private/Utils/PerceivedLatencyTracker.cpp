@@ -62,6 +62,14 @@ void Inworld::PerceivedLatencyTracker::Visit(const Inworld::VADEvent& Event)
 	}
 }
 
+void Inworld::PerceivedLatencyTracker::Visit(const Inworld::VADEvent& Event)
+{
+	if (Event.IsVoiceDetected())
+	{
+		_LastVoice = std::chrono::system_clock::now();
+	}
+}
+
 void Inworld::PerceivedLatencyTracker::Visit(const Inworld::AudioDataEvent& Event)
 {
 	if (_bTrackAudioReplies && Event._Routing._Source._Type == InworldPackets::Actor_Type_AGENT)

@@ -262,7 +262,6 @@ namespace Inworld {
         {
             _Params.insert(std::make_pair<std::string, std::string>(Param.name().data(), Param.value().data()));
         }
-		_Type = Custom.type();
     }
 
 	void CustomEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
@@ -275,7 +274,6 @@ namespace Inworld {
             param->set_name(Param.first);
             param->set_value(Param.second);
         }
-		mutable_custom->set_type(_Type);
 	}
 
 	SilenceEvent::SilenceEvent(const InworldPackets::InworldPacket& GrpcPacket)

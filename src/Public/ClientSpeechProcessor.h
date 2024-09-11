@@ -50,7 +50,7 @@ namespace Inworld
     {
     public:
 	    ClientSpeechProcessor() = default;
-        ClientSpeechProcessor(const ClientSpeechOptions& Options);
+        ClientSpeechProcessor(const ClientSpeechOptions& Options, ClientSpeechPacketCallback OutgoingPacketCb, ClientSpeechPacketCallback IncomingPacketCb);
         ClientSpeechProcessor(const ClientSpeechProcessor&) = delete;
         ClientSpeechProcessor& operator=(const ClientSpeechProcessor&) = delete;
         ClientSpeechProcessor(ClientSpeechProcessor&&) = delete;
