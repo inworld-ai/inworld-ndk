@@ -50,7 +50,7 @@ namespace Inworld
     {
     public:
 	    ClientSpeechProcessor() = default;
-        ClientSpeechProcessor(const ClientSpeechOptions& Options, ClientSpeechPacketCallback OutgoingPacketCb, ClientSpeechPacketCallback IncomingPacketCb);
+        ClientSpeechProcessor(const ClientSpeechOptions& Options);
         ClientSpeechProcessor(const ClientSpeechProcessor&) = delete;
         ClientSpeechProcessor& operator=(const ClientSpeechProcessor&) = delete;
         ClientSpeechProcessor(ClientSpeechProcessor&&) = delete;
@@ -162,7 +162,7 @@ namespace Inworld
     class INWORLD_EXPORT ClientSpeechProcessor_VAD_DetectAndFilterAudio : public ClientSpeechProcessor_VAD
     {
     public:
-        ClientSpeechProcessor_VAD_DetectAndSendAudio(const ClientSpeechOptions_VAD_DetectAndSendAudio& Options)
+        ClientSpeechProcessor_VAD_DetectAndFilterAudio(const ClientSpeechOptions_VAD_DetectAndFilterAudio& Options)
             : ClientSpeechProcessor_VAD(Options)
         {}
         virtual ~ClientSpeechProcessor_VAD_DetectAndFilterAudio() override = default;
