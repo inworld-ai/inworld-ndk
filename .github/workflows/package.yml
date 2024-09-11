@@ -29,7 +29,7 @@ jobs:
     runs-on: windows-2022
     needs: [ build-win ]
     steps:
-    - uses: actions/cache/restore@v3
+    - uses: actions/cache/restore@v4
       id: ndk-cache
       with:
         path: build\Package
@@ -41,13 +41,13 @@ jobs:
       run: |
         echo "cache restore failed"
         exit 1
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         name: NDK-Source
         path: |
           build\Package
           !build\Package\lib
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         name: Win-NDK-lib
         path: build\Package\lib\Win64
@@ -56,7 +56,7 @@ jobs:
     runs-on: macos-13
     needs: [ build-mac ]
     steps:
-    - uses: actions/cache/restore@v3
+    - uses: actions/cache/restore@v4
       id: ndk-cache
       with:
         path: build/Package
@@ -67,7 +67,7 @@ jobs:
       run: |
         echo "cache restore failed"
         exit 1
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         name: Mac-NDK-lib
         path: build/Package/lib/Mac
@@ -76,7 +76,7 @@ jobs:
     runs-on: macos-13
     needs: [ build-ios ]
     steps:
-    - uses: actions/cache/restore@v3
+    - uses: actions/cache/restore@v4
       id: ndk-cache
       with:
         path: build/Package
@@ -87,7 +87,7 @@ jobs:
       run: |
         echo "cache restore failed"
         exit 1
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         name: iOS-NDK-lib
         path: build/Package/lib/iOS
@@ -96,7 +96,7 @@ jobs:
     runs-on: macos-13
     needs: [ build-android ]
     steps:
-    - uses: actions/cache/restore@v3
+    - uses: actions/cache/restore@v4
       id: ndk-cache
       with:
         path: build/Package
@@ -107,7 +107,7 @@ jobs:
       run: |
         echo "cache restore failed"
         exit 1
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         name: Android-NDK-lib
         path: build/Package/lib/Android
@@ -116,27 +116,27 @@ jobs:
     runs-on: ubuntu-latest
     needs: [ upload-ndk-win, upload-ndk-mac, upload-ndk-ios, upload-ndk-android ]
     steps:
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: NDK-Source
           path: Package
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: Win-NDK-lib
           path: Package/lib/Win64
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: Mac-NDK-lib
           path: Package/lib/Mac
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: iOS-NDK-lib
           path: Package/lib/iOS
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: Android-NDK-lib
           path: Package/lib/Android
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: inworld-ndk
           path: |

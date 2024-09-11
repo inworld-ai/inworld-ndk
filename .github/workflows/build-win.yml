@@ -14,7 +14,7 @@ jobs:
   build-win:
     runs-on: windows-2022
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: cppcheck-install
       run: |
@@ -88,7 +88,7 @@ jobs:
         exit 0
       shell: bash
 
-    - uses: actions/cache@v3
+    - uses: actions/cache@v4
       with:
         path: build\Package
         key: ndk-cache-win64-${{ github.sha }}
