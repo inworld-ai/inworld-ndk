@@ -57,7 +57,7 @@ struct TableStruct_ai_2finworld_2fengine_2fworld_2dengine_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[32]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[35]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -127,6 +127,15 @@ extern PreviousStateDefaultTypeInternal _PreviousState_default_instance_;
 class PreviousState_EntitiesState;
 class PreviousState_EntitiesStateDefaultTypeInternal;
 extern PreviousState_EntitiesStateDefaultTypeInternal _PreviousState_EntitiesState_default_instance_;
+class PreviousState_EntitiesState_DisplayIdsMapping;
+class PreviousState_EntitiesState_DisplayIdsMappingDefaultTypeInternal;
+extern PreviousState_EntitiesState_DisplayIdsMappingDefaultTypeInternal _PreviousState_EntitiesState_DisplayIdsMapping_default_instance_;
+class PreviousState_EntitiesState_DisplayIdsMapping_DisplayId;
+class PreviousState_EntitiesState_DisplayIdsMapping_DisplayIdDefaultTypeInternal;
+extern PreviousState_EntitiesState_DisplayIdsMapping_DisplayIdDefaultTypeInternal _PreviousState_EntitiesState_DisplayIdsMapping_DisplayId_default_instance_;
+class PreviousState_EntitiesState_DisplayIdsMapping_MappingEntry_DoNotUse;
+class PreviousState_EntitiesState_DisplayIdsMapping_MappingEntry_DoNotUseDefaultTypeInternal;
+extern PreviousState_EntitiesState_DisplayIdsMapping_MappingEntry_DoNotUseDefaultTypeInternal _PreviousState_EntitiesState_DisplayIdsMapping_MappingEntry_DoNotUse_default_instance_;
 class PreviousState_EntitiesState_Entity;
 class PreviousState_EntitiesState_EntityDefaultTypeInternal;
 extern PreviousState_EntitiesState_EntityDefaultTypeInternal _PreviousState_EntitiesState_Entity_default_instance_;
@@ -187,6 +196,9 @@ template<> ::ai::inworld::engine::PreviousDialog* Arena::CreateMaybeMessage<::ai
 template<> ::ai::inworld::engine::PreviousDialog_Phrase* Arena::CreateMaybeMessage<::ai::inworld::engine::PreviousDialog_Phrase>(Arena*);
 template<> ::ai::inworld::engine::PreviousState* Arena::CreateMaybeMessage<::ai::inworld::engine::PreviousState>(Arena*);
 template<> ::ai::inworld::engine::PreviousState_EntitiesState* Arena::CreateMaybeMessage<::ai::inworld::engine::PreviousState_EntitiesState>(Arena*);
+template<> ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping* Arena::CreateMaybeMessage<::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping>(Arena*);
+template<> ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping_DisplayId* Arena::CreateMaybeMessage<::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping_DisplayId>(Arena*);
+template<> ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping_MappingEntry_DoNotUse* Arena::CreateMaybeMessage<::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping_MappingEntry_DoNotUse>(Arena*);
 template<> ::ai::inworld::engine::PreviousState_EntitiesState_Entity* Arena::CreateMaybeMessage<::ai::inworld::engine::PreviousState_EntitiesState_Entity>(Arena*);
 template<> ::ai::inworld::engine::PreviousState_EntitiesState_EntityItem* Arena::CreateMaybeMessage<::ai::inworld::engine::PreviousState_EntitiesState_EntityItem>(Arena*);
 template<> ::ai::inworld::engine::PreviousState_EntitiesState_EntityItem_PropertiesEntry_DoNotUse* Arena::CreateMaybeMessage<::ai::inworld::engine::PreviousState_EntitiesState_EntityItem_PropertiesEntry_DoNotUse>(Arena*);
@@ -3052,6 +3064,7 @@ class PreviousState_EntitiesState_EntityItem PROTOBUF_FINAL :
     kIdFieldNumber = 1,
     kDisplayNameFieldNumber = 2,
     kDescriptionFieldNumber = 3,
+    kDisplayIdFieldNumber = 6,
   };
   // map<string, string> properties = 4;
   int properties_size() const;
@@ -3142,6 +3155,22 @@ class PreviousState_EntitiesState_EntityItem PROTOBUF_FINAL :
   std::string* _internal_mutable_description();
   public:
 
+  // string display_id = 6;
+  void clear_display_id();
+  const std::string& display_id() const;
+  void set_display_id(const std::string& value);
+  void set_display_id(std::string&& value);
+  void set_display_id(const char* value);
+  void set_display_id(const char* value, size_t size);
+  std::string* mutable_display_id();
+  std::string* release_display_id();
+  void set_allocated_display_id(std::string* display_id);
+  private:
+  const std::string& _internal_display_id() const;
+  void _internal_set_display_id(const std::string& value);
+  std::string* _internal_mutable_display_id();
+  public:
+
   // @@protoc_insertion_point(class_scope:ai.inworld.engine.PreviousState.EntitiesState.EntityItem)
  private:
   class _Internal;
@@ -3158,6 +3187,7 @@ class PreviousState_EntitiesState_EntityItem PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr display_name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr description_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr display_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
 };
@@ -3342,6 +3372,358 @@ class PreviousState_EntitiesState_Entity PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class PreviousState_EntitiesState_DisplayIdsMapping_DisplayId PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping.DisplayId) */ {
+ public:
+  inline PreviousState_EntitiesState_DisplayIdsMapping_DisplayId() : PreviousState_EntitiesState_DisplayIdsMapping_DisplayId(nullptr) {}
+  virtual ~PreviousState_EntitiesState_DisplayIdsMapping_DisplayId();
+
+  PreviousState_EntitiesState_DisplayIdsMapping_DisplayId(const PreviousState_EntitiesState_DisplayIdsMapping_DisplayId& from);
+  PreviousState_EntitiesState_DisplayIdsMapping_DisplayId(PreviousState_EntitiesState_DisplayIdsMapping_DisplayId&& from) noexcept
+    : PreviousState_EntitiesState_DisplayIdsMapping_DisplayId() {
+    *this = ::std::move(from);
+  }
+
+  inline PreviousState_EntitiesState_DisplayIdsMapping_DisplayId& operator=(const PreviousState_EntitiesState_DisplayIdsMapping_DisplayId& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline PreviousState_EntitiesState_DisplayIdsMapping_DisplayId& operator=(PreviousState_EntitiesState_DisplayIdsMapping_DisplayId&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const PreviousState_EntitiesState_DisplayIdsMapping_DisplayId& default_instance();
+
+  static inline const PreviousState_EntitiesState_DisplayIdsMapping_DisplayId* internal_default_instance() {
+    return reinterpret_cast<const PreviousState_EntitiesState_DisplayIdsMapping_DisplayId*>(
+               &_PreviousState_EntitiesState_DisplayIdsMapping_DisplayId_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    16;
+
+  friend void swap(PreviousState_EntitiesState_DisplayIdsMapping_DisplayId& a, PreviousState_EntitiesState_DisplayIdsMapping_DisplayId& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(PreviousState_EntitiesState_DisplayIdsMapping_DisplayId* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(PreviousState_EntitiesState_DisplayIdsMapping_DisplayId* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline PreviousState_EntitiesState_DisplayIdsMapping_DisplayId* New() const final {
+    return CreateMaybeMessage<PreviousState_EntitiesState_DisplayIdsMapping_DisplayId>(nullptr);
+  }
+
+  PreviousState_EntitiesState_DisplayIdsMapping_DisplayId* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<PreviousState_EntitiesState_DisplayIdsMapping_DisplayId>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const PreviousState_EntitiesState_DisplayIdsMapping_DisplayId& from);
+  void MergeFrom(const PreviousState_EntitiesState_DisplayIdsMapping_DisplayId& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(PreviousState_EntitiesState_DisplayIdsMapping_DisplayId* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping.DisplayId";
+  }
+  protected:
+  explicit PreviousState_EntitiesState_DisplayIdsMapping_DisplayId(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto);
+    return ::descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kIdFieldNumber = 1,
+  };
+  // string id = 1;
+  void clear_id();
+  const std::string& id() const;
+  void set_id(const std::string& value);
+  void set_id(std::string&& value);
+  void set_id(const char* value);
+  void set_id(const char* value, size_t size);
+  std::string* mutable_id();
+  std::string* release_id();
+  void set_allocated_id(std::string* id);
+  private:
+  const std::string& _internal_id() const;
+  void _internal_set_id(const std::string& value);
+  std::string* _internal_mutable_id();
+  public:
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping.DisplayId)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
+};
+// -------------------------------------------------------------------
+
+class PreviousState_EntitiesState_DisplayIdsMapping_MappingEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<PreviousState_EntitiesState_DisplayIdsMapping_MappingEntry_DoNotUse, 
+    std::string, ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping_DisplayId,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<PreviousState_EntitiesState_DisplayIdsMapping_MappingEntry_DoNotUse, 
+    std::string, ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping_DisplayId,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> SuperType;
+  PreviousState_EntitiesState_DisplayIdsMapping_MappingEntry_DoNotUse();
+  explicit PreviousState_EntitiesState_DisplayIdsMapping_MappingEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const PreviousState_EntitiesState_DisplayIdsMapping_MappingEntry_DoNotUse& other);
+  static const PreviousState_EntitiesState_DisplayIdsMapping_MappingEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const PreviousState_EntitiesState_DisplayIdsMapping_MappingEntry_DoNotUse*>(&_PreviousState_EntitiesState_DisplayIdsMapping_MappingEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping.MappingEntry.key");
+ }
+  static bool ValidateValue(void*) { return true; }
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& other) final;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto);
+    return ::descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto.file_level_metadata[17];
+  }
+
+  public:
+};
+
+// -------------------------------------------------------------------
+
+class PreviousState_EntitiesState_DisplayIdsMapping PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping) */ {
+ public:
+  inline PreviousState_EntitiesState_DisplayIdsMapping() : PreviousState_EntitiesState_DisplayIdsMapping(nullptr) {}
+  virtual ~PreviousState_EntitiesState_DisplayIdsMapping();
+
+  PreviousState_EntitiesState_DisplayIdsMapping(const PreviousState_EntitiesState_DisplayIdsMapping& from);
+  PreviousState_EntitiesState_DisplayIdsMapping(PreviousState_EntitiesState_DisplayIdsMapping&& from) noexcept
+    : PreviousState_EntitiesState_DisplayIdsMapping() {
+    *this = ::std::move(from);
+  }
+
+  inline PreviousState_EntitiesState_DisplayIdsMapping& operator=(const PreviousState_EntitiesState_DisplayIdsMapping& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline PreviousState_EntitiesState_DisplayIdsMapping& operator=(PreviousState_EntitiesState_DisplayIdsMapping&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const PreviousState_EntitiesState_DisplayIdsMapping& default_instance();
+
+  static inline const PreviousState_EntitiesState_DisplayIdsMapping* internal_default_instance() {
+    return reinterpret_cast<const PreviousState_EntitiesState_DisplayIdsMapping*>(
+               &_PreviousState_EntitiesState_DisplayIdsMapping_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    18;
+
+  friend void swap(PreviousState_EntitiesState_DisplayIdsMapping& a, PreviousState_EntitiesState_DisplayIdsMapping& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(PreviousState_EntitiesState_DisplayIdsMapping* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(PreviousState_EntitiesState_DisplayIdsMapping* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline PreviousState_EntitiesState_DisplayIdsMapping* New() const final {
+    return CreateMaybeMessage<PreviousState_EntitiesState_DisplayIdsMapping>(nullptr);
+  }
+
+  PreviousState_EntitiesState_DisplayIdsMapping* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<PreviousState_EntitiesState_DisplayIdsMapping>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const PreviousState_EntitiesState_DisplayIdsMapping& from);
+  void MergeFrom(const PreviousState_EntitiesState_DisplayIdsMapping& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(PreviousState_EntitiesState_DisplayIdsMapping* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping";
+  }
+  protected:
+  explicit PreviousState_EntitiesState_DisplayIdsMapping(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto);
+    return ::descriptor_table_ai_2finworld_2fengine_2fworld_2dengine_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  typedef PreviousState_EntitiesState_DisplayIdsMapping_DisplayId DisplayId;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kMappingFieldNumber = 3,
+    kDisplayNameFieldNumber = 1,
+    kSequenceNumberFieldNumber = 2,
+  };
+  // map<string, .ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping.DisplayId> mapping = 3;
+  int mapping_size() const;
+  private:
+  int _internal_mapping_size() const;
+  public:
+  void clear_mapping();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping_DisplayId >&
+      _internal_mapping() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping_DisplayId >*
+      _internal_mutable_mapping();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping_DisplayId >&
+      mapping() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping_DisplayId >*
+      mutable_mapping();
+
+  // string display_name = 1;
+  void clear_display_name();
+  const std::string& display_name() const;
+  void set_display_name(const std::string& value);
+  void set_display_name(std::string&& value);
+  void set_display_name(const char* value);
+  void set_display_name(const char* value, size_t size);
+  std::string* mutable_display_name();
+  std::string* release_display_name();
+  void set_allocated_display_name(std::string* display_name);
+  private:
+  const std::string& _internal_display_name() const;
+  void _internal_set_display_name(const std::string& value);
+  std::string* _internal_mutable_display_name();
+  public:
+
+  // int32 sequenceNumber = 2;
+  void clear_sequencenumber();
+  ::PROTOBUF_NAMESPACE_ID::int32 sequencenumber() const;
+  void set_sequencenumber(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_sequencenumber() const;
+  void _internal_set_sequencenumber(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+      PreviousState_EntitiesState_DisplayIdsMapping_MappingEntry_DoNotUse,
+      std::string, ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping_DisplayId,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> mapping_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr display_name_;
+  ::PROTOBUF_NAMESPACE_ID::int32 sequencenumber_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
+};
+// -------------------------------------------------------------------
+
 class PreviousState_EntitiesState PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.engine.PreviousState.EntitiesState) */ {
  public:
@@ -3383,7 +3765,7 @@ class PreviousState_EntitiesState PROTOBUF_FINAL :
                &_PreviousState_EntitiesState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    19;
 
   friend void swap(PreviousState_EntitiesState& a, PreviousState_EntitiesState& b) {
     a.Swap(&b);
@@ -3453,12 +3835,14 @@ class PreviousState_EntitiesState PROTOBUF_FINAL :
 
   typedef PreviousState_EntitiesState_EntityItem EntityItem;
   typedef PreviousState_EntitiesState_Entity Entity;
+  typedef PreviousState_EntitiesState_DisplayIdsMapping DisplayIdsMapping;
 
   // accessors -------------------------------------------------------
 
   enum : int {
     kEntityItemsFieldNumber = 1,
     kEntitiesFieldNumber = 2,
+    kDisplayIdsMappingFieldNumber = 3,
   };
   // repeated .ai.inworld.engine.PreviousState.EntitiesState.EntityItem entity_items = 1;
   int entity_items_size() const;
@@ -3496,6 +3880,24 @@ class PreviousState_EntitiesState PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::engine::PreviousState_EntitiesState_Entity >&
       entities() const;
 
+  // repeated .ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping display_ids_mapping = 3;
+  int display_ids_mapping_size() const;
+  private:
+  int _internal_display_ids_mapping_size() const;
+  public:
+  void clear_display_ids_mapping();
+  ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping* mutable_display_ids_mapping(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping >*
+      mutable_display_ids_mapping();
+  private:
+  const ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping& _internal_display_ids_mapping(int index) const;
+  ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping* _internal_add_display_ids_mapping();
+  public:
+  const ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping& display_ids_mapping(int index) const;
+  ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping* add_display_ids_mapping();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping >&
+      display_ids_mapping() const;
+
   // @@protoc_insertion_point(class_scope:ai.inworld.engine.PreviousState.EntitiesState)
  private:
   class _Internal;
@@ -3505,6 +3907,7 @@ class PreviousState_EntitiesState PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::engine::PreviousState_EntitiesState_EntityItem > entity_items_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::engine::PreviousState_EntitiesState_Entity > entities_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping > display_ids_mapping_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fengine_2fworld_2dengine_2eproto;
 };
@@ -3551,7 +3954,7 @@ class PreviousState PROTOBUF_FINAL :
                &_PreviousState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    20;
 
   friend void swap(PreviousState& a, PreviousState& b) {
     a.Swap(&b);
@@ -3757,7 +4160,7 @@ class LoadSceneResponse_Agent_CharacterAssets PROTOBUF_FINAL :
                &_LoadSceneResponse_Agent_CharacterAssets_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    21;
 
   friend void swap(LoadSceneResponse_Agent_CharacterAssets& a, LoadSceneResponse_Agent_CharacterAssets& b) {
     a.Swap(&b);
@@ -3972,7 +4375,7 @@ class LoadSceneResponse_Agent PROTOBUF_FINAL :
                &_LoadSceneResponse_Agent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    22;
 
   friend void swap(LoadSceneResponse_Agent& a, LoadSceneResponse_Agent& b) {
     a.Swap(&b);
@@ -4173,7 +4576,7 @@ class LoadSceneResponse PROTOBUF_FINAL :
                &_LoadSceneResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    23;
 
   friend void swap(LoadSceneResponse& a, LoadSceneResponse& b) {
     a.Swap(&b);
@@ -4358,7 +4761,7 @@ class LogErrorRequest PROTOBUF_FINAL :
                &_LogErrorRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    24;
 
   friend void swap(LogErrorRequest& a, LogErrorRequest& b) {
     a.Swap(&b);
@@ -4519,7 +4922,7 @@ class VoicePreviewRequest PROTOBUF_FINAL :
                &_VoicePreviewRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    25;
 
   friend void swap(VoicePreviewRequest& a, VoicePreviewRequest& b) {
     a.Swap(&b);
@@ -4702,7 +5105,7 @@ class VoicePreviewResponse PROTOBUF_FINAL :
                &_VoicePreviewResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    26;
 
   friend void swap(VoicePreviewResponse& a, VoicePreviewResponse& b) {
     a.Swap(&b);
@@ -4845,7 +5248,7 @@ class ListBaseVoicesRequest PROTOBUF_FINAL :
                &_ListBaseVoicesRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    27;
 
   friend void swap(ListBaseVoicesRequest& a, ListBaseVoicesRequest& b) {
     a.Swap(&b);
@@ -5019,7 +5422,7 @@ class ListBaseVoicesResponce PROTOBUF_FINAL :
                &_ListBaseVoicesResponce_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    28;
 
   friend void swap(ListBaseVoicesResponce& a, ListBaseVoicesResponce& b) {
     a.Swap(&b);
@@ -5224,7 +5627,7 @@ class AccessToken PROTOBUF_FINAL :
                &_AccessToken_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    29;
 
   friend void swap(AccessToken& a, AccessToken& b) {
     a.Swap(&b);
@@ -5423,7 +5826,7 @@ class GenerateTokenRequest PROTOBUF_FINAL :
                &_GenerateTokenRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    30;
 
   friend void swap(GenerateTokenRequest& a, GenerateTokenRequest& b) {
     a.Swap(&b);
@@ -5592,7 +5995,7 @@ class ActorRelations_Relation PROTOBUF_FINAL :
                &_ActorRelations_Relation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    31;
 
   friend void swap(ActorRelations_Relation& a, ActorRelations_Relation& b) {
     a.Swap(&b);
@@ -5753,7 +6156,7 @@ class ActorRelations PROTOBUF_FINAL :
                &_ActorRelations_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    32;
 
   friend void swap(ActorRelations& a, ActorRelations& b) {
     a.Swap(&b);
@@ -5918,7 +6321,7 @@ class ConversationState_ConversationSettings PROTOBUF_FINAL :
                &_ConversationState_ConversationSettings_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    33;
 
   friend void swap(ConversationState_ConversationSettings& a, ConversationState_ConversationSettings& b) {
     a.Swap(&b);
@@ -6133,7 +6536,7 @@ class ConversationState PROTOBUF_FINAL :
                &_ConversationState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    34;
 
   friend void swap(ConversationState& a, ConversationState& b) {
     a.Swap(&b);
@@ -9126,6 +9529,67 @@ PreviousState_EntitiesState_EntityItem::mutable_entities() {
   return &entities_;
 }
 
+// string display_id = 6;
+inline void PreviousState_EntitiesState_EntityItem::clear_display_id() {
+  display_id_.ClearToEmpty();
+}
+inline const std::string& PreviousState_EntitiesState_EntityItem::display_id() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.display_id)
+  return _internal_display_id();
+}
+inline void PreviousState_EntitiesState_EntityItem::set_display_id(const std::string& value) {
+  _internal_set_display_id(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.display_id)
+}
+inline std::string* PreviousState_EntitiesState_EntityItem::mutable_display_id() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.display_id)
+  return _internal_mutable_display_id();
+}
+inline const std::string& PreviousState_EntitiesState_EntityItem::_internal_display_id() const {
+  return display_id_.Get();
+}
+inline void PreviousState_EntitiesState_EntityItem::_internal_set_display_id(const std::string& value) {
+  
+  display_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void PreviousState_EntitiesState_EntityItem::set_display_id(std::string&& value) {
+  
+  display_id_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.display_id)
+}
+inline void PreviousState_EntitiesState_EntityItem::set_display_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  display_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.display_id)
+}
+inline void PreviousState_EntitiesState_EntityItem::set_display_id(const char* value,
+    size_t size) {
+  
+  display_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.display_id)
+}
+inline std::string* PreviousState_EntitiesState_EntityItem::_internal_mutable_display_id() {
+  
+  return display_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* PreviousState_EntitiesState_EntityItem::release_display_id() {
+  // @@protoc_insertion_point(field_release:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.display_id)
+  return display_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void PreviousState_EntitiesState_EntityItem::set_allocated_display_id(std::string* display_id) {
+  if (display_id != nullptr) {
+    
+  } else {
+    
+  }
+  display_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), display_id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.engine.PreviousState.EntitiesState.EntityItem.display_id)
+}
+
 // -------------------------------------------------------------------
 
 // PreviousState_EntitiesState_Entity
@@ -9315,6 +9779,187 @@ inline void PreviousState_EntitiesState_Entity::set_allocated_description(std::s
 
 // -------------------------------------------------------------------
 
+// PreviousState_EntitiesState_DisplayIdsMapping_DisplayId
+
+// string id = 1;
+inline void PreviousState_EntitiesState_DisplayIdsMapping_DisplayId::clear_id() {
+  id_.ClearToEmpty();
+}
+inline const std::string& PreviousState_EntitiesState_DisplayIdsMapping_DisplayId::id() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping.DisplayId.id)
+  return _internal_id();
+}
+inline void PreviousState_EntitiesState_DisplayIdsMapping_DisplayId::set_id(const std::string& value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping.DisplayId.id)
+}
+inline std::string* PreviousState_EntitiesState_DisplayIdsMapping_DisplayId::mutable_id() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping.DisplayId.id)
+  return _internal_mutable_id();
+}
+inline const std::string& PreviousState_EntitiesState_DisplayIdsMapping_DisplayId::_internal_id() const {
+  return id_.Get();
+}
+inline void PreviousState_EntitiesState_DisplayIdsMapping_DisplayId::_internal_set_id(const std::string& value) {
+  
+  id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void PreviousState_EntitiesState_DisplayIdsMapping_DisplayId::set_id(std::string&& value) {
+  
+  id_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping.DisplayId.id)
+}
+inline void PreviousState_EntitiesState_DisplayIdsMapping_DisplayId::set_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping.DisplayId.id)
+}
+inline void PreviousState_EntitiesState_DisplayIdsMapping_DisplayId::set_id(const char* value,
+    size_t size) {
+  
+  id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping.DisplayId.id)
+}
+inline std::string* PreviousState_EntitiesState_DisplayIdsMapping_DisplayId::_internal_mutable_id() {
+  
+  return id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* PreviousState_EntitiesState_DisplayIdsMapping_DisplayId::release_id() {
+  // @@protoc_insertion_point(field_release:ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping.DisplayId.id)
+  return id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void PreviousState_EntitiesState_DisplayIdsMapping_DisplayId::set_allocated_id(std::string* id) {
+  if (id != nullptr) {
+    
+  } else {
+    
+  }
+  id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping.DisplayId.id)
+}
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// PreviousState_EntitiesState_DisplayIdsMapping
+
+// string display_name = 1;
+inline void PreviousState_EntitiesState_DisplayIdsMapping::clear_display_name() {
+  display_name_.ClearToEmpty();
+}
+inline const std::string& PreviousState_EntitiesState_DisplayIdsMapping::display_name() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping.display_name)
+  return _internal_display_name();
+}
+inline void PreviousState_EntitiesState_DisplayIdsMapping::set_display_name(const std::string& value) {
+  _internal_set_display_name(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping.display_name)
+}
+inline std::string* PreviousState_EntitiesState_DisplayIdsMapping::mutable_display_name() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping.display_name)
+  return _internal_mutable_display_name();
+}
+inline const std::string& PreviousState_EntitiesState_DisplayIdsMapping::_internal_display_name() const {
+  return display_name_.Get();
+}
+inline void PreviousState_EntitiesState_DisplayIdsMapping::_internal_set_display_name(const std::string& value) {
+  
+  display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void PreviousState_EntitiesState_DisplayIdsMapping::set_display_name(std::string&& value) {
+  
+  display_name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping.display_name)
+}
+inline void PreviousState_EntitiesState_DisplayIdsMapping::set_display_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping.display_name)
+}
+inline void PreviousState_EntitiesState_DisplayIdsMapping::set_display_name(const char* value,
+    size_t size) {
+  
+  display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping.display_name)
+}
+inline std::string* PreviousState_EntitiesState_DisplayIdsMapping::_internal_mutable_display_name() {
+  
+  return display_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* PreviousState_EntitiesState_DisplayIdsMapping::release_display_name() {
+  // @@protoc_insertion_point(field_release:ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping.display_name)
+  return display_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void PreviousState_EntitiesState_DisplayIdsMapping::set_allocated_display_name(std::string* display_name) {
+  if (display_name != nullptr) {
+    
+  } else {
+    
+  }
+  display_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), display_name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping.display_name)
+}
+
+// int32 sequenceNumber = 2;
+inline void PreviousState_EntitiesState_DisplayIdsMapping::clear_sequencenumber() {
+  sequencenumber_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 PreviousState_EntitiesState_DisplayIdsMapping::_internal_sequencenumber() const {
+  return sequencenumber_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 PreviousState_EntitiesState_DisplayIdsMapping::sequencenumber() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping.sequenceNumber)
+  return _internal_sequencenumber();
+}
+inline void PreviousState_EntitiesState_DisplayIdsMapping::_internal_set_sequencenumber(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  sequencenumber_ = value;
+}
+inline void PreviousState_EntitiesState_DisplayIdsMapping::set_sequencenumber(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_sequencenumber(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping.sequenceNumber)
+}
+
+// map<string, .ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping.DisplayId> mapping = 3;
+inline int PreviousState_EntitiesState_DisplayIdsMapping::_internal_mapping_size() const {
+  return mapping_.size();
+}
+inline int PreviousState_EntitiesState_DisplayIdsMapping::mapping_size() const {
+  return _internal_mapping_size();
+}
+inline void PreviousState_EntitiesState_DisplayIdsMapping::clear_mapping() {
+  mapping_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping_DisplayId >&
+PreviousState_EntitiesState_DisplayIdsMapping::_internal_mapping() const {
+  return mapping_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping_DisplayId >&
+PreviousState_EntitiesState_DisplayIdsMapping::mapping() const {
+  // @@protoc_insertion_point(field_map:ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping.mapping)
+  return _internal_mapping();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping_DisplayId >*
+PreviousState_EntitiesState_DisplayIdsMapping::_internal_mutable_mapping() {
+  return mapping_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping_DisplayId >*
+PreviousState_EntitiesState_DisplayIdsMapping::mutable_mapping() {
+  // @@protoc_insertion_point(field_mutable_map:ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping.mapping)
+  return _internal_mutable_mapping();
+}
+
+// -------------------------------------------------------------------
+
 // PreviousState_EntitiesState
 
 // repeated .ai.inworld.engine.PreviousState.EntitiesState.EntityItem entity_items = 1;
@@ -9393,6 +10038,45 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::engine::P
 PreviousState_EntitiesState::entities() const {
   // @@protoc_insertion_point(field_list:ai.inworld.engine.PreviousState.EntitiesState.entities)
   return entities_;
+}
+
+// repeated .ai.inworld.engine.PreviousState.EntitiesState.DisplayIdsMapping display_ids_mapping = 3;
+inline int PreviousState_EntitiesState::_internal_display_ids_mapping_size() const {
+  return display_ids_mapping_.size();
+}
+inline int PreviousState_EntitiesState::display_ids_mapping_size() const {
+  return _internal_display_ids_mapping_size();
+}
+inline void PreviousState_EntitiesState::clear_display_ids_mapping() {
+  display_ids_mapping_.Clear();
+}
+inline ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping* PreviousState_EntitiesState::mutable_display_ids_mapping(int index) {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.engine.PreviousState.EntitiesState.display_ids_mapping)
+  return display_ids_mapping_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping >*
+PreviousState_EntitiesState::mutable_display_ids_mapping() {
+  // @@protoc_insertion_point(field_mutable_list:ai.inworld.engine.PreviousState.EntitiesState.display_ids_mapping)
+  return &display_ids_mapping_;
+}
+inline const ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping& PreviousState_EntitiesState::_internal_display_ids_mapping(int index) const {
+  return display_ids_mapping_.Get(index);
+}
+inline const ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping& PreviousState_EntitiesState::display_ids_mapping(int index) const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.PreviousState.EntitiesState.display_ids_mapping)
+  return _internal_display_ids_mapping(index);
+}
+inline ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping* PreviousState_EntitiesState::_internal_add_display_ids_mapping() {
+  return display_ids_mapping_.Add();
+}
+inline ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping* PreviousState_EntitiesState::add_display_ids_mapping() {
+  // @@protoc_insertion_point(field_add:ai.inworld.engine.PreviousState.EntitiesState.display_ids_mapping)
+  return _internal_add_display_ids_mapping();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::engine::PreviousState_EntitiesState_DisplayIdsMapping >&
+PreviousState_EntitiesState::display_ids_mapping() const {
+  // @@protoc_insertion_point(field_list:ai.inworld.engine.PreviousState.EntitiesState.display_ids_mapping)
+  return display_ids_mapping_;
 }
 
 // -------------------------------------------------------------------
@@ -12045,6 +12729,12 @@ ConversationState::conversationsettings() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

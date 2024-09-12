@@ -17,12 +17,6 @@
 #include "grpcpp/impl/codegen/sync_stream.h"
 #include "grpcpp/create_channel.h"
 #include "ai/inworld/engine/world-engine.grpc.pb.h"
-#include "ai/inworld/studio/v1alpha/tokens.grpc.pb.h"
-#include "ai/inworld/studio/v1alpha/users.grpc.pb.h"
-#include "ai/inworld/studio/v1alpha/workspaces.grpc.pb.h"
-#include "ai/inworld/studio/v1alpha/scenes.grpc.pb.h"
-#include "ai/inworld/studio/v1alpha/characters.grpc.pb.h"
-#include "ai/inworld/studio/v1alpha/apikeys.grpc.pb.h"
 #include "ai/inworld/engine/v1/feedback.grpc.pb.h"
 #include "ai/inworld/engine/v1/state_serialization.grpc.pb.h"
 
@@ -38,7 +32,6 @@
 #endif
 
 namespace InworldEngine = ai::inworld::engine;
-namespace InworldV1alpha = ai::inworld::studio::v1alpha;
 namespace InworldEngineV1 = ai::inworld::engine::v1;
 
 using grpc::Channel;
@@ -256,87 +249,6 @@ class INWORLD_EXPORT RunnableCreateInteractionFeedback : public RunnableRequest<
 		
 		std::string _Token;
 		std::string _SessionId;
-	};
-
-	class INWORLD_EXPORT RunnableGenerateUserTokenRequest : public RunnableRequest<InworldV1alpha::Users, InworldV1alpha::GenerateTokenUserResponse>
-	{
-	public:
-		RunnableGenerateUserTokenRequest(const std::string& InFirebaseToken, const std::string& InServerUrl, std::function<void(const grpc::Status& Status, const InworldV1alpha::GenerateTokenUserResponse& Response)> InCallback)
-			: RunnableRequest(InServerUrl, InCallback)
-			, _FirebaseToken(InFirebaseToken)
-		{}
-		virtual ~RunnableGenerateUserTokenRequest() = default;
-
-		virtual grpc::Status RunProcess() override;
-
-	private:
-		std::string _FirebaseToken;
-	};
-
-	class INWORLD_EXPORT RunnableListWorkspacesRequest : public RunnableRequest<InworldV1alpha::Workspaces, InworldV1alpha::ListWorkspacesResponse>
-	{
-	public:
-		RunnableListWorkspacesRequest(const std::string& InInworldToken, const std::string& InServerUrl, std::function<void(const grpc::Status& Status, const InworldV1alpha::ListWorkspacesResponse& Response)> InCallback)
-			: RunnableRequest(InServerUrl, InCallback)
-			, _InworldToken(InInworldToken)
-		{}
-		virtual ~RunnableListWorkspacesRequest() = default;
-
-		virtual grpc::Status RunProcess() override;
-
-	private:
-		std::string _InworldToken;
-	};
-
-	class INWORLD_EXPORT RunnableListScenesRequest : public RunnableRequest<InworldV1alpha::Scenes, InworldV1alpha::ListScenesResponse>
-	{
-	public:
-		RunnableListScenesRequest(const std::string& InInworldToken, const std::string& InServerUrl, const std::string& InWorkspace, std::function<void(const grpc::Status& Status, const InworldV1alpha::ListScenesResponse& Response)> InCallback)
-			: RunnableRequest(InServerUrl, InCallback)
-			, _InworldToken(InInworldToken)
-			, _Workspace(InWorkspace)
-		{}
-		virtual ~RunnableListScenesRequest() = default;
-
-		virtual grpc::Status RunProcess() override;
-
-	private:
-		std::string _InworldToken;
-		std::string _Workspace;
-	};
-
-	class INWORLD_EXPORT RunnableListCharactersRequest : public RunnableRequest<InworldV1alpha::Characters, InworldV1alpha::ListCharactersResponse>
-	{
-	public:
-		RunnableListCharactersRequest(const std::string& InInworldToken, const std::string& InServerUrl, const std::string& InWorkspace, std::function<void(const grpc::Status& Status, const InworldV1alpha::ListCharactersResponse& Response)> InCallback)
-			: RunnableRequest(InServerUrl, InCallback)
-			, _InworldToken(InInworldToken)
-			, _Workspace(InWorkspace)
-		{}
-		virtual ~RunnableListCharactersRequest() = default;
-
-		virtual grpc::Status RunProcess() override;
-
-	private:
-		std::string _InworldToken;
-		std::string _Workspace;
-	};
-
-	class INWORLD_EXPORT RunnableListApiKeysRequest : public RunnableRequest<InworldV1alpha::ApiKeys, InworldV1alpha::ListApiKeysResponse>
-	{
-	public:
-		RunnableListApiKeysRequest(const std::string& InInworldToken, const std::string& InServerUrl, const std::string& InWorkspace, std::function<void(const grpc::Status& Status, const InworldV1alpha::ListApiKeysResponse& Response)> InCallback)
-			: RunnableRequest(InServerUrl, InCallback)
-			, _InworldToken(InInworldToken)
-			, _Workspace(InWorkspace)
-		{}
-		virtual ~RunnableListApiKeysRequest() = default;
-
-		virtual grpc::Status RunProcess() override;
-
-	private:
-		std::string _InworldToken;
-		std::string _Workspace;
 	};
 
 #ifdef INWORLD_AUDIO_DUMP
