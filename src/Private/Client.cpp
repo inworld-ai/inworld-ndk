@@ -145,6 +145,13 @@ void Inworld::Client::Visit(const ControlEventCurrentSceneStatus& Event)
 	}
 }
 
+void Inworld::Client::Visit(const PingEvent& Event)
+{
+	Inworld::Log("PingPong: %s", Event._PacketId._UID.c_str());
+	auto Pong = std::make_shared<PongEvent>(Event);
+	SendPacket(Pong);
+}
+
 void Inworld::Client::SendPacket(std::shared_ptr<Inworld::Packet> Packet)
 {
 	if (GetConnectionState() != ConnectionState::Connected && GetConnectionState() != ConnectionState::Reconnecting)
@@ -152,6 +159,8 @@ void Inworld::Client::SendPacket(std::shared_ptr<Inworld::Packet> Packet)
 		Inworld::LogWarning("Packet skipped. Send packets only when connected. Connection state is '%d'", static_cast<int32_t>(GetConnectionState()));
 		return;
 	}
+
+	Packet->Accept(_LatencyTracker);
 
 	PushPacket(Packet);
 }
@@ -174,7 +183,8 @@ void Inworld::Client::PushPacket(std::shared_ptr<Inworld::Packet> Packet)
 void Inworld::Client::RecvPacket(std::shared_ptr<Inworld::Packet> Packet)
 {
 	Packet->Accept(*this);
-	_LatencyTracker.HandlePacket(Packet);
+	Packet->Accept(_LatencyTracker);
+
 	if (_OnPacketCallback)
 	{
 		_OnPacketCallback(Packet);
@@ -185,7 +195,6 @@ std::shared_ptr<Inworld::TextEvent> Inworld::Client::SendTextMessage(const Inwor
 {
 	auto Packet = std::make_shared<TextEvent>(Text, Routing);
 	SendPacket(Packet);
-	_LatencyTracker.HandlePacket(Packet);
 	return Packet;
 }
 
@@ -315,19 +324,22 @@ void Inworld::Client::RemoveItems(const std::vector<std::string>& ItemIds)
 
 void Inworld::Client::AddItemsInEntities(const std::vector<std::string>& ItemIds, const std::vector<std::string>& EntityNames)
 {
-	auto Packet = std::make_shared<Inworld::AddItemsInEntitiesOperationEvent>(ItemIds, EntityNames);
+	using ItemsInEntitiesOperationEvent_Add = ItemsInEntitiesOperationEvent<InworldPackets::entities::ItemsInEntitiesOperation_Type::ItemsInEntitiesOperation_Type_ADD>;
+	auto Packet = std::make_shared<ItemsInEntitiesOperationEvent_Add>(ItemIds, EntityNames);
 	SendPacket(Packet);
 }
 
 void Inworld::Client::RemoveItemsInEntities(const std::vector<std::string>& ItemIds, const std::vector<std::string>& EntityNames)
 {
-	auto Packet = std::make_shared<Inworld::RemoveItemsInEntitiesOperationEvent>(ItemIds, EntityNames);
+	using ItemsInEntitiesOperationEvent_Remove = ItemsInEntitiesOperationEvent<InworldPackets::entities::ItemsInEntitiesOperation_Type::ItemsInEntitiesOperation_Type_REMOVE>;
+	auto Packet = std::make_shared<ItemsInEntitiesOperationEvent_Remove>(ItemIds, EntityNames);
 	SendPacket(Packet);
 }
 
 void Inworld::Client::ReplaceItemsInEntities(const std::vector<std::string>& ItemIds, const std::vector<std::string>& EntityNames)
 {
-	auto Packet = std::make_shared<Inworld::ReplaceItemsInEntitiesOperationEvent>(ItemIds, EntityNames);
+	using ItemsInEntitiesOperationEvent_Replace = ItemsInEntitiesOperationEvent<InworldPackets::entities::ItemsInEntitiesOperation_Type::ItemsInEntitiesOperation_Type_REPLACE>;
+	auto Packet = std::make_shared<ItemsInEntitiesOperationEvent_Replace>(ItemIds, EntityNames);
 	SendPacket(Packet);
 }
 
@@ -364,14 +376,18 @@ void Inworld::Client::InitSpeechProcessor(const T& Options)
 		LogWarning("SpeechProcessor is already initialized! Options will be ignored.");
 		return;
 	}
-	_SpeechProcessor = std::make_unique<U>(Options,
-		[this](const std::shared_ptr<Inworld::Packet>& Packet)
-		{
-			SendPacket(Packet);
-		},
+
+	_SpeechProcessor = std::make_unique<U>(Options);
+	_SpeechProcessor->SetIncomingPacketCallback(
 		[this](const std::shared_ptr<Inworld::Packet>& Packet)
 		{
 			RecvPacket(Packet);
+		}
+	);
+	_SpeechProcessor->SetOutgoingPacketCallback(
+		[this](const std::shared_ptr<Inworld::Packet>& Packet)
+		{
+			SendPacket(Packet);
 		}
 	);
 }
@@ -425,10 +441,50 @@ void Inworld::Client::DisableAudioDump()
     SPEECH_PROCESSOR_CALL(DisableAudioDump())
 }
 
-void Inworld::Client::InitClientAsync(const SdkInfo& SdkInfo, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback)
+Inworld::Client::Client()
 {
 	gpr_set_log_function(GrpcLog);
 
+	_LatencyTracker.SetCallback(
+		[this](const std::string& InteractionId, uint32_t LatencyMs, PerceivedLatencyTracker::PerceivedFromType PerceivedFrom)
+		{
+			if (_OnPerceivedLatencyCallback)
+			{
+				_OnPerceivedLatencyCallback(InteractionId, LatencyMs);
+			}
+
+			using PerceivedLatencyReportEvent_Fine = PerceivedLatencyReportEvent<InworldPackets::PerceivedLatencyReport_Precision::PerceivedLatencyReport_Precision_FINE>;
+			using PerceivedLatencyReportEvent_Estimated = PerceivedLatencyReportEvent<InworldPackets::PerceivedLatencyReport_Precision::PerceivedLatencyReport_Precision_ESTIMATED>;
+			using PerceivedLatencyReportEvent_PushToTalk = PerceivedLatencyReportEvent<InworldPackets::PerceivedLatencyReport_Precision::PerceivedLatencyReport_Precision_PUSH_TO_TALK>;
+			using PerceivedLatencyReportEvent_NonSpeech = PerceivedLatencyReportEvent<InworldPackets::PerceivedLatencyReport_Precision::PerceivedLatencyReport_Precision_NON_SPEECH>;
+
+			switch (PerceivedFrom)
+			{
+			case PerceivedLatencyTracker::PerceivedFromType::VoiceActivity:
+				SendPacket(std::make_shared<PerceivedLatencyReportEvent_Fine>(LatencyMs));
+				break;
+			case PerceivedLatencyTracker::PerceivedFromType::TextToSpeech:
+				SendPacket(std::make_shared<PerceivedLatencyReportEvent_Estimated>(LatencyMs));
+				break;
+			case PerceivedLatencyTracker::PerceivedFromType::AudioSession:
+				SendPacket(std::make_shared<PerceivedLatencyReportEvent_PushToTalk>(LatencyMs));
+				break;
+			case PerceivedLatencyTracker::PerceivedFromType::TypedIn:
+			case PerceivedLatencyTracker::PerceivedFromType::Trigger:
+				SendPacket(std::make_shared<PerceivedLatencyReportEvent_NonSpeech>(LatencyMs));
+				break;
+			}
+		}
+	);
+}
+
+Inworld::Client::~Client()
+{
+	DestroyClient();
+}
+
+void Inworld::Client::InitClientAsync(const SdkInfo& SdkInfo, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback)
+{
 	_Service = std::make_unique<ClientService>();
 
 	_SdkInfo = SdkInfo;
@@ -608,7 +664,6 @@ void Inworld::Client::DestroyClient()
 	_OnPacketCallback = nullptr;
 	_OnGenerateTokenCallback = nullptr;
 	_OnConnectionStateChangedCallback = nullptr;
-	_LatencyTracker.ClearCallback();
 	StopClient();
 	_Service.reset();
 }

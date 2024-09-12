@@ -16,9 +16,7 @@
 #include "Service.h"
 #include "ai/inworld/packets/packets.pb.h"
 
-Inworld::ClientSpeechProcessor::ClientSpeechProcessor(const ClientSpeechOptions& Options, ClientSpeechPacketCallback OutgoingPacketCb, ClientSpeechPacketCallback IncomingPacketCb)
-    : _OutgoingPacketCb(OutgoingPacketCb)
-    , _IncomingPacketCb(IncomingPacketCb)
+Inworld::ClientSpeechProcessor::ClientSpeechProcessor(const ClientSpeechOptions& Options)
 {
 }
 
@@ -201,8 +199,8 @@ void Inworld::ClientSpeechProcessor_Default::ProcessAudio(const std::string& Dat
     SendAudio(Data);
 }
 
-Inworld::ClientSpeechProcessor_VAD::ClientSpeechProcessor_VAD(const ClientSpeechOptions_VAD& Options, ClientSpeechPacketCallback OutgoingPacketCb, ClientSpeechPacketCallback IncomingPacketCb)
-    : Inworld::ClientSpeechProcessor(Options, OutgoingPacketCb, IncomingPacketCb)
+Inworld::ClientSpeechProcessor_VAD::ClientSpeechProcessor_VAD(const ClientSpeechOptions_VAD& Options)
+    : Inworld::ClientSpeechProcessor(Options)
     , VADProbThreshhold(Options.VADProbThreshhold)
     , VADBufferChunksNum(Options.VADBufferChunksNum)
     , VADSilenceChunksNum(Options.VADSilenceChunksNum)

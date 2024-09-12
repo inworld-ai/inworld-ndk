@@ -50,12 +50,15 @@ namespace Inworld
     {
     public:
 	    ClientSpeechProcessor() = default;
-        ClientSpeechProcessor(const ClientSpeechOptions& Options, ClientSpeechPacketCallback OutgoingPacketCb, ClientSpeechPacketCallback IncomingPacketCb);
+        ClientSpeechProcessor(const ClientSpeechOptions& Options);
         ClientSpeechProcessor(const ClientSpeechProcessor&) = delete;
         ClientSpeechProcessor& operator=(const ClientSpeechProcessor&) = delete;
         ClientSpeechProcessor(ClientSpeechProcessor&&) = delete;
         ClientSpeechProcessor& operator=(ClientSpeechProcessor&&) = delete;
 	    virtual ~ClientSpeechProcessor();
+
+        void SetOutgoingPacketCallback(ClientSpeechPacketCallback OutgoingPacketCb) { _OutgoingPacketCb = OutgoingPacketCb; }
+        void SetIncomingPacketCallback(ClientSpeechPacketCallback IncomingPacketCb) { _IncomingPacketCb = IncomingPacketCb; }
 
         virtual void StartAudioSession(const Inworld::Routing& Routing, const AudioSessionStartPayload& Payload);
         virtual void StopAudioSession(const Inworld::Routing& Routing);
@@ -93,8 +96,8 @@ namespace Inworld
     class INWORLD_EXPORT ClientSpeechProcessor_Default : public ClientSpeechProcessor
     {
     public:
-        ClientSpeechProcessor_Default(const ClientSpeechOptions_Default& Options, ClientSpeechPacketCallback OutgoingPacketCb, ClientSpeechPacketCallback IncomingPacketCb)
-            : ClientSpeechProcessor(Options, OutgoingPacketCb, IncomingPacketCb)
+        ClientSpeechProcessor_Default(const ClientSpeechOptions_Default& Options)
+            : ClientSpeechProcessor(Options)
         {}
 	    virtual ~ClientSpeechProcessor_Default() override = default;
         virtual void StartAudioSession(const Inworld::Routing& Routing, const AudioSessionStartPayload& Payload) override;
@@ -116,7 +119,7 @@ namespace Inworld
     class INWORLD_EXPORT ClientSpeechProcessor_VAD : public ClientSpeechProcessor
     {
     public:
-        ClientSpeechProcessor_VAD(const ClientSpeechOptions_VAD& Options, ClientSpeechPacketCallback OutgoingPacketCb, ClientSpeechPacketCallback IncomingPacketCb);
+        ClientSpeechProcessor_VAD(const ClientSpeechOptions_VAD& Options);
 	    virtual ~ClientSpeechProcessor_VAD() override;
         
     protected:
@@ -139,8 +142,8 @@ namespace Inworld
     class INWORLD_EXPORT ClientSpeechProcessor_VAD_DetectOnly : public ClientSpeechProcessor_VAD
     {
     public:
-        ClientSpeechProcessor_VAD_DetectOnly(const ClientSpeechOptions_VAD_DetectOnly& Options, ClientSpeechPacketCallback OutgoingPacketCb, ClientSpeechPacketCallback IncomingPacketCb)
-            : ClientSpeechProcessor_VAD(Options, OutgoingPacketCb, IncomingPacketCb)
+        ClientSpeechProcessor_VAD_DetectOnly(const ClientSpeechOptions_VAD_DetectOnly& Options)
+            : ClientSpeechProcessor_VAD(Options)
         {}
         virtual ~ClientSpeechProcessor_VAD_DetectOnly() override  = default;
         virtual void StartAudioSession(const Inworld::Routing& Routing, const AudioSessionStartPayload& Payload) override;
@@ -159,8 +162,8 @@ namespace Inworld
     class INWORLD_EXPORT ClientSpeechProcessor_VAD_DetectAndFilterAudio : public ClientSpeechProcessor_VAD
     {
     public:
-        ClientSpeechProcessor_VAD_DetectAndFilterAudio(const ClientSpeechOptions_VAD_DetectAndFilterAudio& Options, ClientSpeechPacketCallback OutgoingPacketCb, ClientSpeechPacketCallback IncomingPacketCb)
-            : ClientSpeechProcessor_VAD(Options, OutgoingPacketCb, IncomingPacketCb)
+        ClientSpeechProcessor_VAD_DetectAndFilterAudio(const ClientSpeechOptions_VAD_DetectAndFilterAudio& Options)
+            : ClientSpeechProcessor_VAD(Options)
         {}
         virtual ~ClientSpeechProcessor_VAD_DetectAndFilterAudio() override = default;
     protected:
