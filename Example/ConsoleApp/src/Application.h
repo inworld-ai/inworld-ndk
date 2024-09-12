@@ -10,7 +10,6 @@
 #include <vector>
 
 #include "Client.h"
-#include "StudioClient.h"
 #include "CommandLineInterface.h"
 
 namespace NDKApp
@@ -47,23 +46,19 @@ namespace NDKApp
 	public:
 		InworldClient()
 			: _Client(Inworld::CreateClient())
-			, _StudioClient(Inworld::CreateStudioClient())
 		{}
 
 		~InworldClient()
 		{
 			Inworld::DestroyClient(std::move(_Client));
-			Inworld::DestroyStudioClient(std::move(_StudioClient));
 		}
 
 		Inworld::Client& Client() { return *_Client; }
-		Inworld::StudioClient& Studio() { return *_StudioClient; }
 
 		TaskExecutor TaskExec;
 
 	private:
 		std::unique_ptr<Inworld::Client> _Client;
-		std::unique_ptr<Inworld::StudioClient> _StudioClient;
 	};
 	
 	class App : public Inworld::PacketVisitor

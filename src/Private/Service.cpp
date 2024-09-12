@@ -246,20 +246,6 @@ std::string Inworld::RunnableGenerateSessionToken::GenerateHeader() const
 		",Signature=" + Signature;
 }
 
-grpc::Status Inworld::RunnableGenerateUserTokenRequest::RunProcess()
-{
-	InworldV1alpha::GenerateTokenUserRequest Request;
-	Request.set_type(InworldV1alpha::AuthType::AUTH_TYPE_FIREBASE);
-	Request.set_token(_FirebaseToken);
-
-	auto& Ctx = UpdateContext({
-		{"x-authorization-bearer-type", "firebase"},
-		{"authorization", std::string("Bearer ") + _FirebaseToken }
-		});
-
-	return CreateStub()->GenerateTokenUser(Ctx.get(), Request, &_Response);
-}
-
 grpc::Status Inworld::RunnableGetSessionState::RunProcess()
 {
 	InworldEngineV1::GetSessionStateRequest Request;
@@ -293,56 +279,4 @@ grpc::Status Inworld::RunnableCreateInteractionFeedback::RunProcess()
 		});
 
 	return CreateStub()->CreateInteractionFeedback(Ctx.get(), FeedbackRequest, &_Response);
-}
-
-grpc::Status Inworld::RunnableListWorkspacesRequest::RunProcess()
-{
-	InworldV1alpha::ListWorkspacesRequest Request;
-
-	auto& Ctx = UpdateContext({
-		{"x-authorization-bearer-type", "inworld"},
-		{"authorization", std::string("Bearer ") + _InworldToken }
-		});
-
-	return CreateStub()->ListWorkspaces(Ctx.get(), Request, &_Response);
-}
-
-grpc::Status Inworld::RunnableListScenesRequest::RunProcess()
-{
-	InworldV1alpha::ListScenesRequest Request;
-	Request.set_parent(_Workspace);
-
-	auto& Ctx = UpdateContext({
-		{"x-authorization-bearer-type", "inworld"},
-		{"authorization", std::string("Bearer ") + _InworldToken }
-		});
-
-	return CreateStub()->ListScenes(Ctx.get(), Request, &_Response);
-}
-
-grpc::Status Inworld::RunnableListCharactersRequest::RunProcess()
-{
-	InworldV1alpha::ListCharactersRequest Request;
-	Request.set_parent(_Workspace);
-	Request.set_view(InworldV1alpha::CharacterView::CHARACTER_VIEW_DEFAULT);
-
-	auto& Ctx = UpdateContext({
-		{"x-authorization-bearer-type", "inworld"},
-		{"authorization", std::string("Bearer ") + _InworldToken }
-		});
-
-	return CreateStub()->ListCharacters(Ctx.get(), Request, &_Response);
-}
-
-grpc::Status Inworld::RunnableListApiKeysRequest::RunProcess()
-{
-	InworldV1alpha::ListApiKeysRequest Request;
-	Request.set_parent(_Workspace);
-
-	auto& Ctx = UpdateContext({
-		{"x-authorization-bearer-type", "inworld"},
-		{"authorization", std::string("Bearer ") + _InworldToken }
-		});
-
-	return CreateStub()->ListApiKeys(Ctx.get(), Request, &_Response);
 }
