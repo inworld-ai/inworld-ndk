@@ -17,7 +17,7 @@
 #include <filesystem>
 
 // !!! Fill out this options !!!
-constexpr std::string_view g_SceneName = "";
+constexpr std::string_view g_SceneId = "";
 constexpr std::string_view g_Base64 = "";
 constexpr std::string_view g_ApiKey = "";
 constexpr std::string_view g_ApiSecret = "";
@@ -26,7 +26,7 @@ static bool IsConfigValid()
 {
 	// cppcheck-suppress redundantCondition
 	// cppcheck-suppress knownConditionTrueFalse
-	if (g_SceneName.empty())
+	if (g_SceneId.empty())
 	{
 		return false;
 	}
@@ -185,9 +185,10 @@ void NDKApp::App::Run()
 			{
 				_Client.Client().StopClient();
 
-				Inworld::SessionInfo SessionInfo;
-				SessionInfo.SessionSavedState = _SavedSessionState;
-				_Client.Client().StartClient(_Options, SessionInfo);
+				Inworld::SessionSave SessionSave;
+				SessionSave.State = _SavedSessionState;
+				_Client.Client().SetOptions(_Options);
+				_Client.Client().StartClientFromSave(SessionSave);
 			}
 		},
 		{
@@ -447,7 +448,6 @@ void NDKApp::App::Run()
 	_Options.ServerUrl = "api-engine.inworld.ai:443";
 	_Options.UserConfig.Name = "Player";
 
-	_Options.SceneName = g_SceneName;
 	_Options.Base64 = g_Base64;
 	_Options.ApiKey = g_ApiKey;
 	_Options.ApiSecret = g_ApiSecret;
@@ -529,8 +529,8 @@ void NDKApp::App::Run()
 			//Inworld::Log("PerceivedLatencyTracker. Latency is '%d', Interaction: %s", Latency, InteractonId));
 		});
 
-	Inworld::SessionInfo SessionInfo;
-	_Client.Client().StartClient(_Options, SessionInfo);
+	_Client.Client().SetOptions(_Options);
+	_Client.Client().StartClientFromSceneId(g_SceneId);
     _Client.Client().EnableAudioDump();
 
     _LastAudioSentTime = std::chrono::steady_clock::now();

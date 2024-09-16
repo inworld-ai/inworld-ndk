@@ -121,14 +121,36 @@ namespace Inworld
 
 }
 
-const Inworld::SessionInfo& Inworld::Client::GetSessionInfo() const
+const Inworld::SessionToken& Inworld::Client::GetSessionToken() const
 {
-	return _SessionInfo;
+	return _SessionToken;
 }
 
-void Inworld::Client::SetOptions(const ClientOptions& options)
+void Inworld::Client::SetOptions(const ClientOptions& Options)
 {
-	_ClientOptions = options;
+	_ClientOptions = Options;
+
+	if (!_ClientOptions.Base64.empty())
+	{
+		std::string Decoded;
+		macaron::Base64::Decode(_ClientOptions.Base64, Decoded);
+		const size_t Idx = Decoded.find(':');
+		if (Idx != std::string::npos)
+		{
+			_ClientOptions.ApiKey = Decoded.substr(0, Idx);
+			_ClientOptions.ApiSecret = Decoded.substr(Idx + 1, Decoded.size() - Idx + 1);
+		}
+		else
+		{
+			Inworld::LogError("SetOptions: invalid base64 signature, ignored.");
+		}
+	}
+	if (_ClientOptions.ProjectName.empty())
+	{
+		Inworld::LogWarning("StartClient: provide ClientOptions.ProjectName");
+	}
+
+	_LatencyTracker.TrackAudioReplies(Options.Capabilities.Audio);
 }
 
 const Inworld::ClientOptions& Inworld::Client::GetOptions() const
@@ -143,7 +165,7 @@ void Inworld::Client::Visit(const ControlEventCurrentSceneStatus& Event)
 	{
 		Inworld::Log("Character registered: %s, Id: %s, GivenName: %s", Info.BrainName.c_str(), Info.AgentId.c_str(), Info.GivenName.c_str());
 	}
-	_SceneName = Event.GetSceneName();
+	_SceneId = Event.GetSceneName();
 }
 
 void Inworld::Client::Visit(const PingEvent& Event)
@@ -526,12 +548,12 @@ void Inworld::Client::GenerateToken(std::function<void()> GenerateTokenCallback)
 			_ClientOptions.ApiSecret,
 			[this](const grpc::Status& Status, const InworldEngine::AccessToken& Token) mutable
 			{
-				if (_SessionInfo.SessionId.empty())
+				if (_SessionToken.SessionId.empty())
 				{
-					_SessionInfo.SessionId = Token.session_id();
+					_SessionToken.SessionId = Token.session_id();
 				}
-				_SessionInfo.Token = Token.token();
-				_SessionInfo.ExpirationTime = std::time(0) + std::max(std::min(Token.expiration_time().seconds() - std::time(0), gMaxTokenLifespan), int64_t(0));
+				_SessionToken.Token = Token.token();
+				_SessionToken.ExpirationTime = std::time(0) + std::max(std::min(Token.expiration_time().seconds() - std::time(0), gMaxTokenLifespan), int64_t(0));
 
 				if (!Status.ok())
 				{
@@ -555,56 +577,57 @@ void Inworld::Client::GenerateToken(std::function<void()> GenerateTokenCallback)
 	);
 }
 
-void Inworld::Client::StartClient(const ClientOptions& Options, const std::string& Scene, const SessionSave& Save, const SessionInfo& Info)
+void Inworld::Client::StartClientFromSceneId(const std::string_view& SceneId)
 {
 	if (_ConnectionState != ConnectionState::Idle && _ConnectionState != ConnectionState::Failed)
 	{
 		return;
 	}
-	_ClientOptions = Options;
-	if (!_ClientOptions.Base64.empty())
-	{
-		std::string Decoded;
-		macaron::Base64::Decode(_ClientOptions.Base64, Decoded);
-		const size_t Idx = Decoded.find(':');
-		if (Idx != std::string::npos)
-		{
-			_ClientOptions.ApiKey = Decoded.substr(0, Idx);
-			_ClientOptions.ApiSecret = Decoded.substr(Idx + 1, Decoded.size() - Idx + 1);
-		}
-		else
-		{
-			Inworld::LogError("StartClient: invalid base64 signature, ignored.");
-		}
-	}
-	if (_ClientOptions.ProjectName.empty())
-	{
-		Inworld::LogWarning("StartClient: provide ClientOptions.ProjectName");
-	}
 
-	_SceneName = Scene;
-	_SessionSave = Save;
-	_SessionInfo = Info;
-
-	_LatencyTracker.TrackAudioReplies(Options.Capabilities.Audio);
+	_SceneId = SceneId;
 
 	SetConnectionState(ConnectionState::Connecting);
 
-	if (!_SessionInfo.IsValid())
-	{
-		GenerateToken([this]()
+	GenerateToken(
+		[this]()
 		{
 			StartSession();
-			if (!_SessionSave.IsValid())
-			{
-				LoadScene(_SceneName);
-			}
-		});
-	}
-	else
+			LoadScene(_SceneId);
+		}
+	);
+}
+
+void Inworld::Client::StartClientFromSave(const SessionSave& Save)
+{
+	if (_ConnectionState != ConnectionState::Idle && _ConnectionState != ConnectionState::Failed)
 	{
-		StartSession();
+		return;
 	}
+
+	_SessionSave = Save;
+
+	SetConnectionState(ConnectionState::Connecting);
+
+	GenerateToken(
+		[this]()
+		{
+			StartSession();
+		}
+	);
+}
+
+void Inworld::Client::StartClientFromToken(const SessionToken& Token)
+{
+	if (_ConnectionState != ConnectionState::Idle && _ConnectionState != ConnectionState::Failed)
+	{
+		return;
+	}
+
+	_SessionToken = Token;
+
+	SetConnectionState(ConnectionState::Connecting);
+
+	StartSession();
 }
 
 void Inworld::Client::PauseClient()
@@ -628,13 +651,13 @@ void Inworld::Client::ResumeClient()
 
 	SetConnectionState(ConnectionState::Reconnecting);
 
-	if (!_SessionInfo.IsValid())
+	if (!_SessionToken.IsValid())
 	{
 		GenerateToken([this]()
 		{
 			if (_Service->Session())
 			{
-				_Service->Session()->SetToken(_SessionInfo.Token);
+				_Service->Session()->SetToken(_SessionToken.Token);
 				ResumeClientStream();
 			}
 		});
@@ -660,8 +683,10 @@ void Inworld::Client::StopClient()
 	}
 	_AsyncGenerateTokenTask.Stop();
 	_AsyncGetSessionState.Stop();
-	_ClientOptions = ClientOptions();
-	_SessionInfo = SessionInfo();
+	_ClientOptions = {};
+	_SceneId = {};
+	_SessionToken = {};
+	_SessionSave = {};
 	SetConnectionState(ConnectionState::Idle);
 }
 
@@ -689,7 +714,7 @@ std::string GetSessionName(const std::string& SceneName, const std::string& Sess
 
 void Inworld::Client::SaveSessionStateAsync(std::function<void(const std::string&, bool)> Callback)
 {
-	const std::string SessionName = GetSessionName(_SceneName, _SessionInfo.SessionId);
+	const std::string SessionName = GetSessionName(_SceneId, _SessionToken.SessionId);
 	if (SessionName.empty())
 	{
 		Inworld::LogError("Inworld::Client::SaveSessionState: SessionName is empty!");
@@ -701,13 +726,13 @@ void Inworld::Client::SaveSessionStateAsync(std::function<void(const std::string
 		"InworldSaveSession",
 		std::make_unique<RunnableGetSessionState>(
 			_ClientOptions.ServerUrl,
-			_SessionInfo.Token,
+			_SessionToken.Token,
 			SessionName,
 			[this, Callback](const grpc::Status& Status, const InworldEngineV1::SessionState& State)
 			{
 				if (!Status.ok())
 				{
-					Inworld::LogError("Save session state FALURE! %s, Code: %d, Session Id: %s", Status.error_message().c_str(), (int32_t)Status.error_code(), _SessionInfo.SessionId.c_str());
+					Inworld::LogError("Save session state FALURE! %s, Code: %d, Session Id: %s", Status.error_message().c_str(), (int32_t)Status.error_code(), _SessionToken.SessionId.c_str());
 					Callback({}, false);
 					return;
 				}
@@ -718,7 +743,7 @@ void Inworld::Client::SaveSessionStateAsync(std::function<void(const std::string
 
 void Inworld::Client::SendFeedbackAsync(std::string& InteractionId, const InteractionFeedback& Feedback, std::function<void(const std::string&, bool)> Callback)
 {
-	const std::string SessionName = GetSessionName(_SceneName, _SessionInfo.SessionId);
+	const std::string SessionName = GetSessionName(_SceneId, _SessionToken.SessionId);
 	if (SessionName.empty())
 	{
 		Inworld::LogError("Inworld::Client::SendFeedback: SessionName is empty!");
@@ -729,15 +754,15 @@ void Inworld::Client::SendFeedbackAsync(std::string& InteractionId, const Intera
 		"InworldSendFeedback",
 		std::make_unique<RunnableCreateInteractionFeedback>(
 			_ClientOptions.ServerUrl,
-			_SessionInfo.SessionId,
-			_SessionInfo.Token,
+			_SessionToken.SessionId,
+			_SessionToken.Token,
 			SessionName + "/interactions/" + InteractionId + "/groups/default",
 			Feedback,
 			[this, Callback](const grpc::Status& Status, const InworldEngineV1::InteractionFeedback& Feedback)
 			{
 				if (!Status.ok())
 				{
-					Inworld::LogError("Send Feedback FALURE! %s, Code: %d, Session Id: %s", Status.error_message().c_str(), (int32_t)Status.error_code(), _SessionInfo.SessionId.c_str());
+					Inworld::LogError("Send Feedback FALURE! %s, Code: %d, Session Id: %s", Status.error_message().c_str(), (int32_t)Status.error_code(), _SessionToken.SessionId.c_str());
 					if(Callback) Callback({}, false);
 					return;
 				}
@@ -771,22 +796,22 @@ void Inworld::Client::SetConnectionState(ConnectionState State)
 
 void Inworld::Client::StartSession()
 {
-	if (!_SessionInfo.IsValid())
+	if (!_SessionToken.IsValid())
 	{
 		return;
 	}
 
-	if (_SceneName.empty() && !_SessionSave.IsValid() && !_SessionInfo.IsValid())
+	if (_SceneId.empty() && !_SessionSave.IsValid() && !_SessionToken.IsValid())
 	{
-		Inworld::LogError("StartSession error, requires oneof SceneName, SessionSave, SessionInfo");
+		Inworld::LogError("StartSession error, requires oneof SceneId, SessionSave, SessionToken");
 		return;
 	}
 
-	Inworld::Log("Session Id: %s", _SessionInfo.SessionId.c_str());
+	Inworld::Log("Session Id: %s", _SessionToken.SessionId.c_str());
 
 	_Service->Session() = std::make_unique<ServiceSession>(
-		_SessionInfo.Token,
-		_SessionInfo.SessionId,
+		_SessionToken.Token,
+		_SessionToken.SessionId,
 		_ClientOptions.ServerUrl
 		);
 	StartClientStream();
@@ -817,7 +842,7 @@ void Inworld::Client::StartSession()
 			_ClientOptions.Capabilities,
 			_ClientOptions.UserConfig,
 			ControlEventSessionConfiguration::ClientConfiguration{ _SdkInfo.Type, _SdkInfo.Version, SdkDesc },
-			ControlEventSessionConfiguration::Continuation{_SessionSave.Data}
+			ControlEventSessionConfiguration::Continuation{_SessionSave.State}
 		}
 	));
 }
@@ -911,7 +936,7 @@ void Inworld::Client::TryToStartReadTask()
 					_ErrorCode = Status.error_code();
 					_ErrorDetails = Status.error_details();
 					StopClientStream();
-					Inworld::LogError("Message READ failed: %s. Code: %d, Session Id: %s", _ErrorMessage.c_str(), _ErrorCode, _SessionInfo.SessionId.c_str());
+					Inworld::LogError("Message READ failed: %s. Code: %d, Session Id: %s", _ErrorMessage.c_str(), _ErrorCode, _SessionToken.SessionId.c_str());
 					SetConnectionState(ConnectionState::Disconnected);
 				}
 			)
@@ -951,7 +976,7 @@ void Inworld::Client::TryToStartWriteTask()
 						_ErrorCode = Status.error_code();
 						_ErrorDetails = Status.error_details();
 						StopClientStream();
-						Inworld::LogError("Message WRITE failed: %s. Code: %d, Session Id: %s", _ErrorMessage.c_str(), _ErrorCode, _SessionInfo.SessionId.c_str());
+						Inworld::LogError("Message WRITE failed: %s. Code: %d, Session Id: %s", _ErrorMessage.c_str(), _ErrorCode, _SessionToken.SessionId.c_str());
 						SetConnectionState(ConnectionState::Disconnected);
 					}
 				)

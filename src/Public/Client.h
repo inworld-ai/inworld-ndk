@@ -144,7 +144,9 @@ namespace Inworld
 #pragma region Lifetime
 		// callbacks will not be called on calling thread
 		void InitClientAsync(const SdkInfo& SdkInfo, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback);
-		void StartClient(const ClientOptions& Options, const std::string& Scene, const SessionSave& Save, const SessionInfo& Info);
+		void StartClientFromSceneId(const std::string_view& SceneId);
+		void StartClientFromSave(const SessionSave& Save);
+		void StartClientFromToken(const SessionToken& Info);
 		void PauseClient();
 		void ResumeClient();
 		void StopClient();
@@ -236,7 +238,7 @@ namespace Inworld
 		void SetPerceivedLatencyTrackerCallback(std::function<void(const std::string&, uint32_t)> PerceivedLatencyCallback) { _OnPerceivedLatencyCallback = PerceivedLatencyCallback; }
 		void ClearPerceivedLatencyTrackerCallback() { _OnPerceivedLatencyCallback = nullptr; }
 		
-		const SessionInfo& GetSessionInfo() const;
+		const SessionToken& GetSessionToken() const;
 		void SetOptions(const ClientOptions& options);	
 		const ClientOptions& GetOptions() const;
 
@@ -256,9 +258,9 @@ namespace Inworld
 
 		std::function<void(std::shared_ptr<Inworld::Packet>)> _OnPacketCallback;
 		ClientOptions _ClientOptions;
-		SessionInfo _SessionInfo;
+		std::string _SceneId;
 		SessionSave _SessionSave;
-		std::string _SceneName;
+		SessionToken _SessionToken;
 		SdkInfo _SdkInfo;
 
 	private:
