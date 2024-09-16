@@ -20,12 +20,21 @@ namespace Inworld
 	{
 		std::string SessionId;
 		std::string Token;
-		std::string SessionSavedState;
 		int64_t ExpirationTime;
 
 		bool IsValid() const
 		{
 			return !Token.empty() && !SessionId.empty() && ExpirationTime > std::time(0);
+		}
+	};
+
+	struct INWORLD_EXPORT SessionSave
+	{
+		std::string Data;
+
+		bool IsValid() const
+		{
+			return !Data.empty();
 		}
 	};
 

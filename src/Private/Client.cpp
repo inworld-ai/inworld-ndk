@@ -143,6 +143,7 @@ void Inworld::Client::Visit(const ControlEventCurrentSceneStatus& Event)
 	{
 		Inworld::Log("Character registered: %s, Id: %s, GivenName: %s", Info.BrainName.c_str(), Info.AgentId.c_str(), Info.GivenName.c_str());
 	}
+	_SceneName = Event.GetSceneName();
 }
 
 void Inworld::Client::Visit(const PingEvent& Event)
@@ -554,7 +555,7 @@ void Inworld::Client::GenerateToken(std::function<void()> GenerateTokenCallback)
 	);
 }
 
-void Inworld::Client::StartClient(const ClientOptions& Options, const SessionInfo& Info)
+void Inworld::Client::StartClient(const ClientOptions& Options, const std::string& Scene, const SessionSave& Save, const SessionInfo& Info)
 {
 	if (_ConnectionState != ConnectionState::Idle && _ConnectionState != ConnectionState::Failed)
 	{
@@ -581,6 +582,8 @@ void Inworld::Client::StartClient(const ClientOptions& Options, const SessionInf
 		Inworld::LogWarning("StartClient: provide ClientOptions.ProjectName");
 	}
 
+	_SceneName = Scene;
+	_SessionSave = Save;
 	_SessionInfo = Info;
 
 	_LatencyTracker.TrackAudioReplies(Options.Capabilities.Audio);
@@ -592,7 +595,10 @@ void Inworld::Client::StartClient(const ClientOptions& Options, const SessionInf
 		GenerateToken([this]()
 		{
 			StartSession();
-			LoadScene(_ClientOptions.SceneName);
+			if (!_SessionSave.IsValid())
+			{
+				LoadScene(_SceneName);
+			}
 		});
 	}
 	else
@@ -683,7 +689,7 @@ std::string GetSessionName(const std::string& SceneName, const std::string& Sess
 
 void Inworld::Client::SaveSessionStateAsync(std::function<void(const std::string&, bool)> Callback)
 {
-	const std::string SessionName = GetSessionName(_ClientOptions.SceneName, _SessionInfo.SessionId);
+	const std::string SessionName = GetSessionName(_SceneName, _SessionInfo.SessionId);
 	if (SessionName.empty())
 	{
 		Inworld::LogError("Inworld::Client::SaveSessionState: SessionName is empty!");
@@ -712,7 +718,7 @@ void Inworld::Client::SaveSessionStateAsync(std::function<void(const std::string
 
 void Inworld::Client::SendFeedbackAsync(std::string& InteractionId, const InteractionFeedback& Feedback, std::function<void(const std::string&, bool)> Callback)
 {
-	const std::string SessionName = GetSessionName(_ClientOptions.SceneName, _SessionInfo.SessionId);
+	const std::string SessionName = GetSessionName(_SceneName, _SessionInfo.SessionId);
 	if (SessionName.empty())
 	{
 		Inworld::LogError("Inworld::Client::SendFeedback: SessionName is empty!");
@@ -770,9 +776,9 @@ void Inworld::Client::StartSession()
 		return;
 	}
 
-	if (_ClientOptions.SceneName.empty())
+	if (_SceneName.empty() && !_SessionSave.IsValid() && !_SessionInfo.IsValid())
 	{
-		Inworld::LogError("StartSession error, Provide ClientOptions.SceneName.");
+		Inworld::LogError("StartSession error, requires oneof SceneName, SessionSave, SessionInfo");
 		return;
 	}
 
@@ -811,7 +817,7 @@ void Inworld::Client::StartSession()
 			_ClientOptions.Capabilities,
 			_ClientOptions.UserConfig,
 			ControlEventSessionConfiguration::ClientConfiguration{ _SdkInfo.Type, _SdkInfo.Version, SdkDesc },
-			ControlEventSessionConfiguration::Continuation{_SessionInfo.SessionSavedState}
+			ControlEventSessionConfiguration::Continuation{_SessionSave.Data}
 		}
 	));
 }

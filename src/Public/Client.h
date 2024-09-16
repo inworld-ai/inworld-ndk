@@ -65,7 +65,6 @@ namespace Inworld
 		Capabilities Capabilities;
 		UserConfiguration UserConfig;
 		std::string ServerUrl;
-		std::string SceneName;
 		std::string Resource;
 		std::string ApiKey;
 		std::string ApiSecret;
@@ -145,7 +144,7 @@ namespace Inworld
 #pragma region Lifetime
 		// callbacks will not be called on calling thread
 		void InitClientAsync(const SdkInfo& SdkInfo, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback);
-		void StartClient(const ClientOptions& Options, const SessionInfo& Info);
+		void StartClient(const ClientOptions& Options, const std::string& Scene, const SessionSave& Save, const SessionInfo& Info);
 		void PauseClient();
 		void ResumeClient();
 		void StopClient();
@@ -258,6 +257,8 @@ namespace Inworld
 		std::function<void(std::shared_ptr<Inworld::Packet>)> _OnPacketCallback;
 		ClientOptions _ClientOptions;
 		SessionInfo _SessionInfo;
+		SessionSave _SessionSave;
+		std::string _SceneName;
 		SdkInfo _SdkInfo;
 
 	private:
