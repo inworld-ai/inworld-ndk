@@ -381,6 +381,47 @@ void Inworld::Client::UnloadCharacters(const std::vector<std::string>& Names)
 	ControlSession<SessionControlEvent_UnloadCharacters>({ Names });
 }
 
+void Inworld::Client::LoadSavedState(const SessionSave& Save)
+{
+	PushPacket(std::make_shared<ControlEventSessionConfiguration>(
+		ControlEventSessionConfiguration{
+			ControlEventSessionConfiguration::SessionConfiguration{_ClientOptions.GameSessionId},
+			_ClientOptions.Capabilities,
+			_ClientOptions.UserConfig,
+			ControlEventSessionConfiguration::ClientConfiguration{ _SdkInfo.Type, _SdkInfo.Version, _SdkInfo.Description },
+			ControlEventSessionConfiguration::Continuation{Save.State}
+		}
+	));
+}
+
+void Inworld::Client::LoadCapabilities(const Capabilities& Capabilities)
+{
+	_ClientOptions.Capabilities = Capabilities;
+	PushPacket(std::make_shared<ControlEventSessionConfiguration>(
+		ControlEventSessionConfiguration{
+			ControlEventSessionConfiguration::SessionConfiguration{_ClientOptions.GameSessionId},
+			_ClientOptions.Capabilities,
+			_ClientOptions.UserConfig,
+			ControlEventSessionConfiguration::ClientConfiguration{ _SdkInfo.Type, _SdkInfo.Version, _SdkInfo.Description },
+			ControlEventSessionConfiguration::Continuation{}
+		}
+	));
+}
+
+void Inworld::Client::LoadUserConfiguration(const UserConfiguration& UserConfig)
+{
+	_ClientOptions.UserConfig = UserConfig;
+	PushPacket(std::make_shared<ControlEventSessionConfiguration>(
+		ControlEventSessionConfiguration{
+			ControlEventSessionConfiguration::SessionConfiguration{_ClientOptions.GameSessionId},
+			_ClientOptions.Capabilities,
+			_ClientOptions.UserConfig,
+			ControlEventSessionConfiguration::ClientConfiguration{ _SdkInfo.Type, _SdkInfo.Version, _SdkInfo.Description },
+			ControlEventSessionConfiguration::Continuation{}
+		}
+	));
+}
+
 std::shared_ptr<Inworld::CancelResponseEvent> Inworld::Client::CancelResponse(const std::string& AgentId, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds)
 {
 	auto Packet = std::make_shared<Inworld::CancelResponseEvent>(
@@ -529,6 +570,21 @@ void Inworld::Client::InitClientAsync(const SdkInfo& SdkInfo, std::function<void
 		Inworld::LogWarning("Please provide SdkInfo.OS, operating system or browser");
 	}
 
+	_SdkInfo.Description = _SdkInfo.Type;
+	_SdkInfo.Description += !_SdkInfo.Subtype.empty() ? ("/" + _SdkInfo.Subtype + ";") : ";";
+	if (!_SdkInfo.Version.empty())
+	{
+		_SdkInfo.Description += _SdkInfo.Version + ";";
+	}
+	if (!_SdkInfo.OS.empty())
+	{
+		_SdkInfo.Description += _SdkInfo.OS + ";";
+	}
+	if (!_ClientOptions.ProjectName.empty())
+	{
+		_SdkInfo.Description += _ClientOptions.ProjectName;
+	}
+
 	_OnConnectionStateChangedCallback = ConnectionStateCallback;
 	_OnPacketCallback = PacketCallback;
 
@@ -586,12 +642,29 @@ void Inworld::Client::StartClientFromSceneId(const std::string_view& SceneId)
 
 	_SceneId = SceneId;
 
+	if (_SceneId.empty())
+	{
+		Inworld::LogError("StartClientFromSceneId error, requires SceneId");
+		return;
+	}
+
 	SetConnectionState(ConnectionState::Connecting);
 
 	GenerateToken(
 		[this]()
 		{
 			StartSession();
+
+			PushPacket(std::make_shared<ControlEventSessionConfiguration>(
+				ControlEventSessionConfiguration{
+					ControlEventSessionConfiguration::SessionConfiguration{_ClientOptions.GameSessionId},
+					_ClientOptions.Capabilities,
+					_ClientOptions.UserConfig,
+					ControlEventSessionConfiguration::ClientConfiguration{ _SdkInfo.Type, _SdkInfo.Version, _SdkInfo.Description },
+					ControlEventSessionConfiguration::Continuation{}
+				}
+			));
+
 			LoadScene(_SceneId);
 		}
 	);
@@ -604,14 +677,28 @@ void Inworld::Client::StartClientFromSave(const SessionSave& Save)
 		return;
 	}
 
-	_SessionSave = Save;
+	if (Save.IsValid())
+	{
+		Inworld::LogError("StartClientFromSave error, requires SessionSave");
+		return;
+	}
 
 	SetConnectionState(ConnectionState::Connecting);
 
 	GenerateToken(
-		[this]()
+		[this, Continuation = Save.State]()
 		{
 			StartSession();
+
+			PushPacket(std::make_shared<ControlEventSessionConfiguration>(
+				ControlEventSessionConfiguration{
+					ControlEventSessionConfiguration::SessionConfiguration{_ClientOptions.GameSessionId},
+					_ClientOptions.Capabilities,
+					_ClientOptions.UserConfig,
+					ControlEventSessionConfiguration::ClientConfiguration{ _SdkInfo.Type, _SdkInfo.Version, _SdkInfo.Description },
+					ControlEventSessionConfiguration::Continuation{Continuation}
+				}
+			));
 		}
 	);
 }
@@ -628,6 +715,16 @@ void Inworld::Client::StartClientFromToken(const SessionToken& Token)
 	SetConnectionState(ConnectionState::Connecting);
 
 	StartSession();
+
+	PushPacket(std::make_shared<ControlEventSessionConfiguration>(
+		ControlEventSessionConfiguration{
+			ControlEventSessionConfiguration::SessionConfiguration{_ClientOptions.GameSessionId},
+			_ClientOptions.Capabilities,
+			_ClientOptions.UserConfig,
+			ControlEventSessionConfiguration::ClientConfiguration{ _SdkInfo.Type, _SdkInfo.Version, _SdkInfo.Description },
+			ControlEventSessionConfiguration::Continuation{}
+		}
+	));
 }
 
 void Inworld::Client::PauseClient()
@@ -686,7 +783,6 @@ void Inworld::Client::StopClient()
 	_ClientOptions = {};
 	_SceneId = {};
 	_SessionToken = {};
-	_SessionSave = {};
 	SetConnectionState(ConnectionState::Idle);
 }
 
@@ -798,12 +894,7 @@ void Inworld::Client::StartSession()
 {
 	if (!_SessionToken.IsValid())
 	{
-		return;
-	}
-
-	if (_SceneId.empty() && !_SessionSave.IsValid() && !_SessionToken.IsValid())
-	{
-		Inworld::LogError("StartSession error, requires oneof SceneId, SessionSave, SessionToken");
+		Inworld::LogError("StartSession error, requires valid SessionToken");
 		return;
 	}
 
@@ -820,31 +911,6 @@ void Inworld::Client::StartSession()
 		Inworld::LogError("StartSession error, _Service->Stream() is invalid.");
 		return;
 	}
-
-	std::string SdkDesc = _SdkInfo.Type;
-	SdkDesc += !_SdkInfo.Subtype.empty() ? ("/" + _SdkInfo.Subtype + ";") : ";";
-	if (!_SdkInfo.Version.empty())
-	{
-		SdkDesc += _SdkInfo.Version + ";";
-	}
-	if (!_SdkInfo.OS.empty())
-	{
-		SdkDesc += _SdkInfo.OS + ";";
-	}
-	if (!_ClientOptions.ProjectName.empty())
-	{
-		SdkDesc += _ClientOptions.ProjectName;
-	}
-
-	PushPacket(std::make_shared<ControlEventSessionConfiguration>(
-		ControlEventSessionConfiguration {
-			ControlEventSessionConfiguration::SessionConfiguration{_ClientOptions.GameSessionId},
-			_ClientOptions.Capabilities,
-			_ClientOptions.UserConfig,
-			ControlEventSessionConfiguration::ClientConfiguration{ _SdkInfo.Type, _SdkInfo.Version, SdkDesc },
-			ControlEventSessionConfiguration::Continuation{_SessionSave.State}
-		}
-	));
 }
 
 void Inworld::Client::StartClientStream()
