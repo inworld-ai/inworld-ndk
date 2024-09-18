@@ -677,7 +677,7 @@ void Inworld::Client::StartClientFromSave(const SessionSave& Save)
 		return;
 	}
 
-	if (Save.IsValid())
+	if (!Save.IsValid())
 	{
 		Inworld::LogError("StartClientFromSave error, requires SessionSave");
 		return;
