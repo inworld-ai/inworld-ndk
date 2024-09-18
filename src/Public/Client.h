@@ -204,6 +204,10 @@ namespace Inworld
 		void LoadCapabilities(const Capabilities& Capabilities);
 		void LoadUserConfiguration(const UserConfiguration& UserConfig);
 		
+		void LoadSavedState(const SessionSave& Save);
+		void LoadCapabilities(const Capabilities& Capabilities);
+		void LoadUserConfiguration(const UserConfiguration& UserConfig);
+		
 		// the callback is not called on calling thread for Async methods
 		void SaveSessionStateAsync(std::function<void(const std::string&, bool)> Callback);
 #pragma endregion
