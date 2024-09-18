@@ -773,7 +773,6 @@ void Inworld::Client::StopClient()
 	}
 
 	StopClientStream();
-    _SpeechProcessor.reset();
 	if (_Service->Session())
 	{
 		_Service->Session()->Cancel();
@@ -792,6 +791,7 @@ void Inworld::Client::DestroyClient()
 	_OnGenerateTokenCallback = nullptr;
 	_OnConnectionStateChangedCallback = nullptr;
 	StopClient();
+	_SpeechProcessor.reset();
 	_Service.reset();
 }
 
