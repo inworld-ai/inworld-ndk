@@ -200,8 +200,7 @@ namespace Inworld
 		void LoadScene(const std::string& Scene);
 		void LoadCharacters(const std::vector<std::string>& Names);
 		void UnloadCharacters(const std::vector<std::string>& Names);
-		
-		void LoadSavedState(const SessionSave& Save);
+
 		void LoadCapabilities(const Capabilities& Capabilities);
 		void LoadUserConfiguration(const UserConfiguration& UserConfig);
 		

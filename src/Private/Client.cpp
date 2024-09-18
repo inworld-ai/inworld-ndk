@@ -381,19 +381,6 @@ void Inworld::Client::UnloadCharacters(const std::vector<std::string>& Names)
 	ControlSession<SessionControlEvent_UnloadCharacters>({ Names });
 }
 
-void Inworld::Client::LoadSavedState(const SessionSave& Save)
-{
-	PushPacket(std::make_shared<ControlEventSessionConfiguration>(
-		ControlEventSessionConfiguration{
-			ControlEventSessionConfiguration::SessionConfiguration{_ClientOptions.GameSessionId},
-			_ClientOptions.Capabilities,
-			_ClientOptions.UserConfig,
-			ControlEventSessionConfiguration::ClientConfiguration{ _SdkInfo.Type, _SdkInfo.Version, _SdkInfo.Description },
-			ControlEventSessionConfiguration::Continuation{Save.State}
-		}
-	));
-}
-
 void Inworld::Client::LoadCapabilities(const Capabilities& Capabilities)
 {
 	_ClientOptions.Capabilities = Capabilities;
