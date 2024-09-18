@@ -56,6 +56,8 @@ namespace Inworld
 		std::string Subtype;
 		std::string Version;
 		std::string OS;
+
+		std::string Description;
 	};
 
 	using Capabilities = ControlEventSessionConfiguration::Capabilities;
@@ -199,6 +201,9 @@ namespace Inworld
 		void LoadScene(const std::string& Scene);
 		void LoadCharacters(const std::vector<std::string>& Names);
 		void UnloadCharacters(const std::vector<std::string>& Names);
+
+		void LoadCapabilities(const Capabilities& Capabilities);
+		void LoadUserConfiguration(const UserConfiguration& UserConfig);
 		
 		// the callback is not called on calling thread for Async methods
 		void SaveSessionStateAsync(std::function<void(const std::string&, bool)> Callback);

@@ -336,6 +336,34 @@ void Inworld::Client::UnloadCharacters(const std::vector<std::string>& Names)
 	ControlSession<SessionControlEvent_UnloadCharacters>({ Names });
 }
 
+void Inworld::Client::LoadCapabilities(const Capabilities& Capabilities)
+{
+	_ClientOptions.Capabilities = Capabilities;
+	PushPacket(std::make_shared<ControlEventSessionConfiguration>(
+		ControlEventSessionConfiguration{
+			ControlEventSessionConfiguration::SessionConfiguration{_ClientOptions.GameSessionId},
+			_ClientOptions.Capabilities,
+			_ClientOptions.UserConfig,
+			ControlEventSessionConfiguration::ClientConfiguration{ _SdkInfo.Type, _SdkInfo.Version, _SdkInfo.Description },
+			ControlEventSessionConfiguration::Continuation{}
+		}
+	));
+}
+
+void Inworld::Client::LoadUserConfiguration(const UserConfiguration& UserConfig)
+{
+	_ClientOptions.UserConfig = UserConfig;
+	PushPacket(std::make_shared<ControlEventSessionConfiguration>(
+		ControlEventSessionConfiguration{
+			ControlEventSessionConfiguration::SessionConfiguration{_ClientOptions.GameSessionId},
+			_ClientOptions.Capabilities,
+			_ClientOptions.UserConfig,
+			ControlEventSessionConfiguration::ClientConfiguration{ _SdkInfo.Type, _SdkInfo.Version, _SdkInfo.Description },
+			ControlEventSessionConfiguration::Continuation{}
+		}
+	));
+}
+
 std::shared_ptr<Inworld::CancelResponseEvent> Inworld::Client::CancelResponse(const std::string& AgentId, const std::string& InteractionId, const std::vector<std::string>& UtteranceIds)
 {
 	auto Packet = std::make_shared<Inworld::CancelResponseEvent>(
@@ -379,6 +407,21 @@ void Inworld::Client::InitClientAsync(const SdkInfo& SdkInfo, std::function<void
 	if (_SdkInfo.OS.empty())
 	{
 		Inworld::LogWarning("Please provide SdkInfo.OS, operating system or browser");
+	}
+
+	_SdkInfo.Description = _SdkInfo.Type;
+	_SdkInfo.Description += !_SdkInfo.Subtype.empty() ? ("/" + _SdkInfo.Subtype + ";") : ";";
+	if (!_SdkInfo.Version.empty())
+	{
+		_SdkInfo.Description += _SdkInfo.Version + ";";
+	}
+	if (!_SdkInfo.OS.empty())
+	{
+		_SdkInfo.Description += _SdkInfo.OS + ";";
+	}
+	if (!_ClientOptions.ProjectName.empty())
+	{
+		_SdkInfo.Description += _ClientOptions.ProjectName;
 	}
 
 	_OnConnectionStateChangedCallback = ConnectionStateCallback;
@@ -676,27 +719,12 @@ void Inworld::Client::StartSession()
 		return;
 	}
 
-	std::string SdkDesc = _SdkInfo.Type;
-	SdkDesc += !_SdkInfo.Subtype.empty() ? ("/" + _SdkInfo.Subtype + ";") : ";";
-	if (!_SdkInfo.Version.empty())
-	{
-		SdkDesc += _SdkInfo.Version + ";";
-	}
-	if (!_SdkInfo.OS.empty())
-	{
-		SdkDesc += _SdkInfo.OS + ";";
-	}
-	if (!_ClientOptions.ProjectName.empty())
-	{
-		SdkDesc += _ClientOptions.ProjectName;
-	}
-
 	PushPacket(std::make_shared<ControlEventSessionConfiguration>(
 		ControlEventSessionConfiguration {
 			ControlEventSessionConfiguration::SessionConfiguration{_ClientOptions.GameSessionId},
 			_ClientOptions.Capabilities,
 			_ClientOptions.UserConfig,
-			ControlEventSessionConfiguration::ClientConfiguration{ _SdkInfo.Type, _SdkInfo.Version, SdkDesc },
+			ControlEventSessionConfiguration::ClientConfiguration{ _SdkInfo.Type, _SdkInfo.Version, _SdkInfo.Description },
 			ControlEventSessionConfiguration::Continuation{_SessionInfo.SessionSavedState}
 		}
 	));
