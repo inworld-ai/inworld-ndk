@@ -620,16 +620,14 @@ void Inworld::Client::GenerateToken(std::function<void()> GenerateTokenCallback)
 	);
 }
 
-void Inworld::Client::StartClientFromSceneId(const std::string_view& SceneId)
+void Inworld::Client::StartClientFromSceneId(const std::string& SceneId)
 {
 	if (_ConnectionState != ConnectionState::Idle && _ConnectionState != ConnectionState::Failed)
 	{
 		return;
 	}
 
-	_SceneId = SceneId;
-
-	if (_SceneId.empty())
+	if (SceneId.empty())
 	{
 		Inworld::LogError("StartClientFromSceneId error, requires SceneId");
 		return;
@@ -638,7 +636,7 @@ void Inworld::Client::StartClientFromSceneId(const std::string_view& SceneId)
 	SetConnectionState(ConnectionState::Connecting);
 
 	GenerateToken(
-		[this]()
+		[this, SceneId]()
 		{
 			StartSession();
 
@@ -652,7 +650,7 @@ void Inworld::Client::StartClientFromSceneId(const std::string_view& SceneId)
 				}
 			));
 
-			LoadScene(_SceneId);
+			LoadScene(SceneId);
 		}
 	);
 }
@@ -666,14 +664,14 @@ void Inworld::Client::StartClientFromSave(const SessionSave& Save)
 
 	if (!Save.IsValid())
 	{
-		Inworld::LogError("StartClientFromSave error, requires SessionSave");
+		Inworld::LogError("StartClientFromSave error, requires Scene and State");
 		return;
 	}
 
 	SetConnectionState(ConnectionState::Connecting);
 
 	GenerateToken(
-		[this, Continuation = Save.State]()
+		[this, Save]()
 		{
 			StartSession();
 
@@ -683,9 +681,11 @@ void Inworld::Client::StartClientFromSave(const SessionSave& Save)
 					_ClientOptions.Capabilities,
 					_ClientOptions.UserConfig,
 					ControlEventSessionConfiguration::ClientConfiguration{ _SdkInfo.Type, _SdkInfo.Version, _SdkInfo.Description },
-					ControlEventSessionConfiguration::Continuation{Continuation}
+					ControlEventSessionConfiguration::Continuation{Save.State}
 				}
 			));
+
+			LoadScene(Save.SceneId);
 		}
 	);
 }
@@ -795,7 +795,7 @@ std::string GetSessionName(const std::string& SceneName, const std::string& Sess
 	return SceneName.substr(0, Pos) + "sessions/" + SessionId;
 }
 
-void Inworld::Client::SaveSessionStateAsync(std::function<void(const std::string&, bool)> Callback)
+void Inworld::Client::SaveSessionStateAsync(std::function<void(const SessionSave&, bool)> Callback)
 {
 	const std::string SessionName = GetSessionName(_SceneId, _SessionToken.SessionId);
 	if (SessionName.empty())
@@ -811,7 +811,7 @@ void Inworld::Client::SaveSessionStateAsync(std::function<void(const std::string
 			_ClientOptions.ServerUrl,
 			_SessionToken.Token,
 			SessionName,
-			[this, Callback](const grpc::Status& Status, const InworldEngineV1::SessionState& State)
+			[this, Callback, SceneId = _SceneId](const grpc::Status& Status, const InworldEngineV1::SessionState& State)
 			{
 				if (!Status.ok())
 				{
@@ -819,7 +819,10 @@ void Inworld::Client::SaveSessionStateAsync(std::function<void(const std::string
 					Callback({}, false);
 					return;
 				}
-				Callback(State.state(), true);
+				SessionSave Save;
+				Save.SceneId = SceneId;
+				Save.State = State.state();
+				Callback(Save, true);
 			}
 		));
 }

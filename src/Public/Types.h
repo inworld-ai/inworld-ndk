@@ -30,11 +30,12 @@ namespace Inworld
 
 	struct INWORLD_EXPORT SessionSave
 	{
+		std::string SceneId;
 		std::string State;
 
 		bool IsValid() const
 		{
-			return !State.empty();
+			return !SceneId.empty() && !State.empty();
 		}
 	};
 

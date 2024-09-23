@@ -530,7 +530,8 @@ void NDKApp::App::Run()
 		});
 
 	_Client.Client().SetOptions(_Options);
-	_Client.Client().StartClientFromSceneId(g_SceneId);
+	std::string SceneId = std::string{ g_SceneId };
+	_Client.Client().StartClientFromSceneId(SceneId);
     _Client.Client().EnableAudioDump();
 
     _LastAudioSentTime = std::chrono::steady_clock::now();

@@ -145,7 +145,7 @@ namespace Inworld
 #pragma region Lifetime
 		// callbacks will not be called on calling thread
 		void InitClientAsync(const SdkInfo& SdkInfo, std::function<void(ConnectionState)> ConnectionStateCallback, std::function<void(std::shared_ptr<Inworld::Packet>)> PacketCallback);
-		void StartClientFromSceneId(const std::string_view& SceneId);
+		void StartClientFromSceneId(const std::string& SceneId);
 		void StartClientFromSave(const SessionSave& Save);
 		void StartClientFromToken(const SessionToken& Info);
 		void PauseClient();
@@ -205,7 +205,7 @@ namespace Inworld
 		void LoadUserConfiguration(const UserConfiguration& UserConfig);
 		
 		// the callback is not called on calling thread for Async methods
-		void SaveSessionStateAsync(std::function<void(const std::string&, bool)> Callback);
+		void SaveSessionStateAsync(std::function<void(const SessionSave&, bool)> Callback);
 #pragma endregion
 
 		void SendFeedbackAsync(std::string& InteractionId, const InteractionFeedback& Feedback, std::function<void(const std::string&, bool)> Callback = nullptr);
