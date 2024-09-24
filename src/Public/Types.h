@@ -16,16 +16,26 @@ namespace Inworld
 {
 	using ClientHeaderData = std::vector<std::pair<std::string, std::string>>;
 
-	struct INWORLD_EXPORT SessionInfo
+	struct INWORLD_EXPORT SessionToken
 	{
 		std::string SessionId;
 		std::string Token;
-		std::string SessionSavedState;
 		int64_t ExpirationTime;
 
 		bool IsValid() const
 		{
 			return !Token.empty() && !SessionId.empty() && ExpirationTime > std::time(0);
+		}
+	};
+
+	struct INWORLD_EXPORT SessionSave
+	{
+		std::string SceneId;
+		std::string State;
+
+		bool IsValid() const
+		{
+			return !SceneId.empty() && !State.empty();
 		}
 	};
 
