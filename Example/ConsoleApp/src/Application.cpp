@@ -162,9 +162,9 @@ void NDKApp::App::Run()
 			"Save current session state",
 			[this](const std::vector<std::string>& Args)
 			{
-				_Client.Client().SaveSessionStateAsync([this](std::string State, bool bSuccess)
+				_Client.Client().SaveSessionStateAsync([this](const Inworld::SessionSave& Save, bool bSuccess)
 				{
-					_Client.TaskExec.Push([this, State, bSuccess]()
+					_Client.TaskExec.Push([this, Save, bSuccess]()
 					{
 						if (!bSuccess)
 						{
@@ -172,8 +172,8 @@ void NDKApp::App::Run()
 							return;
 						}
 
-						_SavedSessionState = State;
-						Inworld::Log("Session state saved, size '%d'", State.size());
+						_SessionSave = Save;
+						Inworld::Log("Session state saved, size '%d'", _SessionSave.State.size());
 					});
 				});
 			}
@@ -185,10 +185,8 @@ void NDKApp::App::Run()
 			{
 				_Client.Client().StopClient();
 
-				Inworld::SessionSave SessionSave;
-				SessionSave.State = _SavedSessionState;
 				_Client.Client().SetOptions(_Options);
-				_Client.Client().StartClientFromSave(SessionSave);
+				_Client.Client().StartClientFromSave(_SessionSave);
 			}
 		},
 		{
@@ -259,13 +257,14 @@ void NDKApp::App::Run()
 			"Set save",
 			[this](const std::vector<std::string>& Args)
 			{
-				if (Args.size() != 1)
+				if (Args.size() != 2)
 				{
 					Error("Invalid args");
 					return;
 				}
 
-				_SavedSessionState = Args[0];
+				_SessionSave.SceneId = Args[0];
+				_SessionSave.State = Args[1];
 			}
 		},
 		{
