@@ -100,7 +100,7 @@ namespace NDKApp
 		CommandLineInterface _Cli;
 
 		InworldClient _Client;
-		std::string _SavedSessionState;
+		Inworld::SessionSave _SessionSave;
 		std::vector<Inworld::AgentInfo> _AgentInfos;
 		std::vector<Conversation> _Conversations;
 		int32_t _CurrentAgentIdx = -1;
