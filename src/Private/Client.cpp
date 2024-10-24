@@ -926,7 +926,7 @@ void Inworld::Client::PauseClientStream()
 
 void Inworld::Client::ResumeClientStream()
 {
-	if (_ConnectionState == ConnectionState::Disconnected)
+	if (!_Service->Stream())
 	{
 		StartClientStream();
 	}
