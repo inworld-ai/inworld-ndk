@@ -76,17 +76,24 @@ void Inworld::PerceivedLatencyTracker::ReceiveReply(const std::string& Interacti
 	if (It != _InteractionTimeMap.end())
 	{
 		const auto Duration = std::chrono::system_clock::now() - It->second.first;
-		_InteractionTimeMap.erase(It);
 		const int32_t Ms = std::chrono::duration_cast<std::chrono::milliseconds>(Duration).count();
 
-		PerceivedFromType Type = It->second.second;
+		const PerceivedFromType Type = It->second.second;
+		const std::string TypeStr = std::unordered_map<PerceivedFromType, std::string>{
+				{ PerceivedFromType::VoiceActivity, "Voice Activity"},
+				{ PerceivedFromType::AudioSession, "Audio Session" },
+				{ PerceivedFromType::TypedIn, "Typed In" },
+				{ PerceivedFromType::Trigger, "Trigger" },
+		}[Type];
 		
-	    Inworld::Log("PerceivedLatencyTracker: %d ms, Interaction: %s", Ms, InteractionId.c_str());
+		Inworld::Log("PerceivedLatencyTracker (%s): %d ms, Interaction: %s", TypeStr.c_str(), Ms, InteractionId.c_str());
 
 	    if (_Callback)
 	    {
 	        _Callback(InteractionId, Ms, Type);
 	    }
+
+		_InteractionTimeMap.erase(It);
 	}
 }
 
