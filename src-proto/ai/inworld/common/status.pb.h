@@ -92,12 +92,13 @@ enum ErrorType : int {
   AUDIO_SESSION_EXPIRED = 9,
   SESSION_PAUSED = 10,
   VERSION_CONFLICT = 11,
+  AUDIO_SESSION_ALREADY_STARTED = 12,
   ErrorType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   ErrorType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
 bool ErrorType_IsValid(int value);
 constexpr ErrorType ErrorType_MIN = SESSION_TOKEN_EXPIRED;
-constexpr ErrorType ErrorType_MAX = VERSION_CONFLICT;
+constexpr ErrorType ErrorType_MAX = AUDIO_SESSION_ALREADY_STARTED;
 constexpr int ErrorType_ARRAYSIZE = ErrorType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ErrorType_descriptor();

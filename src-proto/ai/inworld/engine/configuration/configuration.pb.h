@@ -230,6 +230,11 @@ class CapabilitiesConfiguration PROTOBUF_FINAL :
     kPingPongReportFieldNumber = 23,
     kPerceivedLatencyReportFieldNumber = 24,
     kMultiModalActionPlanningFieldNumber = 25,
+    kLogsFieldNumber = 26,
+    kLogsWarningFieldNumber = 27,
+    kLogsInfoFieldNumber = 28,
+    kLogsDebugFieldNumber = 29,
+    kLogsInternalFieldNumber = 30,
   };
   // bool audio = 1;
   void clear_audio();
@@ -411,6 +416,51 @@ class CapabilitiesConfiguration PROTOBUF_FINAL :
   void _internal_set_multi_modal_action_planning(bool value);
   public:
 
+  // bool logs = 26;
+  void clear_logs();
+  bool logs() const;
+  void set_logs(bool value);
+  private:
+  bool _internal_logs() const;
+  void _internal_set_logs(bool value);
+  public:
+
+  // bool logs_warning = 27;
+  void clear_logs_warning();
+  bool logs_warning() const;
+  void set_logs_warning(bool value);
+  private:
+  bool _internal_logs_warning() const;
+  void _internal_set_logs_warning(bool value);
+  public:
+
+  // bool logs_info = 28;
+  void clear_logs_info();
+  bool logs_info() const;
+  void set_logs_info(bool value);
+  private:
+  bool _internal_logs_info() const;
+  void _internal_set_logs_info(bool value);
+  public:
+
+  // bool logs_debug = 29;
+  void clear_logs_debug();
+  bool logs_debug() const;
+  void set_logs_debug(bool value);
+  private:
+  bool _internal_logs_debug() const;
+  void _internal_set_logs_debug(bool value);
+  public:
+
+  // bool logs_internal = 30;
+  void clear_logs_internal();
+  bool logs_internal() const;
+  void set_logs_internal(bool value);
+  private:
+  bool _internal_logs_internal() const;
+  void _internal_set_logs_internal(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:ai.inworld.engine.configuration.CapabilitiesConfiguration)
  private:
   class _Internal;
@@ -438,6 +488,11 @@ class CapabilitiesConfiguration PROTOBUF_FINAL :
   bool ping_pong_report_;
   bool perceived_latency_report_;
   bool multi_modal_action_planning_;
+  bool logs_;
+  bool logs_warning_;
+  bool logs_info_;
+  bool logs_debug_;
+  bool logs_internal_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto;
 };
@@ -1821,6 +1876,106 @@ inline void CapabilitiesConfiguration::_internal_set_multi_modal_action_planning
 inline void CapabilitiesConfiguration::set_multi_modal_action_planning(bool value) {
   _internal_set_multi_modal_action_planning(value);
   // @@protoc_insertion_point(field_set:ai.inworld.engine.configuration.CapabilitiesConfiguration.multi_modal_action_planning)
+}
+
+// bool logs = 26;
+inline void CapabilitiesConfiguration::clear_logs() {
+  logs_ = false;
+}
+inline bool CapabilitiesConfiguration::_internal_logs() const {
+  return logs_;
+}
+inline bool CapabilitiesConfiguration::logs() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.configuration.CapabilitiesConfiguration.logs)
+  return _internal_logs();
+}
+inline void CapabilitiesConfiguration::_internal_set_logs(bool value) {
+  
+  logs_ = value;
+}
+inline void CapabilitiesConfiguration::set_logs(bool value) {
+  _internal_set_logs(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.configuration.CapabilitiesConfiguration.logs)
+}
+
+// bool logs_warning = 27;
+inline void CapabilitiesConfiguration::clear_logs_warning() {
+  logs_warning_ = false;
+}
+inline bool CapabilitiesConfiguration::_internal_logs_warning() const {
+  return logs_warning_;
+}
+inline bool CapabilitiesConfiguration::logs_warning() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.configuration.CapabilitiesConfiguration.logs_warning)
+  return _internal_logs_warning();
+}
+inline void CapabilitiesConfiguration::_internal_set_logs_warning(bool value) {
+  
+  logs_warning_ = value;
+}
+inline void CapabilitiesConfiguration::set_logs_warning(bool value) {
+  _internal_set_logs_warning(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.configuration.CapabilitiesConfiguration.logs_warning)
+}
+
+// bool logs_info = 28;
+inline void CapabilitiesConfiguration::clear_logs_info() {
+  logs_info_ = false;
+}
+inline bool CapabilitiesConfiguration::_internal_logs_info() const {
+  return logs_info_;
+}
+inline bool CapabilitiesConfiguration::logs_info() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.configuration.CapabilitiesConfiguration.logs_info)
+  return _internal_logs_info();
+}
+inline void CapabilitiesConfiguration::_internal_set_logs_info(bool value) {
+  
+  logs_info_ = value;
+}
+inline void CapabilitiesConfiguration::set_logs_info(bool value) {
+  _internal_set_logs_info(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.configuration.CapabilitiesConfiguration.logs_info)
+}
+
+// bool logs_debug = 29;
+inline void CapabilitiesConfiguration::clear_logs_debug() {
+  logs_debug_ = false;
+}
+inline bool CapabilitiesConfiguration::_internal_logs_debug() const {
+  return logs_debug_;
+}
+inline bool CapabilitiesConfiguration::logs_debug() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.configuration.CapabilitiesConfiguration.logs_debug)
+  return _internal_logs_debug();
+}
+inline void CapabilitiesConfiguration::_internal_set_logs_debug(bool value) {
+  
+  logs_debug_ = value;
+}
+inline void CapabilitiesConfiguration::set_logs_debug(bool value) {
+  _internal_set_logs_debug(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.configuration.CapabilitiesConfiguration.logs_debug)
+}
+
+// bool logs_internal = 30;
+inline void CapabilitiesConfiguration::clear_logs_internal() {
+  logs_internal_ = false;
+}
+inline bool CapabilitiesConfiguration::_internal_logs_internal() const {
+  return logs_internal_;
+}
+inline bool CapabilitiesConfiguration::logs_internal() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.engine.configuration.CapabilitiesConfiguration.logs_internal)
+  return _internal_logs_internal();
+}
+inline void CapabilitiesConfiguration::_internal_set_logs_internal(bool value) {
+  
+  logs_internal_ = value;
+}
+inline void CapabilitiesConfiguration::set_logs_internal(bool value) {
+  _internal_set_logs_internal(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.engine.configuration.CapabilitiesConfiguration.logs_internal)
 }
 
 // -------------------------------------------------------------------
