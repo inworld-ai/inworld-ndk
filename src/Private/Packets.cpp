@@ -388,6 +388,11 @@ namespace Inworld {
 		MutableCapabilities->set_multi_modal_action_planning(_Capabilities.MultiModalActionPlanning);
 		MutableCapabilities->set_ping_pong_report(_Capabilities.PingPongReport);
 		MutableCapabilities->set_perceived_latency_report(_Capabilities.PerceivedLatencyReport);
+		MutableCapabilities->set_logs(_Capabilities.Logs);
+		MutableCapabilities->set_logs_warning(_Capabilities.Logs_warning);
+		MutableCapabilities->set_logs_info(_Capabilities.Logs_info);
+		MutableCapabilities->set_logs_debug(_Capabilities.Logs_debug);
+		MutableCapabilities->set_logs_internal(_Capabilities.Logs_internal);
 
 		auto* MutableUserConfiguration = MutableSessionConfiguration->mutable_user_configuration();
 		MutableUserConfiguration->set_id(_UserConfiguration.Id);
@@ -602,6 +607,17 @@ namespace Inworld {
 		MutablePerceivedLatencyReport->set_precision(GetType());
 
 		*MutablePerceivedLatencyReport->mutable_latency() = ::google::protobuf_inworld::util::TimeUtil::MillisecondsToDuration(_Duration);
+	}
+
+	LogEvent::LogEvent(const InworldPackets::InworldPacket& GrpcPacket)
+		: Packet(GrpcPacket)
+		, _Text(GrpcPacket.log().text())
+		, _LogLevel(GrpcPacket.log().level())
+	{}
+
+	void LogEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
+	{
+		
 	}
 
 }

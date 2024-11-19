@@ -34,6 +34,7 @@ namespace ai { namespace inworld { namespace packets {
 	enum CustomEvent_Type : int;
 	enum PingPongReport_Type : int;
 	enum PerceivedLatencyReport_Precision : int;
+	enum LogsEvent_LogLevel : int;
 
 	namespace entities {
 		enum ItemsInEntitiesOperation_Type : int;
@@ -136,6 +137,7 @@ namespace Inworld {
 	class ActionEvent;
 	class RelationEvent;
 	class PingEvent;
+	class LogEvent;
 
     class INWORLD_EXPORT PacketVisitor
     {
@@ -157,6 +159,7 @@ namespace Inworld {
     	virtual void Visit(const ActionEvent& Event) { }
     	virtual void Visit(const RelationEvent& Event) { }
 		virtual void Visit(const PingEvent& Event) { }
+		virtual void Visit(const LogEvent& Event) { }
     };
 
 	struct EmotionalState;
@@ -408,6 +411,11 @@ namespace Inworld {
 			bool MultiModalActionPlanning = false;
 			bool PingPongReport = true;
 			bool PerceivedLatencyReport = true;
+			bool Logs = false;
+			bool Logs_warning = true;
+			bool Logs_info = true;
+			bool Logs_debug = false;
+			bool Logs_internal = false;
 		};
 
 		struct INWORLD_EXPORT UserConfiguration
@@ -889,4 +897,24 @@ namespace Inworld {
 			return T;
 		}
 	};
+
+	class INWORLD_EXPORT LogEvent : public Packet
+	{
+	public:
+		LogEvent() = default;
+		LogEvent(const InworldPackets::InworldPacket& GrpcPacket);
+		LogEvent(const Routing& Routing);
+
+		const InworldPackets::LogsEvent_LogLevel GetLogLevel() const { return _LogLevel; }
+		const std::string& GetLogText() const { return _Text; }
+
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
+
+		virtual void Accept(PacketVisitor& Visitor) override { /* Outgoing Only */ }
+
+	private:
+		std::string _Text;
+		InworldPackets::LogsEvent_LogLevel _LogLevel;
+	};
+
 }

@@ -91,6 +91,10 @@ void Inworld::RunnableRead::Run()
 				Packet = std::make_shared<Inworld::PingEvent>(IncomingPacket);
 			}
 		}
+		else if (IncomingPacket.has_log())
+		{
+			Packet = std::make_shared<Inworld::LogEvent>(IncomingPacket);
+		}
 
 		if(Packet == nullptr)
 		{

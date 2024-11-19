@@ -175,6 +175,19 @@ void Inworld::Client::Visit(const PingEvent& Event)
 	SendPacket(Pong);
 }
 
+void Inworld::Client::Visit(const LogEvent& Event)
+{
+	switch(Event.GetLogLevel()) {
+		case 0: // Unspecified
+		case 1: // Warning
+			Inworld::LogWarning("LogWarning: %s", Event.GetLogText());
+		break;
+		default:
+			Inworld::Log("LogEvent: %s", Event.GetLogText());
+		break;
+	}
+}
+
 void Inworld::Client::SendPacket(std::shared_ptr<Inworld::Packet> Packet)
 {
 	if (GetConnectionState() != ConnectionState::Connected && GetConnectionState() != ConnectionState::Reconnecting)
