@@ -389,10 +389,10 @@ namespace Inworld {
 		MutableCapabilities->set_ping_pong_report(_Capabilities.PingPongReport);
 		MutableCapabilities->set_perceived_latency_report(_Capabilities.PerceivedLatencyReport);
 		MutableCapabilities->set_logs(_Capabilities.Logs);
-		MutableCapabilities->set_logs_warning(_Capabilities.Logs_warning);
-		MutableCapabilities->set_logs_info(_Capabilities.Logs_info);
-		MutableCapabilities->set_logs_debug(_Capabilities.Logs_debug);
-		MutableCapabilities->set_logs_internal(_Capabilities.Logs_internal);
+		MutableCapabilities->set_logs_warning(_Capabilities.LogsWarning);
+		MutableCapabilities->set_logs_info(_Capabilities.LogsInfo);
+		MutableCapabilities->set_logs_debug(_Capabilities.LogsDebug);
+		MutableCapabilities->set_logs_internal(_Capabilities.LogsInternal);
 
 		auto* MutableUserConfiguration = MutableSessionConfiguration->mutable_user_configuration();
 		MutableUserConfiguration->set_id(_UserConfiguration.Id);
