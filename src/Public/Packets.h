@@ -903,14 +903,11 @@ namespace Inworld {
 	public:
 		LogEvent() = default;
 		LogEvent(const InworldPackets::InworldPacket& GrpcPacket);
-		LogEvent(const Routing& Routing);
 
 		const InworldPackets::LogsEvent_LogLevel GetLogLevel() const { return _LogLevel; }
 		const std::string& GetLogText() const { return _Text; }
 
-		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
-
-		virtual void Accept(PacketVisitor& Visitor) override { /* Outgoing Only */ }
+		virtual void Accept(PacketVisitor& Visitor) override { Visitor.Visit(*this); }
 
 	private:
 		std::string _Text;

@@ -179,11 +179,22 @@ void Inworld::Client::Visit(const LogEvent& Event)
 {
 	switch(Event.GetLogLevel()) {
 		case 0: // Unspecified
+			Inworld::Log("[UNSPECIFIED]: %s", Event.GetLogText().c_str());
+		break;
 		case 1: // Warning
-			Inworld::LogWarning("LogWarning: %s", Event.GetLogText());
+			Inworld::LogWarning("[WARNING]: %s", Event.GetLogText().c_str());
+		break;
+		case 2: // Info
+			Inworld::Log("[INFO]: %s", Event.GetLogText().c_str());
+		break;
+		case 3: // Debug
+			Inworld::Log("[DEBUG]: %s", Event.GetLogText().c_str());
+		break;
+		case 4: // Internal
+			Inworld::Log("[INTERNAL]: %s", Event.GetLogText().c_str());
 		break;
 		default:
-			Inworld::Log("LogEvent: %s", Event.GetLogText());
+			Inworld::Log("%s", Event.GetLogText().c_str());
 		break;
 	}
 }

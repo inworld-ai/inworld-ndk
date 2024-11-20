@@ -609,15 +609,9 @@ namespace Inworld {
 		*MutablePerceivedLatencyReport->mutable_latency() = ::google::protobuf_inworld::util::TimeUtil::MillisecondsToDuration(_Duration);
 	}
 
-	LogEvent::LogEvent(const InworldPackets::InworldPacket& GrpcPacket)
+	LogEvent::LogEvent(const InworldPackets::InworldPacket& GrpcPacket) 
 		: Packet(GrpcPacket)
-		, _Text(GrpcPacket.log().text())
-		, _LogLevel(GrpcPacket.log().level())
-	{}
-
-	void LogEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
-	{
-		
-	}
-
+			, _Text(GrpcPacket.log().text())
+			, _LogLevel(GrpcPacket.log().level())
+	{ }
 }
