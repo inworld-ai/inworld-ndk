@@ -178,23 +178,23 @@ void Inworld::Client::Visit(const PingEvent& Event)
 void Inworld::Client::Visit(const LogEvent& Event)
 {
 	switch(Event.GetLogLevel()) {
-		case 0: // Unspecified
+		case ai::inworld::packets::LogsEvent_LogLevel::LogsEvent_LogLevel_UNSPECIFIED:
 			Inworld::Log("[UNSPECIFIED]: %s", Event.GetLogText().c_str());
 		break;
-		case 1: // Warning
+		case ai::inworld::packets::LogsEvent_LogLevel::LogsEvent_LogLevel_WARNING:
 			Inworld::LogWarning("[WARNING]: %s", Event.GetLogText().c_str());
 		break;
-		case 2: // Info
+		case ai::inworld::packets::LogsEvent_LogLevel::LogsEvent_LogLevel_INFO:
 			Inworld::Log("[INFO]: %s", Event.GetLogText().c_str());
 		break;
-		case 3: // Debug
+		case ai::inworld::packets::LogsEvent_LogLevel::LogsEvent_LogLevel_DEBUG:
 			Inworld::Log("[DEBUG]: %s", Event.GetLogText().c_str());
 		break;
-		case 4: // Internal
+		case ai::inworld::packets::LogsEvent_LogLevel::LogsEvent_LogLevel_INTERNAL:
 			Inworld::Log("[INTERNAL]: %s", Event.GetLogText().c_str());
 		break;
 		default:
-			Inworld::Log("%s", Event.GetLogText().c_str());
+			Inworld::LogError("[UNKNOWN]: %s", Event.GetLogText().c_str());
 		break;
 	}
 }

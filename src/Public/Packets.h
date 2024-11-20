@@ -412,10 +412,10 @@ namespace Inworld {
 			bool PingPongReport = true;
 			bool PerceivedLatencyReport = true;
 			bool Logs = false;
-			bool Logs_warning = true;
-			bool Logs_info = true;
-			bool Logs_debug = false;
-			bool Logs_internal = false;
+			bool LogsWarning = true;
+			bool LogsInfo = true;
+			bool LogsDebug = false;
+			bool LogsInternal = false;
 		};
 
 		struct INWORLD_EXPORT UserConfiguration
