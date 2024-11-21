@@ -616,14 +616,15 @@ namespace Inworld {
 		: Packet(GrpcPacket)
 			, _LogLevel(GrpcPacket.log().level())
 	{ 
+		const int indent = 4;
 		std::stringstream ss;
 		for(const InworldPackets::LogsEvent_LogDetail& logDetail : GrpcPacket.log().details()) {
-			ss << logDetail.text() << ": ";
+			ss << std::string(indent, ' ') << logDetail.text() << ": ";
 			std::string jsonOutput;
 			google::protobuf_inworld::util::MessageToJsonString(logDetail.detail(), &jsonOutput);
 			ss << jsonOutput << std::endl;
 		}
-		_Text = std::regex_replace(GrpcPacket.log().text() + "\n" + ss.str(), std::regex("\\\\n"), " ");
+		_Text = GrpcPacket.log().text() + "\n" + ss.str();
 	}
 
 }
