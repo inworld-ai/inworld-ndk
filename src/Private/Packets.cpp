@@ -9,11 +9,14 @@
 #include "ProtoDisableWarning.h"
 
 #include <random>
+#include <sstream>
+#include <regex>
 
 #include "Types.h"
 #include "Utils/Log.h"
 
 #include "google/protobuf/util/time_util.h"
+#include "google/protobuf/util/json_util.h"
 #include "ai/inworld/packets/packets.pb.h"
 #include "nvidia/a2f/nvidia_ace.controller.v1.pb.h"
 
@@ -611,7 +614,16 @@ namespace Inworld {
 
 	LogEvent::LogEvent(const InworldPackets::InworldPacket& GrpcPacket) 
 		: Packet(GrpcPacket)
-			, _Text(GrpcPacket.log().text())
 			, _LogLevel(GrpcPacket.log().level())
-	{ }
+	{ 
+		std::stringstream ss;
+		for(const InworldPackets::LogsEvent_LogDetail& logDetail : GrpcPacket.log().details()) {
+			ss << logDetail.text() << ": ";
+			std::string jsonOutput;
+			google::protobuf_inworld::util::MessageToJsonString(logDetail.detail(), &jsonOutput);
+			ss << jsonOutput << std::endl;
+		}
+		_Text = std::regex_replace(GrpcPacket.log().text() + "\n" + ss.str(), std::regex("\\\\n"), " ");
+	}
+
 }
