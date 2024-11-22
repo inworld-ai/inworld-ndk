@@ -9,11 +9,14 @@
 #include "ProtoDisableWarning.h"
 
 #include <random>
+#include <sstream>
+#include <regex>
 
 #include "Types.h"
 #include "Utils/Log.h"
 
 #include "google/protobuf/util/time_util.h"
+#include "google/protobuf/util/json_util.h"
 #include "ai/inworld/packets/packets.pb.h"
 #include "nvidia/a2f/nvidia_ace.controller.v1.pb.h"
 
@@ -388,6 +391,11 @@ namespace Inworld {
 		MutableCapabilities->set_multi_modal_action_planning(_Capabilities.MultiModalActionPlanning);
 		MutableCapabilities->set_ping_pong_report(_Capabilities.PingPongReport);
 		MutableCapabilities->set_perceived_latency_report(_Capabilities.PerceivedLatencyReport);
+		MutableCapabilities->set_logs(_Capabilities.Logs);
+		MutableCapabilities->set_logs_warning(_Capabilities.LogsWarning);
+		MutableCapabilities->set_logs_info(_Capabilities.LogsInfo);
+		MutableCapabilities->set_logs_debug(_Capabilities.LogsDebug);
+		MutableCapabilities->set_logs_internal(_Capabilities.LogsInternal);
 
 		auto* MutableUserConfiguration = MutableSessionConfiguration->mutable_user_configuration();
 		MutableUserConfiguration->set_id(_UserConfiguration.Id);
@@ -602,6 +610,21 @@ namespace Inworld {
 		MutablePerceivedLatencyReport->set_precision(GetType());
 
 		*MutablePerceivedLatencyReport->mutable_latency() = ::google::protobuf_inworld::util::TimeUtil::MillisecondsToDuration(_Duration);
+	}
+
+	LogEvent::LogEvent(const InworldPackets::InworldPacket& GrpcPacket) 
+		: Packet(GrpcPacket)
+			, _LogLevel(GrpcPacket.log().level())
+	{ 
+		const int indent = 4;
+		std::stringstream ss;
+		for(const InworldPackets::LogsEvent_LogDetail& logDetail : GrpcPacket.log().details()) {
+			ss << std::string(indent, ' ') << logDetail.text() << ": ";
+			std::string jsonOutput;
+			google::protobuf_inworld::util::MessageToJsonString(logDetail.detail(), &jsonOutput);
+			ss << jsonOutput << std::endl;
+		}
+		_Text = GrpcPacket.log().text() + "\n" + ss.str();
 	}
 
 }

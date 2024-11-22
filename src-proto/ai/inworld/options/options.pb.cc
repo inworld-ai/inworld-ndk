@@ -42,7 +42,7 @@ static void InitDefaultsscc_info_ExampleValue_ai_2finworld_2foptions_2foptions_2
       &scc_info_ListValue_google_2fprotobuf_2fstruct_2eproto.base,}};
 
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_ai_2finworld_2foptions_2foptions_2eproto[1];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_ai_2finworld_2foptions_2foptions_2eproto[1];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_ai_2finworld_2foptions_2foptions_2eproto[2];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_ai_2finworld_2foptions_2foptions_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2foptions_2foptions_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -67,15 +67,19 @@ const char descriptor_table_protodef_ai_2finworld_2foptions_2foptions_2eproto[] 
   "or.proto\032\034google/protobuf/struct.proto\"7"
   "\n\014ExampleValue\022\'\n\007example\030\001 \003(\0132\026.google"
   ".protobuf.Value*3\n\tFieldMode\022\032\n\026FIELD_MO"
-  "DE_UNSPECIFIED\020\000\022\n\n\006HIDDEN\020\001:V\n\010examples"
-  "\022\035.google.protobuf.FieldOptions\030\364\251\004 \001(\0132"
-  " .ai.inworld.options.ExampleValue\210\001\001:R\n\n"
-  "field_mode\022\035.google.protobuf.FieldOption"
-  "s\030\201\361\004 \003(\0162\035.ai.inworld.options.FieldMode"
-  "Br\n\022ai.inworld.optionsB\017OptionsProtocolZ"
-  "Kgithub.com/inworld-ai/inworld-proto-gol"
-  "ang/src/go/ai/inworld/engine/v1alphab\006pr"
-  "oto3"
+  "DE_UNSPECIFIED\020\000\022\n\n\006HIDDEN\020\001*E\n\023Serializ"
+  "ationOption\022$\n SERIALIZATION_OPTION_UNSP"
+  "ECIFIED\020\000\022\010\n\004SKIP\020\001:V\n\010examples\022\035.google"
+  ".protobuf.FieldOptions\030\364\251\004 \001(\0132 .ai.inwo"
+  "rld.options.ExampleValue\210\001\001:R\n\nfield_mod"
+  "e\022\035.google.protobuf.FieldOptions\030\201\361\004 \003(\016"
+  "2\035.ai.inworld.options.FieldMode:h\n\024seria"
+  "lization_option\022\035.google.protobuf.FieldO"
+  "ptions\030\346N \001(\0162\'.ai.inworld.options.Seria"
+  "lizationOption\210\001\001Br\n\022ai.inworld.optionsB"
+  "\017OptionsProtocolZKgithub.com/inworld-ai/"
+  "inworld-proto-golang/src/go/ai/inworld/e"
+  "ngine/v1alphab\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2foptions_2foptions_2eproto_deps[2] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -86,7 +90,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2foptions_2foptions_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2foptions_2foptions_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2foptions_2foptions_2eproto, "ai/inworld/options/options.proto", 524,
+  false, false, descriptor_table_protodef_ai_2finworld_2foptions_2foptions_2eproto, "ai/inworld/options/options.proto", 701,
   &descriptor_table_ai_2finworld_2foptions_2foptions_2eproto_once, descriptor_table_ai_2finworld_2foptions_2foptions_2eproto_sccs, descriptor_table_ai_2finworld_2foptions_2foptions_2eproto_deps, 1, 2,
   schemas, file_default_instances, TableStruct_ai_2finworld_2foptions_2foptions_2eproto::offsets,
   file_level_metadata_ai_2finworld_2foptions_2foptions_2eproto, 1, file_level_enum_descriptors_ai_2finworld_2foptions_2foptions_2eproto, file_level_service_descriptors_ai_2finworld_2foptions_2foptions_2eproto,
@@ -102,6 +106,20 @@ const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* FieldMode_descriptor() {
   return file_level_enum_descriptors_ai_2finworld_2foptions_2foptions_2eproto[0];
 }
 bool FieldMode_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SerializationOption_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_ai_2finworld_2foptions_2foptions_2eproto);
+  return file_level_enum_descriptors_ai_2finworld_2foptions_2foptions_2eproto[1];
+}
+bool SerializationOption_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
@@ -320,6 +338,9 @@ void ExampleValue::InternalSwap(ExampleValue* other) {
 ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf_inworld::FieldOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::RepeatedEnumTypeTraits< ::ai::inworld::options::FieldMode, ::ai::inworld::options::FieldMode_IsValid>, 14, true >
   field_mode(kFieldModeFieldNumber, static_cast< ::ai::inworld::options::FieldMode >(0));
+::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf_inworld::FieldOptions,
+    ::PROTOBUF_NAMESPACE_ID::internal::EnumTypeTraits< ::ai::inworld::options::SerializationOption, ::ai::inworld::options::SerializationOption_IsValid>, 14, false >
+  serialization_option(kSerializationOptionFieldNumber, static_cast< ::ai::inworld::options::SerializationOption >(0));
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace options

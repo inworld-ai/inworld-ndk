@@ -97,6 +97,31 @@ inline bool FieldMode_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<FieldMode>(
     FieldMode_descriptor(), name, value);
 }
+enum SerializationOption : int {
+  SERIALIZATION_OPTION_UNSPECIFIED = 0,
+  SKIP = 1,
+  SerializationOption_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  SerializationOption_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool SerializationOption_IsValid(int value);
+constexpr SerializationOption SerializationOption_MIN = SERIALIZATION_OPTION_UNSPECIFIED;
+constexpr SerializationOption SerializationOption_MAX = SKIP;
+constexpr int SerializationOption_ARRAYSIZE = SerializationOption_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SerializationOption_descriptor();
+template<typename T>
+inline const std::string& SerializationOption_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, SerializationOption>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function SerializationOption_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    SerializationOption_descriptor(), enum_t_value);
+}
+inline bool SerializationOption_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SerializationOption* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SerializationOption>(
+    SerializationOption_descriptor(), name, value);
+}
 // ===================================================================
 
 class ExampleValue PROTOBUF_FINAL :
@@ -252,6 +277,10 @@ static const int kFieldModeFieldNumber = 80001;
 extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf_inworld::FieldOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::RepeatedEnumTypeTraits< ::ai::inworld::options::FieldMode, ::ai::inworld::options::FieldMode_IsValid>, 14, true >
   field_mode;
+static const int kSerializationOptionFieldNumber = 10086;
+extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf_inworld::FieldOptions,
+    ::PROTOBUF_NAMESPACE_ID::internal::EnumTypeTraits< ::ai::inworld::options::SerializationOption, ::ai::inworld::options::SerializationOption_IsValid>, 14, false >
+  serialization_option;
 
 // ===================================================================
 
@@ -313,6 +342,11 @@ template <> struct is_proto_enum< ::ai::inworld::options::FieldMode> : ::std::tr
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ai::inworld::options::FieldMode>() {
   return ::ai::inworld::options::FieldMode_descriptor();
+}
+template <> struct is_proto_enum< ::ai::inworld::options::SerializationOption> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ai::inworld::options::SerializationOption>() {
+  return ::ai::inworld::options::SerializationOption_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

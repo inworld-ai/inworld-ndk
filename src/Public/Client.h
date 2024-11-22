@@ -248,6 +248,7 @@ namespace Inworld
 
 		virtual void Visit(const ControlEventCurrentSceneStatus& Event) override;
 		virtual void Visit(const PingEvent& Event) override;
+		virtual void Visit(const LogEvent& Event) override;
 
 	protected:
 		void SendPacket(std::shared_ptr<Inworld::Packet> Packet);

@@ -178,6 +178,11 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fengine_2fconfig
   PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, ping_pong_report_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, perceived_latency_report_),
   PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, multi_modal_action_planning_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, logs_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, logs_warning_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, logs_info_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, logs_debug_),
+  PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::CapabilitiesConfiguration, logs_internal_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile_PlayerField, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -223,12 +228,12 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ai_2finworld_2fengine_2fconfig
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::ai::inworld::engine::configuration::CapabilitiesConfiguration)},
-  { 25, -1, sizeof(::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile_PlayerField)},
-  { 32, -1, sizeof(::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile)},
-  { 38, -1, sizeof(::ai::inworld::engine::configuration::UserConfiguration_UserSettings)},
-  { 45, -1, sizeof(::ai::inworld::engine::configuration::UserConfiguration)},
-  { 53, -1, sizeof(::ai::inworld::engine::configuration::ClientConfiguration)},
-  { 61, -1, sizeof(::ai::inworld::engine::configuration::SessionConfiguration)},
+  { 30, -1, sizeof(::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile_PlayerField)},
+  { 37, -1, sizeof(::ai::inworld::engine::configuration::UserConfiguration_UserSettings_PlayerProfile)},
+  { 43, -1, sizeof(::ai::inworld::engine::configuration::UserConfiguration_UserSettings)},
+  { 50, -1, sizeof(::ai::inworld::engine::configuration::UserConfiguration)},
+  { 58, -1, sizeof(::ai::inworld::engine::configuration::ClientConfiguration)},
+  { 66, -1, sizeof(::ai::inworld::engine::configuration::SessionConfiguration)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -244,7 +249,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 const char descriptor_table_protodef_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n3ai/inworld/engine/configuration/config"
   "uration.proto\022\037ai.inworld.engine.configu"
-  "ration\"\372\003\n\031CapabilitiesConfiguration\022\r\n\005"
+  "ration\"\334\004\n\031CapabilitiesConfiguration\022\r\n\005"
   "audio\030\001 \001(\010\022\025\n\rinterruptions\030\003 \001(\010\022\020\n\010em"
   "otions\030\004 \001(\010\022\032\n\016turn_based_stt\030\005 \001(\010B\002\030\001"
   "\022\031\n\021emotion_streaming\030\006 \001(\010\022\032\n\016silence_e"
@@ -256,27 +261,29 @@ const char descriptor_table_protodef_ai_2finworld_2fengine_2fconfiguration_2fcon
   "\022\023\n\013multi_agent\030\024 \001(\010\022\022\n\naudio2face\030\025 \001("
   "\010\022\017\n\007inspect\030\026 \001(\010\022\030\n\020ping_pong_report\030\027"
   " \001(\010\022 \n\030perceived_latency_report\030\030 \001(\010\022#"
-  "\n\033multi_modal_action_planning\030\031 \001(\010\"\321\003\n\021"
-  "UserConfiguration\022\014\n\004name\030\001 \001(\t\022\n\n\002id\030\002 "
-  "\001(\t\022V\n\ruser_settings\030\003 \001(\0132\?.ai.inworld."
-  "engine.configuration.UserConfiguration.U"
-  "serSettings\032\311\002\n\014UserSettings\022\037\n\027view_tra"
-  "nscript_consent\030\001 \001(\010\022e\n\016player_profile\030"
-  "\002 \001(\0132M.ai.inworld.engine.configuration."
-  "UserConfiguration.UserSettings.PlayerPro"
-  "file\032\260\001\n\rPlayerProfile\022i\n\006fields\030\003 \003(\0132Y"
-  ".ai.inworld.engine.configuration.UserCon"
-  "figuration.UserSettings.PlayerProfile.Pl"
-  "ayerField\0324\n\013PlayerField\022\020\n\010field_id\030\001 \001"
-  "(\t\022\023\n\013field_value\030\002 \001(\t\"G\n\023ClientConfigu"
-  "ration\022\n\n\002id\030\001 \001(\t\022\017\n\007version\030\002 \001(\t\022\023\n\013d"
-  "escription\030\003 \001(\t\"5\n\024SessionConfiguration"
-  "\022\027\n\017game_session_id\030\002 \001(\tJ\004\010\001\020\002B\247\001\n\037ai.i"
-  "nworld.engine.configurationB\030EngineConfi"
-  "gurationProtoP\001ZKgithub.com/inworld-ai/i"
-  "nworld-proto-golang/src/go/ai/inworld/en"
-  "gine/v1alpha\252\002\032Inworld.Grpc.Configuratio"
-  "nb\006proto3"
+  "\n\033multi_modal_action_planning\030\031 \001(\010\022\014\n\004l"
+  "ogs\030\032 \001(\010\022\024\n\014logs_warning\030\033 \001(\010\022\021\n\tlogs_"
+  "info\030\034 \001(\010\022\022\n\nlogs_debug\030\035 \001(\010\022\025\n\rlogs_i"
+  "nternal\030\036 \001(\010\"\321\003\n\021UserConfiguration\022\014\n\004n"
+  "ame\030\001 \001(\t\022\n\n\002id\030\002 \001(\t\022V\n\ruser_settings\030\003"
+  " \001(\0132\?.ai.inworld.engine.configuration.U"
+  "serConfiguration.UserSettings\032\311\002\n\014UserSe"
+  "ttings\022\037\n\027view_transcript_consent\030\001 \001(\010\022"
+  "e\n\016player_profile\030\002 \001(\0132M.ai.inworld.eng"
+  "ine.configuration.UserConfiguration.User"
+  "Settings.PlayerProfile\032\260\001\n\rPlayerProfile"
+  "\022i\n\006fields\030\003 \003(\0132Y.ai.inworld.engine.con"
+  "figuration.UserConfiguration.UserSetting"
+  "s.PlayerProfile.PlayerField\0324\n\013PlayerFie"
+  "ld\022\020\n\010field_id\030\001 \001(\t\022\023\n\013field_value\030\002 \001("
+  "\t\"G\n\023ClientConfiguration\022\n\n\002id\030\001 \001(\t\022\017\n\007"
+  "version\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\"5\n\024Se"
+  "ssionConfiguration\022\027\n\017game_session_id\030\002 "
+  "\001(\tJ\004\010\001\020\002B\247\001\n\037ai.inworld.engine.configur"
+  "ationB\030EngineConfigurationProtoP\001ZKgithu"
+  "b.com/inworld-ai/inworld-proto-golang/sr"
+  "c/go/ai/inworld/engine/v1alpha\252\002\032Inworld"
+  ".Grpc.Configurationb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_deps[1] = {
 };
@@ -291,7 +298,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ai_
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto = {
-  false, false, descriptor_table_protodef_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto, "ai/inworld/engine/configuration/configuration.proto", 1369,
+  false, false, descriptor_table_protodef_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto, "ai/inworld/engine/configuration/configuration.proto", 1467,
   &descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_once, descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_sccs, descriptor_table_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto_deps, 7, 0,
   schemas, file_default_instances, TableStruct_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto::offsets,
   file_level_metadata_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto, 7, file_level_enum_descriptors_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto, file_level_service_descriptors_ai_2finworld_2fengine_2fconfiguration_2fconfiguration_2eproto,
@@ -320,16 +327,16 @@ CapabilitiesConfiguration::CapabilitiesConfiguration(const CapabilitiesConfigura
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&audio_, &from.audio_,
-    static_cast<size_t>(reinterpret_cast<char*>(&multi_modal_action_planning_) -
-    reinterpret_cast<char*>(&audio_)) + sizeof(multi_modal_action_planning_));
+    static_cast<size_t>(reinterpret_cast<char*>(&logs_internal_) -
+    reinterpret_cast<char*>(&audio_)) + sizeof(logs_internal_));
   // @@protoc_insertion_point(copy_constructor:ai.inworld.engine.configuration.CapabilitiesConfiguration)
 }
 
 void CapabilitiesConfiguration::SharedCtor() {
   ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
       reinterpret_cast<char*>(&audio_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&multi_modal_action_planning_) -
-      reinterpret_cast<char*>(&audio_)) + sizeof(multi_modal_action_planning_));
+      0, static_cast<size_t>(reinterpret_cast<char*>(&logs_internal_) -
+      reinterpret_cast<char*>(&audio_)) + sizeof(logs_internal_));
 }
 
 CapabilitiesConfiguration::~CapabilitiesConfiguration() {
@@ -364,8 +371,8 @@ void CapabilitiesConfiguration::Clear() {
   (void) cached_has_bits;
 
   ::memset(&audio_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&multi_modal_action_planning_) -
-      reinterpret_cast<char*>(&audio_)) + sizeof(multi_modal_action_planning_));
+      reinterpret_cast<char*>(&logs_internal_) -
+      reinterpret_cast<char*>(&audio_)) + sizeof(logs_internal_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -513,6 +520,41 @@ const char* CapabilitiesConfiguration::_InternalParse(const char* ptr, ::PROTOBU
       case 25:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 200)) {
           multi_modal_action_planning_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bool logs = 26;
+      case 26:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 208)) {
+          logs_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bool logs_warning = 27;
+      case 27:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 216)) {
+          logs_warning_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bool logs_info = 28;
+      case 28:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 224)) {
+          logs_info_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bool logs_debug = 29;
+      case 29:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 232)) {
+          logs_debug_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bool logs_internal = 30;
+      case 30:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 240)) {
+          logs_internal_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -664,6 +706,36 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(25, this->_internal_multi_modal_action_planning(), target);
   }
 
+  // bool logs = 26;
+  if (this->logs() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(26, this->_internal_logs(), target);
+  }
+
+  // bool logs_warning = 27;
+  if (this->logs_warning() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(27, this->_internal_logs_warning(), target);
+  }
+
+  // bool logs_info = 28;
+  if (this->logs_info() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(28, this->_internal_logs_info(), target);
+  }
+
+  // bool logs_debug = 29;
+  if (this->logs_debug() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(29, this->_internal_logs_debug(), target);
+  }
+
+  // bool logs_internal = 30;
+  if (this->logs_internal() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(30, this->_internal_logs_internal(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -780,6 +852,31 @@ size_t CapabilitiesConfiguration::ByteSizeLong() const {
     total_size += 2 + 1;
   }
 
+  // bool logs = 26;
+  if (this->logs() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool logs_warning = 27;
+  if (this->logs_warning() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool logs_info = 28;
+  if (this->logs_info() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool logs_debug = 29;
+  if (this->logs_debug() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool logs_internal = 30;
+  if (this->logs_internal() != 0) {
+    total_size += 2 + 1;
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -871,6 +968,21 @@ void CapabilitiesConfiguration::MergeFrom(const CapabilitiesConfiguration& from)
   if (from.multi_modal_action_planning() != 0) {
     _internal_set_multi_modal_action_planning(from._internal_multi_modal_action_planning());
   }
+  if (from.logs() != 0) {
+    _internal_set_logs(from._internal_logs());
+  }
+  if (from.logs_warning() != 0) {
+    _internal_set_logs_warning(from._internal_logs_warning());
+  }
+  if (from.logs_info() != 0) {
+    _internal_set_logs_info(from._internal_logs_info());
+  }
+  if (from.logs_debug() != 0) {
+    _internal_set_logs_debug(from._internal_logs_debug());
+  }
+  if (from.logs_internal() != 0) {
+    _internal_set_logs_internal(from._internal_logs_internal());
+  }
 }
 
 void CapabilitiesConfiguration::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -895,8 +1007,8 @@ void CapabilitiesConfiguration::InternalSwap(CapabilitiesConfiguration* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, multi_modal_action_planning_)
-      + sizeof(CapabilitiesConfiguration::multi_modal_action_planning_)
+      PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, logs_internal_)
+      + sizeof(CapabilitiesConfiguration::logs_internal_)
       - PROTOBUF_FIELD_OFFSET(CapabilitiesConfiguration, audio_)>(
           reinterpret_cast<char*>(&audio_),
           reinterpret_cast<char*>(&other->audio_));

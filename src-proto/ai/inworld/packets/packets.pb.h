@@ -30,6 +30,9 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/map.h>  // IWYU pragma: export
+#include <google/protobuf/map_entry.h>
+#include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include <google/protobuf/duration.pb.h>
@@ -39,7 +42,7 @@
 #include "ai/inworld/options/options.pb.h"
 #include "ai/inworld/engine/configuration/configuration.pb.h"
 #include "ai/inworld/language_codes/language_codes.pb.h"
-#include "ai/inworld/packets/entities_packets.pb.h"
+#include "ai/inworld/packets/entities/entities_packets.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_ai_2finworld_2fpackets_2fpackets_2eproto
@@ -55,7 +58,7 @@ struct TableStruct_ai_2finworld_2fpackets_2fpackets_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[54]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[57]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -161,6 +164,15 @@ extern LoadedCharactersDefaultTypeInternal _LoadedCharacters_default_instance_;
 class LoadedScene;
 class LoadedSceneDefaultTypeInternal;
 extern LoadedSceneDefaultTypeInternal _LoadedScene_default_instance_;
+class LogsEvent;
+class LogsEventDefaultTypeInternal;
+extern LogsEventDefaultTypeInternal _LogsEvent_default_instance_;
+class LogsEvent_LogDetail;
+class LogsEvent_LogDetailDefaultTypeInternal;
+extern LogsEvent_LogDetailDefaultTypeInternal _LogsEvent_LogDetail_default_instance_;
+class LogsEvent_MetadataEntry_DoNotUse;
+class LogsEvent_MetadataEntry_DoNotUseDefaultTypeInternal;
+extern LogsEvent_MetadataEntry_DoNotUseDefaultTypeInternal _LogsEvent_MetadataEntry_DoNotUse_default_instance_;
 class ModifyExactResponse;
 class ModifyExactResponseDefaultTypeInternal;
 extern ModifyExactResponseDefaultTypeInternal _ModifyExactResponse_default_instance_;
@@ -263,6 +275,9 @@ template<> ::ai::inworld::packets::LoadSceneOutputEvent* Arena::CreateMaybeMessa
 template<> ::ai::inworld::packets::LoadSceneOutputEvent_Agent* Arena::CreateMaybeMessage<::ai::inworld::packets::LoadSceneOutputEvent_Agent>(Arena*);
 template<> ::ai::inworld::packets::LoadedCharacters* Arena::CreateMaybeMessage<::ai::inworld::packets::LoadedCharacters>(Arena*);
 template<> ::ai::inworld::packets::LoadedScene* Arena::CreateMaybeMessage<::ai::inworld::packets::LoadedScene>(Arena*);
+template<> ::ai::inworld::packets::LogsEvent* Arena::CreateMaybeMessage<::ai::inworld::packets::LogsEvent>(Arena*);
+template<> ::ai::inworld::packets::LogsEvent_LogDetail* Arena::CreateMaybeMessage<::ai::inworld::packets::LogsEvent_LogDetail>(Arena*);
+template<> ::ai::inworld::packets::LogsEvent_MetadataEntry_DoNotUse* Arena::CreateMaybeMessage<::ai::inworld::packets::LogsEvent_MetadataEntry_DoNotUse>(Arena*);
 template<> ::ai::inworld::packets::ModifyExactResponse* Arena::CreateMaybeMessage<::ai::inworld::packets::ModifyExactResponse>(Arena*);
 template<> ::ai::inworld::packets::MutationEvent* Arena::CreateMaybeMessage<::ai::inworld::packets::MutationEvent>(Arena*);
 template<> ::ai::inworld::packets::NarratedAction* Arena::CreateMaybeMessage<::ai::inworld::packets::NarratedAction>(Arena*);
@@ -354,7 +369,7 @@ enum ControlEvent_Action : int {
   ControlEvent_Action_TTS_PLAYBACK_END = 5,
   ControlEvent_Action_TTS_PLAYBACK_MUTE = 6,
   ControlEvent_Action_TTS_PLAYBACK_UNMUTE = 7,
-  ControlEvent_Action_WARNING = 8,
+  ControlEvent_Action_WARNING PROTOBUF_DEPRECATED_ENUM = 8,
   ControlEvent_Action_SESSION_END = 9,
   ControlEvent_Action_CONVERSATION_START PROTOBUF_DEPRECATED_ENUM = 10,
   ControlEvent_Action_CONVERSATION_UPDATE = 12,
@@ -641,6 +656,34 @@ inline bool PerceivedLatencyReport_Precision_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, PerceivedLatencyReport_Precision* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<PerceivedLatencyReport_Precision>(
     PerceivedLatencyReport_Precision_descriptor(), name, value);
+}
+enum LogsEvent_LogLevel : int {
+  LogsEvent_LogLevel_UNSPECIFIED = 0,
+  LogsEvent_LogLevel_WARNING = 1,
+  LogsEvent_LogLevel_INFO = 2,
+  LogsEvent_LogLevel_DEBUG = 3,
+  LogsEvent_LogLevel_INTERNAL = 4,
+  LogsEvent_LogLevel_LogsEvent_LogLevel_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  LogsEvent_LogLevel_LogsEvent_LogLevel_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool LogsEvent_LogLevel_IsValid(int value);
+constexpr LogsEvent_LogLevel LogsEvent_LogLevel_LogLevel_MIN = LogsEvent_LogLevel_UNSPECIFIED;
+constexpr LogsEvent_LogLevel LogsEvent_LogLevel_LogLevel_MAX = LogsEvent_LogLevel_INTERNAL;
+constexpr int LogsEvent_LogLevel_LogLevel_ARRAYSIZE = LogsEvent_LogLevel_LogLevel_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* LogsEvent_LogLevel_descriptor();
+template<typename T>
+inline const std::string& LogsEvent_LogLevel_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, LogsEvent_LogLevel>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function LogsEvent_LogLevel_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    LogsEvent_LogLevel_descriptor(), enum_t_value);
+}
+inline bool LogsEvent_LogLevel_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, LogsEvent_LogLevel* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<LogsEvent_LogLevel>(
+    LogsEvent_LogLevel_descriptor(), name, value);
 }
 enum ApplyResponse_ApplyResponseType : int {
   ApplyResponse_ApplyResponseType_APPLY_RESPONSE_TYPE_DEFAULT = 0,
@@ -1390,6 +1433,7 @@ class InworldPacket PROTOBUF_FINAL :
     kLatencyReport = 22,
     kOperationStatus = 23,
     kEntitiesItemsOperation = 24,
+    kLog = 25,
     PACKET_NOT_SET = 0,
   };
 
@@ -1488,6 +1532,7 @@ class InworldPacket PROTOBUF_FINAL :
     kLatencyReportFieldNumber = 22,
     kOperationStatusFieldNumber = 23,
     kEntitiesItemsOperationFieldNumber = 24,
+    kLogFieldNumber = 25,
   };
   // .google.protobuf.Timestamp timestamp = 1;
   bool has_timestamp() const;
@@ -1831,6 +1876,24 @@ class InworldPacket PROTOBUF_FINAL :
       ::ai::inworld::packets::entities::ItemsOperationEvent* entities_items_operation);
   ::ai::inworld::packets::entities::ItemsOperationEvent* unsafe_arena_release_entities_items_operation();
 
+  // .ai.inworld.packets.LogsEvent log = 25;
+  bool has_log() const;
+  private:
+  bool _internal_has_log() const;
+  public:
+  void clear_log();
+  const ::ai::inworld::packets::LogsEvent& log() const;
+  ::ai::inworld::packets::LogsEvent* release_log();
+  ::ai::inworld::packets::LogsEvent* mutable_log();
+  void set_allocated_log(::ai::inworld::packets::LogsEvent* log);
+  private:
+  const ::ai::inworld::packets::LogsEvent& _internal_log() const;
+  ::ai::inworld::packets::LogsEvent* _internal_mutable_log();
+  public:
+  void unsafe_arena_set_allocated_log(
+      ::ai::inworld::packets::LogsEvent* log);
+  ::ai::inworld::packets::LogsEvent* unsafe_arena_release_log();
+
   void clear_packet();
   PacketCase packet_case() const;
   // @@protoc_insertion_point(class_scope:ai.inworld.packets.InworldPacket)
@@ -1852,6 +1915,7 @@ class InworldPacket PROTOBUF_FINAL :
   void set_has_latency_report();
   void set_has_operation_status();
   void set_has_entities_items_operation();
+  void set_has_log();
 
   inline bool has_packet() const;
   inline void clear_has_packet();
@@ -1880,6 +1944,7 @@ class InworldPacket PROTOBUF_FINAL :
     ::ai::inworld::packets::LatencyReportEvent* latency_report_;
     ::ai::inworld::packets::OperationStatusEvent* operation_status_;
     ::ai::inworld::packets::entities::ItemsOperationEvent* entities_items_operation_;
+    ::ai::inworld::packets::LogsEvent* log_;
   } packet_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
@@ -2407,7 +2472,7 @@ class ControlEvent PROTOBUF_FINAL :
     ControlEvent_Action_TTS_PLAYBACK_MUTE;
   static constexpr Action TTS_PLAYBACK_UNMUTE =
     ControlEvent_Action_TTS_PLAYBACK_UNMUTE;
-  static constexpr Action WARNING =
+  PROTOBUF_DEPRECATED_ENUM static constexpr Action WARNING =
     ControlEvent_Action_WARNING;
   static constexpr Action SESSION_END =
     ControlEvent_Action_SESSION_END;
@@ -5522,6 +5587,436 @@ class PerceivedLatencyReport PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class LogsEvent_LogDetail PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.packets.LogsEvent.LogDetail) */ {
+ public:
+  inline LogsEvent_LogDetail() : LogsEvent_LogDetail(nullptr) {}
+  virtual ~LogsEvent_LogDetail();
+
+  LogsEvent_LogDetail(const LogsEvent_LogDetail& from);
+  LogsEvent_LogDetail(LogsEvent_LogDetail&& from) noexcept
+    : LogsEvent_LogDetail() {
+    *this = ::std::move(from);
+  }
+
+  inline LogsEvent_LogDetail& operator=(const LogsEvent_LogDetail& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline LogsEvent_LogDetail& operator=(LogsEvent_LogDetail&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const LogsEvent_LogDetail& default_instance();
+
+  static inline const LogsEvent_LogDetail* internal_default_instance() {
+    return reinterpret_cast<const LogsEvent_LogDetail*>(
+               &_LogsEvent_LogDetail_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    22;
+
+  friend void swap(LogsEvent_LogDetail& a, LogsEvent_LogDetail& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(LogsEvent_LogDetail* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(LogsEvent_LogDetail* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline LogsEvent_LogDetail* New() const final {
+    return CreateMaybeMessage<LogsEvent_LogDetail>(nullptr);
+  }
+
+  LogsEvent_LogDetail* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<LogsEvent_LogDetail>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const LogsEvent_LogDetail& from);
+  void MergeFrom(const LogsEvent_LogDetail& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(LogsEvent_LogDetail* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.packets.LogsEvent.LogDetail";
+  }
+  protected:
+  explicit LogsEvent_LogDetail(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto);
+    return ::descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTextFieldNumber = 1,
+    kDetailFieldNumber = 2,
+  };
+  // string text = 1;
+  void clear_text();
+  const std::string& text() const;
+  void set_text(const std::string& value);
+  void set_text(std::string&& value);
+  void set_text(const char* value);
+  void set_text(const char* value, size_t size);
+  std::string* mutable_text();
+  std::string* release_text();
+  void set_allocated_text(std::string* text);
+  private:
+  const std::string& _internal_text() const;
+  void _internal_set_text(const std::string& value);
+  std::string* _internal_mutable_text();
+  public:
+
+  // .google.protobuf.Value detail = 2;
+  bool has_detail() const;
+  private:
+  bool _internal_has_detail() const;
+  public:
+  void clear_detail();
+  const PROTOBUF_NAMESPACE_ID::Value& detail() const;
+  PROTOBUF_NAMESPACE_ID::Value* release_detail();
+  PROTOBUF_NAMESPACE_ID::Value* mutable_detail();
+  void set_allocated_detail(PROTOBUF_NAMESPACE_ID::Value* detail);
+  private:
+  const PROTOBUF_NAMESPACE_ID::Value& _internal_detail() const;
+  PROTOBUF_NAMESPACE_ID::Value* _internal_mutable_detail();
+  public:
+  void unsafe_arena_set_allocated_detail(
+      PROTOBUF_NAMESPACE_ID::Value* detail);
+  PROTOBUF_NAMESPACE_ID::Value* unsafe_arena_release_detail();
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.packets.LogsEvent.LogDetail)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr text_;
+  PROTOBUF_NAMESPACE_ID::Value* detail_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fpackets_2fpackets_2eproto;
+};
+// -------------------------------------------------------------------
+
+class LogsEvent_MetadataEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<LogsEvent_MetadataEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<LogsEvent_MetadataEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
+  LogsEvent_MetadataEntry_DoNotUse();
+  explicit LogsEvent_MetadataEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const LogsEvent_MetadataEntry_DoNotUse& other);
+  static const LogsEvent_MetadataEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const LogsEvent_MetadataEntry_DoNotUse*>(&_LogsEvent_MetadataEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "ai.inworld.packets.LogsEvent.MetadataEntry.key");
+ }
+  static bool ValidateValue(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "ai.inworld.packets.LogsEvent.MetadataEntry.value");
+ }
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& other) final;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto);
+    return ::descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto.file_level_metadata[23];
+  }
+
+  public:
+};
+
+// -------------------------------------------------------------------
+
+class LogsEvent PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.packets.LogsEvent) */ {
+ public:
+  inline LogsEvent() : LogsEvent(nullptr) {}
+  virtual ~LogsEvent();
+
+  LogsEvent(const LogsEvent& from);
+  LogsEvent(LogsEvent&& from) noexcept
+    : LogsEvent() {
+    *this = ::std::move(from);
+  }
+
+  inline LogsEvent& operator=(const LogsEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline LogsEvent& operator=(LogsEvent&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const LogsEvent& default_instance();
+
+  static inline const LogsEvent* internal_default_instance() {
+    return reinterpret_cast<const LogsEvent*>(
+               &_LogsEvent_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    24;
+
+  friend void swap(LogsEvent& a, LogsEvent& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(LogsEvent* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(LogsEvent* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline LogsEvent* New() const final {
+    return CreateMaybeMessage<LogsEvent>(nullptr);
+  }
+
+  LogsEvent* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<LogsEvent>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const LogsEvent& from);
+  void MergeFrom(const LogsEvent& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(LogsEvent* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ai.inworld.packets.LogsEvent";
+  }
+  protected:
+  explicit LogsEvent(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto);
+    return ::descriptor_table_ai_2finworld_2fpackets_2fpackets_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  typedef LogsEvent_LogDetail LogDetail;
+
+  typedef LogsEvent_LogLevel LogLevel;
+  static constexpr LogLevel UNSPECIFIED =
+    LogsEvent_LogLevel_UNSPECIFIED;
+  static constexpr LogLevel WARNING =
+    LogsEvent_LogLevel_WARNING;
+  static constexpr LogLevel INFO =
+    LogsEvent_LogLevel_INFO;
+  static constexpr LogLevel DEBUG =
+    LogsEvent_LogLevel_DEBUG;
+  static constexpr LogLevel INTERNAL =
+    LogsEvent_LogLevel_INTERNAL;
+  static inline bool LogLevel_IsValid(int value) {
+    return LogsEvent_LogLevel_IsValid(value);
+  }
+  static constexpr LogLevel LogLevel_MIN =
+    LogsEvent_LogLevel_LogLevel_MIN;
+  static constexpr LogLevel LogLevel_MAX =
+    LogsEvent_LogLevel_LogLevel_MAX;
+  static constexpr int LogLevel_ARRAYSIZE =
+    LogsEvent_LogLevel_LogLevel_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  LogLevel_descriptor() {
+    return LogsEvent_LogLevel_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& LogLevel_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, LogLevel>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function LogLevel_Name.");
+    return LogsEvent_LogLevel_Name(enum_t_value);
+  }
+  static inline bool LogLevel_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      LogLevel* value) {
+    return LogsEvent_LogLevel_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kMetadataFieldNumber = 3,
+    kDetailsFieldNumber = 4,
+    kTextFieldNumber = 1,
+    kLevelFieldNumber = 2,
+  };
+  // map<string, string> metadata = 3 [deprecated = true];
+  PROTOBUF_DEPRECATED int metadata_size() const;
+  private:
+  int _internal_metadata_size() const;
+  public:
+  PROTOBUF_DEPRECATED void clear_metadata();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      _internal_metadata() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      _internal_mutable_metadata();
+  public:
+  PROTOBUF_DEPRECATED const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      metadata() const;
+  PROTOBUF_DEPRECATED ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      mutable_metadata();
+
+  // repeated .ai.inworld.packets.LogsEvent.LogDetail details = 4;
+  int details_size() const;
+  private:
+  int _internal_details_size() const;
+  public:
+  void clear_details();
+  ::ai::inworld::packets::LogsEvent_LogDetail* mutable_details(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::LogsEvent_LogDetail >*
+      mutable_details();
+  private:
+  const ::ai::inworld::packets::LogsEvent_LogDetail& _internal_details(int index) const;
+  ::ai::inworld::packets::LogsEvent_LogDetail* _internal_add_details();
+  public:
+  const ::ai::inworld::packets::LogsEvent_LogDetail& details(int index) const;
+  ::ai::inworld::packets::LogsEvent_LogDetail* add_details();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::LogsEvent_LogDetail >&
+      details() const;
+
+  // string text = 1;
+  void clear_text();
+  const std::string& text() const;
+  void set_text(const std::string& value);
+  void set_text(std::string&& value);
+  void set_text(const char* value);
+  void set_text(const char* value, size_t size);
+  std::string* mutable_text();
+  std::string* release_text();
+  void set_allocated_text(std::string* text);
+  private:
+  const std::string& _internal_text() const;
+  void _internal_set_text(const std::string& value);
+  std::string* _internal_mutable_text();
+  public:
+
+  // .ai.inworld.packets.LogsEvent.LogLevel level = 2;
+  void clear_level();
+  ::ai::inworld::packets::LogsEvent_LogLevel level() const;
+  void set_level(::ai::inworld::packets::LogsEvent_LogLevel value);
+  private:
+  ::ai::inworld::packets::LogsEvent_LogLevel _internal_level() const;
+  void _internal_set_level(::ai::inworld::packets::LogsEvent_LogLevel value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:ai.inworld.packets.LogsEvent)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+      LogsEvent_MetadataEntry_DoNotUse,
+      std::string, std::string,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> metadata_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::LogsEvent_LogDetail > details_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr text_;
+  int level_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ai_2finworld_2fpackets_2fpackets_2eproto;
+};
+// -------------------------------------------------------------------
+
 class MutationEvent PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ai.inworld.packets.MutationEvent) */ {
  public:
@@ -5574,7 +6069,7 @@ class MutationEvent PROTOBUF_FINAL :
                &_MutationEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    25;
 
   friend void swap(MutationEvent& a, MutationEvent& b) {
     a.Swap(&b);
@@ -5863,7 +6358,7 @@ class SessionControlResponseEvent PROTOBUF_FINAL :
                &_SessionControlResponseEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    26;
 
   friend void swap(SessionControlResponseEvent& a, SessionControlResponseEvent& b) {
     a.Swap(&b);
@@ -6061,7 +6556,7 @@ class CancelResponses PROTOBUF_FINAL :
                &_CancelResponses_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    27;
 
   friend void swap(CancelResponses& a, CancelResponses& b) {
     a.Swap(&b);
@@ -6230,7 +6725,7 @@ class RegenerateResponse PROTOBUF_FINAL :
                &_RegenerateResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    28;
 
   friend void swap(RegenerateResponse& a, RegenerateResponse& b) {
     a.Swap(&b);
@@ -6373,7 +6868,7 @@ class ApplyResponse PROTOBUF_FINAL :
                &_ApplyResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    29;
 
   friend void swap(ApplyResponse& a, ApplyResponse& b) {
     a.Swap(&b);
@@ -6559,7 +7054,7 @@ class LoadScene PROTOBUF_FINAL :
                &_LoadScene_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    30;
 
   friend void swap(LoadScene& a, LoadScene& b) {
     a.Swap(&b);
@@ -6631,6 +7126,7 @@ class LoadScene PROTOBUF_FINAL :
 
   enum : int {
     kNameFieldNumber = 1,
+    kIsResetSceneFieldNumber = 2,
   };
   // string name = 1;
   void clear_name();
@@ -6648,6 +7144,15 @@ class LoadScene PROTOBUF_FINAL :
   std::string* _internal_mutable_name();
   public:
 
+  // bool is_reset_scene = 2;
+  void clear_is_reset_scene();
+  bool is_reset_scene() const;
+  void set_is_reset_scene(bool value);
+  private:
+  bool _internal_is_reset_scene() const;
+  void _internal_set_is_reset_scene(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:ai.inworld.packets.LoadScene)
  private:
   class _Internal;
@@ -6656,6 +7161,7 @@ class LoadScene PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  bool is_reset_scene_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ai_2finworld_2fpackets_2fpackets_2eproto;
 };
@@ -6702,7 +7208,7 @@ class LoadedScene PROTOBUF_FINAL :
                &_LoadedScene_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    31;
 
   friend void swap(LoadedScene& a, LoadedScene& b) {
     a.Swap(&b);
@@ -6901,7 +7407,7 @@ class LoadCharacters_CharacterName PROTOBUF_FINAL :
                &_LoadCharacters_CharacterName_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    32;
 
   friend void swap(LoadCharacters_CharacterName& a, LoadCharacters_CharacterName& b) {
     a.Swap(&b);
@@ -7055,7 +7561,7 @@ class LoadCharacters PROTOBUF_FINAL :
                &_LoadCharacters_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    33;
 
   friend void swap(LoadCharacters& a, LoadCharacters& b) {
     a.Swap(&b);
@@ -7202,7 +7708,7 @@ class LoadedCharacters PROTOBUF_FINAL :
                &_LoadedCharacters_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    34;
 
   friend void swap(LoadedCharacters& a, LoadedCharacters& b) {
     a.Swap(&b);
@@ -7401,7 +7907,7 @@ class UnloadCharacters PROTOBUF_FINAL :
                &_UnloadCharacters_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    35;
 
   friend void swap(UnloadCharacters& a, UnloadCharacters& b) {
     a.Swap(&b);
@@ -7546,7 +8052,7 @@ class CurrentSceneStatus PROTOBUF_FINAL :
                &_CurrentSceneStatus_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    36;
 
   friend void swap(CurrentSceneStatus& a, CurrentSceneStatus& b) {
     a.Swap(&b);
@@ -7745,7 +8251,7 @@ class ModifyExactResponse PROTOBUF_FINAL :
                &_ModifyExactResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    37;
 
   friend void swap(ModifyExactResponse& a, ModifyExactResponse& b) {
     a.Swap(&b);
@@ -7906,7 +8412,7 @@ class LoadSceneOutputEvent_Agent PROTOBUF_FINAL :
                &_LoadSceneOutputEvent_Agent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    38;
 
   friend void swap(LoadSceneOutputEvent_Agent& a, LoadSceneOutputEvent_Agent& b) {
     a.Swap(&b);
@@ -8085,7 +8591,7 @@ class LoadSceneOutputEvent PROTOBUF_FINAL :
                &_LoadSceneOutputEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    39;
 
   friend void swap(LoadSceneOutputEvent& a, LoadSceneOutputEvent& b) {
     a.Swap(&b);
@@ -8232,7 +8738,7 @@ class Agent_CharacterAssets PROTOBUF_FINAL :
                &_Agent_CharacterAssets_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    40;
 
   friend void swap(Agent_CharacterAssets& a, Agent_CharacterAssets& b) {
     a.Swap(&b);
@@ -8447,7 +8953,7 @@ class Agent PROTOBUF_FINAL :
                &_Agent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    41;
 
   friend void swap(Agent& a, Agent& b) {
     a.Swap(&b);
@@ -8653,7 +9159,7 @@ class DebugInfoEvent PROTOBUF_FINAL :
                &_DebugInfoEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    42;
 
   friend void swap(DebugInfoEvent& a, DebugInfoEvent& b) {
     a.Swap(&b);
@@ -8820,7 +9326,7 @@ class SessionControlEvent PROTOBUF_FINAL :
                &_SessionControlEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    43;
 
   friend void swap(SessionControlEvent& a, SessionControlEvent& b) {
     a.Swap(&b);
@@ -9102,7 +9608,7 @@ class SessionConfigurationPayload PROTOBUF_FINAL :
                &_SessionConfigurationPayload_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    44;
 
   friend void swap(SessionConfigurationPayload& a, SessionConfigurationPayload& b) {
     a.Swap(&b);
@@ -9327,7 +9833,7 @@ class Continuation_ContinuationInfo PROTOBUF_FINAL :
                &_Continuation_ContinuationInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    45;
 
   friend void swap(Continuation_ContinuationInfo& a, Continuation_ContinuationInfo& b) {
     a.Swap(&b);
@@ -9472,7 +9978,7 @@ class Continuation PROTOBUF_FINAL :
                &_Continuation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    46;
 
   friend void swap(Continuation& a, Continuation& b) {
     a.Swap(&b);
@@ -9700,7 +10206,7 @@ class DialogHistory_HistoryItem PROTOBUF_FINAL :
                &_DialogHistory_HistoryItem_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    47;
 
   friend void swap(DialogHistory_HistoryItem& a, DialogHistory_HistoryItem& b) {
     a.Swap(&b);
@@ -9863,7 +10369,7 @@ class DialogHistory PROTOBUF_FINAL :
                &_DialogHistory_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    48;
 
   friend void swap(DialogHistory& a, DialogHistory& b) {
     a.Swap(&b);
@@ -10010,7 +10516,7 @@ class Relations_Relation PROTOBUF_FINAL :
                &_Relations_Relation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    49;
 
   friend void swap(Relations_Relation& a, Relations_Relation& b) {
     a.Swap(&b);
@@ -10171,7 +10677,7 @@ class Relations PROTOBUF_FINAL :
                &_Relations_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    50;
 
   friend void swap(Relations& a, Relations& b) {
     a.Swap(&b);
@@ -10338,7 +10844,7 @@ class SessionHistoryRequest PROTOBUF_FINAL :
                &_SessionHistoryRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    51;
 
   friend void swap(SessionHistoryRequest& a, SessionHistoryRequest& b) {
     a.Swap(&b);
@@ -10461,7 +10967,7 @@ class SessionHistoryResponse_SessionHistoryItem PROTOBUF_FINAL :
                &_SessionHistoryResponse_SessionHistoryItem_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    49;
+    52;
 
   friend void swap(SessionHistoryResponse_SessionHistoryItem& a, SessionHistoryResponse_SessionHistoryItem& b) {
     a.Swap(&b);
@@ -10626,7 +11132,7 @@ class SessionHistoryResponse PROTOBUF_FINAL :
                &_SessionHistoryResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    50;
+    53;
 
   friend void swap(SessionHistoryResponse& a, SessionHistoryResponse& b) {
     a.Swap(&b);
@@ -10773,7 +11279,7 @@ class ConversationUpdatePayload PROTOBUF_FINAL :
                &_ConversationUpdatePayload_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    51;
+    54;
 
   friend void swap(ConversationUpdatePayload& a, ConversationUpdatePayload& b) {
     a.Swap(&b);
@@ -10918,7 +11424,7 @@ class ConversationEventPayload PROTOBUF_FINAL :
                &_ConversationEventPayload_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    52;
+    55;
 
   friend void swap(ConversationEventPayload& a, ConversationEventPayload& b) {
     a.Swap(&b);
@@ -11108,7 +11614,7 @@ class OperationStatusEvent PROTOBUF_FINAL :
                &_OperationStatusEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    53;
+    56;
 
   friend void swap(OperationStatusEvent& a, OperationStatusEvent& b) {
     a.Swap(&b);
@@ -13225,6 +13731,79 @@ inline ::ai::inworld::packets::entities::ItemsOperationEvent* InworldPacket::_in
 inline ::ai::inworld::packets::entities::ItemsOperationEvent* InworldPacket::mutable_entities_items_operation() {
   // @@protoc_insertion_point(field_mutable:ai.inworld.packets.InworldPacket.entities_items_operation)
   return _internal_mutable_entities_items_operation();
+}
+
+// .ai.inworld.packets.LogsEvent log = 25;
+inline bool InworldPacket::_internal_has_log() const {
+  return packet_case() == kLog;
+}
+inline bool InworldPacket::has_log() const {
+  return _internal_has_log();
+}
+inline void InworldPacket::set_has_log() {
+  _oneof_case_[0] = kLog;
+}
+inline void InworldPacket::clear_log() {
+  if (_internal_has_log()) {
+    if (GetArena() == nullptr) {
+      delete packet_.log_;
+    }
+    clear_has_packet();
+  }
+}
+inline ::ai::inworld::packets::LogsEvent* InworldPacket::release_log() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.InworldPacket.log)
+  if (_internal_has_log()) {
+    clear_has_packet();
+      ::ai::inworld::packets::LogsEvent* temp = packet_.log_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    packet_.log_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::ai::inworld::packets::LogsEvent& InworldPacket::_internal_log() const {
+  return _internal_has_log()
+      ? *packet_.log_
+      : reinterpret_cast< ::ai::inworld::packets::LogsEvent&>(::ai::inworld::packets::_LogsEvent_default_instance_);
+}
+inline const ::ai::inworld::packets::LogsEvent& InworldPacket::log() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.InworldPacket.log)
+  return _internal_log();
+}
+inline ::ai::inworld::packets::LogsEvent* InworldPacket::unsafe_arena_release_log() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:ai.inworld.packets.InworldPacket.log)
+  if (_internal_has_log()) {
+    clear_has_packet();
+    ::ai::inworld::packets::LogsEvent* temp = packet_.log_;
+    packet_.log_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void InworldPacket::unsafe_arena_set_allocated_log(::ai::inworld::packets::LogsEvent* log) {
+  clear_packet();
+  if (log) {
+    set_has_log();
+    packet_.log_ = log;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.packets.InworldPacket.log)
+}
+inline ::ai::inworld::packets::LogsEvent* InworldPacket::_internal_mutable_log() {
+  if (!_internal_has_log()) {
+    clear_packet();
+    set_has_log();
+    packet_.log_ = CreateMaybeMessage< ::ai::inworld::packets::LogsEvent >(GetArena());
+  }
+  return packet_.log_;
+}
+inline ::ai::inworld::packets::LogsEvent* InworldPacket::mutable_log() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.InworldPacket.log)
+  return _internal_mutable_log();
 }
 
 inline bool InworldPacket::has_packet() const {
@@ -15995,6 +16574,303 @@ inline void PerceivedLatencyReport::set_allocated_latency(PROTOBUF_NAMESPACE_ID:
 
 // -------------------------------------------------------------------
 
+// LogsEvent_LogDetail
+
+// string text = 1;
+inline void LogsEvent_LogDetail::clear_text() {
+  text_.ClearToEmpty();
+}
+inline const std::string& LogsEvent_LogDetail::text() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.LogsEvent.LogDetail.text)
+  return _internal_text();
+}
+inline void LogsEvent_LogDetail::set_text(const std::string& value) {
+  _internal_set_text(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.LogsEvent.LogDetail.text)
+}
+inline std::string* LogsEvent_LogDetail::mutable_text() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.LogsEvent.LogDetail.text)
+  return _internal_mutable_text();
+}
+inline const std::string& LogsEvent_LogDetail::_internal_text() const {
+  return text_.Get();
+}
+inline void LogsEvent_LogDetail::_internal_set_text(const std::string& value) {
+  
+  text_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void LogsEvent_LogDetail::set_text(std::string&& value) {
+  
+  text_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.packets.LogsEvent.LogDetail.text)
+}
+inline void LogsEvent_LogDetail::set_text(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  text_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.packets.LogsEvent.LogDetail.text)
+}
+inline void LogsEvent_LogDetail::set_text(const char* value,
+    size_t size) {
+  
+  text_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.packets.LogsEvent.LogDetail.text)
+}
+inline std::string* LogsEvent_LogDetail::_internal_mutable_text() {
+  
+  return text_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* LogsEvent_LogDetail::release_text() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.LogsEvent.LogDetail.text)
+  return text_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void LogsEvent_LogDetail::set_allocated_text(std::string* text) {
+  if (text != nullptr) {
+    
+  } else {
+    
+  }
+  text_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), text,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.LogsEvent.LogDetail.text)
+}
+
+// .google.protobuf.Value detail = 2;
+inline bool LogsEvent_LogDetail::_internal_has_detail() const {
+  return this != internal_default_instance() && detail_ != nullptr;
+}
+inline bool LogsEvent_LogDetail::has_detail() const {
+  return _internal_has_detail();
+}
+inline const PROTOBUF_NAMESPACE_ID::Value& LogsEvent_LogDetail::_internal_detail() const {
+  const PROTOBUF_NAMESPACE_ID::Value* p = detail_;
+  return p != nullptr ? *p : reinterpret_cast<const PROTOBUF_NAMESPACE_ID::Value&>(
+      PROTOBUF_NAMESPACE_ID::_Value_default_instance_);
+}
+inline const PROTOBUF_NAMESPACE_ID::Value& LogsEvent_LogDetail::detail() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.LogsEvent.LogDetail.detail)
+  return _internal_detail();
+}
+inline void LogsEvent_LogDetail::unsafe_arena_set_allocated_detail(
+    PROTOBUF_NAMESPACE_ID::Value* detail) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(detail_);
+  }
+  detail_ = detail;
+  if (detail) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ai.inworld.packets.LogsEvent.LogDetail.detail)
+}
+inline PROTOBUF_NAMESPACE_ID::Value* LogsEvent_LogDetail::release_detail() {
+  
+  PROTOBUF_NAMESPACE_ID::Value* temp = detail_;
+  detail_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline PROTOBUF_NAMESPACE_ID::Value* LogsEvent_LogDetail::unsafe_arena_release_detail() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.LogsEvent.LogDetail.detail)
+  
+  PROTOBUF_NAMESPACE_ID::Value* temp = detail_;
+  detail_ = nullptr;
+  return temp;
+}
+inline PROTOBUF_NAMESPACE_ID::Value* LogsEvent_LogDetail::_internal_mutable_detail() {
+  
+  if (detail_ == nullptr) {
+    auto* p = CreateMaybeMessage<PROTOBUF_NAMESPACE_ID::Value>(GetArena());
+    detail_ = p;
+  }
+  return detail_;
+}
+inline PROTOBUF_NAMESPACE_ID::Value* LogsEvent_LogDetail::mutable_detail() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.LogsEvent.LogDetail.detail)
+  return _internal_mutable_detail();
+}
+inline void LogsEvent_LogDetail::set_allocated_detail(PROTOBUF_NAMESPACE_ID::Value* detail) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(detail_);
+  }
+  if (detail) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(detail)->GetArena();
+    if (message_arena != submessage_arena) {
+      detail = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, detail, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  detail_ = detail;
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.LogsEvent.LogDetail.detail)
+}
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// LogsEvent
+
+// string text = 1;
+inline void LogsEvent::clear_text() {
+  text_.ClearToEmpty();
+}
+inline const std::string& LogsEvent::text() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.LogsEvent.text)
+  return _internal_text();
+}
+inline void LogsEvent::set_text(const std::string& value) {
+  _internal_set_text(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.LogsEvent.text)
+}
+inline std::string* LogsEvent::mutable_text() {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.LogsEvent.text)
+  return _internal_mutable_text();
+}
+inline const std::string& LogsEvent::_internal_text() const {
+  return text_.Get();
+}
+inline void LogsEvent::_internal_set_text(const std::string& value) {
+  
+  text_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void LogsEvent::set_text(std::string&& value) {
+  
+  text_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:ai.inworld.packets.LogsEvent.text)
+}
+inline void LogsEvent::set_text(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  text_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:ai.inworld.packets.LogsEvent.text)
+}
+inline void LogsEvent::set_text(const char* value,
+    size_t size) {
+  
+  text_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:ai.inworld.packets.LogsEvent.text)
+}
+inline std::string* LogsEvent::_internal_mutable_text() {
+  
+  return text_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* LogsEvent::release_text() {
+  // @@protoc_insertion_point(field_release:ai.inworld.packets.LogsEvent.text)
+  return text_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void LogsEvent::set_allocated_text(std::string* text) {
+  if (text != nullptr) {
+    
+  } else {
+    
+  }
+  text_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), text,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.LogsEvent.text)
+}
+
+// .ai.inworld.packets.LogsEvent.LogLevel level = 2;
+inline void LogsEvent::clear_level() {
+  level_ = 0;
+}
+inline ::ai::inworld::packets::LogsEvent_LogLevel LogsEvent::_internal_level() const {
+  return static_cast< ::ai::inworld::packets::LogsEvent_LogLevel >(level_);
+}
+inline ::ai::inworld::packets::LogsEvent_LogLevel LogsEvent::level() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.LogsEvent.level)
+  return _internal_level();
+}
+inline void LogsEvent::_internal_set_level(::ai::inworld::packets::LogsEvent_LogLevel value) {
+  
+  level_ = value;
+}
+inline void LogsEvent::set_level(::ai::inworld::packets::LogsEvent_LogLevel value) {
+  _internal_set_level(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.LogsEvent.level)
+}
+
+// map<string, string> metadata = 3 [deprecated = true];
+inline int LogsEvent::_internal_metadata_size() const {
+  return metadata_.size();
+}
+inline int LogsEvent::metadata_size() const {
+  return _internal_metadata_size();
+}
+inline void LogsEvent::clear_metadata() {
+  metadata_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+LogsEvent::_internal_metadata() const {
+  return metadata_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+LogsEvent::metadata() const {
+  // @@protoc_insertion_point(field_map:ai.inworld.packets.LogsEvent.metadata)
+  return _internal_metadata();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+LogsEvent::_internal_mutable_metadata() {
+  return metadata_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+LogsEvent::mutable_metadata() {
+  // @@protoc_insertion_point(field_mutable_map:ai.inworld.packets.LogsEvent.metadata)
+  return _internal_mutable_metadata();
+}
+
+// repeated .ai.inworld.packets.LogsEvent.LogDetail details = 4;
+inline int LogsEvent::_internal_details_size() const {
+  return details_.size();
+}
+inline int LogsEvent::details_size() const {
+  return _internal_details_size();
+}
+inline void LogsEvent::clear_details() {
+  details_.Clear();
+}
+inline ::ai::inworld::packets::LogsEvent_LogDetail* LogsEvent::mutable_details(int index) {
+  // @@protoc_insertion_point(field_mutable:ai.inworld.packets.LogsEvent.details)
+  return details_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::LogsEvent_LogDetail >*
+LogsEvent::mutable_details() {
+  // @@protoc_insertion_point(field_mutable_list:ai.inworld.packets.LogsEvent.details)
+  return &details_;
+}
+inline const ::ai::inworld::packets::LogsEvent_LogDetail& LogsEvent::_internal_details(int index) const {
+  return details_.Get(index);
+}
+inline const ::ai::inworld::packets::LogsEvent_LogDetail& LogsEvent::details(int index) const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.LogsEvent.details)
+  return _internal_details(index);
+}
+inline ::ai::inworld::packets::LogsEvent_LogDetail* LogsEvent::_internal_add_details() {
+  return details_.Add();
+}
+inline ::ai::inworld::packets::LogsEvent_LogDetail* LogsEvent::add_details() {
+  // @@protoc_insertion_point(field_add:ai.inworld.packets.LogsEvent.details)
+  return _internal_add_details();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ai::inworld::packets::LogsEvent_LogDetail >&
+LogsEvent::details() const {
+  // @@protoc_insertion_point(field_list:ai.inworld.packets.LogsEvent.details)
+  return details_;
+}
+
+// -------------------------------------------------------------------
+
 // MutationEvent
 
 // .ai.inworld.packets.CancelResponses cancel_responses = 1;
@@ -17123,6 +17999,26 @@ inline void LoadScene::set_allocated_name(std::string* name) {
   name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:ai.inworld.packets.LoadScene.name)
+}
+
+// bool is_reset_scene = 2;
+inline void LoadScene::clear_is_reset_scene() {
+  is_reset_scene_ = false;
+}
+inline bool LoadScene::_internal_is_reset_scene() const {
+  return is_reset_scene_;
+}
+inline bool LoadScene::is_reset_scene() const {
+  // @@protoc_insertion_point(field_get:ai.inworld.packets.LoadScene.is_reset_scene)
+  return _internal_is_reset_scene();
+}
+inline void LoadScene::_internal_set_is_reset_scene(bool value) {
+  
+  is_reset_scene_ = value;
+}
+inline void LoadScene::set_is_reset_scene(bool value) {
+  _internal_set_is_reset_scene(value);
+  // @@protoc_insertion_point(field_set:ai.inworld.packets.LoadScene.is_reset_scene)
 }
 
 // -------------------------------------------------------------------
@@ -21126,6 +22022,12 @@ inline void OperationStatusEvent::set_allocated_status(::google::rpc::Status* st
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -21194,6 +22096,11 @@ template <> struct is_proto_enum< ::ai::inworld::packets::PerceivedLatencyReport
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ai::inworld::packets::PerceivedLatencyReport_Precision>() {
   return ::ai::inworld::packets::PerceivedLatencyReport_Precision_descriptor();
+}
+template <> struct is_proto_enum< ::ai::inworld::packets::LogsEvent_LogLevel> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ai::inworld::packets::LogsEvent_LogLevel>() {
+  return ::ai::inworld::packets::LogsEvent_LogLevel_descriptor();
 }
 template <> struct is_proto_enum< ::ai::inworld::packets::ApplyResponse_ApplyResponseType> : ::std::true_type {};
 template <>
