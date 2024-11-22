@@ -17,10 +17,10 @@
 #include <filesystem>
 
 // !!! Fill out this options !!!
-constexpr std::string_view g_SceneId = "";
+constexpr std::string_view g_SceneId = "workspaces/unitytest/scenes/transform";
 constexpr std::string_view g_Base64 = "";
-constexpr std::string_view g_ApiKey = "";
-constexpr std::string_view g_ApiSecret = "";
+constexpr std::string_view g_ApiKey = "2og83K3KNs8ImVaoL93pVNPc0XzKk9XV";
+constexpr std::string_view g_ApiSecret = "5aRjDzBGPf5PTzd25rHFiazxIyqZ88n1qLjJlQV2ZQA31nmx62QcQta9q24R8GT7";
 
 static bool IsConfigValid()
 {

@@ -6,9 +6,8 @@
  */
 
 #pragma once
-#include "RunnableCommand.h"
-#include "UnityNDKInteropData.h"
-
+#include "Runnable.h"
+#include "Client.h"
 
 #if __cplusplus
 extern "C"
@@ -33,19 +32,18 @@ namespace NDKUnity
 		int32_t narratedActions;
 		int32_t relations;
 		// YAN: No need to set others.		
-		Inworld::CapabilitySet ToNDK() const;
+		Inworld::Capabilities ToNDK() const;
 	};
 
 	struct SessionInfo
 	{
 		const char* sessionId;
 		const char* token;
-		const char* sessionSavedState;
 		int64_t expirationTime;
 		int32_t isValid;
 		
 		SessionInfo();
-		explicit SessionInfo(const Inworld::SessionInfo& rhs);		
+		explicit SessionInfo(const Inworld::SessionToken& rhs);
 	};
 
 	struct AgentInfo
@@ -57,8 +55,7 @@ namespace NDKUnity
 		const char* rpmImageUriPortrait;
 		const char* rpmImageUriPosture;
 		const char* avatarImg;
-		const char* avatarImgOriginal;
-		
+		const char* avatarImgOriginal;		
 		AgentInfo();
 	};
 

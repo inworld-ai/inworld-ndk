@@ -7,87 +7,63 @@
 
 #pragma once
 #include <string>
+#include "../ConsoleApp/src/Application.h"
 #include "Client.h"
 #include "UnityPacketHandler.h"
 #include "Data/UnityNDKInteropData.h"
 #include "Utils/Log.h"
 
-namespace NDKUnity
+namespace NDKApp
 {	
-	class CUnityWrapper final : public Inworld::Client
+	class NDKWrapper : public Inworld::PacketVisitor
 	{
 	public:
-		CUnityWrapper()
-		{			
-			_OnPacketCallback = [this](const std::shared_ptr<Inworld::Packet>& packet)
-			{
-				packet->Accept(m_PacketHandler);
-			};
-		}
-
-		~CUnityWrapper() override = default;
-		
-		void SetLoggerCallBack(const Inworld::LoggerCallBack& callback);
-
-		void SetPacketCallBack(const UnityPacketCallback& pktCallBack, const PhonemeCallBack& phonemeCallBack, const TriggerParamCallBack& triggerParamCallBack);
-		
-		Inworld::LoggerCallBack GetLoggerCallBack() const
-		{
-			return m_LogCallBack;
-		}
-
-		void SetSessionState(const std::string& strSessionState);
-		void SetServerURL(const std::string& strServerURL)
-		{
-			_ClientOptions.ServerUrl = strServerURL;
-		}
-		void SetAPIKey(std::string strAPIKey)
-		{
-			_ClientOptions.ApiKey = strAPIKey;
-		}
-		void SetAPISecret(std::string strAPISecret)
-		{
-			_ClientOptions.ApiSecret = strAPISecret;
-		}
-		void SetClientRequest(const std::string& strClientID, const std::string& strClientVersion, const std::string& strClientDescription);
-
-		void SetPublicWorkspace(const std::string& strPublicWorkspace);
-
-		void SetUserRequest(const std::string& strPlayerName, const std::string& strUserID);
-		
-		void SetCapabilities(Inworld::CapabilitySet capabilities);
-
-		void AddUserProfile(const std::string& strProfileID, const std::string& strProfileVal);
-
-		void LoadScene(const std::string& strSceneName, const std::string& strSessionState, UnityCallback callback);		
-
-		void StartSession();
-
-		void EndSession();		
-
-		Inworld::ClientOptions GetOptions()
-		{
-			return _ClientOptions;
-		}
-		Inworld::UserSettings GetUserRequest()
-		{
-			return _ClientOptions.UserSettings;
-		}
-		std::vector<AgentInfo> GetAgentInfo()
-		{
-			return m_AgentInfos;
-		}
-
-		void StopClient() override;
-
-	protected:
-		void AddTaskToMainThread(std::function<void()> Task) override;
-		
+		void Init();
+		virtual ~NDKWrapper() = default;
+		void SetLoggerCallBack(const Inworld::LogCallback& info, const Inworld::LogCallback& warning, const Inworld::LogCallback& error);
+		void SendText(std::string text);
 	private:
-		CUnityPacketHandler m_PacketHandler;
-		std::vector<AgentInfo> m_AgentInfos;
+		void Error(const std::string& Msg);
+		void NextCharacter();
+		void PrevCharacter();
+		void SetCharacter(int32_t Idx);
+		void NotifyCurrentCharacter();
+		void SendAudioData();
+
+		std::string GetTargetStr(const Inworld::Routing& Routing);
+
+		virtual void Visit(const Inworld::TextEvent& Event) override;
+		virtual void Visit(const Inworld::DataEvent& Event) override;
+		virtual void Visit(const Inworld::SilenceEvent& Event) override;
+		virtual void Visit(const Inworld::ControlEvent& Event) override;
+		virtual void Visit(const Inworld::EmotionEvent& Event) override;
+		virtual void Visit(const Inworld::CancelResponseEvent& Event) override;
+		virtual void Visit(const Inworld::CustomGestureEvent& Event) override;
+		virtual void Visit(const Inworld::CustomEvent& Event) override;
+		virtual void Visit(const Inworld::AudioDataEvent& Event) override;
+		virtual void Visit(const Inworld::ControlEventCurrentSceneStatus& Event) override;
+		virtual void Visit(const Inworld::ControlEventConversationUpdate& Event) override;
+
+		std::string GetGivenName(const std::string& AgentId) const;
+
+		bool GetRouting(Inworld::Routing& Routing);
+
+		std::chrono::steady_clock::time_point _LastAudioSentTime;
+
+		Inworld::ClientOptions _Options;
+		CommandLineInterface _Cli;
+
+		InworldClient _Client;
+		Inworld::SessionSave _SessionSave;
+		std::vector<Inworld::AgentInfo> _AgentInfos;
+		std::vector<Conversation> _Conversations;
+		int32_t _CurrentAgentIdx = -1;
+		int32_t _CurrentConversationIdx = -1;
 		
-		Inworld::LoggerCallBack m_LogCallBack = nullptr;		
+		Inworld::LogCallback m_LogInfo = nullptr;
+		Inworld::LogCallback m_LogWarning = nullptr;
+		Inworld::LogCallback m_LogError = nullptr;
+
 	};
 }
 

@@ -207,6 +207,8 @@ if(UNITY)
     message("Building for Unity...")
     target_compile_definitions(inworld-ndk PUBLIC INWORLD_UNITY)
     file(GLOB_RECURSE UnityNDKFiles
+        Example/ConsoleApp/src/*.h
+        Example/ConsoleApp/src/*.cpp
         Example/Unity/*.h
         Example/Unity/*.cpp
         Example/Unity/*.cc
@@ -418,29 +420,30 @@ if (AEC)
 endif()
 
 # VAD
-if (WIN32 OR MAC)
-    if (WIN32)
-        target_link_libraries(inworld-ndk PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Win64/inworld-ndk-vad.dll.lib)
-        list(APPEND LibFiles 
-            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Win64/inworld-ndk-vad.dll.lib
-            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Win64/${LibPref}inworld-ndk-vad.${DynamicLibExt}
-        )
-    else()
-        target_link_libraries(inworld-ndk PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Mac/libinworld-ndk-vad.dylib)
-        list(APPEND LibFiles 
-            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Mac/${LibPref}inworld-ndk-vad.${DynamicLibExt}
-        )
+if (VAD)
+    if (WIN32 OR MAC)
+        if (WIN32)
+            target_link_libraries(inworld-ndk PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Win64/inworld-ndk-vad.dll.lib)
+            list(APPEND LibFiles 
+                ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Win64/inworld-ndk-vad.dll.lib
+                ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Win64/${LibPref}inworld-ndk-vad.${DynamicLibExt}
+            )
+        else()
+            target_link_libraries(inworld-ndk PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Mac/libinworld-ndk-vad.dylib)
+            list(APPEND LibFiles 
+                ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Mac/${LibPref}inworld-ndk-vad.${DynamicLibExt}
+            )
+        endif()
+        target_include_directories(inworld-ndk PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/src)
+        add_custom_command(TARGET inworld-ndk POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy 
+            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/src/InworldVAD.h  ${PackageDir}/include)
+        add_custom_command(TARGET inworld-ndk POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy 
+            ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/resource/silero_vad_10_27_2022.onnx  ${PackageDir}/resource)
+        target_compile_definitions(inworld-ndk PRIVATE INWORLD_VAD)
     endif()
-    target_include_directories(inworld-ndk PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/src)
-    add_custom_command(TARGET inworld-ndk POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy 
-        ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/src/InworldVAD.h  ${PackageDir}/include)
-    add_custom_command(TARGET inworld-ndk POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy 
-        ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/resource/silero_vad_10_27_2022.onnx  ${PackageDir}/resource)
-    target_compile_definitions(inworld-ndk PRIVATE INWORLD_VAD)
 endif()
-
 foreach(LibFile IN LISTS LibFiles)
     add_custom_command(TARGET inworld-ndk POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy ${LibFile} ${PackageLibDir})
@@ -531,8 +534,14 @@ if (WIN32 OR MAC)
             option(RTAUDIO_API_WASAPI "Build WASAPI API" OFF)
         endif()
         add_subdirectory(ThirdParty/rtaudio)
-        target_link_libraries(inworld-ndk-app PRIVATE rtaudio)
-        target_include_directories(inworld-ndk-app PRIVATE ThirdParty/rtaudio)
+
+        if (UNITY)
+            target_link_libraries(InworldUnityWrapper PRIVATE rtaudio)
+            target_include_directories(InworldUnityWrapper PRIVATE ThirdParty/rtaudio)
+        else()
+            target_link_libraries(inworld-ndk-app PRIVATE rtaudio)
+            target_include_directories(inworld-ndk-app PRIVATE ThirdParty/rtaudio)
+        endif()
     endif()
 endif()
 

@@ -103,14 +103,12 @@ std::string NDKUnity::Base64ToString(const std::string& input)
 
 
 
-Inworld::CapabilitySet NDKUnity::Capabilities::ToNDK() const
+Inworld::Capabilities NDKUnity::Capabilities::ToNDK() const
 {
-	Inworld::CapabilitySet set;
-	set.Text = text;
+	Inworld::Capabilities set;
 	set.Audio = audio;
 	set.Emotions = emotions;
 	set.Interruptions = interruptions;
-	set.Triggers = triggers;
 	set.PhonemeInfo = phonemeInfo;
 	set.TurnBasedSTT = turnBasedStt;
 	set.NarratedActions = narratedActions;
@@ -122,16 +120,14 @@ NDKUnity::SessionInfo::SessionInfo()
 {
 	sessionId = "";
 	token = "";
-	sessionSavedState = "";
 	expirationTime = 0;
 	isValid = false;
 }
 
-NDKUnity::SessionInfo::SessionInfo(const Inworld::SessionInfo& rhs)
+NDKUnity::SessionInfo::SessionInfo(const Inworld::SessionToken& rhs)
 {
 	sessionId = rhs.SessionId.c_str();
 	token = rhs.Token.c_str();
-	sessionSavedState = rhs.SessionSavedState.c_str();
 	expirationTime = rhs.ExpirationTime;
 	isValid = rhs.IsValid();
 }
