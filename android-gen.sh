@@ -2,6 +2,7 @@ mkdir build
 cd build
 cmake .. -DAEC=False\
  -DANDROID=True\
+ -DINWORLD_LOG=True\
  -DINWORLD_SHARED=False\
  -DCMAKE_SYSTEM_NAME=Android\
  -DCMAKE_SYSTEM_VERSION=31\
