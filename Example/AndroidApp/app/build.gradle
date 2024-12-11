@@ -23,6 +23,7 @@ android {
         ndk {
             moduleName "inworldexample"
             ldLibs "log"
+            abiFilters 'armeabi-v7a'
         }
     }
 

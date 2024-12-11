@@ -289,6 +289,11 @@ namespace Inworld {
     
 	}
 
+	void MutationEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const 
+	{
+
+	}
+
     void CancelResponseEvent::ToProtoInternal(InworldPackets::InworldPacket& Proto) const
     {
         auto* mutable_cancel_responses = Proto.mutable_mutation()->mutable_cancel_responses();

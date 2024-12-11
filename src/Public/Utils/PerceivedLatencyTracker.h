@@ -10,8 +10,8 @@
 #include <functional>
 #include <memory>
 #include <chrono>
-#include "Packets.h"
-#include "Define.h"
+#include "../Packets.h"
+#include "../Define.h"
 
 namespace Inworld {
 

@@ -17,10 +17,11 @@ target_link_libraries(inworldexample ${log-lib})
 
 # link Inworld
 set(InworldNDKPackageDir ${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../build/Package)
-set(LibDir ${InworldNDKPackageDir}/lib/Android)
+set(LibDir ${InworldNDKPackageDir}/lib/Android/${CMAKE_ANDROID_ARCH_ABI})
 
 set(LibFiles
-    ${LibDir}/libInworldNDK.a
+    ${LibDir}/libinworld-ndk.a
+    ${LibDir}/libinworld-ndk-proto.a
     ${LibDir}/libabsl_base.a
     ${LibDir}/libabsl_malloc_internal.a
     ${LibDir}/libabsl_raw_logging_internal.a
@@ -51,7 +52,6 @@ set(LibFiles
     ${LibDir}/libcrypto.a
     ${LibDir}/libssl.a
     ${LibDir}/libz.a
-    ${LibDir}/libspdlog.a
 )
 
 foreach(LibFile IN LISTS LibFiles)
@@ -63,7 +63,7 @@ target_compile_definitions(inworldexample PUBLIC INWORLDAINDK_API=)
 target_include_directories(inworldexample PUBLIC
     ${InworldNDKPackageDir}/include
     ${InworldNDKPackageDir}/src
-    ${InworldNDKPackageDir}/src/proto
+    ${InworldNDKPackageDir}/src/src-proto
 )
 
 target_link_libraries(inworldexample android log)
