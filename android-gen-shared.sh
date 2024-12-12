@@ -7,4 +7,5 @@ cmake .. -DAEC=False\
  -DCMAKE_SYSTEM_NAME=Android\
  -DCMAKE_SYSTEM_VERSION=33\
  -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a\
- -DCMAKE_ANDROID_NDK=/Users/runner/Library/Android/sdk/ndk/26.3.11579264
+ -DCMAKE_ANDROID_NDK=/Users/runner/Library/Android/sdk/ndk/26.3.11579264\
+ -DCMAKE_BUILD_TYPE=RelWithDebInfo
