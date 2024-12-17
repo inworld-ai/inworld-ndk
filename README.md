@@ -17,9 +17,11 @@ The **Inworld NDK** is a library built by CMake. It contains all the source code
     <td><b>iOS</b></td>
   </tr>
   <tr>
-    <td><b>Android</b></td>
+    <td><b>Android (arm64-v8a, armeabi-v7a)</b></td>
   </tr>
 </table>
+
+> **_WARNING:_**  Android support for **armeabi-v7a** is not actively maintained.
 
 ### Prerequisites
 
