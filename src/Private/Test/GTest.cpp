@@ -8,6 +8,7 @@
 #ifndef INWORLD_UNREAL
 
 #include <iostream>
+#include <cstring>
 
 #include "gtest/gtest.h"
 #include "Utils/Utils.h"

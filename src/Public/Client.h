@@ -59,11 +59,11 @@ namespace Inworld
 		std::string Description;
 	};
 
-	using Capabilities = ControlEventSessionConfiguration::Capabilities;
+	using SessionCapabilities = ControlEventSessionConfiguration::Capabilities;
 	using UserConfiguration = ControlEventSessionConfiguration::UserConfiguration;
 	struct INWORLD_EXPORT ClientOptions
 	{
-		Capabilities Capabilities;
+		SessionCapabilities Capabilities;
 		UserConfiguration UserConfig;
 		std::string ServerUrl;
 		std::string Resource;
@@ -201,7 +201,7 @@ namespace Inworld
 		void LoadCharacters(const std::vector<std::string>& Names);
 		void UnloadCharacters(const std::vector<std::string>& Names);
 
-		void LoadCapabilities(const Capabilities& Capabilities);
+		void LoadCapabilities(const SessionCapabilities& Capabilities);
 		void LoadUserConfiguration(const UserConfiguration& UserConfig);
 		
 		// the callback is not called on calling thread for Async methods
@@ -218,11 +218,11 @@ namespace Inworld
 	public:
 		template<class T>
 		void InitSpeechProcessor(const T& Options);
-		template<>
+		
 		void InitSpeechProcessor(const ClientSpeechOptions_Default& Options);
-		template<>
+		
 		void InitSpeechProcessor(const ClientSpeechOptions_VAD_DetectOnly& Options);
-		template<>
+		
 		void InitSpeechProcessor(const ClientSpeechOptions_VAD_DetectAndFilterAudio& Options);
 
 		void DestroySpeechProcessor();
