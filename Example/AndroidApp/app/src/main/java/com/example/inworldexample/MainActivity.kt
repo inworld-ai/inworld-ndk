@@ -3,7 +3,6 @@ package com.example.inworldexample
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.widget.TextView
 import com.example.inworldexample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -21,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         val time : Long = 10 * 60 * 1000 // 10 min
         object : CountDownTimer(time, 30) {
             override fun onTick(millisUntilFinished: Long) {
-                InworldUpdateClient()
+
             }
 
             override fun onFinish() {
@@ -35,7 +34,6 @@ class MainActivity : AppCompatActivity() {
      * which is packaged with this application.
      */
     external fun InworldStartClient()
-    external fun InworldUpdateClient()
     external fun InworldStopClient()
 
     companion object {

@@ -167,10 +167,16 @@ if (WIN32)
     set(LibsslPlatformSubpath Lib/Win64/VS2015/Release/libssl.lib)
     set(OpensslIncludeSubpath include/Win64/VS2015)
 elseif (ANDROID)
-    set(ZlibPlatformSubpath lib/Android/aarch64-linux-android/libz.a)
-    set(LibcryptoPlatformSubpath Lib/Android/arm64/libcrypto.a)
-    set(LibsslPlatformSubpath Lib/Android/arm64/libssl.a)
     set(OpensslIncludeSubpath include/Android)
+    if (CMAKE_ANDROID_ARCH_ABI STREQUAL "armeabi-v7a")
+        set(ZlibPlatformSubpath lib/Android/arm-linux-androideabi/libz.a)
+        set(LibcryptoPlatformSubpath Lib/Android/arm/libcrypto.a)
+        set(LibsslPlatformSubpath Lib/Android/arm/libssl.a)
+    elseif (CMAKE_ANDROID_ARCH_ABI STREQUAL "arm64-v8a")
+        set(ZlibPlatformSubpath lib/Android/aarch64-linux-android/libz.a)
+        set(LibcryptoPlatformSubpath Lib/Android/arm64/libcrypto.a)
+        set(LibsslPlatformSubpath Lib/Android/arm64/libssl.a)
+    endif()
 elseif (IOS)
     set(ZlibPlatformSubpath lib/iOS/libz.a)
     set(LibcryptoPlatformSubpath Lib/IOS/libcrypto.a)
@@ -226,6 +232,12 @@ if (ANDROID)
     )
     target_include_directories(grpc++ PUBLIC
         ${ThirdPartyDir}/OpenSSL/1.1.1n/include/Android
+    )
+    target_include_directories(grpc PUBLIC
+        ${ThirdPartyDir}/zlib/1.2.12/include
+    )
+    target_include_directories(grpc++ PUBLIC
+        ${ThirdPartyDir}/zlib/1.2.12/include
     )
 endif()
 
