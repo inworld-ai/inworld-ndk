@@ -1,95 +1,97 @@
 #include <jni.h>
 #include <string>
-#include "Client.h"
-#include "Packets.h"
-#include "Utils/Log.h"
+#include <sstream>
+#include "Public/Client.h"
+#include "Public/Packets.h"
+#include "Public/Utils/Log.h"
 
-class TextMessageVisitor : public Inworld::PacketVisitor
+class InworldVisitor : public Inworld::PacketVisitor
 {
-    virtual void Visit(const Inworld::TextEvent& Event)
-    {
-        if (Event.IsFinal()) {
-            Inworld::Log("%s: %s", Event._Routing._Source._Name.c_str(), Event.GetText().c_str());
+    Inworld::Client &InworldClient;
+
+public:
+    explicit InworldVisitor(Inworld::Client &inworldClient)
+            : InworldClient(inworldClient) {}
+
+private:
+        void Visit(const Inworld::TextEvent& Event) override
+        {
+            if (Event.IsFinal()) {
+                Inworld::Log("%s: %s", Event._Routing._Source._Name.c_str(), Event.GetText().c_str());
+            }
         }
+
+        void Visit(const Inworld::ControlEventCurrentSceneStatus& Event) override {
+            const std::vector<Inworld::AgentInfo>& AgentInfos = Event.GetAgentInfos();
+
+            if (!AgentInfos.empty())
+            {
+                // Send a message to the first agent in the list
+                InworldClient.SendTextMessage(AgentInfos[0].AgentId, "Hello");
+            }
     }
 };
 
 Inworld::Client InworldClient;
-TextMessageVisitor MessageHandler;
+InworldVisitor MessageHandler(InworldClient);
 
 extern "C" JNIEXPORT void JNICALL
 Java_com_example_inworldexample_MainActivity_InworldStartClient(JNIEnv* env, jobject /* this */)
 {
     Inworld::ClientOptions Options;
 
-    Options.AuthUrl = "api-studio.inworld.ai";
-    Options.LoadSceneUrl = "api-engine.inworld.ai:443";
-    Options.PlayerName = "Player";
+    Options.Capabilities.Animations = false;
+    Options.Capabilities.Audio = true;
+    Options.Capabilities.Emotions = true;
+    Options.Capabilities.Interruptions = true;
+
+    Options.UserConfig.Name = "Player";
+
+    Options.ServerUrl = "api-engine.inworld.ai:443";
 
     // Fill this values!
-    Options.SceneName = "";
+    Options.Resource = "";
     Options.ApiKey = "";
     Options.ApiSecret = "";
+    std::string SceneID = "";
 
-    if (Options.SceneName.empty() ||
+    if (Options.Resource.empty() ||
             Options.ApiKey.empty() ||
-            Options.ApiSecret.empty())
+            Options.ApiSecret.empty() ||
+            SceneID.empty())
     {
         Inworld::LogError("Fill data in native-lib.cpp");
     }
 
-    Options.Capabilities.Animations = false;
-    Options.Capabilities.Text = true;
-    Options.Capabilities.Audio = true;
-    Options.Capabilities.Emotions = true;
-    Options.Capabilities.Gestures = true;
-    Options.Capabilities.Interruptions = true;
-    Options.Capabilities.Triggers = true;
-    Options.Capabilities.EmotionStreaming = true;
-    Options.Capabilities.SilenceEvents = true;
-    Options.Capabilities.PhonemeInfo = true;
-    Options.Capabilities.LoadSceneInSession = true;
+    InworldClient.SetOptions(Options);
 
-    std::vector<Inworld::AgentInfo> AgentInfos;
+    Inworld::SdkInfo Info;
+    Info.Type = "DefaultAndroidUserNDK";
+    Info.Subtype =  "DefaultAndroidClientNDK";
+    Info.Version = "1.0.0";
 
-    InworldClient.InitClient(
-            "DefaultAndroidUserNDK",
-            "DefaultAndroidClientNDK",
-            "1.0.0",
+    InworldClient.InitClientAsync(Info,
             [](Inworld::Client::ConnectionState ConnectionState)
             {
                 std::string Error;
                 int32_t Code;
-                InworldClient.GetConnectionError(Error, Code);
+                Inworld::ErrorDetails ErrorDetails;
+                InworldClient.GetConnectionError(Error, Code, ErrorDetails);
 
-                Inworld::Log("Connection state: {0}. Error: {1}", static_cast<uint32_t>(ConnectionState), Error);
+                Inworld::Log("Connection state: %u. %s", ConnectionState, Error.c_str());
 
                 if (ConnectionState == Inworld::Client::ConnectionState::Disconnected)
                 {
                     InworldClient.ResumeClient();
                 }
             },
-            [](std::shared_ptr<Inworld::Packet> Packet)
+            [](const std::shared_ptr<Inworld::Packet>& Packet)
             {
                 Packet->Accept(MessageHandler);
             }
     );
 
-    Inworld::SessionInfo SessionInfo;
-    InworldClient.StartClient(Options, SessionInfo,
-                        [](std::vector<Inworld::AgentInfo> AgentInfos)
-                        {
-                            if (!AgentInfos.empty())
-                            {
-                                InworldClient.SendTextMessage(AgentInfos[0].AgentId, "Hello");
-                            }
-                        });
-}
-
-extern "C" JNIEXPORT void JNICALL
-Java_com_example_inworldexample_MainActivity_InworldUpdateClient(JNIEnv* env, jobject /* this */)
-{
-    InworldClient.Update();
+    InworldClient.StartClientFromSceneId(Options.Resource + "/scenes/" + SceneID);
 }
 
 extern "C" JNIEXPORT void JNICALL

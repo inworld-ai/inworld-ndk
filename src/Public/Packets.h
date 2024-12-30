@@ -653,7 +653,7 @@ namespace Inworld {
 		{}
 
 	protected:
-		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const = 0;
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 	};
 
 	class INWORLD_EXPORT CancelResponseEvent : public MutationEvent
@@ -762,7 +762,7 @@ namespace Inworld {
 		virtual void Accept(PacketVisitor & Visitor) override { /* Outgoing Only */ }
 
 	protected:
-		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const = 0;
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override { }
 	};
 
 	class INWORLD_EXPORT CreateOrUpdateItemsOperationEvent : public EntitiesItemsOperationEvent
@@ -782,7 +782,7 @@ namespace Inworld {
 			, _AddToEntities(AddToEntities)
 		{}
 
-		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const;
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 
 	private:
 		std::vector<EntityItem> _Items;
@@ -797,7 +797,8 @@ namespace Inworld {
 			, _ItemIds(ItemIds)
 		{}
 
-		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const;
+	protected:
+		virtual void ToProtoInternal(InworldPackets::InworldPacket& Proto) const override;
 
 	private:
 		std::vector<std::string> _ItemIds;
@@ -814,6 +815,7 @@ namespace Inworld {
 
 		virtual InworldPackets::entities::ItemsInEntitiesOperation_Type GetType() const = 0;
 
+	protected:
 		virtual void ToProtoInternal(InworldPackets::InworldPacket & Proto) const override;
 
 	private:

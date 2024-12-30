@@ -11,7 +11,7 @@
 #include <memory>
 #include <functional>
 
-#include "Define.h"
+#include "../Define.h"
 
 namespace Inworld
 {
