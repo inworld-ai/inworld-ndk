@@ -25,7 +25,7 @@ add_library(inworld-ndk-proto STATIC ${FilesALLProto})
 set_target_properties(inworld-ndk-proto PROPERTIES DEBUG_POSTFIX "")
 if (INWORLD_SHARED)
     add_library(inworld-ndk SHARED ${FilesALL})
-    if (WIN32)
+    if (WINDOWS OR XSX)
         set_target_properties(inworld-ndk PROPERTIES
             LIBRARY_OUTPUT_NAME "inworld-ndk.dll"
             IMPORT_SUFFIX ".dll.lib"
@@ -74,7 +74,7 @@ target_compile_features(inworld-ndk PUBLIC cxx_std_20)
 target_compile_features(inworld-ndk-proto PUBLIC cxx_std_20)
 
 if (INWORLD_AUDIO_DUMP)
-    if (WIN32 OR MAC)
+    if (WINDOWS OR MAC)
         target_compile_definitions(inworld-ndk PRIVATE INWORLD_AUDIO_DUMP=1)
     endif()
 endif()
@@ -97,6 +97,14 @@ endfunction()
 
 CheckPathValid(${ZlibDir})
 CheckPathValid(${OpenSSLDir})
+
+# xbox cares patch 
+if (XSX)
+	set(caresDir ${ThirdPartyDir}/grpc/third_party/cares)
+	configure_file(${caresDir}/patch/ares_strcasecmp.c ${caresDir}/cares/ares_strcasecmp.c)
+	configure_file(${caresDir}/patch/ares_strdup.c ${caresDir}/cares/ares_strdup.c)
+	configure_file(${caresDir}/patch/ares_strsplit.c ${caresDir}/cares/ares_strsplit.c)
+endif()
 
 if (IOS OR ANDROID)
     set(CMAKE_MAKE_PROGRAM /usr/bin/make)
@@ -142,11 +150,16 @@ else()
     set(gRPC_SSL_PROVIDER "package" CACHE STRING "Provider of ssl library")
 endif()
 
-if (WIN32)
+if (WINDOWS)
     set(ZlibPlatformSubpath lib/Win64/Release/zlibstatic.lib)
     set(LibcryptoPlatformSubpath Lib/Win64/VS2015/Release/libcrypto.lib)
     set(LibsslPlatformSubpath Lib/Win64/VS2015/Release/libssl.lib)
     set(OpensslIncludeSubpath include/Win64/VS2015)
+elseif (XSX)
+    set(ZlibPlatformSubpath lib/XSX/zlibstatic.lib)
+    set(LibcryptoPlatformSubpath Lib/XSX/libcrypto.lib)
+    set(LibsslPlatformSubpath Lib/XSX/libssl.lib)
+    set(OpensslIncludeSubpath include/XSX)
 elseif (ANDROID)
     set(ZlibPlatformSubpath lib/Android/aarch64-linux-android/libz.a)
     set(LibcryptoPlatformSubpath Lib/Android/arm64/libcrypto.a)
@@ -234,7 +247,7 @@ if(INWORLD_LOG_SPD)
     target_compile_definitions(inworld-ndk PUBLIC INWORLD_LOG=1)
     target_compile_definitions(inworld-ndk PUBLIC INWORLD_LOG_SPD=1)
 
-    if (WIN32)
+    if (WINDOWS)
         set(SPDLOG_USE_STD_FORMAT ON CACHE BOOL "Use std::format instead of fmt library." FORCE)
     else()
         set(SPDLOG_USE_STD_FORMAT OFF CACHE BOOL "Use std::format instead of fmt library." FORCE)
@@ -253,24 +266,27 @@ if(INWORLD_LOG)
 endif()
 
 # gtest
-add_subdirectory(ThirdParty/googletest)
-target_link_libraries(inworld-ndk PUBLIC gtest)
+if(WINDOWS OR MAC)
+    target_compile_definitions(inworld-ndk PUBLIC INWORLD_WITH_GTEST=1)
+    add_subdirectory(ThirdParty/googletest)
+    target_link_libraries(inworld-ndk PUBLIC gtest)
 
-enable_testing()
-include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
-add_executable(inworld-ndk-unit src/Private/Test/GTest.cpp)
-target_link_libraries(inworld-ndk-unit gtest gtest_main)
-target_link_libraries(inworld-ndk-unit inworld-ndk)
-target_include_directories(inworld-ndk-unit PUBLIC 
-    src/Public
-)
-add_test( inworld-ndk-unit inworld-ndk-unit )
-if (WIN32)
-    add_custom_command(
-        TARGET inworld-ndk-unit POST_BUILD
-        COMMAND inworld-ndk-unit
-        VERBATIM
+    enable_testing()
+    include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
+    add_executable(inworld-ndk-unit src/Private/Test/GTest.cpp)
+    target_link_libraries(inworld-ndk-unit gtest gtest_main)
+    target_link_libraries(inworld-ndk-unit inworld-ndk)
+    target_include_directories(inworld-ndk-unit PUBLIC 
+        src/Public
     )
+    add_test( inworld-ndk-unit inworld-ndk-unit )
+    if (WINDOWS)
+        add_custom_command(
+            TARGET inworld-ndk-unit POST_BUILD
+            COMMAND inworld-ndk-unit
+            VERBATIM
+        )
+    endif()
 endif()
 
 # post build package
@@ -287,8 +303,13 @@ add_custom_command(TARGET inworld-ndk POST_BUILD
 add_custom_command(TARGET inworld-ndk POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory  ${PackageDir}/resource)
 
-if (WIN32)
+if (WINDOWS)
     set(PackageLibDir  ${PackageDir}/lib/Win64)
+    set(LibExt lib)
+    set(DynamicLibExt dll)
+    set(LibPref "")
+elseif (XSX)
+    set(PackageLibDir  ${PackageDir}/lib/XSX)
     set(LibExt lib)
     set(DynamicLibExt dll)
     set(LibPref "")
@@ -343,7 +364,7 @@ if (INWORLD_SHARED)
     set(LibFiles 
         ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}inworld-ndk.${DynamicLibExt}
     )
-    if (WIN32)
+    if (WINDOWS OR XSX)
         list(APPEND LibFiles
             ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/inworld-ndk.dll.lib)
     endif()
@@ -391,7 +412,7 @@ endif()
 
 # webrtc aec setup
 if (AEC)
-    if (WIN32 OR MAC)
+    if (WINDOWS OR MAC)
         target_compile_definitions(inworld-ndk PUBLIC INWORLD_AEC)
         target_include_directories(inworld-ndk PUBLIC inworld-aec/src)
         add_custom_command(TARGET inworld-ndk POST_BUILD
@@ -401,7 +422,7 @@ if (AEC)
         message(FATAL_ERROR "AEC: not supported")
     endif()
     
-    if (WIN32)
+    if (WINDOWS)
         target_link_libraries(inworld-ndk PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Win64/webrtc_aec_plugin.lib)
 
         list(APPEND LibFiles 
@@ -418,8 +439,8 @@ if (AEC)
 endif()
 
 # VAD
-if (WIN32 OR MAC)
-    if (WIN32)
+if (WINDOWS OR MAC)
+    if (WINDOWS)
         target_link_libraries(inworld-ndk PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Win64/inworld-ndk-vad.dll.lib)
         list(APPEND LibFiles 
             ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Win64/inworld-ndk-vad.dll.lib
@@ -479,7 +500,7 @@ GroupSourcesByFolder(inworld-ndk)
 GroupSourcesByFolder(inworld-ndk-proto)
 
 # setup example
-if (WIN32 OR MAC)
+if (WINDOWS OR MAC)
     set(SourceDir Example/ConsoleApp/src)
 
     file(GLOB_RECURSE FilesALL
@@ -508,13 +529,13 @@ if (WIN32 OR MAC)
             ${CMAKE_CURRENT_BINARY_DIR}${ConfigDirName}/${LibPref}inworld-ndk.${DynamicLibExt}  ${PROJECT_SOURCE_DIR}/build${ConfigDirName})
     endif()
             
-    if (AEC AND WIN32)
+    if (AEC AND WINDOWS)
         add_custom_command(TARGET inworld-ndk-app POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy
             ${CMAKE_CURRENT_SOURCE_DIR}/inworld-aec/prebuilt/Win64/webrtc_aec_plugin.dll  ${PROJECT_SOURCE_DIR}/build${ConfigDirName})
     endif()
     
-    if (WIN32)
+    if (WINDOWS)
         target_include_directories(inworld-ndk-app PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/src)
         target_link_libraries(inworld-ndk-app PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Win64/inworld-ndk-vad.dll.lib)
         add_custom_command(TARGET inworld-ndk-app POST_BUILD
@@ -525,8 +546,8 @@ if (WIN32 OR MAC)
         target_link_libraries(inworld-ndk-app PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inworld-vad/prebuilt/Mac/libinworld-ndk-vad.dylib)
     endif()
 
-    if (WIN32 OR MAC)
-        if (WIN32)
+    if (WINDOWS OR MAC)
+        if (WINDOWS)
             option(RTAUDIO_API_DS "Build DirectSound API" ON)
             option(RTAUDIO_API_WASAPI "Build WASAPI API" OFF)
         endif()
@@ -537,7 +558,7 @@ if (WIN32 OR MAC)
 endif()
 
 # cppcheck
-if(WIN32 AND INWORLD_CPPCHECK)
+if(WINDOWS AND INWORLD_CPPCHECK)
     message("configuring CppCheck")
 
     set(CMD_CPPCHECK "C:/Program Files/Cppcheck/cppcheck.exe")
