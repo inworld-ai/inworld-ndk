@@ -405,7 +405,7 @@ void Inworld::Client::UnloadCharacters(const std::vector<std::string>& Names)
 	ControlSession<SessionControlEvent_UnloadCharacters>({ Names });
 }
 
-void Inworld::Client::LoadCapabilities(const Capabilities& Capabilities)
+void Inworld::Client::LoadCapabilities(const SessionCapabilities& Capabilities)
 {
 	_ClientOptions.Capabilities = Capabilities;
 	PushPacket(std::make_shared<ControlEventSessionConfiguration>(
@@ -467,13 +467,11 @@ void Inworld::Client::InitSpeechProcessor(const T& Options)
 	);
 }
 
-template<>
 void Inworld::Client::InitSpeechProcessor(const ClientSpeechOptions_Default& Options)
 {
 	InitSpeechProcessor<ClientSpeechOptions_Default, ClientSpeechProcessor_Default>(Options);
 }
 
-template<>
 void Inworld::Client::InitSpeechProcessor(const ClientSpeechOptions_VAD_DetectOnly& Options)
 {
 #ifdef INWORLD_VAD
@@ -484,7 +482,6 @@ void Inworld::Client::InitSpeechProcessor(const ClientSpeechOptions_VAD_DetectOn
 #endif
 }
 
-template<>
 void Inworld::Client::InitSpeechProcessor(const ClientSpeechOptions_VAD_DetectAndFilterAudio& Options)
 {
 #ifdef INWORLD_VAD

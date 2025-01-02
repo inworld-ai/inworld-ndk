@@ -10,6 +10,8 @@
 #include <string>
 #include <ctime>
 #include <unordered_set>
+#include <vector>
+#include <stdint.h>
 #include "Define.h"
 
 namespace Inworld
