@@ -11,6 +11,7 @@
 #include <queue>
 #include <string>
 #include <vector>
+#include <memory>
 
 #include "AECFilter.h"
 #include "AsyncRoutine.h"

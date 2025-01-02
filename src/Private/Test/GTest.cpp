@@ -8,6 +8,7 @@
 #ifdef INWORLD_WITH_GTEST
 
 #include <iostream>
+#include <cstring>
 
 #include "gtest/gtest.h"
 #include "Utils/Utils.h"
