@@ -150,7 +150,7 @@ void NDKApp::App::Run()
 			"Show info about all characters",
 			[this](const std::vector<std::string>& Args)
 			{
-				for (auto& Info : _AgentInfos)
+				for (const auto& Info : _AgentInfos)
 				{
 					Inworld::Log("%s %s %s", Info.GivenName.c_str(), Info.AgentId.c_str(), Info.BrainName.c_str());
 				}
@@ -461,8 +461,6 @@ void NDKApp::App::Run()
 	_Options.Capabilities.PhonemeInfo = true;
 	_Options.Capabilities.NarratedActions = true;
 	_Options.Capabilities.MultiAgent = true;
-
-	std::vector<Inworld::AgentInfo> AgentInfos;
 
 	_Client.Client().InitClientAsync(
 		{},
