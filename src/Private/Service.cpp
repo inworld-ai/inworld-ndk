@@ -6,6 +6,7 @@
  */
 
 #include "Service.h"
+#include "Client.h"
 #include "Utils/Log.h"
 
 #include <iomanip>
@@ -15,20 +16,14 @@
 
 void Inworld::RunnableRead::Run()
 {
-	while (!_HasReaderWriterFinished)
+	while(!_HasReaderWriterFinished && !_IsDone)
 	{
 		InworldPackets::InworldPacket IncomingPacket;
-		if (!_ClientStream.Read(&IncomingPacket))
 		{
-			if (!_HasReaderWriterFinished)
-			{
-				_HasReaderWriterFinished = true;
-				_ErrorCallback(_ClientStream.Finish());
-			}
-
-			_IsDone = true;
-
-			return;
+			std::unique_lock<std::mutex> lock(_Mutex);
+			_ClientStream->Read(&IncomingPacket, &_ReadTag);
+			_ReadWaiting = true;
+			_ReadCV.wait(lock, [this]{ return !_ReadWaiting; });
 		}
 
 		std::shared_ptr<Inworld::Packet> Packet = nullptr;
@@ -96,50 +91,119 @@ void Inworld::RunnableRead::Run()
 			Packet = std::make_shared<Inworld::LogEvent>(IncomingPacket);
 		}
 
-		if(Packet == nullptr)
+		if(Packet != nullptr)
 		{
-			// Unknown packet type
-			continue;
+			_Packets.PushBack(Packet);
 		}
-
-		_Packets.PushBack(Packet);
 
 		if (!_HasReaderWriterFinished)
 		{
-			_ProcessedCallback(Packet);
+			_ProcessedCallback();
 		}
 	}
-
 	_IsDone = true;
 }
 
 void Inworld::RunnableWrite::Run()
 {
-	while (!_HasReaderWriterFinished && !_Packets.IsEmpty())
+	while(!_HasReaderWriterFinished)
 	{
-		auto Packet = _Packets.Front();
-		InworldPackets::InworldPacket Event = Packet->ToProto();
-		if (!_ClientStream.Write(Event))
+		if(_Packets.IsEmpty())
 		{
-			if (!_HasReaderWriterFinished)
-			{
-				_HasReaderWriterFinished = true;
-				_ErrorCallback(_ClientStream.Finish());
-			}
-
-			_IsDone = true;
-
-			return;
+			continue;
 		}
 
-		_Packets.PopFront();
-		if (!_HasReaderWriterFinished)
 		{
-			_ProcessedCallback(Packet);
+			std::unique_lock<std::mutex> lock(_Mutex);
+			_ClientStream->Write(_Packets.Front()->ToProto(), &_WriteTag);
+			_WriteWaiting = true;
+			_WriteCV.wait(lock, [this] { return !_WriteWaiting; });
 		}
 	}
-
 	_IsDone = true;
+}
+
+void Inworld::RunnableRpcHandler::Run()
+{
+	while(true)
+	{
+		if(!_IsRunning && !_HasReaderWriterFinished && !_ShuttingDown)
+		{
+			std::this_thread::sleep_for(std::chrono::milliseconds(100));
+			continue;
+		}
+		
+		void* outTag;
+		bool ok;
+		auto deadline = std::chrono::system_clock::now() + std::chrono::seconds(5);
+
+		switch (_CompletionQueue->AsyncNext(&outTag, &ok, deadline))
+		{
+		case grpc::CompletionQueue::GOT_EVENT:
+			switch(*static_cast<TagType*>(outTag))
+			{
+				case TagType::Write:
+					if(ok)
+					{
+						_Packets.PopFront();
+					} else
+					{
+						EndStream();
+					}
+
+					{
+						std::lock_guard<std::mutex> lock(_Mutex);
+						_WriteWaiting = false;
+						_WriteCV.notify_one();
+					}
+					break;
+				case TagType::Read:
+					if(!ok)
+					{
+						EndStream();
+					}
+				
+					{
+						std::lock_guard<std::mutex> lock(_Mutex);
+						_ReadWaiting = false;
+						_ReadCV.notify_one();
+					}
+					break;
+				case TagType::CloseSession:
+					if (_HasReaderWriterFinished && !_ShuttingDown)
+					{
+						_ShuttingDown = true;
+						_CompletionQueue->Shutdown();
+					}
+					break;
+				case TagType::OpenSession:
+					if(_OpeningClientStream)
+					{
+						_OpeningClientStream = false;
+						_SessionOpenCallback();
+					}
+					break;
+				}
+			break;
+		case grpc::CompletionQueue::TIMEOUT:
+			{
+				if(_OpeningClientStream)
+				{
+					_OpeningClientStream = false;
+					_Status = grpc::Status(grpc::StatusCode::DEADLINE_EXCEEDED, "Failed to open stream - deadline expired.");
+				
+					_EndCallback(_Status);
+					_IsDone = true;
+					return;
+				}
+				continue;
+			}
+		case grpc::CompletionQueue::SHUTDOWN:
+			_EndCallback(_Status);
+			_IsDone = true;
+			return;
+		}
+	}
 }
 
 #ifdef INWORLD_AUDIO_DUMP
@@ -179,14 +243,19 @@ grpc::Status Inworld::RunnableGenerateSessionToken::RunProcess()
 	return CreateStub()->GenerateToken(AuthCtx.get(), AuthRequest, &_Response);
 }
 
-std::unique_ptr<Inworld::ClientStream> Inworld::ServiceSession::OpenSession(const ClientHeaderData& Metadata)
+std::unique_ptr<Inworld::ClientStream> Inworld::ServiceSession::OpenSessionAsync(const ClientHeaderData& Metadata)
 {
+	if(_CompletionQueue)
+	{
+		_CompletionQueue.reset();
+	}
+	_CompletionQueue = std::make_unique<grpc::CompletionQueue>();
 	std::unique_ptr<ClientContext>& ClientContext = Context();
 	for (const auto& Data : Metadata)
 	{
 		ClientContext->AddMetadata(Data.first, Data.second);
 	}
-	return CreateStub()->OpenSession(ClientContext.get());
+	return CreateStub()->AsyncOpenSession(ClientContext.get(), _CompletionQueue.get(), &_OpenSessionTag);
 }
 
 std::unique_ptr<ClientContext>& Inworld::ServiceSession::Context()
