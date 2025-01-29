@@ -259,7 +259,7 @@ namespace Inworld
 		void StartClientStreamAsync();
 		void PauseClientStream();
 		void ResumeClientStream();
-		void StopClientStream() const;
+		void StopClientStream();
 		void SetConnectionState(ConnectionState State);
 
 		std::function<void(std::shared_ptr<Inworld::Packet>)> _OnPacketCallback;
