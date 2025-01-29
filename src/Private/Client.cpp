@@ -956,7 +956,6 @@ void Inworld::Client::StopClientStream() const
 	if (_Service->Session())
 	{
 		_Service->Session()->CompletionQueue().reset();
-		_Service->Session()->Cancel();
 	}
 
 	if(_Service->Stream())
@@ -1049,6 +1048,7 @@ void Inworld::Client::TryToStartRPCHandler()
 		_AsyncRPCHandlerTask.Start(
 			"InworldRPCHandler",
 			std::make_unique<RunnableRpcHandler>(
+				_Service->Session(),
 				_Service->Stream(),
 				_ReadWriteMutex,
 				_Service->Session()->CompletionQueue(),

@@ -21,8 +21,8 @@ void Inworld::RunnableRead::Run()
 		InworldPackets::InworldPacket IncomingPacket;
 		{
 			std::unique_lock<std::mutex> lock(_Mutex);
-			_ClientStream->Read(&IncomingPacket, &_ReadTag);
 			_ReadWaiting = true;
+			_ClientStream->Read(&IncomingPacket, &_ReadTag);
 			_ReadCV.wait(lock, [this]{ return !_ReadWaiting; });
 		}
 
@@ -94,10 +94,6 @@ void Inworld::RunnableRead::Run()
 		if(Packet != nullptr)
 		{
 			_Packets.PushBack(Packet);
-		}
-
-		if (!_HasReaderWriterFinished)
-		{
 			_ProcessedCallback();
 		}
 	}
@@ -106,17 +102,18 @@ void Inworld::RunnableRead::Run()
 
 void Inworld::RunnableWrite::Run()
 {
-	while(!_HasReaderWriterFinished)
+	while(!_HasReaderWriterFinished && !_IsDone)
 	{
 		if(_Packets.IsEmpty())
 		{
+			std::this_thread::sleep_for(std::chrono::milliseconds(20));
 			continue;
 		}
 
 		{
 			std::unique_lock<std::mutex> lock(_Mutex);
-			_ClientStream->Write(_Packets.Front()->ToProto(), &_WriteTag);
 			_WriteWaiting = true;
+			_ClientStream->Write(_Packets.Front()->ToProto(), &_WriteTag);
 			_WriteCV.wait(lock, [this] { return !_WriteWaiting; });
 		}
 	}
@@ -125,85 +122,84 @@ void Inworld::RunnableWrite::Run()
 
 void Inworld::RunnableRpcHandler::Run()
 {
-	while(true)
-	{
-		if(!_IsRunning && !_HasReaderWriterFinished && !_ShuttingDown)
-		{
-			std::this_thread::sleep_for(std::chrono::milliseconds(100));
-			continue;
-		}
-		
-		void* outTag;
-		bool ok;
-		auto deadline = std::chrono::system_clock::now() + std::chrono::seconds(5);
+    while(true)
+    {
+        if(!_IsRunning && !_HasReaderWriterFinished && !_ShuttingDown)
+        {
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            continue;
+        }
 
-		switch (_CompletionQueue->AsyncNext(&outTag, &ok, deadline))
-		{
-		case grpc::CompletionQueue::GOT_EVENT:
-			switch(*static_cast<TagType*>(outTag))
-			{
-				case TagType::Write:
-					if(ok)
-					{
-						_Packets.PopFront();
-					} else
-					{
-						EndStream();
-					}
+        void* outTag;
+        bool ok;
+        auto deadline = std::chrono::system_clock::now() + std::chrono::seconds(5);
 
-					{
-						std::lock_guard<std::mutex> lock(_Mutex);
-						_WriteWaiting = false;
-						_WriteCV.notify_one();
-					}
-					break;
-				case TagType::Read:
-					if(!ok)
-					{
-						EndStream();
-					}
-				
-					{
-						std::lock_guard<std::mutex> lock(_Mutex);
-						_ReadWaiting = false;
-						_ReadCV.notify_one();
-					}
-					break;
-				case TagType::CloseSession:
-					if (_HasReaderWriterFinished && !_ShuttingDown)
-					{
-						_ShuttingDown = true;
-						_CompletionQueue->Shutdown();
-					}
-					break;
-				case TagType::OpenSession:
-					if(_OpeningClientStream)
-					{
-						_OpeningClientStream = false;
-						_SessionOpenCallback();
-					}
-					break;
-				}
-			break;
-		case grpc::CompletionQueue::TIMEOUT:
-			{
-				if(_OpeningClientStream)
-				{
-					_OpeningClientStream = false;
-					_Status = grpc::Status(grpc::StatusCode::DEADLINE_EXCEEDED, "Failed to open stream - deadline expired.");
-				
-					_EndCallback(_Status);
-					_IsDone = true;
-					return;
-				}
-				continue;
-			}
-		case grpc::CompletionQueue::SHUTDOWN:
-			_EndCallback(_Status);
-			_IsDone = true;
-			return;
-		}
-	}
+        switch (_CompletionQueue->AsyncNext(&outTag, &ok, deadline))
+        {
+        case grpc::CompletionQueue::GOT_EVENT:
+            switch(*static_cast<TagType*>(outTag))
+            {
+            case TagType::Write:
+                    if(ok)
+                    {
+                        _Packets.PopFront();
+                    }
+
+                    {
+                        std::lock_guard<std::mutex> lock(_Mutex);
+                        _WriteWaiting = false;
+                        _WriteCV.notify_one();
+                    }
+                    break;
+            case TagType::Read:
+                    if(!ok)
+                    {
+                    	if (!_HasReaderWriterFinished)
+                    	{
+                    		_HasReaderWriterFinished = true;
+                    		_ClientStream->Finish(&_Status, &_CloseSessionTag);
+                    	}
+                    }
+                    
+                    {
+                        std::lock_guard<std::mutex> lock(_Mutex);
+                        _ReadWaiting = false;
+                        _ReadCV.notify_one();
+                    }
+                    break;
+            case TagType::CloseSession:
+                    if (_HasReaderWriterFinished && !_ShuttingDown)
+                    {
+                        _ShuttingDown = true;
+                        _CompletionQueue->Shutdown();
+                    }
+                    break;
+            case TagType::OpenSession:
+                    if(_OpeningClientStream)
+                    {
+                        _OpeningClientStream = false;
+                        _SessionOpenCallback();
+                    }
+                    break;
+            }
+            break;
+        
+        case grpc::CompletionQueue::TIMEOUT:
+                if(_OpeningClientStream)
+                {
+                    _OpeningClientStream = false;
+                    _Status = grpc::Status(grpc::StatusCode::DEADLINE_EXCEEDED, "Failed to open stream - deadline expired.");
+                    _EndCallback(_Status);
+                    _IsDone = true;
+                    return;
+                }
+            break;
+        case grpc::CompletionQueue::SHUTDOWN:
+            _EndCallback(_Status);
+            _IsDone = true;
+            return;
+        }
+    }
 }
 
 #ifdef INWORLD_AUDIO_DUMP
