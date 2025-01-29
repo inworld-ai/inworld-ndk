@@ -303,7 +303,10 @@ class INWORLD_EXPORT RunnableCreateInteractionFeedback : public RunnableRequest<
 
 		void Deinitialize() override
 		{
-			_Session->Cancel();
+			if(!_HasReaderWriterFinished)
+			{
+				_Session->Cancel();
+			}
 		}
 
 	protected:
