@@ -951,7 +951,7 @@ void Inworld::Client::ResumeClientStream()
 	}
 }
 
-void Inworld::Client::StopClientStream() const
+void Inworld::Client::StopClientStream()
 {
 	if (_Service->Session())
 	{
