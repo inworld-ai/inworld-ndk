@@ -22,6 +22,7 @@
 
 #include "Utils/Utils.h"
 #include "Utils/SharedQueue.h"
+#include "Client.h"
 #include "Define.h"
 #include "Packets.h"
 #include "Runnable.h"
@@ -40,49 +41,75 @@ using grpc::Status;
 
 namespace Inworld
 {
-	using ClientStream = ::grpc::ClientReaderWriter<InworldPackets::InworldPacket, InworldPackets::InworldPacket>;
+	using ClientStream = ::grpc::ClientAsyncReaderWriter<InworldPackets::InworldPacket, InworldPackets::InworldPacket>;
 
+	enum class TagType : uint8_t
+	{
+		OpenSession,
+		CloseSession,
+		Read,
+		Write
+	};
+	
 	class INWORLD_EXPORT RunnableMessaging : public Runnable
 	{
 	public:
-		RunnableMessaging(ClientStream& ClientStream, std::atomic<bool>& bInHasReaderWriterFinished, SharedQueue<std::shared_ptr<Inworld::Packet>>& Packets, std::function<void(const std::shared_ptr<Inworld::Packet>)> ProcessedCallback = nullptr, std::function<void(const grpc::Status&)> InErrorCallback = nullptr)
+		RunnableMessaging(std::unique_ptr<ClientStream>& ClientStream, std::mutex& Mutex, std::atomic<bool>& HasReaderWriterFinished, bool& WriteWaiting, bool& ReadWaiting, SharedQueue<std::shared_ptr<Inworld::Packet>>& Packets)
 			: _ClientStream(ClientStream)
-			, _HasReaderWriterFinished(bInHasReaderWriterFinished)
+			, _HasReaderWriterFinished(HasReaderWriterFinished)
 			, _Packets(Packets)
-			, _ProcessedCallback(ProcessedCallback)
-			, _ErrorCallback(InErrorCallback)
+			, _WriteWaiting(WriteWaiting)
+			, _ReadWaiting(ReadWaiting)
+			, _Mutex(Mutex)
 		{}
 		virtual ~RunnableMessaging() = default;
 
 	protected:
-		ClientStream& _ClientStream;
+		std::unique_ptr<ClientStream>& _ClientStream;
 		std::atomic<bool>& _HasReaderWriterFinished;
 
 		SharedQueue<std::shared_ptr<Inworld::Packet>>& _Packets;
-		std::function<void(const std::shared_ptr<Inworld::Packet>)> _ProcessedCallback;
-		std::function<void(const grpc::Status&)> _ErrorCallback;
+
+		bool& _WriteWaiting;
+		bool& _ReadWaiting;
+
+		std::mutex& _Mutex;
+
+		TagType _OpenSessionTag = TagType::OpenSession;
+		TagType _CloseSessionTag = TagType::CloseSession;
+		TagType _ReadTag = TagType::Read;
+		TagType _WriteTag = TagType::Write;
 	};
 
 	class INWORLD_EXPORT RunnableRead : public RunnableMessaging
 	{
 	public:
-		RunnableRead(ClientStream& ClientStream, std::atomic<bool>& bHasReaderWriterFinished, SharedQueue<std::shared_ptr<Inworld::Packet>>& Packets, std::function<void(const std::shared_ptr<Inworld::Packet>)> ProcessedCallback = nullptr, std::function<void(const grpc::Status&)> ErrorCallback = nullptr)
-			: RunnableMessaging(ClientStream, bHasReaderWriterFinished, Packets, ProcessedCallback, ErrorCallback)
+		RunnableRead(std::unique_ptr<ClientStream>& ClientStream, std::mutex& Mutex, std::atomic<bool>& HasReaderWriterFinished, bool& WriteWaiting, bool& ReadWaiting, std::condition_variable& ReadCV, SharedQueue<std::shared_ptr<Inworld::Packet>>& IncomingPackets, std::function<void()> ProcessedCallback = nullptr)
+			: RunnableMessaging(ClientStream, Mutex, HasReaderWriterFinished, WriteWaiting, ReadWaiting, IncomingPackets)
+			,	_ReadCV(ReadCV)
+			,	_ProcessedCallback(ProcessedCallback)
 		{}
 		virtual ~RunnableRead() override = default;
-
 		virtual void Run() override;
+
+	protected:
+		std::condition_variable& _ReadCV;
+		std::function<void()> _ProcessedCallback;
 	};
 
 	class INWORLD_EXPORT RunnableWrite : public RunnableMessaging
 	{
 	public:
-		RunnableWrite(ClientStream& ClientStream, std::atomic<bool>& bHasReaderWriterFinished, SharedQueue<std::shared_ptr<Inworld::Packet>>& Packets, std::function<void(const std::shared_ptr<Inworld::Packet>)> ProcessedCallback = nullptr, std::function<void(const grpc::Status&)> ErrorCallback = nullptr)
-			: RunnableMessaging(ClientStream, bHasReaderWriterFinished, Packets, ProcessedCallback, ErrorCallback)
-		{}
+		RunnableWrite(std::unique_ptr<ClientStream>& ClientStream, std::mutex& Mutex, std::atomic<bool>& HasReaderWriterFinished, bool& WriteWaiting, bool& ReadWaiting, std::condition_variable& WriteCV, SharedQueue<std::shared_ptr<Inworld::Packet>>& OutgoingPackets)
+			: RunnableMessaging(ClientStream, Mutex, HasReaderWriterFinished, WriteWaiting, ReadWaiting, OutgoingPackets)
+			,	_WriteCV(WriteCV)
+		{} 
 		virtual ~RunnableWrite() override = default;
 
 		virtual void Run() override;
+
+	protected:
+		std::condition_variable& _WriteCV;
 	};
 
 	template<typename TService>
@@ -240,15 +267,61 @@ class INWORLD_EXPORT RunnableCreateInteractionFeedback : public RunnableRequest<
 			, _SessionId(SessionId)
 		{}
 		
-		std::unique_ptr<ClientStream> OpenSession(const ClientHeaderData& Metadata);
+		std::unique_ptr<ClientStream> OpenSessionAsync(const ClientHeaderData& Metadata);
 
+		std::unique_ptr<grpc::CompletionQueue>& CompletionQueue() { return _CompletionQueue; }
+		
 		void SetToken(const std::string& Token) { _Token = Token; }
+
+		TagType _OpenSessionTag = TagType::OpenSession;
 
 	private:
 		std::unique_ptr<ClientContext>& Context();
-		
+		std::unique_ptr<grpc::CompletionQueue> _CompletionQueue;
 		std::string _Token;
 		std::string _SessionId;
+	};
+
+	class INWORLD_EXPORT RunnableRpcHandler : public RunnableMessaging
+	{
+	public:
+		RunnableRpcHandler(std::unique_ptr<ServiceSession>& Session, std::unique_ptr<ClientStream>& ClientStream, std::mutex& Mutex, std::unique_ptr<grpc::CompletionQueue>& CompletionQueue, std::atomic<bool>& HasReaderWriterFinished, std::atomic<bool>& IsRunning, std::atomic<bool>& OpeningClientStream, bool& WriteWaiting, bool& ReadWaiting, std::condition_variable& ReadCV, std::condition_variable& WriteCV, SharedQueue<std::shared_ptr<Inworld::Packet>>& OutgoingPackets, std::function<void()> SessionOpenCallback, std::function<void(const grpc::Status&)> ErrorCallback)
+			: RunnableMessaging(ClientStream, Mutex, HasReaderWriterFinished, WriteWaiting, ReadWaiting, OutgoingPackets)
+			,	_Session(Session)
+			,	_CompletionQueue(CompletionQueue)
+			,	_OpeningClientStream(OpeningClientStream)
+			,	_IsRunning(IsRunning)
+			,	_ReadCV(ReadCV)
+			,	_WriteCV(WriteCV)
+			,	_EndCallback(ErrorCallback)
+			,	_SessionOpenCallback(SessionOpenCallback)
+		
+		{} 
+		virtual ~RunnableRpcHandler() override = default;
+
+		virtual void Run() override;
+
+		void Deinitialize() override
+		{
+			if(!_HasReaderWriterFinished)
+			{
+				_Session->Cancel();
+			}
+		}
+
+	protected:
+		std::unique_ptr<ServiceSession>& _Session;
+		std::unique_ptr<grpc::CompletionQueue>& _CompletionQueue;
+		std::condition_variable& _ReadCV;
+		std::condition_variable& _WriteCV;
+		std::atomic<bool>& _OpeningClientStream;
+		std::atomic<bool>& _IsRunning;
+
+		std::function<void()> _SessionOpenCallback;
+		std::function<void(const grpc::Status&)> _EndCallback;
+
+		Status _Status;
+		bool _ShuttingDown = false;
 	};
 
 #ifdef INWORLD_AUDIO_DUMP

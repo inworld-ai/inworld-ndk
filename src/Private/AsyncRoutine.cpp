@@ -21,11 +21,19 @@ void Inworld::AsyncRoutine::Stop()
 	if (_Runnable)
 	{
 		_Runnable->Stop();
-		_Runnable.release();
 	}
 
 	if (_Thread)
 	{
-		_Thread.release();
+		if(_Thread->joinable())
+		{
+			_Thread->join();
+		}
+		_Thread.reset();
+	}
+	
+	if (_Runnable)
+	{
+		_Runnable.reset();
 	}
 }
