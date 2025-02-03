@@ -1078,7 +1078,7 @@ void Inworld::Client::TryToStartRPCHandler()
 					_ErrorMessage = Status.error_message();
 					_ErrorCode = Status.error_code();
 					_ErrorDetails = Status.error_details();
-					std::string message = std::format("NDK RPC Stream Ended: {}. Code: {}, Session Id: {}", _ErrorMessage, _ErrorCode, _SessionToken.SessionId);
+					std::string message = "NDK RPC Stream Ended: " + _ErrorMessage + ". Code: " + std::to_string(_ErrorCode) + ", Session Id: " + _SessionToken.SessionId;
 					if(Status.ok())
 					{
 						Inworld::Log(message);
