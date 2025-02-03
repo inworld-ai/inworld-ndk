@@ -962,6 +962,8 @@ void Inworld::Client::StopClientStream()
 	{
 		_Service->Stream().reset();
 	}
+	
+	_OutgoingPackets.Clear();
 }
 
 void Inworld::Client::TryToStartReadTask()
@@ -1073,13 +1075,24 @@ void Inworld::Client::TryToStartRPCHandler()
 				},
 				[this](const grpc::Status& Status)
 				{
-					if(!Status.ok())
+					_ErrorMessage = Status.error_message();
+					_ErrorCode = Status.error_code();
+					_ErrorDetails = Status.error_details();
+					std::string message = "NDK RPC Stream Ended: " + _ErrorMessage + ". Code: " + std::to_string(_ErrorCode) + ", Session Id: " + _SessionToken.SessionId;
+					if(Status.ok())
 					{
-						_ErrorMessage = Status.error_message();
-						_ErrorCode = Status.error_code();
-						_ErrorDetails = Status.error_details();
-						Inworld::LogError("NDK RPC Handler failed: %s. Code: %d, Session Id: %s", _ErrorMessage.c_str(), _ErrorCode, _SessionToken.SessionId.c_str());
-					} 
+						Inworld::Log(message);
+					} else
+					{
+						if(_ErrorCode == grpc::StatusCode::CANCELLED)
+						{
+							Inworld::LogWarning(message);
+						} else
+						{
+							Inworld::LogError(message);
+						}
+					}
+					
 					_AsyncReadTask.Stop();
 					_AsyncWriteTask.Stop();
 					
