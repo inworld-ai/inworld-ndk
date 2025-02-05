@@ -17,9 +17,11 @@ The **Inworld NDK** is a library built by CMake. It contains all the source code
     <td><b>iOS</b></td>
   </tr>
   <tr>
-    <td><b>Android</b></td>
+    <td><b>Android (arm64-v8a, armeabi-v7a)</b></td>
   </tr>
 </table>
+
+> **_WARNING:_**  Android support for **armeabi-v7a** is not actively maintained.
 
 ### Prerequisites
 
@@ -66,8 +68,8 @@ To build for Android:
 
 Find Android Example App project in Exaple/AndroidApp. To run the App:
 - Build Android binaries(see section above)
-- Open Exaple/AndroidApp project in *Android Studio*(tested on Android Studio Flamingo | 2022.2.1 Patch 2)
-- Fill *Options.SceneName*, *Options.ApiKey* and *Options.ApiSecret* in app/cpp/cpp/native-lib.cpp. If you don't have an **Inworld.ai** account yet see more information [here](https://docs.inworld.ai/docs/intro)
+- Open Example/AndroidApp project in *Android Studio*(tested on Android Studio Ladybug | 2024.2.1 Patch 3)
+- Fill *Options.Resource*, *Options.ApiKey*, *Options.ApiSecret*, and *SceneID* in app/cpp/cpp/native-lib.cpp. If you don't have an **Inworld.ai** account yet see more information [here](https://docs.inworld.ai/docs/intro)
 - Build and run on device or emulator
 - Inworld Client is created and started on MainActivity's onCreate, a greeting to a character is sent when Inworld session is started. See *Logcat* for logs, filter by *inworld-ndk*
 - See app/cpp/cpp/CMakeLists.txt as an example on how to link with Inworld

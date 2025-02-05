@@ -18,7 +18,7 @@ void NDKApp::CommandLineInterface::SetCommands(const std::vector<ConsoleCommand>
 			"show all commands",
 			[this](const std::vector<std::string>& Args)
 			{
-				for (auto& Command : _Commands)
+				for (const auto& Command : _Commands)
 				{
 					Inworld::Log("%s - %s", Command._Id.c_str(), Command._Desc.c_str());
 				}

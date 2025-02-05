@@ -32,14 +32,15 @@ namespace InworldPackets = ai::inworld::packets;
 namespace grpc
 {
 	template <class W, class R>
-	class ClientReaderWriter;
+	class ClientAsyncReaderWriter;
+	class CompletionQueue;
 }
 
 namespace Inworld
 {
 	class ServiceSession;
-	using ClientStream = ::grpc::ClientReaderWriter<InworldPackets::InworldPacket, InworldPackets::InworldPacket>;
-
+	using ClientStream = grpc::ClientAsyncReaderWriter<InworldPackets::InworldPacket, InworldPackets::InworldPacket>;
+	
 	// use for grpc related Client members
 	class IClientService
 	{
@@ -47,7 +48,7 @@ namespace Inworld
 		virtual ~IClientService() = default;
 		virtual std::unique_ptr<ServiceSession>& Session() = 0;
 		virtual std::unique_ptr<ClientStream>& Stream() = 0;
-		virtual void OpenSession(const ClientHeaderData& Metadata) = 0;
+		virtual void OpenSessionAsync(const ClientHeaderData& Metadata) = 0;
 	};
 
 	struct INWORLD_EXPORT SdkInfo
@@ -59,11 +60,11 @@ namespace Inworld
 		std::string Description;
 	};
 
-	using Capabilities = ControlEventSessionConfiguration::Capabilities;
+	using SessionCapabilities = ControlEventSessionConfiguration::Capabilities;
 	using UserConfiguration = ControlEventSessionConfiguration::UserConfiguration;
 	struct INWORLD_EXPORT ClientOptions
 	{
-		Capabilities Capabilities;
+		SessionCapabilities Capabilities;
 		UserConfiguration UserConfig;
 		std::string ServerUrl;
 		std::string Resource;
@@ -201,7 +202,7 @@ namespace Inworld
 		void LoadCharacters(const std::vector<std::string>& Names);
 		void UnloadCharacters(const std::vector<std::string>& Names);
 
-		void LoadCapabilities(const Capabilities& Capabilities);
+		void LoadCapabilities(const SessionCapabilities& Capabilities);
 		void LoadUserConfiguration(const UserConfiguration& UserConfig);
 		
 		// the callback is not called on calling thread for Async methods
@@ -218,11 +219,11 @@ namespace Inworld
 	public:
 		template<class T>
 		void InitSpeechProcessor(const T& Options);
-		template<>
+		
 		void InitSpeechProcessor(const ClientSpeechOptions_Default& Options);
-		template<>
+		
 		void InitSpeechProcessor(const ClientSpeechOptions_VAD_DetectOnly& Options);
-		template<>
+		
 		void InitSpeechProcessor(const ClientSpeechOptions_VAD_DetectAndFilterAudio& Options);
 
 		void DestroySpeechProcessor();
@@ -255,7 +256,7 @@ namespace Inworld
 		void PushPacket(std::shared_ptr<Inworld::Packet> Packet);
 		void RecvPacket(std::shared_ptr<Inworld::Packet> Packet);
 
-		void StartClientStream();
+		void StartClientStreamAsync();
 		void PauseClientStream();
 		void ResumeClientStream();
 		void StopClientStream();
@@ -271,6 +272,7 @@ namespace Inworld
 		void StartSession();
 		void TryToStartReadTask();
 		void TryToStartWriteTask();
+		void TryToStartRPCHandler();
 
 		template <typename T>
 		void ControlSession(typename T::Data D)
@@ -284,8 +286,10 @@ namespace Inworld
 		std::function<void(const std::string&, uint32_t)> _OnPerceivedLatencyCallback;
 
 		std::atomic<bool> _bHasClientStreamFinished = false;
-
+		std::atomic<bool> _bOpeningClientStream = false;
+		
 		AsyncRoutine _AsyncReadTask;
+		AsyncRoutine _AsyncRPCHandlerTask;
 		AsyncRoutine _AsyncWriteTask;
 		AsyncRoutine _AsyncGenerateTokenTask;
 		AsyncRoutine _AsyncGetSessionState;
@@ -299,6 +303,14 @@ namespace Inworld
 	    std::unique_ptr<ClientSpeechProcessor> _SpeechProcessor;
 
 		std::atomic<bool> _bPendingIncomingPacketFlush = false;
+		std::atomic<bool> _bIsRunning = false;
+
+		bool _bReadWaiting;
+		bool _bWriteWaiting;
+		
+		std::condition_variable _ReadCV;
+		std::condition_variable _WriteCV;
+		std::mutex _ReadWriteMutex;
 
 		ConnectionState _ConnectionState = ConnectionState::Idle;
 		std::string _ErrorMessage = std::string();

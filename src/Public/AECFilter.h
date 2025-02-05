@@ -8,6 +8,7 @@
 #pragma once
 #include "Define.h"
 #include <vector>
+#include <stdint.h>
 
 namespace Inworld
 {

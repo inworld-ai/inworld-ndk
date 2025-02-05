@@ -82,7 +82,7 @@ namespace Inworld
 		virtual std::unique_ptr<ServiceSession>& Session() override { return _SessionService; }
 		virtual std::unique_ptr<ClientStream>& Stream() override { return _ClientStream; }
 
-		virtual void OpenSession(const ClientHeaderData& Metadata) override
+		void OpenSessionAsync(const ClientHeaderData& Metadata) override
 		{
 			if (!_SessionService)
 			{
@@ -90,7 +90,7 @@ namespace Inworld
 				return;
 			}
 
-			_ClientStream = _SessionService->OpenSession(Metadata);
+			_ClientStream = _SessionService->OpenSessionAsync(Metadata);
 		}
 
 	private:
@@ -223,8 +223,6 @@ std::shared_ptr<Inworld::ControlEventConversationUpdate> Inworld::Client::Update
 void Inworld::Client::PushPacket(std::shared_ptr<Inworld::Packet> Packet)
 {
 	_OutgoingPackets.PushBack(Packet);
-
-	TryToStartWriteTask();
 }
 
 void Inworld::Client::RecvPacket(std::shared_ptr<Inworld::Packet> Packet)
@@ -405,7 +403,7 @@ void Inworld::Client::UnloadCharacters(const std::vector<std::string>& Names)
 	ControlSession<SessionControlEvent_UnloadCharacters>({ Names });
 }
 
-void Inworld::Client::LoadCapabilities(const Capabilities& Capabilities)
+void Inworld::Client::LoadCapabilities(const SessionCapabilities& Capabilities)
 {
 	_ClientOptions.Capabilities = Capabilities;
 	PushPacket(std::make_shared<ControlEventSessionConfiguration>(
@@ -467,13 +465,11 @@ void Inworld::Client::InitSpeechProcessor(const T& Options)
 	);
 }
 
-template<>
 void Inworld::Client::InitSpeechProcessor(const ClientSpeechOptions_Default& Options)
 {
 	InitSpeechProcessor<ClientSpeechOptions_Default, ClientSpeechProcessor_Default>(Options);
 }
 
-template<>
 void Inworld::Client::InitSpeechProcessor(const ClientSpeechOptions_VAD_DetectOnly& Options)
 {
 #ifdef INWORLD_VAD
@@ -484,7 +480,6 @@ void Inworld::Client::InitSpeechProcessor(const ClientSpeechOptions_VAD_DetectOn
 #endif
 }
 
-template<>
 void Inworld::Client::InitSpeechProcessor(const ClientSpeechOptions_VAD_DetectAndFilterAudio& Options)
 {
 #ifdef INWORLD_VAD
@@ -627,7 +622,8 @@ void Inworld::Client::GenerateToken(std::function<void()> GenerateTokenCallback)
 					_ErrorMessage = Status.error_message().c_str();
 					_ErrorCode = Status.error_code();
 					_ErrorDetails = Status.error_details();
-					StopClientStream();
+
+					_AsyncRPCHandlerTask.Stop();
 					Inworld::LogError("Generate session token FALURE! %s, Code: %d", _ErrorMessage.c_str(), _ErrorCode);
 					SetConnectionState(ConnectionState::Failed);
 				}
@@ -783,13 +779,9 @@ void Inworld::Client::StopClient()
 		return;
 	}
 
-	StopClientStream();
-	if (_Service->Session())
-	{
-		_Service->Session()->Cancel();
-	}
 	_AsyncGenerateTokenTask.Stop();
 	_AsyncGetSessionState.Stop();
+	_AsyncRPCHandlerTask.Stop();
 	_ClientOptions = {};
 	_SceneId = {};
 	_SessionToken = {};
@@ -919,59 +911,59 @@ void Inworld::Client::StartSession()
 		_SessionToken.SessionId,
 		_ClientOptions.ServerUrl
 		);
-	StartClientStream();
-	if (!_Service->Stream())
-	{
-		Inworld::LogError("StartSession error, _Service->Stream() is invalid.");
-		return;
-	}
+	StartClientStreamAsync();
 }
 
-void Inworld::Client::StartClientStream()
+void Inworld::Client::StartClientStreamAsync()
 {
-	const bool bHasPendingWriteTask = _AsyncWriteTask.IsValid() && !_AsyncWriteTask.IsDone();
-	const bool bHasPendingReadTask = _AsyncReadTask.IsValid() && !_AsyncReadTask.IsDone();
-	if (!bHasPendingWriteTask && !bHasPendingReadTask && _Service->Session())
+	const bool bHasPendingRPCHandlerTask = _AsyncRPCHandlerTask.IsValid() && !_AsyncRPCHandlerTask.IsDone();
+	if (!bHasPendingRPCHandlerTask)
 	{
 		_ErrorMessage = std::string();
 		_ErrorCode = grpc::StatusCode::OK;
 		_ErrorDetails = {};
-		_Service->OpenSession(_ClientOptions.Metadata);
+
+		_bOpeningClientStream = true;
 		_bHasClientStreamFinished = false;
-		TryToStartReadTask();
-		TryToStartWriteTask();
+		_AsyncRPCHandlerTask.Stop();
+		_Service->OpenSessionAsync(_ClientOptions.Metadata);
+		TryToStartRPCHandler();
 	}
 }
 
 void Inworld::Client::PauseClientStream()
 {
-	_bHasClientStreamFinished = true;
+	if(!_bHasClientStreamFinished)
+	{
+		_bIsRunning = false;
+	}
 }
 
 void Inworld::Client::ResumeClientStream()
 {
 	if (!_Service->Stream())
 	{
-		StartClientStream();
+		StartClientStreamAsync();
 	}
 	else
 	{
-		_bHasClientStreamFinished = false;
-		TryToStartReadTask();
-		TryToStartWriteTask();
+		_bIsRunning = true;
 	}
 }
 
 void Inworld::Client::StopClientStream()
 {
-	_bHasClientStreamFinished = true;
 	if (_Service->Session())
 	{
-		_Service->Session()->Cancel();
+		_Service->Session()->CompletionQueue().reset();
 	}
-	_AsyncReadTask.Stop();
-	_AsyncWriteTask.Stop();
-	_Service->Stream().reset();
+
+	if(_Service->Stream())
+	{
+		_Service->Stream().reset();
+	}
+	
+	_OutgoingPackets.Clear();
 }
 
 void Inworld::Client::TryToStartReadTask()
@@ -987,10 +979,14 @@ void Inworld::Client::TryToStartReadTask()
 		_AsyncReadTask.Start(
 			"InworldRead",
 			std::make_unique<RunnableRead>(
-				*_Service->Stream().get(), 
-				_bHasClientStreamFinished, 
+				_Service->Stream(),
+				_ReadWriteMutex,
+				_bHasClientStreamFinished,
+				_bWriteWaiting,
+				_bReadWaiting,
+				_ReadCV,
 				_IncomingPackets,
-				[this](const std::shared_ptr<Inworld::Packet> InPacket)
+				[this]()
 				{
 					if (!_bPendingIncomingPacketFlush)
 					{
@@ -1009,15 +1005,6 @@ void Inworld::Client::TryToStartReadTask()
 					{
 						SetConnectionState(ConnectionState::Connected);
 					}
-				},
-				[this](const grpc::Status& Status)
-				{
-					_ErrorMessage = Status.error_message();
-					_ErrorCode = Status.error_code();
-					_ErrorDetails = Status.error_details();
-					StopClientStream();
-					Inworld::LogError("Message READ failed: %s. Code: %d, Session Id: %s", _ErrorMessage.c_str(), _ErrorCode, _SessionToken.SessionId.c_str());
-					SetConnectionState(ConnectionState::Disconnected);
 				}
 			)
 		);
@@ -1034,34 +1021,86 @@ void Inworld::Client::TryToStartWriteTask()
 	const bool bHasPendingWriteTask = _AsyncWriteTask.IsValid() && !_AsyncWriteTask.IsDone();
 	if (!bHasPendingWriteTask)
 	{
-		const bool bHasOutgoingPackets = !_OutgoingPackets.IsEmpty();
-		if (bHasOutgoingPackets)
-		{
-			_AsyncWriteTask.Start(
-				"InworldWrite",
-				std::make_unique<RunnableWrite>(
-					*_Service->Stream().get(),
-					_bHasClientStreamFinished,
-					_OutgoingPackets,
-					[this](const std::shared_ptr<Inworld::Packet> InPacket)
+		_AsyncWriteTask.Start(
+			"InworldWrite",
+			std::make_unique<RunnableWrite>(
+				_Service->Stream(),
+				_ReadWriteMutex,
+				_bHasClientStreamFinished,
+				_bWriteWaiting,
+				_bReadWaiting,
+				_WriteCV,
+				_OutgoingPackets
+			)
+		);
+	}
+}
+
+void Inworld::Client::TryToStartRPCHandler()
+{
+	if (!_Service->Stream() || !_Service->Session() || !_Service->Session()->CompletionQueue())
+	{
+		return;
+	}
+	
+	const bool bHasPendingRPCHandler = _AsyncRPCHandlerTask.IsValid() && !_AsyncRPCHandlerTask.IsDone();
+	if (!bHasPendingRPCHandler)
+	{
+		_bIsRunning = true;
+		_AsyncRPCHandlerTask.Start(
+			"InworldRPCHandler",
+			std::make_unique<RunnableRpcHandler>(
+				_Service->Session(),
+				_Service->Stream(),
+				_ReadWriteMutex,
+				_Service->Session()->CompletionQueue(),
+				_bHasClientStreamFinished,
+				_bIsRunning,
+				_bOpeningClientStream,
+				_bWriteWaiting,
+				_bReadWaiting,
+				_ReadCV,
+				_WriteCV,
+				_OutgoingPackets,
+				[this]()
+				{
+					if (!_Service->Stream())
 					{
-						if (_ConnectionState != ConnectionState::Connected)
-						{
-							SetConnectionState(ConnectionState::Connected);
-						}
-					},
-					[this](const grpc::Status& Status)
-					{
-						_ErrorMessage = Status.error_message();
-						_ErrorCode = Status.error_code();
-						_ErrorDetails = Status.error_details();
-						StopClientStream();
-						Inworld::LogError("Message WRITE failed: %s. Code: %d, Session Id: %s", _ErrorMessage.c_str(), _ErrorCode, _SessionToken.SessionId.c_str());
-						SetConnectionState(ConnectionState::Disconnected);
+						Inworld::LogError("NDK StartClientStreamAsync, _Service->Stream() is invalid.");
+						return;
 					}
-				)
-			);
-		}
+					Inworld::Log("NDK StartClientStreamAsync: Session Started");
+					TryToStartReadTask();
+					TryToStartWriteTask();
+				},
+				[this](const grpc::Status& Status)
+				{
+					_ErrorMessage = Status.error_message();
+					_ErrorCode = Status.error_code();
+					_ErrorDetails = Status.error_details();
+					std::string message = "NDK RPC Stream Ended: " + _ErrorMessage + ". Code: " + std::to_string(_ErrorCode) + ", Session Id: " + _SessionToken.SessionId;
+					if(Status.ok())
+					{
+						Inworld::Log(message);
+					} else
+					{
+						if(_ErrorCode == grpc::StatusCode::CANCELLED)
+						{
+							Inworld::LogWarning(message);
+						} else
+						{
+							Inworld::LogError(message);
+						}
+					}
+					
+					_AsyncReadTask.Stop();
+					_AsyncWriteTask.Stop();
+					
+					StopClientStream();
+					SetConnectionState(ConnectionState::Disconnected);
+				}
+			)
+		);
 	}
 }
 

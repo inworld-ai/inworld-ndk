@@ -17,7 +17,37 @@ jobs:
     - uses: actions/checkout@v4
     - name: git-update-dependecies
       run: git submodule update --init --recursive
-    - name: gen
+    - name: gen-armeabi
+      shell: bash
+      run: |
+          mkdir build
+          cd build
+          cmake .. -DAEC=False\
+           -DANDROID=True\
+           -DINWORLD_LOG=True\
+           -DINWORLD_SHARED=False\
+           -DCMAKE_SYSTEM_NAME=Android\
+           -DCMAKE_SYSTEM_VERSION=33\
+           -DCMAKE_ANDROID_ARCH_ABI=armeabi-v7a\
+           -DCMAKE_ANDROID_NDK=/Users/runner/Library/Android/sdk/ndk/26.3.11579264\
+           -DCMAKE_BUILD_TYPE=RelWithDebInfo > GenLog.txt
+          cat GenLog.txt
+          if grep -Fxq "$GenLog.txt" "Configuring incomplete"
+          then
+              exit 1
+          fi
+          exit 0
+    - name: build-android-armeabi
+      shell: bash
+      run: |
+          sh android-build.sh > BuildLog.txt -Wait -NoNewWindow -PassThru
+          cat BuildLog.txt
+          if (grep -Fxq "$BuildLog.txt" " error: ")
+          then
+            exit 1
+          fi
+          exit 0
+    - name: gen-arm64
       shell: bash
       run: |
           sh android-gen.sh > GenLog.txt -Wait -NoNewWindow -PassThru 
@@ -27,7 +57,7 @@ jobs:
               exit 1
           fi
           exit 0
-    - name: build-android
+    - name: build-android-arm64
       shell: bash
       run: |
           sh android-build.sh > BuildLog.txt -Wait -NoNewWindow -PassThru

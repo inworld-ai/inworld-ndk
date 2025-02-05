@@ -23,6 +23,7 @@ namespace Inworld
 		void PopFront();
 		bool PopFront(T& Item);
 	    void PopAll(std::deque<T>& Queue);
+		void Clear();
 
 	    template <typename U>
 		void PushBack(U&& Item);
@@ -75,6 +76,13 @@ namespace Inworld
         Queue = std::move(_Queue);
 	    _Queue = {};
     }
+
+	template <typename T>
+	void Inworld::SharedQueue<T>::Clear()
+	{
+		std::unique_lock<std::mutex> Lock(_Mutex);
+		_Queue.clear();
+	}
 
 	template <typename T>
     template <typename U>
