@@ -5,7 +5,7 @@ if (LINUX)
     set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
 endif()
 
-project(inworld-ndk VERSION 1.4.1)
+project(inworld-ndk VERSION 1.4.1.rc-1)
 
 add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
 add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
