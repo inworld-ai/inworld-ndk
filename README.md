@@ -1,84 +1,88 @@
 # Inworld.AI NDK
 
-The **Inworld AI NDK** enables Developers to integrate Inworld.ai characters into a C++ application. We use **Inworld NDK** in our [**Unreal Engine SDK**](https://docs.inworld.ai/docs/tutorial-integrations/unreal-engine/) and in other higher level integrations. 
+**Inworld AI NDK** integrates [Inworld.ai](https://inworld.ai) characters into C++ applications. It’s primarily built with CMake and officially supports **Windows**, **Mac**, **iOS**, and **Android**.
 
-## Platforms
+## Contents
+- [Inworld.AI NDK](#inworldai-ndk)
+  - [Contents](#contents)
+  - [Prerequisites](#prerequisites)
+  - [Downloading Prebuilt Binaries](#downloading-prebuilt-binaries)
+  - [Building From Source](#building-from-source)
+    - [Windows](#windows)
+      - [Acoustic Echo Cancellation (AEC) (Windows)](#acoustic-echo-cancellation-aec-windows)
+      - [Steps to build](#steps-to-build)
+    - [Mac](#mac)
+    - [iOS](#ios)
+    - [Android](#android)
 
-The **Inworld NDK** is a library built by CMake. It contains all the source code needed to build for your specific platform. Officially supported platforms are:
+---
 
-<table>
-  <tr>
-    <td><b>Windows</b></td>
-  </tr>
-  <tr>
-    <td><b>Mac</b></td>
-  </tr>
-  <tr>
-    <td><b>iOS</b></td>
-  </tr>
-  <tr>
-    <td><b>Android (arm64-v8a, armeabi-v7a)</b></td>
-  </tr>
-</table>
+## Prerequisites
+- **Git**
+- **CMake**
+- **cppcheck**
+- **Visual Studio 2022 (Win)** or **Xcode (Mac/iOS)**
+- [WebRTC prerequisites](https://webrtc.github.io/webrtc-org/native-code/development/prerequisite-sw/) (required for AEC on Windows)
 
-> **_WARNING:_**  Android support for **armeabi-v7a** is not actively maintained.
+---
 
-### Prerequisites
+## Downloading Prebuilt Binaries
+Grab the latest release from the [Releases page](https://github.com/inworld-ai/inworld-ndk/releases). Each release includes source code, headers, and platform-specific binaries.
 
-- [Visual Studio 2022(Win)](https://docs.inworld.ai/docs/tutorial-integrations/unreal-engine/getting-started/#installing-visual-studio)
-- Xcode(MacOS)
-- git
-- CMake
-- **Inworld AI NDK** uses **Webrtc** for *Acoustic Echo Cancellation(AEC)*(Build supported for Windows only now). See prerequisites for **Webrtc** [here](https://webrtc.github.io/webrtc-org/native-code/development/prerequisite-sw/)
+| Platform | Built with                                      |
+|----------|-------------------------------------------------|
+| Win64    | Visual Studio 2022, MSVC 19.37.32826.1          |
+| Mac      | Xcode 14.3.1, AppleClang 14.0.3.14030022         |
+| iOS      | Xcode 14.3.1, AppleClang 14.0.3.14030022         |
+| Android  | Clang 14.0.7                                    |
 
-### Getting started
+---
 
-Download latest release from [releases page](https://github.com/inworld-ai/inworld-ndk/releases). A release contains source code, headers and binaries for supported platforms.
+## Building From Source
 
-#### Release prebuilt binaries
+1. **Clone** the repository (main branch).
+2. Run `git submodule update --init --recursive`.
 
-| Platform    | Built with                                |
-| ----------- | --------                                  |
-| Win64       | Visual Studio 2022, MSVC 19.37.32826.1    |
-| Mac         | Xcode 14.3.1, AppleClang 14.0.3.14030022  |
-| iOS         | Xcode 14.3.1, AppleClang 14.0.3.14030022  |
-| Android     | Clang 14.0.7                              |
+If you want to run the console app (`inworld-ndk-app`) on Windows or Mac, edit `Example/ConsoleApp/src/Application.cpp` to set up client options (API Key, Secret, etc.). More info on setting up an account: [Inworld Docs](https://docs.inworld.ai/docs/intro).
 
-#### Build from source
+### Windows
+#### Acoustic Echo Cancellation (AEC) (Windows)
+To enable AEC support when building on Windows:
+1. Ensure [WebRTC prerequisites](https://webrtc.github.io/webrtc-org/native-code/development/prerequisite-sw/) are met.
+2. Enable AEC in `win-gen.bat` by setting `-DAEC=True`.
 
-1. Clone *Main* branch
-2. Call *git submodule update --init --recursive* to make sure all dependency submodules are initialized and updated
-3. If you going to run **inworld-ndk-app**(testing console application for Windows and Mac) fill out client options in *Example/ConsoleApp/src/Application.cpp*. If you don't have an **Inworld.ai** account yet see more information [here](https://docs.inworld.ai/docs/intro)
-4. Run *gen* script for your platform (*win-gen.bat*, *mac-gen.sh* etc..) to generate project files
-5. Run *build* script for your platform (*win-build.bat*, *mac-build.sh* etc..) to build **inworld-ndk** static lib, **inworld-ndk-app**(Win, Mac) and unit tests.
+#### Steps to build
+1. Install **Visual Studio 2022** and ensure the C++ workload is enabled.
+2. Open an instance of **Developer Command Prompt for VS2022** or **Developer Powershell for VS2022**. This is the terminal to use for the next steps.
+3. From the terminal, run:
+   - `win-gen.bat` (generates Visual Studio project files)
+   - `win-build.bat` (builds the static lib, console app, and tests)
+4. Binaries and libraries will appear under `build/Package`.
 
-After build's succeed you have *build/Package* folder with all the source and binaries(including dependencies). You can run *build/Release/inworld-ndk-app* executable(Win, Mac) and text message with your characters in console.
+### Mac
+1. Install **Xcode** and ensure command-line tools are set up.
+2. From a terminal, run:
+   - `chmod +x mac-gen.sh && ./mac-gen.sh`
+   - `chmod +x mac-build.sh && ./mac-build.sh`
+3. Find build outputs in `build/Package`.
+
+### iOS
+1. Install **Xcode** and command-line tools.
+2. Adjust any iOS-specific flags in `ios-gen.sh` (if provided) or in your custom script (e.g., iOS deployment target).
+3. From a terminal, run:
+   - `chmod +x ios-gen.sh && ./ios-gen.sh`
+   - `chmod +x ios-build.sh && ./ios-build.sh`
+4. Output artifacts appear in `build/Package`.
 
 ### Android
+> **Note:** Tested on MacOS only. 
+1. Duplicate `android-gen.sh` to `android-gen-local.sh` and edit:
+   - `CMAKE_SYSTEM_VERSION` (Android API level)
+   - `CMAKE_ANDROID_ARCH_ABI` (e.g., `arm64-v8a`, `armeabi-v7a`)
+   - `CMAKE_ANDROID_NDK` (path to your Android NDK)
+2. From a terminal, run:
+   - `chmod +x android-gen-local.sh && ./android-gen-local.sh`
+   - `chmod +x android-build.sh && ./android-build.sh`
+3. Find the build outputs in `build/Package`.
 
-> **_NOTE:_**  Tested on MacOS only
-
-To build for Android: 
-- Duplicate *android-gen.sh* script and rename it to *android-gen-local.sh*
-- Open *android-gen-local.sh* with a text editor and configure the flags *CMAKE_SYSTEM_VERSION*(target device Android API), *CMAKE_ANDROID_ARCH_ABI*(target devide architecture) and *CMAKE_ANDROID_NDK*(path to Android NDK on your machine)
-- Run *android-gen-local.sh*
-- Run *android-build.sh*
-
-#### Android Example Application
-
-Find Android Example App project in Exaple/AndroidApp. To run the App:
-- Build Android binaries(see section above)
-- Open Example/AndroidApp project in *Android Studio*(tested on Android Studio Ladybug | 2024.2.1 Patch 3)
-- Fill *Options.Resource*, *Options.ApiKey*, *Options.ApiSecret*, and *SceneID* in app/cpp/cpp/native-lib.cpp. If you don't have an **Inworld.ai** account yet see more information [here](https://docs.inworld.ai/docs/intro)
-- Build and run on device or emulator
-- Inworld Client is created and started on MainActivity's onCreate, a greeting to a character is sent when Inworld session is started. See *Logcat* for logs, filter by *inworld-ndk*
-- See app/cpp/cpp/CMakeLists.txt as an example on how to link with Inworld
-- See app/cpp/cpp/native-lib.cpp as an example on how to create and start Inworld Client
-
-#### Acoustic Echo Cancellation, *AEC* (Windows)
-
-*Inworld NDK* supports *AEC*. We use *Webrtc* for it so make sure you've looked into *Webrtc* prerequisites for Windows before trying to build *Inworld NDK* with *AEC*. To enable *AEC* edit *win-gen.bat* cmake call before run to *cmake .. -DAEC=True*. You'll also need to call *git config --system core.longpaths true* to elable long paths for git and avoid errors during *AEC* build. A specific *webrtc-aec-plugin* will be built during project generation process. **Note!** Building *Webrtc* takes a lot of time and disc space.
-
-#### Inworld NDK integration examples
-
-This repo contains **inworld-ndk-app** a console application to demonstrate a basic integration. Take our [**Unreal Engine SDK**](https://docs.inworld.ai/docs/tutorial-integrations/unreal-engine/) as more advanced and complicated example.
+---
