@@ -21,7 +21,7 @@ jobs:
 
     - name: extract-version
       run: |
-        VERSION=$(grep -oP 'project\(inworld-ndk VERSION \K[0-9]+\.[0-9]+\.[0-9]+' CMakeLists.txt)
+        VERSION=$(grep -oP 'project\(inworld-ndk VERSION \K[0-9]+\.[0-9]+\.[0-9]+(\.[0-9]+)?' CMakeLists.txt)
         echo "Extracted version: $VERSION"
         echo "VERSION=$VERSION" >> $GITHUB_ENV
     - name: check-version
